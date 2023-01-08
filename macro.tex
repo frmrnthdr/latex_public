@@ -1,0 +1,70 @@
+\usepackage{amsmath,amsfonts,amssymb,array,comment,mathtools,url,docmute}
+\usepackage{longtable,booktabs,dcolumn,tabularx,mathtools,multirow,colortbl,xcolor}
+\usepackage[dvipdfmx]{graphics}
+\usepackage{bmpsize}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\setlistdepth{20}
+\renewlist{itemize}{itemize}{20}
+\setlist[itemize]{label=•}
+\renewlist{enumerate}{enumerate}{20}
+\setlist[enumerate]{label=\arabic*}
+\setcounter{MaxMatrixCols}{20}
+\setcounter{tocdepth}{3}
+\renewcommand{\thesection}{第\arabic{section}部}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\allowdisplaybreaks[4]
+\usepackage{vtable}
+\theoremstyle{definition}
+\newtheorem{thm}{定理}[subsection]
+\newtheorem*{thm*}{定理}
+\newtheorem{dfn}{定義}[subsection]
+\newtheorem*{dfn*}{定義}
+\newtheorem{axs}[dfn]{公理}
+\newtheorem*{axs*}{公理}
+\renewcommand{\headfont}{\bfseries}
+\makeatletter
+  \renewcommand{\section}{%
+    \@startsection{section}{1}{\z@}%
+    {\Cvs}{\Cvs}%
+    {\normalfont\huge\headfont\raggedright}}
+\makeatother
+\makeatletter
+  \renewcommand{\subsection}{%
+    \@startsection{subsection}{2}{\z@}%
+    {0.5\Cvs}{0.5\Cvs}%
+    {\normalfont\LARGE\headfont\raggedright}}
+\makeatother
+\makeatletter
+  \renewcommand{\subsubsection}{%
+    \@startsection{subsubsection}{3}{\z@}%
+    {0.4\Cvs}{0.4\Cvs}%
+    {\normalfont\Large\headfont\raggedright}}
+\makeatother
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item\relax
+  {
+  #1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\renewcommand{\proofname}{\textbf{証明}}
+\usepackage{tikz,graphics}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+ setpagesize=false,
+ bookmarks=true,
+ bookmarksdepth=tocdepth,
+ bookmarksnumbered=true,
+ colorlinks=false,
+ pdftitle={},
+ pdfsubject={},
+ pdfauthor={},
+ pdfkeywords={}}
