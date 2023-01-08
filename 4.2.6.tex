@@ -1,0 +1,1340 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{5}
+\usepackage{xr}
+\externaldocument{4.2.5}
+\input{macro}
+\begin{document}
+%\hypertarget{jacobiux884cux5217}{%
+\subsection{Jacobi行列}%\label{jacobiux884cux5217}}
+%\hypertarget{jacobiux884cux5217-1}{%
+\subsubsection{Jacobi行列}%\label{jacobiux884cux5217-1}}
+\begin{dfn}
+体$\mathbb{R}$上の$(m,n)$型の行列全体の集合$M_{mn}\left( \mathbb{R} \right)$は体$\mathbb{R}$上のvector空間となっているのであった。ここで、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}\left( \mathbb{R} \right)$なる行列$A_{mn}$をvectorとみなし実数$\left\| A_{mn} \right\|$が次式のように定義されるとしこれがnormとなるのであった。
+\begin{align*}
+\left\| A_{mn} \right\| = \left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} a_{ij}^{2} \right)^{\frac{1}{2}}
+\end{align*}
+$D(f) \subseteq \mathbb{R}^{m}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in \mathrm{cl}{D(f)}$なる点$\mathbf{a}$を用いて$\lim_{\mathbf{x} \rightarrow \mathbf{a}}{f\left( \mathbf{x} \right)} = \mathbf{0}$を満たすとき、この関数$f$はその点$\mathbf{a}$における無限小という。
+\end{dfn}
+\begin{thm}\label{4.2.6.1}
+$D(f) \subseteq \mathbb{R}^{m}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその点$\mathbf{a}$で無限小であるならそのときに限り、その関数$\left\| f \right\|$はその点$\mathbf{a}$で無限小である。
+\end{thm}
+\begin{proof}
+$D(f) \subseteq \mathbb{R}^{m}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in \mathrm{cl}{D(f)}$なる点$\mathbf{a}$で無限小であるならそのときに限り、定義より$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\left\| \mathbf{x} - \mathbf{a} \right\| < \delta \Rightarrow \left\| f\left( \mathbf{x} \right) \right\| < \varepsilon
+\end{align*}
+これにより、その関数$\left\| f \right\|$はその点$\mathbf{a}$で無限小である。
+\end{proof}
+\begin{dfn}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、$\mathbf{a} \in U$なる点$\mathbf{a}$と$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}^{n}$を用いて次式を満たすような$M \in M_{nm}\left( \mathbb{R} \right)$なる行列$M$が存在するとき、その関数$f$はその点$\mathbf{a}$で微分可能であるという。なお、vector$M\mathbf{h}$はそのvectors$\mathbf{h}$を行列とみなしたときの2つの行列たち$M$、$\mathbf{h}$の積である。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) = M\mathbf{h} + r\left( \mathbf{h} \right)
+\end{align*}
+このときのその行列$M$をその関数$f$のその点$a$における導値、微分係数などといい$J_{f}\left( \mathbf{a} \right)$、$J(f)\left( \mathbf{a} \right)$、$\partial f\left( \mathbf{a} \right)$、$Df\left( \mathbf{a} \right)$などと書く。さらに、$\forall\mathbf{x} \in U$に対し、その関数$f$がその点$\mathbf{x}$で微分可能であるとき、その関数$f$はその開集合$U$で微分可能であるという。このときのその行列$M = J_{f}\left( \mathbf{x} \right)$は次式のように関数の像となっているので、その関数$J_{f}$をその関数$f$のJacobi行列、関数行列、導関数といいこれの行列式をJacobi行列式、Jacobianなどという。
+\begin{align*}
+J_{f}:U \rightarrow M_{nm}\left( \mathbb{R} \right);\mathbf{x} \mapsto M
+\end{align*}
+また、記法について次のように書くこともある。
+\begin{align*}
+J_{f}:U \rightarrow M_{nm}\left( \mathbb{R} \right);\mathbf{x} \mapsto \frac{\partial}{\partial\mathbf{x}}f\left( \mathbf{x} \right) = \left. \ \frac{\partial}{\partial\mathbf{x}'}f\left( \mathbf{x}' \right) \right|_{\mathbf{x} = \mathbf{x}'}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.2.6.2}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとき、その式$f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) = M\mathbf{h} + r\left( \mathbf{h} \right)$は次のようにも書き換えられることができる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるならそのときに限り、$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}^{n}$を用いて次式を満たすような$M \in M_{nm}(\mathbb{R})$なる行列が存在するのであった。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) = M\mathbf{h} + r\left( \mathbf{h} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+r\left( \mathbf{h} \right) = f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) - M\mathbf{h}
+\end{align*}
+ここで、$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$が成り立つので、次のようになる。
+\begin{align*}
+0 = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow 0 \\
+\mathbf{h} \neq 0 \\
+\end{matrix}}\frac{r\left( \mathbf{h} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) - M\mathbf{h}}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} - \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.6.3}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in Uなる点\mathbf{a}$で微分可能であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その関数$f$は$\mathbf{a} \in U$なる点$\mathbf{a}$で連続である。
+\item
+  その関数$f$の$\mathbf{a} \in U$なる点$\mathbf{a}$での導値$\partial f\left( \mathbf{a} \right)$は一意的である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとき、$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}^{n}$を用いて次式を満たすような$M \in M_{nm}(\mathbb{R})$なる行列が存在するのであった。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{x} \rightarrow \mathbf{a} \\
+\mathbf{x} \neq \mathbf{a} \\
+\end{matrix}}{f\left( \mathbf{x} \right)} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}{f\left( \mathbf{a} + \mathbf{h} \right)}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}{f\left( \mathbf{a} + \mathbf{h} \right)} + f\left( \mathbf{a} \right) - f\left( \mathbf{a} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left( f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) \right) + f\left( \mathbf{a} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left\| \mathbf{h} \right\| + f\left( \mathbf{a} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|}\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left\| \mathbf{h} \right\| + f\left( \mathbf{a} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left( M\mathbf{h} \right) + f\left( \mathbf{a} \right) = f\left( \mathbf{a} \right)
+\end{align*}
+以上より、その関数$f$はその開集合$U$で連続であることが示された。\par
+また、次式が成り立つような互いに異なる行列たち$M$、$N$が存在すると仮定しよう。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{M\mathbf{h}}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{N\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+ここで、$\mathbf{h} = t\mathbf{e}$かつ$t \in \mathbb{R}^{+}$かつ$\mathbf{e} \in \mathbb{R}^{m} \setminus \left\{ \mathbf{0} \right\}$なる実数$t$と点$\mathbf{e}$を用いると、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{Mt\mathbf{e}}{\left\| t\mathbf{e} \right\|} = \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{Nt\mathbf{e}}{\left\| t\mathbf{e} \right\|} &\Leftrightarrow \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{M\mathbf{e}}{\left\| \mathbf{e} \right\|} = \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{N\mathbf{e}}{\left\| \mathbf{e} \right\|}\\
+&\Leftrightarrow \frac{M\mathbf{e}}{\left\| \mathbf{e} \right\|} = \frac{N\mathbf{e}}{\left\| \mathbf{e} \right\|}\\
+&\Leftrightarrow M\mathbf{e} = N\mathbf{e}
+\end{align*}
+ここで、$\mathbf{e} \neq \mathbf{0}$より$M = N$が成り立つことになるが、これは仮定の$M \neq N$が成り立つことに矛盾している。よって、その関数$f$の$\mathbf{x} \in U$なる点$\mathbf{x}$での導値$J_{f}\left( \mathbf{x} \right)$は一意的である。
+\end{proof}
+\begin{thm}\label{4.2.6.4}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるならそのときに限り、$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、$\forall i \in \varLambda_{n}$に対し、その関数$f_{i}$は$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能である。さらに、これが成り立つなら、次のことが成り立つ。なお、これの逆は必ずしも成り立たないことに注意されたい。
+\begin{itemize}
+\item
+  その関数$f$の各成分が$\mathbf{a} \in U$なる点$\mathbf{a}$で偏微分可能で、その関数$f$を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+J_{f}\left( \mathbf{a} \right) = \left( \partial_{j}f_{i}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}
+\end{align*}
+\item
+  $\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、その関数$f$は$\mathbf{a} \in U$なる点$\mathbf{a}$で$\mathbf{e}$方向に微分可能で次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{a} \right) = J_{f}\left( \mathbf{a} \right)\mathbf{e}
+\end{align*}
+\item
+  $n = 1$のとき、次式が成り立つ。
+\begin{align*}
+J_{f}\left( \mathbf{a} \right) ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)
+\end{align*}
+\end{itemize}\par
+特に、開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその開集合$U$で微分可能であるならそのときに限り、$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、$\forall i \in \varLambda_{n}$に対し、その関数$f_{i}$はその開集合$U$で微分可能である。さらに、これが成り立つなら、次のことが成り立つ。なお、これの逆は必ずしも成り立たないことに注意されたい。
+\begin{itemize}
+\item
+  その関数$f$の各成分がその開集合$U$で偏微分可能で、その関数$f$を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+J_{f} = \left( \partial_{j}f_{i} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\item
+  $\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、その関数$f$はその開集合$U$で$\mathbf{e}$方向に微分可能で次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f = J_{f}\mathbf{e}:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\item
+  $n = 1$のとき、次式が成り立つ。
+\begin{align*}
+J_{f} ={}^{t}\mathrm{grad}f:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとする。その関数$f$のその点$\mathbf{a}$における導値$J_{f}\left( \mathbf{a} \right)$の第$i$行vectorを$\mathbf{a}_{i}$、その関数$f$の成分表示を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、定義よりこれが成り立つならそのときに限り、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{f}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left( \mathbf{a}_{i} \right)_{i \in \varLambda_{n}}\mathbf{h}}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left({}^{t}\mathbf{a}_{i}\mathbf{h} \right)_{i \in \varLambda_{n}}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f_{i}\left( \mathbf{a} + \mathbf{h} \right) - f_{i}\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathbf{a}_{i}\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、定義よりこれが成り立つならそのときに限り、$\forall i \in \varLambda_{n}$に対し、その関数$f_{i}$は$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能である。\par
+ここで、開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、その関数$f_{i}$は$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であることが示された。\par
+さらに、勾配の定義よりこれが成り立つなら、次式が成り立つ。
+\begin{align*}
+\mathbf{a}_{i} = \mathrm{grad}f\left( \mathbf{a} \right) = \left( \partial_{j}f_{i}\left( \mathbf{a} \right) \right)_{j \in \varLambda_{m}}
+\end{align*}
+したがって、その関数$f$の各成分が$\mathbf{a} \in U$なる点$\mathbf{a}$で偏微分可能で次式が成り立つ。
+\begin{align*}
+J_{f}\left( \mathbf{a} \right) = \left( \mathbf{a}_{i} \right)_{i \in \varLambda_{n}} = \left( \left( \partial_{j}f_{i}\left( \mathbf{a} \right) \right)_{j \in \varLambda_{m}} \right)_{i \in \varLambda_{n}} = \left( \partial_{j}f_{i}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}
+\end{align*}
+また、$\mathbf{h} = t\mathbf{e}$かつ$t \in \mathbb{R}^{+}$かつ$\mathbf{e} \in \mathbb{R}^{m} \setminus \left\{ \mathbf{0} \right\}$なる実数$t$と点$\mathbf{e}$を用いると、次のようになる。
+\begin{align*}
+\mathbf{0} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} - \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{f}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) - J_{f}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right) - J_{f}\left( \mathbf{a} \right)t\mathbf{e}}{\left\| t\mathbf{e} \right\|}\\
+&= \frac{1}{\left\| \mathbf{e} \right\|}\lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\left( \frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right)}{t} - J_{f}\left( \mathbf{a} \right)\mathbf{e} \right)
+\end{align*}
+したがって、方向微分の定義より次のようになる。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{a} \right) = \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right)}{t} = J_{f}\left( \mathbf{a} \right)\mathbf{e}
+\end{align*}\par
+最後の式は上記の議論と定理\ref{4.2.5.3}より明らかであろう。
+\end{proof}
+\begin{thm}\label{4.2.6.5}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその開集合$U$上で$C^{1}$級であるならそのときに限り、その関数$f$はその開集合$U$上で微分可能でこれの導関数$J_{f}$はその開集合$U$上で連続である。
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその開集合$U$上で$C^{1}$級であるなら、$\forall\mathbf{x} \in U$に対し、$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、その関数$f_{i}$はその開集合$U$上で微分可能であり、したがって、その関数$f$はその開集合$U$上で微分可能である。さらに、その像$J_{f}\left( \mathbf{x} \right)$の第$(i,j)$成分$\partial_{j}f_{i}\left( \mathbf{x} \right)$はその開集合$U$上で連続であるのであったので、やはり、その像$J_{f}\left( \mathbf{x} \right)$もその開集合$U$上で連続である。\par
+逆に、その関数$f$はその開集合$U$上で微分可能でこれの導関数$J_{f}$はその開集合$U$上で連続であるなら、$\forall(i,j) \in \varLambda_{n} \times \varLambda_{m}$に対し、その開集合$U$上でその偏導関数たち$\partial_{j}f_{i}$が存在し連続となるので、定義より明らかにその関数$f$は$C^{1}$級である。
+\end{proof}
+\begin{thm}\label{4.2.6.6} Jacobi行列について次のことが成り立つ。
+\begin{itemize}
+\item
+  開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらも$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるなら、$\forall k,l \in \mathbb{R}$に対し、その関数$kf + lg$はその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{kf + lg}\left( \mathbf{a} \right) = kJ_{f}\left( \mathbf{a} \right) + lJ_{g}\left( \mathbf{a} \right)
+\end{align*}
+\item
+  開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらも$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるなら、その関数$fg$はその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{fg}\left( \mathbf{a} \right) = g\left( \mathbf{a} \right){}^{t}\mathrm{grad}f\left( \mathbf{a} \right) + f\left( \mathbf{a} \right)J_{g}\left( \mathbf{a} \right)
+\end{align*}
+\end{itemize}\par
+特に、次のことが成り立つ。
+\begin{itemize}
+\item
+  開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらもその開集合$U$で微分可能であるなら、$\forall k,l \in \mathbb{R}$に対し、その関数$kf + lg$はその開集合$U$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{kf + lg} = kJ_{f} + lJ_{g}:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\item
+  開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらもその開集合$U$で微分可能であるなら、その関数$fg$はその開集合$U$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{fg} = g{}^{t}\mathrm{grad}f + fJ_{g}:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらも$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるなら、$\forall k,l \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{f}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|},\ \ \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{g\left( \mathbf{a} + \mathbf{h} \right) - g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{(kf + lg)\left( \mathbf{a} + \mathbf{h} \right) - (kf + lg)\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{kf\left( \mathbf{a} + \mathbf{h} \right) + lg\left( \mathbf{a} + \mathbf{h} \right) - kf\left( \mathbf{a} \right) - lg\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\\
+&= k\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} + l\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{g\left( \mathbf{a} + \mathbf{h} \right) - g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\\
+&= k\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{f}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} + l\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left( kJ_{f}\left( \mathbf{a} \right) + lJ_{g}\left( \mathbf{a} \right) \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+以上より、その関数$kf + lg$はその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{kf + lg}\left( \mathbf{a} \right) = kJ_{f}\left( \mathbf{a} \right) + lJ_{g}\left( \mathbf{a} \right)
+\end{align*}\par
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}^{n}$がどちらも$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるなら、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|},\ \ \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{g\left( \mathbf{a} + \mathbf{h} \right) - g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{fg\left( \mathbf{a} + \mathbf{h} \right) - fg\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right)g\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)g\left( \mathbf{a} + \mathbf{h} \right) + f\left( \mathbf{a} \right)g\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right)g\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)g\left( \mathbf{a} + \mathbf{h} \right)}{\left\| \mathbf{h} \right\|} + \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} \right)g\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}{g\left( \mathbf{a} + \mathbf{h} \right)}\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} + f\left( \mathbf{a} \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{g\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)g\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}{g\left( \mathbf{a} + \mathbf{h} \right)}\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} + f\left( \mathbf{a} \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= g\left( \mathbf{a} \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} + f\left( \mathbf{a} \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{g\left( \mathbf{a} \right){}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} + \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} \right)J_{g}\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left( g\left( \mathbf{a} \right){}^{t}\mathrm{grad}f\left( \mathbf{a} \right) + f\left( \mathbf{a} \right)J_{g}\left( \mathbf{a} \right) \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+以上より、その関数$fg$はその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{fg}\left( \mathbf{a} \right) = g\left( \mathbf{a} \right){}^{t}\mathrm{grad}f\left( \mathbf{a} \right) + f\left( \mathbf{a} \right)J_{g}\left( \mathbf{a} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.6.7}
+詳しくは線形代数学のほうに参照されたいが、$\forall M \in M_{mn}\left( \mathbb{R} \right)\forall N \in M_{no}\left( \mathbb{R} \right)\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\left\| M\mathbf{x} \right\| \leq \left\| M \right\|\left\| \mathbf{x} \right\|$が成り立つ。
+\item
+  $\left\| MN \right\| \leq \left\| M \right\|\left\| N \right\|$が成り立つ。
+\item
+  $M \in \mathrm{GL}_{m}\left( \mathbb{R} \right)$が成り立つとき、$\left\| M\mathbf{x} \right\| \geq \left\| M^{- 1} \right\|^{- 1}\left\| \mathbf{x} \right\|$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall M \in M_{mn}\left( \mathbb{R} \right)\forall N \in M_{no}\left( \mathbb{R} \right)\forall x \in \mathbb{R}^{n}$に対し、次式のように行列たち$M$、$N$とvector$\mathbf{x}$がおかれると、
+\begin{align*}
+M = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix},\ \ N = \begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1o} \\
+b_{21} & b_{22} & \cdots & b_{2o} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{no} \\
+\end{pmatrix},\ \ \mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}
+\end{align*}
+定義よりしたがって、次のようになる。
+\begin{align*}
+\left\| M\mathbf{x} \right\| &= \left\| \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} \right\|\\
+&= \left\| \begin{pmatrix}
+\sum_{j \in \varLambda_{n}} {a_{1j}x_{j}} \\
+\sum_{j \in \varLambda_{n}} {a_{2j}x_{j}} \\
+ \vdots \\
+\sum_{j \in \varLambda_{n}} {a_{mj}x_{j}} \\
+\end{pmatrix} \right\|\\
+&= \left( \sum_{i \in \varLambda_{m}} \left| \sum_{j \in \varLambda_{n}} {a_{ij}x_{j}} \right|^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{m}} \left( \begin{pmatrix}
+a_{i1} & a_{i2} & \cdots & a_{in} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} \right)^{2} \right)^{\frac{1}{2}}
+\end{align*}
+ここで、Schwarzの不等式より次のようになる。
+\begin{align*}
+\left\| M\mathbf{x} \right\| &= \left( \sum_{i \in \varLambda_{m}} \left( \begin{pmatrix}
+a_{i1} & a_{i2} & \cdots & a_{in} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} \right)^{2} \right)^{\frac{1}{2}}\\
+&\leq \left( \sum_{i \in \varLambda_{m}} \left( \left\| \begin{matrix}
+a_{i1} \\
+a_{i2} \\
+ \vdots \\
+a_{in} \\
+\end{matrix} \right\|^{2}\left\| \begin{matrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{matrix} \right\|^{2} \right) \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} a_{ij}^{2}}\left\| \begin{matrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{matrix} \right\|^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} a_{ij}^{2}} \right)^{\frac{1}{2}}\left\| \begin{matrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{matrix} \right\|\\
+&= \left\| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{matrix} \right\|\left\| \begin{matrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{matrix} \right\| = \left\| M \right\|\left\| \mathbf{x} \right\|
+\end{align*}\par
+また、定義よりしたがって、次のようになる。
+\begin{align*}
+\left\| MN \right\| &= \left\| \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1o} \\
+b_{21} & b_{22} & \cdots & b_{2o} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{no} \\
+\end{pmatrix} \right\|\\
+&= \left\| \begin{matrix}
+\sum_{k \in \varLambda_{n}} {a_{1k}b_{k1}} & \sum_{k \in \varLambda_{n}} {a_{1k}b_{k2}} & \cdots & \sum_{k \in \varLambda_{n}} {a_{1k}b_{ko}} \\
+\sum_{k \in \varLambda_{n}} {a_{2k}b_{k1}} & \sum_{k \in \varLambda_{n}} {a_{2k}b_{k2}} & \cdots & \sum_{k \in \varLambda_{n}} {a_{1k}b_{ko}} \\
+ \vdots & \vdots & \ddots & \vdots \\
+\sum_{k \in \varLambda_{n}} {a_{mk}b_{k1}} & \sum_{k \in \varLambda_{n}} {a_{mk}b_{k2}} & \cdots & \sum_{k \in \varLambda_{n}} {a_{mk}b_{ko}} \\
+\end{matrix} \right\|\\
+&= \left( \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{o}} \left( \sum_{k \in \varLambda_{n}} {a_{ik}b_{kj}} \right)^{2}} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{j \in \varLambda_{o}} {\sum_{i \in \varLambda_{m}} \left( \sum_{k \in \varLambda_{n}} {a_{ik}b_{kj}} \right)^{2}} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{j \in \varLambda_{o}} \left\| \sum_{k \in \varLambda_{n}} \begin{pmatrix}
+a_{1k}b_{kj} \\
+a_{2k}b_{kj} \\
+ \vdots \\
+a_{mk}b_{kj} \\
+\end{pmatrix} \right\|^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{j \in \varLambda_{o}} \left\| \begin{pmatrix}
+\sum_{k \in \varLambda_{n}} {a_{1k}b_{kj}} \\
+\sum_{k \in \varLambda_{n}} {a_{2k}b_{kj}} \\
+ \vdots \\
+\sum_{k \in \varLambda_{n}} {a_{mk}b_{kj}} \\
+\end{pmatrix} \right\|^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{j \in \varLambda_{o}} \left\| \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+b_{1j} \\
+b_{2j} \\
+ \vdots \\
+b_{nj} \\
+\end{pmatrix} \right\|^{2} \right)^{\frac{1}{2}}
+\end{align*}
+ここで、上記の議論により次のようになる。
+\begin{align*}
+\left\| MN \right\| &= \left( \sum_{j \in \varLambda_{o}} \left\| \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+b_{1j} \\
+b_{2j} \\
+ \vdots \\
+b_{nj} \\
+\end{pmatrix} \right\|^{2} \right)^{\frac{1}{2}}\\
+&\leq \left( \sum_{j \in \varLambda_{o}} {\left\| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{matrix} \right\|^{2}\left\| \begin{matrix}
+b_{1j} \\
+b_{2j} \\
+ \vdots \\
+b_{nj} \\
+\end{matrix} \right\|^{2}} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{j \in \varLambda_{o}} \left( \sum_{i \in \varLambda_{m}} {\sum_{k \in \varLambda_{n}} a_{ik}^{2}}\sum_{k \in \varLambda_{n}} b_{kj}^{2} \right) \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{m}} {\sum_{k \in \varLambda_{n}} a_{ik}^{2}} \right)^{\frac{1}{2}}\left( \sum_{k \in \varLambda_{n}} {\sum_{j \in \varLambda_{o}} b_{kj}^{2}} \right)^{\frac{1}{2}}\\
+&= \left\| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{matrix} \right\|\left\| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1o} \\
+b_{21} & b_{22} & \cdots & b_{2o} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{no} \\
+\end{matrix} \right\| = \left\| M \right\|\left\| N \right\|
+\end{align*}\par
+最後に、$M \in \mathrm{GL}_{m}\left( \mathbb{R} \right)$が成り立つとき、その逆行列$M^{- 1}$が存在して次式が成り立つ。
+\begin{align*}
+\left\| M\mathbf{x} \right\| = \frac{\left\| M^{- 1} \right\|\left\| M\mathbf{x} \right\|}{\left\| M^{- 1} \right\|}
+\end{align*}
+上記の議論により次のようになる。
+\begin{align*}
+\left\| M\mathbf{x} \right\| = \frac{\left\| M^{- 1} \right\|\left\| M\mathbf{x} \right\|}{\left\| M^{- 1} \right\|} \geq \frac{\left\| M^{- 1}M\mathbf{x} \right\|}{\left\| M^{- 1} \right\|} = \frac{\left\| \mathbf{x} \right\|}{\left\| M^{- 1} \right\|} = \left\| M^{- 1} \right\|^{- 1}\left\| \mathbf{x} \right\|
+\end{align*}
+\end{proof}
+\begin{thm}[連鎖律]\label{4.2.6.8}
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in U$なる点$f\left( \mathbf{a} \right)$で微分可能であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その合成関数$g \circ f$はその点$\mathbf{a}$で微分可能である。
+\item
+  次式が成り立つ。
+\begin{align*}
+J_{g \circ f}\left( \mathbf{a} \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)J_{f}\left( \mathbf{a} \right)
+\end{align*}
+\item
+  $\forall(i,j) \in \varLambda_{o} \times \varLambda_{m}$に対し、それらの関数$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+\partial_{j}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) = \sum_{k \in \varLambda_{n}} {\partial_{k}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{j}f_{k}}\left( \mathbf{a} \right)
+\end{align*}
+\end{itemize}\par
+特に、開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$がその開集合$T$で、その関数$g$がその開集合$U$で微分可能であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その合成関数$g \circ f$はその開集合$U$で微分可能である。
+\item
+  次式が成り立つ。
+\begin{align*}
+J_{g \circ f} = \left( J_{g} \circ f \right)J_{f}:U \rightarrow \mathbb{R}^{o}
+\end{align*}
+\item
+  $\forall(i,j) \in \varLambda_{o} \times \varLambda_{m}$に対し、それらの関数$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ\footnote{Einstein縮約記法という添字が2回現れたとき、その添字を媒介変数として和をとるという流儀がある。これを用いれば$k \in \varLambda_{n}$として次式が成り立つ。
+\begin{align*}
+\partial_{j}\left( g_{i} \circ f \right) = \left( \partial_{k}g_{i} \circ f \right)\partial_{j}f_{k}
+\end{align*}}。
+\begin{align*}
+\partial_{j}\left( g_{i} \circ f \right) = \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g_{i} \circ f \right)\partial_{j}f_{k}}:U \rightarrow \mathbb{R}^{o}
+\end{align*}
+\end{itemize}
+この定理を連鎖律、chain rule、合成関数の微分という。
+\end{thm}
+\begin{proof}
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in U$なる点$f\left( \mathbf{a} \right)$で微分可能であるとき、定義より$r \in o_{\left\| \mathbf{k} \right\|,\mathbf{0}}$かつ$s \in o_{\left\| \mathbf{l} \right\|,\mathbf{0}}$なる関数たち$r:T \rightarrow \mathbb{R}^{n}$、$s:U \rightarrow \mathbb{R}^{o}$を用いて次式が成り立つ。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) = J_{f}\left( \mathbf{a} \right)\mathbf{k} + r\left( \mathbf{k} \right),\ \ g\left( f\left( \mathbf{a} \right) + \mathbf{l} \right) - g\left( f\left( \mathbf{a} \right) \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)\mathbf{l} + s\left( \mathbf{l} \right)
+\end{align*}
+ここで、それぞれ$\mathbb{R}^{m}$、$\mathbb{R}^{n}$における$\mathbf{0}$のある除外近傍たち$U_{0}\left( \mathbf{0},\varepsilon \right)$、$U_{0}\left( \mathbf{0},\delta \right)$を定義域とされており次式たちが成り立つような関数たち$r':U\left( \mathbf{0},\varepsilon \right) \rightarrow \mathbb{R}^{n}$、$s':U\left( \mathbf{0},\delta \right) \rightarrow \mathbb{R}^{o}$を考えると、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{r'\left( \mathbf{k} \right)} = \lim_{\scriptsize \begin{matrix}
+\mathbf{l} \rightarrow \mathbf{0} \\
+\mathbf{l} \neq \mathbf{0} \\
+\end{matrix}}{s'\left( \mathbf{l} \right)} = \mathbf{0},\ \ r'\left( \mathbf{0} \right) = s'\left( \mathbf{0} \right) = \mathbf{0}
+\end{align*}
+Landauの記号の定義よりこのような写像は存在しこれらはその点$0$で連続で次式が成り立つ。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{k} \right) = f\left( \mathbf{a} \right) + J_{f}\left( \mathbf{a} \right)\mathbf{k} + \left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) \land g\left( f\left( \mathbf{a} \right) + \mathbf{l} \right) = g\left( f\left( \mathbf{a} \right) \right) + J_{g}\left( f\left( \mathbf{a} \right) \right)\mathbf{l} + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)
+\end{align*}
+したがって、次のようになるので、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{x} \rightarrow \mathbf{a} \\
+\mathbf{x} \neq \mathbf{a} \\
+\end{matrix}}{f\left( \mathbf{x} \right)} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{f\left( \mathbf{a} + \mathbf{k} \right)}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\left( f\left( \mathbf{a} \right) + J_{f}\left( \mathbf{a} \right)\mathbf{k} + \left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) \right)\\
+&= f\left( \mathbf{a} \right) + J_{f}\left( \mathbf{a} \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\mathbf{k} + \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\left\| \mathbf{k} \right\|\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{r'\left( \mathbf{k} \right)}\\
+&= f\left( \mathbf{a} \right) + J_{f}\left( \mathbf{a} \right)\mathbf{0} + 0\mathbf{0} = f\left( \mathbf{a} \right)
+\end{align*}
+その関数$f$はその点$\mathbf{a}$で連続であることになり次式のようにおくことができる。
+\begin{align*}
+\mathbf{l} = f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+g \circ f\left( \mathbf{a} + \mathbf{k} \right) - g \circ f\left( \mathbf{a} \right) &= g\left( f\left( \mathbf{a} + \mathbf{k} \right) \right) - g\left( f\left( \mathbf{a} \right) \right)\\
+&= g\left( f\left( \mathbf{a} \right) + f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right) - g\left( f\left( \mathbf{a} \right) \right)\\
+&= g\left( f\left( \mathbf{a} \right) + \mathbf{l} \right) - g\left( f\left( \mathbf{a} \right) \right)
+\end{align*}
+ここで、Jacobi行列の定義より次式が成り立つ。
+\begin{align*}
+g \circ f\left( \mathbf{a} + \mathbf{k} \right) - g \circ f\left( \mathbf{a} \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)\mathbf{l} + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)
+\end{align*}
+さらに、$\mathbf{l} = f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right)$がおかれているので、次式が成り立つ。
+\begin{align*}
+g \circ f\left( \mathbf{a} + \mathbf{k} \right) - g \circ f\left( \mathbf{a} \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)\left( f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right) + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)
+\end{align*}
+Jacobi行列の定義より次のようになる。
+\begin{align*}
+g \circ f\left( \mathbf{a} + \mathbf{k} \right) - g \circ f\left( \mathbf{a} \right) &= J_{g}\left( f\left( \mathbf{a} \right) \right)\left( J_{f}\left( \mathbf{a} \right)\mathbf{k} + \left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) \right) + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)\\
+&= J_{g}\left( f\left( \mathbf{a} \right) \right)J_{f}\left( \mathbf{a} \right)\mathbf{k} + J_{\frac{g}{\mathbf{y}}}\left( f\left( \mathbf{a} \right) \right)\left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)
+\end{align*}
+ここで、Jacobi行列の定義より次のようになる。
+\begin{align*}
+\frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|} = \frac{\left\| f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right\|}{\left\| \mathbf{k} \right\|} = \frac{\left\| J_{\frac{f}{\mathbf{x}}}\left( \mathbf{a} \right)\mathbf{k} + \left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{k} \right\|}
+\end{align*}
+三角不等式と$\left\| J_{f}\left( \mathbf{a} \right)\mathbf{k} \right\| \leq \left\| J_{f}\left( \mathbf{a} \right) \right\|\left\| \mathbf{k} \right\|$が成り立つことにより次のようになる。
+\begin{align*}
+\frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|} = \frac{\left\| J_{f}\left( \mathbf{a} \right)\mathbf{k} + \left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{k} \right\|} \leq \frac{\left\| J_{f}\left( \mathbf{a} \right) \right\|\left\| \mathbf{k} \right\| + \left\| \mathbf{k} \right\|\left\| r'\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{k} \right\|} = \left\| J_{f}\left( \mathbf{a} \right) \right\| + \left\| r'\left( \mathbf{k} \right) \right\|
+\end{align*}
+これにより、実数$\frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|}$は$0$のある除外近傍$U_{0}(0,\varepsilon)$で有界で無限大ではないことが示された。したがって、次式のように関数$t$が定義されると、
+\begin{align*}
+t:T \rightarrow \mathbb{R}^{o};\mathbf{k} \mapsto J_{g}\left( f\left( \mathbf{a} \right) \right)\left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)
+\end{align*}
+次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\frac{t\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\frac{J_{g}\left( f\left( \mathbf{a} \right) \right)\left\| \mathbf{k} \right\| r'\left( \mathbf{k} \right) + \left\| \mathbf{l} \right\| s'\left( \mathbf{l} \right)}{\left\| \mathbf{k} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\left( J_{g}\left( f\left( \mathbf{a} \right) \right)r'\left( \mathbf{k} \right) + \frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|}s'\left( \mathbf{l} \right) \right)\\
+&= J_{g}\left( f\left( \mathbf{a} \right) \right)\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{r'\left( \mathbf{k} \right)} + \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|}\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{s'\left( \mathbf{l} \right)}
+\end{align*}
+ここで、$\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{s'\left( \mathbf{l} \right)}$について考えると、$\mathbf{l} = f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right)$がおかれているので、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{s'\left( \mathbf{l} \right)} = \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}{s'\left( f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right)} = \lim_{\scriptsize \begin{matrix}
+f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \rightarrow 0 \\
+\end{matrix}}{s'\left( f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right)} = \mathbf{0}
+\end{align*}
+以上より、次式が成り立つので、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow 0 \\
+\mathbf{k} \neq 0 \\
+\end{matrix}}\frac{t\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} = J_{g}\left( f\left( \mathbf{a} \right) \right)\mathbf{0} + \lim_{\scriptsize \begin{matrix}
+\mathbf{k} \rightarrow \mathbf{0} \\
+\mathbf{k} \neq \mathbf{0} \\
+\end{matrix}}\frac{\left\| \mathbf{l} \right\|}{\left\| \mathbf{k} \right\|}\mathbf{0} = \mathbf{0}
+\end{align*}
+$t \in o_{\left\| \mathbf{k} \right\|,\mathbf{0}}$が成り立つ。したがって、次式が成り立つので、
+\begin{align*}
+g \circ f\left( \mathbf{a} + \mathbf{k} \right) - g \circ f\left( \mathbf{a} \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)J_{f}\left( \mathbf{a} \right)\mathbf{k} + t\left( \mathbf{k} \right)
+\end{align*}
+Jacobi行列の定義よりその合成関数$g \circ f$はその点$\mathbf{a}$で微分可能で次式が得られる。
+\begin{align*}
+J_{g \circ f}\left( \mathbf{a} \right) = J_{g}\left( f\left( \mathbf{a} \right) \right)J_{f}\left( \mathbf{a} \right)
+\end{align*}\par
+最後に、それらの関数たち$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+J_{g \circ f}\left( \mathbf{a} \right) &= \left( \partial_{j}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+J_{g \circ f}\left( \mathbf{a} \right) &= \left( J_{g} \circ f \right)J_{f}\left( \mathbf{a} \right)\\
+&= \left( \partial_{j}g_{i} \circ f\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{n}}\left( \partial_{j}f_{i}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \left( \sum_{k \in \varLambda_{n}} {\partial_{k}g_{i} \circ f\left( \mathbf{a} \right)}\partial_{j}f_{k}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g_{i} \circ f \right)\partial_{j}f_{k}}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}
+\end{align*}
+したがって、次式が得られる。
+\begin{align*}
+\left( \partial_{j}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}} = \left( \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g_{i} \circ f \right)\partial_{j}f_{k}}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}
+\end{align*}
+$\forall(i,j) \in \varLambda_{o} \times \varLambda_{m}$に対し、各成分を比較すれば、次式が得られる。
+\begin{align*}
+\partial_{j}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) = \sum_{k \in \varLambda_{n}} {\partial_{k}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{j}f_{k}\left( \mathbf{a} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}[連鎖律の系]\label{4.2.6.9} 連鎖律の系として次のことが成り立つ。
+\begin{itemize}
+\item
+  開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in Uなる点f\left( \mathbf{a} \right)$で微分可能であるとき、その合成関数$g \circ f$はその点$\mathbf{a}$で微分可能で、その関数$f$を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+\mathrm{grad}(g \circ f)\left( \mathbf{a} \right) ={}^{t}J_{f}\left( \mathbf{a} \right)\left( \mathrm{grad}g\left( f\left( \mathbf{a} \right) \right) \right) = \left( \sum_{k \in \varLambda_{n}} {\partial_{k}g\left( f\left( \mathbf{a} \right) \right)\partial_{i}f_{k}}\left( \mathbf{a} \right) \right)_{i \in \varLambda_{m}}
+\end{align*}
+\item
+  開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}$かつ$U \subseteq D(g) \subseteq \mathbb{R}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$が$a \in T$なる点$a$で、その関数$g$が$f(a) \in Uなる点f(a)$で微分可能であるとき、その合成関数$g \circ f$はその点$a$で微分可能で次式が成り立つ。
+\begin{align*}
+\partial(g \circ f)(a) = \partial g\left( f(a) \right)\partial f(a)
+\end{align*}
+\end{itemize}\par
+特に、開集合にわたって微分可能であれば次のようになる。
+\begin{itemize}
+\item
+  開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$がその開集合$T$で、その関数$g$がその開集合$U$で微分可能であるとき、その合成関数$g \circ f$はその開集合$U$で微分可能で、その関数$f$を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ\footnote{ここもEinstein縮約記法を用いれば$k \in \varLambda_{n}$として、$\forall i\in \varLambda_{m}$に対し、次式が成り立つ。
+  \begin{align*}
+  \partial_{i}\left( g \circ f \right) = \left( \partial_{k}g \circ f \right)\partial_{i}f_{k}
+  \end{align*}}。
+\begin{align*}
+\mathrm{grad}(g \circ f) ={}^{t}J_{f}\left( \mathrm{grad}g \circ f \right) = \left( \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g \circ f \right)\partial_{i}f_{k}} \right)_{i \in \varLambda_{m}}:T \rightarrow \mathbb{R}
+\end{align*}
+\item
+  開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}$かつ$U \subseteq D(g) \subseteq \mathbb{R}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$がその開集合$T$で、その関数$g$がその開集合$U$で微分可能であるとき、その合成関数$g \circ f$はその開集合$T$で微分可能で次式が成り立つ。
+\begin{align*}
+\partial(g \circ f) = (\partial g \circ f)\partial f:T \rightarrow \mathbb{R}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in U$なる点$f\left( \mathbf{a} \right)で$微分可能であるとき、連鎖律よりその合成関数$g \circ f$はその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{g \circ f}\left( \mathbf{a} \right) = \left( J_{g} \circ f \right)J_{f}\left( \mathbf{a} \right)
+\end{align*}
+その関数$f$を$\left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\mathrm{grad}(g \circ f)\left( \mathbf{a} \right) &= \left( \partial_{i}(g \circ f)\left( \mathbf{a} \right) \right)_{i \in \varLambda_{m}}\\
+&={}^{t}J_{g \circ f}\left( \mathbf{a} \right) ={}^{t}J_{f}{}^{t}\left( J_{g} \circ f \right)\left( \mathbf{a} \right)\\
+&={}^{t}J_{f}\left( \mathrm{grad}g \circ f \right)\left( \mathbf{a} \right)\\
+&= \left( \partial_{i}f_{j}\left( \mathbf{a} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( \partial_{j}g \circ f\left( \mathbf{a} \right) \right)_{j \in \varLambda_{n}}\\
+&= \left( \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g \circ f \right)\partial_{i}f_{k}\left( \mathbf{a} \right)} \right)_{i \in \varLambda_{m}}
+\end{align*}
+よって、次式が得られる。
+\begin{align*}
+\mathrm{grad}(g \circ f)\left( \mathbf{a} \right) ={}^{t}J_{f}\left( \mathbf{a} \right)\left( \mathrm{grad}g\left( f\left( \mathbf{a} \right) \right) \right) = \left( \sum_{k \in \varLambda_{n}} {\partial_{k}g\left( f\left( \mathbf{a} \right) \right)\partial_{i}f_{k}}\left( \mathbf{a} \right) \right)_{i \in \varLambda_{m}}
+\end{align*}\par
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}$かつ$U \subseteq D(g) \subseteq \mathbb{R}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$が合成可能で、その関数$f$が$a \in T$なる点$a$で、その関数$g$が$f(a) \in U$なる点$f(a)$で微分可能であるとき、連鎖律よりその合成関数$g \circ f$はその点$a$で微分可能で次式が成り立つ。
+\begin{align*}
+J_{g \circ f}(a) = \left( J_{g} \circ f \right)J_{f}(a)
+\end{align*}
+ここで、次のようになるので、
+\begin{align*}
+\partial(g \circ f)(a) = J_{g \circ f}(a) = \left( J_{g} \circ f \right)J_{f}(a) = (\partial g \circ f)\partial f(a)
+\end{align*}
+よって、次式が得られる。
+\begin{align*}
+\partial(g \circ f)(a) = \partial g\left( f(a) \right)\partial f(a)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.6.10}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$が$\mathbf{a} \in Uなる点\mathbf{a}$で微分可能であるなら、その関数$fg$もその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+\mathrm{grad}(fg)\left( \mathbf{a} \right) = \mathrm{grad}f\left( \mathbf{a} \right)g\left( \mathbf{a} \right) + f\left( \mathbf{a} \right)\mathrm{grad}g\left( \mathbf{a} \right)
+\end{align*}
+さらに、$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in Uなる点\mathbf{a}$で微分可能であるなら、その関数${}^{t}fg$もその点$\mathbf{a}$で微分可能で次式が成り立つ。
+\begin{align*}
+\mathrm{grad}\left({}^{t}fg \right)\left( \mathbf{a} \right) ={}^{t}J_{f}\left( \mathbf{a} \right)g\left( \mathbf{a} \right) +{}^{t}J_{g}\left( \mathbf{a} \right)f\left( \mathbf{a} \right)
+\end{align*}\par
+特に、開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$がその開集合$U$で微分可能であるなら、その関数$fg$もその開集合$U$で微分可能で次式が成り立つ\footnote{ここもEinstein縮約記法を用いれば、$\forall i\in \varLambda_{m}$に対し、次式が成り立つ。
+\begin{align*}
+\partial_{i}\left( fg \right) = \partial_{i} fg+f\partial_{i} g
+\end{align*}}。
+\begin{align*}
+\mathrm{grad}(fg) = \mathrm{grad}fg + f\mathrm{grad}g:U \rightarrow \mathbb{R}
+\end{align*}
+さらに、$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in Uなる点\mathbf{a}$で微分可能であるなら、その関数${}^{t}fg$もその点$\mathbf{a}$で微分可能で次式が成り立つ\footnote{ここもEinstein縮約記法を用いれば$k \in \varLambda_{n}$として、$\forall i\in \varLambda_{m}$に対し、次式が成り立つ。
+\begin{align*}
+\partial_{i}\left( f_k g_k \right) = \partial_i f_k g_k +\partial_i g_k f_k 
+\end{align*}}。
+\begin{align*}
+\mathrm{grad}\left({}^{t}fg \right) ={}^{t}J_{f}g +{}^{t}J_{g}f:U \rightarrow \mathbb{R}^{n}
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}$、$g:D(g) \rightarrow \mathbb{R}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとき、次のように定義される写像たち$\begin{pmatrix}
+f \\
+g \\
+\end{pmatrix}$、$\cdot$は上記の議論によりそれぞれその点$\mathbf{a}$で、その開集合$\mathbb{R}^{2}$で微分可能で
+\begin{align*}
+\begin{pmatrix}
+f \\
+g 
+\end{pmatrix}&:U \rightarrow \mathbb{R}^{2};\mathbf{x} \mapsto \begin{pmatrix}
+f\left( \mathbf{x} \right) \\
+g\left( \mathbf{x} \right) \\
+\end{pmatrix}\\
+\cdot &:\mathbb{R}^{2} \rightarrow \mathbb{R};\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} \mapsto xy
+\end{align*}
+次式たちが成り立つ。
+\begin{align*}
+J_{\begin{pmatrix}
+f \\
+g \\
+\end{pmatrix}}\left( \mathbf{a} \right) &= \begin{pmatrix}
+J_{f} \\
+J_{g} \\
+\end{pmatrix}\left( \mathbf{a} \right) = \begin{pmatrix}
+{}^{t}\mathrm{grad}f \\
+{}^{t}\mathrm{grad}g \\
+\end{pmatrix}\left( \mathbf{a} \right),\\
+\mathrm{grad} \cdot \begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} &= \frac{\partial}{\partial\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}}(xy) = \begin{pmatrix}
+\frac{\partial}{\partial x}(xy) \\
+\frac{\partial}{\partial y}(xy) \\
+\end{pmatrix} = \begin{pmatrix}
+\frac{\partial x}{\partial x}y \\
+x\frac{\partial y}{\partial y} \\
+\end{pmatrix} = \begin{pmatrix}
+y \\
+x \\
+\end{pmatrix}
+\end{align*}
+また、$fg = \cdot \circ \begin{pmatrix}
+f \\
+g \\
+\end{pmatrix}$が成り立つので、連鎖律よりしたがって、次のようになる。
+\begin{align*}
+\mathrm{grad}(fg)\left( \mathbf{a} \right) &={}^{t}J_{\begin{pmatrix}
+f \\
+g \\
+\end{pmatrix}}\left( \mathrm{grad} \cdot \circ \begin{pmatrix}
+f \\
+g \\
+\end{pmatrix} \right)\left( \mathbf{a} \right)\\
+&={}^{t}\begin{pmatrix}
+{}^{t}\mathrm{grad}f \\
+{}^{t}\mathrm{grad}g \\
+\end{pmatrix}\left( \mathbb{R}^{2} \rightarrow \mathbb{R}^{2};\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} \mapsto \begin{pmatrix}
+y \\
+x \\
+\end{pmatrix} \circ \begin{pmatrix}
+f \\
+g \\
+\end{pmatrix} \right)\left( \mathbf{a} \right)\\
+&= \begin{pmatrix}
+\mathrm{grad}f & \mathrm{grad}g \\
+\end{pmatrix}\begin{pmatrix}
+g \\
+f \\
+\end{pmatrix}\left( \mathbf{a} \right)\\
+&= \left( \mathrm{grad}fg + f\mathrm{grad}g \right)\left( \mathbf{a} \right)\\
+&= \mathrm{grad}f\left( \mathbf{a} \right)g\left( \mathbf{a} \right) + f\left( \mathbf{a} \right)\mathrm{grad}g\left( \mathbf{a} \right)
+\end{align*}\par
+さらに、$U \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{m}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$が$\mathbf{a} \in Uなる点\mathbf{a}$で微分可能であるならそのときに限り、定理\ref{4.2.6.4}より$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$、$g = \left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、$\forall i \in \varLambda_{n}$に対し、それらの関数たち$f_{i}$、$g_{i}$は$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるので、上記の議論により、その関数$ fg$も$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であり、したがって、次のようになる\footnote{計算だけ考えればここもEinstein縮約記法を用いて$k \in \varLambda_{n}$として、$\forall i\in \varLambda_{m}$に対し、次のようになる。
+\begin{align*}
+\partial_{i}\left( f_k g_k \right) &= \partial_i f_k g_k +f_k \partial_i g_k \\
+&= \partial_i f_k g_k +\partial_i g_k f_k 
+\end{align*}}。
+\begin{align*}
+\mathrm{grad}\left({}^{t}fg \right)\left( \mathbf{a} \right) &= \mathrm{grad}{\begin{pmatrix}
+f_{1} & f_{2} & \cdots & f_{n} \\
+\end{pmatrix}\begin{pmatrix}
+g_{1} \\
+g_{2} \\
+ \vdots \\
+g_{n} \\
+\end{pmatrix}}\left( \mathbf{a} \right)\\
+&= \mathrm{grad}\left( f_{1}g_{1} + f_{2}g_{2} + \cdots + f_{n}g_{n} \right)\left( \mathbf{a} \right)\\
+&= \begin{pmatrix}
+\partial_{1}\left( f_{1}g_{1} + f_{2}g_{2} + \cdots + f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+\partial_{2}\left( f_{1}g_{1} + f_{2}g_{2} + \cdots + f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+ \vdots \\
+\partial_{n}\left( f_{1}g_{1} + f_{2}g_{2} + \cdots + f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\partial_{1}\left( f_{1}g_{1} \right)\left( \mathbf{a} \right) + \partial_{1}\left( f_{2}g_{2} \right)\left( \mathbf{a} \right) + \cdots + \partial_{1}\left( f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+\partial_{2}\left( f_{1}g_{1} \right)\left( \mathbf{a} \right) + \partial_{2}\left( f_{2}g_{2} \right)\left( \mathbf{a} \right) + \cdots + \partial_{2}\left( f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+ \vdots \\
+\partial_{n}\left( f_{1}g_{1} \right)\left( \mathbf{a} \right) + \partial_{n}\left( f_{2}g_{2} \right)\left( \mathbf{a} \right) + \cdots + \partial_{n}\left( f_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\left( \partial_{1}f_{1}g_{1} + f_{1}\partial_{1}g_{1} \right)\left( \mathbf{a} \right) + \cdots + \left( \partial_{1}f_{n}g_{n} + f_{n}\partial_{1}g_{n} \right)\left( \mathbf{a} \right) \\
+\left( \partial_{2}f_{1}g_{1} + f_{1}\partial_{2}g_{1} \right)\left( \mathbf{a} \right) + \cdots + \left( \partial_{2}f_{n}g_{n} + f_{n}\partial_{2}g_{n} \right)\left( \mathbf{a} \right) \\
+ \vdots \\
+\left( \partial_{n}f_{1}g_{1} + f_{1}\partial_{n}g_{1} \right)\left( \mathbf{a} \right) + \cdots + \left( \partial_{n}f_{n}g_{n} + f_{n}\partial_{n}g_{n} \right)\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\partial_{1}f_{1}\left( \mathbf{a} \right)g_{1}\left( \mathbf{a} \right) + \partial_{1}f_{2}\left( \mathbf{a} \right)g_{2}\left( \mathbf{a} \right) + \cdots + \partial_{1}f_{n}\left( \mathbf{a} \right)g_{n}\left( \mathbf{a} \right) \\
+\partial_{2}f_{1}\left( \mathbf{a} \right)g_{1}\left( \mathbf{a} \right) + \partial_{2}f_{2}\left( \mathbf{a} \right)g_{2}\left( \mathbf{a} \right) + \cdots + \partial_{2}f_{n}\left( \mathbf{a} \right)g_{n}\left( \mathbf{a} \right) \\
+ \vdots \\
+\partial_{n}f_{1}\left( \mathbf{a} \right)g_{1}\left( \mathbf{a} \right) + \partial_{n}f_{2}\left( \mathbf{a} \right)g_{2}\left( \mathbf{a} \right) + \cdots + \partial_{n}f_{n}\left( \mathbf{a} \right)g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix} \\
+&\quad + \begin{pmatrix}
+f_{1}\left( \mathbf{a} \right)\partial_{1}g_{1}\left( \mathbf{a} \right) + f_{2}\left( \mathbf{a} \right)\partial_{1}g_{2}\left( \mathbf{a} \right) + \cdots + f_{n}\left( \mathbf{a} \right)\partial_{1}g_{n}\left( \mathbf{a} \right) \\
+f_{1}\left( \mathbf{a} \right)\partial_{2}g_{1}\left( \mathbf{a} \right) + f_{2}\left( \mathbf{a} \right)\partial_{2}g_{2}\left( \mathbf{a} \right) + \cdots + f_{n}\left( \mathbf{a} \right)\partial_{2}g_{n}\left( \mathbf{a} \right) \\
+ \vdots \\
+f_{1}\left( \mathbf{a} \right)\partial_{n}g_{1}\left( \mathbf{a} \right) + f_{2}\left( \mathbf{a} \right)\partial_{n}g_{2}\left( \mathbf{a} \right) + \cdots + f_{n}\left( \mathbf{a} \right)\partial_{n}g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\partial_{1}f_{1}\left( \mathbf{a} \right) & \partial_{1}f_{2}\left( \mathbf{a} \right) & \cdots & \partial_{1}f_{n}\left( \mathbf{a} \right) \\
+\partial_{2}f_{1}\left( \mathbf{a} \right) & \partial_{2}f_{2}\left( \mathbf{a} \right) & \cdots & \partial_{2}f_{n}\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{n}f_{1}\left( \mathbf{a} \right) & \partial_{n}f_{2}\left( \mathbf{a} \right) & \cdots & \partial_{n}f_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+g_{1}\left( \mathbf{a} \right) \\
+g_{2}\left( \mathbf{a} \right) \\
+ \vdots \\
+g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix} \\
+&\quad + \begin{pmatrix}
+\partial_{1}g_{1}\left( \mathbf{a} \right) & \partial_{1}g_{2}\left( \mathbf{a} \right) & \cdots & \partial_{1}g_{n}\left( \mathbf{a} \right) \\
+\partial_{2}g_{1}\left( \mathbf{a} \right) & \partial_{2}g_{2}\left( \mathbf{a} \right) & \cdots & \partial_{2}g_{n}\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{n}g_{1}\left( \mathbf{a} \right) & \partial_{n}g_{2}\left( \mathbf{a} \right) & \cdots & \partial_{n}g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+f_{1}\left( \mathbf{a} \right) \\
+f_{2}\left( \mathbf{a} \right) \\
+ \vdots \\
+f_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&={}^{t}\begin{pmatrix}
+\partial_{1}f_{1}\left( \mathbf{a} \right) & \partial_{2}f_{1}\left( \mathbf{a} \right) & \cdots & \partial_{n}f_{1}\left( \mathbf{a} \right) \\
+\partial_{1}f_{2}\left( \mathbf{a} \right) & \partial_{2}f_{2}\left( \mathbf{a} \right) & \cdots & \partial_{n}f_{2}\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{1}f_{n}\left( \mathbf{a} \right) & \partial_{2}f_{n}\left( \mathbf{a} \right) & \cdots & \partial_{n}f_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+g_{1}\left( \mathbf{a} \right) \\
+g_{2}\left( \mathbf{a} \right) \\
+ \vdots \\
+g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix} \\
+&\quad +{}^{t}\begin{pmatrix}
+\partial_{1}g_{1}\left( \mathbf{a} \right) & \partial_{2}g_{1}\left( \mathbf{a} \right) & \cdots & \partial_{n}g_{1}\left( \mathbf{a} \right) \\
+\partial_{1}g_{2}\left( \mathbf{a} \right) & \partial_{2}g_{2}\left( \mathbf{a} \right) & \cdots & \partial_{n}g_{2}\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{1}g_{n}\left( \mathbf{a} \right) & \partial_{2}g_{n}\left( \mathbf{a} \right) & \cdots & \partial_{n}g_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+f_{1}\left( \mathbf{a} \right) \\
+f_{2}\left( \mathbf{a} \right) \\
+ \vdots \\
+f_{n}\left( \mathbf{a} \right) \\
+\end{pmatrix}\\
+&={}^{t}J_{f}\left( \mathbf{a} \right)g\left( \mathbf{a} \right) +{}^{t}J_{g}\left( \mathbf{a} \right)f\left( \mathbf{a} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.6.11}
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in U$なる点$f\left( \mathbf{a} \right)$で$C^{2}$級であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その合成関数$g \circ f$はその点$\mathbf{a}$で$C^{2}$級である。
+\item
+  $\forall(i,j),(i,k) \in \varLambda_{o} \times \varLambda_{m}$に対し、それらの関数たち$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+\partial_{kj}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) = \sum_{\alpha,\beta \in \varLambda_{n}} {\partial_{\beta\alpha}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{j}f_{\alpha}\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\partial_{\gamma}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}
+\end{align*}
+\end{itemize}\par
+特に、開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$がその開集合$T$で、その関数$g$がその開集合$U$で$C^{2}$級であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その合成関数$g \circ f$はその開集合$T$で$C^{2}$級である。
+\item
+  $\forall(i,j),(i,k) \in \varLambda_{o} \times \varLambda_{m}$に対し、それらの関数たち$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ\footnote{Einstein縮約記法を用いれば、$\alpha,\beta,\gamma \in \varLambda_{n}$として次式が成り立つ。
+\begin{align*}
+\partial_{kj}\left( g_{i} \circ f \right) = \left( \partial_{\beta\alpha}g_{i} \circ f \right)\partial_{j}f_{\alpha}\partial_{k}f_{\beta} + \left( \partial_{\gamma}g_{i} \circ f \right)\partial_{kj}f_{\gamma}
+\end{align*}}。
+\begin{align*}
+\partial_{kj}\left( g_{i} \circ f \right) = \sum_{\alpha,\beta \in \varLambda_{n}} {\left( \partial_{\beta\alpha}g_{i} \circ f \right)\partial_{j}f_{\alpha}\partial_{k}f_{\beta}} + \sum_{\gamma \in \varLambda_{n}} {\left( \partial_{\gamma}g_{i} \circ f \right)\partial_{kj}f_{\gamma}}:T \rightarrow \mathbb{R}^{o}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合たち$T$、$U$を用いた$T \subseteq D(f) \subseteq \mathbb{R}^{m}$かつ$U \subseteq D(g) \subseteq \mathbb{R}^{n}$なる関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{o}$が合成可能で、その関数$f$が$\mathbf{a} \in T$なる点$\mathbf{a}$で、その関数$g$が$f\left( \mathbf{a} \right) \in U$なる点$f\left( \mathbf{a} \right)$で$C^{1}$級であるとき、連鎖律よりその合成関数$g \circ f$はその点$\mathbf{a}$で$C^{2}$級で$\forall(i,j) \in \varLambda_{o} \times \varLambda_{m}$に対し、それらの関数たち$f$、$g$をそれぞれ$\left( f_{i} \right)_{i \in \varLambda_{n}}$、$\left( g_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+\partial_{j}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) = \sum_{k \in \varLambda_{n}} {\left( \partial_{k}g_{i} \circ f \right)\partial_{j}f_{k}}\left( \mathbf{a} \right)
+\end{align*}\par
+さらに、連鎖律よりその合成関数$g \circ f$はその点$\mathbf{a}$で$C^{2}$級で、$\forall(i,j),(i,k) \in \varLambda_{o} \times \varLambda_{m}$に対し、次のようになる\footnote{計算だけ考えればここもEinstein縮約記法を用いて$\alpha ,\beta ,\gamma \in \varLambda_{n}$として、$\forall i\in \varLambda_{o} \forall j,k\in \varLambda{m} $に対し、次のようになる。
+\begin{align*}
+\partial_{kj}\left( g_i \circ f \right) &= \partial_j \partial_k \left( g_i \circ f\right) \\
+&=\partial_j \left( \left( \partial_{\alpha} g_i \circ f\right) \partial_k f_{\alpha} \right) \\
+&=\partial_j \left( \partial_{\alpha} g_i \circ f\right) \partial_k f_{\alpha} +\left( \partial_{\alpha}  g_i \circ f\right) \partial_j \partial_k f_{\alpha} \\
+&=\partial_j \left( \partial_{\beta} g_i \circ f\right) \partial_k f_{\beta} +\left( \partial_{\gamma}  g_i \circ f\right) \partial_{kj} f_{\gamma} \\
+&=\left( \partial_{\alpha} \partial_{\beta} g_i \circ f\right) \partial_j f_{\alpha} \partial_k f_{\beta} +\left( \partial_{\gamma}  g_i \circ f\right) \partial_{kj} f_{\gamma} \\
+&=\left( \partial_{\beta \alpha} g_i \circ f\right) \partial_j f_{\alpha} \partial_k f_{\beta} +\left( \partial_{\gamma}  g_i \circ f\right) \partial_{kj} f_{\gamma} 
+\end{align*}}。
+\begin{align*}
+\partial_{kj}\left( g_{i} \circ f \right)\left( \mathbf{a} \right) &= \partial_{j}\partial_{k}\left( g_{i} \circ f \right)\left( \mathbf{a} \right)\\
+&= \partial_{j}\sum_{\alpha \in \varLambda_{n}} {\left( \partial_{\alpha}g_{i} \circ f \right)\partial_{k}f_{\alpha}}\left( \mathbf{a} \right)\\
+&= \sum_{\alpha \in \varLambda_{n}} {\partial_{j}\left( \left( \partial_{\alpha}g_{i} \circ f \right)\partial_{k}f_{\alpha} \right)}\left( \mathbf{a} \right)\\
+&= \sum_{\alpha \in \varLambda_{n}} \left( \partial_{j}\left( \partial_{\alpha}g_{i} \circ f \right)\partial_{k}f_{\alpha} + \left( \partial_{\alpha}g_{i} \circ f \right)\partial_{j}\partial_{k}f_{\alpha} \right)\left( \mathbf{a} \right)\\
+&= \sum_{\alpha \in \varLambda_{n}} {\partial_{j}\left( \partial_{\alpha}g_{i} \circ f \right)\partial_{k}f_{\alpha}}\left( \mathbf{a} \right) + \sum_{\alpha \in \varLambda_{n}} {\left( \partial_{\alpha}g_{i} \circ f \right)\partial_{j}\partial_{k}f_{\alpha}}\left( \mathbf{a} \right)\\
+&= \sum_{\beta \in \varLambda_{n}} {\partial_{j}\left( \partial_{\beta}g_{i} \circ f \right)\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\left( \partial_{\gamma}g_{i} \circ f \right)\left( \mathbf{a} \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}\\
+&= \sum_{\beta \in \varLambda_{n}} {\sum_{\alpha \in \varLambda_{n}} {\left( \partial_{\alpha}\partial_{\beta}g_{i} \circ f \right)\partial_{j}f_{\alpha}}\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\left( \partial_{\gamma}g_{i} \circ f \right)\left( \mathbf{a} \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}\\
+&= \sum_{\beta \in \varLambda_{n}} {\sum_{\alpha \in \varLambda_{n}} {\left( \partial_{\alpha}\partial_{\beta}g_{i} \circ f \right)\partial_{j}f_{\alpha}}\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\left( \partial_{\gamma}g_{i} \circ f \right)\left( \mathbf{a} \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}\\
+&= \sum_{\alpha,\beta \in \varLambda_{n}} {\left( \partial_{\beta\alpha}g_{i} \circ f \right)\partial_{j}f_{\alpha}\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\left( \partial_{\gamma}g_{i} \circ f \right)\left( \mathbf{a} \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}\\
+&= \sum_{\alpha,\beta \in \varLambda_{n}} {\partial_{\beta\alpha}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{j}f_{\alpha}\left( \mathbf{a} \right)\partial_{k}f_{\beta}\left( \mathbf{a} \right)} + \sum_{\gamma \in \varLambda_{n}} {\partial_{\gamma}g_{i}\left( f\left( \mathbf{a} \right) \right)\partial_{kj}f_{\gamma}\left( \mathbf{a} \right)}
+\end{align*}
+\end{proof}
+%\hypertarget{ux6709ux9650ux5897ux5206ux306eux5b9aux7406}{%
+\subsubsection{有限増分の定理}%\label{ux6709ux9650ux5897ux5206ux306eux5b9aux7406}}
+\begin{thm}[有限増分の定理]\label{4.2.6.12}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその集合$U$で微分可能であるとする。$\forall\mathbf{a},\mathbf{b} \in U$に対し、次式のように定義される線分$L$が$L \subseteq U$を満たすとき、
+\begin{align*}
+L = \left\{ \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \in \mathbb{R}^{m} \middle| t \in [ 0,1] \right\}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left\| f\left( \mathbf{b} \right) - f\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\|\left\| \mathbf{b} - \mathbf{a} \right\|
+\end{align*}
+この定理を有限増分の定理などという。
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその集合$U$で微分可能であるとする。$\forall\mathbf{a},\mathbf{b} \in U$に対し、次式のように定義される線分$L$が$L \subseteq U$を満たすとき、
+\begin{align*}
+L = \left\{ \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \in \mathbb{R}^{m} \middle| t \in [ 0,1] \right\}
+\end{align*}
+$\mathbf{a} = \mathbf{b}$のときは明らかに示すべきことが成り立つので、$\mathbf{a} \neq \mathbf{b}$とする。\par
+次式のように定義される関数$g$を用いたその合成関数$f \circ g$は連鎖律よりその区間$[ 0,1]$で微分可能で
+\begin{align*}
+g:[ 0,1] \rightarrow \mathbb{R}^{m};t \mapsto \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right)
+\end{align*}
+次のようになる。
+\begin{align*}
+J_{f \circ g}(t) &= \left( J_{f} \circ g \right)J_{g}(t)\\
+&= J_{f}\left( \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \right)\frac{d}{dt}\left( \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \right)\\
+&= J_{f}\left( \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \right)\left( \mathbf{b} - \mathbf{a} \right)\frac{dt}{dt}\\
+&= J_{f}\left( \mathbf{a} + t\left( \mathbf{b} - \mathbf{a} \right) \right)\left( \mathbf{b} - \mathbf{a} \right)
+\end{align*}
+ここで、$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$とおくと、$\forall i \in \varLambda_{n}$に対し、平均値の定理より次式を満たすような実数$c$がその区間$(0,1)$に存在する。
+\begin{align*}
+\frac{f_{i} \circ g(1) - f_{i} \circ g(0)}{1 - 0} = \partial\left( f_{i} \circ g \right)(c)
+\end{align*}
+したがって、連鎖律より次のようになる。
+\begin{align*}
+f_{i}\left( \mathbf{b} \right) - f_{i}\left( \mathbf{a} \right) &= f_{i} \circ g(1) - f_{i} \circ g(0)\\
+&= \partial\left( f_{i} \circ g \right)(c) = J_{f_{i} \circ g}(c) = \left( J_{f_{i}} \circ g \right)J_{g}(c)\\
+&={}^{t}\mathrm{grad}f_{i} \circ g(c)\partial g(c)\\
+&={}^{t}\mathrm{grad}f_{i} \circ g(c)\left( \mathbf{b} - \mathbf{a} \right)
+\end{align*}
+ここで、次式が成り立つことにより、
+\begin{align*}
+{}^{t}\mathrm{grad}f_{i} \circ g(c)\left( \mathbf{b} - \mathbf{a} \right) \leq \left\| \mathrm{grad}f_{i} \circ g(c) \right\|\left\| \mathbf{b} - \mathbf{a} \right\|,\ \ \left\| \mathrm{grad}f_{i} \circ g(c) \right\| \leq \sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\|
+\end{align*}
+次のようになる。
+\begin{align*}
+\left| f_{i}\left( \mathbf{b} \right) - f_{i}\left( \mathbf{a} \right) \right| &= \left|{}^{t}\mathrm{grad}f_{i} \circ g(c)\left( \mathbf{b} - \mathbf{a} \right) \right|\\
+&\leq \left\| \mathrm{grad}f_{i} \circ g(c) \right\|\left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\leq \sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\|\left\| \mathbf{b} - \mathbf{a} \right\|
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\left\| f\left( \mathbf{b} \right) - f\left( \mathbf{a} \right) \right\| &= \left( \sum_{i \in \varLambda_{n}} \left| f_{i}\left( \mathbf{b} \right) - f_{i}\left( \mathbf{a} \right) \right|^{2} \right)^{\frac{1}{2}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} {\left( \sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\| \right)^{2}\left\| \mathbf{b} - \mathbf{a} \right\|^{2}} \right)^{\frac{1}{2}}\\
+&= n^{\frac{1}{2}}\left( \left( \sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\| \right)^{2} \right)^{\frac{1}{2}}\left( \left\| \mathbf{b} - \mathbf{a} \right\|^{2} \right)^{\frac{1}{2}}\\
+&= \sqrt{n}\sup_{\mathbf{x} \in L}\left\| J_{f}\left( \mathbf{x} \right) \right\|\left\| \mathbf{b} - \mathbf{a} \right\|
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.6.13}
+連結な開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその集合$U$で微分可能であるかつ、常に$J_{f} = \mathbf{0}$が成り立つなら、その関数$f$はその開集合$U$で定数である。
+\end{thm}
+\begin{proof}
+連結な開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{m}$なる関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその集合$U$で微分可能であるかつ、常に$J_{f} = 0$が成り立つなら、その集合$U$は連結な開集合であったので、$\forall\mathbf{a},\mathbf{b} \in U$に対し、それらの2点間に折線で結ぶことができる。したがって、その折線が$o$つの線分たちからなるとして、$\forall i \in \varLambda_{o}$に対し、点$\mathbf{a}_{i}$から点$\mathbf{b}_{i}$を結ぶ1つの線分$L_{i}$において、有限増分の定理より次式が成り立つ。
+\begin{align*}
+\left\| f\left( \mathbf{b}_{i} \right) - f\left( \mathbf{a}_{i} \right) \right\| \leq \sqrt{n}\sup_{\mathbf{x} \in L_{i}}\left\| J_{f}\left( \mathbf{x} \right) \right\|\left\| \mathbf{b}_{i} - \mathbf{a}_{i} \right\|
+\end{align*}
+ここで、仮定より$J_{f}\left( \mathbf{x} \right) = \mathbf{0}$が成り立つので、$\left\| f\left( \mathbf{b}_{i} \right) - f\left( \mathbf{a}_{i} \right) \right\|$が負の値をとらないことに注意すれば、$\left\| f\left( \mathbf{b}_{i} \right) - f\left( \mathbf{a}_{i} \right) \right\| = 0$が成り立つ。したがって、三角不等式より次式が成り立つ。
+\begin{align*}
+\left\| f\left( \mathbf{b} \right) - f\left( \mathbf{a} \right) \right\| \leq \sum_{i \in \varLambda_{o}} \left\| f\left( \mathbf{b}_{i} \right) - f\left( \mathbf{a}_{i} \right) \right\| = 0
+\end{align*}\par
+以上より、$\left\| f\left( \mathbf{b} \right) - f\left( \mathbf{a} \right) \right\| = 0$が得られ、これにより、その関数$f$はその集合$U$で定数である。
+\end{proof}
+%\hypertarget{ux9006ux95a2ux6570ux5b9aux7406}{%
+\subsubsection{逆関数定理}%\label{ux9006ux95a2ux6570ux5b9aux7406}}
+\begin{thm}[逆関数定理]\label{4.2.6.14}
+開集合たち$U$、$V$を用いた$U \subseteq \mathbb{R}^{n}$かつ$V \subseteq \mathbb{R}^{n}$なる関数$f:U \rightarrow V$がその集合$UでC^{1}$級であるかつ、行列$J_{f} $の逆行列が存在するかつ、その関数$f$は全単射であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  次式が成り立つ\footnote{$J_{f^{- 1}} = \left( J_{f} \circ f^{- 1} \right)^{- 1}$での$- 1$について、1つ目と2つ目が逆関数を表す$- 1$で3つ目が逆行列を表す$- 1$となっていることに注意しよう。}。
+\begin{align*}
+J_{f^{- 1}} = \left( J_{f} \circ f^{- 1} \right)^{- 1}:V \rightarrow U
+\end{align*}
+\item
+  その逆関数$f^{- 1}$はその集合$V$上で$C^{1}$級である。
+\end{itemize}
+この定理を逆関数定理などという。\par
+特に、$n=1$のとき、次のようになる。
+\begin{align*}
+\partial f^{-1} =\frac{1}{\partial f \circ f^{-1} } : V\rightarrow U
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合たち$U$、$V$を用いた$U \subseteq \mathbb{R}^{n}$かつ$V \subseteq \mathbb{R}^{n}$なる関数$f:U \rightarrow V$がその集合$U$で$C^{1}$級であるかつ、行列$J_{f}\left( \mathbf{x} \right)$の逆行列が存在するかつ、その関数$f$は全単射であるとき、$\forall\mathbf{a} \in U$に対し、正の実数$\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|^{- 1}$を$\rho$とおくと、$\left\| J_{f}\left( \mathbf{a} \right)\mathbf{x} \right\| \geq \rho\left\| \mathbf{x} \right\|$が成り立つ。ここで、仮定よりその関数$J_{f}$はその集合$U$で連続でもあったので、$\lim_{\mathbf{x} \rightarrow \mathbf{a}}{J_{f}\left( \mathbf{x} \right)} = J_{f}\left( \mathbf{a} \right)$が成り立つ。これが$\varepsilon $-$\delta $論法に書き換えられると、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\left\| \mathbf{x} - \mathbf{a} \right\| < \delta \Rightarrow \left\| J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right) \right\| < \varepsilon$が成り立つ。ここで、$0 < \varepsilon < \frac{\rho}{\sqrt{n}}$が成り立っても、$\left\| J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right) \right\| < \varepsilon$がやはり成り立つ。さらに、次式のように関数$g$が定義されると、
+\begin{align*}
+g:U \rightarrow \mathbb{R}^{n};\mathbf{x} \mapsto f\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)I_{\mathbb{R}^{n}}\left( \mathbf{x} \right)
+\end{align*}
+$n$次単位行列$I_{n}$を用いた次式が成り立つかつ、
+\begin{align*}
+J_{g}\left( \mathbf{x} \right) = J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)J_{I_{\mathbb{R}^{n}}}\left( \mathbf{x} \right) = J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)I_{n} = J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)
+\end{align*}
+その集合$U$が開集合でその点$\mathbf{a}$の十分に小さい$\delta'$近傍$U\left( \mathbf{a},\delta' \right)$がとられることができ、$\forall\mathbf{x} \in U\left( \mathbf{a},\delta' \right)$に対し、次式のように定義される線分$L$が$L \subseteq U$を満たすので、
+\begin{align*}
+L = \left\{ \mathbf{a} + t\left( \mathbf{x} - \mathbf{a} \right) \in \mathbb{R}^{m} \middle| t \in [ 0,1] \right\}
+\end{align*}
+有限増分の定理より次式が成り立つ。
+\begin{align*}
+\left\| g\left( \mathbf{x} \right) - g\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\sup_{\mathbf{x} \in L}\left\| J_{g}\left( \mathbf{x} \right) \right\|\left\| \mathbf{x} - \mathbf{a} \right\|
+\end{align*}
+ここで、$J_{g}\left( \mathbf{x} \right) = J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)$が成り立つかつ、$\left\| J_{f}\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right) \right\| < \varepsilon$が成り立つので、次式が成り立つ。
+\begin{align*}
+\left\| g\left( \mathbf{x} \right) - g\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\varepsilon\left\| \mathbf{x} - \mathbf{a} \right\|
+\end{align*}
+ここで、上記の議論により$\rho\left\| \mathbf{x} - \mathbf{a} \right\| \leq \left\| J_{f}\left( \mathbf{a} \right)\left( \mathbf{x} - \mathbf{a} \right) \right\|$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+\rho\left\| \mathbf{x} - \mathbf{a} \right\| - \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\| \leq \left\| J_{f}\left( \mathbf{a} \right)\left( \mathbf{x} - \mathbf{a} \right) \right\| - \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\|
+\end{align*}
+また、三角不等式とその関数$g$の定義より次のようになる。
+\begin{align*}
+\rho\left\| \mathbf{x} - \mathbf{a} \right\| - \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\| &\leq \left\| J_{f}\left( \mathbf{a} \right)\left( \mathbf{x} - \mathbf{a} \right) - \left( f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right) \right\|\\
+&= \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) - J_{f}\left( \mathbf{a} \right)\left( \mathbf{x} - \mathbf{a} \right) \right\|\\
+&= \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) - J_{f}\left( \mathbf{a} \right)\mathbf{x} + J_{f}\left( \mathbf{a} \right)\mathbf{a} \right\|\\
+&= \left\| \left( f\left( \mathbf{x} \right) - J_{f}\left( \mathbf{a} \right)\mathbf{x} \right) - \left( f\left( \mathbf{a} \right) - J_{f}\left( \mathbf{a} \right)\mathbf{a} \right) \right\|\\
+&= \left\| g\left( \mathbf{x} \right) - g\left( \mathbf{a} \right) \right\|
+\end{align*}
+ここで、上記の議論により$\left\| g\left( \mathbf{x} \right) - g\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\varepsilon\left\| \mathbf{x} - \mathbf{a} \right\|$が成り立つので、次式が成り立つ。
+\begin{align*}
+\rho\left\| \mathbf{x} - \mathbf{a} \right\| - \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\| \leq \left\| g\left( \mathbf{x} \right) - g\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\varepsilon\left\| \mathbf{x} - \mathbf{a} \right\|
+\end{align*}
+ここで、その関数$f$が全単射であることに注意すれば、$\mathbf{y} = f\left( \mathbf{x} \right)$、$\mathbf{b} = f\left( \mathbf{a} \right)$として次のようになる。
+\begin{align*}
+&\quad \rho\left\| \mathbf{x} - \mathbf{a} \right\| - \left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\| \leq \sqrt{n}\varepsilon\left\| \mathbf{x} - \mathbf{a} \right\|\\
+&\Leftrightarrow \rho\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| - \left\| \mathbf{y} - \mathbf{b} \right\| \leq \sqrt{n}\varepsilon\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\|\\
+&\Leftrightarrow \rho\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| - \sqrt{n}\varepsilon\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| \leq \left\| \mathbf{y} - \mathbf{b} \right\|\\
+&\Leftrightarrow \left( \rho - \sqrt{n}\varepsilon \right)\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| \leq \left\| \mathbf{y} - \mathbf{b} \right\|
+\end{align*}
+ここで、$0 < \varepsilon < \frac{\rho}{\sqrt{n}}$が成り立つのであったので、$0 < \rho - \sqrt{n}\varepsilon$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| \leq \frac{1}{\rho - \sqrt{n}\varepsilon}\left\| \mathbf{y} - \mathbf{b} \right\|
+\end{align*}
+$\varepsilon' = \frac{1}{\rho - \sqrt{n}\varepsilon}\left\| \mathbf{y} - \mathbf{b} \right\|$とすれば、$\mathbf{x} \in U\left( \mathbf{a},\delta' \right)$は$\left\| \mathbf{x} - \mathbf{a} \right\| < \delta'$と書き換えられることができその関数$f$はその集合$U$で連続であるので、$\forall\varepsilon' \in \mathbb{R}^{+}\exists\varepsilon'' \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\left\| f\left( \mathbf{x} \right) - f\left( \mathbf{a} \right) \right\| = \left\| \mathbf{y} - \mathbf{b} \right\| < \varepsilon'' \Rightarrow \left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| \leq \varepsilon'
+\end{align*}
+これにより、その関数$f^{- 1}$はその点$\mathbf{b}$で連続であることが示され、したがって、その集合$V$で連続である。\par
+次に、$\forall a \in U$に対し、その関数$f$はその点$\mathbf{a}$で微分可能であるので、$r \in o_{\left\| \mathbf{k} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}^{n}$を用いた次式が成り立つ。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) = J_{f}\left( \mathbf{a} \right)\mathbf{k} + r\left( \mathbf{k} \right)
+\end{align*}
+ここで、その集合$V$は開集合で、$\forall\mathbf{b} = f\left( \mathbf{a} \right) \in V$に対し、その点$\mathbf{b}$のある近傍$U\left( \mathbf{b},\varepsilon_{\mathbf{b}} \right)$がその集合$V$に含まれ$\mathbf{b} + \mathbf{l} \in V$が成り立つようにすることができるので、$f^{- 1}\left( \mathbf{b} + \mathbf{l} \right)$が存在できる。ここで、$f^{- 1}\left( \mathbf{b} + \mathbf{l} \right) = \mathbf{a} + \mathbf{k}$とすると、それらの関数たち$f$、$f^{- 1}$は全単射で連続であるので、その点$\mathbf{l}$が$\mathbf{0}$に近づくならそのときに限り、その点$\mathbf{k}$が$\mathbf{0}$に近づくかつ、$\mathbf{l} = \mathbf{0}$が成り立つならそのときに限り、$\mathbf{k} = \mathbf{0}$が成り立つ。\par
+また、$\forall\mathbf{x} \in U$に対し、その行列$J_{f}\left( \mathbf{x} \right)$の逆行列$J_{f}\left( \mathbf{x} \right)^{- 1}$が存在するので、次式が成り立つ。
+\begin{align*}
+J_{f}\left( \mathbf{a} \right)^{- 1}\left( f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right) = J_{f}\left( \mathbf{a} \right)^{- 1}\left( J_{f}\left( \mathbf{a} \right)\mathbf{k} + r\left( \mathbf{k} \right) \right) = \mathbf{k} + J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right)
+\end{align*}
+ここで、その関数$f$は全単射であるかつ、$f^{- 1}\left( \mathbf{b} + \mathbf{l} \right) = \mathbf{a} + \mathbf{k}$が成り立つので、$f^{- 1}\left( \mathbf{b} + \mathbf{l} \right) - f^{- 1}\left( \mathbf{b} \right) = \mathbf{k}$かつ$f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) = \mathbf{l}$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+J_{f}\left( \mathbf{a} \right)^{- 1}\mathbf{l} = f^{- 1}\left( \mathbf{b} + \mathbf{l} \right) - f^{- 1}\left( \mathbf{b} \right) + J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right)
+\end{align*}
+ここで、$\left( \rho - \sqrt{n}\varepsilon \right)\left\| f^{- 1}\left( \mathbf{y} \right) - f^{- 1}\left( \mathbf{b} \right) \right\| \leq \left\| \mathbf{y} - \mathbf{b} \right\|$が成り立つので、$\frac{\left\| \mathbf{k} \right\|}{\left\| f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right\|} \leq \frac{1}{\rho - \sqrt{n}\varepsilon}$が成り立ち、したがって、次のようになる。
+\begin{align*}
+\frac{\left\| - J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{l} \right\|} &\leq \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|\left\| r\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{l} \right\|}\\
+&= \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|\left\| r\left( \mathbf{k} \right) \right\|\left\| \mathbf{k} \right\|}{\left\| \mathbf{k} \right\|\left\| f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right\|}\\
+&= \left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|\frac{\left\| r\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{k} \right\|}\frac{\left\| \mathbf{k} \right\|}{\left\| f\left( \mathbf{a} + \mathbf{k} \right) - f\left( \mathbf{a} \right) \right\|}\\
+&\leq \left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|\frac{\left\| r\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{k} \right\|}\frac{1}{\rho - \sqrt{n}\varepsilon}\\
+&= \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|}{\rho - \sqrt{n}\varepsilon}\left\| \frac{r\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} \right\|
+\end{align*}
+ここで、$\mathbf{l} \rightarrow \mathbf{0}$のとき、$r \in o_{\left\| \mathbf{k} \right\|,\mathbf{0}}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\lim_{\mathbf{l} \rightarrow \mathbf{0}}\frac{\left\| - J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right) \right\|}{\left\| \mathbf{l} \right\|} &= \lim_{\mathbf{k} \rightarrow \mathbf{0}}{\frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|}{\rho - \sqrt{n}\varepsilon}\left\| \frac{r\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} \right\|}\\
+&= \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|}{\rho - \sqrt{n}\varepsilon}\lim_{\mathbf{k} \rightarrow \mathbf{0}}\left\| \frac{r\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} \right\|\\
+&= \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|}{\rho - \sqrt{n}\varepsilon}\left\| \lim_{\mathbf{k} \rightarrow \mathbf{0}}\frac{r\left( \mathbf{k} \right)}{\left\| \mathbf{k} \right\|} \right\|\\
+&= \frac{\left\| J_{f}\left( \mathbf{a} \right)^{- 1} \right\|}{\rho - \sqrt{n}\varepsilon} \cdot 0 = 0
+\end{align*}
+これにより、$\lim_{\mathbf{l} \rightarrow \mathbf{0}}\frac{- J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right)}{\left\| \mathbf{l} \right\|} = \mathbf{0}$が成り立ち、次式のように関数$s$が定義されると、
+\begin{align*}
+s:V \rightarrow \mathbb{R}^{n};\mathbf{l} \mapsto - J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right)
+\end{align*}
+$s \in o_{\left\| \mathbf{l} \right\|,\mathbf{0}}$が成り立つことになるので、次式が得られ
+\begin{align*}
+f^{- 1}\left( \mathbf{b} + \mathbf{l} \right) - f^{- 1}\left( \mathbf{b} \right) = J_{f}\left( \mathbf{a} \right)^{- 1}\mathbf{l} - J_{f}\left( \mathbf{a} \right)^{- 1}r\left( \mathbf{k} \right) = J_{f}\left( \mathbf{a} \right)^{- 1}\mathbf{l} + s(l)
+\end{align*}
+Jacobi行列の定義より$\forall\mathbf{b} \in V$に対し、次式が成り立つ。
+\begin{align*}
+J_{f^{- 1}}\left( \mathbf{b} \right) = J_{f}\left( \mathbf{a} \right)^{- 1} = J_{f}\left( f^{- 1}\left( \mathbf{b} \right) \right)^{- 1} = \left( J_{f} \circ f^{- 1} \right)^{- 1}\left( \mathbf{b} \right)
+\end{align*}
+したがって、次式が得られた。
+\begin{align*}
+J_{f^{- 1}} = \left( J_{f} \circ f^{- 1} \right)^{- 1}:V \rightarrow U
+\end{align*}\par
+また、その行列$J_{f}\left( \mathbf{x} \right)$の$(j,i)$余因子行列を$\widetilde{J_{f}\left( \mathbf{x} \right)}$とおくと、次式が成り立つので、
+\begin{align*}
+J_{f^{- 1}}\left( \mathbf{y} \right) = J_{f}\left( \mathbf{x} \right)^{- 1} = \frac{\widetilde{J_{f}\left( \mathbf{x} \right)}}{\det{J_{f}\left( \mathbf{x} \right)}}
+\end{align*}
+連続な関数$J_{f^{- 1}} \circ f:U \rightarrow \mathbb{R}^{n};\mathbf{x} \mapsto \frac{\widetilde{J_{f}\left( \mathbf{x} \right)}}{\det{J_{f}\left( \mathbf{x} \right)}}$が得られているが、その関数$f^{- 1}$もその集合$V$で連続であったので、$J_{f^{- 1}} \circ f \circ f^{- 1} = J_{f^{- 1}}$よりその関数$J_{f^{- 1}}$もその集合$V$で連続でありその関数$f^{- 1}$はその集合$V$上で$C^{1}$級である。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p127-141 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

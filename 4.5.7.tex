@@ -1,0 +1,489 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{5}
+\setcounter{subsection}{6}
+\usepackage{xr}
+\externaldocument{4.5.2}
+\externaldocument{4.5.3}
+\externaldocument{4.5.4}
+\externaldocument{4.5.5}
+\externaldocument{4.5.6}
+\input{macro}
+\begin{document}
+%\hypertarget{ux76f4ux7a4dux6e2cux5ea6}{%
+\subsection{直積測度}%\label{ux76f4ux7a4dux6e2cux5ea6}}
+%\hypertarget{ux77e9ux5f62ux96c6ux5408}{%
+\subsubsection{矩形集合}%\label{ux77e9ux5f62ux96c6ux5408}}
+\begin{dfn} 
+集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{n} }$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$が与えられたとき、$\forall i \in \varLambda_{n}$に対し、$E_{i} \in \varSigma_{i}$なる集合族$\left\{ E_{i} \right\}_{i \in \varLambda_{n} }$の直積$\prod_{i \in \varLambda_{n} } E_{i}$を矩形集合という。
+\end{dfn}\par
+ここで、後の議論のため、重要となる定義、定理を再掲しておこう。
+\begin{thm*}[定理\ref{4.5.2.2}の再掲]
+集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$が与えられたとき、添数集合$\varLambda_{n}$を用いて、$\forall i \in \varLambda_{n}$に対し、$E_{i}\in \mathfrak{E}$、$F_{i}\in \mathfrak{F}$なる直積$E_{i} \times F_{i}$の直和$\bigsqcup_{i \in \varLambda_{n} } \left( E_{i} \times F_{i} \right)$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族である。\par
+一般に、有限な集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{m} }$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$が与えられたとき、有限集合である添数集合$\varLambda_{n}$を用いて、$\forall i \in \varLambda_{m}\forall j \in \varLambda_{n}$に対し、$E_{ij} \in \mathfrak{F}_{i}$なる直積$\prod_{i \in \varLambda_{m} } E_{ij}$の直和$\bigsqcup_{j \in \varLambda_{n} } {\prod_{i \in \varLambda_{m}} E_{ij}}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m}} X_{i}$上の有限加法族であることも数学的帰納法によって容易に示される。
+\end{thm*}\par
+この定理は矩形集合の直和の形で表されるような集合全体の集合が有限加法族をなすことを述べている。
+\begin{proof}
+集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$が与えられたとき、有限集合である添数集合$\varLambda$によって添数づけられたそれらの集合たち$\mathfrak{E}$、$\mathfrak{F}$の元の族それぞれ$\left\{ E_{i} \right\}_{i \in \varLambda_{n}}$、$\left\{ F_{i} \right\}_{i \in \varLambda_{n}}$が与えられたときの集合$E_{i} \times F_{i}$の直和$\bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)$全体の集合$\mathfrak{K}$を考えよう。このとき、$\emptyset = \emptyset \times \emptyset$が成り立つので、$\emptyset \in \mathfrak{K}$が成り立つ。\par
+また、$\forall K \in \mathfrak{K}$に対し、定義より次式が成り立つことになり、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+(X \times Y) \setminus K &= (X \times Y) \setminus \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)\\
+&= \bigcap_{i \in \varLambda_{n}} \left( (X \times Y) \setminus \left( E_{i} \times F_{i} \right) \right)
+\end{align*}
+ここで、次のことに注意すれば、
+\begin{align*}
+X \times Y &= \left( E_{i} \sqcup X \setminus E_{i} \right) \times \left( F_{i} \sqcup Y \setminus F_{i} \right)\\
+&= \left( E_{i} \times F_{i} \right) \sqcup \left( E_{i} \times \left( Y \setminus F_{i} \right) \right) \sqcup \left( \left( X \setminus E_{i} \right) \times F_{i} \right) \sqcup \left( \left( X \setminus E_{i} \right) \times \left( Y \setminus F_{i} \right) \right)
+\end{align*}
+次式が成り立つことになり、
+\begin{align*}
+(X \times Y) \setminus \left( E_{i} \times F_{i} \right) = \left( E_{i} \times \left( Y \setminus F_{i} \right) \right) \sqcup \left( \left( X \setminus E_{i} \right) \times F_{i} \right) \sqcup \left( \left( X \setminus E_{i} \right) \times \left( Y \setminus F_{i} \right) \right)
+\end{align*}
+ここで、$X \setminus E_{i}\in \mathfrak{E}$かつ$Y \setminus F_{i}\in \mathfrak{F}$が成り立つので、やはり$(X \times Y) \setminus \left( E_{i} \times F_{i} \right) \in \mathfrak{K}$が成り立つ。\par
+また、$\forall K,L \in \mathfrak{K}$に対し、添数集合たち$\varLambda_{m}$、$\varLambda_{n}$を用いて次式が成り立つことになり、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{m}} \left( E_{i}^{K} \times F_{i}^{K} \right),\ \ L = \bigsqcup_{j \in \varLambda_{n}} \left( E_{j}^{L} \times F_{j}^{L} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+K \cap L &= \bigsqcup_{i \in \varLambda_{m}} \left( E_{i}^{K} \times F_{i}^{K} \right) \cap \bigsqcup_{j \in \varLambda_{n}} \left( E_{j}^{L} \times F_{j}^{L} \right)\\
+&= \bigsqcup_{i \in \varLambda_{m},j \in \varLambda_{n}} {\left( E_{i}^{K} \times F_{i}^{K} \right) \cap \left( E_{j}^{L} \times F_{j}^{L} \right)}\\
+&= \bigsqcup_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( E_{i}^{K} \cap E_{j}^{L} \right) \times \left( F_{i}^{K} \cap F_{j}^{L} \right)}
+\end{align*}
+ここで、$E_{i}^{K} \cap E_{j}^{L}\in \mathfrak{E}$かつ$F_{i}^{K} \cap F_{j}^{L}\in \mathfrak{F}$が成り立つので、$K \cap L \in \mathfrak{K}$が成り立つ。\par
+最後に、$\forall K,L \in \mathfrak{K}$に対し、$K \cup L = K \sqcup (L \setminus K)$が成り立ち、ここで、次式が成り立つことに注意すれば、
+\begin{align*}
+L \setminus K = \left( L \cap (X \times Y) \right) \setminus K = L \cap \left( (X \times Y) \setminus K \right) \in \mathfrak{K}
+\end{align*}
+明らかに$K \sqcup (L \setminus K) \in \mathfrak{K}$が成り立つことになり、したがって、$K \cup L \in \mathfrak{K}$が成り立つ。
+\end{proof}
+\begin{dfn*}[定義\ref{直積σ-加法族}の再掲]
+任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、射影$\mathrm{pr}_{i}$が次式のように与えられたとして、
+\begin{align*}
+\mathrm{pr}_{i}:\prod_{i \in \varLambda} X_{i} \rightarrow X_{i};\left( a_{i} \right)_{i \in \varLambda} \mapsto a_{i}
+\end{align*}
+次式のように集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$が定義されると、
+\begin{align*}
+\bigotimes_{i \in \varLambda} \varSigma_{i} = \varSigma\left( \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \varSigma_{i} \right\} \right)
+\end{align*}
+この集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$はその集合$\prod_{i \in \varLambda} X_{i}$上の$\sigma$-加法族でありこの集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$を$\sigma$-加法族からなる族$\left\{ \varSigma_{i} \right\}_{i \in \varLambda}$の直積$\sigma$-加法族という。
+\end{dfn*}\par
+ここで、その集合$\left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \varSigma_{i} \right\}$は矩形集合全体の集合にすぎない。
+\begin{thm*}[定理\ref{4.5.5.4}の再掲]
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすなら、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$もまた第2可算公理を満たす。
+\end{thm*}
+\begin{thm*}[定理\ref{4.5.5.5}の再掲]
+集合$X$上の$\sigma$-加法族$\varSigma$と任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、写像$f:X \rightarrow \prod_{i \in \varLambda} X$について、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{i}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像である。
+\item
+  $\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関してその集合$X$からその集合$X_{i}$への可測写像である。
+\end{itemize}
+\end{thm*}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$と任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、写像$f:X \rightarrow \prod_{i \in \varLambda} X$について、その写像$f$がその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{i}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像であるなら、$\forall i \in \varLambda$に対し、その写像$\mathrm{pr}_{i}$は$\sigma$-加法族からなる族$\left\{ \varSigma_{i} \right\}_{i \in \varLambda}$の直積$\sigma$-加法族の定義より可測写像であるから、定理\ref{4.5.5.3}より$\forall i \in \varLambda$に対し、その合成写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関してその集合$X$からその集合$X_{i}$への可測写像である。\par
+逆に、$\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$がその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関して可測写像であるなら、$\forall E' \in \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \varSigma_{i} \right\}$に対し、$E' = V\left( \mathrm{pr}_{i}^{- 1}|E \right)$なるその集合$\varSigma_{i}$の元$E$が存在して次式が成り立つので、
+\begin{align*}
+V\left( \left( \mathrm{pr}_{i} \circ f \right)^{- 1}|E \right) = V\left( f^{- 1}|V\left( \mathrm{pr}_{i}^{- 1}|E \right) \right) = V\left( f^{- 1}|E' \right) \in \varSigma
+\end{align*}
+その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{i}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像である。
+\end{proof}
+\begin{thm}\label{4.5.5.6}
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすとする。このとき、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$のBorel集合族$\mathfrak{B}_{0}$、それらの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$のBorel集合族$\mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$の族$\left\{ \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}_{i \in \varLambda }$について、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{0} = \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすとする。このとき、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$のBorel集合族$\mathfrak{B}_{0}$、それらの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$のBorel集合族$\mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$の族$\left\{ \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}_{i \in \varLambda }$について、$\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i}:\prod_{i \in \varLambda } X_{i} \rightarrow X_{i}$はその直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$からその位相空間$\left( X_{i},\mathfrak{O}_{i} \right)$への連続写像であるから、$\forall E \in \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$に対し、$E' = V\left( \mathrm{pr}_{i}^{- 1}|E \right) \in \mathfrak{O}_{0} \subseteq \mathfrak{B}_{0}$が成り立つので、$\bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \subseteq \mathfrak{B}_{0}$が成り立つ。\par
+一方で、定理\ref{4.5.5.4}よりその直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$は第2可算公理を満たすので、$\forall O \in \mathfrak{O}_{0}$に対し、その開集合$O$はたかだか可算な個数の基底の元々の和集合で表されることができる。このとき、その基底の元々は初等開集合の形で表されるかつ、その写像$\mathrm{pr}_{i}$は連続であるので、その開集合$O$は次式を満たす。
+\begin{align*}
+O \in \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{O}_{i} \subseteq \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}
+\end{align*}
+したがって、$\mathfrak{O}_{0} \subseteq \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}$が得られる。よって、次式が成り立つ、
+\begin{align*}
+\varSigma\left( \mathfrak{O}_{0} \right) \subseteq \varSigma\left( \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\} \right)
+\end{align*}
+即ち、$\mathfrak{B}_{0} \subseteq \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$が成り立つ。\par
+以上より、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{0} = \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.5.7}
+位相空間たち$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$の直積位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)} = \bigotimes_{i \in \varLambda_{n} } \mathfrak{B}_{\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.5.5.6}より直ちに分かる。
+\end{proof}
+%\hypertarget{ux76f4ux7a4dux6e2cux5ea6-1}{%
+\subsubsection{直積測度}%\label{ux76f4ux7a4dux6e2cux5ea6-1}}
+\begin{dfn}
+有限集合である添数集合$\varLambda$によって添数づけられた集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{m}}$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$、これで定義されたJordan測度$m_{i}$が与えられたとき、$\forall i \in \varLambda_{m}\forall j \in \varLambda_{n}$に対し、$E_{ij} \in \mathfrak{F}_{i}$なる矩形集合$\prod_{i \in \varLambda_{m}} E_{ij}$の直和$\bigsqcup_{j \in \varLambda_{n}} {\prod_{i \in \varLambda_{m}} E_{ij}}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m}} X_{ij}$上の有限加法族であった。そこで、$\forall K \in \mathfrak{K}$に対し、次式のようにおかれ、
+\begin{align*}
+K = \bigsqcup_{j \in \varLambda_{n}} {\prod_{i \in \varLambda_{m}} E_{ij}}
+\end{align*}
+次式のように対応$\bigotimes_{i \in \varLambda_{m}} m_{i}\mathfrak{:K \multimap}\mathrm{cl}\mathbb{R}^{+}$が定義されたとき\footnote{これは暗に$0 \cdot \infty = \infty \cdot 0 = 0$と約束しています。}、
+\begin{align*}
+\bigotimes_{i \in \varLambda_{m}} m_{i}(K) &= \sum_{j \in \varLambda_{n}} {\bigotimes_{i \in \varLambda_{m}} m_{i}\left( \prod_{i \in \varLambda_{m}} E_{ij} \right)},\\
+\bigotimes_{i \in \varLambda_{m}} m_{i}\left( \prod_{i \in \varLambda_{m}} E_{ij} \right) &= \left\{ \begin{matrix}
+0 & \mathrm{if} & \exists i \in \varLambda_{m}\left[ \mu_{i}\left( E_{i} \right) = 0 \right] \\
+\prod_{i \in \varLambda_{m}} {m_{i}\left( E_{i} \right)} & \mathrm{if} & \forall i \in \varLambda_{m}\left[ \mu_{i}\left( E_{i} \right) > 0 \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+その写像$\bigotimes_{i \in \varLambda_{m}} m_{i}$を、ここでは、直積Jordan測度ということにする。
+\end{dfn}\par
+これが、のちに議論されることになるが、結論からいえば、実際にJordan測度となっているので、このように名付けても誤解は生じなかろう。
+\begin{thm}\label{4.5.7.1}
+集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$、これらで定義されたJordan測度たち$m$、$n$が与えられ、$\forall K \in \mathfrak{K}$に対し、定義より矩形集合の族$\left\{ E_{i} \right\}_{i \in \varLambda_{N}}$を用いて次式のようにおかれたとき、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{N}} E_{i}
+\end{align*}
+その集合$K$によるその直積Jordan測度$m \otimes n$の値はその族$\left\{ E_{i} \right\}_{i \in \varLambda_{N}}$によらなくその対応$m \otimes n$は写像になる。\par
+一般に、集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{m}}$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$、これで定義されたJordan測度$m_{i}$が与えられ、$\forall K \in \mathfrak{K}$に対し、定義より矩形集合の族$\left\{ E_{j} \right\}_{j \in \varLambda_{n} }$を用いて次式のようにおかれたとき、
+\begin{align*}
+K = \bigsqcup_{j \in \varLambda_{n} } E_{j}
+\end{align*}
+その集合$K$によるその直積Jordan測度$\bigotimes_{i \in \varLambda_{m} } m_{i}$の値はその族$\left\{ E_{j} \right\}_{j \in \varLambda_{n}}$によらなくその対応$\bigotimes_{i \in \varLambda_{m}} m_{i}$は写像になる。
+\end{thm}
+\begin{proof} これは定理\ref{4.5.4.3}と同様にして示される。実際、集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$、これらで定義されたJordan測度たち$m$、$n$が与えられ、$\forall K \in \mathfrak{K}$に対し、定義より矩形集合の族々$\left\{ E_{i} \right\}_{i \in \varLambda_{M}}$、$\left\{ F_{j} \right\}_{j \in \varLambda_{N}}$を用いて次式のようにおかれたとき、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{M}} E_{i} = \bigsqcup_{j \in \varLambda_{N}} F_{j}
+\end{align*}
+次式のように定義される族$\left\{ K_{ij} \right\}_{(i,j) \in \varLambda_{M} \times \varLambda_{N}}$は、
+\begin{align*}
+\forall(i,j) \in \varLambda_{M} \times \varLambda_{N}\left[ K_{ij} = E_{i} \cap F_{j} \right]
+\end{align*}
+$\forall(i,j),(k,l) \in \varLambda_{M} \times \varLambda_{N}$に対し、次のようになり、
+\begin{align*}
+\left( E_{i} \cap F_{j} \right) \cap \left( E_{k} \cap F_{l} \right) &= \left( E_{i} \cap E_{k} \right) \cap \left( F_{j} \cap F_{l} \right)\\
+&= \emptyset \cap \emptyset = \emptyset
+\end{align*}
+さらに、次のようになるので、
+\begin{align*}
+\bigsqcup_{(i,j) \in \varLambda_{M} \times \varLambda_{N}} \left( E_{i} \cap F_{j} \right) &= \bigsqcup_{i \in \varLambda_{M}} {\bigsqcup_{j \in \varLambda_{N}} \left( E_{i} \cap F_{j} \right)}\\
+&= \bigsqcup_{i \in \varLambda_{M}} \left( E_{i} \cap \bigsqcup_{j \in \varLambda_{N} } F_{j} \right)\\
+&= \bigsqcup_{i \in \varLambda_{M}} \left( E_{i} \cap K \right)\\
+&= \bigsqcup_{i \in \varLambda_{M}} E_{i} = K
+\end{align*}
+次式をみたす。
+\begin{align*}
+K = \bigsqcup_{(i,j) \in \varLambda_{M} \times \varLambda_{N}} K_{ij}
+\end{align*}
+このとき、次のようになる。
+\begin{align*}
+m \otimes n\left( \bigsqcup_{i \in \varLambda_{M}} E_{j} \right) &= m \otimes n\left( \bigsqcup_{i \in \varLambda_{M}} \left( E_{i} \cap K \right) \right)\\
+&= m \otimes n\left( \bigsqcup_{i \in \varLambda_{M}} \left( E_{i} \cap \bigsqcup_{j \in \varLambda_{N} } F_{j} \right) \right)\\
+&= m \otimes n\left( \bigsqcup_{i \in \varLambda_{M}} {\bigsqcup_{j \in \varLambda_{N}} \left( E_{i} \cap F_{j} \right)} \right)\\
+&= m \otimes n\left( \bigsqcup_{(i,j) \in \varLambda_{M} \times \varLambda_{N}} K_{ij} \right)\\
+&= \sum_{(i,j) \in \varLambda_{M} \times \varLambda_{N}} {m \otimes n\left( K_{ij} \right)}
+\end{align*}
+同様にして、次式が得られる。
+\begin{align*}
+m \otimes n\left( \bigsqcup_{j \in \varLambda_{N}} F_{j} \right) = \sum_{(i,j) \in \varLambda_{M} \times \varLambda_{N}} {m \otimes n\left( K_{ij} \right)}
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+m \otimes n(K) = m \otimes n\left( \bigsqcup_{i \in \varLambda_{M}} E_{i} \right) = m \otimes n\left( \bigsqcup_{j \in \varLambda_{N}} F_{j} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.7.2} 集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{n} }$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$、これで定義されたJordan測度$m_{i}$が与えられたときのその直積Jordan測度$\bigotimes_{i \in \varLambda_{n}} m_{i}$はJordan測度となる。
+\end{thm}
+\begin{proof} 定理\ref{4.5.7.1}が示されたので、上の集合$\mathfrak{K}$の定義とその直積Jordan測度の定義より明らかであろう。
+\end{proof}
+\begin{thm}\label{4.5.7.3}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$が与えられたとき、矩形集合$E_{i}$の直和$\bigsqcup_{i \in \varLambda_{n}} E_{i}$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族となるのであった。ここで、$\forall K \in \mathfrak{K}$に対し、それらの集合たち$\varSigma$、$T$の族々$\left\{ E_{i} \right\}_{i \in \varLambda_{n}}$、$\left\{ F_{i} \right\}_{i \in \varLambda_{n}}$が存在して、次のことが成り立つようにすることができる\footnote{なにが自明じゃないかといいますと、矩形集合たち2つ$E_{1}$、$E_{2}$が与えられたとき、お互いとも成分集合が少なくとも1つ空集合であれば、これを成分集合とする矩形集合は空集合となって$E_{1} \cap E_{2} = \emptyset$が成り立ってしまう場合があるなか、このようにうまく選ぶことができるの!? というところにあります。}。
+\begin{itemize}
+\item
+  $K = \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)$が成り立つ。
+\item
+  $\forall k,l \in \varLambda_{n}$に対し、$k \neq l$が成り立つなら、$E_{k} \cap E_{l} = \emptyset$が成り立つ。
+\end{itemize}\par
+より一般に、測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m}}$が与えられたとき、$\forall i \in \varLambda_{m}$に対し、矩形集合$E_{j}$の直和$\bigsqcup_{j \in \varLambda_{n}} E_{j}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m}} X_{i}$上の有限加法族となるのであった。ここで、$\forall i \in \varLambda_{m}\forall K \in \mathfrak{K}$に対し、その集合$\varSigma_{i}$の族$\left\{ E_{ij} \right\}_{j \in \varLambda_{n}}$が存在して、次のことが成り立つようにすることができる。
+\begin{itemize}
+\item
+  $K = \bigsqcup_{j \in \varLambda_{n}} {\prod_{i \in \varLambda_{m}} E_{ij}}$が成り立つ。
+\item
+  $\forall i \in \varLambda_{m - 1}\forall k,l \in \varLambda_{n}$に対し、$k \neq l$が成り立つなら、$E_{ik} \cap E_{il} = \emptyset$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$が与えられたとき、矩形集合$E_{j}$の直和$\bigsqcup_{j \in \varLambda_{n}} E_{j}$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族となるのであった。ここで、$\forall K \in \mathfrak{K}$に対し、定義よりそれらの集合たち$\varSigma$、$T$の族々$\left\{ E_{i}' \right\}_{i \in \varLambda_{n'}}$、$\left\{ F_{i}' \right\}_{i \in \varLambda_{n'}}$が存在して次式が成り立つ。
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{n'}} \left( E_{i}' \times F_{i}' \right)
+\end{align*}
+ここで、その族$\left\{ E_{i}' \right\}_{i \in \varLambda_{n'}}$のうち、2つの集合たちの差、あるいは、任意の有限個の集合たちの共通部分で表される零集合でなく相異なるものからなる族$\left\{ E_{i}'' \right\}_{i \in \varLambda_{n''}}$のうち、任意の集合$E_{i}''$が他の集合たち$E_{j}''$を含まないもの$\left\{ E_{i} \right\}_{i \in \varLambda_{n}}$が考えられると、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\bigcup_{i \in \varLambda_{n'}} E_{i}' = \bigsqcup_{i \in \varLambda_{n}} E_{i}$が成り立つ。
+\item
+  $\forall k,l \in \varLambda_{n}$に対し、$k \neq l$が成り立つなら、$E_{k} \cap E_{l} = \emptyset$が成り立つ。
+\end{itemize}
+ここで、$\forall i \in \varLambda_{n}\exists i' \in \varLambda_{n'}$に対し、$E_{i} \subseteq E_{i'}'$が成り立つので、このような添数$i'$全体の集合が$I(i)$とおかれ、さらに、$F_{i} = \bigcup_{i' \in I(i)} F_{i'}'$とおかれれば、$\forall k,l \in \varLambda_{n}$に対し、$k \neq l$が成り立つなら、次のようになり、
+\begin{align*}
+\left( E_{k} \times F_{k} \right) \cap \left( E_{l} \times F_{l} \right) &= \left( E_{k} \cap E_{l} \right) \times \left( F_{k} \cap F_{l} \right)\\
+&= \emptyset \times \left( F_{k} \times F_{l} \right) = \emptyset
+\end{align*}
+さらに、次のようになる。
+\begin{align*}
+\bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right) &= \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times \bigcup_{i' \in I(i)} F_{i'}' \right)\\
+&= \bigsqcup_{i \in \varLambda_{n}} {\bigcup_{i' \in I(i)} \left( E_{i} \times F_{i'}' \right)}
+\end{align*}
+ここで、$\forall i' \in \varLambda_{n'}\exists i \in \varLambda_{n}$に対し、$\left( E_{i'}' \times F_{i'}' \right) \cap \left( E_{i} \times F_{i} \right) \neq \emptyset$が成り立つので、このような添数$i$全体の集合が$I'\left( i' \right)$とおかれれば、次のようになる。
+\begin{align*}
+\bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right) &= \bigcup_{i'' \in \varLambda_{n'}} {\bigcup_{i \in I'\left( i'' \right)} {\bigcup_{i' \in I(i)} \left( E_{i} \times F_{i'}' \right)}}\\
+&= \bigcup_{i'' \in \varLambda_{n'}} {\bigcup_{i \in I'\left( i'' \right)} {\bigcup_{i' \in \left\{ i'' \right\}} \left( E_{i} \times F_{i'}' \right)}}\\
+&= \bigcup_{i' \in \varLambda_{n'}} {\bigcup_{i \in I'\left( i' \right)} \left( E_{i} \times F_{i'}' \right)}\\
+&= \bigcup_{i' \in \varLambda_{n'}} \left( \bigcup_{i \in I'\left( i' \right)} E_{i} \times F_{i'}' \right)\\
+&= \bigcup_{i' \in \varLambda_{n'}} \left( E_{i'}' \times F_{i'}' \right)\\
+&= \bigsqcup_{i \in \varLambda_{n'}} \left( E_{i}' \times F_{i}' \right) = K
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.7.4}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right)
+\end{align*}
+次のことが成り立つようなものが存在する。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}\exists j \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i} \subseteq E_{n,j}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall i,j \in \varLambda_{k_{n}}$に対し、$i \neq j$が成り立つなら、$E_{n,i} \cap E_{n,j} = \emptyset$が成り立つ。
+\end{itemize}\par
+より一般に、測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m}}$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{j \in \varLambda_{k_{n}}} {\prod_{i \in \varLambda_{m}} E_{n,i,j}}
+\end{align*}
+$\forall i \in \varLambda_{m - 1}$に対し、次のことが成り立つようなものが存在する。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall k \in \varLambda_{k_{n}}\exists l \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i,k} \subseteq E_{n,i,l}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall k,l \in \varLambda_{k_{n}}$に対し、$k \neq l$が成り立つなら、$E_{n,i,k} \cap E_{n,i,l} = \emptyset$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right)
+\end{align*}
+定理\ref{4.5.7.3}より$\forall n \in \mathbb{N}$に対し、それらの集合たち$\varSigma$、$T$の族々$\left\{ E_{n,i}' \right\}_{i \in \varLambda_{k_{n}}}$、$\left\{ F_{n,i}' \right\}_{i \in \varLambda_{k_{n}}}$が存在して、次のことが成り立つようにすることができる。
+\begin{itemize}
+\item
+  $K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i}' \times F_{n,i}' \right)$が成り立つ。
+\item
+  $\forall k,l \in \varLambda_{k_{n}}$に対し、$k \neq l$が成り立つなら、$E_{n,k}' \cap E_{n,l}' = \emptyset$が成り立つ。
+\end{itemize}
+ここで、次のようにその集合$\varSigma$の族$\left\{ E_{n,i} \right\}_{i \in \varLambda_{k_{n}}}$がおかれれば、
+\begin{itemize}
+\item
+  $E_{1,i} = E_{1,i}'$と定義される。
+\item
+  $E_{n + 1,i}' \cap E_{n,i}$と表される集合のうち集合$\bigcap_{n \in \mathbb{N}} E_{n,i}$を含むものが$E_{n + 1,i}$である\footnote{もしかしたら、ここで、間違ってるかもです。}。
+\item
+  $F_{n,i} = F_{n,i}'$と定義される。
+\end{itemize}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}\exists j \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i} \subseteq E_{n,j}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall i,j \in \varLambda_{k_{n}}$に対し、$i \neq j$が成り立つなら、$E_{n,i} \cap E_{n,j} = \emptyset$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{4.5.7.5}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right)
+\end{align*}
+定理\ref{4.5.7.4}より次のことが成り立つようなものが存在するのであった。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}\exists j \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i} \subseteq E_{n,j}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall i,j \in \varLambda_{k_{n}}$に対し、$i \neq j$が成り立つなら、$E_{n,i} \cap E_{n,j} = \emptyset$が成り立つ。
+\end{itemize}
+ここで、$\forall\varepsilon \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\nu\left( F_{n,i} \right) > \varepsilon$なる添数$i$全体の集合が$I(\varepsilon,n)$とおかれれば、その集合$T$の元の列$\left( \bigsqcup_{i \in I(\varepsilon,n)} E_{n,i} \right)_{n \in \mathbb{N}}$は単調減少する\footnote{そこもあんまり自信なしです…。一応、粗探しもやってみましたが…。}。\par
+より一般に、測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m}}$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{j \in \varLambda_{k_{n}}} {\prod_{i \in \varLambda_{m} } E_{n,i,j}}
+\end{align*}
+定理\ref{4.5.7.4}より$\forall i \in \varLambda_{m - 1}$に対し、次のことが成り立つようなものが存在するのであった。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall k \in \varLambda_{k_{n}}\exists l \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i,k} \subseteq E_{n,i,l}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall k,l \in \varLambda_{k_{n}}$に対し、$k \neq l$が成り立つなら、$E_{n,i,k} \cap E_{n,i,l} = \emptyset$が成り立つ。
+\end{itemize}
+ここで、$\forall\varepsilon \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\bigotimes_{i \in \varLambda_{m - 1}} \mu_{i}\left( \prod_{i \in \varLambda_{m - 1}} E_{n,i,j} \right) > \varepsilon$なる添数$j$全体の集合が$J(\varepsilon,n)$とおかれれば、その集合$\varSigma_{m}$の元の列$\left( \bigsqcup_{j \in J(\varepsilon,n)} E_{n,m,j} \right)_{n \in \mathbb{N}}$は単調減少する。
+\end{thm}
+\begin{proof}
+測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$について、上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right)
+\end{align*}
+定理\ref{4.5.7.4}より次のことが成り立つようなものが存在するのであった。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}\exists j \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i} \subseteq E_{n,j}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall i,j \in \varLambda_{k_{n}}$に対し、$i \neq j$が成り立つなら、$E_{n,i} \cap E_{n,j} = \emptyset$が成り立つ。
+\end{itemize}
+ここで、$\forall\varepsilon \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\nu\left( F_{n,i} \right) > \varepsilon$なる添数$i$全体の集合が$I(\varepsilon,n)$とおかれれば、$\forall n \in \mathbb{N}\forall a \in \bigsqcup_{i \in I(\varepsilon,n + 1)} E_{n + 1,i}$に対し、定義より$\exists i \in I(\varepsilon,n + 1)$に対し、$a \in E_{n + 1,i}$かつ$\nu\left( F_{n + 1,i} \right) > \varepsilon$が成り立つ。ここで、次式が成り立つことから、
+\begin{align*}
+E_{n + 1,i} \times F_{n + 1,i} \subseteq K_{n + 1} \subseteq K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right)
+\end{align*}
+$E_{n + 1,i} \times F_{n + 1,i} \subseteq E_{n,i'} \times F_{n,i'}$なる添数$i'$がただ1つ存在して、もちろん次式が成り立つ。
+\begin{align*}
+F_{n + 1,i} \subseteq F_{n,i'}
+\end{align*}
+したがって、次式が成り立つので、
+\begin{align*}
+\varepsilon < \nu\left( F_{n + 1,i} \right) \leq \nu\left( F_{n,i'} \right)
+\end{align*}
+次のようになる。
+\begin{align*}
+a \in E_{n + 1,i} \subseteq E_{n,i} \subseteq \bigsqcup_{i \in I(\varepsilon,n)} E_{n,i}
+\end{align*}
+よって、$\forall n \in \mathbb{N}$に対し、$\bigsqcup_{i \in I(\varepsilon,n)} E_{n + 1,i} \subseteq \bigsqcup_{i \in I(\varepsilon,n)} E_{n,i}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.7.6}
+$\sigma$-有限な測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$が与えられたとき、矩形集合$E_{i}$の直和$\bigsqcup_{i \in \varLambda_{n}} E_{i}$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族となるのであった。このときのその直積Jordan測度$\mu \otimes \nu$はその集合$\mathfrak{K}$上で完全加法的となる。\par
+より一般に、$\sigma$-有限な測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m} }$が与えられたとき、矩形集合$E_{j}$の直和$\bigsqcup_{j \in \varLambda_{n} } E_{j}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m} } X_{i}$上の有限加法族となるのであった。このときのその直積Jordan測度$\bigotimes_{i \in \varLambda_{m} } \mu_{i}$はその集合$\mathfrak{K}$上で完全加法的となる。
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間たち$(X,\varSigma,\mu)$、$(Y,T,\nu)$が与えられたとき、矩形集合$E_{i}$の直和$\bigsqcup_{i \in \varLambda_{n}} E_{i}$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族となるのであった。このときのその直積Jordan測度$\mu \otimes \nu$も明らかに$\sigma$-有限である。ゆえに、定理\ref{4.5.6.3}よりその有限加法族$\mathfrak{K}$がその集合$X \times Y$上の単調族で次のことを満たすことを示せばよい。
+\begin{itemize}
+\item
+  $X \times Y = \bigcup_{n \in \mathbb{N}} K_{n}$かつ$\mu \otimes \nu\left( K_{n} \right) < \infty$なるその有限加法族$\mathfrak{K}$の単調増加する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が存在して、$\forall L \in \mathfrak{K}$に対し、$\mu \otimes \nu(L) = \infty$が成り立つなら、$\lim_{n \rightarrow \infty}{\mu \otimes \nu\left( L \cap K_{n} \right)} = \infty$が成り立つ。
+\item
+  $\mu \otimes \nu\left( K_{1} \right) < \infty$なるその集合$\mathfrak{K}$の単調減少する任意の元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が、$\bigcap_{n \in \mathbb{N}} K_{n} = \emptyset$が成り立つなら、$\lim_{n \rightarrow \infty}{\mu \otimes \nu\left( K_{n} \right)} = 0$を満たす。
+\end{itemize}\par
+$\forall L \in \mathfrak{K}$に対し、矩形集合の族$\left\{ E_{i} \times F_{i} \right\}_{i \in \varLambda_{n}}$が存在して次式が成り立つ。
+\begin{align*}
+L = \bigsqcup_{i \in \varLambda_{n} } {E_{i} \times F_{i}}
+\end{align*}
+$\mu \otimes \nu(L) = \infty$が成り立つなら、$\exists i \in \varLambda$に対し、$\mu \otimes \nu\left( E_{i} \times F_{i} \right) = \infty$が成り立つ。ここで、$\mu\left( E_{i} \right) = \infty$としても一般性は失われず、$0 < \beta < \nu\left( F_{i} \right)$なる実数$\beta$がとられると、仮定より単調増加するその集合$T$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$が存在して、$\nu\left( B_{n} \right) < \infty$かつ$\lim_{n \rightarrow \infty}B_{n} = Y$が成り立ち、したがって、定理\ref{4.5.3.14}より次式が成り立つことから、
+\begin{align*}
+\beta < \nu\left( F_{i} \right) = \nu\left( F_{i} \cap Y \right) = \lim_{n \rightarrow \infty}{\nu\left( F_{i} \cap B_{n} \right)}
+\end{align*}
+$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\beta < \nu\left( F_{i} \cap B_{n} \right)$が成り立つ。ここで、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、仮定より単調増加するその集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在して、$\mu\left( A_{n} \right) < \infty$かつ$\lim_{n \rightarrow \infty}A_{n} = X$が成り立ち、したがって、定理\ref{4.5.3.14}より次式が成り立つことから、
+\begin{align*}
+\infty = \mu\left( E_{i} \right) = \mu\left( E_{i} \cap X \right) = \lim_{n \rightarrow \infty}{\mu\left( E_{i} \cap A_{n} \right)}
+\end{align*}
+$\exists\gamma \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$\gamma \leq n$が成り立つなら、$\frac{\varepsilon}{\beta} < \mu\left( E_{i} \cap A_{n} \right)$が成り立つ。ここで、次のようになることから、
+\begin{align*}
+\left( E_{i} \cap A_{n} \right) \times \left( F_{i} \cap B_{n} \right) = \left( E_{i} \times F_{i} \right) \cap \left( A_{n} \times B_{n} \right) \subseteq L \cap \left( A_{n} \times B_{n} \right)
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、$\max\left\{ \gamma,\delta \right\} \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\varepsilon &< \mu\left( E_{i} \cap A_{n} \right)\nu\left( F_{i} \cap B_{n} \right)\\
+&= \mu \otimes \nu\left( \left( E_{i} \cap A_{n} \right) \times \left( F_{i} \cap B_{n} \right) \right)\\
+&\leq \mu \otimes \nu\left( L \cap \left( A_{n} \times B_{n} \right) \right)
+\end{align*}
+よって、$\forall L \in \mathfrak{K}$に対し、$\mu \otimes \nu(L) = \infty$が成り立つなら、$\lim_{n \rightarrow \infty}{\mu \otimes \nu\left( L \cap K_{n} \right)} = \infty$が成り立つ。\par
+定理\ref{4.5.7.4}より上の集合$\mathfrak{K}$の単調減少する元の列$\left( K_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次のようにおかれれば、
+\begin{align*}
+K_{n} = \bigsqcup_{i \in \varLambda_{k_{n}}} {E_{n,i} \times F_{n,i}}
+\end{align*}
+次のことが成り立つようなものが存在するのであった。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}\exists j \in \varLambda_{k_{n}}$に対し、$E_{n + 1,i} \subseteq E_{n,j}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}\forall i,j \in \varLambda_{k_{n}}$に対し、$i \neq j$が成り立つなら、$E_{n,i} \cap E_{n,j} = \emptyset$が成り立つ。
+\end{itemize}
+ここで、$\mu\left( E_{n,i} \right) = 0$なる集合$E_{n,i}$全体の和集合$E_{0}$、$\nu\left( F_{n,i} \right) = 0$なる集合$F_{n,i}$全体の和集合$F_{0}$を用いて次式のように集合$K_{0}$が定義されると、
+\begin{align*}
+K_{0} = \left( E_{0} \times Y \right) \cup \left( X \times F_{0} \right)
+\end{align*}
+仮定より、$X \times Y = \bigcup_{n \in \mathbb{N}} \left( K_{n} \setminus K_{0} \right)$かつ$\mu \otimes \nu\left( K_{n} \setminus K_{0} \right) < \infty$なるその有限加法族$\mathfrak{K}$の単調増加する元の列$\left( K_{n} \setminus K_{0} \right)_{n \in \mathbb{N}}$が存在して、$\forall L \in \mathfrak{K}$に対し、$\mu \otimes \nu(L) = \infty$が成り立つ。したがって、$\forall n \in \mathbb{N}\forall i \in \varLambda_{k_{n}}$に対し、次式のように仮定されることができる。
+\begin{align*}
+0 < \mu\left( E_{n,i} \right),\ \ 0 < \nu\left( F_{n,i} \right)
+\end{align*}
+これにより、$\mu \otimes \nu\left( K_{1} \right) < \infty$が成り立つので、次式が成り立ち、
+\begin{align*}
+\mu\left( E_{n,i} \right) < \infty,\ \ \nu\left( F_{n,i} \right) < \infty
+\end{align*}
+そこで、次式のようにおかれ、
+\begin{align*}
+\beta = \sum_{j \in \varLambda_{k_{1}}} {\mu\left( E_{1,i} \right)} + \sum_{j \in \varLambda_{k_{1}}} {\nu\left( F_{1,i} \right)}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、$\nu\left( F_{n,i} \right) > \frac{\varepsilon}{2\beta}$なる添数$i$全体の集合が$I_{n}$とおかれれば、次のようになる。
+\begin{align*}
+\varepsilon &\leq \mu \otimes \nu\left( K_{n} \right)\\
+&= \mu \otimes \nu\left( \bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i} \times F_{n,i} \right) \right)\\
+&= \sum_{i \in \varLambda_{k_{n}}} {\mu\left( E_{n,i} \right)\nu\left( F_{n,i} \right)}\\
+&= \sum_{i \in \varLambda_{k_{n}} \setminus I_{n}} {\mu\left( E_{n,i} \right)\nu\left( F_{n,i} \right)} + \sum_{i \in I_{n}} {\mu\left( E_{n,i} \right)\nu\left( F_{n,i} \right)}
+\end{align*}
+ここで、$\forall i \in \varLambda_{k_{n}} \setminus I_{n}$に対し、次式が成り立つかつ、
+\begin{align*}
+\nu\left( F_{n,i} \right) \leq \frac{\varepsilon}{2\beta}
+\end{align*}
+$\forall i \in I_{n}$に対し、次式が成り立つので、
+\begin{align*}
+\nu\left( F_{n,i} \right) &\leq \sum_{i \in \varLambda_{k_{n}}} {\nu\left( F_{n,i} \right)}\\
+&\leq \sum_{i \in \varLambda_{k_{1}}} {\nu\left( F_{1,i} \right)}\\
+&\leq \sum_{i \in \varLambda_{k_{1}}} {\mu\left( E_{1,i} \right)} + \sum_{i \in \varLambda_{k_{1}}} {\nu\left( F_{1,i} \right)} = \beta
+\end{align*}
+次のようになる。
+\begin{align*}
+\varepsilon &\leq \sum_{i \in \varLambda_{k_{n}} \setminus I_{n}} {\mu\left( E_{n,i} \right)\frac{\varepsilon}{2\beta}} + \sum_{i \in I_{n}} {\mu\left( E_{n,i} \right)\beta}\\
+&= \frac{\varepsilon}{2\beta}\sum_{i \in \varLambda_{k_{n}} \setminus I_{n}} {\mu\left( E_{n,i} \right)} + \beta\sum_{i \in I_{n}} {\mu\left( E_{n,i} \right)}
+\end{align*}
+ここで、$\forall i \in \varLambda_{k_{n}} \setminus I_{n}$に対し、次式が成り立つので、
+\begin{align*}
+\mu \otimes \nu\left( K_{n} \right) \leq \mu \otimes \nu\left( K_{1} \right)
+\end{align*}
+次式が成り立つことから、
+\begin{align*}
+\sum_{i \in \varLambda_{k_{n}} \setminus I_{n}} {\mu\left( E_{n,i} \right)} &\leq \sum_{i \in \varLambda_{k_{n}}} {\mu\left( E_{n,i} \right)}\\
+&\leq \sum_{i \in \varLambda_{k_{1}}} {\mu\left( E_{1,i} \right)}\\
+&\leq \sum_{i \in \varLambda_{k_{1}}} {\mu\left( E_{1,i} \right)} + \sum_{i \in \varLambda_{k_{1}}} {\nu\left( F_{1,i} \right)} = \beta
+\end{align*}
+次のようになる。
+\begin{align*}
+\varepsilon \leq \frac{\varepsilon}{2} + \beta\sum_{i \in I_{n}} {\mu\left( E_{n,i} \right)}
+\end{align*}
+ゆえに、$\frac{\varepsilon}{2\beta} \leq \sum_{i \in I_{n}} {\mu\left( E_{n,i} \right)}$が成り立つ。一方で、定理\ref{4.5.7.5}よりその集合$\varSigma$の元の列$\left( \bigsqcup_{i \in I_{n}} E_{n,i} \right)_{n \in \mathbb{N}}$は単調減少する。ここで、その測度$\mu$は完全加法的なので、その積集合$\bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in I_{n}} E_{n,i}}$は空集合でなく、$\forall a_{0} \in \bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in I_{n}} E_{n,i}}\forall n \in \mathbb{N}\exists i_{n} \in I_{n}$に対し、$a_{0} \in E_{n,i_{n}}$が成り立つ。これに対し、その列$\left( K_{n} \right)_{n \in \mathbb{N}}$が単調減少することから、その元の列$\left( F_{n,i_{n}} \right)_{n \in \mathbb{N}}$も単調減少する。さらに、その集合$I_{n}$の定義より$\frac{\varepsilon}{2\beta} \leq \nu\left( F_{n,i_{n}} \right)$が成り立つので、その測度$\nu$は完全加法的であることにより、その積集合$\bigcap_{n \in \mathbb{N}} F_{n,i_{n}}$は空集合でなく、$\forall b_{0} \in \bigcap_{n \in \mathbb{N}} F_{n,i_{n}}\forall n \in \mathbb{N}$に対し、$\left( a_{0},b_{0} \right) \in E_{n,i_{n}} \times F_{n,i_{n}} \subseteq K_{n}$が成り立つ。したがって、$\left( a_{0},b_{0} \right) \in \bigcap_{n \in \mathbb{N}} K_{n}$が成り立つ。\par
+あとは、対偶律により$\bigcap_{n \in \mathbb{N}} K_{n} = \emptyset$が成り立つなら、$\lim_{n \rightarrow \infty}{\mu \otimes \nu\left( K_{n} \right)} = 0$を満たす。定理\ref{4.5.6.3}よりその直積Jordan測度$\mu \otimes \nu$はその集合$\mathfrak{K}$上で完全加法的となる。
+\end{proof}
+\begin{thm}\label{4.5.7.7}
+$\sigma$-有限な測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m} }$が与えられたとき、矩形集合$E_{j}$の直和$\bigsqcup_{j \in \varLambda_{n} } E_{j}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m} } X_{i}$上の有限加法族となるのであった。このとき、次式が成り立つかつ、
+\begin{align*}
+\varSigma\left( \mathfrak{K} \right) = \bigotimes_{i \in \varLambda_{m} } \varSigma_{i}
+\end{align*}
+その組$\left( \prod_{i \in \varLambda_{m}} X_{i},\bigotimes_{i \in \varLambda_{m}} \varSigma_{i},\bigotimes_{i \in \varLambda_{m}} \mu_{i} \right)$は測度空間となる\footnote{この辺りの説明はだいぶ雑です。ごめんなさい。}。
+\end{thm}
+\begin{dfn}
+$\sigma$-有限な測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m} }$が与えられたとき、その測度$\bigotimes_{i \in \varLambda_{m}} \mu_{i}$、その測度空間$\left( \prod_{i \in \varLambda_{m}} X_{i},\bigotimes_{i \in \varLambda_{m}} \varSigma_{i},\bigotimes_{i \in \varLambda_{m}} \mu_{i} \right)$をそれぞれその測度の族$\left\{ \mu_{i} \right\}_{i \in \varLambda_{m}}$の直積測度、その測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m}}$の直積測度空間という。
+\end{dfn}
+\begin{proof}
+$\sigma$-有限な測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m} }$が与えられたとき、矩形集合$E_{j}$の直和$\bigsqcup_{j \in \varLambda_{n} } E_{j}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m} } X_{i}$上の有限加法族となるのであった。このとき、$\sigma$-加法族からなる族$\left\{ \varSigma_{i} \right\}_{i \in \varLambda_{m}}$の直積$\sigma$-加法族$\bigotimes_{i \in \varLambda_{m}} \varSigma_{i}$の定義より次式が成り立つかつ、
+\begin{align*}
+\bigotimes_{i \in \varLambda_{m}} \varSigma_{i} = \varSigma\left( \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda_{m}} X_{i} \right) \middle| E \in \varSigma_{i} \right\} \right)
+\end{align*}
+その集合$\left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda_{m}} X_{i} \right) \middle| E \in \varSigma_{i} \right\}$は矩形集合全体の集合で$\sigma$-加法族の定義より次式が成り立つかつ、
+\begin{align*}
+\varSigma\left( \mathfrak{K} \right) = \bigotimes_{i \in \varLambda_{m}} \varSigma_{i}
+\end{align*}
+定理\ref{4.5.7.6}とHopfの拡張定理よりその組$\left( \prod_{i \in \varLambda_{m}} X_{i},\bigotimes_{i \in \varLambda_{m}} \varSigma_{i},\bigotimes_{i \in \varLambda_{m}} \mu_{i} \right)$は測度空間となる。
+\end{proof}
+\begin{dfn}
+$\sigma$-有限な測度空間の族$\left\{ \left( X_{i},\varSigma_{i},\mu_{i} \right) \right\}_{i \in \varLambda_{m} }$が与えられたとき、その直積測度$\bigotimes_{i \in \varLambda_{m}} \mu_{i}$から完備化されたものを完備直積測度という。
+\end{dfn}\par
+なお、その測度の族$\left\{ \mu_{i} \right\}_{i \in \varLambda_{m}}$がいづれも完備であってもその直積測度も完備であるとは限らない。
+\begin{thebibliography}{50}
+  \bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 新装第1版2刷 p53-61 ISBN978-4-7853-1318-0
+\bibitem{2}
+  Mathpedia. "測度と積分". Mathpedia. \url{https://math.jp/wiki/%E6%B8%AC%E5%BA%A6%E3%81%A8%E7%A9%8D%E5%88%86} (2021-7-12 9:20 閲覧)
+\end{thebibliography}
+\end{document}

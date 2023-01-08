@@ -1,0 +1,295 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6574ux5217ux96c6ux5408}{%
+\subsection{整列集合}%\label{ux6574ux5217ux96c6ux5408}}
+%\hypertarget{ux6574ux5217ux96c6ux5408-1}{%
+\subsubsection{整列集合}%\label{ux6574ux5217ux96c6ux5408-1}}
+\begin{dfn}
+順序集合$(W,O)$の空集合でない任意の部分集合$W'$の最小元$\min W'$がいつも存在するとき、その順序集合$(W,O)$を整列集合という。
+\end{dfn}
+\begin{thm}\label{1.3.2.1}
+整列集合$(W,O)$は全順序集合である。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$\left\{ a,b \right\} \in W$が成り立つ。ここで、その最小元$\min\left\{ a,b \right\}$が定義より存在するので、$\min\left\{ a,b \right\} = a$のとき、$\min\left\{ a,b \right\} = aOb$が成り立ち、$\min\left\{ a,b \right\} = b$のとき、$\min\left\{ a,b \right\} = bOa$が成り立つ。以上より、その整列集合$(W,O)$は全順序集合でもある。
+\end{proof}
+\begin{dfn}
+順序集合$(A,O)$が与えられたとき、$a,b \in A$で$aOb$かつ$a \neq b$が成り立つかつ、$aOcOb$かつ$a \neq c \neq b$なる元$c$がその集合$A$に存在しないとき、その順序集合$(A,O)$の中でその元$b$はその元$a$の直後の元と、その元$a$はその元$b$の直前の元という。
+\end{dfn}
+\begin{thm}\label{1.3.2.2}
+全順序集合$(A,O)$が与えられたとき、その集合$A$の元$b$がその集合$A$の元$a$の直後の元であるならそのときに限り、次式が成り立つ。
+\begin{align*}
+b = \min\left\{ c \in A \middle| aOc \land a \neq c \right\}
+\end{align*}
+同様に、その集合$A$の元$b$がその集合$A$の元$a$の直前の元であるならそのときに限り、次式が成り立つ。
+\begin{align*}
+b = \max\left\{ c \in A \middle| cOa \land a \neq c \right\}
+\end{align*}
+\end{thm}
+\begin{proof}
+全順序集合$(A,O)$が与えられたとき、その集合$A$の元$b$がその集合$A$の元$a$の直後の元であるなら、$a,b \in A$で$aOb$かつ$a \neq b$が成り立つかつ、$aOcOb$かつ$a \neq c \neq b$なる元$c$がその集合$A$に存在しないことになる。これにより、$b \in \left\{ c \in A \middle| aOc \land a \neq c \right\}$が成り立つ。ここで、次式が成り立つと仮定すると、
+\begin{align*}
+b \neq \min\left\{ c \in A \middle| aOc \land a \neq c \right\}
+\end{align*}
+$\min\left\{ c \in A \middle| aOc \land a \neq c \right\} Ob$かつ$aO\min\left\{ c \in A \middle| aOc \land a \neq c \right\}$かつ$a \neq \min\left\{ c \in A \middle| aOc \land a \neq c \right\}$が成り立つことになり、次式が成り立つような元$\min\left\{ c \in A \middle| aOc \land a \neq c \right\}$がその集合$\left\{ c \in A \middle| aOc \land a \neq c \right\}$に存在することになるが、
+\begin{align*}
+aO\min\left\{ c \in A \middle| aOc \land a \neq c \right\} Ob \land a \neq \min\left\{ c \in A \middle| aOc \land a \neq c \right\} \neq b
+\end{align*}
+これはその集合$A$の元$b$がその集合$A$の元$a$の直後の元であることに矛盾する。したがって、その集合$A$の元$b$がその集合$A$の元$a$の直後の元であるなら、次式が成り立つ。
+\begin{align*}
+b = \min\left\{ c \in A \middle| aOc \land a \neq c \right\}
+\end{align*}\par
+逆に、上の式が成り立つとき、$aOcOb$かつ$a \neq c \neq b$なる元$c$がその集合$A$に存在すると仮定すると、その元$c$は集合$\left\{ c \in A \middle| aOc \land a \neq c \right\}$に属し次式が成り立つことになるが、
+\begin{align*}
+cOb = \min\left\{ c \in A \middle| aOc \land a \neq c \right\} \land c \neq b = \min\left\{ c \in A \middle| aOc \land a \neq c \right\}
+\end{align*}
+これは最小元の定義に矛盾する。したがって、$aOcOb$かつ$a \neq c \neq b$なる元$c$がその集合$A$に存在せずその集合$A$の元$b$がその集合$A$の元$a$の直後の元である。\par
+また、その集合$A$の元$b$がその集合$A$の元$a$の直前の元であることについても、同様にして、示される。
+\end{proof}
+\begin{thm}\label{1.3.2.3}
+全順序集合$(A,O)$が与えられたとき、$\forall a \in A$に対し、その元$a$の直後の元が存在するなら、これは一意的である。同様に、その元$a$の直前の元が存在するなら、これは一意的である。
+\end{thm}
+\begin{proof}
+全順序集合$(A,O)$が与えられたとき、$\forall a \in A$に対し、その元$a$の直後の元が存在するなら、その直後の元は$\min\left\{ c \in A \middle| aOc \land a \neq c \right\}$に等しく、最小元は存在するなら、一意的であったので、その直後の元は一意的である。\par
+同様にして、その元$a$の直前の元が存在するなら、これは一意的であることが示される。
+\end{proof}
+\begin{thm}\label{1.3.2.4}
+整列集合$(W,O)$の任意の部分順序集合$\left( W',O_{W'} \right)$もまた整列集合である。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$の任意の部分順序集合$\left( W',O_{W'} \right)$について、その集合$W'$の空集合でない任意の部分集合$W''$の順序集合$(W,O)$における最小元$\min W''$はその集合$W$の部分集合でもあるので、いつも存在することになる。したがって、$\forall a \in W''$に対し、$\min W''Oa$が成り立つ。これが成り立つならそのときに限り、$\forall a \in W''$に対し、$\min W''O_{W'}a$が成り立つので、その元$\min W''$はその順序集合$\left( W',O_{W'} \right)$における最小元でもある。よって、その部分順序集合$\left( W',O_{W'} \right)$も整列集合である。
+\end{proof}
+\begin{thm}\label{1.3.2.5}
+整列集合$(W,O)$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  最小元$\min W$が存在する。
+\item
+  $\forall a \in W$に対し、$aOb$かつ$a \neq b$なる元$b$がその集合$W$に存在するなら、その元$a$の直後の元も存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、その集合$W$自身もその集合$W$の部分集合でもあるので、定義よりその最小元$\min W$が存在する。\par
+$\forall a \in W$に対し、$aOb$かつ$a \neq b$なる元$b$がその集合$W$に存在するなら、集合$\left\{ c \in W \middle| aOc \land a \neq c \right\}$は空集合でなく定義よりその最小元$\min\left\{ \in W \middle| aOc \land a \neq c \right\}$が存在する。ここで、定義よりその最小元がその元$a$の直後の元である。
+\end{proof}\par
+なお、整列集合$(W,O)$において、$\forall a \in W$に対し、$bOa$かつ$a \neq b$なる元$b$がその集合$W$に存在したとしても、その元$a$の直前の元は存在するとは限らない。例えば、集合$\mathbf{N} \cup \left\{ \sqrt{2} \right\}$において、順序関係$O$を、$\forall m,n \in \mathbf{N}$に対し、$m \leq n \Leftrightarrow mOn$とし、$\forall n \in \mathbf{N}$に対し、$nO\sqrt{2}$と定義すると、その組$\left( \mathbf{N} \cup \left\{ \omega \right\},O \right)$は整列集合であるが、その元$\sqrt{2}$は直前の元をもたない。
+%\hypertarget{ux5207ux7247}{%
+\subsubsection{切片}%\label{ux5207ux7247}}
+\begin{dfn}
+整列集合$(W,O)$が与えられたとき、その集合$W$の1つの元$a$に対し、$cOa$なるその集合$W$の元$c$全体の集合をその整列集合$(W,O)$のその元$a$による切片といい$W_{Oa}$と書くことにする、即ち、次式のように定義される。
+\begin{align*}
+W_{Oa} = \left\{ c \in W \middle| cOa \land a \neq c \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.3.2.6}
+整列集合$(W,O)$が与えられたとき、$a = \min W$が成り立つならそのときに限り、$W_{Oa} = \emptyset $が成り立つ。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$a = \min W$が成り立つなら、$\forall c \in W$に対し、$aOc$が成り立つことになり、これは$cOa$かつ$a \neq c$が成り立つような元$c$がその集合$W$に存在することの否定である、即ち、集合$\left\{ c \in W \middle| cOa \land a \neq c \right\}$の元が存在しない。したがって、$W_{Oa} = \emptyset $が成り立つ。\par
+逆に、$W_{Oa} = \emptyset $が成り立つなら、$cOa$かつ$a \neq c$が成り立つような元$c$がその集合$W$に存在せず、$\forall c \in W$に対し、$aOc$が成り立つ。したがって、$a = \min W$が得られる。
+\end{proof}
+\begin{thm}\label{1.3.2.7}
+整列集合$(W,O)$が与えられ、その集合$W$の元$a$による切片$W_{Oa}$が空集合でないとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その元$a$の直前の元がその集合$W$に存在するなら、その直前の元は$\max W_{Oa}$に等しい。
+\item
+  その元$a$の直前の元がその集合$W$に存在しないなら、その元$a$は$\sup W_{Oa}$に等しい。
+\end{itemize}
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられ、その集合$W$の元$a$による切片$W_{Oa}$が空集合でないとき、その元$a$の直前の元$b$がその集合$W$に存在するなら、次式が成り立つのであった。
+\begin{align*}
+b = \max\left\{ c \in W \middle| cOa \land a \neq c \right\}
+\end{align*}
+ここで、その集合$\left\{ c \in W \middle| cOa \land a \neq c \right\}$はまさしくその集合$W$のその元$a$による切片であるから、$b = \max W_{Oa}$が成り立ち、したがって、その直前の元は$\max W_{Oa}$に等しい。\par
+その元$a$の直前の元がその集合$W$に存在しないなら、その集合$W$のその元$a$による切片$W_{Oa}$の上界$U\left( W_{Oa} \right)$が考えられると、$\forall c \in W_{Oa}$に対し、$cOa$が成り立つので、$a \in U\left( W_{Oa} \right)$が成り立つ。ここで、$a \neq \sup W_{Oa}$が成り立つと仮定すると、$\sup W_{Oa} = \min{U\left( W_{Oa} \right)}Oa$かつ$a \neq \sup W_{Oa}$が成り立ち$\sup W_{Oa} \in W_{Oa}$が成り立つので、$\sup W_{Oa} = \max W_{Oa}$が得られ、上記の議論により、その元$\sup W_{Oa}$がその元$a$の直前の元となるが、これは仮定のその元$a$の直前の元がその集合$W$に存在しないことに矛盾する。したがって、その元$a$の直前の元がその集合$W$に存在しないなら、その元$a$は$\sup W_{Oa}$に等しい。
+\end{proof}
+\begin{thm}\label{1.3.2.8}
+整列集合$(W,O)$が与えられたとき、$W = W'$が成り立つならそのときに限り、その集合$W'$がその集合$W$の部分集合で、$\forall a \in W$に対し、$W_{Oa} \subseteq W'$が成り立つなら、$a \in W'$が成り立つ。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$W = W'$が成り立つなら、その集合$W'$はその集合$W$自身でこれはその集合$W$自身の部分集合で、$\forall a \in W$に対し、その集合$W$のその元$a$による切片$W_{Oa}$は定義よりその集合$W$の部分集合であるから、$W_{Oa} \subseteq W'$が成り立つ。\par
+逆に、その集合$W'$がその集合$W$の部分集合で、$\forall a \in W$に対し、$W_{Oa} \subseteq W'$が成り立つなら、$a \in W'$が成り立つとき、$W \neq W'$が成り立つと仮定すると、$W \setminus W' \neq \emptyset $が成り立つので、この集合$W \setminus W'$もその集合$W$の部分集合で整列集合の定義より$\min\left( W \setminus W' \right)$がその集合$W$に存在する。このとき、$a \in W_{O\min\left( W \setminus W' \right)} \cap \left( W \setminus W' \right)$なる元$a$がその集合$W$に存在するなら、$aO\min\left( W \setminus W' \right)$かつ$a \neq \min\left( W \setminus W' \right)$が成り立つ。また、$a \in W \setminus W'$かつ、$\forall b \in W \setminus W'$に対し、$\min\left( W \setminus W' \right)Ob$が成り立つので、$\min\left( W \setminus W' \right)Oa$が成り立つことになるが、これは$aO\min\left( W \setminus W' \right)$かつ$a \neq \min\left( W \setminus W' \right)$が成り立つことに矛盾する。したがって、その集合$W_{O\min\left( W \setminus W' \right)} \cap \left( W \setminus W' \right)$は空集合であり$W_{O\min\left( W \setminus W' \right)} \subseteq W'$が成り立つ。したがって、仮定より$\min\left( W \setminus W' \right) \in W'$が成り立つ。このことは、最小元の定義より$\min\left( W \setminus W' \right) \in W \setminus W'$が成り立つので、$\min\left( W \setminus W' \right) \notin W'$が成り立つことに矛盾している。したがって、$W = W'$が成り立つ。
+\end{proof}
+\begin{thm}[超限帰納法]\label{1.3.2.9}
+整列集合$(W,O)$のある元$a'$に関する命題$P\left( a' \right)$があって、$\forall a \in W\forall c \in W_{Oa}$に対し、その命題$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つのであれば、$\forall a \in W$に対し、その命題$P(a)$が成り立つ。
+\end{thm}\par
+これを用いた証明法を超限帰納法という。
+\begin{proof}
+整列集合$(W,O)$のある元$a'$に関する命題$P\left( a' \right)$があって、$\forall a \in W\forall c \in W_{Oa}$に対し、$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つのであれば、集合$\left\{ c \in W \middle| P(c) \right\}$を$W'$とおくと、このことは$\forall a \in W$に対し、$W_{Oa} \subseteq W'$が成り立つなら、$a \in W'$も成り立つことになり、上記の定理より$W = W'$が成り立つことになる。これにより、$\forall a \in W$に対し、$a \in W'$が成り立つ、即ち、その元$a$に関するその命題$P(a)$が成り立つことになる。
+\end{proof}
+\begin{thm}\label{1.3.2.10}
+整列集合$(W,O)$のある元$a'$に関する命題$P\left( a' \right)$があって、次のことが成り立つなら、
+\begin{itemize}
+\item
+  その最小元$\min W$に関してその命題$P\left( \min W \right)$が成り立つ。
+\item
+  $\forall a \in W$に対し、$a \neq \min W$が成り立ち、$\forall c \in W_{Oa}$に対し、その命題$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つ。
+\end{itemize}
+$\forall a \in W$に対し、その命題$P(a)$が成り立つ。
+\end{thm}\par
+超限帰納法は上のような形で行われることが多い。
+\begin{proof}
+整列集合$(W,O)$のある元$a'$に関する命題$P\left( a' \right)$があって、次のことが成り立つなら、
+\begin{itemize}
+\item
+  その最小元$\min W$に関してその命題$P\left( \min W \right)$が成り立つ。
+\item
+  $\forall a \in W$に対し、$a \neq \min W$が成り立ち、$\forall c \in W_{Oa}$に対し、その命題$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つ。
+\end{itemize}
+$W_{O\min W} = \emptyset $が成り立つので、$\forall c \in W_{O\min W}$に対し、その命題$P(c)$が成り立つことは偽となり、したがって、$\forall c \in W_{O\min W}$に対し、その命題$P(c)$が成り立つなら、その元$\min W$に関してその命題$P\left( \min W \right)$も成り立つことはその元$\min W$に関してその命題$P\left( \min W \right)$が成り立つことと同値である。したがって、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall c \in W_{O\min W}$に対し、その命題$P(c)$が成り立つなら、その元$\min W$に関してその命題$P\left( \min W \right)$も成り立つ。
+\item
+  $\forall a \in W$に対し、$a \neq \min W$が成り立ち、$\forall c \in W_{Oa}$に対し、その命題$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つ。
+\end{itemize}
+これは次のように書き換えられることができる。
+\begin{itemize}
+\item
+  $\forall a \in W\forall c \in W_{Oa}$に対し、その命題$P(c)$が成り立つなら、その元$a$に関してその命題$P(a)$も成り立つ。
+\end{itemize}
+これは超限帰納法そのものであり、$\forall a \in W$に対し、その命題$P(a)$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.3.2.11}
+整列集合$(W,O)$が与えられたとき、その集合$W$の部分集合$J$が$a \in J$かつ$b \in W$かつ$bOa$かつ$a \neq b$が成り立つなら、$b \in J$が成り立つとする。このとき、これが成り立つならそのときに限り、その集合$J$はその集合$W$自身であるか、その集合$W$の切片である。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、その集合$W$の部分集合$J$が$a \in J$かつ$b \in W$かつ$bOa$かつ$a \neq b$が成り立つなら、$b \in J$が成り立つとする。\par
+このとき、これが成り立つとして、$W = J$のときでは明らかであり、$J \neq W$のとき、$W \setminus J \neq \emptyset $が成り立つので、整列集合の定義よりその最小元$\min(W \setminus J)$が存在する。ここで、$\forall c \in W_{O\min(W \setminus J)}$に対し、$c \in W_{O\min(W \setminus J)}$が成り立つなら、$\forall a \in J$に対し、$\min(W \setminus J)Oa$が成り立つことにより、$c \notin W \setminus J$が成り立ち、したがって、$c \in J$が成り立つ。これにより、$W_{O\min(W \setminus J)} \subseteq J$が得られる。逆に、$\forall c \in J$が成り立つとき、$\min(W \setminus J)Oc$が成り立つなら、仮定より$\min(W \setminus J) \in J$が成り立つことになり、これは定義より$\min(W \setminus J) \in W \setminus J$が成り立つことに矛盾する。したがって、$cO\min(W \setminus J)$が成り立つかつ、$\min(W \setminus J) \neq c$が成り立ち、したがって、$c \in W_{O\min(W \setminus J)}$が成り立つ。これにより、$W_{O\min(W \setminus J)} \supseteq J$が得られる。以上より、$J \neq W$のとき、その集合$J$はその集合$W$のその最小元$\min(W \setminus J)$による切片である。\par
+逆に、その集合$J$はその集合$W$自身であるか、その集合$W$の切片であるとする。$W = J$のときでは明らかであり、その集合$J$がその集合$W$の切片$W_{Oc}$であるとき、$a \in W_{Oc}$かつ$b \in W$かつ$bOa$かつ$a \neq b$が成り立つなら、順序の公理より$bOc$かつ$c \neq b$が成り立つので、$b \in W_{Oc}$が成り立つ、即ち、$b \in J$が成り立つ。\par
+以上より、その集合$W$の部分集合$J$が$a \in J$かつ$b \in W$かつ$bOa$かつ$a \neq b$が成り立つなら、$b \in J$が成り立つとする。このとき、これが成り立つならそのときに限り、その集合$J$はその集合$W$自身であるか、その集合$W$の切片である。
+\end{proof}
+%\hypertarget{ux6574ux5217ux96c6ux5408ux306eux6bd4ux8f03ux5b9aux7406}{%
+\subsubsection{整列集合の比較定理}%\label{ux6574ux5217ux96c6ux5408ux306eux6bd4ux8f03ux5b9aux7406}}
+\begin{thm}\label{1.3.2.12}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$aOb$が成り立つならそのときに限り、$W_{Oa} \subseteq W_{Ob}$が成り立つ。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$aOb$が成り立つなら、$\forall c \in W_{Oa}$に対し、$cOa$かつ$a \neq c$が成り立つ。ここで、順序の公理より$cOb$が成り立ち、$b = c$とすれば、$c = bOa$が成り立つことにより、$a = b$が成り立ち$a \neq b$が成り立つことに矛盾する。したがって、$cOb$かつ$b \neq c$が成り立つことになり、したがって、$c \in W_{Ob}$が成り立つ。\par
+逆に、$W_{Oa} \subseteq W_{Ob}$かつ$bOa$かつ$a \neq b$が成り立つと仮定すると、$b \in W_{Oa}$が成り立つので、したがって、$b \in W_{Ob}$が得られるが、これは切片の定義より$b \neq b$が得られ矛盾している。したがって、$W_{Oa} \subseteq W_{Ob}$が成り立つなら、$aOb$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.3.2.13}
+整列集合$(W,O)$が与えられたとき、その集合$W$の切片全体からなる集合族$\left\{ W_{Oa} \right\}_{a \in W}$を用いて次式のように定義される写像$\mathfrak{W}$はその整列集合$(W,O)$から順序集合$\left( \left\{ W_{Oa} \right\}_{a \in W}, \subseteq \right)$への順序同型写像である。
+\begin{align*}
+\mathfrak{W:}W \rightarrow \left\{ W_{Oa} \right\}_{a \in W};a \mapsto W_{Oa}
+\end{align*}
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、その集合$W$の切片全体からなる集合族$\left\{ W_{Oa} \right\}_{a \in W}$を用いて次式のように定義される写像$\mathfrak{W}$について、
+\begin{align*}
+\mathfrak{W:}W \rightarrow \left\{ W_{Oa} \right\}_{a \in W};a \mapsto W_{Oa}
+\end{align*}
+$\forall a,b \in W$に対し、$aOb \Leftrightarrow W_{Oa} \subseteq W_{Ob}$が成り立つので、$\forall a,b \in W$に対し、$aOb$が成り立つなら、$\mathfrak{W}(a)\subseteq \mathfrak{W}(b)$が成り立つ。したがって、その写像$\mathfrak{W}$はその整列集合$(W,O)$から順序集合$\left( \left\{ W_{Oa} \right\}_{a \in W}, \subseteq \right)$への順序単射である。\par
+また、$\forall W_{Oa},W_{Ob} \in \left\{ W_{Oa} \right\}_{a \in W}$に対し、このような元々$a$、$b$は切片の定義よりその集合$W$に存在するので、その写像$\mathfrak{W}$は全射でもあり、したがって、その写像$\mathfrak{W}$は全単射である。\par
+以上より、その整列集合$(W,O)$から順序集合$\left( \left\{ W_{Oa} \right\}_{a \in W}, \subseteq \right)$への順序同型写像である。
+\end{proof}
+\begin{thm}\label{1.3.2.14}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$aOb$かつ$a \neq b$が成り立つなら、次のことが成り立つ。
+\begin{itemize}
+\item
+  $a \in W_{Ob}$が成り立つ。
+\item
+  その集合$W_{Ob}$のその元$a$による切片${W_{Ob}}_{Oa}$はその集合$W$のその元$a$による切片$W_{Oa}$に等しい。
+\end{itemize}
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$aOb$かつ$a \neq b$が成り立つなら、切片の定義より明らかに$a \in W_{Ob}$が成り立つ。また、その集合$W_{Ob}$のその元$a$による切片${W_{Ob}}_{Oa}$について、$\forall c \in {W_{Ob}}_{Oa}$に対し、$c \in W_{Ob}$かつ$cOa$かつ$a \neq c$が成り立つので、その切片がその集合$W$の部分集合であることに注意すれば、$c \in W_{Oa}$が成り立つので、${W_{Ob}}_{Oa} \subseteq W_{Oa}$が得られる。逆に、$\forall c \in W_{Oa}$に対し、$cOa$かつ$a \neq c$が成り立ち、ここで、$aOb$が成り立つので、順序の公理より$cOb$が成り立つかつ、$b = c$が成り立つと仮定すると、$bOa$が得られ、したがって、順序の公理より$a = b$が得られるが、これは$a \neq b$が成り立つことに矛盾するので、$b \neq c$が成り立ち、したがって、$c \in W_{Ob}$が成り立つ。したがって、$c \in W_{Ob}$かつ$cOa$かつ$a \neq c$が成り立つので、$W_{Oa} \subseteq {W_{Ob}}_{Oa}$が成り立つ。以上より、その集合$W_{Ob}$のその元$a$による切片${W_{Ob}}_{Oa}$はその集合$W$のその元$a$による切片$W_{Oa}$に等しい。
+\end{proof}
+\begin{thm}\label{1.3.2.15}
+整列集合$(W,O)$からその整列集合$(W,O)$自身の順序単射$f:W \rightarrow W$が与えられたとき、$\forall a \in W$に対し、$aOf(a)$が成り立つ。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$からその整列集合$(W,O)$自身の順序単射$f:W \rightarrow W$が与えられたとき、$f(a)Oa$かつ$a \neq f(a)$なる元$a$がその集合$W$に存在すると仮定すると、そのような集合$\left\{ a \in W \middle| f(a)Oa \land a \neq f(a) \right\}$が$W'$とおかれば、これは空集合でないので、整列集合の定義よりその最小元$\min W'$が存在する。ここで、$\min W' \in W'$が成り立つので、$f\left( \min W' \right)O\min W'$かつ$f\left( \min W' \right) \neq \min W'$が成り立ち、その写像$f$は順序単射であるから、$f\left( f\left( \min W' \right) \right)Of\left( \min W' \right)$かつ$f\left( f\left( \min W' \right) \right) \neq f\left( \min W' \right)$が成り立つ。これにより、$f\left( \min W' \right) \in W'$かつ$\ f\left( \min W' \right)O\min W'$かつ$f\left( \min W' \right) \neq \min W'$が成り立つが、これはその元$\min W'$がその集合$W'$の最小元であることに矛盾する。したがって、$\forall a \in W$に対し、$aOf(a)$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.3.2.16}
+整列集合$(W,O)$が与えられたとき、これとその集合$W$の任意の切片$W_{Oa}$を用いた整列集合$\left( W_{Oa},O \right)$とは順序同型になりえない。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、これとその集合$W$のある切片$W_{Oa}$を用いた整列集合$\left( W_{Oa},O \right)$とは順序同型であると仮定すると、その整列集合$(W,O)$からその整列集合$\left( W_{Oa},O \right)$への順序同型写像$f$が存在することになり、この写像$f$の終集合を$W$としたもの$f'$はその整列集合$(W,O)$からその整列集合$(W,O)$自身への順序単射であるので、$\forall a \in W$に対し、$aOf'(a)$が成り立つ。しかしながら、これは、$f'(a) \in W_{Oa}$が成り立つので、$f'(a)Oa$かつ$a \neq f'(a)$が成り立つことに矛盾している。よって、その整列集合$(W,O)$とその集合$W$の任意の切片$W_{Oa}$を用いた整列集合$\left( W_{Oa},O \right)$とは順序同型になりえない。
+\end{proof}
+\begin{thm}\label{1.3.2.17}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$a \neq b$が成り立つなら、それらの元々$a$、$b$によるその集合$W$の切片たち$W_{Oa}$、$W_{Ob}$を用いた整列集合たち$\left( W_{Oa},O \right)$、$\left( W_{Ob},O \right)$は順序同型になりえない。
+\end{thm}
+\begin{proof}
+整列集合$(W,O)$が与えられたとき、$\forall a,b \in W$に対し、$a \neq b$が成り立つなら、$aOb$かつ$a \neq b$と仮定しても一般性は失われないので、そうすると、その集合$W_{Ob}$のその元$a$による切片${W_{Ob}}_{Oa}$はその集合$W$のその元$a$による切片$W_{Oa}$に等しいので、その整列集合$\left( W_{Oa},O \right)$は整列集合$\left( {W_{Ob}}_{Oa},O \right)$に等しく、上記の定理\ref{1.3.2.16}により、その整列集合$\left( W_{Ob},O \right)$とその整列集合$\left( {W_{Ob}}_{Oa},O \right)$とは順序同型になりえない。よって、それらの整列集合たち$\left( W_{Oa},O \right)$、$\left( W_{Ob},O \right)$は順序同型になりえない。
+\end{proof}
+\begin{thm}\label{1.3.2.18}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、これらが順序同型であるなら、その集合$V$の任意の切片$V_{Oa}$を用いた整列集合$\left( V_{Oa},O \right)$と順序同型であるようなその集合$W$の切片$W_{Pb}$を用いた整列集合$\left( W_{Pb},P \right)$が存在し、さらに、その元$b$はその集合$W$に一意的に存在する。
+\end{thm}
+\begin{proof}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、これらが順序同型であるなら、その整列集合$(V,O)$からその整列集合$(W,P)$への順序同型写像$f$が存在し、その集合$V$の任意の切片$V_{Oa}$が考えられると、$\forall c \in V_{Oa}$に対し、$cOa$かつ$a \neq c$が成り立つかつ、その写像$f$が順序単射でもあるので、$f(c)Pf(a)$かつ$f(a) \neq f(c)$が成り立つことになる。したがって、$f(c) \in W_{Pf(a)}$が成り立つので、$V\left( f|V_{Oa} \right) \subseteq W_{Pf(a)}$が得られる。逆に、$\forall b \in W_{Pf(a)}$に対し、$bPf(a)$かつ$f(a) \neq b$が成り立つので、その逆写像$f^{- 1}$も順序同型写像であることに注意すれば、$f^{- 1}(b)Oa$かつ$a \neq f^{- 1}(b)$が成り立つことになり、したがって、$f^{- 1}(b) \in V_{Oa}$が成り立つ。したがって、$b \in V\left( f|V_{Oa} \right)$が成り立つので、$V\left( f|V_{Oa} \right) \supseteq W_{Pf(a)}$が得られる。以上より、$V\left( f|V_{Oa} \right) = W_{Pf(a)}$が成り立つ。\par
+ここで、その写像$f$の定義域を$V_{Oa}$、その写像$f$の終集合を$W_{Pf(a)}$とした写像$f'$が考えられると、その写像$f'$は順序単射かつ全射であるので、その整列集合$\left( V_{Oa},O \right)$からその整列集合$\left( W_{Pf(a)},P \right)$への順序同型写像が存在し、これらの整列集合たちは順序同型である。これにより、その集合$V$の任意の切片$V_{Oa}$を用いた整列集合$\left( V_{Oa},O \right)$と順序同型であるようなその集合$W$の切片$W_{Pb}$を用いた整列集合$\left( W_{Pb},P \right)$が存在する。\par
+また、その集合$V$の任意の切片$V_{Oa}$を用いた整列集合$\left( V_{Oa},O \right)$と順序同型であるような2つの整列集合$\left( W_{Pb},P \right)$、$\left( W_{Pb'},P \right)$が存在するかつ、$b \neq b'$が成り立つとすれば、$\left( V_{Oa},O \right) \simeq \left( W_{Pb},P \right)$かつ$\left( V_{Oa},O \right) \simeq \left( W_{Pb'},P \right)$が成り立つ。ここで、その関係$\simeq$は同値関係であったので、$\left( W_{Pb},P \right) \simeq \left( W_{Pb'},P \right)$が得られ、上記の定理\ref{1.3.2.17}により$b = b'$が成り立つ。これは仮定の$b \neq b'$が成り立つことに矛盾する。したがって、その元$b$はその集合$W$に一意的に存在する。
+\end{proof}
+\begin{thm}\label{1.3.2.19}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、これらが順序同型であるなら、その整列集合$(V,O)$からその整列集合$(W,P)$への順序同型写像は一意的に存在する。\par
+特に、整列集合$(W,O)$からその整列集合$(W,O)$自身への順序同型写像はその恒等写像$I_{W}:W \rightarrow W$となる。
+\end{thm}
+\begin{proof}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、これらが順序同型であるとき、定義よりその整列集合$(V,O)$からその整列集合$(W,P)$への順序同型写像が存在する。ここで、そのような写像たち$f$、$g$が存在し$f \neq g$が成り立つと仮定すると、上記の定理\ref{1.3.2.18}の証明と同様にして、$\forall a \in V$に対し、$\left( V_{Oa},O \right) \simeq \left( W_{Pf(a)},P \right)$かつ$\left( V_{Oa},O \right) \simeq \left( W_{Pg(a)},P \right)$が得られ、したがって、$\left( W_{Pf(a)},P \right) \simeq \left( W_{Pg(a)},P \right)$が成り立つ。ここで、上記の定理\ref{1.3.2.17}より$f(a) = g(a)$が成り立ち、したがって、$f = g$が得られるが、これは仮定の$f \neq g$が成り立つことに矛盾する。したがって、その整列集合$(V,O)$からその整列集合$(W,P)$への順序同型写像は一意的に存在する。\par
+特に、整列集合$(W,O)$からその整列集合$(W,O)$自身への順序同型写像についてはその恒等写像$I_{W}:W \rightarrow W$がその整列集合$(W,O)$からその整列集合$(W,O)$自身への順序同型写像となり、そのような写像は一意的に存在する。したがって、整列集合$(W,O)$からその整列集合$(W,O)$自身への順序同型写像はその恒等写像$I_{W}:W \rightarrow W$となる。
+\end{proof}
+\begin{thm}[整列集合の比較定理]\label{1.3.2.20}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、次の3つの場合のうちいづれか1つのみ成り立つ。
+\begin{itemize}
+\item
+  $(V,O) \simeq (W,P)$が成り立つ。
+\item
+  $\left( V_{Oa},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a$が存在する。
+\item
+  $(V,O) \simeq \left( W_{Pb},P \right)$が成り立つようなその集合$W$の元$b$が存在する。
+\end{itemize}
+\end{thm}\par
+この定理を整列集合の比較定理という。
+\begin{proof}
+整列集合たち$(V,O)$、$(W,P)$が与えられたとき、$a \in V$かつ$b \in W$なる元々$a$、$b$を用いて$\left( V_{Oa},O \right) \simeq \left( W_{Pb},P \right)$が成り立つとき、このような元々$a$、$b$全体の集合をそれぞれ$I$、$J$とおくと、定理\ref{1.3.2.17}より$\forall a' \in I$に対し、$b' \in J$なる元$b'$がただ1つ決まり、逆も同様であるから、$\forall a' \in I$に対し、$\left( V_{Oa'},O \right) \simeq \left( W_{Pb'},P \right)$が成り立つようなその集合$J$の元$b'$を対応させるような写像$f:I \rightarrow J$が考えられると、これは全単射である。\par
+また、$\forall a'',a''' \in V$に対し、$a''' \in I$かつ$a''Oa'''$かつ$a'' \neq a'''$が成り立つとすれば、$\left( V_{Oa'''},O \right) \simeq \left( W_{Pf\left( a''' \right)},P \right)$が成り立ち、2つの順序同型な整列集合たち$\left( V_{Oa'''},O \right)$、$\left( W_{Pf\left( a''' \right)},P \right)$について、定理\ref{1.3.2.18}より$\left( {V_{Oa'''}}_{Oa''},O \right) \simeq \left( {W_{Pf\left( a''' \right)}}_{Pb''},P \right)$が成り立つようなその集合$W_{Pf\left( a''' \right)}$の元$b''$が存在する。ここで、$b''Pf\left( a''' \right)$かつ$b'' \neq f\left( a''' \right)$が成り立ち、定理\ref{1.3.2.14}よりその集合$V$のその元$a''$による切片$V_{Oa''}$はその集合$V_{Oa'''}$のその元$a''$による切片${V_{Oa'''}}_{Oa''}$に等しいかつ、その集合$W$のその元$b''$による切片$W_{Pb''}$はその集合$W_{Pf\left( a''' \right)}$のその元$b''$による切片${W_{Pf\left( a''' \right)}}_{Pb''}$に等しいので、次式が成り立つ。
+\begin{align*}
+\left( V_{Oa''},O \right) = \left( {V_{Oa'''}}_{Oa''},O \right) \simeq \left( {W_{Pf\left( a''' \right)}}_{Pb''},P \right) = \left( W_{Pb''},P \right)
+\end{align*}
+$a'' \in I$が成り立ち、さらに、その写像$f$の定義より$f\left( a'' \right) = b''$が成り立ち、$b'' \in W_{Pf\left( a''' \right)}$が成り立つので、$f\left( a'' \right)Pf\left( a''' \right)$かつ$f\left( a'' \right) \neq f\left( a''' \right)$が成り立つ。\par
+以上の議論により、次のことが成り立つ。
+\begin{itemize}
+\item
+  $a''' \in I$かつ$a''Oa'''$かつ$a'' \neq a'''$が成り立つなら、$a'' \in I$が成り立つ。
+\item
+  その写像$f$は順序単射である。
+\end{itemize}
+ここで、その写像$f$は順序同型写像であり、その逆写像$f^{- 1}$について考えれば同様にして、$b''' \in J$かつ$b''Pb'''$かつ$b'' \neq b'''$が成り立つなら、$b'' \in J$が成り立つので、定理\ref{1.3.2.11}よりその集合$I$はその集合$V$自身かその集合$V$のある切片$V_{Oa'}$であり、その集合$J$はその集合$W$自身かその集合$W$のある切片$W_{Pb'}$である。ここで、定理\ref{1.3.2.4}より2つの組々$(I,O)$、$(J,P)$もまた整列集合であるので、次のことが成り立つ。
+\begin{itemize}
+\item
+  その集合$I$はその集合$V$自身かその集合$V$のある切片$V_{Oa'}$である。
+\item
+  その集合$J$はその集合$W$自身かその集合$W$のある切片$W_{Pb'}$である。
+\item
+  $(I,O) \simeq (J,P)$が成り立つ。
+\end{itemize}\par
+したがって、$I = V$かつ$J = W$のとき、$(V,O) \simeq (W,P)$が成り立つし、$I = V_{Oa'}$かつ$J = W$のとき、$\left( V_{Oa'},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a'$が存在するし、$I = V$かつ$J = W_{Pb'}$のとき、$(V,O) \simeq \left( W_{Pb'},P \right)$が成り立つようなその集合$W$の元$b'$が存在する。一方で、$I = V_{Oa'}$かつ$J = W_{Pb'}$のとき、$\left( V_{Oa'},O \right) \simeq \left( W_{Pb'},P \right)$が成り立つので、$a' \in I$かつ$b' \in J$が成り立つことになるが、$a' \in V_{Oa'}$も成り立ち、したがって、$a'Oa'$かつ$a' \neq a'$が得られこれは矛盾している。したがって、$I = V_{Oa'}$かつ$J = W_{Pb'}$が成り立ちえない。以上より、次のことが少なくとも1つ成り立つ。
+\begin{itemize}
+\item
+  $(V,O) \simeq (W,P)$が成り立つ。
+\item
+  $\left( V_{Oa},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a$が存在する。
+\item
+  $(V,O) \simeq \left( W_{Pb},P \right)$が成り立つようなその集合$W$の元$b$が存在する。
+\end{itemize}
+ここで、$(V,O) \simeq (W,P)$が成り立つかつ、$\left( V_{Oa},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a$が存在するなら、その関係$\simeq$は同値関係であるから、$(V,O) \simeq \left( V_{Oa},O \right)$が得られるが、これは定理\ref{1.3.2.16}のその整列集合$(V,O)$とその集合$V$の任意の切片$V_{Oa}$を用いた整列集合$\left( V_{Oa},O \right)$とは順序同型になりえないことに矛盾する。$(V,O) \simeq (W,P)$が成り立つかつ、$(V,O) \simeq \left( W_{Pb},P \right)$が成り立つようなその集合$W$の元$b$が存在するときも同様にして示される。$\left( V_{Oa},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a$が存在するかつ、$(V,O) \simeq \left( W_{Pb},P \right)$が成り立つようなその集合$W$の元$b$が存在すると仮定すると、$(V,O) \simeq \left( W_{Pb},P \right)$が成り立つことにより、$\left( V_{Oa},O \right) \simeq \left( {W_{Pb}}_{Pb'},P \right)$なるその集合$W_{Pb}$の切片${W_{Pb}}_{Pb'}$が存在する。ここで、$b' \in W_{Pb}$が成り立つので、$b'Pb$かつ$b \neq b'$が成り立ち、定理\ref{1.3.2.14}より${W_{Pb}}_{Pb'} = W_{Pb'}$が成り立つので、$\left( V_{Oa},O \right) \simeq \left( W_{Pb'},P \right)$が得られる。ここで、$\left( V_{Oa},O \right) \simeq (W,P)$が成り立つかつ、その関係$\simeq$は同値関係なので、$(W,P) \simeq \left( W_{Pb'},P \right)$が得られるが、これは定理\ref{1.3.2.16}のその整列集合$(W,P)$とその集合$W$の任意の切片$W_{Pb'}$を用いた整列集合$\left( W_{Pb'},P \right)$とは順序同型になりえないことに矛盾する。以上より、次の3つの場合のうちいづれか1つのみ成り立つ。
+\begin{itemize}
+\item
+  $(V,O) \simeq (W,P)$が成り立つ。
+\item
+  $\left( V_{Oa},O \right) \simeq (W,P)$が成り立つようなその集合$V$の元$a$が存在する。
+\item
+  $(V,O) \simeq \left( W_{Pb},P \right)$が成り立つようなその集合$W$の元$b$が存在する。
+\end{itemize}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p97-105 ISBM978-4-00-029871-1
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,643 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{4.1.1}
+\input{macro}
+\begin{document}
+%\hypertarget{varepsilonux8fd1ux508d}{%
+\subsection{$\varepsilon$近傍}%\label{varepsilonux8fd1ux508d}}
+%\hypertarget{ux88dcux5b8cux6570ux76f4ux7dda}{%
+\subsubsection{補完数直線}%\label{ux88dcux5b8cux6570ux76f4ux7dda}}
+\begin{axs}[無限大の算法]
+次のことを満たす2つの元$- \infty$、$\infty$をそれぞれ負の無限大、正の無限大という\footnote{ただ、$\infty - \infty$や$- \infty + \infty$、$0 \cdot \infty$、$\infty \cdot 0$などは定義されてないということに注意されたい。}。
+\begin{itemize}
+\item
+  $\forall a \in \mathbb{R}$に対し、$- \infty < a$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$a < \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$a - \infty = - \infty + a = - \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$a + \infty = \infty + a = \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{-}$に対し、$a \cdot ( - \infty) = - \infty \cdot a = \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{-}$に対し、$a \cdot \infty = \infty \cdot a = - \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{+}$に対し、$a \cdot ( - \infty) = - \infty \cdot a = - \infty$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{+}$に対し、$a \cdot \infty = \infty \cdot a = \infty$が成り立つ。
+\item
+  $\infty + \infty = \infty$が成り立つ。
+\item
+  $- \infty - \infty = - \infty$が成り立つ。
+\item
+  $\frac{1}{- \infty} = \frac{1}{\infty} = 0$が成り立つ。
+\end{itemize}
+\end{axs}
+\begin{dfn}
+さらに、次のように定義される集合${}^{*}\mathbb{R}$を補完数直線といいこれの元を拡大実数、超実数という。
+\begin{align*}
+{}^{*}\mathbb{R} = \mathbb{R} \cup \left\{ \pm \infty \right\}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+2つの超実数たち$a$、$b$が$a \leq b$を満たすとき、次のように集合たちが定義される。これらの集合たちを補完区間という。
+\begin{align*}
+(a,b) &= \left\{ c \in{}^{*}\mathbb{R} \middle| a < c < b \right\}\\
+(a,b] &= \left\{ c \in{}^{*}\mathbb{R} \middle| a < c \leq b \right\}\\
+[ a,b) &= \left\{ c \in{}^{*}\mathbb{R} \middle| a \leq c < b \right\}\\
+[ a,b] &= \left\{ c \in{}^{*}\mathbb{R} \middle| a \leq c \leq b \right\}
+\end{align*}
+特に、2つの超実数たち$a$、$b$が$a \leq b$を満たすとき、次のようにいう。
+\begin{longtable}[c]{|c|c|c|c|c|c|}
+\hline
+補完区間 & 左に等しい集合の例 & \multicolumn{4}{c|}{名称} \\
+\hline \hline
+$(a,b)$ & & 有界開区間 & 有界区間 & \multirow{2}{*}{開区間} & \multirow{3}{*}{区間} \\\cline{1-4}
+$(a,\infty)$ & & 無限開区間 & 無限区間 & & \\\cline{1-5}
+$(a,b]$ & $(a,b) \cup \left\{ b \right\}$ & 有界半開区間 & 有界区間 & 半開区間 & \\\hline
+$(a,\infty]$ & $(a,b) \cup \left\{ \infty \right\}$ & & & & \\\hline
+$( - \infty,b)$ & & 無限開区間 & \multirow{2}{*}{無限区間} & 開区間 & \multirow{2}{*}{区間} \\\cline{1-3} \cline{5-5}
+$( - \infty,\infty)$ & $\mathbb{R}$ & & & & \\\hline
+$( - \infty,b]$ & $( - \infty,b) \cup \left\{ b \right\}$ & 無限閉区間 & 無限区間 & 閉区間 & \\\hline
+$( - \infty,\infty]$ & $\mathbb{R} \cup \left\{ \infty \right\}$ & & & & \\\hline
+$[ a,b)$ & $(a,b) \cup \left\{ a \right\}$ & 有界半開区間 & 有界区間 & 半開区間 & \multirow{3}{*}{区間} \\\cline{1-5}
+$[ a,\infty)$ & $(a,\infty) \cup \left\{ a \right\}$ & 無限半開区間 & 無限区間 & \multirow{2}{*}{閉区間} & \\\cline{1-4}
+$[ a,b]$ & $(a,b) \cup \left\{ a,b \right\}$ & 有界閉区間 & 有界区間 & & \\\hline
+$[ a,\infty]$ & $(a,\infty) \cup \left\{ a,\infty \right\}$ & \multirow{5}{*}{} & \multirow{5}{*}{} & \multirow{5}{*}{} & \multirow{5}{*}{} \\\cline{1-2}
+$[ - \infty,b)$ & $( - \infty,b) \cup \left\{ - \infty \right\}$ & & & & \\\cline{1-2}
+$[ - \infty,\infty)$ & $\mathbb{R} \cup \left\{ - \infty \right\}$ & & & & \\\cline{1-2}
+$[ - \infty,b]$ & $( - \infty,b) \cup \left\{ - \infty,b \right\}$ & & & & \\\cline{1-2}
+$[ - \infty,\infty]$ & ${}^{*}\mathbb{R}$ & & & & \\\hline
+\end{longtable}
+\end{dfn}
+\begin{dfn}
+補完数直線${}^{*}\mathbb{R}$の部分集合$A$が与えられたとき、順序集合$(A, \leq )$が与えられたと考えたときの上界、下界、即ち、それぞれ、$\forall a \in A$に対し、$a \leq b$が成り立つようなその元$b$をその集合$A$の上界といい、同様にして、$\forall a \in A$に対し、$b \leq a$が成り立つようなその元$b$をその集合$A$の下界という。今まで通り、その集合$A$の上界、下界全体の集合をそれぞれ$U(A)$、$L(A)$とおく。
+\end{dfn}
+\begin{thm}\label{4.1.3.1}
+$\forall A \in \mathfrak{P}\left({}^{*}\mathbb{R} \right)$に対し、補完数直線${}^{*}\mathbb{R}$の元々$\min{U(A)}$、$\max{L(A)}$が存在する。
+\end{thm}
+\begin{proof}
+$\forall A \in \mathfrak{P}\left({}^{*}\mathbb{R} \right)$に対し、$A \cap \mathbb{R} = \emptyset$のとき、その集合$A$は明らかに$\emptyset$、$\left\{ - \infty \right\}$、$\left\{ \infty \right\}$、$\left\{ - \infty,\infty \right\}$のうちどれかであるから、前から1つ目、2つ目では、$U(A) ={}^{*}\mathbb{R}$が成り立つので、$\min{U(A)} = - \infty$が成り立ち、3つ目、4つ目では、$U(A) = \left\{ \infty \right\}$が成り立つので、$\min{U(A)} = \infty$が成り立つ。$A \cap \mathbb{R} \neq \emptyset$のとき、$A \cap \mathbb{R}$が集合$\mathbb{R}$で上に有界でないか、$\infty \in A$が成り立つときでは、$U\left( A \cap \mathbb{R} \right) = \left\{ \infty \right\}$が成り立ち、したがって、$U(A) = \left\{ \infty \right\}$が成り立つので、$\min{U(A)}$が成り立つ。逆に、$A \cap \mathbb{R}$が上に有界であるかつ、$\infty \notin A$が成り立つときでは、上限性質より最小元$\min{U\left( A \cap \mathbb{R} \right)}$がその集合$\mathbb{R}$に存在する。あとは、$U(A) = U\left( A \cap \mathbb{R} \right) \cup \left\{ \infty \right\}$が成り立つので、$\min\left( A \cap \mathbb{R} \right) = \min{U(A)}$が成り立つ。\par
+最大元$\max{L(A)}$についても同様にして示される。
+\end{proof}
+\begin{dfn}
+補完数直線${}^{*}\mathbb{R}$の部分集合$A$に対する補完数直線${}^{*}\mathbb{R}$の元々$\min{U(A)}$、$\max{L(A)}$をそれぞれその集合$A$の上限、下限といい、それぞれ、$\sup A$、$\inf A$と書く。
+\end{dfn}
+\begin{thm}\label{4.1.3.2}
+$\emptyset \neq A \subseteq \mathbb{R}$が成り立ち、その集合$A$が上に有界であるとき、$\sup A \in U(A) \cap \mathbb{R}$が成り立つ。また、その集合$A$が上に有界でないとき、$\sup A = \infty$が成り立つ。同様に$\emptyset \neq A \subseteq \mathbb{R}$が成り立ち、その集合$A$が下に有界であるとき、$\inf A \in U(A) \cap \mathbb{R}$が成り立つ。また、その集合$A$が下に有界でないとき、$\inf A = - \infty$が成り立つ。
+\end{thm}
+\begin{proof}
+$\emptyset \neq A \subseteq \mathbb{R}$が成り立ち、その集合$A$が上に有界であるかつ、$\sup A \notin U(A) \cap \mathbb{R}$が成り立たないと仮定しよう。このとき、その集合$A$は上に有界であるので、$\forall a \in A$に対し、$a \leq b$となる実数$b$が存在する。したがって、$a \leq \sup A \leq b$が成り立つことになり、$\sup A \in \mathbb{R}$が成り立つがこれは仮定に矛盾する。よって、$\sup A \in U(A) \cap \mathbb{R}$が成り立つ。\par
+その集合$A$が上に有界でないとき、$\forall u \in \mathbb{R}\exists a \in A$に対し、$u < a$が成り立つので、$U(A) = \left\{ \infty \right\}$が成り立ち、よって、$\sup A = \infty$が成り立つことになる。\par
+下限についても同様にして示される。
+\end{proof}
+%\hypertarget{ux62e1ux5f35nux6b21ux5143ux6570ux7a7aux9593}{%
+\subsubsection{拡張$n$次元数空間}%\label{ux62e1ux5f35nux6b21ux5143ux6570ux7a7aux9593}}
+\begin{axs} 次のことを満たす元$a_{\infty}$を無限大という\footnote{ちなみにその$a$はAlexandroff拡大のaのつもりです…。}。
+\begin{itemize}
+\item
+  $\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、$\mathbf{a} + a_{\infty} = a_{\infty} + \mathbf{a} = a_{\infty}$が成り立つ。
+\item
+  $\forall a \in \mathbb{R} \setminus \left\{ 0 \right\}$に対し、$a \cdot a_{\infty} = a_{\infty} \cdot a = a_{\infty}$が成り立つ。
+\item
+  $a_{\infty} + a_{\infty} = a_{\infty}$が成り立つ。
+\item
+  $\left\| a_{\infty} \right\| = \infty$が成り立つ。
+\end{itemize}
+さらに、集合$\mathbb{R}^{n} \cup \left\{ a_{\infty} \right\}$を拡張$n$次元数空間といい$\mathbb{R}_{\infty}^{n}$などと書く。
+\end{axs}
+\begin{axs}
+拡張$2$次元数空間$\mathbb{R}_{\infty}^{2}$において、$\mathbb{C} = \mathbb{R}^{2}$に注意すれば、次のように定義される。
+\begin{itemize}
+\item
+  $\forall z \in \mathbb{C}$に対し、$z + a_{\infty} = a_{\infty} + z$が成り立つ。
+\item
+  $\forall z \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、$z \cdot a_{\infty} = a_{\infty} \cdot z = a_{\infty}$が成り立つ。
+\item
+  $\forall z \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、$\frac{z}{0} = a_{\infty}$が成り立つ。
+\item
+  $\forall z \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、$\frac{z}{a_{\infty}} = 0$が成り立つ。
+\item
+  $a_{\infty} \cdot a_{\infty} = a_{\infty}$が成り立つ。
+\end{itemize}
+\end{axs}
+%\hypertarget{varepsilonux8fd1ux508d-1}{%
+\subsubsection{$\varepsilon$近傍}%\label{varepsilonux8fd1ux508d-1}}
+\begin{dfn}
+$\left\| \mathbf{b} - \mathbf{a} \right\| < \varepsilon$なる$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{b}$全体の集合を$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$を中心とする半径$\varepsilon$の開球、その点$\mathbf{a}$の$\varepsilon$近傍といい、$U\left( \mathbf{a},\varepsilon \right)$などと書く。これはその$n$次元数空間での中心$\mathbf{a}$、半径$\varepsilon$の中身がぎっしり詰まってその縁が除かれた球体のようなものである。また、$\left\| \mathbf{b} - \mathbf{a} \right\| \leq \varepsilon$なる$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{b}$全体の集合を$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$を中心とする半径$\varepsilon$の閉球といい、$\overline{U}\left( \mathbf{a},\varepsilon \right)$などと書く。
+\end{dfn}
+\begin{dfn}
+$b < - \varepsilon < 0$なる超実数$b$全体の集合を補完数直線${}^{*}\mathbb{R}$における負の無限大$- \infty$を中心とする半径$\varepsilon$の開球、負の無限大の$\varepsilon$近傍といい、$U( - \infty,\varepsilon)$などと書く。同様に、$0 < \varepsilon < b$なる超実数$b$全体の集合を補完数直線${}^{*}\mathbb{R}$における正の無限大$\infty$を中心とする半径$\varepsilon$の開球、正の無限大の$\varepsilon$近傍といい、$U(\infty,\varepsilon)$などと書く。$b \leq - \varepsilon < 0$なる超実数$b$全体の集合を補完数直線${}^{*}\mathbb{R}$における負の無限大$- \infty$を中心とする半径$\varepsilon$の閉球といい、$\overline{U}( - \infty,\varepsilon)$などと書く。同様に、$0 < \varepsilon \leq b$なる超実数$b$全体の集合を補完数直線${}^{*}\mathbb{R}$における正の無限大$\infty$を中心とする半径$\varepsilon$の閉球といい、$\overline{U}(\infty,\varepsilon)$などと書く。
+\end{dfn}
+\begin{dfn}
+$0 < \varepsilon < \left\| \mathbf{b} \right\|$なる$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{b}$全体の集合を拡張$n$次元数空間$\mathbb{R}^{n} \cup \left\{ a_{\infty} \right\}$における無限大$a_{\infty}$を中心とする半径$\varepsilon$の開球、無限大の$\varepsilon$近傍といい、$U\left( a_{\infty},\varepsilon \right)$などと書く。また、$0 < \varepsilon \leq \left\| \mathbf{b} \right\|$なる$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{b}$全体の集合を拡張$n$次元数空間$\mathbb{R}^{n} \cup \left\{ a_{\infty} \right\}$における無限大$a_{\infty}$を中心とする半径$\varepsilon$の閉球といい、$\overline{U}\left( a_{\infty},\varepsilon \right)$などと書く。
+\end{dfn}
+\begin{dfn}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a} \in R$に対し、集合$U\left( \mathbf{a},\varepsilon \right) \cap R$をその集合$R$におけるその点$\mathbf{a}$の$\varepsilon$近傍という\footnote{その$R$は相対位相、relative topologyという意味のRです。}。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.3.3}
+$\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、その点$\mathbf{a}$の$\varepsilon$近傍について、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$a_{\infty} \notin U\left( \mathbf{a},\varepsilon \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、その点$\mathbf{a}$の$\varepsilon$近傍について、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$a_{\infty} \in U\left( \mathbf{a},\varepsilon \right)$が成り立つと仮定すると、$\left\| a_{\infty} - \mathbf{a} \right\| = \left\| a_{\infty} \right\| = \infty < \varepsilon$が得られるが、これは矛盾している。
+\end{proof}
+\begin{thm}\label{4.1.3.4}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、その集合$R$の点$\mathbf{a}$のその集合$R$における$\varepsilon$近傍について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}\exists r \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},r \right) \cap R \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap R \subseteq U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、その集合$R$の点$\mathbf{a}$のその集合$R$における$\varepsilon$近傍について、$\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\left\| \mathbf{a} - \mathbf{a} \right\| = 0 < \varepsilon$より$\mathbf{a} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。$\mathbf{a} = a_{\infty}$のとき、$\varepsilon < \infty = \left\| \infty \right\|$より$a_{\infty} \in U\left( a_{\infty},\varepsilon \right) \cap R$が成り立つ。\par
+$\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$r = \min\left\{ \delta,\varepsilon \right\}$とすれば、$\exists r \in \mathbb{R}^{+}\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U\left( \mathbf{a},r \right) \cap R$が成り立つなら、定理\ref{4.1.3.3}より$\mathbf{b} \in \mathbb{R}^{n}$が成り立つ。このとき、$\mathbf{b} \in R$が成り立つかつ、$\left\| \mathbf{b} - \mathbf{a} \right\| < r$で、$r \leq \delta$かつ$r \leq \varepsilon$が成り立つので、$\left\| \mathbf{b} - \mathbf{a} \right\| < \delta$かつ$\left\| \mathbf{b} - \mathbf{a} \right\| < \varepsilon$が成り立つ、即ち、$\mathbf{b} \in U\left( \mathbf{a},\delta \right)$かつ$\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right)$が成り立つ。$\mathbf{a} = a_{\infty}$のとき、$r = \max\left\{ \delta,\varepsilon \right\}$とすれば、$\exists r \in \mathbb{R}^{+}\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U\left( \mathbf{a},r \right) \cap R$が成り立つなら、$\mathbf{b} \in R$が成り立つかつ、$r < \left\| \mathbf{b} \right\|$で、$\delta \leq r$かつ$\varepsilon \leq r$が成り立つので、$\delta < \left\| \mathbf{b} \right\|$かつ$\varepsilon < \left\| \mathbf{b} \right\|$が成り立つ、即ち、$\mathbf{b} \in U\left( a_{\infty},\delta \right)$かつ$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right)$が成り立つ。よって、$\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}\exists r \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},r \right) \cap R \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。\par
+$\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R$に対し、$\mathbf{a} \in \mathbb{R}^{n}$のとき、定理\ref{4.1.3.3}より$\mathbf{b} \in \mathbb{R}^{n}$が成り立つ。そこで、次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = \frac{\varepsilon - \left\| \mathbf{b} - \mathbf{a} \right\|}{2}
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}\forall\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap R$に対し、定理\ref{4.1.3.3}より$\mathbf{c} \in \mathbb{R}^{n}$で次のようになるので、
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap R &\Leftrightarrow \mathbf{c} \in R \land 0 \leq \left\| \mathbf{c} - \mathbf{b} \right\| < \delta = \frac{\varepsilon - \left\| \mathbf{b} - \mathbf{a} \right\|}{2}\\
+&\Leftrightarrow \mathbf{c} \in R \land - \left\| \mathbf{b} - \mathbf{a} \right\| \leq 0 \leq \left\| \mathbf{c} - \mathbf{b} \right\| \\
+&\quad \leq \left\| \mathbf{c} - \mathbf{b} \right\| + \left\| \mathbf{c} - \mathbf{b} \right\| < 2\delta = \varepsilon - \left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\Rightarrow \mathbf{c} \in R \land 0 \leq \left\| \mathbf{c} - \mathbf{a} \right\| \leq \left\| \mathbf{c} - \mathbf{b} \right\| + \left\| \mathbf{b} - \mathbf{a} \right\| < \varepsilon\\
+&\Rightarrow \mathbf{c} \in R \land 0 \leq \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon\\
+&\Leftrightarrow \mathbf{c} \in U\left( \mathbf{a},\varepsilon \right) \cap R
+\end{align*}
+$U\left( \mathbf{b},\delta \right) \cap R \subseteq U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。$\mathbf{a} = a_{\infty}$かつ$\mathbf{b} \in \mathbb{R}^{n}$のとき、$\varepsilon < \left\| \mathbf{b} \right\|$が成り立つので、次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2}
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}\forall\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap R$に対し、定理\ref{4.1.3.3}より$\mathbf{c} \in \mathbb{R}^{n}$で次のようになるので、
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap R &\Leftrightarrow \mathbf{c} \in R \land 0 \leq \left\| \mathbf{c} - \mathbf{b} \right\| < \delta = \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2}\\
+&\Leftrightarrow \mathbf{c} \in R \land - \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2} = - \delta < - \left\| \mathbf{c - b} \right\| \\
+&\quad \leq \left\| \mathbf{c} \right\| - \left\| \mathbf{b} \right\| \leq \left\| \mathbf{c} - \mathbf{b} \right\| < \delta = \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2}\\
+&\Rightarrow \mathbf{c} \in R \land - \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2} < \left\| \mathbf{c} \right\| - \left\| \mathbf{b} \right\|\\
+&\Leftrightarrow \mathbf{c} \in R \land \varepsilon < \frac{\left\| \mathbf{b} \right\| + \varepsilon}{2} < \left\| \mathbf{c} \right\|\\
+&\Rightarrow \mathbf{c} \in R \land \varepsilon < \left\| \mathbf{c} \right\|\\
+&\Leftrightarrow \mathbf{c} \in U\left( a_{\infty},\varepsilon \right) \cap R
+\end{align*}
+$U\left( \mathbf{b},\delta \right) \cap R \subseteq U\left( a_{\infty},\varepsilon \right) \cap R$が成り立つ。$\mathbf{a} = \mathbf{b} = a_{\infty}$のとき、$\delta = \varepsilon$とすればよい。よって、$\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap R \subseteq U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.3.5}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a},\mathbf{b} \in R$に対し、$\mathbf{a} \neq \mathbf{b}$が成り立つなら、$\exists\delta,\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{b},\varepsilon \right) \cap R = \emptyset$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a},\mathbf{b} \in R$に対し、$\mathbf{a} \neq \mathbf{b}$が成り立つなら、$\mathbf{a},\mathbf{b} \in \mathbb{R}^{n}$のとき、$\left\| \mathbf{b} - \mathbf{a} \right\| \in \mathbb{R}^{+}$が成り立つので、例えば、次のように正の実数たち$\delta$、$\varepsilon$がおかれれば、
+\begin{align*}
+\delta = \varepsilon = \frac{1}{2}\left\| \mathbf{b} - \mathbf{a} \right\|
+\end{align*}
+$\forall\mathbf{c} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{c} \in U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{b},\varepsilon \right)$が成り立つなら、三角不等式より次のようになる。
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{b},\varepsilon \right) &\Leftrightarrow \mathbf{c} \in U\left( \mathbf{a},\delta \right) \land \mathbf{c} \in U\left( \mathbf{b},\varepsilon \right)\\
+&\Leftrightarrow \left\| \mathbf{c} - \mathbf{a} \right\| < \delta = \frac{1}{2}\left\| \mathbf{b} - \mathbf{a} \right\| \land \left\| \mathbf{c} - \mathbf{b} \right\| < \varepsilon = \frac{1}{2}\left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\Rightarrow \left\| \mathbf{c} - \mathbf{a} \right\| + \left\| \mathbf{c} - \mathbf{b} \right\| < \delta + \varepsilon = \left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\Rightarrow \left\| \mathbf{b} - \mathbf{c} + \mathbf{c} - \mathbf{a} \right\| \leq \left\| \mathbf{b} - \mathbf{c} \right\| + \left\| \mathbf{c} - \mathbf{a} \right\| < \left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\Rightarrow \left\| \mathbf{b} - \mathbf{a} \right\| < \left\| \mathbf{b} - \mathbf{a} \right\|\\
+&\Leftrightarrow \bot
+\end{align*}
+したがって、$U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{b},\varepsilon \right) = \emptyset$が成り立ち、よって、$U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{b},\varepsilon \right) \cap R = \emptyset$が成り立つ。$\mathbf{a} \in \mathbb{R}^{n}$かつ$\mathbf{b} = a_{\infty}$のとき、例えば、次のように正の実数たち$\delta$、$\varepsilon$がおかれれば、
+\begin{align*}
+\delta = 1,\ \ \varepsilon = \left\| \mathbf{a} \right\| + 1
+\end{align*}
+$\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U\left( \mathbf{a},\delta \right) \cap U\left( a_{\infty},\varepsilon \right)$が成り立つなら、三角不等式より次のようになる。
+\begin{align*}
+\mathbf{b} \in U\left( \mathbf{a},\delta \right) \cap U\left( a_{\infty},\varepsilon \right) &\Leftrightarrow \mathbf{b} \in U\left( \mathbf{a},\delta \right) \land \mathbf{b} \in U\left( a_{\infty},\varepsilon \right)\\
+&\Leftrightarrow \left\| \mathbf{b} - \mathbf{a} \right\| < \delta = 1 \land \varepsilon = \left\| \mathbf{a} \right\| + 1 < \left\| \mathbf{b} \right\|\\
+&\Leftrightarrow - 1 < - \left\| \mathbf{b} - \mathbf{a} \right\| \leq \left\| \mathbf{b} \right\| - \left\| \mathbf{a} \right\| \leq \left\| \mathbf{b} - \mathbf{a} \right\| < 1 \land 1 < \left\| \mathbf{b} \right\| - \left\| \mathbf{a} \right\|\\
+&\Rightarrow 1 < \left\| \mathbf{b} \right\| - \left\| \mathbf{a} \right\| < 1\\
+&\Leftrightarrow \bot
+\end{align*}
+したがって、$U\left( \mathbf{a},\delta \right) \cap U\left( a_{\infty},\varepsilon \right) = \emptyset$が成り立ち、よって、$U\left( \mathbf{a},\delta \right) \cap U\left( a_{\infty},\varepsilon \right) \cap R = \emptyset$が成り立つ。
+\end{proof}
+%\hypertarget{ux9664ux5916varepsilonux8fd1ux508d}{%
+\subsubsection{除外$\varepsilon$近傍}%\label{ux9664ux5916varepsilonux8fd1ux508d}}
+\begin{dfn}
+集合$U\left( \mathbf{a},\varepsilon \right) \setminus \left\{ \mathbf{a} \right\}$を$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$の除外$\varepsilon$近傍といい、$U_{0}\left( \mathbf{a},\varepsilon \right)$などと書く。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{dfn}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a} \in R$に対し、集合$U_{0}\left( \mathbf{a},\varepsilon \right) \cap R$をその集合$R$におけるその点$\mathbf{a}$の除外$\varepsilon$近傍という。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.3.6}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、その集合$R$の点$\mathbf{a}$のその集合$R$における除外$\varepsilon$近傍について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \notin U_{0}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}\exists r \in \mathbb{R}^{+}$に対し、$U_{0}\left( \mathbf{a},r \right) \cap R \subseteq U_{0}\left( \mathbf{a},\delta \right) \cap U_{0}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、その集合$R$の点$\mathbf{a}$のその集合$R$における$\varepsilon$近傍について、定義より明らかに、$\forall\mathbf{a} \in R\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \notin U_{0}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。\par
+$\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$r = \min\left\{ \delta,\varepsilon \right\}$とすれば、$\exists r \in \mathbb{R}^{+}\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U_{0}\left( \mathbf{a},r \right) \cap R$が成り立つなら、定理\ref{4.1.3.3}より$\mathbf{b} \in \mathbb{R}^{n}$が成り立つ。このとき、$\mathbf{b} \neq \mathbf{a}$かつ$\mathbf{b} \in R$が成り立つかつ、$\left\| \mathbf{b} - \mathbf{a} \right\| < r$で、$r \leq \delta$かつ$r \leq \varepsilon$が成り立つので、$\mathbf{b} \neq \mathbf{a}$かつ$\left\| \mathbf{b} - \mathbf{a} \right\| < \delta$かつ$\left\| \mathbf{b} - \mathbf{a} \right\| < \varepsilon$が成り立つ、即ち、$\mathbf{b} \in U_{0}\left( \mathbf{a},\delta \right)$かつ$\mathbf{b} \in U_{0}\left( \mathbf{a},\varepsilon \right)$が成り立つ。$\mathbf{a} = a_{\infty}$のとき、$r = \max\left\{ \delta,\varepsilon \right\}$とすれば、$\exists r \in \mathbb{R}^{+}\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U_{0}\left( \mathbf{a},r \right) \cap R$が成り立つなら、$\mathbf{b} \neq a_{\infty}$かつ$\mathbf{b} \in R$が成り立つかつ、$r < \left\| \mathbf{b} \right\|$で、$\delta \leq r$かつ$\varepsilon \leq r$が成り立つので、$\delta < \left\| \mathbf{b} \right\|$かつ$\varepsilon < \left\| \mathbf{b} \right\|$が成り立つ、即ち、$\mathbf{b} \in U_{0}\left( a_{\infty},\delta \right)$かつ$\mathbf{b} \in U_{0}\left( a_{\infty},\varepsilon \right)$が成り立つ。よって、$\forall\mathbf{a} \in R\forall\delta,\varepsilon \in \mathbb{R}^{+}\exists r \in \mathbb{R}^{+}$に対し、$U_{0}\left( \mathbf{a},r \right) \cap R \subseteq U_{0}\left( \mathbf{a},\delta \right) \cap U_{0}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\end{proof}
+%\hypertarget{ux6709ux754c}{%
+\subsubsection{有界}%\label{ux6709ux754c}}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$が与えられたとする。$\exists\mathbf{a} \in \mathbb{R}^{n}\exists M \in \mathbb{R}^{+}$に対し、$A \subseteq U\left( \mathbf{a},M \right) \cap R$を満たすとき、その集合$A$はその集合$R$で有界であるという。
+\end{dfn}
+\begin{thm}\label{4.1.3.7}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$について、次のことは同値である。
+\begin{itemize}
+\item
+  その集合$A$はその集合$R$で有界である。
+\item
+  $\exists M \in \mathbb{R}^{+}$に対し、$A \subseteq U\left( \mathbf{0},M \right) \cap R$が成り立つ。
+\item
+  $\exists M \in \mathbb{R}^{+}\forall\mathbf{a} \in A$に対し、$\mathbf{a} \in R$かつ$\left\| \mathbf{a} \right\| < M$が成り立つ\footnote{$A \subseteq R$なのでこれの否定が、$\forall M \in \mathbb{R}^{+}\exists\mathbf{a} \in A$に対し、$\mathbf{a} \in A$かつ$M \leq \left\| \mathbf{a} \right\|$が成り立つことであることに注意されたい。}。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$A \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$について、その集合$A$がその集合$R$で有界であるなら、定義より$\exists\mathbf{a} \in \mathbb{R}^{n}\exists M \in \mathbb{R}^{+}$に対し、$A \subseteq U\left( \mathbf{a},M \right) \cap R$が成り立つ。ここで、$\forall\mathbf{b} \in A$に対し、三角不等式より次のようになる。
+\begin{align*}
+\mathbf{b} \in A &\Rightarrow \mathbf{b} \in U\left( \mathbf{a},M \right) \cap R\\
+&\Leftrightarrow \left\| \mathbf{b} \right\| - \left\| \mathbf{a} \right\| \leq \left\| \mathbf{b} - \mathbf{a} \right\| < M \land \mathbf{b} \in R\\
+&\Rightarrow \left\| \mathbf{b} \right\| < M + \left\| \mathbf{a} \right\| \land \mathbf{b} \in R\\
+&\Leftrightarrow \mathbf{b} \in U\left( \mathbf{0},M + \left\| \mathbf{a} \right\| \right) \cap R
+\end{align*}
+ここで、明らかに$M + \left\| \mathbf{a} \right\| \in \mathbb{R}^{+}$が成り立つので、よって、$\exists M \in \mathbb{R}^{+}$に対し、$A \subseteq U\left( \mathbf{0},M \right) \cap R$が成り立つ。逆は明らかである。\par
+また、$\exists M \in \mathbb{R}^{+}$に対し、$A \subseteq U\left( \mathbf{0},M \right) \cap R$が成り立つならそのときに限り、$\forall\mathbf{a} \in A\exists M \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in U\left( \mathbf{0},M \right) \cap R$が成り立つので、$\mathbf{a} \in R$かつ$\left\| \mathbf{a - 0} \right\| = \left\| \mathbf{a} \right\| < M$が成り立つ。
+\end{proof}
+%\hypertarget{ux958bux6838}{%
+\subsubsection{開核}%\label{ux958bux6838}}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$について、その集合$R$の点$\mathbf{a}$のその集合$R$における$\varepsilon$近傍$U\left( \mathbf{a},\varepsilon \right) \cap R$がその集合$A$の部分集合となるようなその$\varepsilon$近傍$U\left( \mathbf{a},\varepsilon \right) \cap R$が存在するとき、即ち、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A$が成り立つとき、その点$\mathbf{a}$をその集合$R$におけるその集合$A$の内点という。これは、その開球の中心がその集合$A$に属さないか縁上にあったら、どのような正の実数$\varepsilon$がとられても、その開球の一部がその集合$A$から飛び出てしまうか、そもそもその集合$A$と交わらないので、文字通りにその開球の中心がその集合$B$の縁上になく内側にあるようなものであると考えてもよい。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$のその集合$R$における内点全体の集合をその集合$A$の内部、開核などといい、$\mathrm{int}_{R}A$、特に、$R = \mathbb{R}^{n}$のとき、単に$\mathrm{int}A$、$A^{{^\circ}}$、$A^{i}$などと書く。これはその集合$A$の縁上になく内側にあるような点々を中心とする開球全体の和集合でありどのような和集合をとってもその集合$A$の縁の一部を部分集合とできなくその集合$A$の縁が除かれた集合のようなものであると考えてもよい。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.3.8}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、開核について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\mathrm{int}_{R}\emptyset = \emptyset$が成り立つ。
+\item
+  $\mathrm{int}_{R}R = R$が成り立つ。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、$\mathrm{int}_{R}A \subseteq A$が成り立つ。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、$\mathrm{int}_{R}{\mathrm{int}_{R}A} = \mathrm{int}_{R}A$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{P}(R)$に対し、$A \subseteq B$が成り立つなら、$\mathrm{int}_{R}A \subseteq \mathrm{int}_{R}B$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{P}(R)$に対し、$\mathrm{int}_{R}(A \cap B) = \mathrm{int}_{R}A \cap \mathrm{int}_{R}B$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、開核について、$\forall A \in \mathfrak{P}(R)\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{int}_{R}A$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A$が成り立つので、$\mathbf{a} \in A$が成り立つ。よって、$\mathrm{int}_{R}A \subseteq A$が得られる。\par
+空集合の公理より$\mathrm{int}_{R}\emptyset \supseteq \emptyset$が成り立つかつ、上の議論により$\mathrm{int}_{R}\emptyset \subseteq \emptyset$が成り立つので、$\mathrm{int}_{R}\emptyset = \emptyset$が成り立つ。\par
+$\mathrm{int}_{R}R = R$を示すとき、上の議論によりすでに$\mathrm{int}_{R}R \subseteq R$が成り立つことが示されているので、$\mathrm{int}_{R}R \supseteq R$を示せばよい。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in R$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \subseteq \mathbb{R}_{\infty}^{n}$なので、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq \mathbb{R}_{\infty}^{n} \cap R = R$が成り立つ。よって、$\mathbf{a} \in \mathrm{int}_{R}R$が得られたので、$\mathrm{int}_{R}R \supseteq R$が成り立つ。\par
+$\forall A,B \in \mathfrak{P}(R)$に対し、$A \subseteq B$が成り立つとする。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{int}_{R}A$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A \subseteq B$が成り立つので、$\mathbf{a} \in \mathrm{int}_{R}B$が成り立つ。よって、$\mathrm{int}_{R}A \subseteq \mathrm{int}_{R}B$が得られる。\par
+上の議論により、$\forall A \in \mathfrak{P}(R)$に対し、$\mathrm{int}_{R}{\mathrm{int}_{R}A} \subseteq \mathrm{int}_{R}A$が成り立つことが示されているので、$\mathrm{int}_{R}{\mathrm{int}_{R}A} \supseteq \mathrm{int}_{R}A$が成り立つことが示されればよい。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{int}_{R}A$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A$が成り立つので、上の議論により$\mathrm{int}_{R}\left( U\left( \mathbf{a},\varepsilon \right) \cap R \right) \subseteq \mathrm{int}_{R}A$が成り立つ。そこで、$\forall\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つなら、定理\ref{4.1.3.4}より$\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap R \subseteq U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つので、$\mathbf{b} \in \mathrm{int}_{R}\left( U\left( \mathbf{a},\varepsilon \right) \cap R \right)$が成り立つ。したがって、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq \mathrm{int}_{R}\left( U\left( \mathbf{a},\varepsilon \right) \cap R \right) \subseteq \mathrm{int}_{R}A$が成り立つので、$\mathbf{a} \in \mathrm{int}_{R}{\mathrm{int}_{R}A}$が得られ、よって、$\mathrm{int}_{R}{\mathrm{int}_{R}A} \supseteq \mathrm{int}_{R}A$が成り立つ。\par
+$\forall A,B \in \mathfrak{P}(R)$に対し、$\mathrm{int}_{R}(A \cap B) \subseteq \mathrm{int}_{R}A$かつ$\mathrm{int}_{R}(A \cap B) \subseteq \mathrm{int}_{R}B$が成り立つので、$\mathrm{int}_{R}(A \cap B) \subseteq \mathrm{int}_{R}A \cap \mathrm{int}_{R}B$が得られる。逆に、$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{int}_{R}A \cap \mathrm{int}_{R}B$が成り立つなら、$\exists\delta \in \mathbb{R}^{\mathbf{+}}$に対し、$U\left( \mathbf{a},\delta \right) \cap R \subseteq A$が成り立つかつ、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\delta \right) \cap R \subseteq B$が成り立つ。そこで、定理\ref{4.1.3.4}より$\exists r \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},r \right) \cap R \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つので、次式が得られ、
+\begin{align*}
+U\left( \mathbf{a},r \right) \cap R \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \cap R = \left( U\left( \mathbf{a},\delta \right) \cap R \right) \cap \left( U\left( \mathbf{a},\varepsilon \right) \cap R \right) \subseteq A \cap B
+\end{align*}
+したがって、$\mathbf{a} \in \mathrm{int}_{R}(A \cap B)$が成り立つ。以上の議論により、$\mathrm{int}_{R}A \cap \mathrm{int}_{R}B \subseteq \mathrm{int}_{R}(A \cap B)$が得られる。よって、$\mathrm{int}_{R}(A \cap B) = \mathrm{int}_{R}A \cap \mathrm{int}_{R}B$が成り立つ。
+\end{proof}
+%\hypertarget{ux9589ux5305}{%
+\subsubsection{閉包}%\label{ux9589ux5305}}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$が与えられたとき、その集合$R$の点$\mathbf{a}$の任意の$\varepsilon$近傍$U\left( \mathbf{a},\varepsilon \right)$とその集合$A$との共通部分$U\left( \mathbf{a},\varepsilon \right) \cap A$が空集合$\emptyset$でないときの点$\mathbf{a}$、即ち、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$を満たすその点$\mathbf{a}$をその集合$A$のその集合$R$における触点、接触点などという。これはその集合$A$に属する元であるかその集合$A$に属さなくても限りなく近い点のようなものであると考えてもよい。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$が与えられたとき、その集合$A$の触点全体の集合、即ち、$\forall\varepsilon \in \mathbb{R}^{\mathbf{+}}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$を満たすようなその$n$次元数空間$\mathbb{R}^{n}$上の点$\mathbf{a}$全体の集合をその集合$A$のその集合$R$における閉包、触集合などといい、$\mathrm{cl}_{R}A$などと書く。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。特に、$R ={}^{*}\mathbb{R}$、あるいは、$1 < n$かつ$R = \mathbb{R}_{\infty}^{n}$のとき、単に$\mathrm{cl}A$、$\overline{A}$、$A^{a}$などと書く。これはその集合$A$自身にその集合$A$に限りなく近い点をすべて付け加えた集合でその集合$A$に限りなく近い点全体がまさにその集合$A$の縁をなすものと考えてもよい。
+\end{dfn}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$が与えられたとき、$\mathrm{cl}_{R}A = R$が成り立つことをその集合$A$はその集合$R$で稠密であるといい、その性質を稠密性などという。
+\end{dfn}\par
+次の定理\ref{4.1.3.10}を示すときの補題として次の定理たちが述べられよう。
+\begin{thm}\label{4.1.3.9}
+2つの写像たち$a:\mathbb{N} \rightarrow \mathbb{R}_{\infty}^{n}$、$n_{\bullet}:\mathbb{N} \rightarrow \mathbb{N};k \mapsto n_{k}$が与えられたとき、$\forall k \in \mathbb{N}$に対し、$n_{k} < n_{k + 1}$が成り立つなら、$\forall n \in \mathbb{N}\exists k \in \mathbb{N}$に対し、$n \leq n_{k}$が成り立つ。
+\end{thm}
+\begin{proof}
+2つの写像たち$a:\mathbb{N} \rightarrow \mathbb{R}_{\infty}^{n}$、$n_{\bullet}:\mathbb{N} \rightarrow \mathbb{N};k \mapsto n_{k}$が与えられたとき、$\forall k \in \mathbb{N}$に対し、$n_{k} < n_{k + 1}$が成り立つかつ、$\exists N \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$n_{k} < N$が成り立つと仮定すると、$\left\{ m_{k} \right\}_{k \in \mathbb{N}} \subseteq \varLambda_{N}$となるので、$\#\left\{ m_{k} \right\}_{k \in \mathbb{N}} \leq \#\varLambda_{N} = N$が成り立つ。一方で、その写像$n_{\bullet}$は単射なので、$\#\mathbb{N} = \aleph_{0} \leq \#\left\{ m_{k} \right\}_{k \in \mathbb{N}}$より$\aleph_{0} < N$が得られることになるが、これは矛盾している。したがって、$\forall n \in \mathbb{N}\exists k \in \mathbb{N}$に対し、$n \leq n_{k}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.3.10}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、閉包について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\mathrm{cl}_{R}\emptyset = \emptyset$が成り立つ。
+\item
+  $\mathrm{cl}_{R}R = R$が成り立つ。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、$A \subseteq \mathrm{cl}_{R}A$が成り立つ。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、$\mathrm{cl}_{R}{\mathrm{cl}_{R}A} = \mathrm{cl}_{R}A$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{P}(R)$に対し、$A \subseteq B$が成り立つなら、$\mathrm{cl}_{R}A \subseteq \mathrm{cl}_{R}B$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{P}(R)$に対し、$\mathrm{cl}_{R}(A \cup B) = \mathrm{cl}_{R}A \cup \mathrm{cl}_{R}B$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、閉包について、$\emptyset \neq \mathrm{cl}_{R}\emptyset$が成り立つなら、$\exists\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}\emptyset$が成り立つことになるので、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap \emptyset = \emptyset \neq \emptyset$が成り立つことになるが、これは矛盾している。よって、$\emptyset = \mathrm{cl}_{R}\emptyset$が成り立つ。\par
+$\forall A \in \mathfrak{P}(R)\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in A$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\mathbf{a} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つので、$\mathbf{a} \in A$かつ$\mathbf{a} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \cap A = U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つ。よって、$A \subseteq \mathrm{cl}_{R}A$が得られる。\par
+上の議論によりすでに、$\mathrm{cl}_{R}R \supseteq R$が成り立つことが示されているので、$\mathrm{cl}_{R}R = R$を示すのに$\mathrm{cl}_{R}R \subseteq R$が成り立つことが示されればよい。$\exists\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}R$が成り立つかつ、$\mathbf{a} \notin R$が成り立つと仮定しよう。$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \neq \emptyset$が成り立つので、$\mathbf{a} \in \mathbb{R}^{n}$のとき、定理\ref{4.1.3.3}に注意すれば、次のように集合$D$がおかれると、
+\begin{align*}
+D = \left\{ d \in \mathbb{R} \middle| \exists\varepsilon \in \mathbb{R}^{+}\exists\mathbf{b} \in \mathbb{R}^{n}\left[ \mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R \land d = \left\| \mathbf{b} - \mathbf{a} \right\| \right] \right\}
+\end{align*}
+$\forall d \in D$に対し、$0 \leq d$が成り立つ。そこで、$\exists d \in D$に対し、$d = 0$が成り立つとすれば、$\exists\varepsilon \in \mathbb{R}^{+}\exists\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R$に対し、$d = \left\| \mathbf{b} - \mathbf{a} \right\| = 0$が成り立ち、したがって、$\mathbf{a} = \mathbf{b}$が成り立つので、$\mathbf{a} = \mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq R$が得られるが、これは$\mathbf{a} \notin R$が成り立つことに矛盾する。ゆえに、$\forall d \in D$に対し、$d > 0$が成り立つ。したがって、その集合$D$は下に有界であるので、下限性質よりその集合$D$の下限$\inf D$が存在する。そこで、$\inf D = 0$が成り立つとすれば、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、その正の実数$\varepsilon$はその集合$D$の下界でないので、$\exists d \in D$に対し、$0 \leq d < \varepsilon$が成り立つことになり、その正の実数$\varepsilon$の任意性より$d = 0$が成り立つことになるが、これは上の議論の$\forall d \in D$に対し、$0 < d$が成り立つことに矛盾する。したがって、$0 < \inf D$が成り立つ。これにより、正の実数$\delta$が次のようにおかれることができてそうすると、
+\begin{align*}
+\delta = \frac{\inf D}{2}
+\end{align*}
+$\forall\mathbf{c} \in \mathbb{R}^{n}$に対し、$\mathbf{c} \in U\left( \mathbf{a},\delta \right) \cap R$が成り立つなら、次のようになるので、
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{a},\delta \right) \cap R &\Leftrightarrow \mathbf{c} \in U\left( \mathbf{a},\delta \right) \cap R \land \mathbf{c} \in U\left( \mathbf{a},\delta \right)\\
+&\Leftrightarrow \left\| \mathbf{c} - \mathbf{a} \right\| \in D \land \left\| \mathbf{c} - \mathbf{a} \right\| < \delta\\
+&\Rightarrow \inf D < \left\| \mathbf{c} - \mathbf{a} \right\| \land \left\| \mathbf{c} - \mathbf{a} \right\| < \delta = \frac{\inf D}{2} < \inf D\\
+&\Rightarrow \inf D < \left\| \mathbf{c} - \mathbf{a} \right\| \land \left\| \mathbf{c} - \mathbf{a} \right\| < \inf D\\
+&\Leftrightarrow \bot
+\end{align*}
+$U\left( \mathbf{a},\delta \right) \cap R = \emptyset$が成り立つ。しかしながら、これは$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \neq \emptyset$が成り立つことに矛盾する。$\mathbf{a} = a_{\infty}$のとき、$R \subseteq \mathbb{R}^{n}$が成り立つので、$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap R$なるその$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{b}$が存在する。したがって、次のようになる。
+\begin{align*}
+\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap R &\Leftrightarrow \mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \land \mathbf{b} \in R\\
+&\Leftrightarrow 0 < \varepsilon < \left\| \mathbf{b} \right\| \land \mathbf{b} \in R\\
+&\Leftrightarrow 0 < \frac{1}{\left\| \mathbf{b} \right\|} < \frac{1}{\varepsilon} \land \mathbf{b} \in R
+\end{align*}
+そこで、その正の実数$\varepsilon$の任意性より$\frac{1}{\left\| \mathbf{b} \right\|} = 0$が得られるが、これは矛盾している。よって、$\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}R$が成り立つなら、$\mathbf{a} \in R$が成り立つので、$\mathrm{cl}_{R}R \subseteq R$が成り立つ。\par
+$\forall A,B \in \mathfrak{P}(R)$に対し、$A \subseteq B$が成り立つとする。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つ。そこで、$U\left( \mathbf{a},\varepsilon \right) \cap A \subseteq U\left( \mathbf{a},\varepsilon \right) \cap B$が成り立つので、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap B \neq \emptyset$が成り立つことから、$\mathbf{a} \in \mathrm{cl}_{R}B$が成り立つ。よって、$\mathrm{cl}_{R}A \subseteq \mathrm{cl}_{R}B$が得られる。\par
+$\forall A \in \mathfrak{P}(R)$に対し、上の議論により、$\mathrm{cl}_{R}A \subseteq \mathrm{cl}_{R}R = R$が成り立つので、$\mathrm{cl}_{R}A\in \mathfrak{P}(R)$が成り立つ。したがって、上の議論により、$\mathrm{cl}_{R}{\mathrm{cl}_{R}A} \supseteq \mathrm{cl}_{R}A$が成り立つことになるので、あとは、$\mathrm{cl}_{R}{\mathrm{cl}_{R}A} \subseteq \mathrm{cl}_{R}A$が成り立つことが示されればよい。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}{\mathrm{cl}_{R}A}$が成り立つなら、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap \mathrm{cl}_{R}A \neq \emptyset$が成り立つので、定理\ref{4.1.3.3}より$\exists\mathbf{b} \in \mathbb{R}^{n}$に対し、$\mathbf{b} \in \mathrm{cl}_{R}A$かつ$\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right)$が成り立つ。このとき、$\mathbf{b} \in \mathrm{cl}_{R}A$より$U\left( \mathbf{b},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$\exists\mathbf{c} \in \mathbb{R}^{n}$に対し、$\mathbf{c} \in A$かつ$\mathbf{c} \in U\left( \mathbf{b},\varepsilon \right)$が成り立つ。このとき、三角不等式より次のようになることから、
+\begin{align*}
+\mathbf{b} \in U\left( \mathbf{a},\varepsilon \right) \land \mathbf{c} \in U\left( \mathbf{b},\varepsilon \right) &\Leftrightarrow \left\| \mathbf{b} - \mathbf{a} \right\| < \varepsilon \land \left\| \mathbf{c} - \mathbf{b} \right\| < \varepsilon\\
+&\Rightarrow \left\| \mathbf{c} - \mathbf{a} \right\| \leq \left\| \mathbf{b} - \mathbf{a} \right\| + \left\| \mathbf{c} - \mathbf{b} \right\| < 2\varepsilon\\
+&\Leftrightarrow \mathbf{c} \in U\left( \mathbf{a},2\varepsilon \right)
+\end{align*}
+$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$\mathbf{a} \in \mathrm{cl}_{R}A$が得られる。$\mathbf{a} = a_{\infty}$のとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( a_{\infty},\varepsilon \right) \cap \mathrm{cl}_{R}A \neq \emptyset$が成り立つので、定理\ref{4.1.3.3}より$\exists\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in \mathrm{cl}_{R}A$かつ$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right)$が成り立つ。$\mathbf{b} = a_{\infty}$のとき、$a_{\infty} = \mathbf{b} \in \mathrm{cl}_{R}A$より$U\left( a_{\infty},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$a_{\infty} \in \mathrm{cl}_{R}A$が得られる。$\mathbf{b} \in \mathbb{R}^{n}$のとき、次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2}
+\end{align*}
+$\mathbf{b} \in \mathrm{cl}_{R}A$より$U\left( \mathbf{b},\delta \right) \cap A \neq \emptyset$が成り立つので、$\exists\mathbf{c} \in \mathbb{R}^{n}$に対し、$\mathbf{c} \in A$かつ$\mathbf{c} \in U\left( \mathbf{b},\delta \right)$が成り立つ。このとき、三角不等式より次のようになることから、
+\begin{align*}
+\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \land \mathbf{c} \in U\left( \mathbf{b},\delta \right) &\Leftrightarrow 0 < \varepsilon < \left\| \mathbf{b} \right\| \land \delta < \left\| \mathbf{c} - \mathbf{b} \right\|\\
+&\Leftrightarrow 0 < \varepsilon < \left\| \mathbf{b} \right\| \land - \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2} < - \left\| \mathbf{c} - \mathbf{b} \right\| \leq \left\| \mathbf{c} \right\| - \left\| \mathbf{b} \right\| \leq \left\| \mathbf{c - b} \right\| < \frac{\left\| \mathbf{b} \right\| - \varepsilon}{2}\\
+&\Rightarrow 0 < \varepsilon < \left\| \mathbf{b} \right\| \land \frac{\left\| \mathbf{b} \right\| + \varepsilon}{2} < \left\| \mathbf{c} \right\|\\
+&\Leftrightarrow 0 < \varepsilon < \frac{\left\| \mathbf{b} \right\| + \varepsilon}{2} < \left\| \mathbf{c} \right\|\\
+&\Rightarrow 0 < \varepsilon < \left\| \mathbf{c} \right\|
+\end{align*}
+$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( a_{\infty},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$a_{\infty} \in \mathrm{cl}_{R}A$が得られる。以上より、$\mathrm{cl}_{R}{\mathrm{cl}_{R}A} \subseteq \mathrm{cl}_{R}A$が成り立つ。よって、$\mathrm{cl}_{R}{\mathrm{cl}_{R}A} = \mathrm{cl}_{R}A$が成り立つ。\par
+$\forall A,B \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、$\mathrm{cl}_{R}A \subseteq \mathrm{cl}_{R}(A \cup B)$かつ$\mathrm{cl}_{R}B \subseteq \mathrm{cl}_{R}(A \cup B)$が成り立つので、$\mathrm{cl}_{R}A \cup \mathrm{cl}_{R}B \subseteq \mathrm{cl}_{R}(A \cup B)$が得られる。逆に、$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}(A \cup B)$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{\mathbf{+}}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap (A \cup B) \neq \emptyset$が成り立つ。$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\forall m \in \mathbb{N}$に対し、$U\left( \mathbf{a},\frac{1}{m} \right) \cap (A \cup B) \neq \emptyset$が成り立つので、$\exists\mathbf{a}_{m} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a}_{m} \in U\left( \mathbf{a},\frac{1}{m} \right) \cap (A \cup B)$が成り立つ、即ち、$\mathbf{a}_{m} \in A \cup B$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \frac{1}{m}$が成り立つ。また、定理\ref{4.1.1.22}、即ち、Archimedesの性質より$\forall\varepsilon \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$\frac{1}{m} < \varepsilon$が成り立つ。さて、それらの集合たち$A$、$B$のうち一方は無限に多くの項々$\mathbf{a}_{m}$を含み両方とも含みうる場合はどちらでもとることにする。このような集合がその集合$A$であるとき、元$\mathbf{a}_{m}$がその集合$A$に属するようなその自然数$m$が小さい順から$k$番目であるとしその自然数$m$を$m_{k}$とおくことにすれば、定理\ref{4.1.3.9}より$\forall m \in \mathbb{N}\exists k \in \mathbb{N}$に対し、$m \leq m_{k}$が成り立つ。$\forall\varepsilon \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$\frac{1}{m} < \varepsilon$が成り立つのであったから、$\exists k \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left\| \mathbf{a}_{m_{k}} - \mathbf{a} \right\| < \frac{1}{m_{k}} \leq \frac{1}{m} < \varepsilon
+\end{align*}
+したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つ。それらの集合たち$A$、$B$のうち一方は無限に多くの項々$\mathbf{a}_{m}$を含み両方とも含みうる場合はどちらでもとることにしたときの集合がその集合$B$であるときも同様にして、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つことが示される。$\mathbf{a} = a_{\infty}$のとき、$\forall m \in \mathbb{N}$に対し、$U\left( a_{\infty},m \right) \cap (A \cup B) \neq \emptyset$が成り立つので、$\exists\mathbf{a}_{m} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a}_{m} \in U\left( a_{\infty},m \right) \cap (A \cup B)$が成り立つ、即ち、$\mathbf{a}_{m} \in A \cup B$かつ$m < \left\| \mathbf{a}_{m} \right\|$が成り立つ。また、定理\ref{4.1.1.22}、即ち、Archimedesの性質より$\forall\varepsilon \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$\varepsilon < m$が成り立つ。さて、上と同様にそれらの集合たち$A$、$B$のうち一方は無限に多くの項々$\mathbf{a}_{m}$を含み両方とも含みうる場合はどちらでもとることにする。このような集合がその集合$A$であるとき、元$\mathbf{a}_{m}$がその集合$A$に属するようなその自然数$m$が小さい順から$k$番目であるとしその自然数$m$を$m_{k}$とおくことにすれば、定理\ref{4.1.3.9}より$\forall m \in \mathbb{N}\exists k \in \mathbb{N}$に対し、$m \leq m_{k}$が成り立つ。$\forall\varepsilon \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$\varepsilon < m$が成り立つのであったから、$\exists k \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\varepsilon < m \leq m_{k} < \left\| \mathbf{a}_{m_{k}} \right\|
+\end{align*}
+したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( a_{\infty},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$a_{\infty} \in \mathrm{cl}_{R}A$が成り立つ。それらの集合たち$A$、$B$のうち一方は無限に多くの項々$\mathbf{a}_{m}$を含み両方とも含みうる場合はどちらでもとることにしたときの集合がその集合$B$であるときも同様にして、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つことが示される。以上の議論により、$\mathbf{a} \in \mathrm{cl}_{R}A \cup \mathrm{cl}_{R}B$が成り立つので、$\mathrm{cl}_{R}A \cup \mathrm{cl}_{R}B \subseteq \mathrm{cl}_{R}(A \cup B)$が得られる。よって、$\mathrm{cl}_{R}(A \cup B) = \mathrm{cl}_{R}A \cup \mathrm{cl}_{R}B$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.3.11}
+$n$次元数空間$\mathbb{R}^{n}$における閉包について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\mathrm{cl}\mathbb{R}^{n} = \mathbb{R}_{\infty}^{n}$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)} = \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つ。
+\item
+  $\mathrm{cl}\mathbb{R} ={}^{*}\mathbb{R}$が成り立つ。
+\item
+  $\mathrm{cl}\mathbb{R}^{+} = [ 0,\infty]$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\mathbb{R}^{n} \subseteq \mathbb{R}_{\infty}^{n}$より$\mathrm{cl}\mathbb{R}^{n} \subseteq \mathrm{cl}\mathbb{R}_{\infty}^{n} = \mathbb{R}_{\infty}^{n}$が成り立つので、あとは$\mathbb{R}_{\infty}^{n} \subseteq \mathrm{cl}\mathbb{R}^{n}$が成り立つことを示せばよい。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathbb{R}^{n}$が成り立つなら、定理\ref{4.1.3.5}より$\mathbb{R}^{n} \subseteq \mathrm{cl}\mathbb{R}^{n}$が成り立つので、$\mathbf{a} \in \mathrm{cl}\mathbb{R}^{n}$が成り立つ。$\mathbf{a} = a_{\infty}$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、任意の$\mathbf{0}$でない点$\mathbf{b}$に対し、$\varepsilon < \left\| \mathbf{b} \right\|$のとき、$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n}$が成り立つし、$\left\| \mathbf{b} \right\| < \varepsilon$のとき、次のように点$\mathbf{b}'$がおかれれば、
+\begin{align*}
+\mathbf{b}' = \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\mathbf{b}
+\end{align*}
+次のようになることから、
+\begin{align*}
+\left\| \mathbf{b}' \right\| = \left\| \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\mathbf{b} \right\| = \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\left\| \mathbf{b} \right\| = \varepsilon + 1 > \varepsilon
+\end{align*}
+$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n}$が成り立つ。これにより、$U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n} \neq \emptyset$が成り立つので、$a_{\infty} \in \mathrm{cl}\mathbb{R}^{n}$が成り立つ。以上の議論により、$\mathrm{cl}\mathbb{R}^{n} = \mathbb{R}_{\infty}^{n}$が成り立つことが示された。\par
+$\exists\varepsilon \in \mathbb{R}^{+}\exists\mathbf{a},\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$かつ$\mathbf{b} \notin \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つと仮定する。このとき、$\forall\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \neq \emptyset$が成り立っており、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\mathbf{b} = a_{\infty}$が成り立ちえない。実際、正の実数$\delta$が次のように定義されれば、
+\begin{align*}
+\delta = \left\| \mathbf{a} \right\| + \varepsilon
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}\forall\mathbf{c} \in \mathbb{R}_{\infty}^{n}$に対し、次のようになるので、
+\begin{align*}
+\mathbf{c} \in U\left( a_{\infty},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) &\Leftrightarrow \delta = \left\| \mathbf{a} \right\| + \varepsilon < \left\| \mathbf{c} \right\| \land \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon\\
+&\Leftrightarrow \delta = \left\| \mathbf{a} \right\| + \varepsilon < \left\| \mathbf{c} \right\| \land - \varepsilon < - \left\| \mathbf{c} - \mathbf{a} \right\| \leq \left\| \mathbf{c} \right\| - \left\| \mathbf{a} \right\| \leq \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon\\
+&\Rightarrow \delta = \left\| \mathbf{a} \right\| + \varepsilon < \left\| \mathbf{c} \right\| \land \left\| \mathbf{a} \right\| - \varepsilon < \left\| \mathbf{c} \right\| < \left\| \mathbf{a} \right\| + \varepsilon\\
+&\Rightarrow \delta = \left\| \mathbf{a} \right\| + \varepsilon < \left\| \mathbf{c} \right\| < \left\| \mathbf{a} \right\| + \varepsilon\\
+&\Rightarrow \bot
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( a_{\infty},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) = \emptyset$が得られ、$a_{\infty} \notin \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つがこれは矛盾している。ゆえに、$\mathbf{b} \in \mathbb{R}^{n}$が成り立つ。$\mathbf{b} \notin \overline{U}\left( \mathbf{a},\varepsilon \right)$より$\varepsilon < \left\| \mathbf{b} - \mathbf{a} \right\|$が成り立つことに注意して次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = \left\| \mathbf{a} - \mathbf{b} \right\| - \varepsilon
+\end{align*}
+定理\ref{4.1.3.3}より$\exists\mathbf{c} \in \mathbb{R}^{n}$に対し、$\left\| \mathbf{c} - \mathbf{b} \right\| < \delta$かつ$\left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon$が成り立つ。そこで、次のようになるので、
+\begin{align*}
+\left\| \mathbf{c} - \mathbf{b} \right\| < \delta \land \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon &\Leftrightarrow \left\| \mathbf{c} - \mathbf{b} \right\| < \left\| \mathbf{a} - \mathbf{b} \right\| - \varepsilon \land \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon\\
+&\Leftrightarrow \varepsilon < \left\| \mathbf{a} - \mathbf{b} \right\| - \left\| \mathbf{c} - \mathbf{b} \right\| \leq \left\| \mathbf{a} - \mathbf{c} \right\| + \left\| \mathbf{c} - \mathbf{b} \right\| - \left\| \mathbf{c} - \mathbf{b} \right\| = \left\| \mathbf{c} - \mathbf{a} \right\| \land \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon\\
+&\Rightarrow \varepsilon < \left\| \mathbf{c} - \mathbf{a} \right\| < \varepsilon \Rightarrow \bot
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) = \emptyset$が成り立つことになるが、これは$\forall\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \neq \emptyset$が成り立つことに矛盾する。$\mathbf{a} = a_{\infty}$のとき、$\mathbf{b} = a_{\infty}$が成り立ちえない。実際、$\mathbf{b} \notin \overline{U}\left( a_{\infty},\varepsilon \right)$より$\left\| \mathbf{b} \right\| < \varepsilon$が成り立つ。ゆえに、$\mathbf{b} \in \mathbb{R}^{n}$が成り立つ。$\mathbf{b} \notin \overline{U}\left( \mathbf{a},\varepsilon \right)$より$\left\| \mathbf{b} \right\| < \varepsilon$が成り立つことに注意して次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = \varepsilon - \left\| \mathbf{b} \right\|
+\end{align*}
+定理\ref{4.1.3.3}より$\exists\mathbf{c} \in \mathbb{R}^{n}$に対し、$\left\| \mathbf{c} - \mathbf{b} \right\| < \delta$かつ$\varepsilon < \left\| \mathbf{c} \right\|$が成り立つ。そこで、次のようになるので、
+\begin{align*}
+\left\| \mathbf{c} - \mathbf{b} \right\| < \delta \land \varepsilon < \left\| \mathbf{c} \right\| &\Leftrightarrow \left\| \mathbf{c} - \mathbf{b} \right\| < \varepsilon - \left\| \mathbf{b} \right\| \land \varepsilon < \left\| \mathbf{c} \right\|\\
+&\Leftrightarrow \left\| \mathbf{c} \right\| \leq \left\| \mathbf{c} - \mathbf{b} \right\| + \left\| \mathbf{b} \right\| < \varepsilon \land \varepsilon < \left\| \mathbf{c} \right\|\\
+&\Rightarrow \left\| \mathbf{c} \right\| < \varepsilon < \left\| \mathbf{c} \right\| \Rightarrow \bot
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap U\left( a_{\infty},\varepsilon \right) = \emptyset$が成り立つことになるが、これは$\forall\delta \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{b},\delta \right) \cap U\left( a_{\infty},\varepsilon \right) \neq \emptyset$が成り立つことに矛盾する。以上の議論により、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a},\mathbf{b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つなら、$\mathbf{b} \in \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つ、即ち、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)} \subseteq \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つ。逆に、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a,b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つなら、$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\left\| \mathbf{b} - \mathbf{a} \right\| \leq \varepsilon$が成り立つので、$\mathbf{b} \neq a_{\infty}$が得られ、$\mathbf{a} = \mathbf{b}$のときは明らかに、$\forall\delta \in \mathbb{R}^{+}$に対し、次式が成り立つので、
+\begin{align*}
+\mathbf{a} = \mathbf{b} \in U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) = U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right)
+\end{align*}
+$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つ。$\mathbf{a} \neq \mathbf{b}$のとき、$\forall\delta \in \mathbb{R}^{+}$に対し、次のような点$\mathbf{c}$が考えられれば、
+\begin{align*}
+\mathbf{c} = k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} + \mathbf{b},\ \ k = \frac{1}{2}\min\left\{ \delta,\left\| \mathbf{a} - \mathbf{b} \right\| \right\}
+\end{align*}
+次のようになるかつ、
+\begin{align*}
+\left\| \mathbf{c} - \mathbf{b} \right\| &= \left\| k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} + \mathbf{b} - \mathbf{b} \right\|\\
+&= \left\| k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right\|\\
+&= k \leq \frac{\delta}{2} < \delta
+\end{align*}
+次のようになることから、
+\begin{align*}
+{}^{t}\left( \mathbf{b - c} \right)\left( \mathbf{c - a} \right) &={}^{t}\left( \mathbf{b} - k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|}\mathbf{- b} \right)\left( k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} + \mathbf{b} - \mathbf{a} \right)\\
+&={}^{t}\left( - k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right)\left( \left( k - \left\| \mathbf{a} - \mathbf{b} \right\| \right)\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right)\\
+&= - k\left( k - \left\| \mathbf{a} - \mathbf{b} \right\| \right)\frac{{}^{t}\left( \mathbf{a} - \mathbf{b} \right)\left( \mathbf{a} - \mathbf{b} \right)}{\left\| \mathbf{a - b} \right\|^{2}}\\
+&= - k\left( k - \left\| \mathbf{a} - \mathbf{b} \right\| \right)\\
+&= k\left| k - \left\| \mathbf{a} - \mathbf{b} \right\| \right|\\
+&= \left\| - k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right\|\left\| \left( k - \left\| \mathbf{a} - \mathbf{b} \right\| \right)\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right\|\\
+&= \left\| \mathbf{b} - k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|}\mathbf{- b} \right\|\left\| k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} + \mathbf{b} - \mathbf{a} \right\|\\
+&= \left\| \mathbf{b - c} \right\|\left\| \mathbf{c - a} \right\|
+\end{align*}
+次のようになるので、
+\begin{align*}
+\left\| \mathbf{b} - \mathbf{a} \right\|^{2} &= \left\| \mathbf{b} - \mathbf{c} + \mathbf{c} - \mathbf{a} \right\|^{2}\\
+&={}^{t}\left( \mathbf{b} - \mathbf{c} + \mathbf{c} - \mathbf{a} \right)\left( \mathbf{b} - \mathbf{c} + \mathbf{c} - \mathbf{a} \right)\\
+&= \left({}^{t}\left( \mathbf{b} - \mathbf{c} \right) +{}^{t}\left( \mathbf{c} - \mathbf{a} \right) \right)\left( \left( \mathbf{b} - \mathbf{c} \right) + \left( \mathbf{c} - \mathbf{a} \right) \right)\\
+&={}^{t}\left( \mathbf{b} - \mathbf{c} \right)\left( \mathbf{b} - \mathbf{c} \right) +{}^{t}\left( \mathbf{b} - \mathbf{c} \right)\left( \mathbf{c} - \mathbf{a} \right) +{}^{t}\left( \mathbf{c} - \mathbf{a} \right)\left( \mathbf{b} - \mathbf{c} \right) +{}^{t}\left( \mathbf{c} - \mathbf{a} \right)\left( \mathbf{c} - \mathbf{a} \right)\\
+&= \left\| \mathbf{b - c} \right\|^{2} + 2{}^{t}\left( \mathbf{b} - \mathbf{c} \right)\left( \mathbf{c} - \mathbf{a} \right) + \left\| \mathbf{c - a} \right\|^{2}\\
+&= \left\| \mathbf{b - c} \right\|^{2} + 2\left\| \mathbf{b - c} \right\|\left\| \mathbf{c - a} \right\| + \left\| \mathbf{c - a} \right\|^{2}\\
+&= \left( \left\| \mathbf{b - c} \right\| + \left\| \mathbf{c - a} \right\| \right)^{2}
+\end{align*}
+次のようになる。
+\begin{align*}
+\left\| \mathbf{c - a} \right\| &= \left\| \mathbf{b - c} \right\| + \left\| \mathbf{c - a} \right\| - \left\| \mathbf{b - c} \right\|\\
+&= \left\| \mathbf{b} - \mathbf{a} \right\| - \left\| \mathbf{b - c} \right\|\\
+&= \left\| \mathbf{b} - \mathbf{a} \right\| - \left\| \mathbf{b} - k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|}\mathbf{- b} \right\|\\
+&= \left\| \mathbf{a} - \mathbf{b} \right\| - \left\| k\frac{\mathbf{a} - \mathbf{b}}{\left\| \mathbf{a} - \mathbf{b} \right\|} \right\|\\
+&= \left\| \mathbf{a} - \mathbf{b} \right\| - k < \left\| \mathbf{a - b} \right\| \leq \varepsilon
+\end{align*}
+以上の議論により、$\forall\delta \in \mathbb{R}^{+}$に対し、次式が成り立つので、
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right)
+\end{align*}
+$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つ。$\mathbf{a} = \mathbf{b} = a_{\infty}$のときは明らかに、$\forall\delta \in \mathbb{R}^{+}$に対し、次式が成り立つので、
+\begin{align*}
+\mathbf{a} = \mathbf{b} = a_{\infty} \in U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) = U\left( a_{\infty},\delta \right) \cap U\left( a_{\infty},\varepsilon \right)
+\end{align*}
+$\mathbf{b} \in \mathrm{cl}{U\left( a_{\infty},\varepsilon \right)}$が成り立つ。$\mathbf{a} = a_{\infty}$かつ$\mathbf{b} \in \mathbb{R}^{n}$のとき、$\mathbf{b} \in \overline{U}\left( a_{\infty},\varepsilon \right)$より$0 < \varepsilon \leq \left\| \mathbf{b} \right\|$が成り立つので、$\mathbf{b} \neq \mathbf{0}$が成り立つ。$\forall\delta \in \mathbb{R}^{+}$に対し、次のような点$\mathbf{c}$が考えられれば、
+\begin{align*}
+\mathbf{c} = k\frac{\mathbf{b}}{\left\| \mathbf{b} \right\|},\ \ k = \left\| \mathbf{b} \right\| + \frac{\delta}{2}
+\end{align*}
+次のようになるかつ、
+\begin{align*}
+\left\| \mathbf{c} - \mathbf{b} \right\| &= \left\| k\frac{\mathbf{b}}{\left\| \mathbf{b} \right\|} - \mathbf{b} \right\|\\
+&= \left\| \left( k - \left\| \mathbf{b} \right\| \right)\frac{\mathbf{b}}{\left\| \mathbf{b} \right\|} \right\|\\
+&= \left| k - \left\| \mathbf{b} \right\| \right|\\
+&= \left| \left\| \mathbf{b} \right\| + \frac{\delta}{2} - \left\| \mathbf{b} \right\| \right|\\
+&= \frac{\delta}{2} < \delta
+\end{align*}
+次のようになるので、
+\begin{align*}
+\left\| \mathbf{c} \right\| = \left\| k\frac{\mathbf{b}}{\left\| \mathbf{b} \right\|} \right\| = |k| = \left\| \mathbf{b} \right\| + \frac{\delta}{2} > \left\| \mathbf{b} \right\| \geq \varepsilon
+\end{align*}
+$\forall\delta \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\mathbf{c} \in U\left( \mathbf{b},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right)
+\end{align*}
+よって、$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つ。以上の議論により、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a,b} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{b} \in \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つなら、$\mathbf{b} \in \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つので、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\overline{U}\left( \mathbf{a},\varepsilon \right) \subseteq \mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)}$が成り立つ。よって、$\forall\varepsilon \in \mathbb{R}^{+}\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathrm{cl}{U\left( \mathbf{a},\varepsilon \right)} = \overline{U}\left( \mathbf{a},\varepsilon \right)$が成り立つ。\par
+$\mathbb{R}^{n} \subseteq \mathbb{R}_{\infty}^{n}$より$\mathrm{cl}\mathbb{R}^{n} \subseteq \mathrm{cl}\mathbb{R}_{\infty}^{n} = \mathbb{R}_{\infty}^{n}$が成り立つので、あとは$\mathbb{R}_{\infty}^{n} \subseteq \mathrm{cl}\mathbb{R}^{n}$が成り立つことを示せばよい。$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathbb{R}^{n}$が成り立つなら、定理\ref{4.1.3.10}より$\mathbb{R}^{n} \subseteq \mathrm{cl}\mathbb{R}^{n}$が成り立つので、$\mathbf{a} \in \mathrm{cl}\mathbb{R}^{n}$が成り立つ。$\mathbf{a} = a_{\infty}$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、任意の$\mathbf{0}$でない点$\mathbf{b}$に対し、$\varepsilon < \left\| \mathbf{b} \right\|$のとき、$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n}$が成り立つし、$\left\| \mathbf{b} \right\| < \varepsilon$のとき、次のように点$\mathbf{b}'$がおかれれば、
+\begin{align*}
+\mathbf{b}' = \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\mathbf{b}
+\end{align*}
+次のようになることから、
+\begin{align*}
+\left\| \mathbf{b}' \right\| = \left\| \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\mathbf{b} \right\| = \frac{\varepsilon + 1}{\left\| \mathbf{b} \right\|}\left\| \mathbf{b} \right\| = \varepsilon + 1 > \varepsilon
+\end{align*}
+$\mathbf{b} \in U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n}$が成り立つ。これにより、$U\left( a_{\infty},\varepsilon \right) \cap \mathbb{R}^{n} \neq \emptyset$が成り立つので、$a_{\infty} \in \mathrm{cl}\mathbb{R}^{n}$が成り立つ。以上の議論により、$\mathrm{cl}\mathbb{R}^{n} = \mathbb{R}_{\infty}^{n}$が成り立つことが示された。\par
+$\mathbb{R} \subseteq{}^{*}\mathbb{R}$より$\mathrm{cl}\mathbb{R} \subseteq \mathrm{cl}{{}^{*}\mathbb{R}} ={}^{*}\mathbb{R}$が成り立つので、あとは${}^{*}\mathbb{R} \subseteq \mathrm{cl}\mathbb{R}$が成り立つことを示せばよい。$\forall a \in{}^{*}\mathbb{R}$に対し、$a \in \mathbb{R}$が成り立つなら、定理\ref{4.1.3.10}より$\mathbb{R} \subseteq \mathrm{cl}\mathbb{R}$が成り立つので、$a \in \mathrm{cl}\mathbb{R}$が成り立つ。$a = \infty$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\varepsilon + 1 \in U(\infty,\varepsilon) \cap \mathbb{R}$が成り立つことから、$U(\infty,\varepsilon) \cap \mathbb{R} \neq \emptyset$が成り立つので、$\infty \in \mathrm{cl}\mathbb{R}$が成り立つ。同様にして、$- \infty \in \mathrm{cl}\mathbb{R}$が得られる。以上の議論により、$\mathrm{cl}\mathbb{R} ={}^{*}\mathbb{R}$が成り立つことが示された。\par
+$\mathbb{R}^{+} \subseteq [ 0,\infty]$より$\mathrm{cl}\mathbb{R}^{+} \subseteq \mathrm{cl}[ 0,\infty]$が成り立つ。そこで、$\forall a \in{}^{*}\mathbb{R}$に対し、$a \in \mathrm{cl}[ 0,\infty]$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U(a,\varepsilon) \cap [ 0,\infty] \neq \emptyset$が成り立つ。そこで、$a < 0$が成り立つと仮定すると、次のように正の実数$\delta$がおかれれば、
+\begin{align*}
+\delta = - \frac{a}{2}
+\end{align*}
+$\forall b \in{}^{*}\mathbb{R}$に対し、次のようになることから、
+\begin{align*}
+b \in U(a,\delta) \cap [ 0,\infty] &\Leftrightarrow b \in U(a,\delta) \land 0 \leq b \leq \infty\\
+&\Leftrightarrow |b - a| < \delta \land 0 \leq b \leq \infty\\
+&\Leftrightarrow \frac{a}{2} < b - a < - \frac{a}{2} \land 0 \leq b \leq \infty\\
+&\Leftrightarrow \frac{3a}{2} < b < \frac{a}{2} < 0 \land 0 \leq b \leq \infty\\
+&\Rightarrow b < 0 \leq b \Leftrightarrow \bot
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}$に対し、$U(a,\delta) \cap [ 0,\infty] = \emptyset$が成り立つので、矛盾している。ゆえに、$0 \leq a$が成り立つ。よって、$a \in [ 0,\infty]$が成り立つので、$\mathrm{cl}[ 0,\infty] \subseteq [ 0,\infty]$が成り立つ。また、$[ 0,\infty] \subseteq \mathrm{cl}[ 0,\infty]$が成り立つことから、$[ 0,\infty] = \mathrm{cl}[ 0,\infty]$が成り立ち、したがって、$\mathrm{cl}\mathbb{R}^{+} \subseteq \mathrm{cl}[ 0,\infty] = [ 0,\infty]$が成り立つ。あとは$[ 0,\infty] \subseteq \mathrm{cl}\mathbb{R}^{+}$が成り立つことを示せばよい。$\forall a \in [ 0,\infty]$に対し、$a \in \mathbb{R}^{+}$が成り立つなら、定理\ref{4.1.3.10}より$\mathbb{R}^{+} \subseteq \mathrm{cl}\mathbb{R}^{+}$が成り立つので、$a \in \mathrm{cl}\mathbb{R}^{+}$が成り立つ。$a = \infty$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\varepsilon + 1 \in U(\infty,\varepsilon) \cap \mathbb{R}^{+}$が成り立つことから、$U(\infty,\varepsilon) \cap \mathbb{R}^{+} \neq \emptyset$が成り立つので、$\infty \in \mathrm{cl}\mathbb{R}^{+}$が成り立つ。以上の議論により、$\mathrm{cl}\mathbb{R}^{+} = [ 0,\infty]$が成り立つことが示された。
+\end{proof}
+%\hypertarget{ux958bux96c6ux5408ux3068ux9589ux96c6ux5408}{%
+\subsubsection{開集合と閉集合}%\label{ux958bux96c6ux5408ux3068ux9589ux96c6ux5408}}
+\begin{dfn}
+$U \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$R$、$U$を考え、$\forall\mathbf{a} \in U$に対し、その点$\mathbf{a}$のその集合$R$における$\varepsilon$近傍$U\left( \mathbf{a},\varepsilon \right) \cap R$が$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U$となるような正の実数$\varepsilon$が存在するとき、その集合$U$はその集合$R$における開集合という。これは縁がないような集合であると考えてもよい。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合たち$A$、$R$とその集合$A$のその集合$R$における閉包$\mathrm{cl}_{R}A$が等しいとき、即ち、$A = \mathrm{cl}_{R}A$を満たすとき、その集合$A$はその集合$R$における閉集合という。これはその集合$A$に限りなく近い集合もその集合$A$の部分集合としてくれるようなもので、その集合$A$に限りなく近い集合がその集合$A$の縁となりこの集合もその集合$A$の一部であるから、縁をもっているようなものである。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.3.12}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall U \in \mathfrak{P}(R)$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $U = \mathrm{int}_{R}U$が成り立つならそのときに限り、その集合$U$はその集合$R$における開集合である。
+\item
+  その集合$R \setminus U$がその集合$R$における閉集合であるならそのときに限り、その集合$U$はその集合$R$における開集合である。
+\item
+  $\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、$\mathbf{a} \in U$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U$が成り立つならそのときに限り\footnote{分かりにくくなってしまいましたが、論理式でいえば、''$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \mathbf{a} \in U \Rightarrow \exists\varepsilon \in \mathbb{R}^{+}\left[ U\left( \mathbf{a},\varepsilon \right) \subseteq U \right] \right] \Leftrightarrow$その集合$U$は開集合である''という主張です。}、その集合$U$はその集合$R$における開集合である。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall U \in \mathfrak{P}(R)$に対し、$U = \mathrm{int}_{R}U$が成り立つなら、$\forall\mathbf{a} \in U\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U$が成り立つ。これにより、その集合$U$はその集合$R$における開集合である。逆に、その集合$U$がその集合$R$における開集合であるなら、$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in U$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U$が成り立つので、$U \subseteq \mathrm{int}_{R}U$が成り立つ。また、$\mathrm{int}_{R}U \subseteq U$が成り立つのであったので、$U = \mathrm{int}_{R}U$が成り立つ。\par
+その集合$R \setminus U$がその集合$R$における閉集合であるならそのときに限り、$R \setminus U = \mathrm{cl}_{R}(R \setminus U)$が成り立つので、次のようになる。
+\begin{align*}
+R \setminus U = \mathrm{cl}_{R}(R \setminus U) &\Leftrightarrow \mathrm{cl}_{R}(R \setminus U) \subseteq R \setminus U\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \mathbf{a} \in \mathrm{cl}_{R}(R \setminus U) \Rightarrow \mathbf{a} \in R \setminus U \right]\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \forall\varepsilon \in \mathbb{R}^{\mathbf{+}}\left[ U\left( \mathbf{a},\varepsilon \right) \cap R \setminus U \neq \emptyset \right] \Rightarrow \mathbf{a} \in R \setminus U \right]\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \neg\mathbf{a} \in R \setminus U \Rightarrow \neg\forall\varepsilon \in \mathbb{R}^{\mathbf{+}}\left[ U\left( \mathbf{a},\varepsilon \right) \cap R \setminus U \neq \emptyset \right] \right]\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \mathbf{a} \notin R \setminus U \Rightarrow \exists\varepsilon \in \mathbb{R}^{\mathbf{+}}\left[ U\left( \mathbf{a},\varepsilon \right) \cap R \setminus U = \emptyset \right] \right]\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \mathbf{a} \in U \Rightarrow \exists\varepsilon \in \mathbb{R}^{\mathbf{+}}\left[ U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U \right] \right]\\
+&\Leftrightarrow \forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}\left[ \mathbf{a} \in U \Rightarrow \mathbf{a} \in \mathrm{int}_{R}U \right]\\
+&\Leftrightarrow U \subseteq \mathrm{int}_{R}U\\
+&\Leftrightarrow U = \mathrm{int}_{R}U
+\end{align*}
+以上より、集合$R \setminus U$がその集合$R$における閉集合であるならそのときに限り、その集合$U$がその集合$R$における開集合であることが示された。\par
+$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in U$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U$が成り立つならそのときに限り、その集合$U$はその集合$R$における開集合であるということは開集合の定義よりほとんど明らかである。
+\end{proof}
+\begin{dfn}
+$R \subseteq \mathbb{R}_{\infty}^{n}$なるその集合$R$における開集合全体の集合をその集合$R$における開集合系、位相といい$\left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$などと、特に、$R = \mathbb{R}^{n}$のとき、$\mathfrak{O}_{d_{E^{n}}}$などと、$R \subseteq \mathbb{R}^{n}$のとき、$\left( \mathfrak{O}_{d_{E^{n}}} \right)_{R}$などと書くことにする。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$を補完数直線${}^{*}\mathbb{R}$におきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.3.13}
+$R \subseteq \mathbb{R}_{\infty}^{n}$なるその集合$R$における開集合系$\left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\emptyset,R \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。
+\item
+  $\forall\lambda \in \varLambda$に対し、$U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つなら、$\bigcap_{ \lambda \in \varLambda } U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。ただし、$\#\varLambda < \aleph_{0}$とする、即ち、その集合$\varLambda$が有限集合であるとする。
+\item
+  $\forall\lambda \in \varLambda$に対し、$U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つなら、$\bigcup_{\lambda \in \varLambda} U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。
+\end{itemize}
+\end{thm}\par
+この定理より、ここで、定義された開集合はまさしく位相空間論での開集合のことを指すことになる。さらに、ここで定義された閉集合はこれの補集合が開集合であったので、位相空間論での閉集合とやはり一致することになる\footnote{ここまできて、華麗なるたらい回しです!! ただ、歴史的にいえば、どうやらこの定理のほうが位相空間論のきっかけとなっているらしいですね…。}。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\begin{proof}
+$R \subseteq \mathbb{R}_{\infty}^{n}$なるその集合$R$における開集合系$\left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$について、定理\ref{4.1.3.4}と定理\ref{4.1.3.8}より$R \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。また、定理\ref{4.1.3.10}より$\mathrm{cl}_{R}R = R$が成り立つので、その集合$R$はその集合$R$における閉集合でもあり定理\ref{4.1.3.12}より$\emptyset \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。\par
+$\#\varLambda < \aleph_{0}$とし、$\forall\lambda \in \varLambda$に対し、$U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つなら、$\exists\lambda_{1},\lambda_{2} \in \varLambda$に対し、$U_{\lambda_{1}} \cap U_{\lambda_{2}} = \emptyset$が成り立つ場合、$\bigcap_{\lambda \in \varLambda ,\ } U_{\lambda} = \emptyset$となるので、上記の議論より$\bigcap_{\lambda \in \varLambda } U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つ。一方で、$\forall\lambda_{1},\lambda_{2} \in \varLambda$に対し$U_{\lambda_{1}} \cap U_{\lambda_{2}} \neq \emptyset$が成り立つ場合、数学的帰納法により$\bigcap_{\lambda \in \varLambda} U_{\lambda} \neq \emptyset$が成り立ち、$\forall\mathbf{a} \in \bigcap_{\lambda \in \varLambda } U_{\lambda}$に対し、$\forall\lambda \in \varLambda$に対し、$\mathbf{a} \in U_{\lambda}$が成り立つことにより、$\forall\lambda \in \varLambda$に対し、$U\left( \mathbf{a},\varepsilon_{\lambda} \right) \cap R \subseteq U_{\lambda}$が成り立つような正の実数$\varepsilon_{\lambda}$が存在するので、その集合$\varLambda$が有限集合であることに注意して定理\ref{4.1.3.4}より$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq \bigcap_{\lambda \in \varLambda ,\ } U_{\lambda}$が成り立ちその集合$\bigcap_{\lambda \in \varLambda ,\ } U_{\lambda}$は開集合である。\par
+$\forall\lambda \in \varLambda$に対し、$U_{\lambda} \in \left( \mathfrak{O}_{d_{E^{n}}}^{*} \right)_{R}$が成り立つなら、$\forall\mathbf{a} \in \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}\exists\lambda \in \varLambda$に対し、$\mathbf{a} \in U_{\lambda}$が成り立つことになり、仮定より$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U_{\lambda}$が成り立つ。さらに、$\forall\lambda \in \varLambda$に対し、$U_{\lambda} \subseteq \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}$が成り立つので、$\forall\mathbf{a} \in \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}\exists\varepsilon \in \mathbb{R}^{+}\exists\lambda \in \varLambda$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq U_{\lambda} \subseteq \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}$が成り立ち、特に、$\forall\mathbf{a} \in \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq \bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}$が成り立つ。よって、その集合$\bigcup_{\lambda \in \varLambda ,\ } U_{\lambda}$は開集合である。
+\end{proof}
+\begin{thm}\label{4.1.3.14}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、その集合$A$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合であるなら、その集合$A$はその集合$R$での開集合でもある。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、その集合$A$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合であるなら、その集合$A$はその集合$R$での閉集合でもある。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、その集合$R$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合でその集合$A$がその集合$R$での開集合であるなら、その集合$A$は拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合でもある。
+\item
+  $\forall A \in \mathfrak{P}(R)$に対し、その集合$R$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合でその集合$A$がその集合$R$での閉集合であるなら、その集合$A$は拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合でもある。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall A \in \mathfrak{P}(R)$に対し、その集合$A$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合であるなら、$\forall\mathbf{a} \in A\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \subseteq A$が成り立つ。そこで、$A \subseteq R$より$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A \cap R = A$が成り立つので、その集合$A$はその集合$R$での開集合でもある。\par
+$\forall A \in \mathfrak{P}(R)$に対し、その集合$A$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合であるとき、$\forall\mathbf{a} \in R$に対し、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{\mathbf{+}}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つので、$\mathbf{a} \in \mathrm{cl}A$が成り立つ。そこで、仮定より$\mathrm{cl}A = A$が成り立つので、定理\ref{4.1.3.10}より$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}A$が成り立つなら、$\mathbf{a} \in A$が成り立つ。ゆえに、$\mathrm{cl}_{R}A \subseteq A$が得られ、定理\ref{4.1.3.10}より$\mathrm{cl}_{R}A = A$が成り立つ。よって、その集合$A$はその集合$R$での閉集合でもある。\par
+$\forall A \in \mathfrak{P}(R)$に対し、その集合$R$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合でその集合$A$がその集合$R$での開集合であるなら、$\forall\mathbf{a} \in A$に対し、$\mathbf{a} \in R$が成り立つので、$\exists\delta,\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\delta \right) \subseteq R$かつ$U\left( \mathbf{a},\varepsilon \right) \cap R \subseteq A$が成り立つ。そこで、定理\ref{4.1.3.4}より$\exists r \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},r \right) \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right)$が成り立つので、次のようになる。
+\begin{align*}
+U\left( \mathbf{a},r \right) \subseteq U\left( \mathbf{a},\delta \right) \cap U\left( \mathbf{a},\varepsilon \right) \subseteq R \cap U\left( \mathbf{a},\varepsilon \right) \subseteq A
+\end{align*}
+よって、その集合$A$は拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での開集合でもある。\par
+$\forall A \in \mathfrak{P}(R)$に対し、その集合$R$が拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合でその集合$A$がその集合$R$での閉集合であるとき、$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}A$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{\mathbf{+}}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つ。このとき、仮定と定理\ref{4.1.3.10}より$\mathrm{cl}A \subseteq \mathrm{cl}R = R$が成り立つので、$\mathbf{a} \in R$も得られる。ゆえに、$\mathbf{a} \in \mathrm{cl}_{R}A$も成り立つので、定理\ref{4.1.3.10}より$\mathbf{a} \in A$が得られる。以上の議論により、$\mathrm{cl}A \subseteq A$が成り立つので、定理\ref{4.1.3.10}よりよって、その集合$A$は拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$での閉集合でもある。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p1-73 ISBN978-4-00-029873-8
+  \bibitem{2}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p39-51,65-71,107-116,170-182 ISBN978-4-00-029873-5
+  \bibitem{3}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p33-38 ISBN978-4-13-062005-5
+  \bibitem{4}
+  対馬龍司. "第9章 標準形の応用 第10章 体と多項式". 明治大学. \url{http://www.isc.meiji.ac.jp/~tsushima/senkei/furoku.pdf} (2021-12-31 0:55 取得)
+\end{thebibliography}
+\end{document}

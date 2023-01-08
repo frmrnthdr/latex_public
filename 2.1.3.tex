@@ -1,0 +1,925 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{2}
+\input{macro}
+\begin{document}
+%\hypertarget{ux884cux5217}{%
+\subsection{行列}%\label{ux884cux5217}}
+%\hypertarget{ux884cux5217-1}{%
+\subsubsection{行列}%\label{ux884cux5217-1}}
+\begin{dfn}
+1つの可換環を$R$と、2つの空集合でない集合たちを$I$、$J$とおくとき、その2つの集合たち$I$、$J$の直積$I \times J$からその可換環$R$への写像$a:I \times J \rightarrow R;(i,j) \mapsto a_{ij}$によって得られるその可換環$R$の元$a_{ij}$全体の順序付けられた組をその可換環$R$における$(I,J)$型の行列といい、$\left( a_{ij} \right)_{(i,j) \in I \times J}$、または単に、$\left( a_{ij} \right)$と表される。その2つの集合たち$I$、$J$がそれぞれ${\#}I$つ、${\#}J$つの元からなる有限集合であるとき、$(I,J)$型の行列を$\left( {\#}I,{\#}J \right)$型の行列、${\#}I \times {\#}J$型の行列などという。これに対比してその可換環$R$の元をscalar、無向量などという。特に、その2つの集合たち$I$、$J$は、写像$f$を適切に定めれば、体$K$の元$a_{ij}$を定めるのに任意性があるので、自然数$m$、$n$を用いてその2つの集合たち$I$、$J$を次式のようにおいても一般性が失われることはない。
+\begin{align*}
+\left\{ \begin{matrix}
+\varLambda_{m} = \left\{ i \in \mathbb{N} \middle| 1 \leq i \leq m \right\} = I \\
+\varLambda_{n} = \left\{ j \in \mathbb{N} \middle| 1 \leq j \leq m \right\} = J \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列は$(m,n)$型の行列、$m \times n$型の行列にあたり、$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$を次式のようにも書き、その元$a_{ij}$が明示的に書かれているものを成分表示された行列などといい、その元$a_{ij}$はその可換環$R$に属し、これを$(i,j)$成分という。また、これが属する集合を$M_{mn}(R)$、$R^{m \times n}$と書き、特に$m = n$ならば単に$M_{n}(R)$、$R^{n^{2}}$とも書く。
+\begin{align*}
+\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn} = \left( a_{ij} \right)_{1 \leq i \leq m,1 \leq j \leq n} = \begin{pmatrix}
+\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix} & \begin{matrix}
+\cdots & a_{1n} \\
+\cdots & a_{2n} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots & \vdots \\
+a_{m1} & a_{m2} \\
+\end{matrix} & \begin{matrix}
+ \ddots & \vdots \\
+\cdots & a_{mn} \\
+\end{matrix} \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}\par
+以下、行列たち$A_{mn}$、$B_{mn}$、$C_{mn}$がそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と成分表示されるとする。このとき、$\forall A_{mn},B_{mn} \in M_{mn}(R)$に対し、$A_{mn} = B_{mn}$が成り立つことは、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$a_{ij} = b_{ij}$が成り立つことと同値であることに注意されたい。
+\begin{dfn}
+任意の2つの$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と可換環$R$の任意の元$k$、$l$を用いて、次式のように定義される。
+\begin{align*}
+kA_{mn} + lB_{mn} = \left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.1}
+体$K$上の集合$M_{mn}(K)$は体$K$上のvector空間であり行列はvectorとなる。
+\end{thm}
+\begin{proof}
+体$K$上の集合$M_{mn}(K)$について定義より$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}},\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$が成り立つ。このとき、体$K$が加法について群$(K, + )$をなし、$a_{ij} + b_{ij}$のみ着眼して考えると、各成分も加法について可換群$(K, + )$をなしているので、$M_{mn}(K)$は加法について可換群$\left( M_{mn}(K), + \right)$をなす。\par
+また、定義より$\forall k \in K\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、$k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = \left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$が成り立ち${ka}_{ij} \in K$が成り立つので、$\left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$が成り立ち写像$\mu_{2}:K \times M_{mn}(K) \rightarrow M_{mn}(K);\left( k,\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right) \mapsto \left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$が定義される。\par
+さらに、$\forall k \in K\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}},\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+k\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right) &= k\left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( a_{ij} + b_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} + kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{i \in \varLambda_{n}}\mathbf{+}\left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\mathbf{+}k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}
+$\forall k,l \in K\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+(k + l)\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} &= \left( (k + l)a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} + la_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\mathbf{+}\left( la_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\mathbf{+}l\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}
+$\forall k,l \in K\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+(kl)\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} &= \left( (kl)a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( la_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= {k\left( la_{ij} \right)}_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = k\left( l\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)
+\end{align*}
+$\exists 1 \in K\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+1\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = \left( 1a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}\par
+以上より、その集合$M_{mn}(K)$はvector空間の定義を満たしているので、vector空間である。
+\end{proof}
+\begin{dfn}
+体$K$上で${\#}\varLambda = 1$なる添数集合$\varLambda$が集合$\left\{ \varLambda_{m},\varLambda_{n} \right\}$に存在すれば、即ち、その2つの集合たち$\varLambda_{m}$、$\varLambda_{n}$どちらかまたは両方とも元の個数が1になっても$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$はvectorであり、$\left( \varLambda_{1},\varLambda_{n} \right)$型の行列$\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+\end{pmatrix}$、$\left( \varLambda_{m},\varLambda_{1} \right)$型の行列$\begin{pmatrix}
+\begin{matrix}
+a_{11} \\
+a_{21} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots \\
+a_{m1} \\
+\end{matrix} \\
+\end{pmatrix}$をそれぞれ$n$-行vector、$m$-列vectorという。
+\end{dfn}
+\begin{dfn}
+行列$A_{mn}$から取り出されたvector$\left( a_{ij} \right)_{(i,j) \in \left\{ i \right\} \times \varLambda_{n}}$、vector$\left( a_{ij} \right)_{(i,j) \in \varLambda_{n} \times \left\{ j \right\}}$をそれぞれその行列$A_{mn}$の第$i$行、第$j$列という。
+\end{dfn}
+\begin{dfn}
+次式のように定義される行列$O_{mn}$を$\left( \varLambda_{m},\varLambda_{n} \right)$型の零行列、$(m,n)$型の零行列、$m \times n$型の零行列といい、特に$m = n$ならば$n$次零行列といい、単に$O_{n}$とも表す。
+\begin{align*}
+O_{mn} = (0)_{(i,j) \in \varLambda_{n} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.2}
+可換環$R$上で次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{mn} \in M_{mn}(R)$に対し、$1A_{mn} = A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)$に対し、$0A_{mn} = O_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)\forall k,l \in R$に対し、$(k + l)A_{mn} = kA_{mn} + lA_{mn}$が成り立つ。
+\item
+  $\forall A_{mn},B_{mn} \in M_{mn}(R)\forall k \in R$に対し、$k\left( A_{mn} + B_{mn} \right) = kA_{mn} + kB_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)\forall k,l \in R$に対し、$k\left( lA_{mn} \right) = (kl)A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn},B_{mn} \in M_{mn}(R)$に対し、$A_{mn} + B_{mn} = B_{mn} + A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn},B_{mn},C_{mn} \in M_{mn}(R)$に対し、$\left( A_{mn} + B_{mn} \right) + C_{mn} = A_{mn} + \left( B_{mn} + C_{mn} \right)$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)$に対し、$A_{mn} + O_{mn} = A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)$に対し、$A_{mn} - A_{mn} = O_{mn}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+定義より成分ごとで可換環の元とみなせる。
+\end{proof}
+\begin{dfn}
+2つの行列$A_{lm}$、$B_{mn}$に対して次式のように行列の積を定義する。
+\begin{align*}
+A_{lm}B_{mn} = \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.3}
+可換環$R$上で次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{lm} \in M_{lm}(R)\forall B_{mn} \in M_{mn}(R)\forall C_{no} \in M_{no}(R)$に対し、$A_{lm}\left( B_{mn}C_{no} \right) = \left( A_{lm}B_{mn} \right)C_{no}$が成り立つ。
+\item
+  $\forall A_{lm} \in M_{lm}(R)\forall B_{mn},C_{mn} \in M_{mn}(R)$に対し、$A_{lm}\left( B_{mn} + C_{mn} \right) = A_{lm}B_{mn} + A_{lm}C_{mn}$が成り立つ。
+\item
+  $\forall A_{lm},B_{lm} \in M_{lm}(R)\forall C_{mn} \in M_{mn}(R)$に対し、$\left( A_{lm} + B_{lm} \right)C_{mn} = A_{lm}C_{mn} + A_{lm}C_{mn}$が成り立つ。
+\item
+  $\forall A_{lm} \in M_{lm}(R)\forall B_{mn} \in M_{mn}(R)\forall k \in R$に対し、$A_{lm}\left( kB_{mn} \right) = \left( kA_{lm} \right)B_{mn} = k\left( A_{lm}B_{mn} \right)$が成り立つ。
+\end{itemize}\par
+以上より、3つの行列同士の積、2つの行列同士の積の$k$倍は結合的であり、行列同士では積が和に対して右からも左からも分配的であるが、2つの行列同士の積は可換的でないことに注意されたい。
+\end{thm}
+\begin{proof}
+可換環$R$上で$\forall A_{lm} \in M_{lm}(R)\forall B_{mn} \in M_{mn}(R)\forall C_{no} \in M_{no}(R)$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( B_{mn}C_{no} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \sum_{h \in \varLambda_{n}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} a_{ig}\sum_{h \in \varLambda_{n}} {b_{gh}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} {\sum_{h \in \varLambda_{n}} {a_{ig}b_{gh}c_{hj}}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {\sum_{g \in \varLambda_{m}} {a_{ig}b_{gh}c_{hj}}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} {a_{ig}b_{gj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}\\
+&= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}} \\
+&= \left( A_{lm}B_{mn} \right)C_{no}
+\end{align*}\par
+$\forall A_{lm} \in M_{lm}(R)\forall B_{mn},C_{mn} \in M_{mn}(R)$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( B_{mn} + C_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} + c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}\left( b_{hj} + c_{hj} \right)} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} \left( a_{ih}b_{hj} + a_{ih}c_{hj} \right) \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} + \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}} + \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= A_{lm}B_{mn} + A_{lm}C_{mn}
+\end{align*}\par
+$\forall A_{lm},B_{lm} \in M_{lm}(R)\forall C_{mn} \in M_{mn}(R)$に対し、次のようになる。
+\begin{align*}
+\left( A_{lm} + B_{lm} \right)C_{mn} &= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} \right)\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {\left( a_{ih} + b_{ih} \right)c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} \left( a_{ih}c_{hj} + b_{ih}c_{hj} \right) \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} + \sum_{h \in \varLambda_{m}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}} + \left( \sum_{h \in \varLambda_{m}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= A_{lm}C_{mn} + A_{lm}C_{mn}
+\end{align*}\par
+$\forall A_{lm} \in M_{lm}(R)\forall B_{mn} \in M_{mn}(R)\forall k \in R$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( kB_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}kb_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {ka_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} \right)\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \\
+&= \left( kA_{lm} \right)B_{mn}\\
+A_{lm}\left( kB_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}kb_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {ka_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= k\left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= k\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right) \\
+&= k\left( A_{lm}B_{mn} \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux3055ux307eux3056ux307eux306aux884cux5217}{%
+\subsubsection{さまざまな行列}%\label{ux3055ux307eux3056ux307eux306aux884cux5217}}
+\begin{dfn}
+$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列のうち$m = n$であるようなものを$n$次正方行列といい、$A_{nn}$を単に$A_{n}$とも表す。
+\begin{align*}
+A_{nn} = A_{n} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+この行列の成分たち$a_{ij}$のうち添数$i$と$j$が等しい成分たちのことを対角成分という。
+\end{dfn}
+\begin{dfn}
+次式で定義される写像$\delta$の組$(i,j)$による像$\delta(i,j)$をKroneckerのdeltaといい$\delta_{ij}$と書く。
+\begin{align*}
+\delta:\varLambda_{m} \times \varLambda_{n} \rightarrow R;(i,j) \mapsto \left\{ \begin{matrix}
+1 & \mathrm{if} & i = j \\
+0 & \mathrm{if} & i \neq j \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{dfn}
+$n$次正方行列のうち対角成分$a_{ij}$以外の成分たちが全て0であるようなもの$\left( a_{in}\delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$を$n$次対角行列という。
+\begin{align*}
+\left( a_{in}\delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \left( \left\{ \begin{matrix}
+a_{ij} & \mathrm{if} & i = j \\
+0 & \mathrm{if} & i \neq j \\
+\end{matrix} \right.\  \right)_{(i,j) \in \varLambda_{n}^{2}} = \begin{pmatrix}
+a_{11} & \  & \  & O \\
+\  & a_{22} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+$n$次正方行列の成分たち$a_{ij}$のうち$i \geq j$なるもの以外の成分たちが全て0であるようなもの$\left( \left\{ \begin{matrix}
+a_{ij} & \mathrm{if} & i \geq j \\
+0 & \mathrm{if} & i < j \\
+\end{matrix} \right.\  \right)_{(i,j) \in \varLambda_{n}^{2}}$を$n$次上三角行列という。
+\begin{align*}
+\left( \left\{ \begin{matrix}
+a_{ij} & \mathrm{if} & i \geq j \\
+0 & \mathrm{if} & i < j \\
+\end{matrix} \right.\  \right)_{(i,j) \in \varLambda_{n}^{2}} = \begin{pmatrix}
+a_{11} & \  & \  & * \\
+\  & a_{22} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+同様に$n$次正方行列の成分たち$a_{ij}$のうち$i \leq j$なるもの以外の成分たちが全て0であるようなもの$\left( \left\{ \begin{matrix}
+a_{ij} & \mathrm{if} & i \leq j \\
+0 & \mathrm{if} & i > j \\
+\end{matrix} \right.\  \right)_{(i,j) \in \varLambda_{n}^{2}}$を$n$次下三角行列という。
+\begin{align*}
+\left( \left\{ \begin{matrix}
+a_{ij} & \mathrm{if} & i \leq j \\
+0 & \mathrm{if} & i > j \\
+\end{matrix} \right.\  \right)_{(i,j) \in \varLambda_{n}^{2}} = \begin{pmatrix}
+a_{11} & \  & \  & O \\
+\  & a_{22} & \  & \  \\
+\  & \  & \ddots & \  \\
+* & \  & \  & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+Kroneckerのdelta$\delta_{ij}$を用いて次式のように表される$n$次対角行列のうち対角成分たちが全て1であるような行列を$n$次単位行列といい$I_{n}$などと書く。
+\begin{align*}
+I_{n} = \left( \delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \begin{pmatrix}
+1 & \  & \  & O \\
+\  & 1 & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & 1 \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.4}
+$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列$A_{mn}$、$m$次単位行列$I_{m}$、$n$次単位行列$I_{n}$において、次式が成り立つ。
+\begin{align*}
+I_{m}A_{mn} = A_{mn}I_{n} = A_{mn}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列$A_{mn}$、$m$次単位行列$I_{m}$、$n$次単位行列$I_{n}$において、その$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列$A_{m,n}$、$m$次単位行列$I_{m}$、$n$次単位行列$I_{n}$をKroneckerのdelta$\delta_{ij}$を用いてそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( \delta_{ij} \right)_{(i,j) \in \varLambda_{m}^{2}}$、$\left( \delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と成分表示されるとする。このとき、次のようになる。
+\begin{align*}
+I_{m}A_{mn} &= \left( \delta_{ij} \right)_{(i,j) \in \varLambda_{m}^{2}}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{k \in \varLambda_{m}} {\delta_{ik}a_{kj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \delta_{ii}a_{ij} + \sum_{k \in \varLambda_{m} \setminus \left\{ i \right\}} {\delta_{ik}a_{kj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( 1 \cdot a_{ij} + \sum_{k \in \varLambda_{m} \setminus \left\{ i \right\}} {0 \cdot a_{kj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + 0 \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}\\
+A_{mn}I_{n} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( \delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \left( \sum_{k \in \varLambda_{n}} {a_{ik}\delta_{kj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij}\delta_{jj} + \sum_{k \in \varLambda_{n} \setminus \left\{ j \right\}} {a_{ik}\delta_{kj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \cdot 1 + \sum_{k \in \varLambda_{n} \setminus \left\{ j \right\}} {a_{ik} \cdot 0} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + 0 \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}
+\end{align*}
+\end{proof}
+\begin{dfn}
+$n$次正方行列$A_{nn}$が与えられたとき、次式を満たすような行列$X_{nn}$がその集合$M_{nn}(R)$に存在するとき、
+\begin{align*}
+X_{nn}A_{nn} = A_{nn}X_{nn} = I_{n}
+\end{align*}
+その行列$A_{nn}$を可逆行列といい、その行列$X_{nn}$をその行列$A_{nn}$の逆行列という。また、可逆行列$A_{nn}$全体の集合を${\mathrm{GL}}_{n}(R)$と書く。とくに、体$K$上での可逆行列を正則行列ともいう。なお、後に述べるように存在するならこれは一意的なので、その行列$A_{nn}$の逆行列を$A_{nn}^{- 1}$と書く。
+\end{dfn}
+\begin{thm}\label{2.1.3.5}
+1つの$n$次可逆行列$A_{nn}$の逆行列は一意的に存在する。
+\end{thm}\par
+このことは背理法によって示される。これにより集合${\mathrm{GL}}_{n}(R)$に属する1つの$n$次正方行列$A_{nn}$の逆行列を$A_{nn}^{- 1}$と書くことができる。
+\begin{proof}
+集合${\mathrm{GL}}_{n}(R)$に属する1つの$n$次可逆行列$A_{nn}$の互いの異なる2つの逆行列があると仮定しこれらを$X_{nn}$、$Y_{nn}$とおこう。したがって、次のようになる。
+\begin{align*}
+X_{nn} = X_{nn}I_{n} = X_{nn}\left( A_{nn}Y_{nn} \right) = \left( X_{nn}A_{nn} \right)Y_{nn} = I_{n}Y_{nn} = Y_{nn}
+\end{align*}
+これは仮定に矛盾する。よって、集合${\mathrm{GL}}_{n}(R)$に属する1つの$n$次可逆行列$A_{nn}$の逆行列が存在するなら、それは一意的に存在する。
+\end{proof}
+\begin{thm}\label{2.1.3.6}
+集合${\mathrm{GL}}_{n}(R)$に属する2つの$n$次正方行列たち$A_{nn}$、$B_{nn}$において次のことが成り立つ。
+\begin{itemize}
+\item
+  $n$次可逆行列$A_{nn}$の逆行列$A_{nn}^{- 1}$も可逆行列であり、$\left( A_{nn}^{- 1} \right)^{- 1} = A_{nn}$が成り立つ。
+\item
+  2つの$n$次可逆行列たち$A_{nn}$、$B_{nn}$の積$A_{nn}B_{nn}$も可逆行列であり、$\left( A_{nn}B_{nn} \right)^{- 1} = B_{nn}^{- 1}A_{nn}^{- 1}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合${\mathrm{GL}}_{n}(K)$に属する2つの$n$次正方行列たち$A_{nn}$、$B_{nn}$において、逆行列の定義より明らかに、その$n$次正方行列$A_{nn}$の逆行列$A_{nn}^{- 1}$も可逆行列であり、$\left( A_{nn}^{- 1} \right)^{- 1} = A_{nn}$である。\par
+また、$B_{nn}^{- 1}A_{nn}^{- 1}$が存在し、次のようになるので、
+\begin{align*}
+\left( B_{nn}^{- 1}A_{nn}^{- 1} \right)\left( A_{nn}B_{nn} \right) &= \left( B_{nn}^{- 1}\left( A_{nn}^{- 1}A_{nn} \right) \right)B_{nn}\\
+&= \left( B_{nn}^{- 1}I_{n} \right)B_{nn}\\
+&= B_{nn}^{- 1}B_{nn} = I_{n}\\
+\left( A_{nn}B_{nn} \right)\left( B_{nn}^{- 1}A_{nn}^{- 1} \right) &= \left( A_{nn}\left( B_{nn}B_{nn}^{- 1} \right) \right)A_{nn}^{- 1}\\
+&= \left( A_{nn}I_{n} \right)A_{nn}^{- 1}{A_{nn}}^{- 1}\\
+&= A_{nn}A_{nn}^{- 1} = I_{n}
+\end{align*}
+逆行列の定義より2つの$n$次可逆行列たち$A_{nn}$、$B_{nn}$の積$A_{nn}B_{nn}$も可逆行列であり、$\left( A_{nn}B_{nn} \right)^{- 1} = B_{nn}^{- 1}A_{nn}^{- 1}$である。
+\end{proof}
+%\hypertarget{ux884cux5217ux306eux8de1}{%
+\subsubsection{行列の跡}%\label{ux884cux5217ux306eux8de1}}
+\begin{dfn}
+$A_{nn} \in M_{nn}(R)$なる可換環$R$上の行列$A_{nn}$が$A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と与えられたとするとき、次式のような写像$\mathrm{tr} $によるその行列$A_{nn}$の像${\mathrm{tr} }A_{nn}$をその行列$A_{nn}$の跡、traceという。
+\begin{align*}
+\mathrm{tr} :M_{nn}(R) \rightarrow R;A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \mapsto \sum_{i \in \varLambda_{n}} a_{ii}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.7}
+上記の写像$\mathrm{tr} $について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k,l \in R\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、${\mathrm{tr} }\left( kA_{nn} + lB_{nn} \right) = k{\mathrm{tr} }A_{nn} + l{\mathrm{tr} }B_{nn}$が成り立つ。
+\item
+  $\forall A_{nn},B_{nn}\text{∈}M_{nn}(R)$に対し、${\mathrm{tr} }{A_{nn}B_{nn}} = {\mathrm{tr} }{B_{nn}A_{nn}}$が成り立つ。
+\item
+  $\forall A_{nn} \in M_{nn}(R)\forall P_{nn} \in {\mathrm{GL}}_{n}(R)$に対し、${\mathrm{tr} }{P_{nn}^{- 1}A_{nn}P_{nn}} = {\mathrm{tr} }A_{nn}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+可換環$R$上の行列の跡$\mathrm{tr} $について、$\forall k,l \in R\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、次のようになる。
+\begin{align*}
+{\mathrm{tr} }\left( kA_{nn} + lB_{nn} \right) &= {\mathrm{tr} }\left( k\left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} + l\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \right)\\
+&= {\mathrm{tr} }\left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \sum_{i \in \varLambda_{n}} \left( ka_{ii} + lb_{ii} \right)\\
+&= k\sum_{i \in \varLambda_{n}} a_{ii} + l\sum_{i \in \varLambda_{n}} b_{ii}\\
+&= k{\mathrm{tr} }\left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} + l{\mathrm{tr} }\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= k{\mathrm{tr} }A_{nn} + l{\mathrm{tr} }B_{nn}
+\end{align*}\par
+$\forall A_{nn},B_{nn}\in M_{nn}(R)$に対し、次のようになる。
+\begin{align*}
+{\mathrm{tr} }{A_{nn}B_{nn}} &= {\mathrm{tr} }\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \right)\\
+&= {\mathrm{tr} }\left( \sum_{k \in \varLambda_{n}} {a_{ik}b_{kj}} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \sum_{i \in \varLambda_{n}} {\sum_{k \in \varLambda_{n}} {a_{ik}b_{ki}}}\\
+&= \sum_{i \in \varLambda_{n}} {\sum_{k \in \varLambda_{n}} {b_{ik}a_{ki}}}\\
+&= {\mathrm{tr} }\left( \sum_{k \in \varLambda_{n}} {b_{ik}a_{kj}} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= {\mathrm{tr} }\left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \right)\\
+&= {\mathrm{tr} }{B_{nn}A_{nn}}
+\end{align*}\par
+$\forall A_{nn} \in M_{nn}(R)\forall P_{nn} \in {\mathrm{GL}}_{n}(R)$に対し、$n$次単位行列$I_{n}$を用いれば次のようになる。
+\begin{align*}
+{\mathrm{tr} }{P_{nn}^{- 1}A_{nn}P_{nn}} &= {\mathrm{tr} }{P_{nn}^{- 1}P_{nn}A_{nn}}\\
+&= {\mathrm{tr} }{I_{n}A_{nn}} = {\mathrm{tr} }A_{nn}
+\end{align*}
+\end{proof}
+%\hypertarget{ux8ee2ux7f6eux884cux5217}{%
+\subsubsection{転置行列}%\label{ux8ee2ux7f6eux884cux5217}}
+\begin{dfn}
+$A_{mn} \in M_{mn}(R)$なる可換環$R$上の行列$A_{mn}$が$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と与えられたとするとき、次式のような写像${}^{t}$によるその行列$A_{mn}$の像${}^{t}A_{mn}$をその行列$A_{nn}$の転置行列といい$A_{mn}^{T}$、$A_{mn}^{\mathrm{tr} }$などとも書く。
+\begin{align*}
+{}^{t}:M_{mn}(R) \rightarrow M_{nm}(R);\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \mapsto \left( a_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}} = \begin{pmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m2} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn} \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.8}
+上記の写像${}^{t}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{mn} \in M_{mn}(R)$に対し、${}^{t}{}^{t}A_{mn} = A_{mn}$が成り立つ。
+\item
+  $\forall k,l \in R\forall A_{mn},B_{mn} \in M_{mn}(R)$に対し、${}^{t}\left( kA_{mn} + lB_{mn} \right) = k\ {}^{t}A_{mn} + l\ {}^{t}B_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(R)\forall B_{no} \in M_{no}(R)$に対し、${}^{t}\left( A_{mn}B_{no} \right) ={}^{t}B_{no}{}^{t}A_{mn}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+上記の写像${}^{t}$について、$\forall A_{mn} \in M_{mn}(R)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+{}^{t}{}^{t}A_{mn} &={}^{t}{}^{t}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&={}^{t}\left( a_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}
+\end{align*}\par
+$\forall k,l \in R\forall A_{mn},B_{mn} \in M_{mn}(R)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{mn} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+{}^{t}\left( kA_{mn} + lB_{mn} \right) &={}^{t}\left( k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&={}^{t}\left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ji} + lb_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= k\left( a_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}} + l\left( b_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= k\ {}^{t}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\ {}^{t}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= k\ {}^{t}A_{mn} + l\ {}^{t}B_{mn}
+\end{align*}\par
+$\forall A_{mn} \in M_{mn}(R)\forall B_{no} \in M_{no}(R)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{no} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}$とおくと、次のようになる。
+\begin{align*}
+{}^{t}\left( A_{mn}B_{no} \right) &={}^{t}\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}} \right)\\
+&={}^{t}\left( \sum_{h \in \varLambda_{n}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{o}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {a_{jh}b_{hi}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {b_{hi}a_{jh}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( b_{ji} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{n}}\left( a_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&={}^{t}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}{}^{t}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&={}^{t}B_{no}{}^{t}A_{mn}
+\end{align*}
+\end{proof}
+\begin{dfn}
+$A_{nn} \in M_{nn}(R)$なる行列$A_{nn}$の転置行列${}^{t}A_{nn}$が元のその行列$A_{nn}$に等しいとき、即ち、${}^{t}A_{nn} = A_{nn}$が成り立つとき、その行列$A_{mn}$を対称行列という。可換環$R$上の$n$次正方行列のうち対称行列であるもの全体の集合を${\mathrm{Sym} }_{n}(R)$などと書く。
+\end{dfn}
+\begin{dfn}
+$A_{nn} \in M_{nn}(R)$なる行列$A_{nn}$の転置行列${}^{t}A_{nn}$が元のその行列$- A_{nn}$に等しいとき、即ち、${}^{t}A_{nn} = - A_{nn}$が成り立つとき、その行列$A_{mn}$を交代行列、歪対称行列、反対称行列などという。可換環$R$上の$n$次正方行列のうち交代行列全体の集合を${\mathrm{skew}}{{\mathrm{Sym} }_{n}(R)}$などと書く。
+\end{dfn}
+\begin{dfn}
+$A_{nn} \in M_{nn}(R)$なる行列$A_{nn}$の転置行列${}^{t}A_{nn}$が元のその行列$A_{nn}$の逆行列$A_{nn}^{- 1}$に等しいとき、即ち、${}^{t}A_{nn} = A_{nn}^{- 1}$が成り立つとき、その行列$A_{nn}$を直交行列という。可換環$R$上の$n$次正方行列のうち直交行列全体の集合を$\mathrm{O} (n,R)$などと書く。
+\end{dfn}
+%\hypertarget{ux968fux4f34ux884cux5217}{%
+\subsubsection{随伴行列}%\label{ux968fux4f34ux884cux5217}}
+\begin{dfn}
+$A_{mn} \in M_{mn}\left( \mathbf{C} \right)$なる体$K$上の行列$A_{mn}$が$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と与えられたとするとき、次式のような写像$c$によるその行列$A_{mn}$の像$c\left( A_{mn} \right)$をその行列$A_{nn}$の複素共役行列といい$\overline{A_{mn}}$などと書く。
+\begin{align*}
+c:M_{mn}\left( \mathbf{C} \right) \rightarrow M_{mn}\left( \mathbf{C} \right);\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \mapsto \left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.9}
+上記の写像$c$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$\overline{\overline{A_{mn}}} = A_{mn}$が成り立つ。
+\item
+  $\forall k,l \in \mathbf{C}\forall A_{mn},B_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$\overline{kA_{mn} + lB_{mn}} = \overline{k}\ \overline{A_{mn}} + \overline{l}\ \overline{B_{mn}}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)\forall B_{no} \in M_{no}\left( \mathbf{C} \right)$に対し、$\overline{A_{mn}B_{no}} = \overline{A_{mn}}\ \overline{B_{no}}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+上記の写像${}^{t}$について、$\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\overline{\overline{A_{mn}}} &= \overline{\overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}}\\
+&= \overline{\left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&= \left( \overline{\overline{a_{ij}}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}
+\end{align*}\par
+$\forall k,l \in \mathbf{C}\forall A_{mn},B_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{mn} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\overline{kA_{mn} + lB_{mn}} &= \overline{k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&= \overline{\left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&= \left( \overline{ka_{ij} + lb_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \overline{k}\overline{a_{ij}} + \overline{l}\ \overline{b_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \overline{k}\left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \overline{l}\left( \overline{b_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \overline{k}\ \overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}} + \overline{l}\ \overline{\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&= \overline{k}\ \overline{A_{mn}} + \overline{l}\ \overline{B_{mn}}
+\end{align*}\par
+$\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)\forall B_{no} \in M_{no}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{no} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}$とおくと、次のようになる。
+\begin{align*}
+\overline{A_{mn}B_{no}} &= \overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}}\\
+&= \overline{\left( \sum_{h \in \varLambda_{n}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&= \left( \overline{\sum_{h \in \varLambda_{n}} {a_{ih}b_{hj}}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {\overline{a_{ih}}\overline{b_{hj}}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( \overline{b_{ij}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}\\
+&= \overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\ \overline{\left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}}\\
+&= \overline{A_{mn}}\ \overline{B_{no}}
+\end{align*}
+\end{proof}
+\begin{dfn}
+$A_{mn} \in M_{mn}\left( \mathbf{C} \right)$なる体$K$上の行列$A_{mn}$が$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と与えられたとするとき、次式のような写像$a$によるその行列$A_{mn}$の像$a\left( A_{mn} \right)$をその行列$A_{nn}$の随伴行列、Hermite転置行列、Hermite共軛行列、Hermite随伴行列などといい$A_{mn}^{*}$、$A_{mn}^{\dagger}$、$A_{mn}^{H}$などと書く。
+\begin{align*}
+a:M_{mn}\left( \mathbf{C} \right) \rightarrow M_{mn}\left( \mathbf{C} \right);\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \mapsto \left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.1.3.10}
+上記の写像$a$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn}^{**} = A_{mn}$が成り立つ。
+\item
+  $\forall k,l \in \mathbf{C}\forall A_{mn},B_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$\left( kA_{mn} + lB_{mn} \right)^{*} = \overline{k}A_{mn}^{*} + \overline{l}B_{mn}^{*}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)\forall B_{no} \in M_{no}\left( \mathbf{C} \right)$に対し、$\left( A_{mn}B_{no} \right)^{*} = B_{no}^{*}A_{mn}^{*}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+上記の写像${}^{t}$について、$\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+A_{mn}^{**} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}^{**}\\
+&= \left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}^{*}\\
+&= \left( \overline{\overline{a_{ij}}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn} \\
+\left( kA_{mn} + lB_{mn} \right)^{*} &= \left( k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)^{*}\\
+&= \left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}^{*}\\
+&= \left( \overline{ka_{ji} + lb_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \left( \overline{k}\overline{a_{ji}} + \overline{l}\ \overline{b_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \overline{k}\left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}} + \overline{l}\left( \overline{b_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \overline{k}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}^{*} + \overline{l}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}^{*}\\
+&= \overline{k}A_{mn}^{*} + \overline{l}B_{mn}^{*} \\
+\left( A_{mn}B_{no} \right)^{*} &= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}} \right)^{*}\\
+&= \left( \sum_{h \in \varLambda_{n}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{o}}^{*}\\
+&= \left( \overline{\sum_{h \in \varLambda_{n}} {a_{jh}b_{hi}}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {\overline{a_{jh}}\overline{b_{hi}}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {\overline{b_{hi}}\overline{a_{jh}}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}\\
+&= \left( \overline{b_{ji}} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{n}}\left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}} = B_{no}^{*}A_{mn}^{*}
+\end{align*}
+\end{proof}
+\begin{dfn}
+$A_{nn} \in M_{nn}\left( \mathbf{C} \right)$なる行列$A_{nn}$の随伴行列$A_{nn}^{*}$が元のその行列$A_{nn}$に等しいとき、即ち、$A_{nn}^{*} = A_{nn}$が成り立つとき、その行列$A_{mn}$を自己随伴行列、Hermite行列という。体$\mathbf{C}$上の$n$次正方行列のうち自己随伴行列であるもの全体の集合を$H_{n}$などと書く。
+\end{dfn}
+\begin{dfn}
+$A_{nn} \in M_{nn}\left( \mathbf{C} \right)$なる行列$A_{nn}$の随伴行列$A_{nn}^{*}$が元のその行列$- A_{nn}$に等しいとき、即ち、$A_{nn}^{*} = - A_{nn}$が成り立つとき、その行列$A_{nn}$を歪自己随伴行列、歪Hermite行列などという。体$\mathbf{C}$上の$n$次正方行列のうち歪自己随伴行列全体の集合を${\mathrm{skew}}H_{n}$などと書く。
+\end{dfn}
+\begin{dfn}
+$A_{nn} \in {\mathrm{GL}}_{n}\left( \mathbf{C} \right)$なる行列$A_{nn}$の転置行列$A_{nn}^{*}$が元のその行列$A_{nn}$の逆行列$A_{nn}^{- 1}$に等しいとき、即ち、$A_{nn}^{*} = A_{nn}^{- 1}$が成り立つとき、その行列$A_{nn}$をunitary行列という。体$\mathbf{C}$上の$n$次正方行列のうちunitary行列全体の集合を$U_{n}$などと書く。
+\end{dfn}
+%\hypertarget{ux884cux5217ux306eux4ee3ux6570ux5b66ux7684ux306aux69cbux9020}{%
+\subsubsection{行列の代数学的な構造}%\label{ux884cux5217ux306eux4ee3ux6570ux5b66ux7684ux306aux69cbux9020}}
+\begin{thm}\label{2.1.3.11}
+可換環$R$上の組$\left( M_{mn}(R), + \right)$は可換群をなす。なお、このときの単位元は零行列$O_{mn}$、行列$A_{mn}$の逆元は$- A_{mn}$である。
+\end{thm}
+\begin{proof}
+可換環$R$上の組$\left( M_{mn}(R), + \right)$について、このときの単位元を零行列$O_{mn}$、行列$A_{mn}$の逆元を$- A_{mn}$とおくと、定理\ref{2.1.3.2}より明らかにその組$\left( M_{mn}(R), + \right)$は可換群をなす。
+\end{proof}
+\begin{thm}\label{2.1.3.12}
+換環$R$上の組$\left( {\mathrm{GL}}_{n}(R), \cdot \right)$は群をなす。なお、$\cdot$は行列の積で、このときの単位元は単位行列$I_{n}$、行列$A_{nn}$の逆元は逆行列$A_{nn}^{- 1}$である。
+\end{thm}
+\begin{proof}
+可換環$R$上の組$\left( {\mathrm{GL}}_{n}(R), \cdot \right)$について、このときの単位元を単位行列$I_{n}$、行列$A_{nn}$の逆元を逆行列$A_{nn}^{- 1}$とおくと、定理\ref{2.1.3.3}より明らかにその組$\left( {\mathrm{GL}}_{n}(R), \cdot \right)$は可換群をなす。
+\end{proof}
+\begin{thm}\label{2.1.3.13}
+可換環$R$が与えられたとき、その集合${\mathrm{GL}}_{n}(R) \cup \left\{ O_{nn} \right\}$は斜体をなす。なお、このときの単位元は単位行列$I_{nn}$、零元は零行列$O_{nn}$、行列$A_{nn}$の逆元は$A_{nn}^{- 1}$である。
+\end{thm}
+\begin{proof}
+可換環$R$が与えられたとき、その集合${\mathrm{GL}}_{n}(R)$について、このときの単位元を単位行列$I_{nn}$、零元を零行列$O_{nn}$、行列$A_{nn}$の逆元を$A_{nn}^{- 1}$とおくと、定理\ref{2.1.3.2}、定理\ref{2.1.3.3}より明らかにその集合${\mathrm{GL}}_{n}(R) \cup \left\{ O_{nn} \right\}$は環をなす。
+\end{proof}
+\begin{thm}\label{2.1.3.14}
+次式のように写像$i$をおくと、
+\begin{align*}
+i:{\mathrm{GL}}_{n}(R) \rightarrow {\mathrm{GL}}_{n}(R);A_{nn} \mapsto A_{nn}^{- 1}
+\end{align*}
+恒等写像を1として組$\left( \left\{ 1,i,{}^{t},c,a \right\}, \circ \right)$は写像の合成が定義可能な限り可換群をなす。このときの単位元は恒等写像$1$で、写像$f$の逆元はその写像自身である。
+\end{thm}
+\begin{proof}
+次式のように写像$i$をおく。
+\begin{align*}
+i:{\mathrm{GL}}_{n}(R) \rightarrow {\mathrm{GL}}_{n}(R);A_{nn} \mapsto A_{nn}^{- 1}
+\end{align*}
+恒等写像を1として、単位元を恒等写像$1$、写像$f$の逆元をその写像自身とおくと、定理\ref{2.1.3.6}、定理\ref{2.1.3.8}、定理\ref{2.1.3.9}、定理\ref{2.1.3.10}よりその組$\left( \left\{ 1,i,{}^{t},c,a \right\}, \circ \right)$は写像の合成が定義可能な限り群をなす。\par
+また、$\forall A_{nn} \in {\mathrm{GL}}_{n}(R)$に対し、次のようになるので、
+\begin{align*}
+{}^{t}A_{nn}{}^{t}\left( A_{nn}^{- 1} \right) &={}^{t}\left( A_{nn}^{- 1}A_{nn} \right) ={}^{t}I_{n} = I_{n}\\
+{}^{t}\left( A_{nn}^{- 1} \right){}^{t}A_{nn} &={}^{t}\left( A_{nn}A_{nn}^{- 1} \right) ={}^{t}I_{n} = I_{n}
+\end{align*}
+${}^{t}\left( A_{nn}^{- 1} \right) = \left({}^{t}A_{nn} \right)^{- 1}$が成り立ち、したがって、$i \circ{}^{t} ={}^{t} \circ i$が成り立つ。$\forall A_{nn} \in {\mathrm{GL}}_{n}\left( \mathbf{C} \right)$に対し、次のようになるので、
+\begin{align*}
+\overline{A_{nn}}\ \overline{A_{nn}^{- 1}} &= \overline{A_{nn}A_{nn}^{- 1}} = \overline{I_{n}} = I_{n}\\
+\overline{A_{nn}^{- 1}}\ \overline{A_{nn}} &= \overline{A_{nn}^{- 1}A_{nn}} = \overline{I_{n}} = I_{n}
+\end{align*}
+$\overline{A_{nn}^{- 1}} = {\overline{A_{nn}}}^{- 1}$が成り立ち、したがって、$i \circ c = c \circ i$が成り立つ。$\forall A_{nn} \in {\mathrm{GL}}_{n}\left( \mathbf{C} \right)$に対し、次のようになるので、
+\begin{align*}
+A_{nn}^{*}{A_{nn}^{- 1}}^{*} &= \left( A_{nn}^{- 1}A_{nn} \right)^{*} = I_{n}^{*} = I_{n}\\
+{A_{nn}^{- 1}}^{*}A_{nn}^{*} &= \left( A_{nn}A_{nn}^{- 1} \right)^{*} = I_{n}^{*} = I_{n}
+\end{align*}
+${A_{nn}^{- 1}}^{*} = {A_{nn}^{*}}^{- 1}$が成り立ち、したがって、$i \circ a = a \circ i$が成り立つ。$\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになるので、
+\begin{align*}
+{}^{t}\overline{A_{mn}} &={}^{t}\overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}\\
+&={}^{t}\left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \overline{\left( a_{ji} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}}\\
+&= \overline{{}^{t}\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}} = \overline{{}^{t}A_{nn}}
+\end{align*}
+${}^{t}\overline{A_{mn}} = \overline{{}^{t}A_{nn}}$が成り立ち、したがって、$c \circ{}^{t} ={}^{t} \circ c$が成り立つ。$\forall A_{mn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになるので、
+\begin{align*}
+{\overline{A_{mn}}}^{*} &= {\overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}}^{*}\\
+&= {\left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}}^{*}\\
+&= \left( \overline{\overline{a_{ji}}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}\\
+&= \overline{\left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}}}\\
+&= \overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}^{*}} = \overline{A_{nn}^{*}}
+\end{align*}
+${\overline{A_{mn}}}^{*} = \overline{A_{nn}^{*}}$が成り立ち、したがって、$c \circ a = a \circ c$が成り立つ。以上よりその群$\left( \left\{ 1,i,{}^{t},c,a \right\}, \circ \right)$は可換群をなす。
+\end{proof}
+\begin{thm}\label{2.1.3.15}
+$a ={}^{t} \circ c$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall A_{nn} \in M_{mn}\left( \mathbf{C} \right)$に対し、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくと、次のようになるので、
+\begin{align*}
+a\left( A_{nn} \right) = A_{nn}^{*} = \left( \overline{a_{ji}} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{m}} ={}^{t}\left( \overline{a_{ij}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} ={}^{t}\overline{\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}} ={}^{t} \circ c\left( A_{mn} \right)
+\end{align*}
+$a ={}^{t} \circ c$が成り立つ。
+\end{proof}
+%\hypertarget{blockux884cux5217}{%
+\subsubsection{block行列}%\label{blockux884cux5217}}
+可換環$R$上に
+\begin{align*}
+S=\sum_{I \in \varLambda_{M}} m_{I} ,\ \ T=\sum_{J \in \varLambda_{N}} n_{J}
+\end{align*}
+として$A_{ST} =\left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} \in M_{ST}(R)$なる行列$A_{ST} $が与えられたとき、次のようにおくと、
+\begin{align*}
+A_{IJ} =\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)
+\end{align*}
+次のようになることから、
+\begin{align*}
+  A_{ST} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} = \begin{pmatrix}
+  a_{11} & \cdots & a_{1T} \\
+   \vdots & \ddots & \vdots \\
+  a_{S1} & \cdots & a_{ST} \\
+  \end{pmatrix} \\
+  &= \begin{pmatrix}
+  a_{11} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+   \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{pmatrix} \\
+  &= \left( \begin{matrix}
+  a_{11} & \cdots & a_{1n_{1}} & \cdots \\
+   \vdots & \ddots & \vdots & \ddots \\
+  a_{m_{1}1} & \cdots & a_{m_{1}n_{1}} & \cdots \\
+   \vdots & \ddots & \vdots & \ddots \\
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,n_{1}} & \cdots \\
+   \vdots & \ddots & \vdots & \ddots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},n_{1}} & \cdots \\
+  \end{matrix} \right. \\
+  &\quad \left. \begin{matrix}
+  a_{1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+    \vdots & \ddots & \vdots \\
+  a_{m_{1},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{m_{1},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+    \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+    \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{matrix} \right) \\
+  &= \left( \begin{matrix}
+  \begin{pmatrix}
+  a_{11} & \cdots & a_{1n_{1}} \\
+   \vdots & \ddots & \vdots \\
+  a_{m_{1}1} & \cdots & a_{m_{1}n_{1}} \\
+  \end{pmatrix} & \cdots \\
+   \vdots & \ddots \\
+  \begin{pmatrix}
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,n_{1}} \\
+   \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},n_{1}} \\
+  \end{pmatrix} & \cdots\\
+  \end{matrix} \right. \\
+  &\quad \left. \begin{matrix}
+  \begin{pmatrix}
+  a_{1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+    \vdots & \ddots & \vdots \\
+  a_{m_{1},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{m_{1},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{pmatrix} \\
+    \vdots \\
+  \begin{pmatrix}
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+    \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{pmatrix} \\
+  \end{matrix} \right) \\
+  &= \begin{pmatrix}
+  A_{11} & \cdots & A_{1N} \\
+    \vdots & \ddots & \vdots \\
+  A_{M1} & \cdots & A_{MN} \\
+  \end{pmatrix} 
+\end{align*}
+次のように書かれることもできる。
+\begin{align*}
+  A_{ST} =\begin{pmatrix}
+  A_{11} & \cdots & A_{1N} \\
+    \vdots & \ddots & \vdots \\
+  A_{M1} & \cdots & A_{MN} \\
+  \end{pmatrix} 
+\end{align*}
+\begin{dfn}
+その右辺の形をした行列をblock行列などといい、行列をそのblock行列に書き換えることをその行列をblock化するなどという。また、行列たち$A_{IJ}$のことをその行列$A_{ST} $の小行列たちという。
+\end{dfn}
+\begin{thm}\label{2.1.3.17}
+可換環$R$上に
+\begin{align*}
+S=\sum_{I \in \varLambda_{M}} m_{I} ,\ \ T=\sum_{J \in \varLambda_{N}} n_{J}
+\end{align*}
+として$\forall \left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} ,\left( b_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} \in M_{ST}(R)$ $\forall k,l\in R$に対し、次のようにおくと、
+\begin{align*}
+  A_{IJ} &=\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R) \\
+  B_{IJ} &=\left( b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R) 
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+k\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} + l\left( B_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} &= \left( kA_{IJ} + lB_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+\end{align*}
+なお、その条件は上に述べた通り2つの行列たち$\left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} $、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} $の行数と列数が等しく分割の仕方も等しいこととなっている\footnote{誰か分かりやすい説明方法を教えてくれぇ――――――!! }。
+\end{thm}
+\begin{proof}
+上のblock行列の議論に注意すれば、これは単に成分ごとで計算しているだけにすぎない。
+\end{proof}
+\begin{thm}\label{2.1.3.19}
+可換環$R$上に
+\begin{align*}
+S=\sum_{I \in \varLambda_{M}} m_{I} ,\ \ T=\sum_{J \in \varLambda_{N}} n_{J},\ \ U=\sum_{K \in \varLambda_{O}} o_{K}
+\end{align*}
+として$\forall \left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} \in M_{ST}(R)$ $\forall \left( b_{jk} \right)_{(j,k) \in \varLambda_{T} \times \varLambda_{U}} \in M_{TU}(R)$に対し、次のようにおくと、
+\begin{align*}
+A_{IJ} &=\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R) \\
+B_{JK} &=\left( b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k} \right)_{(j,k) \in \varLambda_{n_{J}} \times \varLambda_{o_{K}}} \in M_{n_{J}o_{K}}(R) 
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} \left( B_{JK} \right)_{(J,K) \in \varLambda_{N} \times \varLambda_{O}} = \left( \sum_{J\in \varLambda_{N} } A_{IJ} B_{JK} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}
+\end{align*}
+なお、その条件は上に述べた通りその行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}}$の列数とその行列$\left( b_{ij} \right)_{(i,j) \in \varLambda_{T} \times \varLambda_{U}}$の行数が等しくその行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}}$の分割された列のかたまりの個数とその行列$\left( b_{ij} \right)_{(i,j) \in \varLambda_{T} \times \varLambda_{U}}$の分割された行のかたまりの個数も等しく、$\forall I\in \varLambda_{M} \forall J\in \varLambda_{N} \forall K\in \varLambda_{O} $に対し、その小行列$A_{IJ}$の列数とその小行列$B_{JK}$の行数も等しいこととなっている\footnote{ここも誰か分かりやすい説明方法を教えてくれぇ――――――!! }。
+\end{thm}
+\begin{proof}
+可換環$R$上に
+\begin{align*}
+S=\sum_{I \in \varLambda_{M}} m_{I} ,\ \ T=\sum_{J \in \varLambda_{N}} n_{J},\ \ U=\sum_{K \in \varLambda_{O}} o_{K}
+\end{align*}
+として$\forall \left( a_{ij} \right)_{(i,j) \in \varLambda_{S} \times \varLambda_{T}} \in M_{ST}(R)$ $\forall \left( b_{jk} \right)_{(j,k) \in \varLambda_{T} \times \varLambda_{U}} \in M_{TU}(R)$に対し、次のようにおくと、
+\begin{align*}
+A_{IJ} &=\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R) \\
+B_{JK} &=\left( b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k} \right)_{(j,k) \in \varLambda_{n_{J}} \times \varLambda_{o_{K}}} \in M_{n_{J}o_{K}}(R) \\
+\end{align*}
+このとき、次のようになる。
+\begin{align*}
+&\quad \left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\left( B_{IJ} \right)_{(J,K) \in \varLambda_{N} \times \varLambda_{O}} \\
+&= \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} \\
+&\quad \left( \left( b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k} \right)_{(j,k) \in \varLambda_{n_{J}} \times \varLambda_{o_{K}}} \right)_{(J,K) \in \varLambda_{N} \times \varLambda_{O}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\left( b_{jk} \right)_{(j,k) \in \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}} \times \varLambda_{\sum_{K \in \varLambda_{O}} o_{K}}}\\
+&= \left( \sum_{j \in \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} {a_{ij}b_{jk}} \right)_{(i,k) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{K \in \varLambda_{O}} o_{K}}}\\
+&= \left( \left( \sum_{j \in \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} {a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,j}b_{j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k}} \right)_{(i,k) \in \varLambda_{m_{I}} \times \varLambda_{o_{K}}} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \left( \sum_{J \in \varLambda_{N}} \sum_{j \in \varLambda_{n_{J}}}  a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right. \right. \\
+&\quad \left. \left. b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k} \right)_{(i,k) \in \varLambda_{m_{I}} \times \varLambda_{o_{K}}} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{J \in \varLambda_{N}}  \sum_{j \in \varLambda_{n_{J}}} \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right. \right. \\
+&\quad \left. \left.  b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + k} \right)_{(i,k) \in \varLambda_{m_{I}} \times \varLambda_{o_{K}}} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{J \in \varLambda_{N}}  \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right. \\
+&\quad \left. \left( b_{\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j,\sum_{K' \in \varLambda_{K - 1}} o_{K'} + j} \right)_{(j,k) \in \varLambda_{n_{J}} \times \varLambda_{o_{K}}} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{J \in \varLambda_{N}} {A_{IJ}B_{JK}} \right)_{(I,K) \in \varLambda_{M} \times \varLambda_{O}}
+\end{align*}
+\end{proof}
+\begin{comment}
+\begin{thm}\label{2.1.3.16}
+可換環$R$上に$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} \in M_{\sum_{I \in \varLambda_{M}} m_{I},\sum_{J \in \varLambda_{N}} n_{J}}(R)$なる行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$について次式が成り立つ。
+\begin{align*}
+\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} = \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+\end{align*}
+\end{thm}
+\begin{dfn}
+その右辺の形をした行列をblock行列などといい、行列をそのblock行列に書き換えることをその行列をblock化するなどという。また、行列たち$\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}}$のことをその行列の小行列たちという。
+\end{dfn}
+\begin{proof}
+これは、その行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$が成分表示されると、次式のようになることから、明らかであろう。
+\begin{align*}
+&\quad \begin{pmatrix}
+a_{11} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+ \vdots & \ddots & \vdots \\
+a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+\end{pmatrix}
+&= \left( \begin{matrix}
+a_{11} & \cdots & a_{1n_{1}} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots \\
+a_{m_{1}1} & \cdots & a_{m_{1}n_{1}} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots \\
+a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,n_{1}} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots \\
+a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},n_{1}} & \cdots \\
+\end{matrix} \right. \\
+&\quad \left. \begin{matrix}
+  a_{1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \vdots & \ddots & \vdots \\
+  a_{m_{1},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{m_{1},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{matrix} \right) \\
+&= \left( \begin{matrix}
+\begin{pmatrix}
+a_{11} & \cdots & a_{1n_{1}} \\
+ \vdots & \ddots & \vdots \\
+a_{m_{1}1} & \cdots & a_{m_{1}n_{1}} \\
+\end{pmatrix} & \cdots \\
+ \vdots & \ddots \\
+\begin{pmatrix}
+a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,n_{1}} \\
+ \vdots & \ddots & \vdots \\
+a_{\sum_{I' \in \varLambda_{M}} m_{I'},1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},n_{1}} \\
+\end{pmatrix} & \cdots\\
+\end{matrix} \right.
+&\quad \left. \begin{matrix}
+  \begin{pmatrix}
+  a_{1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+   \vdots & \ddots & \vdots \\
+  a_{m_{1},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{m_{1},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{pmatrix} \\
+  \vdots \\
+  \begin{pmatrix}
+  a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M - 1}} m_{I'} + 1,\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+   \vdots & \ddots & \vdots \\
+  a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N - 1}} n_{J'} + 1} & \cdots & a_{\sum_{I' \in \varLambda_{M}} m_{I'},\sum_{J' \in \varLambda_{N}} n_{J'}} \\
+  \end{pmatrix} \\
+  \end{matrix} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.3.17}
+このとき、$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}},\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} \in M_{\sum_{I \in \varLambda_{M}} m_{I},\sum_{J \in \varLambda_{N}} n_{J}}(R)$ $\forall k \in R$に対し$\forall(I,J) \in \varLambda_{M} \times \varLambda_{N}$に対し、次式のように行列たち$A_{IJ}$、$B_{IJ}$を定めると、
+\begin{align*}
+A_{IJ} &= \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)\\
+B_{IJ} &= \left( b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} + \left( B_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} &= \left( A_{IJ} + B_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+k\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} &= \left( kA_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+\end{align*}
+なお、その条件は上に述べた通り2つの行列たち$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$の行数と列数が等しく分割の仕方も等しいこととなっている\footnote{誰か分かりやすい説明方法を教えてくれぇ――――――!! }。
+\end{thm}
+\begin{proof}
+可換環$R$上に$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}},\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} \in M_{\sum_{I \in \varLambda_{M}} m_{I},\sum_{J \in \varLambda_{N}} n_{J}}(R)$ $\forall k \in R$に対し$\forall(I,J) \in \varLambda_{M} \times \varLambda_{N}$に対し次式のように行列たち$A_{IJ}$、$B_{IJ}$を定める。
+\begin{align*}
+A_{IJ} &= \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)\\
+B_{IJ} &= \left( b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)
+\end{align*}
+このとき、任意の元の列$\left( a_{i} \right)_{i \in \mathbb{N}}$に対し、次式が成り立つことに注意すれば、
+\begin{align*}
+\sum_{i \in \varLambda_{0}} a_{i} = \sum_{i \in \varnothing} a_{i} = \sum_{\bot} a_{i} = 0
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+&\quad \left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} + \left( B_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+&= \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} \\
+&\quad + \left( \left( b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\\
+&= \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\\
+&= \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} + b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right. \\
+&\quad \left.+ \left( b_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= \left( A_{IJ} + B_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+\end{align*}\par
+また、次のようになる。
+\begin{align*}
+\quad k\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} &= k\left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= k\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\\
+&= \left( \left( ka_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= \left( k\left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\\
+&= \left( kA_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.3.18}
+$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} \in M_{\sum_{I \in \varLambda_{M}} m_{I},\sum_{J \in \varLambda_{N}} n_{J}}(R)$ $\forall\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{N}} n_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}} \in M_{\sum_{I \in \varLambda_{N}} n_{I},\sum_{J \in \varLambda_{O}} o_{J}}(R)\forall k \in R$に対し、$\forall(I,J) \in \varLambda_{M} \times \varLambda_{N}$に対し、次式のように小行列たち$A_{IJ}$を
+\begin{align*}
+A_{IJ} = \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)
+\end{align*}
+$\forall(I,J) \in \varLambda_{N} \times \varLambda_{O}$に対し、次式のように小行列たち$B_{IJ}$を定めると、
+\begin{align*}
+B_{IJ} = \left( b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{n_{I}} \times \varLambda_{o_{J}}} \in M_{n_{I}o_{J}}(R)
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\left( B_{IJ} \right)_{(I,J) \in \varLambda_{N} \times \varLambda_{O}} = \left( \sum_{K \in \varLambda_{N}} {A_{IK}B_{KJ}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}
+\end{align*}
+なお、その条件は上に述べた通りその行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$の列数とその行列$\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{N}} n_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}}$の行数が等しくその行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}$の分割された列のかたまりの個数とその行列$\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{N}} n_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}}$の分割された行のかたまりの個数も等しく、$\forall\left( I_{1},J_{1} \right) \in \varLambda_{M} \times \varLambda_{N}\forall\left( I_{2},J_{2} \right) \in \varLambda_{N} \times \varLambda_{O}$に対し、その小行列$A_{I_{1}J_{1}}$の列数とその小行列$B_{I_{2}J_{2}}$の行数も等しいこととなっている\footnote{ここも誰か分かりやすい説明方法を教えてくれぇ――――――!! }。
+\end{thm}
+\begin{proof}
+可換環$R$上に$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}} \in M_{\sum_{I \in \varLambda_{M}} m_{I},\sum_{J \in \varLambda_{N}} n_{J}}(R)$ $\forall\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{N}} n_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}} \in M_{\sum_{I \in \varLambda_{N}} n_{I},\sum_{J \in \varLambda_{O}} o_{J}}(R)\forall k \in R$に対し、$\forall(I,J) \in \varLambda_{M} \times \varLambda_{N}$に対し、次式のように行列たち$A_{IJ}$を
+\begin{align*}
+A_{IJ} = \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \in M_{m_{I}n_{J}}(R)
+\end{align*}
+$\forall(I,J) \in \varLambda_{N} \times \varLambda_{O}$に対し、次式のように行列たち$B_{IJ}$を定める。
+\begin{align*}
+B_{IJ} = \left( b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{n_{I}} \times \varLambda_{o_{J}}} \in M_{n_{I}o_{J}}(R)
+\end{align*}\par
+このとき、次のようになる。
+\begin{align*}
+&\quad \left( A_{IJ} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}}\left( B_{IJ} \right)_{(I,J) \in \varLambda_{N} \times \varLambda_{O}} \\
+&= \left( \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{N}} \\
+&\quad \left( \left( b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{n_{I}} \times \varLambda_{o_{J}}} \right)_{(I,J) \in \varLambda_{N} \times \varLambda_{O}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{N}} n_{J}}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{N}} n_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}}\\
+&= \left( \sum_{k \in \varLambda_{\sum_{K \in \varLambda_{N}} n_{K}}} {a_{ik}b_{kj}} \right)_{(i,j) \in \varLambda_{\sum_{I \in \varLambda_{M}} m_{I}} \times \varLambda_{\sum_{J \in \varLambda_{O}} o_{J}}}\\
+&= \left( \left( \sum_{k \in \varLambda_{\sum_{K \in \varLambda_{N}} n_{K}}} {a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,k}b_{k,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j}} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{o_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \left( \sum_{K \in \varLambda_{N}} \sum_{k \in \varLambda_{n_{K}}}  a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + k} \right. \right. \\
+&\quad \left. \left. b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + k,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{o_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{K \in \varLambda_{N}}  \sum_{k \in \varLambda_{n_{K}}} \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + k} \right. \right. \\
+&\quad \left. \left.  b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + k,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{o_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{K \in \varLambda_{N}}  \left( a_{\sum_{I' \in \varLambda_{I - 1}} m_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} n_{J'} + j} \right)_{(i,j) \in \varLambda_{m_{I}} \times \varLambda_{n_{J}}} \right. \\
+&\quad \left. \left( b_{\sum_{I' \in \varLambda_{I - 1}} n_{I'} + i,\sum_{J' \in \varLambda_{J - 1}} o_{J'} + j} \right)_{(i,j) \in \varLambda_{n_{I}} \times \varLambda_{o_{J}}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}\\
+&= \left( \sum_{K \in \varLambda_{N}} {A_{IK}B_{KJ}} \right)_{(I,J) \in \varLambda_{M} \times \varLambda_{O}}
+\end{align*}
+\end{proof}
+\end{comment}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p41-73 ISBN978-4-00-029872-8
+  \bibitem{2}
+    対馬龍司, 線形代数学講義, 共立出版, 2007. 改訂版8刷 p33-38,53-58,94-104 ISBN978-4-320-11097-7
+  \bibitem{3}
+    おぐえもん. "行列のブロック分割". OGUEMON.com. \url{https://oguemon.com/study/linear-algebra/matrix-block/} (2021-2-13 0:05 閲覧)
+  \bibitem{4}
+    中西敏浩. "数学基礎 IV (線形代数学) 講義ノート". 島根大学. \url{http://www.math.shimane-u.ac.jp/~tosihiro/skks4main.pdf} (2020-9-7 取得)
+\end{thebibliography}
+\end{document}

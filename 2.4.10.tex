@@ -1,0 +1,157 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{4}
+\setcounter{subsection}{9}
+\usepackage{xr}
+\externaldocument{2.4.9}
+\input{macro}
+\begin{document}
+%\hypertarget{tensorux4ee3ux6570}{%
+\subsection{tensor代数}%\label{tensorux4ee3ux6570}}
+%\hypertarget{tensorux4ee3ux6570-1}{%
+\subsubsection{tensor代数}%\label{tensorux4ee3ux6570-1}}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、次式のように定義される集合$T(V)$が考えられよう。
+\begin{align*}
+T(V) = \prod_{r \in \mathbb{N} \cup \left\{ 0 \right\}} {T^{r}(V)} = K \times V \times (V \otimes V) \times (V \otimes V \otimes V) \times \cdots
+\end{align*}
+その直積$T(V)$をtensor代数という。このとき、その集合$T(V)$の元で次のように和とscalar倍を定義する。
+\begin{itemize}
+\item
+  $\forall\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}},\left( \mathbf{u}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} \in T(V)$に対し、$\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( \mathbf{u}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} = \left( \mathbf{t}_{r} + \mathbf{u}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$が成り立つとする。
+\item
+  $\forall k \in K\forall\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} \in T(V)$に対し、$k\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} = \left( k\mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$が成り立つとする。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{2.4.10.1}
+体$K$上の$n$次元vector空間$V$が与えられたとき、そのtensor代数$T(V)$は体$K$上のvector空間となる。
+\end{thm}
+\begin{proof}
+$\forall r \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、反変tensor空間$T^{r}(V)$がvector空間をなすことに注意すれば、定理\ref{2.4.9.1}と同様にして示される。
+\end{proof}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$r \neq s$なら、$\mathbf{t}_{r} = \mathbf{0}$なるそのtensor代数$T(V)$の元$\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$を斉$s$次の元という。
+\end{dfn}
+\begin{thm}\label{2.4.10.2}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$r \in \mathbb{N} \cup \left\{ 0 \right\}$なる集合たち$\left\{ \mathbf{0} \right\}^{r} \times T^{r}(V) \times \left\{ \mathbf{0} \right\}^{\infty - r}$はいづれもそのtensor代数$T(V)$の部分空間をなし、さらに、次式が成り立つ。
+\begin{align*}
+T(V) &= \bigoplus_{r \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \left\{ \mathbf{0} \right\}^{r} \times T^{r}(V) \times \left\{ \mathbf{0} \right\}^{\infty - r} \right)\\
+&= \begin{matrix}
+\  & \left( K \times \left\{ \mathbf{0} \right\} \times \left\{ \mathbf{0} \right\} \times \left\{ \mathbf{0} \right\} \times \cdots \right) \\
+ \oplus & \left( \left\{ 0 \right\} \times V \times \left\{ \mathbf{0} \right\} \times \left\{ \mathbf{0} \right\} \times \cdots \right) \\
+ \oplus & \left( \left\{ 0 \right\} \times \left\{ \mathbf{0} \right\} \times (V \otimes V) \times \left\{ \mathbf{0} \right\} \times \cdots \right) \\
+ \oplus & \left( \left\{ 0 \right\} \times \left\{ \mathbf{0} \right\} \times \left\{ \mathbf{0} \right\} \times (V \otimes V \otimes V) \times \cdots \right) \\
+ \oplus & \cdots \\
+\end{matrix}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.2}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.10.3}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$s \in \mathbb{N} \cup \left\{ 0 \right\}$なる次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi_{s}:T^{s}(V)\overset{\sim}{\rightarrow}\left\{ \mathbf{0} \right\}^{s} \times T^{s}(V) \times \left\{ \mathbf{0} \right\}^{\infty - s};\mathbf{t}_{s} \mapsto \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{0} \\
+\mathbf{0} \\
+ \vdots \\
+\mathbf{t}_{s} \\
+ \vdots \\
+\end{pmatrix}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.3}と同様にして示される。
+\end{proof}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、そのtensor代数$T(V)$の元$\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$で、ある非負整数$s$が存在して、任意の非負整数$r$に対し、$s < r$が成り立つなら、$\mathbf{t}_{r} = \mathbf{0}$が成り立つとき、明らかに次式が成り立つ。
+\begin{align*}
+\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} = \begin{pmatrix}
+\mathbf{t}_{0} \\
+\mathbf{0} \\
+\mathbf{0} \\
+ \vdots \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix} + \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{t}_{1} \\
+\mathbf{0} \\
+ \vdots \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix} + \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{0} \\
+\mathbf{t}_{2} \\
+ \vdots \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix} + \cdots + \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{0} \\
+\mathbf{0} \\
+ \vdots \\
+\mathbf{t}_{s} \\
+ \vdots \\
+\end{pmatrix}
+\end{align*}
+これに倣って、そのtensor代数$T(V)$の任意の元$\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$に対し、次式のように定義されよう。
+\begin{align*}
+\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} = \begin{pmatrix}
+\mathbf{t}_{0} \\
+\mathbf{0} \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix} + \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{t}_{1} \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix} + \begin{pmatrix}
+\mathbf{0} \\
+\mathbf{0} \\
+\mathbf{t}_{2} \\
+ \vdots \\
+\end{pmatrix} + \cdots
+\end{align*}
+\end{dfn}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、そのtensor代数$T(V)$の任意の元々$\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$、$\left( \mathbf{u}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}}$に対し、次式のように積$\otimes$が定義されよう。
+\begin{align*}
+\left( \mathbf{t}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} \otimes \left( \mathbf{u}_{r} \right)_{r \in \mathbb{N} \cup \left\{ 0 \right\}} = \sum_{u \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{s + t = u} \begin{pmatrix}
+\left( \mathbf{0} \right)_{r \in \varLambda_{s + t}} \\
+\mathbf{t}_{s} \otimes \mathbf{u}_{t} \\
+\left( \mathbf{0} \right)_{r \in \mathbb{N} \setminus \varLambda_{s + t}} \\
+\end{pmatrix}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.4.10.4}
+体$K$上の$n$次元vector空間$V$が与えられたとき、そのtensor代数$T(V)$で先ほどの積$\otimes$が定義され、さらに、tensor積について、次のことが成り立つとみなされれば、
+\begin{itemize}
+\item
+  $\left( \mathbf{t} \otimes \mathbf{u} \right) \otimes \mathbf{v} = \mathbf{t} \otimes \left( \mathbf{u} \otimes \mathbf{v} \right)$が成り立つ、即ち、結合法則が成り立つ。
+\item
+  その体$K$の元$k$とのtensor積について、$k \otimes \mathbf{t} = \mathbf{t} \otimes k = k\mathbf{t}$が成り立つ、即ち、scalar倍になっている。
+\end{itemize}
+そのtensor代数$T(V)$は線形環をなす\footnote{結構気力なくしましたので、まあまあ雑な証明になってしまいました…。申し訳ありません…。}。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$が与えられたとき、そのtensor代数$T(V)$で先ほどの積$\otimes$が定義され、さらに、tensor積について、次のことが成り立つとみなされよう。
+\begin{itemize}
+\item
+  $\left( \mathbf{t} \otimes \mathbf{u} \right) \otimes \mathbf{v} = \mathbf{t} \otimes \left( \mathbf{u} \otimes \mathbf{v} \right)$が成り立つ、即ち、結合法則が成り立つ。
+\item
+  その体$K$の元$k$とのtensor積について、$k \otimes \mathbf{t} = \mathbf{t} \otimes k = k\mathbf{t}$が成り立つ、即ち、scalar倍になっている。
+\end{itemize}
+このとき、その組$\left( T(V), + \right)$は明らかに可換群をなす。さらに、仮定より、その積$\otimes$について、結合的で、vector$\begin{pmatrix}
+1 \\
+\mathbf{0} \\
+\mathbf{0} \\
+ \vdots \\
+\end{pmatrix}$が考えられれば、これがその積$\otimes$の単位元となっている。最後に、そのtensor積が双線形的であることに注意すれば、分配的であることもすぐわかる。
+\end{proof}
+\section*{工事中}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  佐武一郎, 線型代数学, 裳華房, 1958. 第53版 p219-220 ISBN4-7853-1301-3
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,835 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{5}
+\setcounter{subsection}{4}
+\usepackage{xr}
+\externaldocument{4.5.1}
+\externaldocument{4.5.2}
+\externaldocument{4.5.3}
+\externaldocument{4.5.4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux53efux6e2cux5199ux50cf}{%
+\subsection{可測写像}%\label{ux53efux6e2cux5199ux50cf}}
+%\hypertarget{ux53efux6e2cux5199ux50cf-1}{%
+\subsubsection{可測写像}%\label{ux53efux6e2cux5199ux50cf-1}}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$と集合$Y$上の$\sigma$-加法族$T$、写像$f:X \rightarrow Y$が与えられたとき、$\forall E \in T$に対し、$V\left( f^{- 1}|E \right) \in \varSigma$が成り立つとき、その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$T$へに関してその集合$X$からその集合$Y$への可測写像という。特に、その写像$f$が関数であるとき、その関数$f$はその集合$X$からその集合$Y$への可測関数という。
+\end{dfn}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、Borel集合族$\mathfrak{B}_{\left( S,\mathfrak{O} \right)}$からBorel集合族$\mathfrak{B}_{\left( T,\mathfrak{P} \right)}$へに関してその集合$S$からその集合$T$への可測写像$f:S \rightarrow T$をその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へのBorel写像という。
+\end{dfn}
+\begin{thm}\label{4.5.5.1}
+集合$X$上の$\sigma$-加法族$\varSigma$と集合$Y$上の$\sigma$-加法族$T$、写像$f:X \rightarrow Y$が与えられたとき、あるその集合$Y$の部分集合系$\mathfrak{P}(Y)$の部分集合$\mathcal{I}$に対し、$T = \varSigma\left( \mathcal{I} \right)$が成り立ち、$\forall E\in \mathcal{I}$に対し、$V\left( f^{- 1}|E \right) \in \varSigma$が成り立つなら、その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$T$へに関してその集合$X$からその集合$Y$への可測写像となる。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$と集合$Y$上の$\sigma$-加法族$T$、写像$f:X \rightarrow Y$が与えられたとき、あるその集合$Y$の部分集合系$\mathfrak{P}(Y)$の部分集合$\mathcal{I}$に対し、$T = \varSigma\left( \mathcal{I} \right)$が成り立ち、$\forall E\in \mathcal{I}$に対し、$V\left( f^{- 1}|E \right) \in \varSigma$が成り立つとする。このとき、仮定より明らかに次式が成り立つ。
+\begin{align*}
+\mathcal{I \subseteq}\left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}
+\end{align*}\par
+ここで、右辺の集合$\left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$について、$V\left( f^{- 1}|\emptyset \right) = \emptyset \in \varSigma$が成り立つので、$\emptyset \in \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$が成り立つ。$E \in \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$が成り立つのであれば、$V\left( f^{- 1}|Y \setminus E \right) = X \setminus V\left( f^{- 1}|E \right)$が成り立つことにより、$V\left( f^{- 1}|Y \setminus E \right) \in \varSigma$が成り立つので、$Y \setminus E \in \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$が成り立つ。最後に、その集合$T$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$\forall n \in \mathbb{N}$に対し、$V\left( f^{- 1}|E_{n} \right) \in \varSigma$が成り立ち、したがって、$\bigcup_{n \in \mathbb{N}} {V\left( f^{- 1}|E_{n} \right)} = V\left( f^{- 1}|\bigcup_{n \in \mathbb{N}} E_{n} \right) \in \varSigma$が成り立つので、$\bigcup_{n \in \mathbb{N}} E_{n} \in \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$が成り立つ。これにより、その集合$\left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$はその集合$Y$上の$\sigma$-加法族であるから、次式が成り立つ。
+\begin{align*}
+\mathcal{I \subseteq}T = \varSigma\left( \mathcal{I} \right) \subseteq \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}
+\end{align*}\par
+よって、$\forall E \in T$に対し、$E \in \left\{ E \in \mathfrak{P}(Y) \middle| V\left( f^{- 1}|E \right) \in \varSigma \right\}$が成り立つので、$V\left( f^{- 1}|E \right) \in \varSigma$が成り立つことになり、その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$T$へに関してその集合$X$からその集合$Y$への可測写像となる。
+\end{proof}
+\begin{thm}\label{4.5.5.2}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$への連続写像$f:S \rightarrow T$はその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へのBorel写像となる。
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$への連続写像$f:S \rightarrow T$は、定義より$\forall O \in \mathfrak{P}$に対し、$V\left( f^{- 1}|O \right)\in \mathfrak{O \subseteq}\varSigma\left( \mathfrak{O} \right) = \mathfrak{B}_{\left( S,\mathfrak{O} \right)}$が成り立つ。したがって、定理\ref{4.5.5.1}よりその写像$f$はそのBorel集合族$\mathfrak{B}_{\left( S,\mathfrak{O} \right)}$からその$\sigma$-加法族$\varSigma\left( \mathfrak{P} \right)$、即ち、そのBorel集合族$\mathfrak{B}_{\left( T,\mathfrak{P} \right)}$へに関してその集合$S$からその集合$T$への可測写像となる。定義よりよって、その写像$f:S \rightarrow T$はその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へのBorel写像となる。
+\end{proof}
+\begin{thm}\label{4.5.5.3}
+$\sigma$-加法族$\varSigma$から$\sigma$-加法族$T$へに関して集合$X$から集合$Y$への可測写像$f$、$\sigma$-加法族$T$から$\sigma$-加法族$\varUpsilon$へに関して集合$Y$から集合$Z$への可測写像$g$が与えられたとき、その合成写像$g \circ f$もその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varUpsilon$へに関してその集合$X$からその集合$Z$への可測写像である。
+\end{thm}
+\begin{proof}
+$\sigma$-加法族$\varSigma$から$\sigma$-加法族$T$へに関して集合$X$から集合$Y$への可測写像$f$、$\sigma$-加法族$T$から$\sigma$-加法族$\varUpsilon$へに関して集合$Y$から集合$Z$への可測写像$g$が与えられたとき、$\forall E \in \varUpsilon$に対し、$V\left( g^{- 1}|E \right) \in T$が成り立つかつ、$\forall E \in T$に対し、$V\left( f^{- 1}|E \right) \in \varSigma$が成り立つので、$\forall E \in \varUpsilon$に対し、$V\left( (g \circ f)^{- 1}|E \right) = V\left( f^{- 1}|V\left( g^{- 1}|E \right) \right) \in \varSigma$が成り立つので、その合成写像$g \circ f$もその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varUpsilon$へに関してその集合$X$からその集合$Z$への可測写像である。
+\end{proof}
+%\hypertarget{ux76f4ux7a4dsigma-ux52a0ux6cd5ux65cf}{%
+\subsubsection{直積$\sigma$-加法族}%\label{ux76f4ux7a4dsigma-ux52a0ux6cd5ux65cf}}
+\begin{dfn}\label{直積σ-加法族}
+任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、射影$\mathrm{pr}_{i}$が次式のように与えられたとして、
+\begin{align*}
+\mathrm{pr}_{i}:\prod_{i \in \varLambda} X_{i} \rightarrow X_{i};\left( a_{i} \right)_{i \in \varLambda} \mapsto a_{i}
+\end{align*}
+次式のように集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$が定義されよう。
+\begin{align*}
+\bigotimes_{i \in \varLambda} \varSigma_{i} = \varSigma\left( \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \varSigma_{i} \right\} \right)
+\end{align*}
+この集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$はその集合$\prod_{i \in \varLambda} X_{i}$上の$\sigma$-加法族でありこの集合$\bigotimes_{i \in \varLambda} \varSigma_{i}$を$\sigma$-加法族からなる族$\left\{ \varSigma_{i} \right\}_{i \in \varLambda}$の直積$\sigma$-加法族という。
+\end{dfn}
+\begin{thm}\label{4.5.5.4}
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすなら、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$もまた第2可算公理を満たす。
+\end{thm}\par
+この定理は幾何学の位相空間論でお馴染みのものであるから、今さら証明するまでもなかろう\footnote{というか、幾何学の定理たちをあちこち引っ張ってきて示す定理なので、証明を書いたところでチンプンカンプンに終わりそうで書かないほうが混乱せずに済み親切かなと思いましたので、そうしました…。}。
+\begin{thm}\label{4.5.5.5}
+集合$X$上の$\sigma$-加法族$\varSigma$と任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、写像$f:X \rightarrow \prod_{i \in \varLambda} X$について、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{i}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像である。
+\item
+  $\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関してその集合$X$からその集合$X_{i}$への可測写像である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$と任意の添数集合$\varLambda$を用いて$\forall i \in \varLambda$に対し、集合$X_{i}$上の$\sigma$-加法族$\varSigma_{i}$が与えられたとき、写像$f:X \rightarrow \prod_{i \in \varLambda} X$について、その写像$f$がその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{i}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像であるなら、$\forall i \in \varLambda$に対し、その写像$\mathrm{pr}_{i}$は$\sigma$-加法族からなる族$\left\{ \varSigma_{i} \right\}_{i \in \varLambda}$の直積$\sigma$-加法族の定義より可測写像であるから、定理\ref{4.5.5.3}より$\forall i \in \varLambda$に対し、その合成写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関してその集合$X$からその集合$X_{i}$への可測写像である。\par
+逆に、$\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow X_{i}$がその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\varSigma_{i}$へに関して可測写像であるなら、$\forall E' \in \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \varSigma_{i} \right\}$に対し、$E' = V\left( \mathrm{pr}_{i}^{- 1}|E \right)$なるその集合$\varSigma_{i}$の元$E$が存在して次式が成り立つので、
+\begin{align*}
+V\left( \left( \mathrm{pr}_{i} \circ f \right)^{- 1}|E \right) = V\left( f^{- 1}|V\left( \mathrm{pr}_{i}^{- 1}|E \right) \right) = V\left( f^{- 1}|E' \right) \in \varSigma
+\end{align*}
+その写像$f$はその$\sigma$-加法族$\varSigma$からその$\sigma$-加法族$\bigotimes_{i \in \varLambda} \varSigma_{\lambda}$へに関してその集合$X$からその集合$\prod_{i \in \varLambda} X_{i}$への可測写像である。
+\end{proof}
+\begin{thm}\label{4.5.5.6}
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすとする。このとき、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$のBorel集合族$\mathfrak{B}_{0}$、それらの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$のBorel集合族$\mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$の族$\left\{ \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}_{i \in \varLambda }$について、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{0} = \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+高々可算な添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( X_{i},\mathfrak{O}_{i} \right) \right\}_{i \in \varLambda }$の直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$において、どの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$が第2可算公理を満たすとする。このとき、その直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$のBorel集合族$\mathfrak{B}_{0}$、それらの位相空間たち$\left( X_{i},\mathfrak{O}_{i} \right)$のBorel集合族$\mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$の族$\left\{ \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}_{i \in \varLambda }$について、$\forall i \in \varLambda$に対し、写像$\mathrm{pr}_{i}:\prod_{i \in \varLambda } X_{i} \rightarrow X_{i}$はその直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$からその位相空間$\left( X_{i},\mathfrak{O}_{i} \right)$への連続写像であるから、$\forall E \in \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$に対し、$E' = V\left( \mathrm{pr}_{i}^{- 1}|E \right) \in \mathfrak{O}_{0} \subseteq \mathfrak{B}_{0}$が成り立つので、$\bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \subseteq \mathfrak{B}_{0}$が成り立つ。\par
+一方で、定理\ref{4.5.5.4}よりその直積位相空間$\left( \prod_{i \in \varLambda } X_{i},\mathfrak{O}_{0} \right)$は第2可算公理を満たすので、$\forall O \in \mathfrak{O}_{0}$に対し、その開集合$O$はたかだか可算な個数の基底の元々の和集合で表されることができる。このとき、その基底の元々は初等開集合の形で表されるかつ、その写像$\mathrm{pr}_{i}$は連続であるので、その開集合$O$は次式を満たす。
+\begin{align*}
+O \in \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{O}_{i} \subseteq \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}
+\end{align*}
+したがって、$\mathfrak{O}_{0} \subseteq \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\}$が得られる。よって、次式が成り立つ、
+\begin{align*}
+\varSigma\left( \mathfrak{O}_{0} \right) \subseteq \varSigma\left( \left\{ V\left( \mathrm{pr}_{i}^{- 1}|E \right)\in \mathfrak{P}\left( \prod_{i \in \varLambda} X_{i} \right) \middle| E \in \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)} \right\} \right)
+\end{align*}
+即ち、$\mathfrak{B}_{0} \subseteq \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}$が成り立つ。\par
+以上より、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{0} = \bigotimes_{i \in \varLambda } \mathfrak{B}_{\left( X_{i},\mathfrak{O}_{i} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.5.7}
+位相空間たち$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$の直積位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)} = \bigotimes_{i \in \varLambda_{n} } \mathfrak{B}_{\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.5.5.6}より直ちに分かる。
+\end{proof}
+%\hypertarget{ux53efux6e2cux95a2ux6570ux3068ux3053ux308cux306bux95a2ux9023ux3059ux308bux5b9aux7fa9}{%
+\subsubsection{可測関数とこれに関連する定義}%\label{ux53efux6e2cux95a2ux6570ux3068ux3053ux308cux306bux95a2ux9023ux3059ux308bux5b9aux7fa9}}
+\begin{dfn}
+添数集合$\varLambda$によって添数づけられた集合$\mathrm{cl}\mathbb{R}^{+} = [ 0,\infty]$の元々の族$\left\{ a_{i} \right\}_{i \in \varLambda}$が与えられたとき、その添数集合$\varLambda$の有限な部分集合全体の集合$\mathcal{F}_{\varLambda}$を用いて次式のように総和が定義される。
+\begin{align*}
+\sum_{i \in \varLambda} a_{i} = \sup\left\{ \sum_{\scriptsize \begin{matrix}
+i \in \varLambda' \\
+\#\varLambda' < \aleph_{0} \\
+\end{matrix}} a_{i} \in \mathrm{cl}\mathbb{R}^{+} \middle| \varLambda' \in \mathcal{F}_{\varLambda} \right\}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$f:X \rightarrow Y$が単に可測関数である、可測であるといわれたとき、これは次のように指される。このことをここでは、$f:\mathrm{measurable}$と書くことにする。
+\begin{itemize}
+\item
+  $Y \subseteq{}^{*}\mathbb{R}$のとき、位相空間$\left({}^{*}\mathbb{R},\left( \mathfrak{O}_{d_{E}} \right)_{{}^{*}\mathbb{R}} \right)$が与えられたその$\sigma$-加法族$\varSigma$からそのBorel集合族$\mathfrak{B}_{\left({}^{*}\mathbb{R},\left( \mathfrak{O}_{d_{E}} \right)_{{}^{*}\mathbb{R}} \right)}$へに関して可測写像のことである。
+\item
+  $Y \subseteq \mathbb{R}^{n}$のとき、位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$が与えられたその$\sigma$-加法族$\varSigma$からそのBorel集合族$\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)}$へに関して可測写像のことである。
+\end{itemize}
+\end{dfn}\par
+なお、このような定義は定理\ref{4.5.2.8}より矛盾しない。
+\begin{thm}\label{4.5.5.8}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$f:X \rightarrow \mathbb{R}^{n}$が可測であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow \mathbb{R}$が可測である。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$f:X \rightarrow \mathbb{R}^{n}$が可測であるならそのときに限り、定理\ref{4.5.5.5}、定理\ref{4.5.5.7}より$\forall i \in \varLambda_{n}$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow \mathbb{R}$はその$\sigma$-加法族$\varSigma$から位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$のBorel集合族$\mathfrak{B}_{\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)}$へに関してその集合$X$からその集合$\mathbb{R}$への可測写像である、即ち、$\forall i \in \varLambda_{n}$に対し、写像$\mathrm{pr}_{i} \circ f:X \rightarrow \mathbb{R}$が可測である。
+\end{proof}
+\begin{dfn}
+写像$f:X \rightarrow{}^{*}\mathbb{R}$について、補完数直線${}^{*}\mathbb{R}$の部分集合$I$を用いて次式のように定義される。
+\begin{align*}
+\left\{ f \in I \right\} = \left\{ x \in X \middle| f(x) \in I \right\}
+\end{align*}
+\end{dfn}\par
+例えば、次のとおりである。
+\begin{align*}
+\left\{ a < f \right\} &= \left\{ x \in X \middle| a < f(x) \right\}\\
+\left\{ a \leq f < b \right\} &= \left\{ x \in X \middle| a \leq f(x) < b \right\}\\
+\left\{ f = a \right\} &= \left\{ x \in X \middle| f(x) = a \right\}
+\end{align*}
+\begin{thm}\label{4.5.5.9}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$f:X \rightarrow{}^{*}\mathbb{R}$について、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は可測である。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ a < f \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ a \leq f \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ f < a \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ f \leq a \right\} \in \varSigma$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$f:X \rightarrow{}^{*}\mathbb{R}$について、その写像$f$が可測であるなら、$\forall a \in \mathbb{R}$に対し、Borel集合族の定義より開区間$(a,\infty)$を用いて$V\left( f^{- 1}|(a,\infty) \right) \in \varSigma$が成り立つ。ここで、$\left\{ a < f \right\} = V\left( f^{- 1}|(a,\infty) \right)$が成り立つので、$\left\{ a < f \right\} \in \varSigma$が成り立つ。\par
+$\forall a \in \mathbb{R}$に対し、$\left\{ a < f \right\} \in \varSigma$が成り立つとき、$\forall a \in \mathbb{R}\forall n \in \mathbb{N}$に対し、$\left\{ a - \frac{1}{n} < f \right\} \in \varSigma$が成り立つので、定理\ref{4.5.2.4}と区間縮小法により次のようになる。
+\begin{align*}
+\bigcap_{n \in \mathbb{N}} \left\{ a - \frac{1}{n} < f \right\} &= \bigcap_{n \in \mathbb{N}} {V\left( f^{- 1}|\left( a - \frac{1}{n},\infty \right) \right)}\\
+&= V\left( f^{- 1}|\bigcap_{n \in \mathbb{N}} \left( a - \frac{1}{n},\infty \right) \right)\\
+&= V\left( f^{- 1}|[ a,\infty) \right) = \left\{ a \leq f \right\}
+\end{align*}\par
+$\forall a \in \mathbb{R}$に対し、$\left\{ a \leq f \right\} \in \varSigma$が成り立つとき、$\sigma$-加法族の定義より次のようになる。
+\begin{align*}
+X \setminus \left\{ a \leq f \right\} &= X \setminus \left\{ x \in X \middle| a \leq f(x) \right\}\\
+&= \left\{ x \in X \middle| f(x) < a \right\} = \left\{ f < a \right\}
+\end{align*}\par
+$\forall a \in \mathbb{R}$に対し、$\left\{ f < a \right\} \in \varSigma$が成り立つとき、$\forall a \in \mathbb{R}\forall n \in \mathbb{N}$に対し、$\left\{ f < a + \frac{1}{n} \right\} \in \varSigma$が成り立つので、定理\ref{4.5.2.4}と区間縮小法により次のようになる。
+\begin{align*}
+\bigcap_{n \in \mathbb{N}} \left\{ f < a + \frac{1}{n} \right\} &= \bigcap_{n \in \mathbb{N}} {V\left( f^{- 1}|\left( - \infty,a + \frac{1}{n} \right) \right)}\\
+&= V\left( f^{- 1}|\bigcap_{n \in \mathbb{N}} \left( - \infty,a + \frac{1}{n} \right) \right)\\
+&= V\left( f^{- 1}|( - \infty,a] \right) = \left\{ f \leq a \right\}
+\end{align*}\par
+逆に、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ a < f \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ a \leq f \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ f < a \right\} \in \varSigma$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$\left\{ f \leq a \right\} \in \varSigma$が成り立つ。
+\end{itemize}
+空集合も属される補完数直線${}^{*}\mathbb{R}$の区間全体の集合$\mathcal{I}$の任意の元$I$に対し、$V\left( f^{- 1}|I \right) \in \varSigma$が成り立つので、定理\ref{4.5.5.1}よりその写像$f$は可測である。
+\end{proof}
+\begin{dfn}
+写像$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、次式のような写像$+$、$-$を定義する。
+\begin{align*}
++&:\mathfrak{F}\left( X,{}^{*}\mathbb{R} \right)\mathfrak{\rightarrow F}\left( X,\mathrm{cl}\mathbb{R}^{+} \right);f \mapsto \left( + (f):X \rightarrow \mathrm{cl}\mathbb{R}^{+};x \mapsto \max\left\{ f(x),0 \right\} \right)\\
+-&:\mathfrak{F}\left( X,{}^{*}\mathbb{R} \right)\mathfrak{\rightarrow F}\left( X,\mathrm{cl}\mathbb{R}^{+} \right);f \mapsto \left( - (f):X \rightarrow \mathrm{cl}\mathbb{R}^{+};x \mapsto \max\left\{ - f(x),0 \right\} \right)
+\end{align*}
+さらに、これらの写像たちによる像々$+ (f)$、$- (f)$を$(f)_{+}$、$(f)_{-}$と書くことにする。
+\end{dfn}
+\begin{thm}\label{4.5.5.10}
+写像$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+f = (f)_{+} - (f)_{-},\ \ |f| = (f)_{+} + (f)_{-}
+\end{align*}
+\end{thm}
+\begin{proof} $\forall x \in X$に対し、次のようになる。
+\begin{align*}
+f(x) &= \left\{ \begin{matrix}
+f(x) & \mathrm{if} & 0 \leq f(x) \\
+ - \left( - f(x) \right) & \mathrm{if} & f(x) < 0 \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+f(x) - 0 & \mathrm{if} & 0 \leq f(x) \\
+0 - \left( - f(x) \right) & \mathrm{if} & 0 < - f(x) \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\max\left\{ f(x),0 \right\} - \max\left\{ - f(x),0 \right\} & \mathrm{if} & 0 \leq f(x) \\
+\max\left\{ f(x),0 \right\} - \max\left\{ - f(x),0 \right\} & \mathrm{if} & 0 < - f(x) \\
+\end{matrix} \right.\ \\
+&= \max\left\{ f(x),0 \right\} - \max\left\{ - f(x),0 \right\}\\
+&= (f)_{+}(x) - (f)_{-}(x)\\
+\left| f(x) \right| &= \left\{ \begin{matrix}
+f(x) & \mathrm{if} & 0 \leq f(x) \\
+ - f(x) & \mathrm{if} & f(x) < 0 \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+f(x) + 0 & \mathrm{if} & 0 \leq f(x) \\
+0 + \left( - f(x) \right) & \mathrm{if} & 0 < - f(x) \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\max\left\{ f(x),0 \right\} + \max\left\{ - f(x),0 \right\} & \mathrm{if} & 0 \leq f(x) \\
+\max\left\{ f(x),0 \right\} + \max\left\{ - f(x),0 \right\} & \mathrm{if} & 0 < - f(x) \\
+\end{matrix} \right.\ \\
+&= \max\left\{ f(x),0 \right\} + \max\left\{ - f(x),0 \right\}\\
+&= (f)_{+}(x) + (f)_{-}(x)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.5.11}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、可測関数に関して次のことが成り立つ。
+\begin{itemize}
+\item
+  可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\left\{ f < g \right\},\left\{ f \leq g \right\},\left\{ f = g \right\} \in \varSigma$が成り立つ。
+\item
+  可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall a,b \in \mathbb{R}$に対し、写像$af + bg:X \rightarrow{}^{*}\mathbb{R}$が存在すればこれも可測である\footnote{ある集合$X$の元$x$に対し、$f(x) = \infty$、$g(x) = - \infty$とかなってしまったら、ムリってことです。}。
+\item
+  可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、写像たち$\max\left\{ f,g \right\}:X \rightarrow{}^{*}\mathbb{R}$、$\min\left\{ f,g \right\}:X \rightarrow{}^{*}\mathbb{R}$も可測である。
+\item
+  集合$\mathfrak{F}\left( X,{}^{*}\mathbb{R} \right)$の元のうち可測なもの全体の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、写像たち$\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}:X \rightarrow{}^{*}\mathbb{R}$、$\inf\left\{ f_{n} \right\}_{n \in \mathbb{N}}:X \rightarrow{}^{*}\mathbb{R}$も可測である。
+\item
+  集合$\mathfrak{F}\left( X,{}^{*}\mathbb{R} \right)$の元のうち可測なもの全体の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、写像たち$\limsup_{n \rightarrow \infty}f_{n}:X \rightarrow{}^{*}\mathbb{R}$、$\liminf_{n \rightarrow \infty}f_{n}:X \rightarrow{}^{*}\mathbb{R}$も可測である。さらに、写像$\lim_{n \rightarrow \infty}f_{n}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在すればこれも可測である。
+\item
+  可測関数$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall\alpha \in \mathbb{R} \setminus \left\{ 0 \right\}$に対し、写像たち$(f)_{+}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$、$(f)_{-}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$も可測である。
+\item
+  可測関数$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall\alpha \in \mathbb{R} \setminus \left\{ 0 \right\}$に対し、写像$|f|^{\alpha}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$も存在すればこれも可測である。
+\item
+  可測関数たち$f:X \rightarrow \mathbb{R}$、$g:X \rightarrow \mathbb{R}$が与えられたとき、写像$fg:X \rightarrow \mathbb{R}$も可測である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$と可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall x \in X$に対し、有理数の稠密性より$f(x) < r < g(x)$が成り立つような有理数$r$が存在するので、$\#\mathbb{Q} = \aleph_{0}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\left\{ f < g \right\} &= \bigcup_{r \in \mathbb{Q}} \left\{ x \in X \middle| f(x) < r < g(x) \right\}\\
+&= \bigcup_{r \in \mathbb{Q}} {\left\{ x \in X \middle| f(x) < r \right\} \cap \left\{ x \in X \middle| r < g(x) \right\}}\\
+&= \bigcup_{r \in \mathbb{Q}} {\left\{ f < r \right\} \cap \left\{ r < g \right\}} \in \varSigma
+\end{align*}
+同様にして、$\left\{ g < f \right\} \in \varSigma$も示されるので、$\left\{ f \leq g \right\} = \mathrm{cl}\mathbb{R} \setminus \left\{ g < f \right\} \in \varSigma$が成り立つ。さらに、$\left\{ f = g \right\} = \left\{ f \leq g \right\} \setminus \left\{ f < g \right\} \in \varSigma$が成り立つ。\par
+可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall a,b \in \mathbb{R}\forall c \in \mathbb{R}$に対し、$a = 0$のときは可測写像の定義より写像$af = 0$も可測である。$a \neq 0$のとき、次のようになるので、
+\begin{align*}
+\left\{ c < af \right\} = \left\{ \frac{c}{a} \lessgtr f \right\} \in \varSigma
+\end{align*}
+写像$af$は可測である。同様にして、写像$bg$も可測であることが示される。$a = 0$または$b = 0$のときでは、上記の議論に帰着されることができる。$a \neq 0$かつ$b \neq 0$のとき、次のようになる。
+\begin{align*}
+\left\{ c < af + bg \right\} = \left\{ c - af < bg \right\}
+\end{align*}
+ここで、その写像$f$は可測なので、$\forall d \in \mathbb{R}$に対し、次のようになる。
+\begin{align*}
+\left\{ d < c - af \right\} = \left\{ d - c < - af \right\} = \left\{ - \frac{d}{a} + \frac{c}{a} \lessgtr f \right\} \in \varSigma
+\end{align*}
+したがって、その写像$c - af$も可測であるので、上記の議論により次のようになる。
+\begin{align*}
+\left\{ c < af + bg \right\} = \left\{ c - af < bg \right\} \in \varSigma
+\end{align*}\par
+可測関数たち$f:X \rightarrow{}^{*}\mathbb{R}$、$g:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall a \in \mathbb{R}$に対し、次のようになるので\footnote{分かりにくいのであれば、外延性の公理を考えるとよいかもしれません。}、
+\begin{align*}
+\left\{ a < \max\left\{ f,g \right\} \right\} &= \left\{ a < f \right\} \cup \left\{ a < g \right\} \in \varSigma\\
+\left\{ \min\left\{ f,g \right\} < a \right\} &= \left\{ f < a \right\} \cup \left\{ g < a \right\} \in \varSigma
+\end{align*}
+写像たち$\max\left\{ f,g \right\}:X \rightarrow{}^{*}\mathbb{R}$、$\min\left\{ f,g \right\}:X \rightarrow{}^{*}\mathbb{R}$も可測である。\par
+集合$\mathfrak{F}\left( X,{}^{*}\mathbb{R} \right)$の元のうち可測なもの全体の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall a \in \mathbb{R}$に対し、次のようになるので、
+\begin{align*}
+\left\{ a < \sup\left\{ f_{n} \right\}_{n \in \mathbb{N}} \right\} = \bigcup_{n \in \mathbb{N}} \left\{ a < f_{n} \right\} \in \varSigma
+\end{align*}
+写像$\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}:X \rightarrow{}^{*}\mathbb{R}$も可測である。同様にして、写像$\inf\left\{ f_{n} \right\}_{n \in \mathbb{N}}:X \rightarrow{}^{*}\mathbb{R}$も可測であることが示される。\par
+このとき、定理\ref{4.5.1.6}より次のようになり、
+\begin{align*}
+\limsup_{n \rightarrow \infty}f_{n} &= \lim_{n \rightarrow \infty}{\sup\left\{ f_{n} \right\}_{n \in \mathbb{N} \setminus \varLambda_{n - 1}}}\\
+&= \inf\left\{ \sup\left\{ f_{n} \right\}_{n \in \mathbb{N} \setminus \varLambda_{n - 1}} \in{}^{*}\mathbb{R} \middle| n \in \mathbb{N} \right\}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、写像$\sup\left\{ f_{n} \right\}_{n \in \mathbb{N} \setminus \varLambda_{n - 1}}$も添数集合を書き換えれば分かるように可測であるから、その写像$\inf\left\{ \sup\left\{ f_{n} \right\}_{n \in \mathbb{N} \setminus \varLambda_{n - 1}} \in{}^{*}\mathbb{R} \middle| n \in \mathbb{N} \right\}$も可測である。したがって、その写像$\limsup_{n \rightarrow \infty}f_{n}:X \rightarrow{}^{*}\mathbb{R}$も可測である。同様にして、写像$\liminf_{n \rightarrow \infty}f_{n}:X \rightarrow{}^{*}\mathbb{R}$も可測であることが示される。さらに、定理\ref{4.5.1.8}より写像$\lim_{n \rightarrow \infty}f_{n}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在すればこれも可測である。\par
+可測関数$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、写像たち$(f)_{+}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$、$(f)_{-}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$は、写像たち$+$、$-$の定義に注意すれば、上記の議論と同様にして、可測であることが示される。\par
+可測関数$f:X \rightarrow{}^{*}\mathbb{R}$が与えられたとき、$\forall\alpha \in \mathbb{R} \setminus \left\{ 0 \right\}$に対し、$|f|^{\alpha}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$も存在すれば、$\forall a \in \mathbb{R}$に対し、$\alpha > 0$で$a > 0$のとき、次のようになり、
+\begin{align*}
+\left\{ a \leq |f|^{\alpha} \right\} = \left\{ a^{\frac{1}{\alpha}} \leq |f| \right\} = \left\{ f \leq - a^{\frac{1}{\alpha}} \vee a^{\frac{1}{\alpha}} \leq f \right\} = \left\{ f \leq - a^{\frac{1}{\alpha}} \right\} \cup \left\{ a^{\frac{1}{\alpha}} \leq f \right\} \in \varSigma
+\end{align*}
+$a \leq 0$のとき、$\left\{ a \leq |f|^{\alpha} \right\} = X \in \varSigma$が成り立つので、その写像$|f|^{\alpha}$も可測である。$\alpha < 0$のときも同様にして示される。\par
+可測関数たち$f:X \rightarrow \mathbb{R}$、$g:X \rightarrow \mathbb{R}$が与えられたとき、$\forall a \in \mathbb{R}$に対し、次のようになり、
+\begin{align*}
+fg &= \frac{1}{4} \cdot 4fg\\
+&= \frac{1}{4}\left( f^{2} + 2fg + g^{2} - f^{2} + 2fg - g^{2} \right)\\
+&= \frac{1}{4}\left( (f + g)^{2} - (f - g)^{2} \right)\\
+&= \frac{1}{4}(f + g)^{2} - \frac{1}{4}(f - g)^{2}
+\end{align*}
+上記の議論によりその写像$fg$も可測である。
+\end{proof}
+\begin{thm}\label{4.5.5.12}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、可測関数に関して次のことが成り立つ。
+\begin{itemize}
+\item
+  可測関数たち$f:X \rightarrow \mathbb{R}^{n}$、$g:X \rightarrow \mathbb{R}^{n}$が与えられたとき、$\left\{ f = g \right\} \in \varSigma$が成り立つ。
+\item
+  可測関数たち$f:X \rightarrow \mathbb{R}^{n}$、$g:X \rightarrow \mathbb{R}^{n}$が与えられたとき、$\forall a,b \in \mathbb{R}$に対し、写像$af + bg:X \rightarrow \mathbb{R}^{n}$も可測である。
+\item
+  可測関数$f:X \rightarrow \mathbb{R}^{n}$が与えられたとき、$\forall\alpha \in \mathbb{R} \setminus \left\{ 0 \right\}$に対し、写像$\left\| f \right\|^{\alpha}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$も存在すればこれも可測である。
+\item
+  可測関数たち$f:X \rightarrow \mathbb{C}$、$g:X \rightarrow \mathbb{C}$が与えられたとき、写像$fg:X \rightarrow \mathbb{C}$も可測である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+複素数は2次元vectorと同一であるから、成分ごとに考えれば、定理\ref{4.5.5.8}と定理\ref{4.5.5.11}より成り立つことが分かる。
+\end{proof}
+%\hypertarget{ux5358ux95a2ux6570}{%
+\subsubsection{単関数}%\label{ux5358ux95a2ux6570}}
+\begin{dfn}
+集合$A$が与えられたとき、$A'\in \mathfrak{P}(A)$なる集合$A'$を用いて次式のようになる関数$\chi_{A'}$が定義される。このような関数$\chi_{A'}$をその集合$A$におけるその集合$A'$の指示関数、定義関数などという。
+\begin{align*}
+\chi_{A'}:A \rightarrow \left\{ 0,1 \right\};a \mapsto \left\{ \begin{matrix}
+1 & \mathrm{if} & a \in A' \\
+0 & \mathrm{if} & a \in A \setminus A' \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.5.5.13}
+  指示関数について、次のことが成り立つことが知られている。
+  \begin{itemize}
+  \item
+    次式たちが成り立つ\footnote{$\forall a\in A$に対し、$\chi_{A} \left(a\right) =1$かつ$\chi_{\emptyset } \left(a\right) =0$が成り立つという意味で。}。
+  \begin{align*}
+  \chi_{A} = 1, \ \ \chi_{\emptyset} = 0
+  \end{align*}
+  \item
+    $\forall A',B'\in \mathfrak{P}(A)$に対し、$A' \neq B' $が成り立つなら、$\chi_{A'} \neq \chi_{B'}$が成り立つ。
+  \item
+    $\forall\chi,\psi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$に対し、$\chi \neq \psi $が成り立つなら、$V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \neq V\left( \psi^{- 1}|\left\{ 1 \right\} \right) $が成り立つ。
+  \item
+    次式のような写像$\varPhi$は全単射となる。
+  \begin{align*}
+    \varPhi:\mathfrak{P}(A)\mathfrak{\rightarrow F}\left( A,\left\{ 0,1 \right\} \right)
+  \end{align*}
+  \end{itemize}
+\end{thm}
+\begin{thm}\label{4.5.5.14}
+集合$A$が与えられたとき、$A',B'\in \mathfrak{P}(A)$なる集合たち$A'$、$B'$について、次式たちが成り立つ。
+\begin{align*}
+\chi_{A' \cap B'} &= \chi_{A'}\chi_{B'}\\
+\chi_{A' \cup B'} &= \chi_{A'} + \chi_{B'} - \chi_{A'}\chi_{B'}\\
+\chi_{A' \setminus B'} &= \chi_{A'}\left( 1 - \chi_{B'} \right)
+\end{align*}
+これは愚直に場合分けすることによって示される。
+\end{thm}
+\begin{thm}\label{4.5.5.15}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、$\forall E \in \varSigma$に対し、その指示関数$\chi_{E}:E \rightarrow \mathbb{R}$は可測である。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、$\forall E \in \varSigma$に対し、その指示関数$\chi_{E}:X \rightarrow \mathbb{R}$について、$\forall a \in \mathbb{R}$に対し、次のようになるので、
+\begin{align*}
+\left\{ a < \chi_{E} \right\} = \left\{ \begin{matrix}
+X & \mathrm{if} & a < 0 \\
+E & \mathrm{if} & 0 \leq a \leq 1 \\
+\emptyset & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\  \in \varSigma
+\end{align*}
+定理\ref{4.5.5.9}よりその指示関数$\chi_{E}:E \rightarrow \mathbb{R}$は可測である。
+\end{proof}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、次式のように集合$\mathcal{L}(X,\varSigma)$が定義される。
+\begin{align*}
+\mathcal{L}(X,\varSigma) = \left\{ f:X \rightarrow \mathbb{C}\in \mathfrak{F}\left( X,\mathbb{C} \right) \middle| f:\mathrm{measurable} \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.5.5.16}
+上の集合$\mathcal{L}(X,\varSigma)$は体$\mathbb{C}$上のvector空間である。
+\end{thm}
+\begin{proof}
+上の集合$\mathcal{L}(X,\varSigma)$は$0 \in \mathcal{L}(X,\varSigma)$を満たすので、空集合でなく、定理\ref{4.5.5.12}より加法$\mu_{1}\mathcal{:L}(X,\varSigma)\mathcal{\times L}(X,\varSigma)\mathcal{\rightarrow L}(X,\varSigma);(f,g) \mapsto f + g$が与えられており、次のことが成り立つので、
+\begin{itemize}
+\item
+  $\forall f,g,h \in \mathcal{L}(X,\varSigma)$に対し、$(f + g) + h = f + (g + h)$が成り立つ。
+\item
+  $\forall f\in \mathcal{L}(X,\varSigma)$に対し、$f + 0 = 0 + f = f$が成り立つ。
+\item
+  $\forall f\in \mathcal{L}(X,\varSigma)\exists - f\in \mathcal{L}(X,\varSigma)$に対し、$f - f = - f + f = 0$が成り立つ。
+\item
+  $\forall f,g\in \mathcal{L}(X,\varSigma)$に対し、$f + g = g + f$が成り立つ。
+\end{itemize}
+その集合$\mathcal{L}(X,\varSigma)$は加法について可換群$\left( \mathcal{L}(X,\varSigma), + \right)$をなす。また、定理\ref{4.5.5.12}より$\forall a \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、scalar倍$\mu_{2}:\mathbb{C} \times \mathcal{L}(X,\varSigma)\mathcal{\rightarrow L}(X,\varSigma);(a,f) \mapsto af$が定義されている。さらに、複素数の性質より次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall a \in \mathbb{C}\forall f,g\in \mathcal{L}(X,\varSigma)$に対し、$a(f + g) = af + ag$が成り立つ。
+\item
+  $\forall a,b \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、$(a + b)f = af + bf$が成り立つ。
+\item
+  $\forall a,b \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、$(ab)f = a(bf)$が成り立つ。
+\item
+  $\forall f\in \mathcal{L}(X,\varSigma)$に対し、$1f = f$が成り立つ。
+\end{itemize}
+以上より次のことが成り立つので、
+\begin{itemize}
+\item
+  その集合$\mathcal{L}(X,\varSigma)$は加法について可換群$\left( \mathcal{L}(X,\varSigma), + \right)$をなす。
+\item
+  $\forall a \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、scalar倍$\mu_{2}:\mathbb{C}\mathcal{\times L}(X,\varSigma)\mathcal{\rightarrow L}(X,\varSigma);(a,f) \mapsto af$が定義されている。
+\item
+  $\forall a \in \mathbb{C}\forall f,g\in \mathcal{L}(X,\varSigma)$に対し、$a(f + g) = af + ag$が成り立つ。
+\item
+  $\forall a,b \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、$(a + b)f = af + bf$が成り立つ。
+\item
+  $\forall a,b \in \mathbb{C}\forall f\in \mathcal{L}(X,\varSigma)$に対し、$(ab)f = a(bf)$が成り立つ。
+\item
+  $\forall f\in \mathcal{L}(X,\varSigma)$に対し、$1f = f$が成り立つ。
+\end{itemize}
+この集合$\mathcal{L}(X,\varSigma)$は体$\mathbb{C}$上のvector空間である。
+\end{proof}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、次式のように集合$\mathcal{S}(X,\varSigma)$が定義される。
+\begin{align*}
+\mathcal{S}(X,\varSigma) = \mathrm{span}\left\{ \chi_{E} \right\}_{E \in \varSigma}
+\end{align*}
+この集合$\mathcal{S}(X,\varSigma)$はもちろんその集合$\mathcal{L}(X,\varSigma)$の部分空間となるのであった。その集合$\mathcal{S}(X,\varSigma)$の元をその集合$X$上のその$\sigma$-加法族$\varSigma$上の可測単関数、または単に、単関数という。
+\end{dfn}
+\begin{thm}\label{4.5.5.17}
+集合$X$上の$\sigma$-加法族$\varSigma$上の単関数全体の集合$\mathcal{S}(X,\varSigma)$について次式が成り立つ\footnote{その$\sigma$-加法族$\varSigma$が無限集合の場合でも無限次元vector空間が考えられれば、同様に成り立つので、心配しなくても大丈夫です。}。
+\begin{align*}
+\mathcal{S}(X,\varSigma) = \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、$\forall f \in \mathcal{S}(X,\varSigma)$に対し、その$\sigma$-加法族の部分集合であるある有限集合$\varSigma'$を用いれば、複素数たち$a_{E}$を用いて次式が成り立つ。
+\begin{align*}
+f = \sum_{E \in \varSigma'} {a_{E}\chi_{E}}
+\end{align*}
+これにより、その写像$f$は可測で次のようになるので、
+\begin{align*}
+\#{V(f)} = \#{V\left( \sum_{E \in \varSigma'} {a_{E}\chi_{E}} \right)} \leq \sum_{E \in \varSigma'} {\#{V\left( a_{E}\chi_{E} \right)}} = 2\varSigma'
+\end{align*}
+$f \in \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+\mathcal{S}(X,\varSigma) \subseteq \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}
+\end{align*}\par
+逆に、$\forall f \in \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}$に対し、$V(f) = \left\{ a_{E} \right\}_{E \in \varSigma'}$とおくと、$\forall E \in \varSigma'$に対し、定理\ref{4.5.5.9}より$\left\{ f = a_{E} \right\} = \left\{ f \leq a_{E} \right\} \setminus \left\{ f < a_{E} \right\} \in \varSigma$が成り立つので、定理\ref{4.5.5.11}より次のようになるので、
+\begin{align*}
+f = \sum_{E \in \varSigma'} {a_{E}\chi_{\left\{ f = a_{E} \right\}}} \in \varSigma
+\end{align*}
+$f \in \mathcal{S}(X,\varSigma)$が得られ、したがって、次式が成り立つ。
+\begin{align*}
+\mathcal{S}(X,\varSigma) \supseteq \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}
+\end{align*}\par
+よって、$\mathcal{S}(X,\varSigma) = \left\{ f\in \mathcal{L}(X,\varSigma) \middle| \#{V(f)} < \aleph_{0} \right\}$が成り立つ。
+\end{proof}
+%\hypertarget{ux975eux8ca0ux53efux6e2cux95a2ux6570ux306eux975eux8ca0ux5358ux95a2ux6570ux306eux5217ux306bux3088ux308bux8fd1ux4f3c}{%
+\subsubsection{非負可測関数の非負単関数の列による近似}%\label{ux975eux8ca0ux53efux6e2cux95a2ux6570ux306eux975eux8ca0ux5358ux95a2ux6570ux306eux5217ux306bux3088ux308bux8fd1ux4f3c}}
+\begin{thm}[非負可測関数の非負単関数の列による近似]\label{4.5.5.18}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、可測関数$f$が$f:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$と与えられたとき、次式のように単関数の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$が定義されるとする。
+\begin{align*}
+(f)_{n} = \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+このとき、$\forall x \in X$に対し、その元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$はどの写像も可測であるかつ、単調増加列で次式が成り立つ。
+\begin{align*}
+f = \lim_{n \rightarrow \infty}(f)_{n} = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+この定理を非負可測関数の非負単関数の列による近似という。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、可測関数$f$が$f:X \rightarrow \mathrm{cl}\mathbb{R}^{+}$と与えられたとき、次式のように単関数の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$が定義されるとする。
+\begin{align*}
+(f)_{n} = \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}:X \rightarrow \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+$\forall x \in X\forall n \in \mathbb{N}$に対し、定理\ref{4.5.5.11}よりその元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$はどの写像も可測であることが直ちに分かる。\par
+$n + 1 \leq f(x)$のとき、次のようになり、
+\begin{align*}
+(f)_{n} &= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}} \cdot 0} + n \cdot 1 = n
+\end{align*}
+$(f)_{n} = n < n + 1 = (f)_{n + 1}$が成り立つ。\par
+$n \leq f(x) < n + 1$のとき、$n2^{n + 1} + 1 \leq i \leq (n + 1)2^{n + 1}$が成り立てば、次のようになることから、
+\begin{align*}
+n = \frac{n2^{n + 1}}{2^{n + 1}} \leq \frac{i - 1}{2^{n + 1}} \leq f(x) < \frac{i}{2^{n + 1}} \leq \frac{(n + 1)2^{n + 1}}{2^{n + 1}} = n + 1
+\end{align*}
+その元$x$に対し、上の式を満たすような自然数$i'$が存在して次のようになり、
+\begin{align*}
+(f)_{n} &= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}} \cdot 0} + n \cdot 1 = n\\
+(f)_{n + 1} &= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + \frac{i' - 1}{2^{n + 1}}\chi_{\left\{ \frac{i' - 1}{2^{n + 1}} \leq f < \frac{i'}{2^{n + 1}} \right\}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n + 1}} \cdot 0} + \frac{i' - 1}{2^{n + 1}} \cdot 1 + (n + 1) \cdot 0 = \frac{i' - 1}{2^{n + 1}}
+\end{align*}
+したがって、$(f)_{n} = n < \frac{i' - 1}{2^{n + 1}} = (f)_{n + 1}$が成り立つ。\par
+$f(x) < n$のとき、$1 \leq i \leq n2^{n}$が成り立てば、次のようになることから、
+\begin{align*}
+0 \leq \frac{i - 1}{2^{n}} \leq f(x) < \frac{i}{2^{n}} \leq \frac{n2^{n}}{2^{n}} = n
+\end{align*}
+その元$x$に対し、上の式を満たすような自然数$i'$が存在して次のようになり、
+\begin{align*}
+(f)_{n} &= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{n2^{n}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + \frac{i' - 1}{2^{n}}\chi_{\left\{ \frac{i' - 1}{2^{n}} \leq f < \frac{i'}{2^{n}} \right\}} + n\chi_{\left\{ n \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{n2^{n}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n}} \cdot 0} + \frac{i' - 1}{2^{n}} \cdot 1 + n \cdot 0 = \frac{i' - 1}{2^{n}}
+\end{align*}
+さらに、$\frac{i' - 1}{2^{n}} \leq f(x) < \frac{i' - \frac{1}{2}}{2^{n}}$のとき、次のようになるので、
+\begin{align*}
+(f)_{n + 1} &= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ 2i' - 1 \right\}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + \frac{2i' - 2}{2^{n + 1}}\chi_{\left\{ \frac{2i' - 2}{2^{n + 1}} \leq f < \frac{2i' - 1}{2^{n + 1}} \right\}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ 2i' - 1 \right\}} {\frac{i - 1}{2^{n + 1}} \cdot 0} + \frac{2i' - 2}{2^{n + 1}} \cdot 1 + (n + 1) \cdot 0 = \frac{2i' - 2}{2^{n + 1}}
+\end{align*}
+したがって、$(f)_{n} = \frac{i' - 1}{2^{n}} = (f)_{n + 1}$が成り立つ。\par
+$\frac{i' - \frac{1}{2}}{2^{n}} \leq f(x) < \frac{i'}{2^{n}}$のとき、次のようになるので、
+\begin{align*}
+(f)_{n + 1} &= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ 2i' \right\}} {\frac{i - 1}{2^{n + 1}}\chi_{\left\{ \frac{i - 1}{2^{n + 1}} \leq f < \frac{i}{2^{n + 1}} \right\}}} + \frac{2i' - 1}{2^{n + 1}}\chi_{\left\{ \frac{2i' - 1}{2^{n + 1}} \leq f < \frac{2i'}{2^{n + 1}} \right\}} + (n + 1)\chi_{\left\{ n + 1 \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{(n + 1)2^{n + 1}} \setminus \left\{ 2i' \right\}} {\frac{i - 1}{2^{n + 1}} \cdot 0} + \frac{2i' - 1}{2^{n + 1}} \cdot 1 + (n + 1) \cdot 0 = \frac{2i' - 1}{2^{n + 1}}
+\end{align*}
+したがって、$(f)_{n} = \frac{i' - 1}{2^{n}} < \frac{2i' - 1}{2^{n + 1}} = (f)_{n + 1}$が成り立つ。\par
+よって、その元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$は単調増加列である。\par
+また、$f(x) = \infty$のとき、次のようになるので、
+\begin{align*}
+(f)_{n} &= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} + n\chi_{\left\{ n \leq f \right\}}\\
+&= \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}} \cdot 0} + n \cdot 1 = n
+\end{align*}
+$f = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}} = \infty$が成り立つ。\par
+$f(x) < \infty$のとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}$に対し、$f(x) < N$かつ$\frac{1}{2^{N}} = \varepsilon$とすれば、$N \leq n$が成り立つなら、先ほどの自然数$i'$は次式を満たすので、
+\begin{align*}
+0 \leq \frac{i' - 1}{2^{n}} \leq f(x) < \frac{i'}{2^{n}} \leq \frac{n2^{n}}{2^{n}} = n
+\end{align*}
+次のようになる。
+\begin{align*}
+0 &\leq \left| f - (f)_{n} \right|\\
+&= \left| f - \sum_{i \in \varLambda_{n2^{n}}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} - n\chi_{\left\{ n \leq f \right\}} \right|\\
+&= \left| f - \sum_{i \in \varLambda_{n2^{n}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n}}\chi_{\left\{ \frac{i - 1}{2^{n}} \leq f < \frac{i}{2^{n}} \right\}}} - \frac{i' - 1}{2^{n}}\chi_{\left\{ \frac{i' - 1}{2^{n}} \leq f < \frac{i'}{2^{n}} \right\}} - n\chi_{\left\{ n \leq f \right\}} \right|\\
+&= \left| f - \sum_{i \in \varLambda_{n2^{n}} \setminus \left\{ i' \right\}} {\frac{i - 1}{2^{n}} \cdot 0} - \frac{i' - 1}{2^{n}} \cdot 1 - n \cdot 0 \right|\\
+&= \left| f - \frac{i' - 1}{2^{n}} \right|\\
+&= f - \frac{i' - 1}{2^{n}}\\
+&\leq \frac{i'}{2^{n}} - \frac{i' - 1}{2^{n}}\\
+&= \frac{1}{2^{n}} < \varepsilon
+\end{align*}
+これにより、$f = \lim_{n \rightarrow \infty}(f)_{n}$が成り立つ。ここで、その元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$は単調増加列であるので、$f = \lim_{n \rightarrow \infty}(f)_{n} = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}$が成り立つ。
+\end{proof}
+%\hypertarget{egoroffux306eux5b9aux7406}{%
+\subsubsection{Egoroffの定理}%\label{egoroffux306eux5b9aux7406}}
+\begin{thm}\label{4.5.5.19}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$かつ$\mu(E) < \infty$が成り立つかつ、可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在し有限であるとする。このとき、$\forall\varepsilon,\eta \in \mathbb{R}^{+}$に対し、次のような自然数$n$とその$\sigma$-加法族$\varSigma$の元$H$が存在する。
+\begin{itemize}
+\item
+  $H \subseteq E$かつ$\mu(H) < \eta$が成り立つ。
+\item
+  $\forall x \in E \setminus H\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}(x) - f(x) \right| < \varepsilon$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$かつ$\mu(E) < \infty$が成り立つかつ、可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在し有限であるとする。このとき、$\forall\varepsilon,\eta \in \mathbb{R}^{+}$に対し、次のような元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が考えられれば、
+\begin{align*}
+E_{n} = \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n}} \left\{ \left| f_{k} - f \right| < \varepsilon \right\}
+\end{align*}
+定理\ref{4.5.5.10}、定理\ref{4.5.5.11}より$\left\{ \left| f_{k} - f \right| < \varepsilon \right\} \in \varSigma$が成り立つので、$E_{n} \in \varSigma$が成り立つかつ、その元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$は単調増加し次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}E_{n} &= \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n}} \left\{ \left| f_{k} - f \right| < \varepsilon \right\}}\\
+&= \limsup_{n \rightarrow \infty}\left\{ \left| f_{k} - f \right| < \varepsilon \right\} = E
+\end{align*}
+定理\ref{4.5.3.14}より次のようになる。
+\begin{align*}
+\mu(E) = \mu\left( \lim_{n \rightarrow \infty}E_{n} \right) = \lim_{n \rightarrow \infty}{\mu\left( E_{n} \right)} < \infty
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\mu\left( E \setminus E_{n} \right)} &= \lim_{n \rightarrow \infty}\left( \mu(E) - \mu\left( E_{n} \right) \right)\\
+&= \mu(E) - \lim_{n \rightarrow \infty}{\mu\left( E_{n} \right)}\\
+&= \mu(E) - \mu(E) = 0
+\end{align*}
+ここで、$H = E \setminus E_{n}$とおかれると、$H \subseteq E$かつ$\mu(H) < \eta$が成り立つ。\par
+さらに、$E \setminus H = E_{n}$が成り立つので、$\forall x \in E_{n}\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$x \in \left\{ \left| f_{k} - f \right| < \varepsilon \right\}$が成り立つ、即ち、$\forall x \in E \setminus H\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}(x) - f(x) \right| < \varepsilon$が成り立つ。
+\end{proof}
+\begin{thm}[Egoroffの定理]\label{4.5.5.20}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$かつ$\mu(E) < \infty$が成り立つかつ、その集合$E$上でその測度$\mu$に関してほとんどすべての点で有限な可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在しその集合$E$上でその測度$\mu$に関してほとんどすべての点で有限であるとする。このとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、次のようなその$\sigma$-加法族$\varSigma$の元$F$が存在する。
+\begin{itemize}
+\item
+  $F \subseteq E$かつ$\mu(E \setminus F) < \varepsilon$が成り立つ。
+\item
+  $\exists n \in \mathbb{N}\forall x \in F\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}(x) - f(x) \right| < \varepsilon$が成り立つ。
+\end{itemize}
+この定理をEgoroffの定理という。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$かつ$\mu(E) < \infty$が成り立つかつ、その集合$E$上でその測度$\mu$に関してほとんどすべての点で有限な可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在しその集合$E$上でその測度$\mu$に関してほとんどすべての点で有限であるとする。このとき、零集合の可算個の和集合も測度の劣加法性により零集合なので、有限な可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在し有限であるとしてもよい。$\forall\varepsilon \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、定理\ref{4.5.5.19}より次のような自然数$n_{m}$とその$\sigma$-加法族$\varSigma$の元$H_{m}$が存在する。
+\begin{itemize}
+\item
+  $H_{m} \subseteq E$かつ$\mu\left( H_{m} \right) < \frac{\varepsilon}{2^{m}}$が成り立つ。
+\item
+  $\forall x \in E \setminus H_{m}\forall k \in \mathbb{N} \setminus \varLambda_{n_{m}}$に対し、$\left| f_{k}(x) - f(x) \right| < \frac{1}{2^{m}}$が成り立つ。
+\end{itemize}
+このとき、$F = E \setminus \bigcup_{m \in \mathbb{N}} H_{m}$とおかれると、$F \subseteq E$が成り立つかつ、次のようになる。
+\begin{align*}
+\mu(E \setminus F) &= \mu\left( E \setminus \left( E \setminus \bigcup_{m \in \mathbb{N}} H_{m} \right) \right)\\
+&= \mu(E) - \mu(E) + \mu\left( \bigcup_{m \in \mathbb{N}} H_{m} \right)\\
+&= \mu\left( \bigcup_{m \in \mathbb{N}} H_{m} \right)\\
+&\leq \sum_{m \in \mathbb{N}} {\mu\left( H_{m} \right)}\\
+&< \sum_{m \in \mathbb{N}} \frac{\varepsilon}{2^{m}}\\
+&= \varepsilon\sum_{m \in \mathbb{N}} \left( \frac{1}{2} \right)^{m}\\
+&= \frac{\varepsilon}{2}\frac{1}{1 - \frac{1}{2}} = \varepsilon
+\end{align*}\par
+さらに、$\forall m \in \mathbb{N}$に対し、$x \in E \setminus H_{m}$が成り立つことと、$x \in \bigcap_{m \in \mathbb{N}} \left( E \setminus H_{m} \right)$が成り立つこととは同値であるから、$\forall x \in F = \bigcap_{m \in \mathbb{N}} \left( E \setminus H_{m} \right)\forall k \in \mathbb{N} \setminus \varLambda_{n_{m}}$に対し、$\left| f_{k}(x) - f(x) \right| < \frac{1}{2^{m}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.5.21}
+測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$が与えられたとき、$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$かつ$\lambda(E) < \infty$が成り立つかつ、その集合$E$上でLebesgue測度$\lambda$に関してほとんどすべての点で有限な可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在しその集合$E$上でLebesgue測度$\lambda$に関してほとんどすべての点で有限であるとする。このとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、次のようなLebesgue可測集合全体の集合$\mathfrak{M}_{C}\left( \lambda^{*} \right)$に属する閉集合$F$が存在する。
+\begin{itemize}
+\item
+  $F \subseteq E$かつ$\mu(E \setminus F) < \varepsilon$が成り立つ。
+\item
+  $\exists n \in \mathbb{N}\forall\mathbf{x} \in F\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}\left( \mathbf{x} \right) - f\left( \mathbf{x} \right) \right| < \varepsilon$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$が与えられたとき、$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$かつ$\lambda(E) < \infty$が成り立つかつ、その集合$E$上でLebesgue測度$\lambda$に関してほとんどすべての点で有限な可測関数の列$\left( f_{n}:E \rightarrow \mathbb{R} \right)_{n \in \mathbb{N}}$の極限$f$が存在しその集合$E$上でLebesgue測度$\lambda$に関してほとんどすべての点で有限であるとする。このとき、Egoroffの定理より$\forall\varepsilon \in \mathbb{R}^{+}$に対し、次のようなLebesgue可測集合全体の集合$\mathfrak{M}_{C}\left( \lambda^{*} \right)$に属する集合$F$が存在する。
+\begin{itemize}
+\item
+  $F \subseteq E$かつ$\mu(E \setminus F) < \varepsilon$が成り立つ。
+\item
+  $\exists n \in \mathbb{N}\forall\mathbf{x} \in F\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}\left( \mathbf{x} \right) - f\left( \mathbf{x} \right) \right| < \varepsilon$が成り立つ。
+\end{itemize}
+さらに、定理\ref{4.5.3.16}より$A \subseteq F$かつ$\lambda(F \setminus A) < \varepsilon - \lambda(E \setminus F)$なる閉集合$F$が存在する。このとき、次式が成り立つ。
+\begin{align*}
+\lambda(E \setminus A) &= \lambda(E) - \lambda(A)\\
+&= \lambda(E) - \lambda(F) + \lambda(F) - \lambda(A)\\
+&= \lambda(E \setminus F) + \lambda(F \setminus A) < \varepsilon
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.5.22}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$が与えられたとき、$\forall E \in \varSigma$に対し、その測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$での可測写像$f:E \rightarrow{}^{*}\mathbb{R}$が与えられたらば、その測度空間$(X,\varSigma,\mu)$での可測写像$g:E \rightarrow{}^{*}\mathbb{R}$が存在して$|g| \leq |f|$かつ$\mu\left( \left\{ f \neq g \right\} \right) = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$が与えられたとき、$\forall E \in \varSigma$に対し、その測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$での可測写像$f:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が与えられたらば、$f \geq 0$のとき、非負可測関数の非負単関数の列による近似より写像$(f)_{n}$が次式のように与えられることができる。
+\begin{align*}
+(f)_{n} = \sum_{i \in \varLambda_{k_{n}}} {\alpha_{n,i}\chi_{E_{n,i}}},\ \ E_{n,i} \in \overline{\varSigma}
+\end{align*}
+ここで、全ての集合たち$E_{n,i}$に対し、定理\ref{4.5.3.20}より次式が成り立つような集合$E_{n,i}'$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+E_{n,i}' \subseteq E_{n,i},\ \ \mu\left( E_{n,i} \setminus E_{n,i}' \right) = 0
+\end{align*}
+ここで、次式のように集合$E'$が定義されると、
+\begin{align*}
+E' = \bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}'}
+\end{align*}
+次のようになるので、
+\begin{align*}
+\mu\left( E \setminus E' \right) &= \mu\left( E \setminus \bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}'} \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} \left( E \setminus \bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}' \right) \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} {\bigcap_{i \in \varLambda_{k_{n}}} \left( E \setminus E_{n,i}' \right)} \right)\\
+&\leq \mu\left( \bigcup_{n \in \mathbb{N}} {\bigcup_{i \in \varLambda_{k_{n}}} \left( E \setminus E_{n,i}' \right)} \right)\\
+&\leq \sum_{n \in \mathbb{N}} {\sum_{i \in \varLambda_{k_{n}}} {\mu\left( E \setminus E_{n,i}' \right)}} = 0
+\end{align*}
+$\mu\left( E \setminus E' \right) = 0$が成り立つ。また、次のようになるので、
+\begin{align*}
+\bigsqcup_{i \in \varLambda_{k_{n}}} \left( E_{n,i}' \cap E' \right) &= \bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}' \cap E'\\
+&= \bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}' \cap \bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}'}\\
+&= \bigcap_{n \in \mathbb{N}} {\bigsqcup_{i \in \varLambda_{k_{n}}} E_{n,i}'} = E'
+\end{align*}
+$E',E_{n,i}' \cap E' \in \varSigma$が成り立つ。\par
+このとき、次式のように写像の列$\left( g_{n} \right)_{n \in \mathbb{N}}$が定義されると、
+\begin{align*}
+g_{n}:E \rightarrow \mathrm{cl}\mathbb{R}^{+};x \mapsto \sum_{i \in \varLambda_{k_{n}}} {\alpha_{n,i}\chi_{E_{n,i}' \cap E'}(x)}
+\end{align*}
+これらはその測度空間$(X,\varSigma,\mu)$での可測写像となる。$\forall x \in E'$に対し、$x \in E_{n,i}' \cap E'$なる集合$E_{n,i}' \cap E'$がただ1つ存在するので、これを$E_{n,i'}' \cap E'$とおくと、$x \in E_{n,i}' \cap E' \subseteq E_{n,i}' \subseteq E_{n,i}$が成り立ち、したがって、次のようになる。
+\begin{align*}
+(f)_{n}(x) &= \left( \sum_{i \in \varLambda_{k_{n}}} {\alpha_{n,i}\chi_{E_{n,i}}} \right)(x)\\
+&= \sum_{i \in \varLambda_{k_{n}}} {\alpha_{n,i}\chi_{E_{n,i}}(x)}\\
+&= \sum_{i \in \varLambda_{k_{n}} \setminus \left\{ i' \right\}} {\alpha_{n,i}\chi_{E_{n,i}}(x)} + \alpha_{n,i'}\chi_{E_{n,i'}}(x)\\
+&= \sum_{i \in \varLambda_{k_{n}} \setminus \left\{ i' \right\}} {\alpha_{n,i} \cdot 0} + \alpha_{n,i'} \cdot 1 = \alpha_{n,i'}\\
+&= \sum_{i \in \varLambda_{k_{n}} \setminus \left\{ i' \right\}} {\alpha_{n,i} \cdot 0} + \alpha_{n,i'} \cdot 1\\
+&= \sum_{i \in \varLambda_{k_{n}} \setminus \left\{ i' \right\}} {\alpha_{n,i}\chi_{E_{n,i}' \cap E}(x)} + \alpha_{n,i'}\chi_{E_{n,i'}' \cap E}(x)\\
+&= \sum_{i \in \varLambda_{k_{n}}} {\alpha_{n,i}\chi_{E_{n,i}' \cap E}(x)} = g_{n}(x)
+\end{align*}
+これにより、$(f)_{n}\left| E' = g_{n} \right|E'$が成り立つ。これにより、その関数$g_{n}$はその集合$E$で単調増加し$g = \lim_{n \rightarrow \infty}g_{n}$が次のように存在しその測度空間$(X,\varSigma,\mu)$での可測写像となる。
+\begin{align*}
+g = \left\{ \begin{matrix}
+f & \mathrm{if} & x \in E' \\
+0 & \mathrm{if} & x \in E \setminus E' \\
+\end{matrix} \right.\ 
+\end{align*}
+したがって、$g \leq f$が成り立つかつ、$\mu\left( \left\{ f \neq g \right\} \right) = \mu\left( E \setminus E' \right) = 0$が成り立つ。\par
+$f \in{}^{*}\mathbb{R}$のとき、$f = (f)_{+} - (f)_{-}$とおかれると、その測度空間$(X,\varSigma,\mu)$での可測写像たち$g_{+}:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$、$g_{-}:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在して$g_{+} \leq (f)_{+}$かつ$\mu\left( \left\{ (f)_{+} \neq g_{+} \right\} \right) = 0$かつ$g_{-} \leq (f)_{-}$かつ$\mu\left( \left\{ (f)_{-} \neq g_{-} \right\} \right) = 0$が成り立つので、$g = g_{+} - g_{-}$とおけば、その測度空間$(X,\varSigma,\mu)$での可測写像$g:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在して$|g| \leq |f|$かつ$\mu\left( \left\{ f \neq g \right\} \right) = 0$が成り立つ。\par
+いづれの場合でも、その測度空間$(X,\varSigma,\mu)$での可測写像$g:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在して$|g| \leq |f|$かつ$\mu\left( \left\{ f \neq g \right\} \right) = 0$が成り立つことが示された。
+\end{proof}
+\begin{thm}\label{4.5.5.23}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$が与えられたとき、$\forall E \in \varSigma$に対し、その測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$での可測写像$f:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が与えられたらば、その測度空間$(X,\varSigma,\mu)$での可測写像$g:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在して$|f| \leq |g|$かつ$\mu\left( \left\{ f \neq g \right\} \right) = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$が与えられたとき、$\forall E \in \varSigma$に対し、その測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$での可測写像$f:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が与えられたらば、定理\ref{4.5.5.22}より$f = (f)_{+} - (f)_{-}$とおかれると、その測度空間$(X,\varSigma,\mu)$での可測写像たち$g_{+}:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$、$g_{-}:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が存在して$g_{+} \leq (f)_{+}$かつ$\mu\left( \left\{ (f)_{+} \neq g_{+} \right\} \right) = 0$かつ$g_{-} \leq (f)_{-}$かつ$\mu\left( \left\{ (f)_{-} \neq g_{-} \right\} \right) = 0$が成り立つので、次式のように写像$g$が定義されると、
+\begin{align*}
+g:E \rightarrow \mathrm{cl}\mathbb{R}^{+};x \mapsto \left\{ \begin{matrix}
+g_{+}(x) - g_{-}(x) & \mathrm{if} & x \in \left\{ (f)_{+} = g_{+} \right\} \cap \left\{ (f)_{-} = g_{-} \right\} \\
+\infty & \mathrm{otherwise} & \  \\
+\end{matrix} \right.\ 
+\end{align*}
+これはその測度空間$(X,\varSigma,\mu)$での可測写像で$|f| \leq |g|$かつ$\mu\left( \left\{ f \neq g \right\} \right) = \mu\left( \left\{ (f)_{+} \neq g_{+} \right\} \right) \cup \mu\left( \left\{ (f)_{-} \neq g_{-} \right\} \right) = 0$が成り立つ。
+\end{proof}
+%\hypertarget{lebesgueux53efux6e2cux95a2ux6570}{%
+\subsubsection{Lebesgue可測関数}%\label{lebesgueux53efux6e2cux95a2ux6570}}
+\begin{dfn}
+測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$について、Lebesgue可測集合を定義域とする可測関数をLebesgue可測関数、$n$次元数空間$\mathbb{R}^{n}$におけるBorel集合族$\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)}$を用いた測度空間$\left( \mathbb{R}^{n},\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)},\lambda \right)$について、Borel集合族$\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)}$の元を定義域とする可測関数をBorel可測関数という。
+\end{dfn}
+\begin{thm}\label{4.5.5.24}
+$n$次元数空間$\mathbb{R}^{n}$におけるBorel集合族$\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)}$を用いた測度空間$\left( \mathbb{R}^{n},\mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)},\lambda \right)$について、$E \in \mathfrak{B}_{\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)}$なるLebesgue可測関数$f:E \rightarrow \mathrm{cl}\mathbb{R}$が与えられたとき、その集合$E$上でほとんどいたるところでその関数$f$と一致するBorel可測関数たち$g$、$h$で$|g| \leq |f| < |h|$なるものが存在する。
+\end{thm}
+\begin{proof} 定理\ref{4.5.5.22}、定理\ref{4.5.5.23}そのものである。
+\end{proof}
+\begin{thm}\label{4.5.5.25}
+測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$について、$\forall E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、その集合$E$上で連続な関数$f:\mathbb{R}^{n} \rightarrow \mathrm{cl}\mathbb{R}$が与えられたとき、その関数$f\chi_{E}$はそのBorel集合$\mathfrak{B}_{\left( E,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \right)}$からその$\sigma$-加法族$\mathfrak{M}_{C}\left( \lambda^{*} \right)$へに関してその集合$\mathbb{R}^{n}$からその集合${}^{*}\mathbb{R}$への可測写像となる。特に、その関数$f\chi_{E}$は可測である。
+\end{thm}
+\begin{proof}
+測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$について、$\forall E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、その集合$E$上で連続な関数$f:\mathbb{R}^{n} \rightarrow \mathrm{cl}\mathbb{R}$が与えられたとき、$\forall a \in \mathbb{R}$に対し、次のようになることから、
+\begin{align*}
+\left\{ a < f\chi_{E} \right\} &= \left\{ \mathbf{x} \in E \middle| a < f\chi_{E}\left( \mathbf{x} \right) \right\}\\
+&= \left\{ \mathbf{x} \in E \middle| f\chi_{E}\left( \mathbf{x} \right) \in (a,\infty) \right\}\\
+&= V\left( \left( f\chi_{E} \right)^{- 1}|(a,\infty) \right) \in \left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \subseteq \varSigma\left( \left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \right) = \mathfrak{B}_{\left( E,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \right)}
+\end{align*}
+定理\ref{4.5.5.9}よりその関数$f\chi_{E}$はそのBorel集合$\mathfrak{B}_{\left( E,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \right)}$からその$\sigma$-加法族$\mathfrak{M}_{C}\left( \lambda^{*} \right)$へに関してその集合$\mathbb{R}^{n}$からその集合${}^{*}\mathbb{R}$への可測写像となる。特に、$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$が成り立つことに注意すれば、定理\ref{4.5.2.9}、定理\ref{4.5.4.11}より次式が成り立つことから、
+\begin{align*}
+\mathfrak{B}_{\left( E,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{E} \right)} = \left\{ E \cap F \in \mathfrak{P}(E) \middle| F \in \mathfrak{B}_{\mathfrak{T}_{n}} \subseteq \mathfrak{M}_{C}\left( \lambda^{*} \right) \right\} \subseteq \mathfrak{M}_{C}\left( \lambda^{*} \right)
+\end{align*}
+その関数$f$は可測である。
+\end{proof}
+%\hypertarget{lusinux306eux5b9aux7406}{%
+\subsubsection{Lusinの定理}%\label{lusinux306eux5b9aux7406}}
+\begin{thm}[Lusinの定理]\label{4.5.5.26}
+Lebesgue可測集合$E$を定義域とするLebesgue可測関数$f:E \rightarrow \mathbb{R}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、閉集合$A$が存在して次のことを満たす。
+\begin{itemize}
+\item
+  $A \subseteq E$が成り立つ。
+\item
+  $\lambda(E \setminus A) < \varepsilon$が成り立つ。
+\item
+  その関数$f$はその閉集合$A$で連続である。
+\end{itemize}
+この定理をLusinの定理という。
+\end{thm}
+\begin{proof}
+Lebesgue可測集合$E$を定義域とするLebesgue可測関数$f:E \rightarrow \mathbb{R}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\lambda(E) < \infty$のとき、$E = \bigsqcup_{i \in \varLambda_{n}} E_{i}$かつ$0 \leq \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma)$なる単関数$f$が$\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}|E$と与えられたとき、$\forall i \in \varLambda_{n}$に対し、定理\ref{4.5.3.16}より$F_{i} \subseteq E_{i}$かつ$\lambda\left( E_{i} \setminus F_{i} \right) < \frac{\varepsilon}{n}$なる閉集合$F_{i}$が存在して、その関数$f$はその閉集合$F_{i}$上で定数$a_{i}$となり連続である。さらに、これらの閉集合たち$F_{i}$は互いに素なので、その関数$f$は閉集合$\bigsqcup_{i \in \varLambda_{n}} F_{i}$で連続である。また、次のようになる。
+\begin{align*}
+\lambda\left( E \setminus \bigsqcup_{i \in \varLambda_{n}} F_{i} \right) &= \lambda\left( \bigsqcup_{i \in \varLambda_{n}} E_{i} \setminus \bigsqcup_{i \in \varLambda_{n}} F_{i} \right)\\
+&= \lambda\left( \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \setminus \bigsqcup_{i \in \varLambda_{n}} F_{i} \right) \right)\\
+&= \lambda\left( \bigsqcup_{i \in \varLambda_{n}} {\bigcap_{i \in \varLambda_{n}} \left( E_{i} \setminus F_{i} \right)} \right)\\
+&= \lambda\left( \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \setminus F_{i} \right) \right)\\
+&= \sum_{i \in \varLambda_{n}} {\lambda\left( E_{i} \setminus F_{i} \right)} < \sum_{i \in \varLambda_{n}} \frac{\varepsilon}{n} = \varepsilon
+\end{align*}
+以上より、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、閉集合$\bigsqcup_{i \in \varLambda_{n}} F_{i}$が存在して次のことを満たす。
+\begin{itemize}
+\item
+  $\bigsqcup_{i \in \varLambda_{n}} F_{i} \subseteq E$が成り立つ。
+\item
+  $\lambda\left( E \setminus \bigsqcup_{i \in \varLambda_{n}} F_{i} \right) < \varepsilon$が成り立つ。
+\item
+  その関数$f$はその閉集合$\bigsqcup_{i \in \varLambda_{n}} F_{i}$で連続である。
+\end{itemize}\par
+$\lambda(E) < \infty$で$0 \leq f$のとき、非負可測関数の非負単関数の列による近似より$\forall x \in E$に対し、その元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$はどの関数も可測であるかつ、単調増加列で次式が成り立つ。
+\begin{align*}
+f = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}:E \rightarrow \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+上記の議論により$\forall\varepsilon \in \mathbb{R}^{+}$に対し、閉集合$F_{n}$が存在して次のことを満たす。
+\begin{itemize}
+\item
+  $F_{n} \subseteq E$が成り立つ。
+\item
+  $\lambda\left( E \setminus F_{n} \right) < \frac{\varepsilon}{2^{n + 1}}$が成り立つ。
+\item
+  その関数$f_{n}$はその閉集合$F_{n}$で連続である。
+\end{itemize}
+このとき、全ての関数たち$f_{n}$はその閉集合$\bigcap_{n \in \mathbb{N}} F_{n}$で連続で次のようになる。
+\begin{align*}
+\lambda\left( E \setminus \bigcap_{n \in \mathbb{N}} F_{n} \right) = \lambda\left( \bigcup_{n \in \mathbb{N}} \left( E \setminus F_{n} \right) \right) \leq \sum_{n \in \mathbb{N}} {\lambda\left( E \setminus F_{n} \right)} < \sum_{n \in \mathbb{N}} \frac{\varepsilon}{2^{n + 1}} = \frac{\varepsilon}{2}
+\end{align*}
+ここで、定理\ref{4.5.5.21}より$\forall\varepsilon \in \mathbb{R}^{+}$に対し、次のようなLebesgue可測集合全体の集合$\mathfrak{M}_{C}\left( \lambda^{*} \right)$に属する閉集合$A$が存在する。
+\begin{itemize}
+\item
+  $A \subseteq \bigcap_{n \in \mathbb{N}} F_{n}$かつ$\mu\left( \bigcap_{n \in \mathbb{N}} F_{n} \setminus A \right) < \frac{\varepsilon}{2}$が成り立つ。
+\item
+  $\exists n \in \mathbb{N}\forall\mathbf{x} \in A\forall k \in \mathbb{N} \setminus \varLambda_{n}$に対し、$\left| f_{k}\left( \mathbf{x} \right) - f\left( \mathbf{x} \right) \right| < \varepsilon$が成り立つ。
+\end{itemize}
+ここで、全ての関数たち$f_{n}$はその閉集合$A$で連続で次のようになる。
+\begin{align*}
+\lambda(E \setminus A) &= \lambda(E) - \lambda(A)\\
+&= \lambda(E) - \lambda\left( \bigcap_{n \in \mathbb{N}} F_{n} \right) + \lambda\left( \bigcap_{n \in \mathbb{N}} F_{n} \right) - \lambda(A)\\
+&= \lambda\left( E \setminus \bigcap_{n \in \mathbb{N}} F_{n} \right) + \lambda\left( \bigcap_{n \in \mathbb{N}} F_{n} \setminus A \right)\\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+\end{align*}
+以上より、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、閉集合$A$が存在して、$\varepsilon $-$\delta $論法によりその関数$f$もその集合$A$で連続であることに注意すれば、次のことを満たす。
+\begin{itemize}
+\item
+  $A \subseteq E$が成り立つ。
+\item
+  $\lambda(E \setminus A) < \varepsilon$が成り立つ。
+\item
+  その関数$f$はその閉集合$A$で連続である。
+\end{itemize}\par
+$\lambda(E) = \infty$のとき、元の列$\left( E \cap U\left( \mathbf{0},n \right) \setminus U\left( \mathbf{0},n - 1 \right) \right)_{n \in \mathbb{N}}$の任意の元に対し、定理\ref{4.5.3.16}より$F_{n} \subseteq E \cap U\left( \mathbf{0},n \right) \setminus U\left( \mathbf{0},n - 1 \right)$かつ$\lambda\left( \left( E \cap U\left( \mathbf{0},n \right) \setminus U\left( \mathbf{0},n - 1 \right) \right) \setminus F_{n} \right) < \frac{\varepsilon}{2^{n}}$なる閉集合$F_{n}$が存在して、この場合、集合$\bigcup_{n \in \mathbb{N}} F_{n}$も閉集合で、上記の議論によりその関数$f$がその集合$F_{n}$上で連続であるようにすれば、簡単な計算により次のことを満たす。
+\begin{itemize}
+\item
+  $\bigcup_{n \in \mathbb{N}} F_{n} \subseteq E$が成り立つ。
+\item
+  $\lambda\left( E \setminus \bigcup_{n \in \mathbb{N}} F_{n} \right) < \varepsilon$が成り立つ。
+\item
+  その関数$f$はその閉集合$\bigcup_{n \in \mathbb{N}} F_{n}$で連続である。
+\end{itemize}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 新装第1版w2刷 p62-71 ISBN978-4-7853-1318-0
+\bibitem{2}
+  Mathpedia. "測度と積分". Mathpedia. \url{https://math.jp/wiki/%E6%B8%AC%E5%BA%A6%E3%81%A8%E7%A9%8D%E5%88%86} (2021-7-12 9:20 閲覧)
+\bibitem{3}
+  会田茂樹. "ルベーグ積分入門*". 東京大学. \url{https://www.ms.u-tokyo.ac.jp/~aida/lecture/19/Lebesgue-text2.pdf} (2022-4-11 8:06 取得)
+\bibitem{4}
+  平場誠示. "Lebesgue 積分論 (Lebesgue Integral Theory) 1". 東京理科大学. \url{https://www.ma.noda.tus.ac.jp/u/sh/pdfdvi/06ana1.pdf} (2022-4-11 8:10 取得)
+\end{thebibliography}
+\end{document}

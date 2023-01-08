@@ -1,0 +1,264 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{12}
+\usepackage{xr}
+\externaldocument{4.1.4}
+\externaldocument{4.1.7}
+\externaldocument{4.1.8}
+\externaldocument{4.1.11}
+\externaldocument{4.1.12}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6574ux7d1aux6570}{%
+\subsection{整級数}%\label{ux6574ux7d1aux6570}}
+%\hypertarget{ux6574ux7d1aux6570-1}{%
+\subsubsection{整級数}%\label{ux6574ux7d1aux6570-1}}
+\begin{dfn}
+複素数たち$a_{n}$、$a$、$z$を用いた級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$をその複素数$a$を中心とする整級数、冪級数などという。
+\end{dfn}
+\begin{thm}\label{4.1.13.1}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は、$z = a$が成り立てば、その複素数$a_{0}$に収束する。
+\end{thm}
+\begin{proof}
+任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。このとき、$z = a$が成り立てば、次のようになるので、
+\begin{align*}
+\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} &= a_{0}(z - a)^{0} + \sum_{k \in \varLambda_{n}} {a_{k}(z - a)^{k}}\\
+&= a_{0} + \sum_{k \in \varLambda_{n}} {a_{k}(a - a)^{k}}\\
+&= a_{0} + \sum_{k \in \varLambda_{n}} {a_{k}0^{k}} = a_{0}
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {a_{k}(z - a)^{k}}} = \lim_{n \rightarrow \infty}a_{0} = a_{0}
+\end{align*}
+\end{proof}
+%\hypertarget{ux53ceux675fux5186ux677f}{%
+\subsubsection{収束円板}%\label{ux53ceux675fux5186ux677f}}
+\begin{dfn}
+次式のように定義される集合$D(a,R)$をその複素数$a$を中心とする半径$R$の円板という。
+\begin{align*}
+D(a,R) = \left\{ z \in \mathbb{C} \middle| |z - a| < R \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.13.2}
+$\forall a \in \mathbb{C}$に対し、$D(a,\infty) = \mathbb{C}$が成り立つ。
+\end{thm}
+\begin{proof}
+複素数$a$を中心とする半径$\infty$の円板$D(a,\infty)$が与えられたとき、定義より明らかに$D(a,\infty) \subseteq \mathbb{C}$が成り立つ。一方で、$\forall z \in \mathbb{C}$に対し、$|z - a| \in \mathbb{R}$が成り立つので、$|z - a| < \infty$が成り立つ。したがって、$\mathbb{C} \subseteq D(a,\infty)$が得られ、よって、$\forall a \in \mathbb{C}$に対し、$D(a,\infty) = \mathbb{C}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.13.3}
+任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$がある複素数$z_{0}$を用いて$z = z_{0}$が成り立つときで収束するとき、$|z - a| < \left| z_{0} - a \right|$が成り立つような任意の複素数$z$に対し、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束する。
+\end{thm}\par
+もちろん、絶対収束する級数は収束するのであったので、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$も収束する。
+\begin{proof}
+任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$がある複素数$z_{0}$を用いて$z = z_{0}$が成り立つときで収束するとき、点列$\left( a_{n}\left( z_{0} - a \right)^{n} \right)_{n \in \mathbb{N}}$は$0$に収束することになるので、その点列$\left( a_{n}\left( z_{0} - a \right)^{n} \right)_{n \in \mathbb{N}}$は有界で、$\forall n \in \mathbb{N}$に対し、次式が成り立つような正の実数$M$が存在する。
+\begin{align*}
+\left| a_{n}\left( z_{0} - a \right)^{n} \right| \leq M
+\end{align*}
+$|z - a| < \left| z_{0} - a \right|$が成り立つような任意の複素数$z$に対し、次のようになる。
+\begin{align*}
+|z - a| < \left| z_{0} - a \right| &\Rightarrow \left| a_{n}(z - a)^{n} \right| < \left| a_{n}\left( z_{0} - a \right)^{n} \right| \leq M\\
+&\Rightarrow \left| a_{n} \right|\left| (z - a)^{n} \right| = \left| a_{n}(z - a)^{n} \right| \leq M\frac{\left| (z - a)^{n} \right|}{\left| \left( z_{0} - a \right)^{n} \right|} = M\left| \frac{z - a}{z_{0} - a} \right|^{n}
+\end{align*}
+ここで、$|z - a| < \left| z_{0} - a \right|$が成り立つので、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {M\left| \frac{z - a}{z_{0} - a} \right|^{k}}} &= M\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \left| \frac{z - a}{z_{0} - a} \right|^{k}}\\
+&= M\lim_{n \rightarrow \infty}\left( 1 + \left| \frac{z - a}{z_{0} - a} \right|\frac{1 - \left| \frac{z - a}{z_{0} - a} \right|^{n}}{1 - \left| \frac{z - a}{z_{0} - a} \right|} \right)\\
+&= M + M\frac{\left| \frac{z - a}{z_{0} - a} \right|}{1 - \left| \frac{z - a}{z_{0} - a} \right|} = M + \frac{M|z - a|}{\left| z_{0} - a \right| - |z - a|}
+\end{align*}
+したがって、$\left| a_{n}(z - a)^{n} \right| \leq M\left| \frac{z - a}{z_{0} - a} \right|^{n}$が成り立つことにおいて、比較定理よりその級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束する。
+\end{proof}
+\begin{thm}\label{4.1.13.4}
+任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$に対し、次のことをみたす$R \in \mathrm{cl}\mathbb{R}^{+}$なる拡大実数$R$が一意的に存在する。
+\begin{itemize}
+\item
+  $|z - a| < R$が成り立つなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束する。
+\item
+  $|z - a| > R$が成り立つなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は収束しない。
+\end{itemize}
+\end{thm}\par
+その複素数$z$が$|z - a| = R$を満たすときではその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が収束することも発散することもあることに注意されたい。
+\begin{dfn}
+上の拡大実数$R$をその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径といいその複素数$a$を中心とする半径$R$の円板$D(a,R)$を収束円板といい集合$\left\{ z \in \mathbb{C} \middle| |z - a| = R \right\}$、即ち、集合$\mathrm{cl}{D(a,R)} \setminus \mathrm{int}{D(a,R)}$を収束円周という。
+\end{dfn}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が収束するような複素数$z$全体の集合を$S$とし次式のように集合$A$を定義する。
+\begin{align*}
+A = \left\{ |z - a| \in \mathrm{cl}\mathbb{R}^{+} \middle| z \in S \right\}
+\end{align*}
+その集合$A$が上に有界であるなら、$R = \sup A$とし、そうでないなら、$R = \infty$とする。\par
+$|z - a| < R$が成り立つなら、次式が成り立つような複素数$z_{0}$が存在する。
+\begin{align*}
+|z - a| < \left| z_{0} - a \right| < R
+\end{align*}
+このとき、上記の議論によりその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束する。\par
+逆に、$|z - a| > R$が成り立つなら、$R = \sup A$のとき、$|z - a| \notin A$が成り立つので、$z \notin S$が成り立ち、$R = \infty$のとき、そもそも$z \notin \mathbb{C}$が成り立つので、$z \notin S$が成り立つ。これにより、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は収束しない。\par
+以上より、任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$に対し、このような$R \in \mathrm{cl}\left( \mathbb{R}^{+} \right)$なる拡大実数$R$が存在する。\par
+また、このような拡大実数たち$R$、$R'$が互いに異なって存在するとする。$R < R'$のとき、上記の議論により次式が成り立つようなある複素数$z_{0}$を用いて
+\begin{align*}
+R < \left| z_{0} - a \right| < R'
+\end{align*}
+$\left| z_{0} - a \right| < R'$が成り立つなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束し、もちろん、収束することになるが、$\left| z_{0} - a \right| > R$も成り立つので、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は収束しないことになり矛盾する。$R > R'$のときも同様にして示される。以上より、そのような実数$R$は一意的である。
+\end{proof}
+\begin{thm}\label{4.1.13.5}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R = 0$を満たすとき、$z = a$が成り立つとき以外でその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は収束しない。
+\end{thm}
+\begin{proof}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R = 0$を満たすとき、$R \in \mathrm{cl}\mathbb{R}^{+}$が成り立つことに注意すれば、$z = a$が成り立つとき以外で$|z - a| > R$が成り立つことになり、このとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は収束しない。
+\end{proof}
+\begin{thm}\label{4.1.13.6}
+整級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {b_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。これらの収束半径たちのうち小さいほうを$R$とおくと、$|z - a| < R$が成り立つとき、$\forall k,l \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+k\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}} + l\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {b_{n}(z - a)^{n}} = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\left( ka_{n} + lb_{n} \right)(z - a)^{n}}
+\end{align*}
+\end{thm}
+\begin{proof}
+整級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {b_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。これらの収束半径たちのうち小さいほうを$R$とおくと、$|z - a| < R$が成り立つとき、これらの整級数たちはいづれも絶対収束する。また、これらの整級数は点列の級数でもあるので、次式が成り立つ。
+\begin{align*}
+k\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}} + l\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {b_{n}(z - a)^{n}} &= k\sum_{n \in \mathbb{N}} {a_{n - 1}(z - a)^{n - 1}} + l\sum_{n \in \mathbb{N}} {b_{n - 1}(z - a)^{n - 1}}\\
+&= \sum_{n \in \mathbb{N}} \left( ka_{n - 1}(z - a)^{n - 1} + lb_{n - 1}(z - a)^{n - 1} \right)\\
+&= \sum_{n \in \mathbb{N}} {\left( ka_{n - 1} + lb_{n - 1} \right)(z - a)^{n - 1}}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\left( ka_{n} + lb_{n} \right)(z - a)^{n}}
+\end{align*}
+\end{proof}
+\begin{thm}[整級数におけるMertensの定理]\label{4.1.13.7}
+整級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {b_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。これらの収束半径たちのうち小さいほうを$R$とおくと、$|z - a| < R$が成り立つとき、$\forall k,l \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {b_{n}(z - a)^{n}} = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}b_{n - k}}(z - a)^{n}}
+\end{align*}
+この定理を整級数におけるMertensの定理という。
+\end{thm}
+\begin{proof}
+整級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {b_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。これらの収束半径たちのうち小さいほうを$R$とおくと、$|z - a| < R$が成り立つとき、これらの整級数たちはいづれも絶対収束する。また、これらの整級数は点列の級数でもあるので、定理\ref{4.1.8.18}、即ち、Mertensの定理より次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {b_{n}(z - a)^{n}} &= \sum_{n \in \mathbb{N}} {a_{n - 1}(z - a)^{n - 1}}\sum_{n \in \mathbb{N}} {b_{n - 1}(z - a)^{n - 1}}\\
+&= \sum_{n \in \mathbb{N}} {\sum_{k \in \varLambda_{n}} {a_{k - 1}(z - a)^{k - 1}b_{n - k}(z - a)^{n - k}}}\\
+&= \sum_{n \in \mathbb{N}} {\sum_{k \in \varLambda_{n}} {a_{k - 1}b_{n - k}(z - a)^{n - 1}}}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{k \in \varLambda_{n + 1}} {a_{k - 1}b_{n - k + 1}(z - a)^{n}}}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}b_{n - k}(z - a)^{n}}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux6574ux7d1aux6570ux306bux304aux3051ux308bux53ceux675fux5224ux5b9aux6cd5}{%
+\subsubsection{整級数における収束判定法}%\label{ux6574ux7d1aux6570ux306bux304aux3051ux308bux53ceux675fux5224ux5b9aux6cd5}}
+\begin{thm}[整級数におけるd'Alembertの収束判定法]\label{4.1.13.8}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。次式のように収束するとき、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{a_{n}}{a_{n + 1}} \right| = R \in \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+その実数$R$がその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径となる。この定理を整級数におけるd'Alembertの収束判定法という。
+\end{thm}
+\begin{proof}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。次式のように収束するとき、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{a_{n}}{a_{n + 1}} \right| = R \in \mathrm{cl}\left( \mathbb{R}^{+} \right)
+\end{align*}
+極限$\lim_{n \rightarrow \infty}\left| \frac{a_{n + 1}(z - a)^{n + 1}}{a_{n}(z - a)^{n}} \right|$が次式を満たし
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{a_{n + 1}(z - a)^{n + 1}}{a_{n}(z - a)^{n}} \right| &= \lim_{n \rightarrow \infty}\left| \frac{a_{n + 1}}{a_{n}} \right|\lim_{n \rightarrow \infty}\left| \frac{(z - a)^{n}(z - a)}{(z - a)^{n}} \right|\\
+&= \lim_{n \rightarrow \infty}\frac{1}{\left| \frac{a_{n}}{a_{n + 1}} \right|}\lim_{n \rightarrow \infty}|z - a|\\
+&= \frac{1}{R}|z - a| = \frac{|z - a|}{R} \in \mathrm{cl}\left( \mathbb{R}^{+} \right) \subseteq \mathbb{R} \cup \left\{ \infty \right\}
+\end{align*}
+ratio testより$\frac{|z - a|}{R} < 1$のとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束し、$\frac{|z - a|}{R} > 1$のとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束しない、即ち、$|z - a| < R$のとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束し、$|z - a| > R$のとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束しないことになる。\par
+ここで、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径を$R'$とおく。$R > R'$が成り立つと仮定すると、次式が成り立つようなある複素数$z_{0}$を用いて
+\begin{align*}
+R' < \left| z_{0} - a \right| < R
+\end{align*}
+$\left| z_{0} - a \right| < R$が成り立つなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束し、もちろん、収束することになるが、$\left| z_{0} - a \right| > R'$も成り立つので、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は収束しないことになり矛盾する。したがって、$R \leq R'$が成り立つ。ここで、$R < R'$が成り立つと仮定しても、同様にして、次式が成り立つようなある複素数$z_{0}$を用いて
+\begin{align*}
+R < \left| z_{0} - a \right| < R'
+\end{align*}
+$\left| z_{0} - a \right| < R'$が成り立つなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束することになるが、$\left| z_{0} - a \right| > R$も成り立つので、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}\left( z_{0} - a \right)^{k}} \right)_{n \in \mathbb{N}}$は絶対収束しないことになり、やはり、矛盾する。したがって、$R = R'$が成り立つことになる。
+\end{proof}
+\begin{thm}[Cauchy-Hadamardの収束判定法]\label{4.1.13.9}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。次式のように収束するとき、
+\begin{align*}
+\limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n} \right|} = \frac{1}{R} \in \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+その拡大実数$R$がその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径となる。この定理をCauchy-Hadamardの収束判定法という。
+\end{thm}\par
+なお、その上極限$\limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n} \right|}$が$0$、$\infty$のとき、その拡大実数$R$をそれぞれ$\infty$、$0$と約束する。
+\begin{proof}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。次式のように収束するとき、
+\begin{align*}
+\limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n} \right|} = \frac{1}{R} \in \mathrm{cl}\mathbb{R}^{+}
+\end{align*}
+定理\ref{4.1.13.1}より$z = a$のとき収束するので、$z \neq a$が成り立つとすると、次のようになることから、
+\begin{align*}
+\limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n}(z - a)^{n} \right|} &= \limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n} \right||z - a|^{n}}\\
+&= \limsup_{n \rightarrow \infty}{\sqrt[n]{\left| a_{n} \right|}\sqrt[n]{|z - a|^{n}}}\\
+&= \limsup_{n \rightarrow \infty}\sqrt[n]{\left| a_{n} \right|}|z - a|\\
+&= \frac{|z - a|}{R}
+\end{align*}
+Cauchyの根判定法よりその実数$\frac{|z - a|}{R}$が$1$未満のとき絶対収束し$1$超過のとき絶対収束しない。ここで、$R \in \mathbb{R}^{+}$のとき、その実数$|z - a|$が$R$未満のとき絶対収束し$R$超過のとき絶対収束しない。$R = \infty$のとき、その複素数$z$によらず絶対収束する。$R = 0$のとき、その複素数$z$が$z \neq a$が成り立つなら、絶対収束しない。以上の議論により、その拡大実数$R$がその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径となる。
+\end{proof}
+%\hypertarget{ux6574ux7d1aux6570ux3068ux5e83ux7fa9ux4e00ux69d8ux53ceux675f}{%
+\subsubsection{整級数と広義一様収束}%\label{ux6574ux7d1aux6570ux3068ux5e83ux7fa9ux4e00ux69d8ux53ceux675f}}
+\begin{thm}\label{4.1.13.10}
+収束半径$R$の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。このとき、その関数列$\left( D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$はその円板$D(a,R)$上で関数$D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}$に広義一様収束する\footnote{ちなみに考えている位相空間は定義域と値域どちらも2次元Euclid空間$\left( \mathbb{C},\mathfrak{O}_{d_{E^{2}}} \right)$としています。}。
+\end{thm}
+\begin{proof}
+収束半径$R$の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$が与えられたとする。その関数列$\left( D(a,R) \rightarrow \mathbb{C};\right. $ $\left. z \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$について、$R = 0$のときは$D(a,R) = \emptyset$より明らかであるので、$0 < R$で考えることにしてもよい。$K \subseteq D(a,R)$なる任意のその集合$\mathbb{C}$でcompactな集合$K$が与えられたとき、定理\ref{4.1.7.7}、即ち、Heine-Borelの被覆定理よりその集合$K$は有界な閉集合であり、関数$K \rightarrow \mathbb{R};z \mapsto |z - a|$がその集合$K$で連続であるので、定理\ref{4.1.12.3}、即ち、最大値最小値の定理より最大値が存在する。これを$r$とおくと、$K \subset D(a,R)$より$r \leq R$が成り立つ。さらに、$r \neq R$が成り立つ。実際、$r = R$とすれば、$\exists z \in K$に対し、$|z - a| = R$が成り立つので、$z \notin D(a,R)$が得られるが、これは$K \subseteq D(a,R)$が成り立つことに矛盾する。さらに、$\forall z \in \mathbb{C}$に対し、$z \in K$が成り立つなら、$|z - a| \leq r$が成り立つので、$z \in \overline{U}(a,r)$が成り立つ。したがって、$K \subseteq \overline{U}(a,r)$が得られる。\par
+ここで、$r < |w - a| < R$なる実数$|w - a|$が存在するので、このような複素数$w$が考えられれば、$w \in D(a,R)$が成り立つので、定理\ref{4.1.13.4}よりその整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(w - a)^{k}} \right)_{n \in \mathbb{N}}$は収束する。定理\ref{4.1.8.5}よりその複素数列$\left( a_{n}(w - a)^{n} \right)_{n \in \mathbb{N}}$は$0$に収束することから、定理\ref{4.1.4.7}よりその複素数列$\left( a_{n}(w - a)^{n} \right)_{n \in \mathbb{N}}$は有界である。したがって、$\exists M \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\left| a_{n}(w - a)^{n} \right| < M$が成り立つ。\par
+このとき、$w \neq a$に注意すれば、次のようになることから、
+\begin{align*}
+\left| a_{n}(z - a)^{n} \right| &= \left| a_{n}(w - a)^{n}\frac{(z - a)^{n}}{(w - a)^{n}} \right|\\
+&= \left| a_{n}(w - a)^{n} \right|\frac{|z - a|^{n}}{|w - a|^{n}}\\
+&\leq \left| a_{n}(w - a)^{n} \right|\frac{r^{n}}{|w - a|^{n}}\\
+&< \frac{Mr^{n}}{|w - a|^{n}}
+\end{align*}
+次のようになる。
+\begin{align*}
+\left\| K \rightarrow \mathbb{R};z \mapsto \left| a_{n}(z - a)^{n} \right| \right\|_{K,\infty} = \sup_{z \in K}\left| a_{n}(z - a)^{n} \right| \leq \frac{Mr^{n}}{|w - a|^{n}}
+\end{align*}
+さらに、$r < |w - a|$より次のようになることから、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \frac{Mr^{n}}{|w - a|^{n}} &= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} \frac{Mr^{k}}{|w - a|^{k}}}\\
+&= M\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} \left( \frac{r}{|w - a|} \right)^{k}}\\
+&= M\lim_{n \rightarrow \infty}{\frac{r}{|w - a|}\frac{1 - \left( \frac{r}{|w - a|} \right)^{n}}{1 - \frac{r}{|w - a|}}}\\
+&= M\frac{r}{|w - a|}\frac{1}{1 - \frac{r}{|w - a|}} < \infty
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{n}} \frac{Mr^{k}}{|w - a|^{k}} \right)_{n \in \mathbb{N}}$は収束する。定理\ref{4.1.11.17}、即ち、Weierstrassの$M$判定法よりその級数$\left( K \rightarrow \mathbb{C};z \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$はその極限関数$K \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}$に絶対収束するかつ一様収束する。よって、その関数列$\left( D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$はその円板$D(a,R)$上で関数$D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}$に広義一様収束する。
+\end{proof}
+\subsubsection{Abelの連続性定理}
+\begin{thm}[Abelの連続性定理]\label{4.1.13.11}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}z^{k}} \right)_{n \in \mathbb{N}}$が与えられたとき、級数$\left( \sum_{k \in \varLambda_{n}} a_{k - 1} \right)_{n \in \mathbb{N}}$が収束するなら、次のことが成り立つ。
+\begin{itemize}
+\item
+  その関数列$\left( [ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}x^{k}} \right)_{n \in \mathbb{N}}$はその有界閉区間$[ 0,1]$上で一様収束する。
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow 1 - 0}{\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}x^{n}}} = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} a_{n}
+\end{align*}
+\end{itemize}
+この定理をAbelの連続性定理という。
+\end{thm}
+\begin{proof}
+整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}z^{k}} \right)_{n \in \mathbb{N}}$が与えられたとき、級数$\left( \sum_{k \in \varLambda_{n}} a_{k - 1} \right)_{n \in \mathbb{N}}$が収束するなら、これの極限値が$s$とおかれると、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次式が成り立つので、
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k - 1} - s \right| &= \sup_{x \in [ 0,1]}\left| \sum_{k \in \varLambda_{n}} a_{k - 1} - s \right|\\
+&= \left\| \left( [ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \varLambda_{n}} a_{k - 1} \right) - \left( [ 0,1] \rightarrow \mathbb{C};x \mapsto s \right) \right\|_{[ 0,1],\infty} < \varepsilon
+\end{align*}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  その関数列$\left( [ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \varLambda_{n}} a_{k - 1} \right)_{n \in \mathbb{N}}$はその有界閉区間$[ 0,1]$上で一様収束する。
+\item
+  $0 \leq \left( [ 0,1] \rightarrow \mathbb{C};x \mapsto x^{k - 1} \right)_{k \in \mathbb{N}}$が成り立つ。
+\item
+  その関数列$\left( [ 0,1] \rightarrow \mathbb{C};x \mapsto x^{k - 1} \right)_{k \in \mathbb{N}}$は単調減少している。
+\item
+  その関数$[ 0,1] \rightarrow \mathbb{C};x \mapsto 1$はその有界閉区間$[ 0,1]$上で有界である。
+\end{itemize}
+定理\ref{4.1.11.21}、即ち、関数列に関するAbelの収束判定法よりその級数$\left( [ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \varLambda_{n}} {a_{k - 1}x^{k - 1}} \right)_{n \in \mathbb{N}}$はその有界閉区間$[ 0,1]$上で一様収束する、即ち、その関数列$\left( [ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}x^{k}} \right)_{n \in \mathbb{N}}$はその有界閉区間$[ 0,1]$上で一様収束する。\par
+また、定理\ref{4.1.11.8}よりその関数$[ 0,1] \rightarrow \mathbb{C};x \mapsto \sum_{k \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{k}x^{k}}$はその有界閉区間$[ 0,1]$上で連続であるので、次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow 1 - 0}{\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}x^{n}}} = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} a_{n}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p146-149,378-379 ISBN978-4-13-062005-5
+\bibitem{2}
+  棚橋典大. "複素関数論　講義ノート". 京都大学. \url{https://www2.yukawa.kyoto-u.ac.jp/~norihiro.tanahashi/pdf/complex-analysis/note.pdf} (2021-3-19 取得)
+\end{thebibliography}
+\end{document}

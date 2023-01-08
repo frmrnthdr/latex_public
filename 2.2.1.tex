@@ -1,0 +1,514 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.1.9}
+\input{macro}
+\begin{document}
+%\hypertarget{ux76f4ux548cux7a7aux9593}{%
+\subsection{直和空間}%\label{ux76f4ux548cux7a7aux9593}}
+%\hypertarget{ux76f4ux548cux7a7aux9593-1}{%
+\subsubsection{直和空間}%\label{ux76f4ux548cux7a7aux9593-1}}
+\begin{dfn}
+体$K$上のvector空間$V$の部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、集合$\sum_{i \in \varLambda_{n}} W_{i}$が次式のように定義される。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} W_{i} = \left\{ \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \in V \middle| \forall i \in \varLambda_{n}\left[ \mathbf{w}_{i} \in W_{i} \right] \right\}
+\end{align*}
+この集合$\sum_{i \in \varLambda_{n}} W_{i}$をその族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間という。特に、$n = 2$のとき、$W_{1} + W_{2}$とも書かれる。
+\end{dfn}
+\begin{thm}\label{2.2.1.1}
+その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間はそのvector空間$V$の部分空間で、$\forall\mathbf{z} \in \sum_{i \in \varLambda_{n}} W_{i}$に対し、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}$なるその直積$\prod_{i \in \varLambda_{n}} W_{i}$の元$\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}}$が存在する。
+\end{thm}\par
+しかしながら、その直積$\prod_{i \in \varLambda_{n}} W_{i}$のそのような元は一意的でない。例えば、1つの部分空間$W$が与えられたとき、$\mathbf{z} = W + W$とおくと、$\mathbf{z} = \mathbf{z} + \mathbf{0}$あるいは$\mathbf{z} = \mathbf{0} + \mathbf{z}$といった2通りの組々$\left( \mathbf{z},\mathbf{0} \right)$、$\left( \mathbf{0},\mathbf{z} \right)$が考えられることができる。
+\begin{proof} 部分空間と和空間の定義、定理\ref{2.1.9.1}より明らかである。
+\end{proof}
+\begin{dfn}
+体$K$上のvector空間$V$の部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall\mathbf{z} \in \sum_{i \in \varLambda_{n}} W_{i}$に対し、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}$なるその直積$\prod_{i \in \varLambda_{n}} W_{i}$の元$\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}}$が一意的に存在するようなその和空間$\sum_{i \in \varLambda_{n}} W_{i}$をその族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の直和空間といい$\bigoplus_{i \in \varLambda_{n}} W_{i}$と書く。特に、$n = 2$のとき、$W_{1} \oplus W_{2}$とも書かれる。また、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}$、$\mathbf{w}_{i} \in W_{i}$なる元$\mathbf{z}$を$\mathbf{z} = \bigoplus_{i \in \varLambda_{n}} \mathbf{w}_{i}$と書くこともある。
+\end{dfn}
+\begin{thm}\label{2.2.1.2}
+体$K$上のvector空間$V$の部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次のことは同値
+\begin{itemize}
+\item
+  その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもある。
+\item
+  $\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つ。
+\item
+  $\forall i' \in \varLambda_{n} \setminus \left\{ 1 \right\}$に対し、$\sum_{i \in \varLambda_{i' - 1}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもあるとする。$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立たない、即ち、その集合$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'}$に属する零vectorでないvector$\mathbf{z}$が存在するとき、$\mathbf{z} = \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{w}_{i}$とおける。このとき、そのvector$\mathbf{z}$はその和空間$\sum_{i \in \varLambda_{n}} W_{i}$に属しており、さらに、その部分空間$W_{i'}$にも属するので、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}'$としたとき、次のように2通り存在することになり、
+\begin{align*}
+\mathbf{w}_{i}' = \left\{ \begin{matrix}
+\mathbf{w}_{i} & \mathrm{if} & i \neq i' \\
+\mathbf{0} & \mathrm{if} & i = i' \\
+\end{matrix} \right.\ ,\ \ \mathbf{w}_{i}' = \left\{ \begin{matrix}
+\mathbf{0} & \mathrm{if} & i \neq i' \\
+\mathbf{z} & \mathrm{if} & i = i' \\
+\end{matrix} \right.\ 
+\end{align*}
+これはその族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもあることに矛盾する。したがって、$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つ。\par
+$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つなら、$\forall i' \in \varLambda_{n} \setminus \left\{ 1 \right\}$に対し、$\sum_{i \in \varLambda_{i' - 1}} W_{i} \subseteq \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つので、$\sum_{i \in \varLambda_{i' - 1}} W_{i} \cap W_{i'} \subseteq \left\{ \mathbf{0} \right\}$が成り立つ。一方で、その集合$\sum_{i \in \varLambda_{i' - 1}} W_{i} \cap W_{i'}$は部分空間の定義より零vector$\mathbf{0}$に属されているので、よって、$\sum_{i \in \varLambda_{i' - 1}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つ\par
+$\forall i' \in \varLambda_{n} \setminus \left\{ 1 \right\}$に対し、$\sum_{i \in \varLambda_{i' - 1}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つなら、$\forall\mathbf{z} \in \sum_{i \in \varLambda_{n}} W_{i}$に対し、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}' = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}''$、$\mathbf{w}_{i}',\mathbf{w}_{i}'' \in W_{i}$とおくと、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} \mathbf{w}_{i}' = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}'' &\Leftrightarrow \sum_{i \in \varLambda_{n - 1}} \mathbf{w}_{i}' + \mathbf{w}_{n}' = \sum_{i \in \varLambda_{n - 1}} \mathbf{w}_{i}'' + \mathbf{w}_{n}''\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - 1}} \mathbf{w}_{i}' - \sum_{i \in \varLambda_{n - 1}} \mathbf{w}_{i}'' = \mathbf{w}_{n}'' - \mathbf{w}_{n}'\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - 1}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \mathbf{w}_{n}'' - \mathbf{w}_{n}'
+\end{align*}
+ここで、$\sum_{i \in \varLambda_{n - 1}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) \in \sum_{i \in \varLambda_{n - 1}} W_{i}$かつ$\mathbf{w}_{n}'' - \mathbf{w}_{n}' \in W_{n}$が成り立つので、次式が得られる。
+\begin{align*}
+\sum_{i \in \varLambda_{n - 1}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \mathbf{w}_{n}'' - \mathbf{w}_{n}' \in \sum_{i \in \varLambda_{n - 1}} W_{i} \cap W_{n} = \left\{ \mathbf{0} \right\}
+\end{align*}
+したがって、$\mathbf{w}_{n}' = \mathbf{w}_{n}''$が得られる。\par
+$n - i' + 1 = k \leq n - 1$のとき、$\forall n - i' + 1 \in \varLambda_{k}$に対し、$\mathbf{w}_{n - i' + 1}' = \mathbf{w}_{n - i' + 1}''$が成り立つと仮定しよう。$n - i' + 1 = k + 1 \leq n$のとき、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} \mathbf{w}_{i}' = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}'' &\Leftrightarrow \sum_{i \in \varLambda_{i' - 1}} \mathbf{w}_{i}' + \sum_{i \in \varLambda_{n} \setminus \varLambda_{i' - 1}} \mathbf{w}_{i}' = \sum_{i \in \varLambda_{i' - 1}} \mathbf{w}_{i}'' + \sum_{i \in \varLambda_{n} \setminus \varLambda_{i' - 1}} \mathbf{w}_{i}''\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}' + \sum_{i \in \varLambda_{n} \setminus \varLambda_{n - (k + 1)}} \mathbf{w}_{i}' = \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}'' + \sum_{i \in \varLambda_{n} \setminus \varLambda_{n - (k + 1)}} \mathbf{w}_{i}''\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}' + \sum_{i \in \varLambda_{k + 1}} \mathbf{w}_{n - i + 1}' = \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}'' + \sum_{i \in \varLambda_{k + 1}} \mathbf{w}_{n - i + 1}'\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}' + \sum_{i \in \varLambda_{k}} \mathbf{w}_{n - i + 1}' + \mathbf{w}_{n - k}' = \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}'' + \sum_{i \in \varLambda_{k}} \mathbf{w}_{n - i + 1}' + \mathbf{w}_{n - k}''\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}' - \sum_{i \in \varLambda_{n - (k + 1)}} \mathbf{w}_{i}'' = \sum_{i \in \varLambda_{k}} \mathbf{w}_{n - i + 1}'' - \sum_{i \in \varLambda_{k}} \mathbf{w}_{n - i + 1}' + \mathbf{w}_{n - k}'' - \mathbf{w}_{n - k}'\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \sum_{i \in \varLambda_{k}} \left( \mathbf{w}_{n - i + 1}'' - \mathbf{w}_{n - i + 1}' \right) + \mathbf{w}_{n - k}'' - \mathbf{w}_{n - k}'\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \sum_{i \in \varLambda_{k}} \mathbf{0} + \mathbf{w}_{n - k}'' - \mathbf{w}_{n - k}'\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n - (k + 1)}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \mathbf{w}_{n - k}'' - \mathbf{w}_{n - k}'
+\end{align*}
+ここで、$\sum_{i \in \varLambda_{n - (k + 1)}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) \in \sum_{i \in \varLambda_{n - (k + 1)}} W_{i}$かつ$\mathbf{w}_{n}'' - \mathbf{w}_{n}' \in W_{n - k}$が成り立つので、次式が得られる。
+\begin{align*}
+\sum_{i \in \varLambda_{n - (k + 1)}} \left( \mathbf{w}_{i}' - \mathbf{w}_{i}'' \right) = \mathbf{w}_{n - k}'' - \mathbf{w}_{n - k}' \in \sum_{i \in \varLambda_{n - (k + 1) + 1 - 1}} W_{i} \cap W_{n - (k + 1) + 1} = \left\{ \mathbf{0} \right\}
+\end{align*}
+したがって、$\mathbf{w}_{n - k}' = \mathbf{w}_{n - k}''$が得られる。\par
+以上より数学的帰納法によって$\forall n - i' + 1 \in \varLambda_{n}$に対し、$\mathbf{w}_{n - i' + 1}' = \mathbf{w}_{n - i' + 1}''$が成り立つことになり、したがって、$\left( \mathbf{w}_{i}' \right)_{i \in \varLambda_{n}} = \left( \mathbf{w}_{i}'' \right)_{i \in \varLambda_{n}}$が成り立つ。これにより、その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもあることが示された。
+\end{proof}
+\begin{thm}\label{2.2.1.3}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\dim{\sum_{i \in \varLambda_{n}} W_{i}} \leq \sum_{i \in \varLambda_{n}} {\dim W_{i}}
+\end{align*}
+特に、次式が成り立つ。
+\begin{align*}
+\dim{\bigoplus_{i \in \varLambda_{n}} W_{i}} = \sum_{i \in \varLambda_{n}} {\dim W_{i}}
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$n = 2$のとき、定理\ref{2.1.9.5}より次式が成り立つ。
+\begin{align*}
+\dim{W_{1} + W_{2}} = \dim W_{1} + \dim W_{2} - \dim{W_{1} \cap W_{2}} \leq \dim W_{1} + \dim W_{2}
+\end{align*}\par
+$n = k$のとき、$\dim{\sum_{i \in \varLambda_{k}} W_{i}} \leq \sum_{i \in \varLambda_{k}} {\dim W_{i}}$が成り立つと仮定すると、$n = k + 1$のとき、定理\ref{2.1.9.5}より次のようになる。
+\begin{align*}
+\dim{\sum_{i \in \varLambda_{k + 1}} W_{i}} &= \dim{\sum_{i \in \varLambda_{k}} W_{i} + W_{k + 1}}\\
+&= \dim{\sum_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1} - \dim{\sum_{i \in \varLambda_{k}} W_{i} \cap W_{k + 1}}\\
+&\leq \dim{\sum_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1}\\
+&\leq \sum_{i \in \varLambda_{k}} {\dim W_{i}} + \dim W_{k + 1}\\
+&= \sum_{i \in \varLambda_{k + 1}} {\dim W_{i}}
+\end{align*}\par
+以上より、数学的帰納法によって$\forall n \in \mathbb{N}$に対し、$\dim{\sum_{i \in \varLambda_{n}} W_{i}} \leq \sum_{i \in \varLambda_{n}} {\dim W_{i}}$が成り立つ。\par
+特に、その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもあるなら、$n = 2$のとき、定理\ref{2.1.9.5}より次式が成り立つ。
+\begin{align*}
+\dim{W_{1} + W_{2}} = \dim W_{1} + \dim W_{2} - \dim{W_{1} \cap W_{2}}
+\end{align*}
+ここで、定理\ref{2.2.1.2}より$W_{1} \cap W_{2} = \left\{ \mathbf{0} \right\}$が成り立つので、次のようになる。
+\begin{align*}
+\dim{W_{1} \oplus W_{2}} &= \dim W_{1} + \dim W_{2} - \dim\left\{ \mathbf{0} \right\}\\
+&= \dim W_{1} + \dim W_{2} - 0\\
+&= \dim W_{1} + \dim W_{2}
+\end{align*}\par
+$n = k$のとき、$\dim{\bigoplus_{i \in \varLambda_{k}} W_{i}} = \sum_{i \in \varLambda_{k}} {\dim W_{i}}$が成り立つと仮定すると、$n = k + 1$のとき、定理\ref{2.1.9.5}より次のようになる。
+\begin{align*}
+\dim{\bigoplus_{i \in \varLambda_{k + 1}} W_{i}} &= \dim{\bigoplus_{i \in \varLambda_{k}} W_{i} \oplus W_{k + 1}}\\
+&= \dim{\bigoplus_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1} - \dim{\sum_{i \in \varLambda_{k}} W_{i} \cap W_{k + 1}}
+\end{align*}
+ここで、定理\ref{2.2.1.2}より$\sum_{i \in \varLambda_{k}} W_{i} \cap W_{k + 1} = \left\{ \mathbf{0} \right\}$が成り立つので、
+\begin{align*}
+\dim{\bigoplus_{i \in \varLambda_{k + 1}} W_{i}} &= \dim{\bigoplus_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1} - \dim\left\{ \mathbf{0} \right\}\\
+&= \dim{\bigoplus_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1} - 0\\
+&= \dim{\bigoplus_{i \in \varLambda_{k}} W_{i}} + \dim W_{k + 1}\\
+&= \sum_{i \in \varLambda_{k}} {\dim W_{i}} + \dim W_{k + 1}\\
+&= \sum_{i \in \varLambda_{k + 1}} {\dim W_{i}}
+\end{align*}\par
+以上より、数学的帰納法によって$\forall n \in \mathbb{N}$に対し、$\dim{\bigoplus_{i \in \varLambda_{n}} W_{i}} = \sum_{i \in \varLambda_{n}} {\dim W_{i}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.2.1.4}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\dim{\sum_{i \in \varLambda_{n}} W_{i}} = \sum_{i \in \varLambda_{n}} {\dim W_{i}}$が成り立つなら、$\sum_{i \in \varLambda_{n}} W_{i} = \bigoplus_{i \in \varLambda_{n}} W_{i}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\dim{\sum_{i \in \varLambda_{n}} W_{i}} = \sum_{i \in \varLambda_{n}} {\dim W_{i}}$が成り立つなら、$i \in \varLambda_{n}$なる部分空間たち$W_{i}$の基底の1つを$\dim W_{i} = n_{i}$として$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$とおくとする。$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立たないような添数$i'$が存在すると仮定すると、それらの集合たち$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$、$W_{i'}$いづれもそのvector空間$V$の部分空間であるから、$i \in \varLambda_{n}$なる基底たち$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$のうち$\mathbf{w}' \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'}$なるvector$\mathbf{w}'$が存在する。$\exists j' \in \varLambda_{n} \setminus \left\{ i' \right\}$に対し、$\mathbf{w}' \in W_{j'}$が成り立つので、$\mathbf{w}' \in W_{i'} \cap W_{j'}$が成り立ち、定理\ref{2.1.9.5}より$\dim{W_{i'} + W_{j'}} > \dim W_{i'} + \dim W_{j'}$が成り立つことになる。このとき、定理\ref{2.2.1.3}より次のようになる。
+\begin{align*}
+\dim{\sum_{i \in \varLambda_{n}} W_{i}} &= \dim\left( \sum_{i \in \varLambda_{n} \setminus \left\{ i',j' \right\}} W_{i} + W_{i'} + W_{j'} \right)\\
+&\geq \sum_{i \in \varLambda_{n} \setminus \left\{ i',j' \right\}} {\dim W_{i}} + \dim{W_{i'} + W_{j'}}\\
+&> \sum_{i \in \varLambda_{n} \setminus \left\{ i',j' \right\}} {\dim W_{i}} + \dim W_{i'} + \dim W_{j'}\\
+&= \sum_{i \in \varLambda_{n}} {\dim W_{i}}
+\end{align*}
+しかしながら、これは$\dim{\sum_{i \in \varLambda_{n}} W_{i}} = \sum_{i \in \varLambda_{n}} {\dim W_{i}}$が成り立つことに矛盾する。したがって、$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立ち、定理\ref{2.2.1.2}より$\sum_{i \in \varLambda_{n}} W_{i} = \bigoplus_{i \in \varLambda_{n}} W_{i}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.2.1.5}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$i \in \varLambda_{n}$なる部分空間たち$W_{i}$の基底の1つを$\dim W_{i} = n_{i}$として$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$とおくと、その直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$の基底は$\left\langle \mathbf{w}_{ij} \right\rangle_{(i,j) \in \varLambda_{n} \times \varLambda_{n_{i}}}$と与えられる。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の有限次元な部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$i \in \varLambda_{n}$なる部分空間たち$W_{i}$の基底の1つを$\dim W_{i} = n_{i}$として$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$とおく。\par
+ある互いに異なる添数たち$i'$、$j'$に対し、それらの部分空間たち$W_{i'}$、$W_{j'}$どちらの基底をもなすvectorが存在すると仮定しよう。このようなvectorを$\mathbf{w}'$とおくと、このvectorは零vectorでなく$\mathbf{w}' \in W_{i'} \cap W_{j'}$が成り立つ。一方で、定理\ref{2.2.1.2}より$\sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} W_{i} \cap W_{j'} = \left\{ \mathbf{0} \right\}$が成り立つので、$W_{i'} \subseteq \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} W_{i}$が成り立つことに注意すれば、$W_{i'} \cap W_{j'} \subseteq \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} W_{i} \cap W_{j'} = \left\{ \mathbf{0} \right\}$が成り立つかつ、零vectorはその部分空間$W_{i'} \cap W_{j'}$に属するので、$W_{i'} \cap W_{j'} = \left\{ \mathbf{0} \right\}$が成り立つ。しかしながら、これは$\mathbf{w}' \in W_{i'} \cap W_{j'}$が成り立つことに矛盾する。したがって、$\forall i',j' \in \varLambda_{n}$に対し、それらの添数たち$i'$、$j'$が互いに異なるなら、それらの部分空間たち$W_{i'}$、$W_{j'}$どちらの基底をもなすvectorが存在しないことになる。\par
+これにより、$\forall\mathbf{z} \in \bigoplus_{i \in \varLambda_{n}} W_{i}$に対し、$\mathbf{z} = \sum_{i \in \varLambda_{n}} \mathbf{w}_{i}$なるその直積$\prod_{i \in \varLambda_{n}} W_{i}$の元$\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}}$が一意的に存在し、ここで、$\forall i \in \varLambda_{n}$に対し、$\mathbf{w}_{i} = \sum_{j \in \varLambda_{n_{i}}} {c_{ij}\mathbf{w}_{ij}}$と一意的に書かれるので、$\mathbf{z} = \sum_{i \in \varLambda_{n}} {\sum_{j \in \varLambda_{n_{i}}} {c_{ij}\mathbf{w}_{ij}}}$と一意的に書かれることができ、したがって、その直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$の基底は$\left\langle \mathbf{w}_{ij} \right\rangle_{(i,j) \in \varLambda_{n} \times \varLambda_{n_{i}}}$となる。
+\end{proof}
+\begin{thm}\label{2.2.1.6}
+体$K$上の有限次元なvector空間$V$の基底$\alpha$をいくつかに互いに交わらないように$\alpha_{1}$、$\alpha_{2}$、$\cdots$、$\alpha_{n}$と分割し$i \in \varLambda_{n}$なるその組$\alpha_{i}$で張られる部分空間を$W_{i}$とおくと、$V = \bigoplus_{i \in \varLambda_{n}} W_{i}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$V$の基底$\alpha$をいくつかに互いに交わらないように$\alpha_{1}$、$\alpha_{2}$、$\cdots$、$\alpha_{n}$と分割し$i \in \varLambda_{n}$なるその組$\alpha_{i}$で張られる部分空間を$W_{i}$とおく。このとき、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立たないような添数$i'$が存在すると仮定すると、その集合$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'}$はそのvector空間$V$の部分空間であるから、$\mathbf{w}' \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'}$が成り立つような零vectorでないvector$\mathbf{w}'$が存在する。ここで、$\alpha = \left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{m}}$とおくと、$\mathbf{w}' = \sum_{i \in \varLambda_{m}} {c_{i}\mathbf{w}_{i}}$が成り立つような体$K$の元$c_{i}$が存在し、さらに、$c_{j'} \neq 0$なる添数$j'$が存在する。したがって、$\mathbf{w}_{j'} \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$かつ$\mathbf{w}_{j'} \in W_{i'}$が成り立つ。このとき、$\mathbf{w}_{j'} \in W_{k'}$なる部分空間$W_{k'}$が存在することになるので、そのvector$\mathbf{w}_{j'}$はそれらの基底たち$\alpha_{i'}$、$\alpha_{k'}$をなすことになる。しかしながら、これは仮定に矛盾する。したがって、$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立ち、定理\ref{2.2.1.2}よりよって、その和空間$\sum_{i \in \varLambda_{n}} W_{i}$は直和空間$\bigoplus_{i \in \varLambda_{n}} W_{i}$でもあり、基底の定義より$V = \sum_{i \in \varLambda_{n}} W_{i}$が成り立つので、$V = \bigoplus_{i \in \varLambda_{n}} W_{i}$が得られる。
+\end{proof}
+\begin{thm}\label{2.2.1.7}
+体$K$上の有限次元なvector空間$V$の添数集合$\varLambda_{n}$によって添数づけられた零vectorでない元の族$\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、その組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$がそのvector空間$V$の基底をなすならそのときに限り、$V = \bigoplus_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の有限次元なvector空間$V$の添数集合$\varLambda_{n}$によって添数づけられた零vectorでない元の族$\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、その組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$がそのvector空間$V$の基底をなすなら、$\forall k \in K\forall i' \in \varLambda_{n}$に対し、$k \neq 0$なら、そのvector$k\mathbf{v}_{i'}$は族$\left\{ \mathbf{v}_i \right\}_{i \in \varLambda_{n} \setminus \left\{ i' \right\} } $の線形結合でないので、${\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \cap {\mathrm{span} }\left\{ \mathbf{v}_{i'} \right\} = \left\{ \mathbf{0} \right\}$が成り立つ。ここで、$\forall\mathbf{z} \in {\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n} \setminus \left\{ i' \right\}}$に対し、$i \in \varLambda_{n} \setminus \left\{ i' \right\}$なるその体$K$のある元々$k_{i}$を用いて$\mathbf{z} = \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {k_{i}\mathbf{v}_{i}}$が成り立つので、$\mathbf{z} \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つ。以上より、${\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} = \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が得られ、したがって、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}} \cap {\mathrm{span} }\left\{ \mathbf{v}_{i'} \right\} = \left\{ \mathbf{0} \right\}$が成り立ち、定理\ref{2.2.1.2}より$\sum_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}} = \bigoplus_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が得られる。上記と同様にして、$V = {\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n}} = \sum_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つことが示され、よって、$V = \bigoplus_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つ。\par
+逆に、$V = \bigoplus_{i \in \varLambda_{n}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つなら、上記と同様にして、$V = {\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n}}$が成り立つことが示される。ここで、$\sum_{i \in \varLambda_{n}} {c_{i}\mathbf{v}_{i}} = \mathbf{0}$が成り立つかつ、$c_{i'} \neq 0$なる添数$i'$が存在すると仮定すると、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {c_{i}\mathbf{v}_{i}} = \mathbf{0} &\Leftrightarrow \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {c_{i}\mathbf{v}_{i}} + c_{i'}\mathbf{v}_{i'} = \mathbf{0}\\
+&\Leftrightarrow c_{i'}\mathbf{v}_{i'} = - \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {c_{i}\mathbf{v}_{i}}\\
+&\Leftrightarrow \mathbf{v}_{i'} = - \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {\frac{c_{i}}{c_{i'}}\mathbf{v}_{i}}
+\end{align*}
+これにより、${\mathrm{span} }\left\{ \mathbf{v}_{i'} \right\} \subseteq {\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} = \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}}$が成り立つことになる。このとき、零vectorでないvector$\mathbf{v}_{i'}$は$\mathbf{v}_{i'} \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}} \cap {\mathrm{span} }\left\{ \mathbf{v}_{i'} \right\}$を満たすので、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {{\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}} \cap {\mathrm{span} }\left\{ \mathbf{v}_{i'} \right\} = \left\{ \mathbf{0} \right\}$が成り立たないような添数$i'$が存在することになる。しかしながら、定理\ref{2.2.1.2}より$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立つことに矛盾する。したがって、その族$\left\{ \mathbf{v}_i \right\}_{i \in \varLambda_{n} } $は線形独立であり、$V = {\mathrm{span} }\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{n}}$が成り立つのであったので、基底の定義よりその組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$がそのvector空間$V$の基底をなす。
+\end{proof}
+%\hypertarget{ux5c04ux5f71ux5b50}{%
+\subsubsection{射影子}%\label{ux5c04ux5f71ux5b50}}
+\begin{dfn}
+体$K$上のvector空間$V$の部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$が$V = \bigoplus_{i \in \varLambda_{n}} W_{i}$を満たすとき、そのvector空間$V$はその族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$に直和分解される、その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$の直和に分解されるなどといい、その族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$に属する各部分空間たちをそのvector空間$V$の直和因子という。
+\end{dfn}
+\begin{dfn}
+体$K$上のvector空間$V$がこれの部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$に直和分解されるとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{v} = \bigoplus_{i \in \varLambda_{n}} \mathbf{w}_{i}$とおくと、$\forall i \in \varLambda_{n}$に対し、次式のように写像$P_{i}$が定義され、その写像$P_{i}$をそのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影という。
+\begin{align*}
+P_{i}:V \rightarrow V;\mathbf{v} \mapsto \mathbf{w}_{i}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+体$K$上のvector空間$V$を用いた線形写像$f:V \rightarrow V$のうち$f \circ f = f$が成り立つとき、その線形写像$f$をそのvector空間$V$の射影子という。
+\end{dfn}
+\begin{thm}\label{2.2.1.8}
+体$K$上のvector空間$V$がこれの部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$に直和分解されるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall i \in \varLambda_{n}$に対し、そのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影$P_{i}$はそのvector空間$V$の射影子である。
+\item
+  $\forall i \in \varLambda_{n}$に対し、そのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影$P_{i}$について、$V\left( P_{i} \right) = W_{i}$が成り立つ。
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、そのvector空間$V$からその直和因子$W_{i}$、$W_{j}$への直和分解から定まる射影たちそれぞれ$P_{i}$、$P_{j}$について、$P_{j} \circ P_{i} = 0$が成り立つ。
+\item
+  $i \in \varLambda_{n}$なるそのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。
+\item
+  $\forall i' \in \varLambda_{n}$に対し、そのvector空間$V$からその直和因子$W_{i'}$への直和分解から定まる射影$P_{i'}$について、$\ker P_{i'} = \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$がこれの部分空間たちの添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ W_{i} \right\}_{i \in \varLambda_{n}}$に直和分解されるとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{v} = \bigoplus_{i \in \varLambda_{n}} \mathbf{w}_{i}$とおくと、$\forall i \in \varLambda_{n}$に対し、そのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影$P_{i}$について、次のようになるので、
+\begin{align*}
+P_{i} \circ P_{i}\left( \mathbf{v} \right) = P_{i}\left( \mathbf{w}_{i} \right) = \mathbf{w}_{i} = P_{i}\left( \mathbf{v} \right)
+\end{align*}
+その射影$P_{i}$はそのvector空間$V$の射影子である。\par
+また、その射影$P_{i}$について、定義より$V\left( P_{i} \right) \subseteq W_{i}$が成り立ち、また、$\forall\mathbf{w}_{i} \in W_{i}$に対し、$P_{i}\left( \mathbf{w}_{i} \right) = \mathbf{w}_{i}$が成り立つので、$\mathbf{w}_{i} \in V\left( P_{i} \right)$が得られ、したがって、$V\left( P_{i} \right) = W_{i}$が成り立つ。\par
+$\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、そのvector空間$V$からその直和因子$W_{i}$、$W_{j}$への直和分解から定まる射影たちそれぞれ$P_{i}$、$P_{j}$について、$\mathbf{w}_{i} \neq \mathbf{0}$のとき、$P_{i}\left( \mathbf{v} \right) = \mathbf{w}_{i} \notin W_{j}$が成り立つので、次のようになる。
+\begin{align*}
+P_{j} \circ P_{i}\left( \mathbf{v} \right) &= P_{j}\left( P_{i}\left( \mathbf{v} \right) \right)\\
+&= P_{j}\left( \mathbf{w}_{i} \right) = \mathbf{0}
+\end{align*}
+よって、$P_{j} \circ P_{i} = 0$が成り立つ。\par
+また、$i \in \varLambda_{n}$なるそのvector空間$V$からその直和因子$W_{i}$への直和分解から定まる射影たち$P_{i}$について、次のようになるので、
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} P_{i} \right)\left( \mathbf{v} \right) &= \sum_{i \in \varLambda_{n}} {P_{i}\left( \mathbf{v} \right)}\\
+&= \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} = \mathbf{v}
+\end{align*}
+そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。\par
+最後に、$\forall i' \in \varLambda_{n}$に対し、そのvector空間$V$からその直和因子$W_{i'}$への直和分解から定まる射影$P_{i'}$について、$\mathbf{v} \in \ker P_{i'}$が成り立つかつ、$\mathbf{v} \notin \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つようなその核$\ker P_{i'}$の元$\mathbf{v}$が存在すると仮定しよう。このとき、$\mathbf{v} = \mathbf{0}$なら、その集合$\bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$もそのvector空間の部分空間でもあり、$\mathbf{0} \in \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つことになるので、そのvector$\mathbf{v}$は零vectorでない。このとき、$\mathbf{v} \notin \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つかつ、$V = W_{i'} \oplus \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つことにより、$\mathbf{v} \in W_{i'}$が成り立つことになる。このとき、$P_{i'}\left( \mathbf{v} \right) = \mathbf{v} \neq \mathbf{0}$が得られ$\mathbf{v} \in \ker P_{i'}$が成り立つことに矛盾する。したがって、$\forall\mathbf{v} \in \ker P_{i'}$に対し、$\mathbf{v} \in \ker P_{i'}$が成り立つなら、$\mathbf{v} \notin \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つので、$\ker P_{i'} \subseteq \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つ。一方で、$\forall\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{w}_{i} \in \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$に対し、その射影$P_{i'}$の定義より$P_{i'}\left( \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{w}_{i} \right) = \mathbf{0}$が成り立つので、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{w}_{i} \in \ker P_{i'}$が成り立つ。したがって、$\ker P_{i'} \supseteq \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が得られ、以上より、$\ker P_{i'} = \bigoplus_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.2.1.9}
+体$K$上のvector空間$V$の線形写像$P_{i}:V \rightarrow V$の添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ P_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次のことを満たすなら、
+\begin{itemize}
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$P_{j} \circ P_{i} = 0$が成り立つ。
+\item
+  $i \in \varLambda_{n}$なるそれらの線形写像たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。
+\end{itemize}
+$\forall i \in \varLambda_{n}$に対し、その線形写像$P_{i}$はそのvector空間$V$の射影子でもある。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の線形写像$P_{i}:V \rightarrow V$の添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ P_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次のことを満たすなら、
+\begin{itemize}
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$P_{j} \circ P_{i} = 0$が成り立つ。
+\item
+  $i \in \varLambda_{n}$なるそれらの線形写像たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。
+\end{itemize}
+$\forall i' \in \varLambda_{n}\forall\mathbf{v} \in V$に対し、$P_{i'}\left( \mathbf{v} \right) \in V$が成り立つので、次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} P_{i} \right)\left( P_{i'}\left( \mathbf{v} \right) \right) &= \sum_{i \in \varLambda_{n}} {P_{i}\left( P_{i'}\left( \mathbf{v} \right) \right)}\\
+&= \sum_{i \in \varLambda_{n}} {P_{i} \circ P_{i'}\left( \mathbf{v} \right)}\\
+&= \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {P_{i} \circ P_{i'}\left( \mathbf{v} \right)} + P_{i'} \circ P_{i'}\left( \mathbf{v} \right)
+\end{align*}
+ここで、仮定より$i \neq i'$が成り立つなら、$\forall\mathbf{v} \in V$に対し、$P_{i} \circ P_{i'}\left( \mathbf{v} \right) = \mathbf{0}$が成り立つのであったので、次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} P_{i} \right)\left( P_{i'}\left( \mathbf{v} \right) \right) &= \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{0} + P_{i'} \circ P_{i'}\left( \mathbf{v} \right)\\
+&= P_{i'} \circ P_{i'}\left( \mathbf{v} \right)
+\end{align*}
+ここで、$i \in \varLambda_{n}$なるその線形写像たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つのであったので、次式が成り立ち、
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} P_{i} \right)\left( P_{i'}\left( \mathbf{v} \right) \right) &= I_{V}\left( P_{i'}\left( \mathbf{v} \right) \right)\\
+&= P_{i'}\left( \mathbf{v} \right)\\
+&= P_{i'} \circ P_{i'}\left( \mathbf{v} \right)
+\end{align*}
+したがって、その線形写像$P_{i'}$はそのvector空間$V$の射影子でもある。
+\end{proof}
+\begin{thm}\label{2.2.1.10}
+体$K$上のvector空間$V$の線形写像$P_{i}:V \rightarrow V$の添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ P_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次のことを満たすなら、
+\begin{itemize}
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$P_{j} \circ P_{i} = 0$が成り立つ。
+\item
+  $i \in \varLambda_{n}$なるそれらの線形写像たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。
+\end{itemize}
+次式が成り立ち、
+\begin{align*}
+V = \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}
+\end{align*}
+さらに、$\forall i \in \varLambda_{n}$に対し、その線形写像$P_{i}$はいづれもそのvector空間$V$からその直和因子$V\left( P_{i} \right)$への直和分解から定まる射影でもある。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の線形写像$P_{i}:V \rightarrow V$の添数集合$\varLambda_{n}$によって添数づけられた族$\left\{ P_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、次のことを満たすなら、
+\begin{itemize}
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$P_{j} \circ P_{i} = 0$が成り立つ。
+\item
+  $i \in \varLambda_{n}$なるそれらの線形写像たち$P_{i}$について、そのvector空間$V$の恒等写像$I_{V}$を用いて$\sum_{i \in \varLambda_{n}} P_{i} = I_{V}$が成り立つ。
+\end{itemize}
+ここで、$i \in \varLambda_{n}$なる値域たち$V\left( P_{i} \right)$はいづれもそのvector空間$V$の部分空間でもあるから、$i \in \varLambda_{n}$なる部分空間たち$W_{i}$の基底の1つを$\dim W_{i} = n_{i}$として$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$とおくとする。$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {V\left( P_{i} \right)} \cap V\left( P_{i'} \right) = \left\{ \mathbf{0} \right\}$が成り立たないような添数$i'$が存在すると仮定すると、それらの集合たち$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {V\left( P_{i} \right)}$、$V\left( P_{i'} \right)$いづれもそのvector空間$V$の部分空間であるから、$i \in \varLambda_{n}$なる基底たち$\left\langle \mathbf{w}_{ij} \right\rangle_{j \in \varLambda_{n_{i}}}$のうち$\mathbf{w}' \in \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {V\left( P_{i} \right)} \cap V\left( P_{i'} \right)$なるvector$\mathbf{w}'$が存在する。$\exists j' \in \varLambda_{n} \setminus \left\{ i' \right\}$に対し、$\mathbf{w}' \in V\left( P_{j'} \right)$が成り立つので、$\mathbf{w}' \in V\left( P_{i'} \right) \cap V\left( P_{j'} \right)$が成り立ち、$P_{i'}\left( \mathbf{v}_{i'} \right) = P_{j'}\left( \mathbf{v}_{j'} \right) = \mathbf{w}'$なるvectors$\mathbf{v}_{i'}$、$\mathbf{v}_{j'}$がそのvector空間$V$に存在する。ここで、仮定より$P_{j'} \circ P_{i'}\left( \mathbf{v}' \right) = \mathbf{0}$が成り立つかつ、定理\ref{2.2.1.9}よりそれらの線形写像たち$P_{i'}$、$P_{j'}$は射影子でもあるので、次のようになる。
+\begin{align*}
+P_{j'} \circ P_{i'}\left( \mathbf{v}_{i'} \right) &= P_{j'}\left( P_{i'}\left( \mathbf{v}_{i'} \right) \right)\\
+&= P_{j'}\left( P_{j'}\left( \mathbf{v}_{j'} \right) \right)\\
+&= P_{j'} \circ P_{j'}\left( \mathbf{v}_{j'} \right)\\
+&= P_{j'}\left( \mathbf{v}_{j'} \right) = \mathbf{w}'
+\end{align*}
+以上より、$\mathbf{w}' = \mathbf{0}$が成り立つことになるが、そのvector$\mathbf{w}'$が零vectorでないことに矛盾する。したがって、$\forall i' \in \varLambda_{n}$に対し、$\sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} W_{i} \cap W_{i'} = \left\{ \mathbf{0} \right\}$が成り立ち、定理\ref{2.2.1.2}より$\sum_{i \in \varLambda_{n}} {V\left( P_{i} \right)} = \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$が成り立つ。\par
+ここで、その族$\left\{ P_{i} \right\}_{i \in \varLambda_{n}}$の定義より$V \supseteq \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$が成り立つかつ、仮定より$\forall\mathbf{v} \in V$に対し、次のようになるので、
+\begin{align*}
+\mathbf{v} &= I_{V}\left( \mathbf{v} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} P_{i} \right)\left( \mathbf{v} \right)\\
+&= \sum_{i \in \varLambda_{n}} {P_{i}\left( \mathbf{v} \right)}
+\end{align*}
+$\mathbf{v} \in \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$が得られ、したがって、$V \subseteq \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$が成り立つので、$V = \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$が成り立つ。\par
+さらに、$\forall i \in \varLambda_{n}$に対し、直和空間の定義より$\forall\mathbf{z} \in \bigoplus_{i \in \varLambda_{n}} {V\left( P_{i} \right)}$に対し、$\mathbf{z} = \bigoplus_{i \in \varLambda_{n}} {P_{i}\left( \mathbf{v}_{i} \right)}$とおくと、$\forall i' \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+P_{i'}\left( \mathbf{z} \right) &= P_{i'}\left( \sum_{i \in \varLambda_{n}} {P_{i}\left( \mathbf{v}_{i} \right)} \right)\\
+&= \sum_{i \in \varLambda_{n}} {P_{i'} \circ P_{i}\left( \mathbf{v}_{i} \right)}\\
+&= \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} {P_{i'} \circ P_{i}\left( \mathbf{v}_{i} \right)} + P_{i'} \circ P_{i'}\left( \mathbf{v}_{i'} \right)\\
+&= \sum_{i \in \varLambda_{n} \setminus \left\{ i' \right\}} \mathbf{0} + P_{i'} \circ P_{i'}\left( \mathbf{v}_{i'} \right)\\
+&= P_{i'} \circ P_{i'}\left( \mathbf{v}_{i'} \right)
+\end{align*}
+定理\ref{2.2.1.9}よりその線形写像$P_{i'}$は射影子でもあるので、次のようになる。
+\begin{align*}
+P_{i'}\left( \mathbf{z} \right) &= P_{i'}\left( \sum_{i \in \varLambda_{n}} {P_{i}\left( \mathbf{v}_{i} \right)} \right)\\
+&= P_{i'} \circ P_{i'}\left( \mathbf{v}_{i'} \right)\\
+&= P_{i'}\left( \mathbf{v}_{i'} \right)
+\end{align*}
+よって、$\forall i \in \varLambda_{n}$に対し、その線形写像$P_{i}$はいづれもそのvector空間$V$からその直和因子$V\left( P_{i} \right)$への直和分解から定まる射影でもある。
+\end{proof}
+%\hypertarget{ux88dcux7a7aux9593}{%
+\subsubsection{補空間}%\label{ux88dcux7a7aux9593}}
+\begin{dfn}
+体$K$上のvector空間$V$の部分空間たちが$U$、$W$と与えられたとき、$V = U \oplus W$が成り立つなら、その部分空間$W$はそのvector空間$V$におけるその部分空間$U$の補空間という。
+\end{dfn}
+\begin{thm}\label{2.2.1.11}
+体$K$上の$n$次元vector空間$V$の部分空間$W$が与えられたとき、そのvector空間$V$におけるその部分空間$W$の補空間は存在する。
+\end{thm}\par
+ただし、その存在は一意的でない。例えば、次式が成り立つ。
+\begin{align*}
+\mathbb{R}^{2} &= {\mathrm{span} }\left\{ \begin{pmatrix}
+1 \\
+1 \\
+\end{pmatrix} \right\} \oplus {\mathrm{span} }\left\{ \begin{pmatrix}
+1 \\
+0 \\
+\end{pmatrix} \right\}\\
+&= {\mathrm{span} }\left\{ \begin{pmatrix}
+1 \\
+1 \\
+\end{pmatrix} \right\} \oplus {\mathrm{span} }\left\{ \begin{pmatrix}
+0 \\
+1 \\
+\end{pmatrix} \right\}
+\end{align*}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$の部分空間$W$が与えられたとき、その$r$次元部分空間$W$の基底を$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{r}}$とすると、そのvector空間$V$の基底が$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{n}}$と与えられることができるのであった。このとき、集合${\mathrm{span} }\left\{ \mathbf{u}_{i}' \right\}_{i \in \varLambda_{n - r}}$について、定理\ref{2.2.1.6}より次のようになる。
+\begin{align*}
+V &= \bigoplus_{i \in \varLambda_{r}} {{\mathrm{span} }\left\{ \mathbf{u}_{i} \right\}} \oplus \bigoplus_{i \in \varLambda_{n - r}} {{\mathrm{span} }\left\{ \mathbf{u}_{i}' \right\}}\\
+&= W \oplus {\mathrm{span} }\left\{ \mathbf{u}_{i}' \right\}_{i \in \varLambda_{n - r}}
+\end{align*}
+よって、そのvector空間$V$におけるその部分空間$W$の1つの補空間が${\mathrm{span} }\left\{ \mathbf{u}_{i}' \right\}_{i \in \varLambda_{n - r}}$で与えられる。
+\end{proof}
+\begin{thm}\label{2.2.1.12}
+体$K$上の$n$次元vector空間$V$の線形写像$f:V \rightarrow V$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $V = \ker f \oplus V(f)$が成り立つ。
+\item
+  $\ker f \cap V(f) = \left\{ \mathbf{0} \right\}$が成り立つ。
+\item
+  $\ker{f \circ f} = \ker f$が成り立つ。
+\item
+  $V(f \circ f) = V(f)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$の線形写像$f:V \rightarrow V$が与えられたとき、$V = \ker f \oplus V(f)$が成り立つなら、次元公式と定理\ref{2.2.1.2}より$\ker f \cap V(f) = \left\{ \mathbf{0} \right\}$が成り立つ。\par
+$\ker f \cap V(f) = \left\{ \mathbf{0} \right\}$が成り立つなら、$\forall\mathbf{v} \in \ker{f \circ f}$に対し、$f \circ f\left( \mathbf{v} \right) = \mathbf{0}$が成り立つことになるので、$f\left( \mathbf{v} \right) \in \ker f$が成り立つかつ、$f\left( \mathbf{v} \right) \in V(f)$が成り立つ。これにより、$f\left( \mathbf{v} \right) = 0$となり、したがって、$\mathbf{v} \in \ker f$が成り立つ。逆に、$\forall\mathbf{v} \in \ker f$に対し、$\mathbf{v} \in \ker f$が成り立つなら、$f\left( \mathbf{v} \right) = \mathbf{0}$が成り立ち、その写像$f$は線形的であるから、したがって、$f \circ f\left( \mathbf{v} \right) = \mathbf{0}$が成り立つ。これにより、$\mathbf{v} \in \ker{f \circ f}$が得られる。以上より、$\ker{f \circ f} = \ker f$が得られる。\par
+$\ker{f \circ f} = \ker f$が成り立つなら、その核$\ker f$の基底を$\dim{\ker f} = r$として$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{r}}$とおくと、そのvector空間$V$の基底は定理\ref{2.1.1.22}より$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれることができ、次元公式より次式が成り立ち、
+\begin{align*}
+\dim{\ker f} + \dim{V(f)} = \dim{\ker{f \circ f}} + \dim{V(f \circ f)} = \dim V
+\end{align*}
+したがって、$\dim{V(f \circ f)} = \dim{V(f)}$が成り立つことになる。$\forall\mathbf{v} \in V(f \circ f)$に対し、$f \circ f\left( \mathbf{v}' \right) = \mathbf{v}$なるvector$\mathbf{v}'$がそのvector空間$V$に存在することになり、したがって、$f\left( \mathbf{v}' \right) \in V$が成り立つので、$\mathbf{v} \in V(f)$が成り立つ。これにより、$V(f \circ f) \subseteq V(f)$が得られ、定義よりその集合$V(f \circ f)$はその集合$V(f)$の部分空間であるから、定理\ref{2.1.1.22}より$V(f \circ f) = V(f)$が成り立つ。\par
+$V(f \circ f) = V(f)$が成り立つなら、明らかに$V \supseteq \ker f + V(f)$が成り立つ。一方で、$\forall\mathbf{v} \in V$に対し、$f\left( \mathbf{v} \right) = f \circ f\left( \mathbf{v}' \right)$なるvector$\mathbf{v}'$がそのvector空間$V$に存在し次のようになるので、
+\begin{align*}
+f\left( \mathbf{v} - f\left( \mathbf{v}' \right) \right) = f\left( \mathbf{v} \right) - f \circ f\left( \mathbf{v}' \right) = f\left( \mathbf{v} \right) - f\left( \mathbf{v} \right) = \mathbf{0}
+\end{align*}
+$\mathbf{v} - f\left( \mathbf{v}' \right) \in \ker f$が得られ、$\mathbf{v} = \left( \mathbf{v} - f\left( \mathbf{v}' \right) \right) + f\left( \mathbf{v}' \right)$が成り立つことにより、$V \subseteq \ker f + V(f)$が成り立つ。以上より、$V = \ker f + V(f)$が得られる。また、次元公式と定理\ref{2.2.1.4}より$V = \ker f \oplus V(f)$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.2.1.13}
+体$K$上のvector空間$V$の恒等写像$I_{V}$を用いて$f \circ f = I_{V}$なる線形写像$f:V \rightarrow V$が与えられたとき、集合たち$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\}$、$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}$はいづれもそのvector空間$V$の部分空間たちで次式が成り立つ。
+\begin{align*}
+V = \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\} \oplus \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}
+\end{align*}
+これにより、例えば、次のようなものが挙げられる。
+\begin{itemize}
+\item
+  その集合$M_{mn}(K)$の恒等写像$I_{M_{mn}(K)}$について、$M_{mn}(K) = M_{mn}(K) \oplus \left\{ O_{mn} \right\}$が成り立つ。
+\item
+  共役複素数へうつす写像について、$\mathbb{C} = \mathbb{R} \oplus i\mathbb{R}$が成り立つ。
+\item
+  転置行列へうつす写像$^{t} \bullet$について、$M_{nn}(K) = {\mathrm{Sym}}_{n}(K) \oplus {\mathrm{skew}}{{\mathrm{Sym}}_{n}(K)}$が成り立つ。
+\item
+  複素共役行列へうつす写像について、$M_{nn}\left( \mathbb{C} \right) = M_{nn}\left( \mathbb{R} \right) \oplus iM_{nn}\left( \mathbb{R} \right)$が成り立つ。
+\item
+  随伴行列へうつす写像について、$M_{nn}\left( \mathbb{C} \right) = H_{n} \oplus {\mathrm{skew}}H_{n}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$の恒等写像$I_{V}$を用いて$f \circ f = I_{V}$なる線形写像$f:V \rightarrow V$が与えられたとき、$\forall k,l \in K\forall\mathbf{v},\mathbf{w} \in \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\}$に対し、$f\left( \mathbf{0} \right) = \mathbf{0}$が成り立つかつ、次のようになるので、
+\begin{align*}
+f\left( k\mathbf{v} + l\mathbf{w} \right) = kf\left( \mathbf{v} \right) + lf\left( \mathbf{w} \right) = k\mathbf{v} + l\mathbf{w}
+\end{align*}
+定義よりその集合$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\}$はそのvector空間$V$の部分空間である。同様にして、その集合$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}$もそのvector空間$V$の部分空間であることが示される。\par
+ここで、$\forall\mathbf{v} \in V$に対し、次式のようなvectors$\mathbf{u}$、$\mathbf{w}$が考えられるとする。
+\begin{align*}
+\mathbf{u} = \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2},\ \ \mathbf{w} = \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2}
+\end{align*}
+このとき、次のようになるので、
+\begin{align*}
+f\left( \mathbf{u} \right) &= f\left( \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} \right)\\
+&= \frac{f\left( \mathbf{v} \right) + f\left( f\left( \mathbf{v} \right) \right)}{2}\\
+&= \frac{f \circ f\left( \mathbf{v} \right) + f\left( \mathbf{v} \right)}{2}\\
+&= \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} = \mathbf{u}\\
+f\left( \mathbf{w} \right) &= f\left( \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2} \right)\\
+&= \frac{f\left( \mathbf{v} \right) - f\left( f\left( \mathbf{v} \right) \right)}{2}\\
+&= - \frac{f \circ f\left( \mathbf{v} \right) - f\left( \mathbf{v} \right)}{2}\\
+&= - \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2} = - \mathbf{w}
+\end{align*}
+それらのvectors$\mathbf{u}$、$\mathbf{w}$はそれぞれそれらの集合たち$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\}$、$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}$に属する。\par
+さらに、次のようになるので、
+\begin{align*}
+\mathbf{v} &= \frac{2\mathbf{v}}{2}\\
+&= \frac{\mathbf{v} + f\left( \mathbf{v} \right) + \mathbf{v} - f\left( \mathbf{v} \right)}{2}\\
+&= \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} + \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2}\\
+&= \mathbf{u} + \mathbf{w}
+\end{align*}
+そのvector$\mathbf{v}$はそれらのvectors$\mathbf{u}$、$\mathbf{w}$の和として表されることができる。\par
+最後に、そのvector$\mathbf{v}$はそれらの集合たち$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\}$、$\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}$の元々$\mathbf{u}$、$\mathbf{w}$の和として表されることができるとき、次のようになるので、
+\begin{align*}
+f\left( \mathbf{v} \right) &= f\left( \mathbf{u} + \mathbf{w} \right)\\
+&= f\left( \mathbf{u} \right) + f\left( \mathbf{w} \right)\\
+&= \mathbf{u} - \mathbf{w}
+\end{align*}
+$\mathbf{v} = \mathbf{u} + \mathbf{w}$かつ$f\left( \mathbf{v} \right) = \mathbf{u} - \mathbf{w}$が得られる。これにより、次のようになるので、
+\begin{align*}
+\left\{ \begin{matrix}
+\mathbf{v} = \mathbf{u} + \mathbf{w} \\
+f\left( \mathbf{v} \right) = \mathbf{u} - \mathbf{w} \\
+\end{matrix} \right.\  &\Leftrightarrow \left\{ \begin{matrix}
+\mathbf{v} + f\left( \mathbf{v} \right) = 2\mathbf{u} \\
+\mathbf{v} - f\left( \mathbf{v} \right) = 2\mathbf{w} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\mathbf{u} = \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} \\
+\mathbf{w} = \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2} \\
+\end{matrix} \right.
+\end{align*}
+そのvector$\mathbf{v}$はそれらのvectors$\mathbf{u}$、$\mathbf{w}$の和として一意的に表されることができる。以上より、次式が成り立つ。
+\begin{align*}
+V = \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\} \oplus \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.2.1.14}
+体$K$上の有限次元なvector空間$V$の恒等写像$I_{V}$を用いて$f \circ f = I_{V}$なる線形写像$f:V \rightarrow V$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\dim{V\left( f - I_{V} \right)} + \dim{V\left( f + I_{V} \right)} = \dim V
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上の有限次元なvector空間$V$の恒等写像$I_{V}$を用いて$f \circ f = I_{V}$なる線形写像$f:V \rightarrow V$が与えられたとき、定理\ref{2.2.1.13}より次式が成り立つ。
+\begin{align*}
+V = \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\} \oplus \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}
+\end{align*}
+定理\ref{2.2.1.4}より次のようになる。
+\begin{align*}
+\dim V &= \dim{\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\} \oplus \left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}}\\
+&= \dim\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = \mathbf{v} \right\} + \dim\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) = - \mathbf{v} \right\}\\
+&= \dim\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) - \mathbf{v} = \mathbf{0} \right\} + \dim\left\{ \mathbf{v} \in V \middle| f\left( \mathbf{v} \right) + \mathbf{v} = \mathbf{0} \right\}\\
+&= \dim\left\{ \mathbf{v} \in V \middle| \left( f - I_{V} \right)\left( \mathbf{v} \right) = \mathbf{0} \right\} + \dim\left\{ \mathbf{v} \in V \middle| \left( f + I_{V} \right)\left( \mathbf{v} \right) = \mathbf{0} \right\}\\
+&= \dim{\ker\left( f - I_{V} \right)} + \dim{\ker\left( f - I_{V} \right)}
+\end{align*}
+ここで、次元公式より次のようになる。
+\begin{align*}
+\dim V &= \dim V - \dim{V\left( f - I_{V} \right)} + \dim V - \dim{V\left( f + I_{V} \right)}\\
+&= 2\dim V - \dim{V\left( f - I_{V} \right)} - \dim{V\left( f + I_{V} \right)}
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\dim{V\left( f - I_{V} \right)} + \dim{V\left( f + I_{V} \right)} = \dim V
+\end{align*}
+\end{proof}
+\begin{dfn}
+体$K$上の線形写像$f:M_{mn}(K) \rightarrow M_{mn}(K)$がその集合$M_{mn}(K)$の恒等写像$I_{M_{mn}(K)}$を用いて$f \circ f = I_{M_{mn}(K)}$を満たすとき、ここでは、$f\left( A_{mn} \right) = A_{mn}$を満たすような行列$A_{mn}$をその線形写像$f$について対称な行列、$f\left( A_{mn} \right) = - A_{mn}$を満たすような行列$A_{mn}$をその線形写像$f$について歪対称な行列ということにし、このような行列全体の集合をそれぞれ${\mathrm{sym} }_{mn}(f,K)$、${\mathrm{skew}}{{\mathrm{sym} }_{mn}(f,K)}$とおくことにする。
+\end{dfn}
+\begin{thm}\label{2.2.1.15}
+$f \circ f = I_{M_{mn}(K)}$なる体$K$上の線形写像$f:M_{mn}(K) \rightarrow M_{mn}(K)$について、$M_{mn}(K) = {\mathrm{sym} }_{mn}(f,K) \oplus {\mathrm{skew}}{{\mathrm{sym} }_{mn}(f,K)}$が成り立つ。
+\end{thm}
+\begin{proof} 定義と行列もまたvectorでもあることに注意すれば、定理\ref{2.2.1.13}そのものである。
+\end{proof}
+\begin{thm}\label{2.2.1.16}
+$f \circ f = I_{M_{nn}(K)}$かつ$\forall A_{nn},B_{nn} \in M_{nn}(K)$に対し、$f\left( A_{nn}B_{nn} \right) = f\left( A_{nn} \right)f\left( B_{nn} \right)$なる体$K$上の線形写像$f:M_{nn}(K) \rightarrow M_{nn}(K)$について対称な、あるいは、歪対称な行列たち$A_{nn}$、$B_{nn}$が与えられたとき、行列$A_{nn}B_{nn}$はその線形写像$f$について対称な行列である。
+\end{thm}
+\begin{proof}
+$f \circ f = I_{M_{nn}(K)}$かつ$\forall A_{nn},B_{nn} \in M_{nn}(K)$に対し、$f\left( A_{nn}B_{nn} \right) = f\left( A_{nn} \right)f\left( B_{nn} \right)$なる体$K$上の線形写像$f:M_{nn}(K) \rightarrow M_{nn}(K)$について対称な行列たち$A_{nn}$、$B_{nn}$が与えられたとき、行列$A_{nn}B_{nn}$について次のようになるので、
+\begin{align*}
+f\left( A_{nn}B_{nn} \right) = f\left( A_{nn} \right)f\left( B_{nn} \right) = A_{nn}B_{nn}
+\end{align*}
+その行列$A_{nn}B_{nn}$はその線形写像$f$について対称な行列である。その線形写像$f$について歪対称な行列たち$A_{nn}$、$B_{nn}$が与えられたときも同様にして示される。
+\end{proof}
+\begin{thm}\label{2.2.1.17}
+$f \circ f = I_{M_{nn}(K)}$かつ$\forall A_{nn},B_{nn} \in M_{nn}(K)$に対し、$f\left( A_{nn}B_{nn} \right) = f\left( B_{nn} \right)f\left( A_{nn} \right)$なる体$K$上の線形写像$f:M_{nn}(K) \rightarrow M_{nn}(K)$について対称な、あるいは、歪対称な行列たち$A_{nn}$、$B_{nn}$が与えられたとき、行列$A_{nn}B_{nn}$がその線形写像$f$について対称な行列であるならそのときに限り、$A_{nn}B_{nn} = B_{nn}A_{nn}$が成り立つ。
+\end{thm}
+\begin{proof}
+$f \circ f = I_{M_{nn}(K)}$かつ$\forall A_{nn},B_{nn} \in M_{nn}(K)$に対し、$f\left( A_{nn}B_{nn} \right) = f\left( B_{nn} \right)f\left( A_{nn} \right)$なる体$K$上の線形写像$f:M_{nn}(K) \rightarrow M_{nn}(K)$について対称な行列たち$A_{nn}$、$B_{nn}$が与えられたとき、その行列$A_{nn}B_{nn}$がその線形写像$f$について対称な行列であるならそのときに限り、$f\left( A_{nn}B_{nn} \right) = A_{nn}B_{nn}$が成り立つ。ここで、次式が成り立つことにより、
+\begin{align*}
+f\left( A_{nn}B_{nn} \right) = f\left( B_{nn} \right)f\left( A_{nn} \right) = B_{nn}A_{nn}
+\end{align*}
+これが成り立つならそのときに限り、$A_{nn}B_{nn} = B_{nn}A_{nn}$が成り立つ。その線形写像$f$について歪対称な行列たち$A_{nn}$、$B_{nn}$が与えられたときも同様にして示される。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p215-226 ISBN978-4-00-029872-8
+  \bibitem{2}
+    対馬龍司, 線形代数学講義, 共立出版, 2007. 改訂版8刷 p48-52 ISBN978-4-320-11097-7
+  \bibitem{3}
+    福井敏純. "線形代数学講義ノート". 埼玉大学. \url{http://www.rimath.saitama-u.ac.jp/lab.jp/Fukui/lectures/Linear_algebra.pdf} (2021-7-30 17:25 取得)
+  \bibitem{4}
+    大和田拓. "付録１ 人には聞けない線形代数の基礎". 京都大学. \url{https://fd.kuaero.kyoto-u.ac.jp/sites/default/files/linear_algebra.pdf} (2022-3-18 8:15 閲覧)
+  \bibitem{5}
+    桂田祐史. "3.1.1 代数的直和、代数的補空間、代数的射影作用素". 明治大学. \url{http://nalab.mind.meiji.ac.jp/~mk/labo/text/functional-analysis-3/node16.html} (2022-3-18 8:05 閲覧)
+\end{thebibliography}
+\end{document}

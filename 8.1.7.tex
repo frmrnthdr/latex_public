@@ -1,0 +1,537 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{6}
+\usepackage{xr}
+\externaldocument{8.1.1}
+\externaldocument{8.1.3}
+\externaldocument{8.1.4}
+\externaldocument{8.1.6}
+\input{macro}
+\begin{document}
+%\hypertarget{ux5206ux96e2ux516cux7406}{%
+\subsection{分離公理}%\label{ux5206ux96e2ux516cux7406}}
+%\hypertarget{ux6b63ux898fux7a7aux9593}{%
+\subsubsection{正規空間}%\label{ux6b63ux898fux7a7aux9593}}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在する、または、$a \notin V$なるその元$b$の近傍$V$が存在するという条件を第0分離公理、Kolmogorovの公理といいこれを満たすような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{0}$-空間、Kolmogorov空間という。
+\end{dfn}
+\begin{thm}\label{8.1.7.1}
+$\mathrm{T}_{0}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間も$\mathrm{T}_{0}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{0}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$が与えられたとき、$\forall a,b \in M$に対し、$a \neq b$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$における$b \notin V$なるその元$a$の近傍$V$が存在するとしても一般性は失われない。このとき、集合$V \cap M$はその部分位相空間$\left( M,\mathfrak{O}_{M} \right)$の$b \notin V \cap M$なるその元$a$の近傍であるから、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$も$\mathrm{T}_{0}$-空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在するという条件を第1分離公理、Fréchetの公理といい\footnote{フランス人の人名なのでフヘシェと読むのかな…? 知っている方がいたら教えてください…。}これを満たすような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{1}$-空間、Fréchetな位相空間、到着可能空間、迫接空間という\footnote{解析学で全く違う意味のFréchet空間というものがあるので、そうとはいわないことに注意して…。}。
+\end{dfn}
+\begin{thm}\label{8.1.7.2}
+$\mathrm{T}_{1}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{0}$-空間である。
+\end{thm}
+\begin{proof} 定義より明らかである。
+\end{proof}
+\begin{thm}\label{8.1.7.3}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が$\mathrm{T}_{1}$-空間である。
+\item
+  $\forall a \in S$に対し、その元$a$の近傍全体の集合を$\mathbf{V}(a)$とおくとき、$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立つ。
+\item
+  $\forall a \in S$に対し、集合$\left\{ a \right\}$はその位相空間$\left( S,\mathfrak{O} \right)$での閉集合である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$が$\mathrm{T}_{1}$-空間であるとする。$\forall a \in S$に対し、その元$a$の近傍全体の集合を$\mathbf{V}(a)$とおくとき、$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立たないと仮定しよう。ここで、その集合$\bigcap_{} {\mathbf{V}(a)}$が空集合であるとき、これは定理\ref{8.1.1.24}に矛盾するので、その集合$\bigcap_{} {\mathbf{V}(a)}$は空集合でない。このとき、$b \in \bigcap_{} {\mathbf{V}(a)}$なるその元$a$とは異なる元$b$がその集合$S$に存在する。ここで、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{1}$-空間であるから、$b \notin V$なるその元$a$の近傍$V$が存在する。このとき、$\bigcap_{} {\mathbf{V}(a)} \subseteq V$が成り立たなくなるので、矛盾する。したがって、$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立つ。逆に、$\forall a \in S$に対し、その元$a$の近傍全体の集合を$\mathbf{V}(a)$とおくとき、$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立つかつ、$\exists a,b \in S$に対し、$a \neq b$が成り立つかつ、$\forall V \in \mathbf{V}(a)$に対し、$b \in V$が成り立つと仮定すると、$b \in \bigcap_{} {\mathbf{V}(a)}$が成り立つことになるが、これは$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立つことに矛盾する。したがって、$\forall a \in S$に対し、$\bigcap_{} {\mathbf{V}(a)} = \left\{ a \right\}$が成り立つなら、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在するので、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{1}$-空間でもある。\par
+その位相空間$\left( S,\mathfrak{O} \right)$が$\mathrm{T}_{1}$-空間であるとする。$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$a \notin V$なるその元$b$の近傍$V$が存在するので、$V \cap \left\{ a \right\} = \emptyset$が成り立ち定理\ref{8.1.1.10}より$b \notin {\mathrm{cl}}\left\{ a \right\}$が成り立つ。対偶律より${\mathrm{cl}}\left\{ a \right\} \subseteq \left\{ a \right\}$が成り立つので、$\left\{ a \right\} = {\mathrm{cl}}\left\{ a \right\}$が得られ、よって、$\forall a \in S$に対し、集合$\left\{ a \right\}$はその位相空間$\left( S,\mathfrak{O} \right)$での閉集合である。逆に、$\forall b \in S$に対し、集合$\left\{ b \right\}$はその位相空間$\left( S,\mathfrak{O} \right)$での閉集合であるなら、集合$S \setminus \left\{ b \right\}$は開集合で$a \in S \setminus \left\{ b \right\}$かつ$b \notin S \setminus \left\{ b \right\}$が成り立つので、その集合$S \setminus \left\{ b \right\}$はその元$a$の近傍である。したがって、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在するので、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{1}$-空間でもある。
+\end{proof}
+\begin{thm}\label{8.1.7.4}
+$\mathrm{T}_{1}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間も$\mathrm{T}_{1}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{1}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$が与えられたとき、$\forall a,b \in M$に対し、$a \neq b$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$における$b \notin V_{a}$なるその元$a$の近傍$V_{a}$が存在する。このとき、集合$V_{a} \cap M$はその部分位相空間$\left( M,\mathfrak{O}_{M} \right)$の$b \notin V_{a} \cap M$なるその元$a$の近傍であることになる。その元$b$の近傍$V_{b}$についても同様にして示される。よって、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$も$\mathrm{T}_{1}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.5}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が$\mathrm{T}_{1}$-空間であるならそのときに限り、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が$\mathrm{T}_{1}$-空間である。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が$\mathrm{T}_{1}$-空間であるなら、$\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda},\left( b_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda} S_{\lambda}$に対し、$\left( a_{\lambda} \right)_{\lambda \in \varLambda} \neq \left( b_{\lambda} \right)_{\lambda \in \varLambda}$が成り立つなら、$a_{\lambda} \neq b_{\lambda}$なる添数全体の集合を$\varLambda'$とおくと、$\forall\lambda \in \varLambda'$に対し、$b_{\lambda} \notin V_{\lambda}$なるその元$a_{\lambda}$の近傍$V_{\lambda}$が存在する。その添数集合$\varLambda'$の有限集合な部分集合である添数集合$\varLambda''$を用いた集合$\prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} V_{\lambda}$は定理\ref{8.1.4.18}よりその元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$の近傍となるのであった。このとき、$\left( b_{\lambda} \right)_{\lambda \in \varLambda} \notin \prod_{\lambda \in \varLambda \setminus \varLambda''} V_{\lambda} \times \prod_{\lambda \in \varLambda''} V_{\lambda}$が成り立つので、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$も$\mathrm{T}_{1}$-空間となる。\par
+逆に、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が$\mathrm{T}_{1}$-空間であるなら、$\forall\lambda' \in \varLambda'$に対し、部分位相空間$\left( S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\},\mathfrak{O}_{S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}} \right)$も$\mathrm{T}_{1}$-空間であるので、$\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda},\left( b_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda} S_{\lambda}$に対し、$\left( a_{\lambda} \right)_{\lambda \in \varLambda} \neq \left( b_{\lambda} \right)_{\lambda \in \varLambda}$が成り立つなら、定理\ref{8.1.4.18}より$\left( b_{\lambda} \right)_{\lambda \in \varLambda} \notin V_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}$が成り立つようなその元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$の近傍が存在することになり、このとき、$b_{\lambda'} \notin V_{\lambda'}$が成り立つようなその元$a_{\lambda'}$の近傍が存在する。よって、その位相空間$\left( S_{\lambda'},\mathfrak{O}_{\lambda'} \right)$も$\mathrm{T}_{1}$-空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在するという条件を第2分離公理、Hausdorffの公理といいこれを満たすような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{2}$-空間、Hausdorff空間という。
+\end{dfn}
+\begin{thm}\label{8.1.7.6}
+$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{1}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、定理\ref{8.1.6.8}より$\forall a \in S$に対し、集合$\left\{ a \right\}$はその$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$での閉集合となるのであった。ここで、定理\ref{8.1.7.1}より$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{1}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.7}
+$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間も$\mathrm{T}_{2}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$が与えられたとき、$\forall a,b \in M$に対し、$a \neq b$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$における$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在する。このとき、集合たち$V_{a} \cap M$、$V_{b} \cap M$はそれぞれその部分位相空間$\left( M,\mathfrak{O}_{M} \right)$における$\left( V_{a} \cap M \right) \cap \left( V_{b} \cap M \right) = \emptyset$なるそれらの元々$a$、$b$の近傍たちであることになる。よって、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$も$\mathrm{T}_{2}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.8}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が$\mathrm{T}_{2}$-空間であるならそのときに限り、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が$\mathrm{T}_{2}$-空間である。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が$\mathrm{T}_{2}$-空間であるなら、$\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda},\left( b_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda} S_{\lambda}$に対し、$\left( a_{\lambda} \right)_{\lambda \in \varLambda} \neq \left( b_{\lambda} \right)_{\lambda \in \varLambda}$が成り立つなら、$a_{\lambda} \neq b_{\lambda}$なる添数全体の集合を$\varLambda'$とおくと、$\forall\lambda \in \varLambda'$に対し、${V_{a}}_{\lambda} \cap {V_{b}}_{\lambda} = \emptyset$なるそれらの元々$a_{\lambda}$、$b_{\lambda}$の近傍たちそれぞれ${V_{a}}_{\lambda}$、${V_{b}}_{\lambda}$が存在する。その添数集合$\varLambda'$の有限集合な部分集合である添数集合$\varLambda''$を用いた集合たち$\prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} {V_{a}}_{\lambda}$、$\prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} {V_{b}}_{\lambda}$は定理\ref{8.1.4.18}よりそれぞれそれらの元々$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$、$\left( b_{\lambda} \right)_{\lambda \in \varLambda}$の近傍となるのであった。このとき、次式が成り立つので、
+\begin{align*}
+\left( \prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} {V_{a}}_{\lambda} \right) \cap \left( \prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} {V_{b}}_{\lambda} \right) &= \prod_{\lambda \in \varLambda \setminus \varLambda''} \left( S_{\lambda} \cap S_{\lambda} \right) \times \prod_{\lambda \in \varLambda''} \left( {V_{a}}_{\lambda} \cap {V_{b}}_{\lambda} \right)\\
+&= \prod_{\lambda \in \varLambda \setminus \varLambda''} S_{\lambda} \times \prod_{\lambda \in \varLambda''} \emptyset = \emptyset
+\end{align*}
+その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$も$\mathrm{T}_{2}$-空間となる。\par
+逆に、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が$\mathrm{T}_{2}$-空間であるなら、$\forall\lambda' \in \varLambda'$に対し、部分位相空間$\left( S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\},\mathfrak{O}_{S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}} \right)$も$\mathrm{T}_{2}$-空間であるので、$\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda},\left( b_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda} S_{\lambda}$に対し、$\left( a_{\lambda} \right)_{\lambda \in \varLambda} \neq \left( b_{\lambda} \right)_{\lambda \in \varLambda}$が成り立つなら、定理\ref{8.1.4.18}より$\left( {V_{a}}_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \right) \cap \left( {V_{b}}_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \right) = \emptyset$が成り立つようなそれらの元々$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$、$\left( b_{\lambda} \right)_{\lambda \in \varLambda}$の近傍が存在することになり、このとき、次式のようになる。
+\begin{align*}
+\left( {V_{a}}_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \right) \cap \left( {V_{b}}_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \right) &= \left( {V_{a}}_{\lambda'} \cap {V_{b}}_{\lambda'} \right) \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} {\left\{ a_{\lambda} \right\} \cap \left\{ a_{\lambda} \right\}}\\
+&= \left( {V_{a}}_{\lambda'} \cap {V_{b}}_{\lambda'} \right) \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} = \emptyset
+\end{align*}
+したがって、${V_{a}}_{\lambda'} \cap {V_{b}}_{\lambda'} = \emptyset$が成り立つので、よって、その位相空間$\left( S_{\lambda'},\mathfrak{O}_{\lambda'} \right)$も$\mathrm{T}_{2}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.9}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が$\mathrm{T}_{2}$-空間である。
+\item
+  $\forall a \in S$に対し、閉集合系、その元$a$の近傍全体の集合をそれぞれ$\mathfrak{A}$、$\mathbf{V}(a)$とおくとき、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$が$\mathrm{T}_{2}$-空間であるとするなら、$\exists a \in S$に対し、閉集合系、その元$a$の近傍全体の集合をそれぞれ$\mathfrak{A}$、$\mathbf{V}(a)$とおくとき、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立たないと仮定すると、$\forall b \in S$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在するので、定理\ref{8.1.1.10}より${\mathrm{cl}}\left( V_{a} \right) \cap V_{b} = \emptyset$が成り立つ。ここで、その集合$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right)$が空集合であるとき、これは定理\ref{8.1.1.24}に矛盾するので、その集合$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right)$は空集合でない。これにより、$b \in \bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right)$なるその元$a$とは異なる元$b$がその集合$S$に存在することになる。しかしながら、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) \subseteq {\mathrm{cl}}\left( V_{a} \right)$が成り立つことにより、これは${\mathrm{cl}}\left( V_{a} \right) \cap V_{b} = \emptyset$が成り立つようなそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在しないことになり矛盾する。よって、$\forall a \in S$に対し、閉集合系、その元$a$の近傍全体の集合をそれぞれ$\mathfrak{A}$、$\mathbf{V}(a)$とおくとき、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立つ。逆に、$\forall a \in S$に対し、その元$a$の近傍全体の集合を$\mathbf{V}(a)$とおくとき、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立つかつ、$\exists a,b \in S$に対し、$a \neq b$が成り立つかつ、$\forall V \in \mathbf{V}(a)\mathfrak{\cap A}$に対し、$b \in V$が成り立つと仮定すると、$b \in \bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right)$が成り立つことになるが、これは$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立つことに矛盾する。したがって、$\forall a \in S$に対し、$\bigcap_{} \left( \mathbf{V}(a)\mathfrak{\cap A} \right) = \left\{ a \right\}$が成り立つなら、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の閉集合でもある近傍$V$が存在する。このとき、集合$S \setminus V$は開集合で$b \in S \setminus V$かつ$a \notin S \setminus V$が成り立つので、その集合$S \setminus V$はその元$a$に属されないその元$b$の近傍である。さらに、$V \cap S \setminus V = \emptyset$が成り立つ。したがって、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在する。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの閉集合系を$\mathfrak{A}$とおくと、$\forall A \in \mathfrak{A\forall}a \in S \setminus A\exists O,P \in \mathfrak{O}$に対し、$a \in O$かつ$A \subseteq P$かつ$O \cap P = \emptyset$が成り立つという条件を第3分離公理、Vietoriesの公理といいこれを満たすような位相空間$\left( S,\mathfrak{O} \right)$を正則空間、Vietories空間という\footnote{書籍によってはこれを$\mathrm{T}_{3}$-空間と呼んでいるものもあるそうです。ちなみにVietoriesはドイツ人の人名なので綴り通り(?)にヴィートル゛ィエスと読みます。}。
+\end{dfn}
+\begin{dfn}
+$\mathrm{T}_{1}$-空間であり正則空間でもあるような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{3}$-空間、正則Hausdorff空間という\footnote{書籍によってはこれを正則空間と呼んでいるものもあるそうです。結構、紛らわしいです。}。
+\end{dfn}
+\begin{thm}\label{8.1.7.10}
+$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{2}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在するとしよう。このとき、$a \in {\mathrm{int}}V$が成り立つので、その集合$S \setminus {\mathrm{int}}V$は閉集合で$a \notin S \setminus {\mathrm{int}}V$かつ$b \in S \setminus {\mathrm{int}}V$が成り立つ。したがって、$a \in O_{1}$かつ$S \setminus {\mathrm{int}}V \subseteq O_{2}$かつ$O_{1} \cap O_{2} = \emptyset$が成り立つような開集合たち$O_{1}$、$O_{2}$が存在する。このとき、$a \in {\mathrm{int}}O_{1} = O_{1}$かつ$b \in {\mathrm{int}}O_{2} = O_{2}$が成り立つので、それらの開集合たち$O_{1}$、$O_{2}$はそれぞれそれらの元々$a$、$b$の近傍である。よって、$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{2}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.11}
+正則空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間も正則空間である。
+\end{thm}
+\begin{proof}
+正則空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$の閉集合系を$\mathfrak{A}_{M}$とおくと、$\forall O \in \mathfrak{O}_{M}\exists O'\in \mathfrak{O}$に対し、$O = O' \cap M$が成り立つかつ、$\forall A \in \mathfrak{A}_{M}\exists A'\in \mathfrak{A}$に対し、$A = A' \cap M$が成り立つ。ここで、$\forall a \in M \setminus A$に対し、$a \in S \setminus A'$が成り立つので、$\exists O',P' \in \mathfrak{O}_{M}$に対し、$a \in O'$かつ$A' \subseteq P'$かつ$O' \cap P' = \emptyset$が成り立つ。このとき、もちろん、$A \cap M \subseteq P' \cap M$かつ$\left( O' \cap M \right) \cap \left( P' \cap M \right) = \emptyset$が成り立つ。よって、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$も正則空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.12}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が正則空間である。
+\item
+  $\forall a \in S\forall O \in \mathfrak{O}$に対し、$a \in O$が成り立つなら、$\exists O'\in \mathfrak{O}$に対し、$a \in O'$かつ${\mathrm{cl}}O' \subseteq O$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$が正則空間であるとするとき、$\forall a \in S\forall O \in \mathfrak{O}$に対し、$a \in O$が成り立つなら、集合$S \setminus O$は閉集合で$a \notin S \setminus O$が成り立つ。したがって、$\exists O',P'\in \mathfrak{O}$に対し、$a \in O'$かつ$S \setminus O \subseteq P'$かつ$O' \cap P' = \emptyset$が成り立つ。このとき、$O' \subseteq S \setminus P'$が成り立ちその集合$S \setminus P'$は閉集合であるから、${\mathrm{cl}}O' \subseteq {\mathrm{cl}}\left( S \setminus P' \right) = S \setminus P'$が成り立つ。このとき、$S \setminus O \subseteq P'$が成り立つので、${\mathrm{cl}}O' \subseteq S \setminus P' \subseteq O$が成り立つ。\par
+逆に、$\forall a \in S\forall O \in \mathfrak{O}$に対し、$a \in O$が成り立つなら、$\exists O'\in \mathfrak{O}$に対し、$a \in O'$かつ${\mathrm{cl}}O' \subseteq O$が成り立つとき、その位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくと、$\forall A \in \mathfrak{A\forall}a \in S \setminus A$に対し、集合$S \setminus A$は開集合で$a \in S \setminus A$が成り立つので、$\exists O'\in \mathfrak{O}$に対し、$a \in O'$かつ${\mathrm{cl}}O' \subseteq S \setminus A$が成り立つ。そこで、次式が成り立つことから、
+\begin{align*}
+A = S \setminus (S \setminus A) \subseteq S \setminus {\mathrm{cl}}\left( O' \right)
+\end{align*}
+$a \in O'$かつ$A \subseteq S \setminus {\mathrm{cl}}O'$かつ$O' \cap S \setminus {\mathrm{cl}}O' = \emptyset$が成り立つような開集合たち$O'$、$S \setminus {\mathrm{cl}}O'$が存在する。
+\end{proof}
+\begin{thm}\label{8.1.7.13}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が正則空間であるならそのときに限り、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が正則空間である。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が正則空間であるなら、$\forall O \in \mathfrak{O}\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda} \in O$に対し、定理\ref{8.1.4.16}より有限集合である添数集合$\varLambda'$を用いて初等開集合$\prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} O_{\lambda}$が次式を満たすようにとられると、
+\begin{align*}
+\left( a_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} O_{\lambda} \subseteq O
+\end{align*}
+$\forall\lambda \in \varLambda'$に対し、$a_{\lambda} \in O_{\lambda}$が成り立つので、定理\ref{8.1.7.12}より$a_{\lambda} \in O_{\lambda}'$かつ${\mathrm{cl}}O_{\lambda}' \subseteq O_{\lambda}$なるその位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$の開集合$O_{\lambda}'$が存在する。したがって、定理\ref{8.1.4.20}より次のようになるので、
+\begin{align*}
+\left( a_{\lambda} \right)_{\lambda \in \varLambda} &\in \prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} O_{\lambda}',\\
+{\mathrm{cl}}\left( \prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} O_{\lambda}' \right) &= \prod_{\lambda \in \varLambda \setminus \varLambda'} {{\mathrm{cl}}S_{\lambda}} \times \prod_{\lambda \in \varLambda'} {{\mathrm{cl}}O_{\lambda}'}\\
+&= \prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} {{\mathrm{cl}}O_{\lambda}'}\\
+&\subseteq \prod_{\lambda \in \varLambda \setminus \varLambda'} S_{\lambda} \times \prod_{\lambda \in \varLambda'} O_{\lambda}
+\end{align*}
+定理\ref{8.1.7.12}よりその直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$も正則空間となる。\par
+逆に、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が正則空間であるなら、$\forall\lambda' \in \varLambda'$に対し、部分位相空間$\left( S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\},\mathfrak{O}_{S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}} \right)$も定理\ref{8.1.7.11}より正則空間であるので、$\forall O_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \in \mathfrak{O}_{S_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}}\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda} \in O$に対し、定理\ref{8.1.4.18}より次式を満たすような開集合$O_{\lambda'}' \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}$が存在する。
+\begin{align*}
+\left( a_{\lambda} \right)_{\lambda \in \varLambda} &\in O_{\lambda'}' \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\},\\
+{\mathrm{cl}}\left( O_{\lambda'}' \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\} \right) &= {\mathrm{cl}}O_{\lambda'}' \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}\\
+&\subseteq O_{\lambda'} \times \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left\{ a_{\lambda} \right\}
+\end{align*}
+したがって、$a_{\lambda'} \in O_{\lambda'}'$かつ${\mathrm{cl}}O_{\lambda'}' \subseteq O_{\lambda'}$が存在するので、定理\ref{8.1.7.12}よりその位相空間$\left( S_{\lambda'},\mathfrak{O}_{\lambda'} \right)$も正則空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの閉集合系を$\mathfrak{A}$とおくと、$\forall A,B\in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つなら、$\exists O,P \in \mathfrak{O}$に対し、$A \subseteq O$かつ$B \subseteq P$かつ$O \cap P = \emptyset$が成り立つという条件を第4分離公理、Tietzeの公理といいこれを満たすような位相空間$\left( S,\mathfrak{O} \right)$を正規空間、Tietze空間という\footnote{正規空間$\left( S,\mathfrak{O} \right)$の任意の部分位相空間は正規空間であるとは限らないし、添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとき、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$が正規空間であるならそのときに限り、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$が正規空間であるとも限らない。実際に証明しようとすると、$\forall A,B\in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つという条件で詰むと思われるであろう…。たぶん。あっ、こいつも$\mathrm{T}_{4}$-空間と呼ぶ書籍もあるんだとかないんだとか…。}。
+\end{dfn}
+\begin{dfn}
+$\mathrm{T}_{1}$-空間であり正規空間でもあるような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{4}$-空間、正規Hausdorff空間という\footnote{予想ができた方もいらっしゃるかと思いますが、もちろん、こいつを正規空間と呼んでやがる書籍もあります。どうしてこうなった。}。
+\end{dfn}
+\begin{thm}\label{8.1.7.14}
+$\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{3}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall A \in \mathfrak{A\forall}a \in S \setminus A$に対し、定理\ref{8.1.7.2}より集合$\left\{ a \right\}$は閉集合で$\left\{ a \right\} \cap A = \emptyset$が成り立つので、$\exists O,P \in \mathfrak{O}$に対し、$\left\{ a \right\} \subseteq O$かつ$A \subseteq P$かつ$O \cap P = \emptyset$が成り立つ。これにより、$a \in O$かつ$A \subseteq P$かつ$O \cap P = \emptyset$が成り立つことがいえたので、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{3}$-空間でもある。
+\end{proof}
+\begin{thm}\label{8.1.7.15}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が正規空間である。
+\item
+  閉集合系を$\mathfrak{A}$とおくと、$\forall A \in \mathfrak{A\forall}O \in \mathfrak{O}$に対し、$A \subseteq O$が成り立つなら、$\exists O'\in \mathfrak{O}$に対し、$A \subseteq O'$かつ${\mathrm{cl}}O' \subseteq O$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その位相空間$\left( S,\mathfrak{O} \right)$が正規空間であるとするとき、閉集合系を$\mathfrak{A}$とおくと、$\forall A \in \mathfrak{A\forall}O \in \mathfrak{O}$に対し、$A \subseteq O$が成り立つなら、集合$S \setminus O$は閉集合で$A \cap S \setminus O = \emptyset$が成り立つ。したがって、$\exists O',P'\in \mathfrak{O}$に対し、$A \subseteq O'$かつ$S \setminus O \subseteq P'$かつ$O' \cap P' = \emptyset$が成り立つ。このとき、$O' \subseteq S \setminus P'$が成り立ちその集合$S \setminus P'$は閉集合であるから、${\mathrm{cl}}O' \subseteq {\mathrm{cl}}\left( S \setminus P' \right) = S \setminus P'$が成り立つ。このとき、$S \setminus O \subseteq P'$が成り立つので、${\mathrm{cl}}O' \subseteq S \setminus P' \subseteq O$が成り立つ。\par
+逆に、$\forall A \in \mathfrak{A\forall}O \in \mathfrak{O}$に対し、$A \subseteq O$が成り立つなら、$\exists O'\in \mathfrak{O}$に対し、$A \subseteq O'$かつ${\mathrm{cl}}O' \subseteq O$が成り立つとしよう。このとき、$\forall A',B'\in \mathfrak{A}$に対し、$A' \cap B' = \emptyset$が成り立つなら、集合$S \setminus B'$は開集合で$A' \subseteq S \setminus B'$が成り立つので、$\exists O'\in \mathfrak{O}$に対し、$A' \subseteq O'$かつ${\mathrm{cl}}O' \subseteq S \setminus B'$が成り立つ。そこで、次式が成り立つことから、
+\begin{align*}
+B' = S \setminus \left( S \setminus B' \right) \subseteq S \setminus {\mathrm{cl}}O'
+\end{align*}
+$A' \subseteq O'$かつ$B' \subseteq S \setminus {\mathrm{cl}}O'$かつ$O' \cap S \setminus {\mathrm{cl}}O' = \emptyset$が成り立つような開集合たち$O'$、$S \setminus {\mathrm{cl}}O'$が存在する。
+\end{proof}
+%\hypertarget{ux5206ux96e2ux516cux7406ux306bux95a2ux3059ux308bux4e8cux5b9aux7406}{%
+\subsubsection{分離公理に関する二定理}%\label{ux5206ux96e2ux516cux7406ux306bux95a2ux3059ux308bux4e8cux5b9aux7406}}
+\begin{thm}\label{8.1.7.16} compact空間である$\mathrm{T}_{2}$-空間は$\mathrm{T}_{4}$-空間である。
+\end{thm}
+\begin{proof}
+compact空間である$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの閉集合系を$\mathfrak{A}$とおく。その$\mathrm{T}_{2}$-空間はもちろん$\mathrm{T}_{1}$-空間でもある。$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間であるから、定理\ref{8.1.6.4}より部分位相空間たち$\left( A,\mathfrak{O}_{A} \right)$、$\left( B,\mathfrak{O}_{B} \right)$はcompact空間である。さらに、$\forall a \in A\forall b \in B$に対し、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{2}$-空間であるから、$U_{b}(a) \cap V_{a}(b) = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$U_{b}(a)$、$V_{a}(b)$が存在する。ここで、近傍の定義に注意すれば族$\left\{ {\mathrm{int}}{V_{a}(b)} \right\}_{b \in B}$は$B \subseteq \bigcup_{b \in B} {{\mathrm{int}}{V_{a}(b)}}$を満たすが、その部分位相空間$\left( B,\mathfrak{O}_{B} \right)$はcompact空間であるから、集合$B$の有限集合である部分集合$B'$を用いた族$\left\{ {\mathrm{int}}{V_{a}(b)} \right\}_{b \in B' }$も$B \subseteq \bigcup_{b \in B'} {{\mathrm{int}}{V_{a}(b)}}$を満たすので、次のことが成り立つ。
+\begin{align*}
+a \in \bigcap_{b \in B'} {{\mathrm{int}}{U_{b}(a)}},\ \ B \subseteq \bigcup_{b \in B'} {{\mathrm{int}}{V_{a}(b)}},\ \ \bigcap_{b \in B'} {{\mathrm{int}}{U_{b}(a)}} \cap \bigcup_{b \in B'} {{\mathrm{int}}{V_{a}(b)}} = \emptyset
+\end{align*}
+ここで、近傍の定義に注意すれば族$\left\{ \bigcap_{b \in B'} {{\mathrm{int}}{U_{b}(a)}} \right\}_{a \in A}$は$A \subseteq \bigcup_{a \in A} {\bigcap_{b \in B'} {{\mathrm{int}}{U_{b}(a)}}}$を満たすが、その部分位相空間$\left( A,\mathfrak{O}_{A} \right)$はcompact空間であるから、集合$A$の有限集合である部分集合$A'$を用いた族$\left\{ \bigcap_{b \in B'} {{\mathrm{int}}{U_{b}(a)}} \right\}_{a \in A' }$も$A \subseteq \bigcup_{a \in A' } {\bigcap_{b \in B' } {{\mathrm{int}}{U_{b}(a)}}}$を満たすので、開集合たち$\bigcup_{a \in A' } {\bigcap_{b \in B' } {{\mathrm{int}}{U_{b}(a)}}}$、$\bigcap_{a \in A' } {\bigcup_{b \in B' } {{\mathrm{int}}{V_{a}(b)}}}$をそれぞれ$U$、$V$とおくと、$A \subseteq U$かつ$B \subseteq V$かつ$U \cap V = \emptyset$が成り立つので、その位相空間$\left( S,\mathfrak{O} \right)$は正規空間である。よって、その位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{4}$-空間でもある。
+\end{proof}
+\begin{thm}\label{8.1.7.17}
+第2可算公理を満たす正則空間$\left( S,\mathfrak{O} \right)$は正規空間である。
+\end{thm}
+\begin{proof}
+第2可算公理を満たす正則空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの閉集合系を$\mathfrak{A}$とおく。$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つとする。また、その位相$\mathfrak{O}$のたかだか可算な開基$\mathfrak{B}$が与えられたとする。$\forall a \in A$に対し、$a \in S \setminus B \in \mathfrak{O}$が成り立つので、定理\ref{8.1.7.13}より$a \in O_{a}$かつ${\mathrm{cl}}O_{a} \subseteq S \setminus B$なる開集合$O_{a}$がその位相$\mathfrak{O}$に存在する。また、その位相$\mathfrak{O}$の開基$\mathfrak{B}$が与えられているので、$a \in W_{a} \subseteq O_{a}$なる開集合$W_{a}$がその開基$\mathfrak{B}$に存在する。さらに、${\mathrm{cl}}W_{a} \subseteq {\mathrm{cl}}O_{a}$が成り立つので、${\mathrm{cl}}W_{a} \subseteq S \setminus B$が成り立つ。したがって、$B \subseteq S \setminus {\mathrm{cl}}W_{a}$が成り立つ。このようにして族$\left\{ W_{a} \right\}_{a \in A}$が得られれば、$A \subseteq \bigcup_{a \in A} W_{a}$が成り立つが、$\left\{ W_{a} \right\}_{a \in A}\subseteq \mathfrak{B}$が成り立つので、${\#}\left\{ W_{a} \right\}_{a \in A} \leq \aleph_{0}$が成り立つことになり、したがって、$\left\{ W_{a} \right\}_{a \in A} = \left\{ W_{n}' \right\}_{n \in \mathbb{N}}$と書き換えられることができる。したがって、$A \subseteq \bigcup_{n \in \mathbb{N}} W_{n}'$かつ、$\forall n \in \mathbb{N}$に対し、$B \subseteq S \setminus {\mathrm{cl}}W_{n}'$が成り立つことになる。同様にして、$B \subseteq \bigcup_{n \in \mathbb{N}} W_{n}''$かつ、$\forall n \in \mathbb{N}$に対し、$A \subseteq S \setminus {\mathrm{cl}}W_{n}''$が成り立つような族$\left\{ W_{n}'' \right\}_{n \in \mathbb{N}}$がその開基$\mathfrak{B}$の部分集合として存在する。\par
+ここで、元の列たち$\left( V_{n}' \right)_{n \in \mathbb{N}}$、$\left( V_{n}'' \right)_{n \in \mathbb{N}}$が次のように帰納法によって定義される。
+\begin{align*}
+V_{1}' = W_{1}',\ \ V_{1}'' = W_{1}'' \cap S \setminus {\mathrm{cl}}W_{1}',\ \ V_{n + 1}' = W_{n + 1}' \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}''},\ \ V_{n + 1}'' = W_{n + 1}'' \cap \bigcap_{i \in \varLambda_{n + 1}} {S \setminus {\mathrm{cl}}W_{i}'}
+\end{align*}
+このとき、$\forall n \in \mathbb{N}$に対し、$A \subseteq S \setminus {\mathrm{cl}}W_{n}''$が成り立ち、したがって、次のようになる。
+\begin{align*}
+A &= A \cap A\\
+&\subseteq \bigcup_{n \in \mathbb{N}} W_{n}' \cap A\\
+&= \bigcup_{n \in \mathbb{N}} \left( W_{n}' \cap A \right)\\
+&= \bigcup_{n \in \mathbb{N}} \left( W_{n}' \cap A \cap A \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} \left( W_{n}' \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}''} \cap A \right)\\
+&= \bigcup_{n \in \mathbb{N}} \left( V_{n}' \cap A \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} V_{n}'
+\end{align*}
+同様にして、$B \subseteq \bigcup_{n \in \mathbb{N}} V_{n}''$が成り立つ。一方で、$m > 1$のとき、
+\begin{align*}
+V_{m}' \cap V_{n}'' = W_{m}' \cap \bigcap_{i \in \varLambda_{m - 1}} {S \setminus {\mathrm{cl}}W_{i}''} \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}'}
+\end{align*}
+$m > n$のとき、$n \in \varLambda_{m - 1}$が成り立つので、
+\begin{align*}
+V_{m}' \cap V_{n}'' &= W_{m}' \cap \bigcap_{i \in \varLambda_{m - 1} \setminus \left\{ n \right\}} {S \setminus {\mathrm{cl}}W_{i}''} \cap S \setminus {\mathrm{cl}}W_{n}'' \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}'}\\
+&= W_{m}' \cap \bigcap_{i \in \varLambda_{m - 1} \setminus \left\{ n \right\}} {S \setminus {\mathrm{cl}}W_{i}''} \cap \emptyset \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}'} = \emptyset
+\end{align*}
+$m \leq n$のとき、$m \in \varLambda_{n}$が成り立つので、
+\begin{align*}
+V_{m}' \cap V_{n}'' &= W_{m}' \cap S \setminus {\mathrm{cl}}W_{m}' \cap \bigcap_{i \in \varLambda_{m - 1}} {S \setminus {\mathrm{cl}}W_{i}''} \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n} \setminus \left\{ m \right\}} {S \setminus {\mathrm{cl}}W_{i}'}\\
+&= \emptyset \cap \bigcap_{i \in \varLambda_{m - 1}} {S \setminus {\mathrm{cl}}W_{i}''} \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n} \setminus \left\{ m \right\}} {S \setminus {\mathrm{cl}}W_{i}'} = \emptyset
+\end{align*}
+$m = 1$のとき、
+\begin{align*}
+V_{1}' \cap V_{n}'' &= W_{1}' \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n}} {S \setminus {\mathrm{cl}}W_{i}'}\\
+&= W_{1}' \cap S \setminus {\mathrm{cl}}W_{1}' \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n} \setminus \left\{ 1 \right\}} {S \setminus {\mathrm{cl}}W_{i}'}\\
+&= \emptyset \cap W_{n}'' \cap \bigcap_{i \in \varLambda_{n} \setminus \left\{ 1 \right\}} {S \setminus {\mathrm{cl}}W_{i}'} = \emptyset
+\end{align*}
+以上、$\forall(m,n) \in \mathbb{N}^{2}$に対し、$V_{m}' \cap V_{n}'' = \emptyset$が成り立つので、次のようになる。
+\begin{align*}
+\bigcup_{n \in \mathbb{N}} V_{n}' \cap \bigcup_{n \in \mathbb{N}} V_{n}'' = \bigcup_{(m,n) \in \mathbb{N}^{2}} \left( V_{m}' \cap V_{n}'' \right) = \bigcup_{(m,n) \in \mathbb{N}^{2}} \emptyset = \emptyset
+\end{align*}\par
+よって、$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つなら、$A \subseteq \bigcup_{n \in \mathbb{N}} V_{n}'$かつ$B \subseteq \bigcup_{n \in \mathbb{N}} V_{n}''$かつ$\bigcup_{n \in \mathbb{N}} V_{n}' \cap \bigcup_{n \in \mathbb{N}} V_{n}'' = \emptyset$が成り立つような開集合たち$\bigcup_{n \in \mathbb{N}} V_{n}'$、$\bigcup_{n \in \mathbb{N}} V_{n}''$が存在することが示されたので、その位相空間$\left( S,\mathfrak{O} \right)$は正規空間である。
+\end{proof}
+%\hypertarget{ux6b21ux5143euclidux7a7aux9593ux306bux304aux3051ux308bux4f4dux76f8ux7a7aux9593}{%
+\subsubsection{1次元Euclid空間における位相空間}%\label{ux6b21ux5143euclidux7a7aux9593ux306bux304aux3051ux308bux4f4dux76f8ux7a7aux9593}}
+\begin{dfn}\label{1次元Euclid空間における球体}
+$\forall a \in \mathbb{R}\forall\varepsilon \in \mathbb{R}^{+}$に対し、次式のように定義される集合$B(a,\varepsilon)$をその実数$a$を中心とする半径$\varepsilon$の球体という。
+\begin{align*}
+B(a,\varepsilon) = \left\{ b \in \mathbb{R} \middle| |a - b| < \varepsilon \right\} = (a - \varepsilon,a + \varepsilon)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{8.1.7.18}
+集合$\mathbb{R}$の部分集合$O$において、$\forall a \in O\exists\varepsilon \in \mathbb{R}^{+}$に対し、$B(a,\varepsilon) \subseteq O$が成り立つようなその集合$O$と空集合全体の集合が$\mathfrak{O}_{d_{E}}$とおかれると、組$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$は位相空間をなす。
+\end{thm}
+\begin{dfn}\label{1次元Euclid空間における位相空間}
+このような位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$を1次元Euclid空間における位相空間ということにする。
+\end{dfn}
+\begin{proof}
+集合$\mathbb{R}$の部分集合$O$において、$\forall a \in O\exists\varepsilon \in \mathbb{R}^{+}$に対し、$B(a,\varepsilon) \subseteq O$が成り立つようなその集合$O$と空集合全体の集合が$\mathfrak{O}_{d_{E}}$とおかれると、$\forall a,b \in \mathbb{R}$に対し、$|a - b| < \varepsilon$となる正の実数$\varepsilon$が存在するので、$\mathbb{R},\emptyset \in \mathfrak{O}_{d_{E}}$が成り立つ。\par
+ここで、$\forall O,P \in \mathfrak{O}_{d_{E}}$に対し、積集合$O \cap P$が空集合であれば、$O \cap P \in \mathfrak{O}_{d_{E}}$が成り立つし、空集合でなければ、これの任意の実数$a$に対し、ある正の実数たち$\delta$、$\varepsilon$が存在して$B(a,\delta) \subseteq O$、$B(a,\varepsilon) \subseteq P$が成り立つことになる。ここで、$\varepsilon' = \min\left\{ \delta,\varepsilon \right\}$とおかれれば、$B\left( a,\varepsilon' \right) \subseteq O$かつ$B\left( a,\varepsilon' \right) \subseteq P$が成り立つので、$B\left( a,\varepsilon' \right) \subseteq O \cap P$が成り立ち、したがって、$O \cap P \in \mathfrak{O}_{d_{E}}$が成り立つ。\par
+さらに、添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{O}_{d_{E}}$の族$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda }$が与えられたとき、$\forall a \in \bigcup_{\lambda \in \varLambda} O_{\lambda}$に対し、$a \in O_{\lambda}$なる開集合$O_{\lambda}$とある正の実数$\varepsilon$が存在して$B(a,\varepsilon) \subseteq O_{\lambda}$が成り立つことになる。ここで、$O_{\lambda} \subseteq \bigcup_{\lambda \in \varLambda} O_{\lambda}$が成り立つので、$B(a,\varepsilon) \subseteq \bigcup_{\lambda \in \varLambda} O_{\lambda}$が成り立ち、したがって、$\bigcup_{\lambda \in \varLambda} O_{\lambda} \in \mathfrak{O}_{d_{E}}$が成り立つ。\par
+以上より、その組$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$は位相空間をなす。
+\end{proof}
+\begin{thm}\label{8.1.7.19}
+1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、$\forall a \in \mathbb{R}$に対し、その実数$a$を中心とする半径$\varepsilon$の球体$B(a,\varepsilon)$はその位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$における開集合である。これにより、球体を開球、開球体ともいう。
+\end{thm}
+\begin{proof} 定義より明らかである。
+\end{proof}
+\begin{thm}\label{8.1.7.20}
+1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$の開基として、開球体全体の集合$\mathfrak{U}$、開区間全体の集合$\mathcal{I}$が挙げられる。
+\end{thm}
+\begin{proof}
+1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、これにおける開集合$O$の任意の実数$a$に対し、ある正の実数$\varepsilon_{a}$が存在して$B\left( a,\varepsilon_{a} \right) \subseteq O$が成り立つので、$\bigcup_{a \in O} {B\left( a,\varepsilon_{a} \right)} \subseteq O$が成り立つ。また、上記より$O \subseteq \bigcup_{a \in O} {B\left( a,\varepsilon_{a} \right)}$が成り立つので、$O = \bigcup_{a \in O} {B\left( a,\varepsilon_{a} \right)}$が成り立つ。これにより、開球体全体の集合$\mathfrak{U}$は開基をなす。\par
+このとき、開球体は開区間でもあるので、開区間全体の集合$\mathcal{I}$も開基をなす。
+\end{proof}
+\begin{thm}\label{8.1.7.21}
+1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、$\forall a \in \mathbb{R}$に対し、その実数$a$の基本近傍系として、その元$a$を中心とする開球体全体の集合$\mathfrak{U}_{a}$が挙げられる。
+\end{thm}
+\begin{proof}
+1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、$\forall a \in S$に対し、$a \in O$なる開集合$O$が存在するので、このような任意の開集合たち$O$に対し、定理\ref{8.1.7.20}より1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$の開基として、開球体全体の集合$\mathfrak{U}$が挙げられるので、その元$a$を中心とする開球体全体の集合$\mathfrak{U}_{a}$のある元$B(a,\varepsilon)$が存在して、$B(a,\varepsilon) \subseteq O$が成り立つかつ、$a \in B(a,\varepsilon) = {\mathrm{int}}{B(a,\varepsilon)}$が成り立つので、その集合$\mathfrak{U}_{a}$がその元$a$の基本近傍系をなす。
+\end{proof}
+%\hypertarget{urysohnux306eux88dcux984c}{%
+\subsubsection{Urysohnの補題}%\label{urysohnux306eux88dcux984c}}
+\begin{thm}[Urysohnの補題]\label{8.1.7.22}
+$\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $\forall a \in A$に対し、$f(a) = 0$が成り立つかつ、$\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+この定理をUrysohnの補題という\footnote{ウル゛ィゾーンと読みます。}。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つとする。さらに、次式のように集合$\varLambda$が定義されるとする。
+\begin{align*}
+\varLambda = \left\{ \frac{m}{2^{n}} \in \mathbb{Q} \middle| m \in \varLambda_{2^{n}} \cup \left\{ 0 \right\},n \in \mathbb{N} \right\}
+\end{align*}
+このとき、$A \subseteq O$が成り立つようなその位相空間$\left( S,\mathfrak{O} \right)$の閉集合$A$と開集合$O$の組$(A,O)$全体の集合を$\mathfrak{X}$とし、$\forall(A,O)\in \mathfrak{X}$に対し、次式のように集合$\mathfrak{O}_{(A,O)}$が定義されるとする。
+\begin{align*}
+\mathfrak{O}_{(A,O)} = \left\{ O'\in \mathfrak{O} \middle| A \subseteq O' \subseteq {\mathrm{cl}}\left( O' \right) \subseteq O \right\}
+\end{align*}
+このとき、定理8.1.7.15
+よりそのような集合$\mathfrak{O}_{(A,O)}$は空集合でない。ここで、族$\left\{ \mathfrak{O}_{(A,O)} \right\}_{(A,O)\in \mathfrak{X}}$が考えられれば、選択の公理より$\varPhi:\mathfrak{X \rightarrow O;}(A,O) \mapsto \varPhi(A,O) \in \mathfrak{O}_{(A,O)}$なる写像$\varPhi$が存在し、次のように族$\left\{ O(r) \right\}_{r \in \varLambda}$が次のように定義されるとする。
+\begin{itemize}
+\item
+  $\varPhi(A,S \setminus B) = O(0)$が成り立つ。
+\item
+  $O(1) = S \setminus B$が成り立つ。
+\item
+  $\varPhi\left( {\mathrm{cl}}{O\left( \frac{m}{2^{n}} \right)},O\left( \frac{m + 1}{2^{n}} \right) \right) = O\left( \frac{2m + 1}{2^{n + 1}} \right)$が成り立つ。
+\end{itemize}
+このとき、その族$\left\{ O(r) \right\}_{r \in \varLambda}$は確かに存在できる。\par
+次に、写像$f:S \rightarrow \mathbb{R}$を次式のように定義されるとする。
+\begin{itemize}
+\item
+  $\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in O(1)$に対し、$f(c) = \inf\left\{ r \in \varLambda \middle| c \in O(r) \right\}$が成り立つ。
+\end{itemize}
+このとき、$\forall a \in A$に対し、$a \in A \subseteq O(0)$が成り立つので、次のようになる。
+\begin{align*}
+f(a) = \inf\left\{ r \in \varLambda \middle| a \in O(r) \right\} = 0
+\end{align*}
+また、$\forall b \in B$に対し、定義より明らかに$f(b) = 1$が成り立つ。さらに、その集合$\varLambda$の定義より$\varLambda \subseteq [ 0,1]$が成り立つので、$\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。\par
+次に、$\forall r \in \varLambda\forall c \in O(r)$に対し、定義より$f(c) \leq r$が成り立つ。さらに、定義より$f(c) < r$が成り立つなら、$\exists r' \in \varLambda$に対し、$c \in O\left( r' \right)$が成り立つかつ、$O\left( r' \right) \subseteq O(r)$が成り立つので、$c \in O(r)$が成り立つ。対偶律より$f(c) > r$が成り立つなら、$c \notin O(r)$が成り立つかつ、$c \notin O(r)$が成り立つなら、$f(c) \geq r$が成り立つ。ここで、有理数の稠密性より$f(c) > r' > r$なる有理数$r'$がとられれば、その族$\left\{ O(r) \right\}_{r \in \mathbf{\varLambda}}$の定義より${\mathrm{cl}}{O(r)} \subseteq O\left( r' \right)$が成り立つので、$c \notin {\mathrm{cl}}{O(r)}$が成り立つ。\par
+$\forall c \in S\forall\varepsilon \in \mathbb{R}^{+}$に対し、1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$において、$\left( f(c) - \varepsilon,f(c) + \varepsilon \right) = B\left( f(c),\varepsilon \right) \in \mathfrak{O}_{d_{E}}$が成り立つので、$f(c) \in (0,1)$が成り立つなら、有理数の稠密性と同じ議論により$f(c) - \varepsilon < r < f(c) < s < f(c) + \varepsilon$なる有理数たち$r$、$s$がその集合$\varLambda$に存在することが示される。このとき、集合$O(s) \setminus {\mathrm{cl}}{O(r)}$は開集合でこれを$U(c)$とおくと、$r < f(c)$が成り立つので、$c \notin {\mathrm{cl}}{O(r)}$が成り立つかつ、$f(c) < s$が成り立つので、$c \in O(s)$が成り立つことになる。したがって、$c \in U(c)$が成り立つので、その集合$U(c)$はその元$c$の近傍である。さらに、$\forall c' \in U(c)$に対し、$r \leq f\left( c' \right) \leq s$が成り立つので、$f(c) - \varepsilon < r \leq f\left( c' \right) \leq s < f(c) + \varepsilon$が得られる。したがって、$\left| f\left( c' \right) - f(c) \right| < \varepsilon$が成り立つ。$f(c) = 1$のとき、$1 - \varepsilon < q < 1$なる有理数$q$を用いて$U(c) = S \setminus {\mathrm{cl}}{O(q)}$とおけば、$f(c) = 0$のとき、$0 < q < \varepsilon$なる有理数$q$を用いて$U(c) = O(q)$とおけば、同様にして、その集合$U(c)$はその元$c$の近傍で、$\forall c' \in U(c)$に対し、$\left| f\left( c' \right) - f(c) \right| < \varepsilon$が成り立つ。これにより、次のようになる。
+\begin{align*}
+V\left( f^{- 1}|\left( f(c) - \varepsilon,f(c) + \varepsilon \right) \right) = \left\{ c' \in S \middle| \left| f\left( c' \right) - f(c) \right| < \varepsilon \right\} = U(c)\in \mathfrak{O}
+\end{align*}
+以上より、その写像$f$は連続写像である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおき、$\forall A \in \mathfrak{A\forall}a \in S \setminus A$に対し、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在するとき、その位相空間$\left( S,\mathfrak{O} \right)$を完全正則空間という。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つ。
+\item
+  $\forall b \in A$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall b \in S$に対し、$0 \leq f(b) \leq 1$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{dfn}
+$\mathrm{T}_{1}$-空間であり完全正則空間でもあるような位相空間$\left( S,\mathfrak{O} \right)$を完全$\mathrm{T}_{3}$-空間、Tikhonov空間という。
+\end{dfn}
+\begin{thm}\label{8.1.7.23} $\mathrm{T}_{4}$-空間は完全$\mathrm{T}_{3}$-空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これは$\mathrm{T}_{1}$-空間でもあるので、その閉集合系を$\mathfrak{A}$とおくと、$\forall A \in \mathfrak{A\forall}a \in S \setminus A$に対し、$\left\{ a \right\}\in \mathfrak{A}$が成り立つので、Urysohnの補題より$\forall A,B$に対し、$A \cap B = \emptyset$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つかつ、$\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+これにより、その位相空間$\left( S,\mathfrak{O} \right)$は完全$\mathrm{T}_{3}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.24} 完全$\mathrm{T}_{3}$-空間は$\mathrm{T}_{3}$-空間である。
+\end{thm}
+\begin{proof}
+完全$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall O \in \mathfrak{O\forall}a \in O$に対し、その集合$S \setminus O$は閉集合で$a \notin S \setminus O$が成り立つので、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つ。
+\item
+  $\forall b \in S \setminus O$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall b \in S$に対し、$0 \leq f(b) \leq 1$が成り立つ。
+\end{itemize}
+ここで、$O' = \left\{ a \in S \middle| f(a) < \frac{1}{2} \right\}$とおくと、その写像$f$は連続でありその集合$O'$は開集合で$a \in O'$を満たし$V\left( f|O' \right) \subseteq \left[ 0,\frac{1}{2} \right)$が成り立つので、定理\ref{8.1.3.4}より次式が成り立つ。
+\begin{align*}
+V\left( f|{\mathrm{cl}}O' \right) \subseteq {\mathrm{cl}}{V\left( f|O' \right)} \subseteq {\mathrm{cl}}\left[ 0,\frac{1}{2} \right) = \left[ 0,\frac{1}{2} \right]
+\end{align*}
+$V\left( f|{\mathrm{cl}}O' \right) \cap V\left( f|S \setminus O \right) = \emptyset$が成り立つので、${\mathrm{cl}}O' \cap S \setminus O = \emptyset$が成り立ち、したがって、${\mathrm{cl}}O' \subseteq S \setminus (S \setminus O) = O$が成り立つ。定理\ref{8.1.7.12}よりその位相空間$\left( S,\mathfrak{O} \right)$は$\mathrm{T}_{3}$-空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の閉集合でもある近傍たちそれぞれ$V_{a}$、$V_{b}$が存在するような位相空間$\left( S,\mathfrak{O} \right)$をUrysohn空間という。
+\end{dfn}
+\begin{thm}\label{8.1.7.25} $\mathrm{T}_{3}$-空間はUrysohn空間である。
+\end{thm}
+\begin{proof}
+$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$b \notin V$なるその元$a$の近傍$V$が存在するとしよう。このとき、$a \in {\mathrm{int}}V$が成り立つので、その集合$S \setminus {\mathrm{int}}V$は閉集合で$a \notin S \setminus {\mathrm{int}}V$かつ$b \in S \setminus {\mathrm{int}}V$が成り立つ。したがって、$\exists O,P \in \mathfrak{O}$に対し、$a \in O$かつ$S \setminus {\mathrm{int}}V \subseteq P$かつ$O \cap P = \emptyset$が成り立つ。このとき、${\mathrm{cl}}(O \cap P) = {\mathrm{cl}}O \cap {\mathrm{cl}}P = \emptyset$が成り立つかつ、$a \in {\mathrm{int}}O = O \subseteq {\mathrm{int}}{{\mathrm{cl}}O}$かつ$b \in {\mathrm{int}}P = P \subseteq {\mathrm{int}}{{\mathrm{cl}}P}$が成り立つので、それらの閉集合たち${\mathrm{cl}}O$、${\mathrm{cl}}P$はそれぞれそれらの元々$a$、$b$の近傍である。よって、$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$はUrysohn空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.26} Urysohn空間は$\mathrm{T}_{2}$-空間である。
+\end{thm}
+\begin{proof} 定義より明らかである。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在するとき、その位相空間$\left( S,\mathfrak{O} \right)$を完全$\mathrm{T}_{2}$-空間、完全Hausdorff空間という。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つ。
+\item
+  $f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{8.1.7.27} 完全$\mathrm{T}_{3}$-空間は完全$\mathrm{T}_{2}$-空間である。
+\end{thm}
+\begin{proof}
+完全$\mathrm{T}_{3}$-空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$\left\{ b \right\}\in \mathfrak{A}$が成り立つので、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つ。
+\item
+  $f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+これにより、その位相空間$\left( S,\mathfrak{O} \right)$は完全$\mathrm{T}_{2}$-空間である。
+\end{proof}
+\begin{thm}\label{8.1.7.28} 完全$\mathrm{T}_{2}$-空間はUrysohn空間である。
+\end{thm}
+\begin{proof}
+完全$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおき、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $f(a) = 0$が成り立つ。
+\item
+  $f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+ここで、$O = \left\{ a \in S \middle| f(a) < \frac{1}{2} \right\}$とおくと、その写像$f$は連続でありその集合$O$は開集合で$a \in O$を満たし$V\left( f|O \right) \subseteq \left[ 0,\frac{1}{2} \right)$が成り立つので、$O \subseteq V\left( f^{- 1}|V\left( f|O \right) \right) \subseteq V\left( f^{- 1}|\left[ 0,\frac{1}{2} \right) \right)$が成り立つ。同様にして、$P = \left\{ a \in S \middle| f(a) > \frac{1}{2} \right\}$とおくと、その写像$f$は連続でありその集合$P$は開集合で$b \in P$を満たし$V\left( f|P \right) \subseteq \left( \frac{1}{2},1 \right]$が成り立つので、$P \subseteq V\left( f^{- 1}|V\left( f|P \right) \right) \subseteq V\left( f^{- 1}|\left( \frac{1}{2},1 \right] \right)$が成り立つ。ここで、$\left[ 0,\frac{1}{2} \right) \cap \left( \frac{1}{2},1 \right] = \emptyset$が成り立つので、$O \cap P = \emptyset$が成り立つことになる。このとき、${\mathrm{cl}}(O \cap P) = {\mathrm{cl}}O \cap {\mathrm{cl}}P = \emptyset$が成り立つかつ、$a \in {\mathrm{int}}O = O \subseteq {\mathrm{int}}{{\mathrm{cl}}O}$かつ$b \in {\mathrm{int}}P = P \subseteq {\mathrm{int}}{{\mathrm{cl}}P}$が成り立つので、それらの閉集合たち${\mathrm{cl}}O$、${\mathrm{cl}}P$はそれぞれそれらの元々$a$、$b$の近傍である。よって、完全$\mathrm{T}_{2}$-空間$\left( S,\mathfrak{O} \right)$はUrysohn空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall M,N\in \mathfrak{P}(S)$に対し、$M \cap N = \emptyset$が成り立つなら、$\exists O,P \in \mathfrak{O}$に対し、$M \subseteq O$かつ$N \subseteq P$かつ$O \cap P = \emptyset$が成り立つような位相空間$\left( S,\mathfrak{O} \right)$を全部分正規空間という。
+\end{dfn}
+\begin{dfn}
+$\mathrm{T}_{1}$-空間であり全部分正規空間でもあるような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{5}$-空間、全部分正規Hausdorff空間という\footnote{はい、これを全部分正規空間と呼ぶ書籍もあります。}。
+\end{dfn}
+\begin{thm}\label{8.1.7.29} 全部分正規空間は正規空間である。
+\end{thm}
+\begin{proof} 定義より明らかである。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおき、$\forall A,B \in \mathfrak{A}$に対し、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在するとき、その位相空間$\left( S,\mathfrak{O} \right)$を完全正規空間という。
+\begin{itemize}
+\item
+  $\forall a \in A$に対し、$f(a) = 0$が成り立つ。
+\item
+  $\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{dfn}
+$\mathrm{T}_{1}$-空間であり完全正規空間でもあるような位相空間$\left( S,\mathfrak{O} \right)$を$\mathrm{T}_{6}$-空間、完全正規Hausdorff空間という。
+\end{dfn}
+\begin{thm}\label{8.1.7.30} 完全正規空間は全部分正規空間である。
+\end{thm}
+\begin{proof}
+完全正規空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおき、$\forall M,N\in \mathfrak{P}(S)$に対し、$M \cap N = \emptyset$が成り立つなら、${\mathrm{cl}}M,{\mathrm{cl}}N\in \mathfrak{A}$が成り立つかつ、${\mathrm{cl}}M \cap {\mathrm{cl}}N = \emptyset$が成り立つので、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $\forall a \in {\mathrm{cl}}M$に対し、$f(a) = 0$が成り立つ。
+\item
+  $\forall b \in {\mathrm{cl}}N$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+ここで、$O = \left\{ a \in S \middle| f(a) < \frac{1}{2} \right\}$とおくと、その写像$f$は連続でありその集合$O$は開集合で${\mathrm{cl}}M \subseteq O$を満たし$V\left( f|O \right) \subseteq \left[ 0,\frac{1}{2} \right)$が成り立つので、${\mathrm{cl}}M \subseteq O \subseteq V\left( f^{- 1}|V\left( f|O \right) \right) \subseteq V\left( f^{- 1}|\left[ 0,\frac{1}{2} \right) \right)$が成り立つ。同様にして、$P = \left\{ a \in S \middle| f(a) > \frac{1}{2} \right\}$とおくと、その写像$f$は連続でありその集合$P$は開集合で${\mathrm{cl}}N \subseteq P$を満たし$V\left( f|P \right) \subseteq \left( \frac{1}{2},1 \right]$が成り立つので、${\mathrm{cl}}N \subseteq P \subseteq V\left( f^{- 1}|V\left( f|P \right) \right) \subseteq V\left( f^{- 1}|\left( \frac{1}{2},1 \right] \right)$が成り立つ。ここで、$\left[ 0,\frac{1}{2} \right) \cap \left( \frac{1}{2},1 \right] = \emptyset$が成り立つので、$O \cap P = \emptyset$が成り立つことになる。よって、完全正規空間は全部分正規空間である。
+\end{proof}
+%\hypertarget{ux5206ux96e2ux516cux7406-1}{%
+\subsubsection{分離公理}%\label{ux5206ux96e2ux516cux7406-1}}\par
+以上の主張は次のようにまとめられることができる。
+\begin{center}
+  \begin{tikzpicture}[auto]
+    \node (0) at (8, 0) {$\mathrm{T}_0 $-空間};
+    \node (1) at (8, 1.5) {$\mathrm{T}_1 $-空間};
+    \node (2) at (8, 3) {$\mathrm{T}_2 $-空間};
+    \node (3) at (8, 4.5) {$\mathrm{T}_3 $-空間};
+    \node (4) at (8, 6) {$\mathrm{T}_4 $-空間};
+    \node (5) at (8, 7.5) {$\mathrm{T}_5 $-空間};
+    \node (6) at (8, 9) {$\mathrm{T}_6 $-空間};
+    \node (11) at (12, 3) {Urysohn空間};
+    \node (12) at (12, 4.5) {完全$\mathrm{T}_2 $-空間};
+    \node (13) at (12, 6) {完全$\mathrm{T}_3 $-空間};
+    \node (15) at (4, 3) {compact空間};
+    \node (16) at (4, 4.5) {第2可算公理};
+    \node (23) at (0, 4.5) {正則空間};
+    \node (24) at (0, 6) {正規空間};
+    \node (25) at (0, 7.5) {全部分正規空間};
+    \node (26) at (0, 9) {完全正規空間};
+    \node (31) at (5.9, 3) {};
+    \node (32) at (6.1, 4.5) {};
+    \node (33) at (6.1, 5.9) {};
+    \node (34) at (5.9, 6.1) {};
+    \node (35) at (2, 4.5) {};
+    \node (36) at (2, 6) {};
+    \node (37) at (7.4, 5.9) {};
+    \node (38) at (7.4, 6.1) {};
+    \draw [->] (1) to node {\footnotesize 定理\ref{8.1.7.2}} (0);
+    \draw [->] (2) to node {\footnotesize 定理\ref{8.1.7.6}} (1);
+    \draw [->] (3) to node {\footnotesize 定理\ref{8.1.7.10}} (2);
+    \draw [->] (4) to node {\footnotesize 定理\ref{8.1.7.14}} (3);
+    \draw [->] (5) to node {\footnotesize 定理\ref{8.1.7.29}} (4);
+    \draw [->] (6) to node {\footnotesize 定理\ref{8.1.7.30}} (5);
+    \draw [->] (12) to node {\footnotesize 定理\ref{8.1.7.28}} (11);
+    \draw [->] (13) to node {\footnotesize 定理\ref{8.1.7.27}} (12);
+    \draw [->] (25) to node {\footnotesize 定理\ref{8.1.7.29}} (24);
+    \draw [->] (26) to node {\footnotesize 定理\ref{8.1.7.30}} (25);
+    \draw [->] (4) to node {\footnotesize 定理\ref{8.1.7.23}} (13);
+    \draw [->] (13) to node {\footnotesize 定理\ref{8.1.7.24}} (3);
+    \draw [->] (3) to node {\footnotesize 定理\ref{8.1.7.25}} (11);
+    \draw [->] (11) to node {\footnotesize 定理\ref{8.1.7.26}} (2);
+    \draw [-] (16) to node {} (3);
+    \draw [-] (33) to node {\footnotesize 定理\ref{8.1.7.17}} (32);
+    \draw [-] (15) to node {} (2);
+    \draw [-] (34) to node[xshift=0pt, yshift=-22.5pt] {\footnotesize 定理\ref{8.1.7.16}} (31);
+    \draw [->] (34) to node {} (38);
+    \draw [->] (33) to node {} (37);
+    \draw [-] (23) to node {} (16);
+    \draw [-] (36) to node {\footnotesize 定理\ref{8.1.7.17}} (35);
+    \draw [->] (36) to node {} (24);
+    \draw (1, 4.5)--(2, 4.5)--(2, 6)--(1, 6);
+    \draw (7, 3)--(5.9, 3)--(5.9, 6.1)--(7, 6.1);
+    \draw (7, 4.5)--(6.1, 4.5)--(6.1, 5.9)--(7, 5.9);
+  \end{tikzpicture}
+\end{center}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p137-151,223-233 ISBN978-4-00-029871-1
+\bibitem{2}
+  戸松玲治. "数学IIB演習 No. 5 11月5日配布 担当：戸松 玲治 3 分離公理". 東京理科大学. \url{https://www.ma.noda.tus.ac.jp/u/rto/m2b/M2B10-5.pdf} (2021-8-5 14:35 取得)
+\bibitem{3}
+  加塩朋和. "一般位相A（２組）". 東京理科大学. \url{https://www.rs.tus.ac.jp/a25594/2018-2019_General_Topology.pdf} (2021-8-6 12:15 取得)
+\bibitem{4}
+  藤岡敦. "§8. 正則空間と正規空間". 関西大学. \url{http://www2.itc.kansai-u.ac.jp/~afujioka/2017-2021/2017/st3/171120st3.pdf} (2022-14-15 19:56 閲覧)
+\end{thebibliography}
+\end{document}

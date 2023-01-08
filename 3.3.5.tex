@@ -1,0 +1,275 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{3.3.1}
+\externaldocument{3.3.3}
+\externaldocument{3.3.4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux4ee3ux6570ux7684ux9589ux4f53ux3068ux4e00ux610fux5206ux89e3ux6574ux57df}{%
+\subsection{代数的閉体と一意分解整域}%\label{ux4ee3ux6570ux7684ux9589ux4f53ux3068ux4e00ux610fux5206ux89e3ux6574ux57df}}
+%\hypertarget{ux56e0ux6570ux5b9aux7406}{%
+\subsubsection{因数定理}%\label{ux56e0ux6570ux5b9aux7406}}
+\begin{thm}\label{3.3.5.1}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、$X - \overline{a}$で割った余りはその多項式$f$の変数$X$にその元$a$を代入した元である、即ち、この元を$s_{a}(f)$とおくと、その商$q$を用いて次式が成り立つ。
+\begin{align*}
+f = \left( X - \overline{a} \right)q + \overline{s_{a}(f)}
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、剰余の定理より$\exists q,r \in K[ X]$に対し、$f = \left( X - \overline{a} \right)q + r$が成り立つかつ、$\deg r < \deg\left( X - \overline{a} \right) = 1$が成り立つ。このとき、その余り$r$は定数であることになるので、$\exists b \in K$に対し、$r = \overline{b}$が成り立つ。さらに、定理\ref{3.3.3.9}より$\forall c \in K$に対し、次式のように定義される写像$s_{c}$は環準同型写像であるので、
+\begin{align*}
+s_{c}:K[ X] \rightarrow K;f \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+その多項式$f$の変数$X$にその元$a$を代入した元を$s_{a}(f)$とおくと、次のようになる。
+\begin{align*}
+s_{a}(f) &= s_{a}\left( \left( X - \overline{a} \right)q + r \right) \\
+&= s_{a}\left( X - \overline{a} \right)s_{a}(q) + s_{a}(r) \\
+&= (a - a)s_{a}(q) + s_{a}(r) \\
+&= s_{a}(r) = s_{a}\left( \overline{b} \right) = b
+\end{align*}
+以上より、次のようになる。
+\begin{align*}
+f &= \left( X - \overline{a} \right)q + r \\
+&= \left( X - \overline{a} \right)q + \overline{b} \\
+&= \left( X - \overline{a} \right)q + \overline{s_{a}(f)}
+\end{align*}
+\end{proof}
+\begin{dfn}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、その多項式$f$から定義される多項式写像$P_{f}$によるその体$K$の元$a$の像$P_{f}(a)$が$0$であるとき、その元$a$はその多項式$f$の根、解などという。
+\end{dfn}
+\begin{thm}[因数定理]\label{3.3.5.2}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、その多項式$f$が多項式$X - \overline{a}$で割り切れるならそのときに限り、その元$a$がその多項式$f$の根の1つである。その定理を因数定理という。
+\end{thm}
+\begin{proof}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、その多項式$f$が多項式$X - \overline{a}$で割り切れるなら、$\exists q \in K[ X]$に対し、$f = \left( X - \overline{a} \right)q$が成り立つ。したがって、その多項式$f$から定義される多項式写像$P_{f}$はその多項式$q$から定義される多項式写像$P_{q}$を用いて次のようになる。
+\begin{align*}
+P_{f}:K \rightarrow K;k \mapsto (k - a)P_{q}(k)
+\end{align*}
+したがって、定理\ref{3.3.3.9}より次式のようになる。
+\begin{align*}
+P_{f}(a) = (a - a)P_{q}(a) = 0
+\end{align*}\par
+逆に、その元$a$がその多項式$f$の根の1つであるとする。除法の定理より$\exists q,r \in K[ X]$に対し、$f = \left( X - \overline{a} \right)q + r$が成り立つかつ、$\deg r < \deg\left( X - \overline{a} \right) = 1$が成り立つので、その多項式$r$は定数である。ここで、$r \neq \overline{0}$と仮定すると、$\exists b \in K$に対し、$r = \overline{b}$が成り立ち、その多項式$f$から定義される多項式写像$P_{f}$について、その多項式$q$から定義される多項式写像$P_{q}$を用いて次のようになるので、
+\begin{align*}
+P_{f}:K \rightarrow K;k \mapsto (k - a)P_{q}(k) + b
+\end{align*}
+次のようになる。
+\begin{align*}
+P_{f}(a) = (a - a)P_{q}(a) + b = b
+\end{align*}
+ここで、その元$a$がその多項式$f$の根の1つなので、$P_{f}(a) = b = 0$が成り立つ。しかしながら、$r = \overline{b} = \overline{0}$が成り立つことになり、先ほどの仮定に矛盾する。よって、$r = \overline{0}$が成り立ちその多項式$f$がその多項式$X - \overline{a}$で割り切れる。
+\end{proof}
+%\hypertarget{ux4ee3ux6570ux7684ux9589ux4f53}{%
+\subsubsection{代数的閉体}%\label{ux4ee3ux6570ux7684ux9589ux4f53}}
+\begin{dfn}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、$1 \leq \deg f$が成り立つなら、その多項式$f$がその体$K$の中にその多項式$f$の根を必ずもつようなその体$K$を代数的閉体という。
+\end{dfn}
+\begin{thm}[代数学の基本定理]\label{3.3.5.3}
+複素数全体の集合$\mathbf{C}$は代数的閉体である。この定理を代数学の基本定理という。
+\end{thm}\par
+しかしながら、その証明は、代数学的な手法というよりむしろ解析学的な手法のほうが重要で、このことを述べるとかなり長くなってしまうので、ここでは解析学に譲ることにする。
+\begin{thm}\label{3.3.5.4}
+代数的閉体$K$の多項式環$K[ X]$が与えられたとき、$\forall p \in K[ X]$に対し、その多項式$p$が既約多項式であるならそのときに限り、$\deg p = 1$が成り立つ。
+\end{thm}
+\begin{proof}
+代数的閉体$K$の多項式環$K[ X]$が与えられたとき、$\forall p \in K[ X]$に対し、その多項式$p$が既約多項式であるかつ、$\deg p = 1$が成り立たないと仮定すると、素元の定義より$1 < \deg p$が成り立つことになる。このとき、その多項式$f$がその体$K$の中にその多項式$f$の根$a$を必ずもち、さらに、その多項式$p$は因数定理より多項式$X - \overline{a}$で割り切れる。このとき、商$q$の次数は次式を満たすので、
+\begin{align*}
+0 < \deg p - 1 = \deg{\left( X - \overline{a} \right)q} - 1 = \deg\left( X - \overline{a} \right) + \deg q - 1 = 1 + \deg q - 1 = \deg q
+\end{align*}
+その商$q$は可逆元でない。しかしながら、その多項式$X - \overline{a}$は単位元$\overline{1}$もその多項式$p$も同伴でないことになり、したがって、これはその多項式$p$が既約多項式であることに矛盾する。したがって、その多項式$p$が既約多項式であるなら、$\deg p = 1$が成り立つ。定理\ref{3.3.4.19}より$\deg p = 1$が成り立つなら、その多項式$p$が既約多項式である。
+\end{proof}
+\begin{thm}\label{3.3.5.5}
+代数的閉体$K$の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、その体$K$の元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{\deg f}}$が一意的に存在し次式が成り立つ。
+\begin{align*}
+f = {f}_{\mathrm{l.c.}}\prod_{i \in \varLambda_{\deg f}} \left( X - \overline{a_{i}} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+代数的閉体$K$の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、素元分解の基本定理よりその多項式環$K[ X]$のmonicである既約多項式の族$\left\{ p_{i} \right\}_{i \in \varLambda_{n}}$が一意的に存在して次式が成り立つ。
+\begin{align*}
+f = {f}_{\mathrm{l.c.}}\prod_{i \in \varLambda_{n}} p_{i}
+\end{align*}
+このとき、定理\ref{3.3.5.4}より$\forall i \in \varLambda_{n}$に対し、$\deg p_{i} = 1$が成り立つので、その体$K$の元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$が一意的に存在し$p_{i} = X - \overline{a_{i}}$が成り立つ。さらに、次のようになるので、
+\begin{align*}
+\deg f &= \deg{{f}_{\mathrm{l.c.}}\prod_{i \in \varLambda_{n}} p_{i}} \\
+&= \deg{f}_{\mathrm{l.c.}} + \sum_{i \in \varLambda_{n}} {\deg p_{i}} \\
+&= 0 + \sum_{i \in \varLambda_{n}} 1 = n
+\end{align*}
+よって、その体$K$の元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{\deg f}}$が一意的に存在し次式が成り立つ。
+\begin{align*}
+f = {f}_{\mathrm{l.c.}}\prod_{i \in \varLambda_{\deg f}} \left( X - \overline{a_{i}} \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux4e00ux610fux5206ux89e3ux6574ux57df}{%
+\subsubsection{一意分解整域}%\label{ux4e00ux610fux5206ux89e3ux6574ux57df}}
+\begin{dfn}
+整域$R$が与えられたとき、$\forall a \in R$に対し、その元$a$が可逆元でないかつ、$0$でないなら、その整域$R$の素元の族$\left\{ p_{i} \right\}_{i \in \varLambda_{n}}$が存在して$a = \prod_{i \in \varLambda_{n}} p_{i}$が成り立ち、しかも、そのような族が$\left\{ p_{i} \right\}_{i \in \varLambda_{m}}$、$\left\{ q_{i} \right\}_{i \in \varLambda_{n}}$と与えられたとき、$m = n$が成り立ち、$\exists s:\varLambda_{m}\overset{\sim}{\rightarrow}\varLambda_{n}\forall i \in \varLambda_{n}$に対し、$p_{i}Aq_{s(i)}$が成り立つようなその整域$R$を一意分解整域という。このときも、そのような族$\left\{ p_{i} \right\}_{i \in \varLambda_{n}}$を求めることをその元$a$を素元分解するという。単項ideal整域はもちろん一意分解整域である。
+\end{dfn}
+\begin{thm}\label{3.3.5.6}
+一意分解整域$R$の零元でない元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、この族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$の最大公約元が存在する。
+\end{thm}
+\begin{proof}
+一意分解整域$R$の零元でない元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、この族のうち可逆元でないもの全体の族を$\left\{ a_{i} \right\}_{i \in \varLambda}$とおくと、$\forall i \in \varLambda$に対し、その元$a_{i}$が$a_{i} = \prod_{j \in \varLambda_{n_{i}}} p_{ij}$と素元分解されるとすると、次式のように元$p$がおかれれば、
+\begin{align*}
+p = \prod_{} {\bigcap_{i \in \varLambda} \left\{ p_{ij} \right\}_{j \in \varLambda_{n_{i}}}}
+\end{align*}
+$p|a_{i}$が成り立つので、その元$p$はその族$\left\{ a_{i} \right\}_{i \in \varLambda}$の公約元である。さらに、$\exists d \in R$に対し、その元$d$はその族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$の公約元で$p|d$が成り立つかつ、$d|p$が成り立たないと仮定すると、あるその一意分解整域$R$の可逆元でない元$q$が存在して$d = pq$が成り立つことになる。その元$q$もまたその族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$の公約元であることに注意すれば、その元$q$が$q = \prod_{i \in \varLambda_{m}} q_{i}$と素元分解されると、その族$\left\{ q_{i} \right\}_{i \in \varLambda_{m}}$は、$\forall i \in \varLambda$に対し、それらの族々$\left\{ p_{ij} \right\}_{j \in \varLambda_{n_{i}}}$に含まれるので、その積集合$\bigcap_{i \in \varLambda} \left\{ p_{ij} \right\}_{j \in \varLambda_{n_{i}}}$にも含まれることになる。しかしながら、これは素元分解の仕方が2通りあることになり素元分解の基本定理に矛盾する。ゆえに、その元$p$はその族$\left\{ a_{i} \right\}_{i \in \varLambda}$の最大公約元であり、また、その族$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$の最大公約元でもある。
+\end{proof}
+\begin{thm}\label{3.3.5.7}
+一意分解整域$R$の素元$p$が与えられたとき、$\forall a,b \in R$に対し、$p|ab$が成り立つなら、$p|a$または$p|b$が成り立つ。
+\end{thm}
+\begin{proof}
+一意分解整域$R$の素元$p$が与えられたとき、$\forall a,b \in R$に対し、$a = \prod_{i \in \varLambda_{m}} p_{i}$、$b = \prod_{i \in \varLambda_{n}} q_{i}$と素元分解されたとし、$p|a$が成り立たないかつ、$p|b$が成り立たないなら、$p \notin \left\{ p_{i} \right\}_{i \in \varLambda_{m}}$または$p \notin \left\{ q_{i} \right\}_{i \in \varLambda_{n}}$が成り立つことになり、したがって、$p \notin \left\{ p_{i} \right\}_{i \in \varLambda_{m}} \cup \left\{ q_{i} \right\}_{i \in \varLambda_{n}}$が成り立つことになる。このとき、次式が成り立つので、
+\begin{align*}
+ab = \prod_{} {\left\{ p_{i} \right\}_{i \in \varLambda_{m}} \cup \left\{ q_{i} \right\}_{i \in \varLambda_{n}}}
+\end{align*}
+これにより、$p|ab$が成り立たない。あとは、対偶律による。
+\end{proof}
+%\hypertarget{ux539fux59cbux591aux9805ux5f0f}{%
+\subsubsection{原始多項式}%\label{ux539fux59cbux591aux9805ux5f0f}}
+\begin{dfn}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall f \in R[ X]$に対し、$1 \leq \deg f$が成り立つなら、その多項式$f$の係数たちの族$\left\{ f(i) \right\}_{i \in \varLambda_{\deg f}}$の最大公約元をその多項式$f$の容量といい、その多項式$f$の容量が単位元$1$と同伴であるとき、その多項式$f$を原始多項式という。
+\end{dfn}
+\begin{thm}\label{3.3.5.8}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall f \in R[ X]$に対し、$1 \leq \deg f$のとき、その一意分解整域$R$の元$d$がその多項式$f$の容量であるならそのときに限り、$\exists g \in R[ X]$に対し、その多項式$g$は原始多項式で$f = \overline{d}g$が成り立つ。
+\end{thm}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall f \in R[ X]$に対し、$1 \leq \deg f$のとき、その一意分解整域$R$の元$d$がその多項式$f$の容量であるかつ、$\forall g \in R[ X]$に対し、その多項式$g$は原始多項式でないか、$f = \overline{d}g$が成り立たないと仮定する。容量の定義より$f = \overline{d}g$が成り立たないことはないので、その多項式$g$は原始多項式でないことになる。このとき、その多項式$g$の容量が単位元$1$と同伴でなくその容量の1つが可逆元でない元$e$であることになる。このとき、その一意分解整域$R$の元の族$\left\{ b_{i} \right\}_{i \in \varLambda_{\deg g}}$が存在して次のようになるので、
+\begin{align*}
+g &= \sum_{i \in \varLambda_{\deg g}} {\overline{g(i)}X^{i}} \\
+&= \sum_{i \in \varLambda_{\deg g}} {\overline{eb_{i}}X^{i}} \\
+&= \overline{e}\sum_{i \in \varLambda_{\deg g}} {\overline{b_{i}}X^{i}}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+f &= \overline{d}g \\
+&= \overline{d}\overline{e}\sum_{i \in \varLambda_{\deg g}} {\overline{b_{i}}X^{i}} \\
+&= \overline{de}\sum_{i \in \varLambda_{\deg g}} {\overline{b_{i}}X^{i}}
+\end{align*}
+このとき、その元$de$はその多項式$f$の係数たちの族$\left\{ f(i) \right\}_{i \in \varLambda_{\deg f}}$の公約元であり、さらに、$d|de$が成り立つ。しかしながら、これはその元$d$がその多項式$f$の容量であることに矛盾する。したがって、$1 \leq \deg f$のとき、その一意分解整域$R$の元$d$がその多項式$f$の容量であるなら、$\exists g \in R[ X]$に対し、その多項式$g$は原始多項式で$f = \overline{d}g$が成り立つ。\par
+逆に、$\exists g \in R[ X]$に対し、その多項式$g$は原始多項式で$f = \overline{d}g$が成り立つかつ、その元$d$がその多項式$f$の容量でないと仮定すると、その多項式$f$の係数たちの族$\left\{ f(i) \right\}_{i \in \varLambda_{\deg f}}$の公約元で可逆元でない元$q$を用いて$e = dq$なるもの$e$が存在することになる。このとき、その元$q$がその多項式$g$の係数たちの族$\left\{ g(i) \right\}_{i \in \varLambda_{\deg g}}$の公約元であり単位元$1$と同伴でないことになる。しかしながら、これはその多項式$g$は原始多項式であることに矛盾する。したがって、$\exists g \in R[ X]$に対し、その多項式$g$は原始多項式で$f = \overline{d}g$が成り立つなら、その元$d$がその多項式$f$の容量であることになる。
+\end{proof}
+\begin{thm}\label{3.3.5.9}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、原始多項式たちの積も原始多項式である。
+\end{thm}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、ある原始多項式たち$f$、$g$が存在して多項式$fg$は原始多項式でないと仮定すると、その多項式$fg$の全ての係数たちを割り切るようなその一意分解整域$R$の元が存在して、これが素元分解されると、ある素元$p$がその多項式$fg$の全ての係数たちを割り切る。一方で、それらの多項式たち$f$、$g$は原始多項式なので、素元の定義より素元は単位元$1$と同伴でなくその素元$p$はそれらの多項式たち$f$、$g$の係数たちを割り切ることができない。このとき、$\exists r \in \varLambda_{\deg f} \cup \left\{ 0 \right\}\exists s \in \varLambda_{\deg g} \cup \left\{ 0 \right\}\forall i \in \varLambda_{r - 1} \cup \left\{ 0 \right\}\exists j \in \varLambda_{s - 1} \cup \left\{ 0 \right\}$に対し、$p|f(i)$かつ$p|g(i)$が成り立つかつ、$\neg p|f(r)$かつ$\neg p|g(s)$が成り立つ。このとき、定理\ref{3.3.1.8}より次式が成り立つ。
+\begin{align*}
+(fg)(r + s) &= \sum_{i + j = r + s} {f(i)g(j)} \\
+&= \sum_{\scriptsize \begin{matrix} i + j = r + s \\ i < r \end{matrix}} {f(i)g(j)} + f(r)f(s) + \sum_{\scriptsize \begin{matrix} i + j = r + s \\ j < s \end{matrix}} {f(i)g(j)}
+\end{align*}
+このとき、元$f(r)f(s)$はその素元$p$で割り切れないので、その係数$(fg)(r + s)$もその素元$p$で割り切れないことになる。しかしながら、これはある素元$p$がその多項式$fg$の全ての係数たちを割り切ることに矛盾している。したがって、全ての原始多項式たち$f$、$g$の積$fg$は原始多項式である。
+\end{proof}
+\begin{thm}\label{3.3.5.10}
+一意分解整域$R$上の多項式環$R[ X]$、その一意分解整域$R$の商の体$L$が与えられたとき、次のことが成り立つ\footnote{この定理は簡単に示されると参考文献に書いてありましたが、どうなんでしょうかね…汗}。
+\begin{itemize}
+\item
+  $\forall f,g \in R[ X]$に対し、それらの多項式たち$f$、$g$が原始多項式で、$\exists\rho \in L$に対し、$\overline{\rho}f = g$が成り立つなら、その元$\rho$はその一意分解整域$R$の可逆元である。
+\item
+  $\forall\varphi \in L[ X]$に対し、$\varphi \neq \overline{0}$が成り立つなら、$\exists\rho \in L$に対し、多項式$\overline{\rho}\varphi$はその多項式環$R[ X]$の原始多項式である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$、その一意分解整域$R$の商の体$L$が与えられたとき、$\forall f,g \in R[ X]$に対し、それらの多項式たち$f$、$g$が原始多項式で、$\exists\rho = \frac{c}{d} \in L$に対し、$\overline{\rho}f = g$が成り立つなら、両辺に$\overline{d}$をかけることで$\overline{c}f = \overline{d}g$が成り立つ。このとき、両辺はその多項式環$R[ X]$の多項式であり、それらの多項式たち$f$、$g$が原始多項式であるから、定理\ref{3.3.5.8}より多項式たち$\overline{c}f$、$\overline{d}g$の容量はそれぞれ$c$、$d$となる。このとき、$\exists q \in R$に対し、その元$q$は可逆元でなく$c = dq$が成り立つとすれば、$d \neq 0$が成り立つかつ、次のようになることから、
+\begin{align*}
+\overline{c}f = \overline{dq}f = \overline{d}\overline{q}f = \overline{d}g &\Leftrightarrow \overline{d}\left( \overline{q}f - g \right) = 0\\
+&\Rightarrow \overline{q}f = g\\
+&\Rightarrow \overline{q}fg = g^{2}
+\end{align*}
+多項式$\overline{q}fg$は原始多項式でないことになるが、定理\ref{3.3.5.9}より多項式$g^{2}$は原始多項式であることに矛盾する。したがって、それらの元々$c$、$d$は互いに同伴であることになる。$c = \rho d$が成り立つことに注意すれば、よって、その元$\rho$はその一意分解整域$R$の可逆元である。\par
+$\forall\varphi \in L[ X]$に対し、$\varphi \neq \overline{0}$が成り立つなら、その多項式$\varphi$の各係数が$\varphi(i) = \frac{a_{i}}{b_{i}}$とおかれると、多項式$\overline{\prod_{i \in \varLambda_{\deg\varphi}} b_{i}}\varphi$は多項式環$R[ X]$の多項式となる。これの容量を$d$とおくと、定理\ref{3.3.5.8}よりある原始多項式$g$がその多項式環$R[ X]$に存在して$\overline{\prod_{i \in \varLambda_{\deg\varphi}} b_{i}}\varphi = \overline{d}g$が成り立つ。先ほどの議論と同様にして、それらの元々$\prod_{i \in \varLambda_{\deg\varphi}} b_{i}$、$d$は互いに同伴であることになる。したがって、その一意分解整域$R$の可逆元$\rho$が存在して$\prod_{i \in \varLambda_{\deg\varphi}} b_{i} = \rho d$が成り立つことに注意すれば、よって、その多項式$\overline{\rho}\varphi$はその原始多項式$g$そのものであるので、その多項式$\overline{\rho}\varphi$はその多項式環$R[ X]$の原始多項式である。
+\end{proof}
+\begin{thm}\label{3.3.5.11}
+一意分解整域$R$上の多項式環$R[ X]$、その一意分解整域$R$の商の体$L$が与えられたとき、$\forall f \in R[ X]$に対し、その多項式$f$は原始多項式で$1 \leq \deg f$が成り立つかつ、$1 \leq \deg\varphi_{i}$なる多項式環$L[ X]$の元の族$\left\{ \varphi_{i} \right\}_{i \in \varLambda_{s}}$が存在して$f = \prod_{i \in \varLambda_{s}} \varphi_{i}$が成り立つなら、その体$L$の元の族$\left\{ \rho_{i} \right\}_{i \in \varLambda_{s}}$が存在して多項式$\overline{\rho_{i}}\varphi_{i}$がその多項式環$R[ X]$における原始多項式であり$f = \prod_{i \in \varLambda_{s}} {\overline{\rho_{i}}\varphi_{i}}$が成り立つ。
+\end{thm}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$、その一意分解整域$R$の商の体$L$が与えられたとき、$\forall f \in R[ X]$に対し、その多項式$f$は原始多項式で$1 \leq \deg f$が成り立つかつ、$1 \leq \deg\varphi_{i}$なる多項式環$L[ X]$の元の族$\left\{ \varphi_{i} \right\}_{i \in \varLambda_{s}}$が存在して$f = \prod_{i \in \varLambda_{s}} \varphi_{i}$が成り立つなら、定理\ref{3.3.5.10}よりその体$L$の元の族$\left\{ \rho_{i}' \right\}_{i \in \varLambda_{s}}$が存在して多項式$\overline{\rho_{i}'}\varphi_{i}$がその多項式環$R[ X]$における原始多項式であることができる。このとき、次のようになることから、
+\begin{align*}
+\prod_{i \in \varLambda_{s}} {\overline{\rho_{i}'}\varphi_{i}} = \prod_{i \in \varLambda_{s}} \overline{\rho_{i}'}\prod_{i \in \varLambda_{s}} \varphi_{i} = \overline{\prod_{i \in \varLambda_{s}} \rho_{i}'}f
+\end{align*}
+定理\ref{3.3.5.9}よりその多項式$\overline{\prod_{i \in \varLambda_{s}} \rho_{i}'}f$も原始多項式であり、定理\ref{3.3.5.10}よりその元$\overline{\prod_{i \in \varLambda_{s}} \rho_{i}'}$も可逆元であることになる。ここで、$\frac{\rho_{i}'}{\overline{\prod_{i \in \varLambda_{s}} \rho_{i}'}} = \rho_{i}$とおかれることで得られる体$L$の元の族$\left\{ \rho_{i} \right\}_{i \in \varLambda_{s}}$を用いた多項式$\overline{\rho_{i}}\varphi_{i}$もまた原始多項式である。よって、$f = \prod_{i \in \varLambda_{s}} {\overline{\rho_{i}}\varphi_{i}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{3.3.5.12}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall p \in R[ X]$に対し、その多項式$p$が素元であるならそのときに限り、$\exists a \in R$に対し、その元$a$が素元で$p = \overline{a}$が成り立つか、その一意分解整域$R$の商の体$L$上の既約な定数でない原始多項式である。
+\end{thm}
+\begin{dfn}
+ここで、前者のような素元を定数素元、後者のような素元を固有の素元ということにする。
+\end{dfn}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall p \in R[ X]$に対し、その多項式$p$が素元であるなら、$0 \leq \deg p$が成り立つ。$\deg p = 0$のとき、$\exists a \in R$に対し、$p = \overline{a}$が成り立つことになる。ここで、その元$a$は零元でないかつ、定理\ref{3.3.3.6}よりその元$a$は可逆元でもない。さらに、その多項式$p$を割り切る多項式$q$が存在するなら、定理\ref{3.3.3.7}よりその多項式$q$は$\deg q = 0$が成り立つ、即ち、$\exists b \in R$に対し、$q = \overline{b}$が成り立つことになる。ここで、定理\ref{3.3.3.6}と素元の定義より$b|a$が成り立つなら、$bA1$または$bAa$が成り立つことになるので、その元$a$は素元である。したがって、$\exists a \in R$に対し、その元$a$が素元で$p = \overline{a}$が成り立つ。一方で、$1 \leq \deg p$のとき、その多項式$p$の容量$d$が与えられたとき、$\overline{d}|p$が成り立つので、$\deg\overline{d} = 0$が成り立つかつ、その商$q$は可逆元でもないので、$\overline{d}Ap$が成り立たない。したがって、$\overline{d}A\overline{1}$が成り立つので、定理\ref{3.3.3.7}よりその元$d$は可逆元である。定理\ref{3.3.5.8}よりその多項式$p$は原始多項式であることになる。さらに、その多項式$p$はこれ以上素元分解できないので、定理\ref{3.3.5.11}と対偶律よりその多項式$p$はその体$L$上の既約な定数でない多項式であることになる。\par
+逆に、$\exists a \in R$に対し、その元$a$が素元で$p = \overline{a}$が成り立つか、その一意分解整域$R$の商の体$L$上の既約な定数でない原始多項式であるとする。$\exists a \in R$に対し、その元$a$が素元で$p = \overline{a}$が成り立つなら、定理\ref{3.3.3.7}より直ちにその多項式$p$は素元である。その一意分解整域$R$の商の体$L$上の既約な定数でない原始多項式であるなら、その多項式$p$はこれ以上素元分解できないので、係数すべてに適切に定数倍すれば、その多項式$p$はその多項式環$R[ X]$での既約多項式となる。
+\end{proof}
+\begin{thm}\label{3.3.5.13}
+一意分解整域$R$上の多項式環$R[ X]$も一意分解整域である。
+\end{thm}
+\begin{proof}
+一意分解整域$R$上の多項式環$R[ X]$が整域となるのはすでに定理\ref{3.3.3.8}でみてきた。$\forall f \in R[ X]$に対し、その多項式$f$が零元でも可逆元でもないとする。$\deg f = 0$のとき、$\exists a \in R$に対し、$f = \overline{a}$が成り立ち、定理\ref{3.3.3.6}よりしたがって、その元$a$が$a = \prod_{i \in \varLambda_{n}} p_{i}$と素元分解されると、$f = \prod_{i \in \varLambda_{n}} \overline{p_{i}}$が成り立つので、定理\ref{3.3.5.12}よりこれでその多項式$f$は定数素元に素元分解された。\par
+$1 \leq \deg f$のとき、その多項式$f$の容量$d$が与えられたとき、定理\ref{3.3.5.8}より$\deg\widetilde{f} = \deg f$なる原始多項式$\widetilde{f}$が存在して$f = \overline{d}\widetilde{f}$が成り立つ。ここで、その容量$d$が$d = \prod_{i \in \varLambda_{n}} p_{i}$と素元分解されることができるかつ、定理\ref{3.3.3.13}と素元分解の基本定理よりその一意分解整域$R$の商の体$L$上の零元でない既約多項式の族$\left\{ \varphi_{i} \right\}_{i \in \varLambda_{s}}$が存在して$\widetilde{f} = \prod_{i \in \varLambda_{s}} \varphi_{i}$と素元分解されることができる。定理\ref{3.3.5.11}よりその体$L$の元の族$\left\{ \rho_{i} \right\}_{i \in \varLambda_{s}}$が存在して多項式$\overline{\rho_{i}}\varphi_{i}$がその多項式環$R[ X]$における原始多項式であり$\widetilde{f} = \prod_{i \in \varLambda_{s}} {\overline{\rho_{i}}\varphi_{i}}$が成り立つことができる。このとき、それらの多項式たち$\overline{\rho_{i}}\varphi_{i}$は原始多項式であるから、原始多項式の定義より$\rho_{i} \neq 0$が成り立つ。このとき、それらの元々$\overline{\rho_{i}}$は可逆元であることになるので、それらの多項式たち$\overline{\rho_{i}}\varphi_{i}$はそれぞれそれらの多項式たち$\varphi_{i}$と同伴であるから、それらの多項式たち$\overline{\rho_{i}}\varphi_{i}$はその商の体$L$上で既約である。定理\ref{3.3.5.12}よりしたがって、それらの多項式たち$\overline{\rho_{i}}\varphi_{i}$は固有な素元であることになる。以上より、次式が成り立つので、
+\begin{align*}
+f &= \overline{d}\widetilde{f} \\
+&= \overline{\prod_{i \in \varLambda_{n}} p_{i}}\prod_{i \in \varLambda_{s}} \varphi_{i} \\
+&= \prod_{i \in \varLambda_{n}} \overline{p_{i}}\prod_{i \in \varLambda_{s}} {\overline{\rho_{i}}\varphi_{i}}
+\end{align*}
+その多項式$f$はその多項式環$R[ X]$上で素元分解された。\par
+$\forall f \in R[ X]$に対し、その多項式$f$が零元でも可逆元でもないとするとき、定数素元たちの族々$\left\{ p_{i} \right\}_{i \in \varLambda_{m}}$、$\left\{ q_{i} \right\}_{i \in \varLambda_{n}}$と固有な素元たちの族々$\left\{ g_{i} \right\}_{i \in \varLambda_{r}}$、$\left\{ h_{i} \right\}_{i \in \varLambda_{s}}$が存在して次式が成り立つなら、
+\begin{align*}
+f &= \prod_{i \in \varLambda_{m}} \overline{p_{i}}\prod_{i \in \varLambda_{r}} g_{i} \\
+&= \prod_{i \in \varLambda_{n}} \overline{q_{i}}\prod_{i \in \varLambda_{s}} h_{i}
+\end{align*}
+定理\ref{3.3.5.9}よりそれらの多項式たち$\prod_{i \in \varLambda_{r}} g_{i}$、$\prod_{i \in \varLambda_{s}} h_{i}$は原始多項式であり、定理\ref{3.3.3.6}と定理\ref{3.3.5.8}よりそれらの元々$\prod_{i \in \varLambda_{m}} p_{i}$、$\prod_{i \in \varLambda_{n}} q_{i}$はその多項式$f$の容量なので、これらは互いに同伴である。したがって、その一意分解整域$R$の可逆元$\varepsilon$を用いて次式が成り立つことになる。
+\begin{align*}
+\prod_{i \in \varLambda_{m}} p_{i} = \varepsilon\prod_{i \in \varLambda_{n}} q_{i}
+\end{align*}
+このとき、素元分解の基本定理より$m = n$が成り立ち、$\exists\sigma:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{m}\forall i \in \varLambda_{n}$に対し、$p_{i}Aq_{\sigma(i)}$が成り立つ。さらに、$\prod_{i \in \varLambda_{m}} \overline{q_{i}} \neq \overline{0}$が成り立つことによりしたがって、次のようになる。
+\begin{align*}
+\prod_{i \in \varLambda_{m}} \overline{p_{i}}\prod_{i \in \varLambda_{r}} g_{i} = \overline{\varepsilon}\prod_{i \in \varLambda_{m}} \overline{q_{i}}\prod_{i \in \varLambda_{r}} g_{i} = \prod_{i \in \varLambda_{n}} \overline{q_{i}}\prod_{i \in \varLambda_{s}} h_{i} &\Leftrightarrow \prod_{i \in \varLambda_{m}} \overline{q_{i}}\left( \overline{\varepsilon}\prod_{i \in \varLambda_{r}} g_{i} - \prod_{i \in \varLambda_{s}} h_{i} \right) = \overline{0}\\
+&\Rightarrow \overline{\varepsilon}\prod_{i \in \varLambda_{r}} g_{i} = \prod_{i \in \varLambda_{s}} h_{i}
+\end{align*}
+このとき、素元分解の基本定理より$r = s$が成り立ち、$\exists\tau:\varLambda_{s}\overset{\sim}{\rightarrow}\varLambda_{r}\forall i \in \varLambda_{r}$に対し、$g_{i}Ah_{\tau(i)}$が成り立つ。したがって、定理\ref{3.3.3.11}より$\exists\lambda_{i} \in K$に対し、$\overline{\lambda_{i}}g_{i} = h_{\tau(i)}$が成り立つことになり、それらの多項式たち$g_{i}$、$h_{\tau(i)}$は原始多項式であるから、定理\ref{3.3.5.10}よりその元$\lambda_{i}$はその一意分解整域$R$の可逆元である。このとき、その多項式$\overline{\lambda_{i}}$はその多項式環$R[ X]$の可逆元であるので、それらの多項式たち$g_{i}$、$h_{\tau(i)}$はその多項式環$R[ X]$において同伴である。\par
+以上より、その多項式環$R[ X]$も一意分解整域でもある。
+\end{proof}
+\begin{thm}[Eisensteinの規準]\label{3.3.5.14}
+一意分解整域$R$とこれの商の体$L$が与えられたとき、その一意分解整域$R$上の多項式環$R[ X]$の$1 \leq \deg f$なる任意の多項式$f$に対し、あるその一意分解整域$R$の素元$p$が存在して、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $p|f_{\mathrm{l.c.}}$が成り立たない。
+\item
+  $\forall i \in \varLambda_{\deg f - 1} \cup \left\{ 0 \right\}$に対し、$p|f(i)$が成り立つ。
+\item
+  $p^{2}|f(0)$が成り立たない。
+\end{itemize}
+その多項式$f$はその商の体$L$上で既約である。この定理をEisensteinの規準という。
+\end{thm}
+\begin{proof}
+一意分解整域$R$とこれの商の体$L$が与えられたとき、その一意分解整域$R$上の多項式環$R[ X]$の$1 \leq \deg f$なる任意の多項式$f$に対し、その多項式$f$はその商の体$L$上で可約であるなら、定理\ref{3.3.4.18}より$\exists g,h \in P[ X]$に対し、$f = gh$かつ$1 \leq \deg g$かつ$1 \leq \deg h$が成り立つ。ここで、あるその一意分解整域$R$の素元$p$が存在して、次のことが成り立つと仮定すると、
+\begin{itemize}
+\item
+  $p|f_{\mathrm{l.c.}}$が成り立たない。
+\item
+  $\forall i \in \varLambda_{\deg f - 1} \cup \left\{ 0 \right\}$に対し、$p|f(i)$が成り立つ。
+\item
+  $p^{2}|f(0)$が成り立たない。
+\end{itemize}
+$f(0) = g(0)h(0)$が成り立つので、$p|g(0)$または$p|h(0)$が成り立つことになり、$p^{2}|f(0)$が成り立たないので、$p|g(0)$かつ$p|h(0)$が成り立つことはない。ここで、$p|h(0)$が成り立たないと仮定しても一般性は失われないので、そうすると、その多項式$g$の全ての係数たちがその素元$p$で割り切れると仮定すると、$f_{\mathrm{l.c.}} = g_{\mathrm{l.c.}}h_{\mathrm{l.c.}}$が成り立つことにより$p|f_{\mathrm{l.c.}}$が成り立つことになるが、これは仮定に矛盾する。したがって、その多項式$g$のある係数が存在してこれがその素元$p$で割り切れないことになる。このとき、$\exists r \in \varLambda_{\deg g}\forall i \in \varLambda_{\deg g - 1} \cup \left\{ 0 \right\}$に対し、$p|g(i)$が成り立つかつ、$p|g(r)$が成り立たなく、このとき、$p|g(0)$が成り立つかつ、$\deg g < \deg f$が成り立つことにより$0 < r < \deg f$が成り立つ。このとき、定理\ref{3.3.1.8}より次のようになり、
+\begin{align*}
+f(r) &= \sum_{i + j = r} {g(i)h(j)} \\
+&= \sum_{\scriptsize \begin{matrix} i + j = r \\ i < r \end{matrix}} {g(i)h(j)} + g(r)h(0)
+\end{align*}
+したがって、$p|g(r)$が成り立たないかつ、$p|h(0)$が成り立たないので、$p|f(r)$も成り立たないことになるが、これは仮定の、$\forall i \in \varLambda_{\deg f - 1} \cup \left\{ 0 \right\}$に対し、$p|f(i)$が成り立つことに矛盾している。したがって、その一意分解整域$R$の全ての素元$p$に対し、次のことのうちいづれかが成り立たない。
+\begin{itemize}
+\item
+  $p|f_{\mathrm{l.c.}}$が成り立たない。
+\item
+  $\forall i \in \varLambda_{\deg f - 1} \cup \left\{ 0 \right\}$に対し、$p|f(i)$が成り立つ。
+\item
+  $p^{2}|f(0)$が成り立たない。
+\end{itemize}
+あとは、対偶律による。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p156-166 ISBN978-4-00-029873-5
+\end{thebibliography}
+\end{document}

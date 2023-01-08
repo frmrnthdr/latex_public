@@ -1,0 +1,164 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{5}
+\usepackage{xr}
+\externaldocument{2.1.3}
+\externaldocument{2.1.4}
+\externaldocument{2.1.5}
+\input{macro}
+\begin{document}
+%\hypertarget{ux884cux5217ux306eux5bfeux7b49}{%
+\subsection{行列の対等}%\label{ux884cux5217ux306eux5bfeux7b49}}
+%\hypertarget{ux884cux5217ux306eux5bfeux7b49-1}{%
+\subsubsection{行列の対等}%\label{ux884cux5217ux306eux5bfeux7b49-1}}
+\begin{dfn}
+可換環$R$上の$A_{mn},B_{mn} \in M_{mn}(R)$なる行列たち$A_{mn}$、$B_{mn}$が与えられたとき、$P_{mm}A_{mn} = B_{mn}Q_{nn}$が成り立つような行列たち$P_{mm}$、$Q_{nn}$がそれぞれ集合${\mathrm{GL}}_{m}(R)$、${\mathrm{GL}}_{n}(R)$に存在するとき、その行列$B_{mn}$はその行列$A_{mn}$に対等であるといい$A_{mn} \sim B_{mn}$などと書く。
+\end{dfn}
+\begin{thm}\label{2.1.6.1}
+この関係$\sim$は同値関係となる。
+\end{thm}
+\begin{proof}
+可換環$R$が与えられたとき、$\forall A_{mn} \in M_{mn}(R)$に対し、$m$次単位行列$I_{m}$、$n$次単位行列$I_{n}$を用いれば$I_{m}A_{mn} = A_{mn}I_{n}$が成り立つので、$A_{mn} \sim A_{mn}$が成り立つ。\par
+$\forall A_{mn},B_{mn} \in M_{mn}(R)$に対し、$A_{mn} \sim B_{mn}$が成り立つなら、$P_{mm}A_{mn} = B_{mn}Q_{nn}$が成り立つような行列たち$P_{mm}$、$Q_{nn}$がそれぞれ集合${\mathrm{GL}}_{m}(R)$、${\mathrm{GL}}_{n}(R)$に存在することになり、したがって、次のようになるので、
+\begin{align*}
+A_{mn}Q_{nn}^{- 1} &= P_{mm}^{- 1}P_{mm}A_{mn}Q_{nn}^{- 1}\\
+&= P_{mm}^{- 1}B_{mn}Q_{nn}Q_{nn}^{- 1}\\
+&= P_{mm}^{- 1}B_{mn}
+\end{align*}
+$B_{mn} \sim A_{mn}$が成り立つ。\par
+$\forall A_{mn},B_{mn},C_{mn} \in M_{mn}(R)$に対し、$A_{mn} \sim B_{mn}$かつ$B_{mn} \sim C_{mn}$が成り立つなら、$P_{mm}A_{mn} = B_{mn}Q_{nn}$かつ$R_{mm}B_{mn} = C_{mn}S_{nn}$が成り立つような行列たち$P_{mm}$、$Q_{nn}$、$R_{mm}$、$S_{nn}$がそれぞれ集合${\mathrm{GL}}_{m}(R)$、${\mathrm{GL}}_{n}(R)$、${\mathrm{GL}}_{m}(R)$、${\mathrm{GL}}_{n}(R)$に存在することになり、したがって、$R_{mm}P_{mm}A_{mn} = R_{mm}B_{mn}Q_{nn} = C_{mn}S_{nn}Q_{nn}$が成り立つので、$R_{mm}P_{mm} \in {\mathrm{GL}}_{m}(R)$かつ$S_{nn}Q_{nn} \in {\mathrm{GL}}_{n}(R)$が成り立つことにより$A_{mn} \sim C_{mn}$が成り立つ。\par
+以上より、その関係$\sim$は同値関係となる。
+\end{proof}
+\begin{dfn}
+可換環$R$上の$A_{nn},B_{nn} \in M_{nn}(R)$なる行列たち$A_{nn}$、$B_{nn}$が与えられたとき、$P_{nn}A_{nn} = B_{nn}P_{nn}$が成り立つような行列$P$が集合${\mathrm{GL}}_{n}(R)$に存在するとき、その行列$B_{nn}$はその行列$A_{nn}$に相似であるといい$A_{nn} \approx B_{nn}$などと書く。
+\end{dfn}\par
+もちろん、その行列$B_{nn}$はその行列$A_{nn}$に相似であるなら、その行列$B_{nn}$はその行列$A_{nn}$に対等である。
+\begin{thm}\label{2.1.6.2}
+この関係$\approx$は同値関係となる。
+\end{thm}
+\begin{proof}
+可換環$R$が与えられたとき、$\forall A_{nn} \in M_{nn}(R)$に対し、$n$次単位行列$I_{n}$を用いれば、$I_{n}A_{nn} = A_{nn}I_{n}$が成り立つので、$A_{nn} \approx A_{nn}$が成り立つ。\par
+$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、$A_{nn} \approx B_{nn}$が成り立つなら、$P_{nn}A_{nn} = B_{nn}P_{nn}$が成り立つような行列$P_{nn}$が集合${\mathrm{GL}}_{n}(R)$に存在することになり、したがって、次のようになるので、
+\begin{align*}
+A_{nn}P_{nn}^{- 1} &= P_{nn}^{- 1}P_{nn}A_{nn}P_{nn}^{- 1}\\
+&= P_{nn}^{- 1}B_{nn}P_{nn}P_{nn}^{- 1}\\
+&= P_{nn}^{- 1}B_{nn}
+\end{align*}
+$B_{nn} \approx A_{nn}$が成り立つ。\par
+$\forall A_{nn},B_{nn},C_{nn} \in M_{nn}(R)$に対し、$A_{nn} \approx B_{nn}$かつ$B_{nn} \approx C_{nn}$が成り立つなら、$P_{nn}A_{mn} = B_{mn}P_{nn}$かつ$Q_{nn}B_{mn} = C_{mn}Q_{nn}$が成り立つような行列たち$P_{nn}$、$Q_{nn}$が集合${\mathrm{GL}}_{n}(R)$に存在することになり、したがって、$Q_{nn}P_{nn}A_{nn} = Q_{nn}B_{nn}P_{nn} = C_{nn}Q_{nn}P_{nn}$が成り立つので、$Q_{nn}P_{nn} \in {\mathrm{GL}}_{n}(R)$が成り立つことにより$A_{nn} \approx C_{nn}$が成り立つ。\par
+以上より、その関係$\approx$は同値関係となる。
+\end{proof}
+%\hypertarget{ux884cux5217ux306eux5bfeux7b49ux3068ux8868ux73feux884cux5217}{%
+\subsubsection{行列の対等と表現行列}%\label{ux884cux5217ux306eux5bfeux7b49ux3068ux8868ux73feux884cux5217}}
+\begin{thm}\label{2.1.6.3}
+体$K$上の有限次元のvector空間たち$V$、$W$の基底の2つをそれぞれ$\alpha_{1}$、$\alpha_{2}$、$\beta_{1}$、$\beta_{2}$とするとき、それらの基底たちそれぞれ$\alpha_{1}$、$\beta_{1}$、$\alpha_{2}$、$\beta_{2}$に関する線形写像$f:V \rightarrow W$の表現行列たち$[ f]^{\beta_{1}}_{\alpha_{1}}$、$[ f]^{\beta_{2}}_{\alpha_{2}}$は対等である。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元、$n$次元vector空間たち$V$、$W$の基底の2つをそれぞれ$\alpha_{1}$、$\alpha_{2}$、$\beta_{1}$、$\beta_{2}$とするとき、それらの基底たちそれぞれ$\alpha_{1}$、$\beta_{1}$、$\alpha_{2}$、$\beta_{2}$に関する線形写像$f:V \rightarrow W$の表現行列たちそれぞれ$[ f]^{\beta_{1}}_{\alpha_{1}}$、$[ f]^{\beta_{2}}_{\alpha_{2}}$とそれらのvector空間$V$、$W$の基底変換行列たち$\left[ I_{V} \right]^{\alpha_{2}}_{\alpha_{1}}$、$\left[ I_{W} \right]^{\beta_{2}}_{\beta_{1}}$について、定理\ref{2.1.5.12}より$\left[ I_{W} \right]^{\beta_{2}}_{\beta_{1}}[ f]^{\beta_{1}}_{\alpha_{1}} = [ f]^{\beta_{2}}_{\alpha_{2}}\left[ I_{V} \right]^{\alpha_{2}}_{\alpha_{1}}$が成り立つ。定理\ref{2.1.5.10}よりこれらの基底変換行列たち$\left[ I_{V} \right]^{\alpha_{2}}_{\alpha_{1}}$、$\left[ I_{W} \right]^{\beta_{2}}_{\beta_{1}}$は$\left[ I_{V} \right]^{\alpha_{2}}_{\alpha_{1}},\left[ I_{W} \right]^{\beta_{2}}_{\beta_{1}} \in {\mathrm{GL}}_{n}(K)$を満たすので、これらの表現行列たち$[ f]^{\beta_{1}}_{\alpha_{1}}$、$[ f]^{\beta_{2}}_{\alpha_{2}}$は対等である。
+\end{proof}
+\begin{thm}\label{2.1.6.4}
+体$K$上の有限次元のvector空間$V$の2つの基底を$\alpha$、$\beta$とするとき、それらの基底たちそれぞれ$\alpha$、$\alpha$、$\beta$、$\beta$に関する線形写像$f:V \rightarrow W$の表現行列たち$[ f]^{\alpha}_{\alpha}$、$[ f]^{\beta}_{\beta}$は相似である。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$の2つの基底を$\alpha$、$\beta$とするとき、それらの基底たちそれぞれ$\alpha$、$\alpha$、$\beta$、$\beta$に関する線形写像$f:V \rightarrow W$の表現行列たち$[ f]_{\alpha}^{\alpha}$、$[ f]_{\beta}^{\beta}$と基底変換行列$\left[ I_{V} \right]^{\beta}_{\alpha}$について、定理\ref{2.1.5.12}より$\left[ I_{V} \right]^{\beta}_{\alpha}[ f]_{\alpha}^{\alpha} = [ f]_{\beta}^{\beta}\left[ I_{V} \right]^{\beta}_{\alpha}$が成り立つ。定理\ref{2.1.5.10}よりこれらの基底変換行列$\left[ I_{V} \right]^{\beta}_{\alpha}$は$\left[ I_{V} \right]^{\beta}_{\alpha} \in {\mathrm{GL}}_{n}(K)$を満たすので、これらの表現行列たち$[ f]_{\alpha}^{\alpha}$、$[ f]_{\beta}^{\beta}$は相似である。
+\end{proof}
+\begin{thm}\label{2.1.6.5}
+体$K$上の有限次元のvector空間たち$V$、$W$の基底の1つをそれぞれ$\alpha$、$\beta$とするとき、${\mathrm{rank}}f = r$としてそれらの基底たちそれぞれ$\alpha$、$\beta$に関する線形写像$f:V \rightarrow W$の表現行列$[ f]^{\beta}_{\alpha}$は行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$と対等である。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元、$n$次元vector空間たち$V$、$W$の基底の1つをそれぞれ$\alpha$、$\beta$とするとき、${\mathrm{rank}}f = r$として定理\ref{2.1.5.13}よりあるvector空間たち$V$、$W$の基底たち$\alpha'$、$\beta'$が存在して、それらの基底たちそれぞれ$\alpha$、$\beta$に関する線形写像$f:V \rightarrow W$の表現行列$[ f]^{\beta'}_{\alpha'}$が次式のように書かれることができる。
+\begin{align*}
+[ f]^{\beta'}_{\alpha'} = \begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}
+\end{align*}
+定理\ref{2.1.6.5}よりこれらの表現行列たち$[ f]^{\beta}_{\alpha}$、$[ f]^{\beta'}_{\alpha'}$は対等であるので、よって、表現行列$[ f]^{\beta}_{\alpha}$は行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$と対等である。
+\end{proof}
+%\hypertarget{ux884cux5217ux306eux6a19ux6e96ux5f62}{%
+\subsubsection{行列の標準形}%\label{ux884cux5217ux306eux6a19ux6e96ux5f62}}
+\begin{thm}[行列の標準形]\label{2.1.6.6}
+体$K$上で$\forall A_{mn} \in M_{mn}(K)$に対し、${\mathrm{rank}}A_{mn} = r$としてその行列$A_{mn}$は行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$と対等である。
+\end{thm}
+\begin{dfn}
+体$K$上の$A_{mn} \in M_{mn}(K)$なる行列$A_{mn}$が与えられたとき、${\mathrm{rank}}A_{mn} = r$としてその行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$をその行列$A_{mn}$の標準形という。
+\end{dfn}
+\begin{proof}
+体$K$上で$\forall A_{mn} \in M_{mn}(K)$に対し、${\mathrm{rank}}A_{mn} = r$として定理\ref{2.1.5.13}より線形写像$L_{A_{mn}}:K^{n} \rightarrow K^{m};\mathbf{v} \mapsto A_{mn}\mathbf{v}$が考えられれば、定理\ref{2.1.4.12}より${\mathrm{rank}}L_{A_{mn}} = {\mathrm{rank}}A_{mn}$で、定理\ref{2.1.5.13}よりあるvector空間たち$K^{n}$、$K^{m}$の基底たち$\alpha$、$\beta$が存在して、それらの基底たち$\alpha 、\beta$に関する線形写像$L_{A_{mn}}:K^{n} \rightarrow K^{m}$の表現行列$\left[ L_{A_{mn}} \right]^{\beta}_{\alpha}$が次式のように書かれることができる。
+\begin{align*}
+\left[ L_{A_{mn}} \right]^{\beta}_{\alpha} = \begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}
+\end{align*}
+このとき、これらのvector空間たち$K^{n}$、$K^{m}$の標準直交基底たち$\delta$、$\varepsilon$を用いれば、定理\ref{2.1.4.7}と定理\ref{2.1.5.4}より$\left[ L_{A_{mn}} \right]^{\varepsilon}_{\delta} = A_{mn}$が成り立つので、定理\ref{2.1.6.3}よりその行列$A_{mn}$は行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$と対等である。
+\end{proof}
+\begin{thm}\label{2.1.6.7}
+$\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、これらの行列たち$A_{mn}$、$B_{mn}$が対等であるならそのときに限り、これらの行列たち$A_{mn}$、$B_{mn}$の階数が等しい、即ち、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}B_{mn}$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、これらの行列たち$A_{mn}$、$B_{mn}$が対等であるなら、$\exists P_{mm} \in {\mathrm{GL}}_{m}(K)\exists Q_{nn} \in {\mathrm{GL}}_{n}(K)$に対し、$P_{mm}A_{mn} = B_{mn}Q_{nn}$が成り立つので、定理\ref{2.1.4.15}より次のようになる。
+\begin{align*}
+{\mathrm{rank}}A_{mn} &= {\mathrm{rank}}{P_{mm}^{- 1}P_{mm}A_{mn}}\\
+&= {\mathrm{rank}}{P_{mm}^{- 1}B_{mn}Q_{nn}}\\
+&\leq {\mathrm{rank}}B_{mn}\\
+&= {\mathrm{rank}}{B_{mn}Q_{nn}Q_{nn}^{- 1}}\\
+&= {\mathrm{rank}}{P_{mm}A_{mn}Q_{nn}^{- 1}}\\
+&\leq {\mathrm{rank}}A_{mn}
+\end{align*}
+以上の議論により、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}B_{mn}$が成り立つ。\par
+逆に、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}B_{mn}$が成り立つなら、$r = {\mathrm{rank}}A_{mn} = {\mathrm{rank}}B_{mn}$として定理\ref{2.1.6.6}よりそれらの行列たち$A_{mn}$、$B_{mn}$は行列$\begin{pmatrix}
+I_{r} & O \\
+O & O \\
+\end{pmatrix}$と対等であるので、それらの行列たち$A_{mn}$、$B_{mn}$が対等である。
+\end{proof}
+\begin{thm}\label{2.1.6.8}
+体$K$上で$\forall A_{nn} \in M_{nn}(K)$に対し、vector空間$K^{n}$の1つの基底$\left\langle \mathbf{p}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとしその基底を$\alpha$とおく。このとき、線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$のその基底$\alpha$における表現行列$\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha}$は$P_{nn} = \left( \mathbf{p}_{j} \right)_{j \in \varLambda_{n}}$として$P_{nn}\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha} = A_{nn}P_{nn}$を満たす。
+\end{thm}\par
+ちなみに、$\left( \mathbf{p}_{i} \right)_{i \in \varLambda_{n}} \in {\mathrm{GL}}_{n}(K)$が成り立つことに注意されたい。
+\begin{proof}
+体$K$上で$\forall A_{nn} \in M_{nn}(K)$に対し、vector空間$K^{n}$の1つの基底$\left\langle \mathbf{p}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとしその基底を$\alpha$とおき、さらに、そのvector空間$K^{n}$の標準直交基底$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$を$\varepsilon$とおく。このとき、線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$のそれらの基底たち$\alpha$、$\varepsilon$に関する表現行列をそれぞれ$\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha}$、$\left[ L_{A_{nn}} \right]_{\varepsilon}^{\varepsilon}$としその基底$\alpha$からその基底$\varepsilon$への基底変換行列を$\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}$とおくと、定理\ref{2.1.5.12}より次式が成り立つ。
+\begin{align*}
+\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha} = \left[ L_{A_{nn}} \right]_{\varepsilon}^{\varepsilon}\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}
+\end{align*}
+ここで、定理\ref{2.1.4.7}と定理\ref{2.1.5.4}より$\left[ L_{A_{nn}} \right]_{\varepsilon}^{\varepsilon} = A_{nn}$が成り立つので、次式が成り立つ。
+\begin{align*}
+\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha} = A_{nn}\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}
+\end{align*}
+ここで、$\forall j \in \varLambda_{n}$に対し、$\mathbf{p}_{j} = \sum_{i \in \varLambda_{n}} {p_{ij}\mathbf{e}_{i}}$と成分表示されるとすると、$P_{nn} = \left( p_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$として定理\ref{2.1.5.4}よりこのような行列$P_{nn}$はその基底$\alpha$からその基底$\varepsilon$への基底変換行列$\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha}$となるのであったので、次のようになる。
+\begin{align*}
+\left[ I_{K^{n}} \right]^{\varepsilon}_{\alpha} = P_{nn} = \left( p_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \left( \mathbf{p}_{j} \right)_{j \in \varLambda_{n}}
+\end{align*}
+したがって、$P_{nn}\left[ L_{A_{nn}} \right]_{\alpha}^{\alpha} = A_{nn}P_{nn}$が得られる。
+\end{proof}
+%\hypertarget{ux884cux5217ux306eux76f8ux4f3cux3068ux8de1}{%
+\subsubsection{行列の相似と跡}%\label{ux884cux5217ux306eux76f8ux4f3cux3068ux8de1}}
+\begin{thm}\label{2.1.6.9}
+可換環$R$上で$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、これらの行列たち$A_{nn}$、$B_{nn}$が相似であるなら、${\mathrm{tr}}A_{nn} = {\mathrm{tr}}B_{nn}$が成り立つ。
+\end{thm}
+\begin{proof}
+可換環$R$上で$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、これらの行列たち$A_{nn}$、$B_{nn}$が相似であるなら、$P_{nn}A_{nn} = B_{nn}P_{nn}$が成り立つような行列$P$が集合${\mathrm{GL}}_{n}(R)$に存在するので、定理\ref{2.1.3.7}より次のようになる。
+\begin{align*}
+{\mathrm{tr}}A_{nn} = {\mathrm{tr}}{P_{nn}^{- 1}P_{nn}A_{nn}} = {\mathrm{tr}}{P_{nn}^{- 1}B_{nn}P_{nn}} = {\mathrm{tr}}B_{nn}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p203-215 ISBN978-4-00-029872-8
+\end{thebibliography}
+\end{document}

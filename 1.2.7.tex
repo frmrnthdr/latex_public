@@ -1,0 +1,192 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{6}
+\usepackage{xr}
+\input{macro}
+\begin{document}
+\subsection{指示関数}
+\subsubsection{指示関数}
+\begin{dfn}
+集合$A$が与えられたとき、$A'\in \mathfrak{P}(A)$なる集合$A'$を用いて次式のようになる関数$\chi_{A'}$が定義される。このような関数$\chi_{A'}$をその集合$A$におけるその集合$A'$の指示関数、定義関数などという。
+\begin{align*}
+\chi_{A'}:A \rightarrow \left\{ 0,1 \right\};a \mapsto \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.5.1a}
+$\forall a \in A$に対し、次式たちが成り立つ。
+  \begin{align*}
+  \chi_{A}(a) = 1, \ \ \chi_{\emptyset} = 0
+  \end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in A$に対し、定義より次のようになる。
+  \begin{align*}
+  \chi_{A}(a) &= \left\{ \begin{matrix}
+  1 & {\mathrm{if}} & a \in A \\
+  0 & {\mathrm{if}} & a \in \emptyset \\
+  \end{matrix} \right.\  = 1, \\
+  \chi_{\emptyset}(a) &= \left\{ \begin{matrix}
+  1 & {\mathrm{if}} & a \in \emptyset \\
+  0 & {\mathrm{if}} & a \in A \\
+  \end{matrix} \right.\  = 0
+  \end{align*}
+\end{proof}
+\begin{thm}\label{1.2.5.1b}
+$\forall A',B'\in \mathfrak{P}(A)$に対し、$A' \neq B' $が成り立つなら、$\chi_{A'} \neq \chi_{B'}$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall A',B'\in \mathfrak{P}(A)$に対し、$A' \neq B'$が成り立つとする。$a \in B' \setminus A'$なる元$a$が存在するとき、これを$a'$とおくと、$\chi_{A'}\left( a' \right) = 0 $かつ$\chi_{B'}\left( a' \right) = 1 $が成り立ち、したがって、$\chi_{A'}\left( a' \right) \neq \chi_{B'}\left( a' \right) $が成り立つので、$\chi_{A'} \neq \chi_{B'} $が成り立つ。\par 
+$a \in A' \setminus B'$なる元$a$が存在するときも同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.5.1c}
+$\forall\chi,\psi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$に対し、$\chi \neq \psi $が成り立つなら、$V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \neq V\left( \psi^{- 1}|\left\{ 1 \right\} \right) $が成り立つ。
+\end{thm}
+\begin{proof}
+  $\forall\chi,\psi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$に対し、$V\left( \chi^{- 1}|\left\{ 1 \right\} \right)=V\left( \psi^{- 1}|\left\{ 1 \right\} \right)$が成り立つとする。このとき、$\forall a\in A$に対し、$a \in V\left( \chi^{- 1}|\left\{ 1 \right\} \right) $が成り立つならそのときに限り、$1 \in V\left( \chi|\left\{ a \right\} \right) $が成り立つ。これが成り立つならそのときに限り、その対応$\chi$は写像であるので、$\chi(a) = 1 $が成り立つ。同様にして、$a \in V\left( \psi^{- 1}|\left\{ 1 \right\} \right) $が成り立つならそのときに限り、$\psi(a) = 1$次式が成り立つことが示される。\par
+  ここで、外延性の公理より$\forall a \in A$に対し、次式が成り立つ。
+  \begin{align*}
+  \chi(a) = 1 \Leftrightarrow a \in V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \Leftrightarrow a \in V\left( \psi^{- 1}|\left\{ 1 \right\} \right) \Leftrightarrow \psi(a) = 1
+  \end{align*}
+  これにより、次式が成り立つ。
+  \begin{align*}
+  \left( \chi(a) = 1 \land \psi(a) = 1 \right) \vee \left( \chi(a) \neq 1 \land \psi(a) \neq 1 \right)
+  \end{align*}
+  ここで、$\chi,\psi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$が成り立つことに注意すれば、次式が成り立つ。
+  \begin{align*}
+  \left( \chi(a) = \psi(a) \land \chi(a) = 0 \right) \vee \left( \chi(a) = \psi(a) \land \chi(a) = 1 \right)
+  \end{align*}
+  したがって、次式のようになり、
+  \begin{align*}
+  \chi(a) = \psi(a) \land \left( \chi(a) = 0 \vee \chi(a) = 1 \right)
+  \end{align*}
+  $\chi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$が成り立つことに注意すれば、論理式$\chi(a) = 0 \vee \chi(a) = 1$は常に真となるので、$\chi(a) = \psi(a)$が成り立つ。したがって、$\chi = \psi$が得られ対偶律より、$\chi \neq \psi $が成り立つなら、$V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \neq V\left( \psi^{- 1}|\left\{ 1 \right\} \right)\in \mathfrak{P}(A) $が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.5.1d}
+次式のような写像$\varPhi$は全単射となる。
+\begin{align*}
+  \varPhi:\mathfrak{P}(A)\mathfrak{\rightarrow F}\left( A,\left\{ 0,1 \right\} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+次式のような写像$\varPhi$が与えられたとする。
+\begin{align*}
+\varPhi:\mathfrak{P}(A) \rightarrow \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)
+\end{align*}
+このとき、$\forall A',B'\in \mathfrak{P}(A)$に対し、$A' \neq B' $が成り立つなら、定理\ref{1.2.5.1c}より$\chi_{A'} \neq \chi_{B'} $が成り立つので、その写像$\varPhi$は単射である。さらに、$\chi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right) \setminus V(\varPhi)$なる写像$\chi$が存在すると仮定すると、集合$V\left( \chi^{- 1}|\left\{ 1 \right\} \right)$が与えられたとき、$\forall a \in A$に対し、$a \in V\left( \chi^{- 1}|\left\{ 1 \right\} \right)$が成り立つならそのときに限り、$1 \in V\left( \chi|\left\{ a \right\} \right) $が成り立つのであった。ここで、その対応$\chi$は写像なので、これが成り立つならそのときに限り、$\chi(a) = 1 $が成り立つ。さらに、$a \notin V\left( \chi^{- 1}|\left\{ 1 \right\} \right)$のとき、$\chi(a) \neq 1$が成り立ち、$\chi \in \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$が成り立つことに注意すれば、$\chi(a) = 0$が成り立つ。したがって、次のようなその集合$A$におけるその集合$V\left( \chi^{- 1}|\left\{ 1 \right\} \right)$の指示関数が与えられると、
+\begin{align*}
+\chi_{V\left( \chi^{- 1}|\left\{ 1 \right\} \right)}:A \rightarrow \left\{ 0,1 \right\};a \mapsto \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \\
+0 & {\mathrm{if}} & a \in A \setminus V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \\
+\end{matrix} \right.\ 
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\chi_{V\left( \chi^{- 1}|\left\{ 1 \right\} \right)}:A \rightarrow \left\{ 0,1 \right\};a \mapsto \left\{ \begin{matrix}
+1 & {\mathrm{if}} & \chi(a) = 1 \\
+0 & {\mathrm{if}} & \chi(a) = 0 \\
+\end{matrix} \right.\  = \left\{ \begin{matrix}
+\chi(a) & {\mathrm{if}} & \chi(a) = 1 \\
+\chi(a) & {\mathrm{if}} & \chi(a) = 0 \\
+\end{matrix} \right.\  = \chi(a)
+\end{align*}
+これにより、$\varPhi\left( V\left( \chi^{- 1}|\left\{ 1 \right\} \right) \right) = \chi_{V\left( \chi^{- 1}|\left\{ 1 \right\} \right)} = \chi$が成り立つが、これは$\chi \notin V(\varPhi)$に矛盾する。\par
+したがって、$\mathfrak{F}\left( A,\left\{ 0,1 \right\} \right) \setminus V(\varPhi) = \emptyset$が成り立ち$V(\varPhi) = \mathfrak{F}\left( A,\left\{ 0,1 \right\} \right)$が成り立つので、その写像$\varPhi$は全射である。以上より、その写像$\varPhi$は全単射となる。
+\end{proof}
+\begin{thm}\label{1.2.5.2}
+集合$A$が与えられたとき、$A',B'\in \mathfrak{P}(A)$なる集合たち$A'$、$B'$について、$\forall a \in A$に対し、次式たちが成り立つ。
+\begin{align*}
+\chi_{A' \cap B'}(a) &= \chi_{A'}(a)\chi_{B'}(a)\\
+\chi_{A' \cup B'}(a) &= \chi_{A'}(a) + \chi_{B'}(a) - \chi_{A'}(a)\chi_{B'}(a)\\
+\chi_{A' \setminus B'}(a) &= \chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+愚直に場合分けをして計算すればよい。\footnote{
+集合$A$が与えられたとき、$A',B'\in \mathfrak{P}(A)$なる集合たち$A'$、$B'$について、$\forall a \in A$に対し、次のようになる。
+\begin{align*}
+\chi_{A' \cap B'}(a) &= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \cap B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \cup A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \cap B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \vee a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 \cdot 1 & {\mathrm{if}} & a \in A' \land a \in B' \\
+1 \cdot 0 & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+0 \cdot 1 & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+0 \cdot 0 & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\chi_{A'}(a)\chi_{B'}(a) & {\mathrm{if}} & a \in A' \land a \in B' \\
+\chi_{A'}(a)\chi_{B'}(a) & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+\chi_{A'}(a)\chi_{B'}(a) & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+\chi_{A'}(a)\chi_{B'}(a) & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \chi_{A'}(a)\chi_{B'}(a) \\
+\chi_{A' \cup B'}(a) &= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \cup B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \cap A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \vee a \in B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 + 1 - 1 & {\mathrm{if}} & a \in A' \land a \in B' \\
+1 + 0 - 0 & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+0 + 1 - 0 & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+0 + 0 - 0 & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\chi_{A'}(a) + \chi_{B'}(a) - \chi_{A' \cap B'}(a) & {\mathrm{if}} & a \in A' \land a \in B' \\
+\chi_{A'}(a) + \chi_{B'}(a) - \chi_{A' \cap B'}(a) & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+\chi_{A'}(a) + \chi_{B'}(a) - \chi_{A' \cap B'}(a) & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+\chi_{A'}(a) + \chi_{B'}(a) - \chi_{A' \cap B'}(a) & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\end{matrix} \right.\ \\
+&= \chi_{A'}(a) + \chi_{B'}(a) - \chi_{A' \cap B'}(a)\\
+&= \chi_{A'}(a) + \chi_{B'}(a) - \chi_{A'}(a)\chi_{B'}(a)\\
+\chi_{A' \setminus B'}(a) &= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \setminus B' \\
+0 & {\mathrm{if}} & a \in A \setminus \left( A' \setminus B' \right) \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \cap A \setminus B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \cup \left( A \cap B' \right) \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+0 & {\mathrm{if}} & a \in A \setminus A' \vee a \in B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+1 \cdot (1 - 0) & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+0 \cdot (1 - 0) & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+1 \cdot (1 - 1) & {\mathrm{if}} & a \in A' \land a \in B' \\
+0 \cdot (1 - 1) & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right) & {\mathrm{if}} & a \in A' \land a \in A \setminus B' \\
+\chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right) & {\mathrm{if}} & a \in A \setminus A' \land a \in A \setminus B' \\
+\chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right) & {\mathrm{if}} & a \in A' \land a \in B' \\
+\chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right) & {\mathrm{if}} & a \in A \setminus A' \land a \in B' \\
+\end{matrix} \right.\ \\
+&= \chi_{A'}(a)\left( 1 - \chi_{B'}(a) \right)
+\end{align*}
+よって、次式たちが成り立つ。
+\begin{align*}
+\chi_{A' \cap B'} &= \chi_{A'}\chi_{B'}\\
+\chi_{A' \cup B'} &= \chi_{A'} + \chi_{B'} - \chi_{A'}\chi_{B'}\\
+\chi_{A' \setminus B'} &= \chi_{A'}\left( 1 - \chi_{B'} \right)
+\end{align*}
+}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p39-60 ISBM978-4-00-029871-1
+  \end{thebibliography}
+\end{document}
+  

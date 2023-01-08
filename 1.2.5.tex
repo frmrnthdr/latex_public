@@ -1,0 +1,859 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux81eaux7136ux6570}{%
+\subsection{自然数}%\label{ux81eaux7136ux6570}}
+%\hypertarget{ux7121ux9650ux7cfbux8b5c}{%
+\subsubsection{無限系譜}%\label{ux7121ux9650ux7cfbux8b5c}}
+\begin{thm}\label{1.2.4.1}
+集合$A$が無限系譜である、即ち、次式が成り立つことを
+\begin{align*}
+\emptyset \in A \land \forall a \in A\left[ a \in A \Rightarrow {\mathrm{suc} }a \in A \right]
+\end{align*}
+$A:\mathrm{infinite\ genealogy}$とおくと、$\exists A\in \mathcal{F}$に対し、$A:\mathrm{infinite\ genealogy}$が成り立つ。
+\end{thm}
+\begin{dfn}
+この式が成り立つような空集合ではない集合$\mathcal{F}$を無限樹という。
+\end{dfn}
+\begin{proof}
+集合$A$について無限の公理は次式のようになるのであった。
+\begin{align*}
+\exists A\in \mathcal{F}\left[ \emptyset \in A \land \forall a \in A\left[ a \in A \Rightarrow {\mathrm{suc} }a \in A \right] \right]
+\end{align*}
+したがって、$\emptyset \in A \land \forall a \in A\left[ a \in A \Rightarrow {\mathrm{suc} }a \in A \right]$を$A:\mathrm{infinite\ genealogy}$とおくと、
+\begin{align*}
+&\quad \exists A\in \mathcal{F}\left[ \emptyset \in A \land \forall a \in A\left[ a \in A \Rightarrow {\mathrm{suc} }a \in A \right] \right] \\ 
+&\Leftrightarrow \exists A\in \mathcal{F}[ A:\mathrm{infinite\ genealogy}]\\
+&\Leftrightarrow \bot \vee \exists A\in \mathcal{F}[ A:\mathrm{infinite\ genealogy}]\\
+&\Leftrightarrow \exists A\in \mathcal{F}\left[ A\mathcal{\notin F} \right] \vee \exists A\in \mathcal{F}[ A:\mathrm{infinite\ genealogy}]\\
+&\Leftrightarrow \exists A\in \mathcal{F}[ A:\mathrm{infinite\ genealogy}]
+\end{align*}
+以上より$\exists A\in \mathcal{F}$に対し、$A:\mathrm{infinite\ genealogy}$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.4.2}
+無限樹$\mathcal{F}$は存在する。
+\end{thm}
+\begin{proof}
+無限の公理より無限系譜$A$が存在できる。ここで、$\mathcal{F} =\left\{ A \right\}$とおくと、明らかに$\exists A \in \left\{ A \right\}$に対し、$A:\mathrm{infinite\ genealogy}$が成り立つ。これは無限樹となっている。
+\end{proof}
+\begin{thm}\label{1.2.4.3}
+無限系譜$A$を用いて次式のように対象$\widetilde{A}$が与えられるとする。ここで、冪集合の公理、分出の公理、無限の公理よりその対象$\widetilde{A}$は明らかに集合となっている。
+\begin{align*}
+\widetilde{A} = \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}
+\end{align*}
+このとき、この集合$\widetilde{A}$は無限樹となる。
+\end{thm}
+\begin{proof}
+無限系譜$A$を用いて次式のように対象$\widetilde{A}$が与えられるとするとき、
+\begin{align*}
+\widetilde{A} = \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}
+\end{align*}
+$A \in \mathfrak{P}(A)$が成り立つかつ、無限系譜の定義よりその命題$A:\mathrm{infinite\ genealogy}$は真である。したがって、$\exists A \in \widetilde{A}$に対し、$A:\mathrm{infinite\ genealogy}$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.4.4}
+次式のように集合$\omega$が与えられるとする。
+\begin{align*}
+\omega = \bigcap_{} \widetilde{A}
+\end{align*}
+このとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\omega:\mathrm{infinite\ genealogy}$が成り立つ。
+\item
+  その集合$\omega$はその無限系譜$A$によらない。
+\item
+  その集合$\omega$は任意の無限系譜の部分集合となる。
+\end{itemize}
+\end{thm}
+\begin{proof}
+無限系譜$A$を用いて次式のように集合$\widetilde{A}$が与えられ
+\begin{align*}
+\widetilde{A} = \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}
+\end{align*}
+これを用いて次式のように集合$\omega_{A}$が与えられるとする。
+\begin{align*}
+\omega_{A} = \bigcap_{} \widetilde{A}
+\end{align*}
+このとき、$\forall A' \in \widetilde{A}$に対し、$\emptyset \in A'$が成り立つので、$\emptyset \in \omega_{A}$も成り立つ。\par
+さらに、$\forall a \in \omega_{A}$に対し、$a \in \omega_{A}$が成り立つなら、$\forall A' \in \widetilde{A}$に対し、$a \in A'$が成り立ち、したがって、${\mathrm{suc} }a \in A'$も成り立つ。これにより、${\mathrm{suc} }a \in \omega_{A}$も成り立つ。以上より、$\omega_{A}:\mathrm{infinite\ genealogy}$が成り立つ。\par
+ここで、$\omega_{A}\in \mathfrak{P}(A)$が成り立つかつ、$\omega_{A}:\mathrm{infinite\ genealogy}$が成り立つので、$\omega_{A} \in \widetilde{A}$が成り立つ。任意の無限系譜$B$が与えられたとき、$\emptyset \in A$かつ$\emptyset \in B$が成り立つので、$\emptyset \in A \cap B$が成り立つかつ、$a \in A \cap B$が成り立つなら、$a \in A$かつ$a \in B$が成り立ち、それらの集合たち$A$、$B$は無限系譜であったので、${\mathrm{suc} }a \in A$かつ${\mathrm{suc} }a \in B$が成り立つので、${\mathrm{suc} }a \in A \cap B$が成り立つ。以上より、$A \cap B:\mathrm{infinite\ genealogy}$が成り立つ。ここで、$\forall a \in \omega_{A}$に対し、次のようになり、
+\begin{align*}
+a \in \omega_{A} &\Leftrightarrow a \in \bigcap_{} \widetilde{A}\\
+&\Leftrightarrow \forall A' \in \widetilde{A}\left[ a \in A' \right]\\
+&\Leftrightarrow \forall A' \in \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}\left[ a \in A' \right]\\
+&\Leftrightarrow A'\in \mathfrak{P}(A) \land A':\mathrm{infinite\ genealogy} \land a \in A'
+\end{align*}
+ここで、$\forall A'\in \mathfrak{P}(A \cap B)$に対し、$A' \subseteq A \cap B \subseteq A$が成り立つので、$A'\in \mathfrak{P}(A)$が成り立つので、次のようになる。
+\begin{align*}
+a \in \omega_{A} &\Rightarrow A'\in \mathfrak{P}(A \cap B) \land A':\mathrm{infinite\ genealogy} \land a \in A'\\
+&\Leftrightarrow \forall A' \in \left\{ A'\in \mathfrak{P}(A \cap B) \middle| A':\mathrm{infinite\ genealogy} \right\}\left[ a \in A' \right]\\
+&\Leftrightarrow \forall A' \in \widetilde{A \cap B}\left[ a \in A' \right]\\
+&\Leftrightarrow a \in \bigcap_{} \widetilde{A \cap B}\\
+&\Leftrightarrow a \in \omega_{A \cap B}
+\end{align*}
+したがって、$\omega_{A} \subseteq \omega_{A \cap B}$が成り立つ。また、$\forall a \in \omega_{A \cap B}\forall A' \in \widetilde{A}$に対し、$A' \subseteq A$が成り立つので、$A' \cap B \subseteq A \cap B$が成り立ち、$\emptyset \in A'$かつ$\emptyset \in B$が成り立つので、$\emptyset \in A' \cap B$が成り立つかつ、$a \in A' \cap B$が成り立つなら、$a \in A'$かつ$a \in B$が成り立ち、それらの集合たち$A'$、$B$は無限系譜であったので、${\mathrm{suc} }a \in A'$かつ${\mathrm{suc} }a \in B$が成り立つので、${\mathrm{suc} }a \in A' \cap B$が成り立つ。以上より、$A' \cap B:\mathrm{infinite\ genealogy}$が成り立ち、したがって、$A' \cap B \in \widetilde{A \cap B}$が成り立つ。ここで、$a \in \omega_{A \cap B} = \bigcap_{A' \in \widetilde{A \cap B}} A'$が成り立つので、$a \in A' \cap B$が成り立ち、$A' \cap B \subseteq A'$が成り立つので、$\forall A' \in \widetilde{A}$に対し、$a \in A'$が成り立ち、したがって、$a \in \bigcap_{} \widetilde{A} = \omega_{A}$が成り立つ。これにより、$\omega_{A \cap B} \subseteq \omega_{A}$が成り立つので、上記の議論により$\omega_{A} = \omega_{A \cap B}$が成り立つ。同様にして、$\omega_{B} = \omega_{A \cap B}$が成り立つ。したがって、任意の無限系譜たち$A$、$B$に対し、$\omega_{A} = \omega_{B}$が成り立つので、その集合$\omega_{A}$はその無限系譜$A$によらないことが示された。\par
+以下、その集合$\omega_{A}$を$\omega$とおく。任意の無限系譜$B$が与えられたとき、$\forall a \in \omega$に対し、その集合$\omega$はその無限系譜$A$によらないので、次のようになり、
+\begin{align*}
+a \in \omega &\Leftrightarrow a \in \bigcap_{} \widetilde{B}\\
+&\Leftrightarrow \forall B' \in \widetilde{B}\left[ a \in B' \right]\\
+&\Leftrightarrow \forall B' \in \left\{ B'\in \mathfrak{P}(B) \middle| B':\mathrm{infinite\ genealogy} \right\}\left[ a \in B' \right]\\
+&\Leftrightarrow B'\in \mathfrak{P}(B) \land B':\mathrm{infinite\ genealogy} \land a \in B'\\
+&\Rightarrow a \in B
+\end{align*}
+したがって、$\omega \subseteq B$が成り立ちその集合$\omega$は任意の無限系譜$B$の部分集合となる。\par
+以上より、次のことが示された。
+\begin{itemize}
+\item
+  $\omega:\mathrm{infinite\ genealogy}$が成り立つ。
+\item
+  その集合$\omega$はその無限系譜$A$によらない。
+\item
+  その集合$\omega$は任意の無限系譜の部分集合となる。
+\end{itemize}
+\end{proof}
+%\hypertarget{peanoux306eux516cux7406}{%
+\subsubsection{Peanoの公理}%\label{peanoux306eux516cux7406}}
+\begin{axs}[Peanoの公理]
+ある集合$\mathcal{N}$が与えられたとする。これが次の公理たちを満たすとき、その集合$\mathcal{N \setminus}\left\{ \nu \right\}$は$\mathbb{N}$などと書きこれの元を自然数という。それらの公理たちのことをまとめてPeanoの公理といいその組$\left( \mathcal{N,}\nu,\sigma \right)$をPeano系などという。ただし、その集合$\mathcal{N}$を$\mathbb{N}$とおくときがあることに注意されたい。このような混乱を避けるために、その集合$\mathcal{N \setminus}\left\{ \nu \right\}$を$\mathbb{N}^{+}$、$\mathbb{Z}^{+}$、$\mathbb{Z}_{> 0}$などとその集合$\mathcal{N}$を$\mathbb{N}_{0}$、$\mathbb{Z}_{0}$、$\mathbb{Z}_{\geq 0}$などとおくときがある。
+\begin{itemize}
+\item
+  写像$\sigma:\mathcal{N \rightarrow N}$が存在する。これを後者関数などという。
+\item
+  ある1つの元$\nu$が存在し$\nu\in \mathcal{N \setminus}V(\sigma)$を満たす。
+\item
+  その写像$\sigma$は単射である。
+\item
+  $\forall\mathcal{N}'\in \mathfrak{P}\left( \mathcal{N} \right)$に対し、$\nu \in \mathcal{N}'$が成り立つかつ、$\forall n \in \mathcal{N}$に対し、$n \in \mathcal{N}'$が成り立つなら、$\sigma(n) \in \mathcal{N}'$が成り立つとき、$\mathcal{N}' = \mathcal{N}$が成り立つ。
+\end{itemize}
+ここで、その元$\nu$を$0$と書きその写像$\sigma$によるこれの像$\sigma(0)$を$1$と書く。
+\end{axs}
+\begin{thm}\label{1.2.4.5}
+無限系譜$A$を用いて次式のように集合$\widetilde{A}$が与えられ
+\begin{align*}
+\widetilde{A} = \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}
+\end{align*}
+これを用いて次式のように集合$\omega$が与えられるとすると、
+\begin{align*}
+\omega = \bigcap_{} \widetilde{A}
+\end{align*}
+その組$(\omega,\emptyset,suc)$はPeano系である。
+\end{thm}
+\begin{proof}
+無限系譜$A$を用いて次式のように集合$\widetilde{A}$が与えられ
+\begin{align*}
+\widetilde{A} = \left\{ A'\in \mathfrak{P}(A) \middle| A':\mathrm{infinite\ genealogy} \right\}
+\end{align*}
+これを用いて次式のように集合$\omega$が与えられるとすると、
+\begin{align*}
+\omega = \bigcap_{} \widetilde{A}
+\end{align*}
+$\omega:\mathrm{infinite\ genealogy}$が成り立つので、次式のような写像$suc$が存在する。
+\begin{align*}
+suc:\omega \rightarrow \omega;a \mapsto a \cup \left\{ a \right\}
+\end{align*}
+ここで、次式が成り立つような元$a$がその集合$\omega$に存在すると仮定すると、
+\begin{align*}
+a \cup \left\{ a \right\} = \emptyset
+\end{align*}
+したがって、次のようになり
+\begin{align*}
+a = a' \Leftrightarrow a' \in \left\{ a \right\} \Rightarrow a' \in a \vee a' \in \left\{ a \right\} \Leftrightarrow a' \in a \cup \left\{ a \right\} = \emptyset
+\end{align*}
+空集合$\emptyset$に元が存在することになり空集合の公理に矛盾する。したがって、$\emptyset \in \omega \setminus V(suc)$が成り立つ。\par
+$\forall\omega'\in \mathfrak{P}(\omega)$に対し、$\emptyset \in \omega'$かつ$\forall a \in \omega\left[ a \in \omega' \Rightarrow {\mathrm{suc} }a \in \omega' \right]$が成り立つなら、$\omega':\mathrm{infinite\ genealogy}$が成り立つ。ここで、その集合$\omega_{A}$は任意の無限系譜の部分集合となるのであったので、$\omega \subseteq \omega'$が成り立ち、したがって、$\omega = \omega'$が成り立つ。\par
+$\forall a,b \in \omega$に対し、${\mathrm{suc} }a = {\mathrm{suc} }b$が成り立つとすると、$a \in \left\{ a \right\}$が成り立つことと正則性の公理より次式が成り立つ。
+\begin{align*}
+a \in {\mathrm{suc} }a = {\mathrm{suc} }b = b \cup \left\{ b \right\}
+\end{align*}
+これにより、$a = b$または$a \in b$が成り立つ。同様にして、$b = a$または$b \in a$が成り立つので、${\mathrm{suc} }a = {\mathrm{suc} }b \Rightarrow a = b \vee (a \in b \land b \in a)$が成り立つ。\par
+ここで、$b = \emptyset$のとき、$a \in b$と$a \subset b$どちらも成り立たないので、$a \in b \Rightarrow a \subset b$と$a \subset b \Rightarrow a \in b$どちらも真となり$a \in b \Leftrightarrow a \subset b$が成り立つ。\par
+$b \neq \emptyset$のとき、$\forall a \in \omega$に対し、$a \in \left\{ a \in \omega \middle| a \in b \Rightarrow a \subset b \right\}$が成り立つとき、これは次のようになる。
+\begin{align*}
+a \in \omega \land a \in b \Rightarrow a \subset b
+\end{align*}
+$a \in {\mathrm{suc} }b$が成り立つなら、${\mathrm{suc} }b = b \cup \left\{ b \right\}$より$a = b$または$a \in b$が成り立つ。\par
+$a = b$が成り立つなら、$b \subseteq b \cup \left\{ b \right\}$が成り立つことに注意すれば、$a \subseteq {\mathrm{suc} }b$が成り立つ。ここで、$b = {\mathrm{suc} }b$が成り立つなら、${\mathrm{suc} }b = b \cup \left\{ b \right\}$より$b = b$または$b \in b$が成り立ち、したがって、$b \in b$が成り立つが、仮定の$b \in b \Rightarrow b \subset b$より、$b \neq b$となりこれは矛盾する。したがって、$b \neq {\mathrm{suc} }b$が成り立ち、したがって、$a \subset {\mathrm{suc} }b$が成り立つ。\par
+$a \in b$が成り立つなら、仮定の$a \in b \Rightarrow a \subset b$より、$b \subseteq b \cup \left\{ b \right\}$が成り立つことに注意すれば、$a \subset {\mathrm{suc} }b$が成り立つ。\par
+以上より、${\mathrm{suc} }b \in \left\{ a \in \omega \middle| a \in b \Rightarrow a \subset b \right\}$が成り立つので、上記の議論により$\omega = \left\{ a \in \omega \middle| a \in b \Rightarrow a \subset b \right\}$が成り立つ。\par
+$b \neq \emptyset$のとき、$\forall a \in \omega$に対し、$a \in \left\{ a \in \omega \middle| a \subset b \Rightarrow a \in b \right\}$が成り立つとする。$a \subset {\mathrm{suc} }b$が成り立つなら、$b \in a$が成り立つと仮定すると、上記の議論により$b \in a \Rightarrow b \subset a$が成り立つので、次のようになるが、
+\begin{align*}
+b \subset a \vee a = b \Leftrightarrow b \subset a \vee \left\{ b \right\} = a \Rightarrow b \cup \left\{ b \right\} = {\mathrm{suc} }b \subseteq a
+\end{align*}
+これは仮定の$a \subset {\mathrm{suc} }b$が成り立つことに矛盾する。したがって、$b \notin a$が成り立つ。\par
+このとき、仮定の$a \subset {\mathrm{suc} }b = b \cup \left\{ b \right\}$が成り立つことから、$b \in a$または$a \subseteq b$が成り立ち、上記の議論により$b \notin a$が成り立つので、$a \subseteq b$が成り立ち、したがって、$a \subset b$または$a = b$が成り立つ。ここで、$a \subset b$が成り立つなら、仮定の$a \subset b \Rightarrow a \in b$より$a \in b$が成り立つ。したがって、$a \in b$または$a = b$が成り立つ。これにより、次のようになる。
+\begin{align*}
+a \in b \vee a = b \Leftrightarrow a \in b \vee a \in \left\{ b \right\} \Leftrightarrow a \in b \cup \left\{ b \right\} = {\mathrm{suc} }b
+\end{align*}
+以上より、${\mathrm{suc} }b \in \left\{ a \in \omega \middle| a \subset b \Rightarrow a \in b \right\}$が成り立つので、上記の議論により$\omega = \left\{ a \in \omega \middle| a \subset b \Rightarrow a \in b \right\}$が成り立つ。\par
+これにより、$a \in b$かつ$b \in a$が成り立つと仮定すると、先ほどの議論により次のようになり
+\begin{align*}
+a \in b \land b \in a \Leftrightarrow a \subset b \land b \subset a \Leftrightarrow \bot
+\end{align*}
+これは矛盾している。したがって、次のようになる。
+\begin{align*}
+{\mathrm{suc} }(a) = {\mathrm{suc} }b &\Rightarrow a = b \vee (a \in b \land b \in a)\\
+&\Leftrightarrow a = b \vee \bot\\
+&\Leftrightarrow a = b
+\end{align*}
+これにより、その写像$suc$は単射である。
+\end{proof}
+%\hypertarget{ux6570ux5b66ux7684ux5e30ux7d0dux6cd5ux306eux539fux7406}{%
+\subsubsection{数学的帰納法の原理}%\label{ux6570ux5b66ux7684ux5e30ux7d0dux6cd5ux306eux539fux7406}}
+\begin{thm}[数学的帰納法の原理]\label{1.2.4.6}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。その集合$\mathcal{N}$の元$n$に関する命題$\varphi(n)$について、次のことが成り立つなら、$\forall n \in \mathcal{N}$に対し、その命題$\varphi(n)$が成り立つ。$\nu \in \mathcal{N} \setminus V(\sigma)$なる元$\nu$を用いた命題$\varphi(\nu)$が成り立つ。
+\begin{itemize}
+\item
+  $\forall k \in \mathcal{N}$に対し、命題$\varphi(k)$が成り立つなら、その後者関数$\sigma$を用いた命題$\varphi\left( \sigma(k) \right)$も成り立つ。
+\end{itemize}\par
+このことを数学的帰納法の原理などといいこれを用いてその命題$\varphi(n)$を示す方法を数学的帰納法という。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。その集合$\mathcal{N}$の元$n$に関する命題$\varphi(n)$について、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $\nu \in \mathcal{N \setminus}V(\sigma)$なる元$\nu$を用いた命題$\varphi(\nu)$が成り立つ。
+\item
+  $\forall k \in \mathcal{N}$に対し、命題$\varphi(k)$が成り立つなら、その後者関数$\sigma$を用いた命題$\varphi\left( \sigma(k) \right)$も成り立つ。
+\end{itemize}
+分出の公理より次式のように集合$\mathcal{N}'$が定義されれば、
+\begin{align*}
+\mathcal{N}' = \left\{ n \in \mathcal{N} \middle| \varphi(n) \right\}
+\end{align*}
+明らかに$\nu \in \mathcal{N}'$が成り立つかつ、$\forall k \in \mathcal{N}$に対し、$k \in \mathcal{N}'$が成り立つなら、$\sigma(k) \in \mathcal{N}'$が成り立つので、$\mathcal{N} =\mathcal{N}'$が成り立つ。これにより、$\forall n \in \mathcal{N}$に対し、外延性の公理より次式が成り立つ。
+\begin{align*}
+n \in \mathcal{N} &\Leftrightarrow n \in \mathcal{N}'\\
+&\Leftrightarrow n \in \left\{ n \in \mathcal{N} \middle| \varphi(n) \right\}\\
+&\Leftrightarrow n \in \mathcal{N \land}\varphi(n)\\
+&\Rightarrow \varphi(n)
+\end{align*}
+\end{proof}
+%\hypertarget{peanoux7cfbux3068ux5f8cux7d99ux8005}{%
+\subsubsection{Peano系と後継者}%\label{peanoux7cfbux3068ux5f8cux7d99ux8005}}
+\begin{thm}\label{1.2.4.7}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$\mathcal{N} =V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つ。
+\end{thm}
+これは全ての自然数は後継者であることを意味する。これにより、その元$\nu$以外のその集合$\mathcal{N}$の任意の元$n$に対し、$n = \sigma\left( n' \right)$が成り立つようなその集合$\mathcal{N}$の元$n'$が存在することも注意しよう。
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$n \in V(\sigma) \cap \left\{ \nu \right\}$なる元$n$がその集合$\mathcal{N}$に存在すると仮定しその元$n$を$n'$とおくと、次のようになる。
+\begin{align*}
+n' \in V(\sigma) \cap \left\{ \nu \right\} &\Leftrightarrow n' \in V(\sigma) \land n' = \nu\\
+&\Rightarrow \nu \in V(\sigma)
+\end{align*}
+しかしながら、これはPeanoの公理より$\nu \in \mathcal{N \setminus}V(\sigma)$が成り立つことに矛盾する。したがって、$V(\sigma) \cap \left\{ \nu \right\} = \emptyset$が成り立つ。また、$V(\sigma) \subseteq \mathcal{N}$かつ$\left\{ \nu \right\} \subseteq \mathcal{N}$が成り立つので、$V(\sigma) \sqcup \left\{ \nu \right\} \subseteq \mathcal{N}$が成り立つ。\par
+次に、$\forall n \in \mathcal{N}$に対し、$n \in V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つことを示そう。$n = \nu$のとき、明らかに$\nu \in V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つ。$n = k$のとき、$k \in V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つと仮定しよう。$n = \sigma(k)$のとき、$\sigma(k) \in V(\sigma)$が成り立つので、結局$\sigma(k) \in V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つ。以上より、$\forall n \in \mathcal{N}$に対し、$n \in V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つので、$\mathcal{N \subseteq}V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つ。\par
+よって、$\mathcal{N} =V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.4.8}
+$\mathcal{N \setminus}\left\{ \nu \right\} = V(\sigma)$が成り立つ。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$\mathcal{N} =V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つのであった。したがって、次のようになる。
+\begin{align*}
+\mathcal{N \setminus}\left\{ \nu \right\} &= \left( V(\sigma) \sqcup \left\{ \nu \right\} \right) \setminus \left\{ \nu \right\}\\
+&= V(\sigma) \setminus \left\{ \nu \right\} \cup \left\{ \nu \right\} \setminus \left\{ \nu \right\}\\
+&= V(\sigma) \setminus \left\{ \nu \right\}
+\end{align*}
+ここで、明らかに$V(\sigma) \setminus \left\{ \nu \right\} \subseteq V(\sigma)$が成り立つかつ、Peanoの公理より$\nu \in \mathcal{N \setminus}V(\sigma)$が成り立ち$V(\sigma) \subseteq V(\sigma) \setminus \left\{ \nu \right\}$が成り立つので、$\mathcal{N \setminus}\left\{ \nu \right\} = V(\sigma)$が成り立つ。
+\end{proof}
+%\hypertarget{ux5199ux50cfux306eux518dux5e30ux7684ux5b9aux7fa9}{%
+\subsubsection{写像の再帰的定義}%\label{ux5199ux50cfux306eux518dux5e30ux7684ux5b9aux7fa9}}
+\begin{thm}[写像の再帰的定義]\label{1.2.4.9}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。任意の集合$A$とこれの元$a_{\nu}$と写像$F:\mathcal{N \times}A \rightarrow A$を用いて次式のように写像$f:\mathcal{N \rightarrow}A$が定義されると、その写像$f$は一意的に存在する。
+\begin{align*}
+\left\{ \begin{matrix}
+f(\nu) = a_{\nu} \\
+\forall n \in \mathcal{N}\left[ f \circ \sigma(n) = F\left( n,f(n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{thm}
+このようにして写像が定義されるときがあり定義するにあたってのこの方法を写像の再帰的定義という。
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。任意の集合$A$とこれの元$a_{\nu}$と写像$F:\mathcal{N \times}A \rightarrow A$を用いて、その集合$\mathcal{N \times}A$の部分集合$g$が$\left( \nu,a_{\nu} \right) \in g$かつ、$\forall(n,a) \in g$に対し、$\left( \sigma(n),\ \ F(n,a) \right) \in g$を満たすことを$g:\mathrm{reflexively\ graph}$とおき次式のように$g:\mathrm{reflexively\ graph}$なる集合$g$全体の集合$\mathcal{F}$が考えられるとする。
+\begin{align*}
+\mathcal{F} =\left\{ g \in \mathfrak{P}\left( \mathcal{N \times}A \right) \middle| g:\mathrm{reflexively\ graph} \right\}
+\end{align*}
+このとき、$\left( \nu,a_{\nu} \right)\in \mathcal{N \times}A$かつ、$\forall(n,a)\in \mathcal{N \times}A$に対し、$\sigma(n)\in \mathcal{N}$かつ$F \in A$が成り立つので、$\left( \sigma(n),F(n,a) \right)\in \mathcal{N \times}A$が成り立ち$\mathcal{N \times}A:\mathrm{reflexively\ graph}$が成り立つ。したがって、$\mathcal{N \times}A\in \mathcal{F}$が成り立つ。これにより、その集合$\mathcal{F}$は空集合でない。\par
+ここで、$G \in \bigcap_{} \mathcal{F}$のように集合$G$が定義されると、明らかに、$G\in \mathcal{F}$が成り立つかつ、$\forall g\in \mathcal{F}$に対し、$G \subseteq g$が成り立つ。\par
+次に$\forall n \in \mathcal{N}$に対し、$(n,a)$なる元$a$が集合$A$に存在することを示そう。$n = \nu$のとき、$G:\mathrm{reflexively\ graph}$が成り立つので、$\left( \nu,a_{\nu} \right) \in G$が成り立つ。ここで、$\left( \nu,a' \right) \in G$なる元$a'$が集合$A \setminus \left\{ a_{\nu} \right\}$に存在すると仮定しよう。$G' = G \setminus \left\{ \left( \nu,a_{\nu} \right) \right\}$なる集合$G'$が定義されるとする。$\left( \nu,a_{\nu} \right) \in G$かつ$a_{\nu} \neq a'$より$\left( \nu,a' \right) \in G'$が成り立ち、さらに、$\forall\left( n',a \right) \in G'$に対し、$\left( n',a \right) \in G$が成り立ち、$G:\mathrm{reflexively\ graph}$が成り立つので、$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \in G$が成り立つ。ここで、$\nu \neq \sigma\left( n' \right)$が成り立つのであったので、$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \neq \left( \nu,a_{\nu} \right)$が成り立ち$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \in G'$が成り立つので、$G':\mathrm{reflexively\ graph}$が成り立つ。これにより、$G'\in \mathcal{F}$かつ$G' \subset G$が成り立つが、これは仮定の、$\forall g\in \mathcal{F}$に対し、$G \subseteq g$が成り立つことに矛盾する。したがって、$\left( \nu,a_{\nu} \right)$なる元$a_{\nu}$が集合$A$に一意的に存在する。\par
+$n = k$のとき、$\left( k,a_{k} \right) \in G$なる元$a_{k}$が集合$A$に一意的に存在すると仮定しよう。$n = \sigma(k)$のとき、$G:\mathrm{reflexively\ graph}$が成り立つので、$\left( \sigma(k),F\left( k,a_{k} \right) \right) \in G$が成り立つ。ここで、$\left( \sigma(k),a' \right) \in G$なる元$a'$が集合$A \setminus \left\{ F\left( k,a_{k} \right) \right\}$に存在すると仮定しよう。$G' = G \setminus \left\{ \left( \sigma(k),F\left( k,a_{k} \right) \right) \right\}$なる集合$G'$が定義されるとする。$\left( \nu,a_{\nu} \right) \in G$かつ$\nu \neq \sigma(k)$より$\left( \nu,a' \right) \in G'$が成り立ち、さらに、$\forall\left( n',a \right) \in G'$に対し、$\left( n',a \right) \in G$が成り立ち、$G:\mathrm{reflexively\ graph}$が成り立つので、$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \in G$が成り立つ。$n' = k$のとき、仮定の$\left( k,a_{k} \right) \in G$なる元$a_{k}$が集合$A$に一意的に存在するので、次式が成り立つかつ、
+\begin{align*}
+\left( \sigma\left( n' \right),F\left( n',a \right) \right) = \left( \sigma(k),F\left( k,a_{k} \right) \right) \in G
+\end{align*}
+$a' \neq F\left( k,a_{k} \right)$が成り立つ。したがって、$\left( \sigma\left( n' \right),a' \right) \neq \left( \sigma(k),F\left( k,a_{k} \right) \right)$が成り立ち$\left( \sigma\left( n' \right),\ \ F\left( n',a \right) \right) \in G'$が成り立つので、$G':\mathrm{reflexively\ graph}$が成り立つ。$n' \neq k$のとき、その写像$\sigma$は単射であったので、$\sigma\left( n' \right) \neq \sigma(k)$が成り立つ。したがって、$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \neq \left( \sigma(k),F\left( k,a_{k} \right) \right)$が成り立ち$\left( \sigma\left( n' \right),F\left( n',a \right) \right) \in G'$が成り立つので、$G':\mathrm{reflexively\ graph}$が成り立つ。これにより、$G' \in \mathcal{F}$かつ$G' \subset G$が成り立つが、これは仮定の、$\forall g\in \mathcal{F}$に対し、$G \subseteq g$が成り立つことに矛盾する。したがって、$\left( \sigma(k),F\left( k,a_{k} \right) \right) \in G$なる元$F\left( k,a_{k} \right)$が集合$A$に一意的に存在する。\par
+以上より、$\forall n \in \mathcal{N}$に対し、$(n,a) \in G$なる元$a$が集合$A$に一意的に存在する。ここで、対応$f = \left( \mathcal{N \times}A,G \right)\mathcal{:N \multimap}A$が考えられると、$\forall n \in \mathcal{N}$に対し、次式が成り立つかつ、
+\begin{align*}
+V\left( f|\left\{ n \right\} \right) = \left\{ a \in A \middle| \exists n' \in \left\{ n \right\}\left[ \left( n',a \right) \in G \right] \right\} = \left\{ a \in A \middle| (n,a) \in G \right\}
+\end{align*}
+$(n,a) \in G$なる元$a$が集合$A$に一意的に存在するので、次式が成り立つようなその集合$A$の元$a$が存在する。
+\begin{align*}
+V\left( f|\left\{ n \right\} \right) = \left\{ a \right\}
+\end{align*}
+これにより、その対応$f$は写像である。ここで、$V\left( f|\left\{ \nu \right\} \right) = \left\{ a \in A \middle| (\nu,a) \in G \right\}$が成り立つかつ、$G:\mathrm{reflexively\ graph}$が成り立つので、$V\left( f \middle| \left\{ \nu \right\} \right) = \left\{ a_{\nu} \right\}$が成り立ち$f(\nu) = a_{\nu}$が成り立つ。さらに、$\forall n \in \mathcal{N}$に対し、$V\left( f|\left\{ \sigma(n) \right\} \right) = \left\{ a \in A \middle| \left( \sigma(n),a \right) \in G \right\}$が成り立つかつ、$G:\mathrm{reflexively\ graph}$が成り立つので、$\left( \sigma(n),F\left( n,f(n) \right) \right) \in G$が成り立つので、$V\left( f \middle| \left\{ \sigma(n) \right\} \right) = \left\{ F\left( n,f(n) \right) \right\}$が成り立ち$f\left( \sigma(n) \right) = F\left( n,f(n) \right)$が成り立つ。これにより、その写像$f$は次式を満たす。
+\begin{align*}
+\left\{ \begin{matrix}
+f(\nu) = a_{\nu} \\
+\forall n \in \mathcal{N}\left[ f \circ \sigma(n) = F\left( n,f(n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}\par
+2つの互いに異なる写像たち$f:\mathcal{N \rightarrow}A$、$g:\mathcal{N \rightarrow}A$が次式を満たすとき、
+\begin{align*}
+\left\{ \begin{matrix}
+f(\nu) = a_{\nu} \\
+\forall n \in \mathcal{N}\left[ f \circ \sigma(n) = F\left( n,f(n) \right) \right] \\
+\end{matrix} \right.\ ,\ \ \left\{ \begin{matrix}
+g(\nu) = a_{\nu} \\
+\forall n \in \mathcal{N}\left[ g \circ \sigma(n) = F\left( n,g(n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+$f = g$が成り立つことを示そう。$n = \nu$のとき、明らかに$f(\nu) = a_{\nu} = g(\nu)$が成り立つ。$n = k$のとき、$f(k) = g(k)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、$\sigma(k) \neq \nu$が成り立つので、次のようになる。
+\begin{align*}
+f\left( \sigma(k) \right) = f \circ \sigma(k) = F\left( k,f(k) \right) = F\left( k,g(k) \right) = g \circ \sigma(k) = g\left( \sigma(k) \right)
+\end{align*}
+以上より、$\forall n \in \mathcal{N}$に対し、$f(n) = g(n)$が成り立ち、したがって、$f = g$が成り立つ。このとき、それらの写像たち$f$、$g$が互いに異なるという仮定に矛盾する。よって、次式のように写像$f:\mathcal{N \rightarrow}A$が定義されると、その写像$f$は一意的に存在する。
+\begin{align*}
+\left\{ \begin{matrix}
+f(\nu) = a_{\nu} \\
+\forall n \in \mathcal{N}\left[ f \circ \sigma(n) = F\left( n,f(n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{proof}
+%\hypertarget{peanoux7cfbux9593ux306eux5199ux50cf}{%
+\subsubsection{Peano系間の写像}%\label{peanoux7cfbux9593ux306eux5199ux50cf}}
+\begin{thm}\label{1.2.4.10}
+2つのPeano系たち$\left( \mathcal{M,}\mu,\sigma \right)$、$\left( \mathcal{N,}\nu,\tau \right)$が与えられたとする。このとき、次のことを満たす、
+\begin{itemize}
+\item
+  $F(\mu) = \nu$が成り立つ。
+\item
+  $F \circ \sigma = \tau \circ F$が成り立つ。
+\end{itemize}
+即ち、次式が成り立つ全単射な写像$F\mathcal{:M \rightarrow N}$が一意的に存在する。
+\begin{center}
+\begin{tikzpicture}[auto] 
+
+  \node (a) at (1, 1) {${\mathcal N} $};
+  \node (b) at (5, 1) {${\mathcal N} $};
+  \node (c) at (0, 0) {$\nu $};
+  \node (d) at (4, 0) {$\tau \left( \nu \right) $};
+  \node (e) at (8, 0) {$\cdots $};
+  \node (f) at (1, 5) {${\mathcal M} $};
+  \node (g) at (5, 5) {${\mathcal M} $};
+  \node (h) at (0, 4) {$\mu $};
+  \node (i) at (4, 4) {$\sigma \left( \mu \right) $};
+  \node (j) at (8, 4) {$\cdots $};
+  \node (k) at (0.5, 4.5) {\rotatebox{45}{$\in $} };
+  \node (k) at (4.5, 4.5) {\rotatebox{45}{$\in $} };
+  \node (k) at (0.5, 0.5) {\rotatebox{45}{$\in $} };
+  \node (k) at (4.5, 0.5) {\rotatebox{45}{$\in $} };
+  \node (l) at (9, 1) {$\cdots $};
+  \node (m) at (9, 5) {$\cdots $};
+  
+  \draw [>->] (a) to node {$\scriptstyle \tau $} (b);
+  \draw [>->] (f) to node {$\scriptstyle \sigma $} (g);
+  \draw [>->>] (f) to node {$\scriptstyle F$} (a);
+  \draw [>->>] (g) to node {$\scriptstyle F$} (b);
+  \draw [|->] (c) to node {$\scriptstyle \tau $} (d);
+  \draw [|->] (h) to node {$\scriptstyle \sigma $} (i);
+  \draw [|->] (d) to node {$\scriptstyle \tau $} (e);
+  \draw [|->] (i) to node {$\scriptstyle \sigma $} (j);
+  \draw [|->] (h) to node {$\scriptstyle F$} (c);
+  \draw [|->] (i) to node {$\scriptstyle F$} (d);
+  \draw [>->] (b) to node {$\scriptstyle \tau $} (l);
+  \draw [>->] (g) to node {$\scriptstyle \sigma $} (m);
+
+\end{tikzpicture} 
+\end{center}
+\end{thm}
+\begin{proof}
+2つのPeano系たち$\left( \mathcal{M,}\mu,\sigma \right)$、$\left( \mathcal{N,}\nu,\tau \right)$が与えられたとする。\par
+このとき、次のことを満たす写像$F\mathcal{:M \rightarrow N}$が定義されると、
+\begin{itemize}
+\item
+  $F(\mu) = \nu$が成り立つ。
+\item
+  $F \circ \sigma = \tau \circ F$が成り立つ。
+\end{itemize}
+これは次のように書き換えられることができる。
+\begin{align*}
+\left\{ \begin{matrix}
+F(\mu) = \nu \\
+\forall m\in \mathcal{M}\left[ F \circ \sigma(m) = \tau \circ F(m) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+これは明らかに写像の再帰的定義なので、その写像$F$は一意的に存在する。\par
+ここで、$\forall n \in \mathcal{N}$に対し、$n \in V(F)$が成り立つことを示そう。$n = \nu$のとき、定義より明らかに$\nu \in V(F)$が成り立つ。$n = k$のとき、$k \in V(F)$が成り立つと仮定しよう。$n = \tau(k)$のとき、仮定より$k = F\left( k' \right)$とおくと、定義より次のようになる。
+\begin{align*}
+\tau(k) = \tau\left( F\left( k' \right) \right) = \tau \circ F\left( k' \right) = F \circ \sigma\left( k' \right) = F\left( \sigma\left( k' \right) \right)
+\end{align*}
+ここで、その元$\sigma\left( k' \right)$がその集合$\mathcal{M}$に存在するので、$\tau(k) \in V(F)$が成り立つ。\par
+以上より、$\forall n \in \mathcal{N}$に対し、$n \in V(F)$が成り立つ。$V(F) \subseteq \mathcal{N}$が成り立つことに注意すれば、外延性の公理より$V(F) = \mathcal{N}$が成り立つので、その写像$F$は全射である。次に、$\forall n \in \mathcal{N}$に対し、$V(F) = \mathcal{N}$が成り立つのであったので、次式が成り立つような元々$m_{1}$、$m_{2}$がその集合$\mathcal{M}$に存在する。
+\begin{align*}
+n = F\left( m_{1} \right) = F\left( m_{2} \right)
+\end{align*}\par
+ここで、$\forall n \in \mathcal{N}$に対し、$n = F\left( m_{1} \right) = F\left( m_{2} \right) \Rightarrow m_{1} = m_{2}$が成り立つことを示そう。$n = \nu$のとき、$\nu = F\left( m_{1} \right) = F\left( m_{2} \right) \land m_{1} \neq m_{2}$が成り立つと仮定しよう。その写像$F$の定義より$F(\mu) = \nu$が成り立つのであったので、$F(m) = n$かつ$m \neq \mu$なるその集合$\mathcal{M}$の元$m$が存在し、$\mathcal{M \setminus}\left\{ \mu \right\} = V(\sigma)$が成り立つのであったので、$m = \sigma\left( m' \right)$なる元$m'$がその集合$\mathcal{M}$に存在する。したがって、次のようになる。
+\begin{align*}
+\nu = F(\mu) = F(m) = F\left( \sigma\left( m' \right) \right) = F \circ \sigma\left( m' \right)
+\end{align*}
+ここで、その写像$F$の定義より$F \circ \sigma\left( m' \right) = \tau \circ F\left( m' \right)$が成り立つので、次式が成り立つ。
+\begin{align*}
+\nu = \tau \circ F\left( m' \right) = \tau\left( F\left( m' \right) \right) \in V(\tau)
+\end{align*}
+しかしながら、これはPeanoの公理より$\nu \in \mathcal{N \setminus}V(\tau)$が成り立つことに矛盾する。したがって、$\nu = F\left( m_{1} \right) = F\left( m_{2} \right) \Rightarrow m_{1} = m_{2}$が成り立つ。$n = k$のとき、$k = F\left( m_{1} \right) = F\left( m_{2} \right) \Rightarrow m_{1} = m_{2}$が成り立つと仮定しよう。$n = \tau(k)$のとき、$\tau(k) = F\left( m_{1} \right) = F\left( m_{2} \right) \land m_{1} \neq m_{2}$が成り立つと仮定しよう。このとき、$m_{1} = \mu$のとき、その写像$F$の定義より$F(\mu) = \nu$が成り立つのであったので、$\tau(k) = F\left( m_{1} \right) = \nu$が成り立ち$\tau(k) = \nu \in V(\tau)$が成り立つが、これはPeanoの公理より$\nu \in \mathcal{N \setminus}V(\tau)$が成り立つことに矛盾する。したがって、$m_{1} \neq \mu$が成り立つ。$m_{2} = \mu$のときも同様にして示される。$m_{1} \neq \mu$かつ$m_{2} \neq \mu$が成り立つなら、$\mathcal{N \setminus}\left\{ \nu \right\} = V(\tau)$が成り立つのであったので、次式が成り立つような元々$m_{1}'$、$m_{2}'$がその集合$\mathcal{M}$に存在する。
+\begin{align*}
+m_{1} = \sigma\left( m_{1}' \right) \land m_{2} = \sigma\left( m_{2}' \right)
+\end{align*}
+したがって、
+\begin{align*}
+\tau(k) = F\left( m_{1} \right) = F\left( m_{2} \right) &\Leftrightarrow \tau(k) = F\left( \sigma\left( m_{1}' \right) \right) = F\left( \sigma\left( m_{2}' \right) \right)\\
+&\Leftrightarrow \tau(k) = F \circ \sigma\left( m_{1}' \right) = F \circ \sigma\left( m_{2}' \right)\\
+&\Leftrightarrow \tau(k) = \tau \circ F\left( m_{1}' \right) = \tau \circ F\left( m_{2}' \right)
+\end{align*}
+ここで、その写像$\tau$は単射であったので、次式が成り立つ。
+\begin{align*}
+k = F\left( m_{1}' \right) = F\left( m_{2}' \right)
+\end{align*}
+ここで、仮定より$k = F\left( m_{1}' \right) = F\left( m_{2}' \right) \Rightarrow m_{1}' = m_{2}'$が成り立つので、$m_{1}' = m_{2}'$が得られる。したがって、$m_{1} = \sigma\left( m_{1}' \right) = \sigma\left( m_{2}' \right) = m_{2}$が得られるが、これは$m_{1} \neq m_{2}$が成り立つことに矛盾する。したがって、$n = \tau(k)$のとき、$\tau(k) = F\left( m_{1} \right) = F\left( m_{2} \right) \Rightarrow m_{1} = m_{2}$が成り立つ。\par
+以上より、$\forall n \in \mathcal{N}$に対し、$n = F\left( m_{1} \right) = F\left( m_{2} \right) \Rightarrow m_{1} = m_{2}$が成り立つので、その写像$F$は単射である。よって、その写像$F$は全単射となる。
+\end{proof}
+%\hypertarget{ux52a0ux6cd5}{%
+\subsubsection{加法}%\label{ux52a0ux6cd5}}
+\begin{dfn}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。次のような写像$+$が定義されるとき、その写像$+$を加法、足し算などといい像$+ (m,n)$をそれらの元々$m$、$n$の和といい$m + n$などと書く。
+\begin{align*}
+\left\{ \begin{matrix}
+ + (m,\nu) = m \\
+\forall n \in \mathcal{N}\left[ + \left( m,\sigma(n) \right) = \sigma\left( + (m,n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.4.11}
+そのような写像$+$は一意的に存在する。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m \in \mathcal{N}$に対し、次式のように写像$+_{m}\mathcal{:N \rightarrow N}$が定義されるとする。
+\begin{align*}
+\left\{ \begin{matrix}
+ +_{m}(\nu) = m \\
+\forall n \in \mathcal{N}\left[ +_{m}\left( \sigma(n) \right) = \sigma\left( +_{m}(n) \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+これは明らかに写像の再帰的定義なので、その写像$+_{m}$は一意的に存在する。
+\end{proof}
+\begin{thm}\label{1.2.4.12}
+次のことが成り立つ。特に、上から1つ目、2つ目の定理のことを加法の交換法則、加法の結合法則などという。
+\begin{itemize}
+\item
+  $\forall m,n \in \mathcal{N}$に対し、$+ (m,n) = + (n,m)$が成り立つ。
+\item
+  $\forall l,m,n \in \mathcal{N}$に対し、$+ \left( + (l,m),n \right) = + \left( l, + (m,n) \right)$が成り立つ。
+\item
+  $\forall n \in \mathcal{N}$に対し、$+ \left( n,\sigma(\nu) \right) = + \left( \sigma(\nu),n \right) = \sigma(n)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m,n \in \mathcal{N}$に対し、$+ (m,n) = + (n,m)$が成り立つことを示そう。\par
+$\forall m,n \in \mathcal{N}$に対し、$n = \nu$のとき、明らかに$+ (m,\nu) = m$が成り立つ。ここで、$m = \nu$のとき、明らかに$+ (m,n) = + (\nu,\nu) = + (n,m)$が成り立つ。$m = k$のとき、$+ (k,\nu) = + (\nu,k)$が成り立つと仮定しよう。$m = \sigma(k)$のとき、次式が成り立つ。
+\begin{align*}
++ \left( \sigma(k),\nu \right) &= \sigma(k)\\
+&= \sigma\left( + (k,\nu) \right)\\
+&= \sigma\left( + (\nu,k) \right)\\
+&= + \left( \nu,\sigma(k) \right)
+\end{align*}
+したがって、$n = \nu$のとき、$\forall m \in \mathcal{N}$に対し、$+ (m,\nu) = + (\nu,m)$が成り立つ。$n = k$のとき、$\forall m \in \mathcal{N}$に対し、$+ (m,k) = + (k,m)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、$m = \nu$のとき、上記の議論により$+ \left( \nu,\sigma(k) \right) = + \left( \sigma(k),\nu \right)$が成り立つ。$m = l$のとき、$+ \left( l,\sigma(k) \right) = + \left( \sigma(k),l \right)$が成り立つと仮定しよう。$m = \sigma(l)$のとき、次のようになる。
+\begin{align*}
++ \left( \sigma(l),\sigma(k) \right) &= \sigma\left( + \left( \sigma(l),k \right) \right)\\
+&= \sigma\left( + \left( k,\sigma(l) \right) \right)\\
+&= \sigma\left( \sigma\left( + (k,l) \right) \right)\\
+&= \sigma\left( \sigma\left( + (l,k) \right) \right)\\
+&= \sigma\left( + \left( l,\sigma(k) \right) \right)\\
+&= \sigma\left( + \left( \sigma(k),l \right) \right)\\
+&= + \left( \sigma(k),\sigma(l) \right)
+\end{align*}
+したがって、$n = \sigma(k)$のとき、$\forall m \in \mathcal{N}$に対し、$+ \left( m,\sigma(k) \right) = + \left( \sigma(k),m \right)$が成り立つ。以上より、$\forall m,n \in \mathcal{N}$に対し、$+ (m,n) = + (n,m)$が成り立つ。\par
+$\forall l,m,n \in \mathcal{N}$に対し、$+ \left( + (l,m),n \right) = + \left( l, + (m,n) \right)$が成り立つことを示そう。$n = \nu$のとき、次のようになる。
+\begin{align*}
++ \left( + (l,m),\nu \right) = + (l,m) = + \left( l, + (m,\nu) \right)
+\end{align*}
+したがって、$n = \nu$のとき、$\forall l,m \in \mathcal{N}$に対し、$+ \left( + (l,m),\nu \right) = + \left( l, + (m,\nu) \right)$が成り立つ。$n = k$のとき、$\forall l,m \in \mathcal{N}$に対し、$+ \left( + (l,m),k \right) = + \left( l, + (m,k) \right)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、次のようになる。
+\begin{align*}
++ \left( + (l,m),\sigma(k) \right) &= \sigma\left( + \left( + (l,m),k \right) \right) = \sigma\left( + \left( l, + (m,k) \right) \right)\\
+&= + \left( l,\sigma\left( + (m,n) \right) \right) = + \left( l, + \left( m,\sigma(k) \right) \right)
+\end{align*}
+したがって、$n = \sigma(k)$のとき、$\forall l,m \in \mathcal{N}$に対し、$+ \left( + (l,m),\sigma(k) \right) = + \left( l, + \left( m,\sigma(k) \right) \right)$が成り立つ。以上より、$\forall l,m,n \in \mathcal{N}$に対し、$+ \left( + (l,m),n \right) = + \left( l, + (m,n) \right)$が成り立つ。\par
+$\forall n \in \mathcal{N}$に対し、次式が成り立つ。
+\begin{align*}
++ \left( n,\sigma(\nu) \right) = \sigma\left( + (n,\nu) \right) = \sigma(n)
+\end{align*}
+また、上記の議論により$+ \left( n,\sigma(\nu) \right) = + \left( \sigma(\nu),n \right)$が成り立つ。したがって、$\forall n \in \mathcal{N}$に対し、$+ \left( n,\sigma(\nu) \right) = + \left( \sigma(\nu),n \right) = \sigma(n)$が成り立つ。
+\end{proof}
+%\hypertarget{ux4e57ux6cd5}{%
+\subsubsection{乗法}%\label{ux4e57ux6cd5}}
+\begin{dfn}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。次のような写像$\cdot$が定義されるとき、その写像$\cdot$を乗法、掛け算などといい像$\cdot (m,n)$をそれらの元々$m$、$n$の積といい$m \cdot n$、$mn$、$m \times n$、$m*n$などと書く。
+\begin{align*}
+\left\{ \begin{matrix}
+ \cdot (m,\nu) = \nu \\
+\forall n \in \mathcal{N}\left[ \cdot \left( m,\sigma(n) \right) = + \left( \cdot (m,n),m \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.4.13}
+そのような写像$\cdot$は一意的に存在する。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m \in \mathcal{N}$に対し、次式のように写像$\cdot_{m}\mathcal{:N \rightarrow N}$が定義されるとする。
+\begin{align*}
+\left\{ \begin{matrix}
+ \cdot_{m}(\nu) = \nu \\
+\forall n \in \mathcal{N}\left[ \cdot_{m}\left( \sigma(n) \right) = + \left( \cdot_{m}(n),m \right) \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+これは明らかに写像の再帰的定義なので、その写像$\cdot_{m}$は一意的に存在する。
+\end{proof}
+\begin{thm}\label{1.2.4.14}
+次のことが成り立つ。特に、上から1つ目、2つ目、3つ目の定理を乗法の交換法則、乗法の結合法則、乗法の加法に対する分配法則などという。
+\begin{itemize}
+\item
+  $\forall m,n \in \mathcal{N}$に対し、$\cdot (m,n) = \cdot (n,m)$が成り立つ。
+\item
+  $\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),n \right) = \cdot \left( l, \cdot (m,n) \right)$が成り立つ。
+\item
+  $\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( l, + (m,n) \right) = \cdot \left( + (m,n),l \right) = + \left( \cdot (l,m), \cdot (l,n) \right)$が成り立つ。
+\item
+  $\forall n \in \mathcal{N}$に対し、$\cdot \left( n,\sigma(\nu) \right) = \cdot \left( \sigma(\nu),n \right) = n$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m,n \in \mathcal{N}$に対し、$\cdot (m,n) = \cdot (n,m)$が成り立つことを示そう。\par
+$\forall m,n \in \mathcal{N}$に対し、$n = \nu$のとき、明らかに$\cdot (m,\nu) = \nu$が成り立つ。ここで、$m = \nu$のとき、明らかに$\cdot (m,\nu) = \nu = \cdot (\nu,m)$が成り立つ。$m = k$のとき、$\cdot (k,\nu) = \cdot (\nu,k)$が成り立つと仮定しよう。$m = \sigma(k)$のとき、次式が成り立つ。
+\begin{align*}
+\cdot \left( \sigma(k),\nu \right) = \nu = + \left( \cdot (\nu,k),\nu \right) = \cdot \left( \nu,\sigma(k) \right)
+\end{align*}
+したがって、$n = \nu$のとき、$\forall m \in \mathcal{N}$に対し、$\cdot (m,\nu) = \cdot (\nu,m)$が成り立つ。$n = k$のとき、$\forall m \in \mathcal{N}$に対し、$\cdot (m,k) = \cdot (k,m)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、$m = \nu$のとき、上記の議論により$\cdot \left( \nu,\sigma(k) \right) = \cdot \left( \sigma(k),\nu \right)$が成り立つ。$m = l$のとき、$\cdot \left( l,\sigma(k) \right) = \cdot \left( \sigma(k),l \right)$が成り立つと仮定しよう。$m = \sigma(l)$のとき、次のようになる。
+\begin{align*}
+\cdot \left( \sigma(l),\sigma(k) \right) &= + \left( \cdot \left( \sigma(l),k \right),\sigma(l) \right)\\
+&= + \left( \cdot \left( k,\sigma(l) \right), + \left( l,\sigma(\nu) \right) \right)\\
+&= + \left( + \left( + \left( \cdot (k,l),k \right),l \right),\sigma(\nu) \right)\\
+&= + \left( + \left( \cdot (l,k), + (k,l) \right),\sigma(\nu) \right)\\
+&= + \left( + \left( \cdot (k,l),k \right), + \left( l,\sigma(\nu) \right) \right)\\
+&= + \left( \cdot \left( k,\sigma(l) \right),\sigma(l) \right)\\
+&= \cdot \left( \sigma(k),\sigma(l) \right)
+\end{align*}
+したがって、$n = \sigma(k)$のとき、$\forall m \in \mathcal{N}$に対し、$\cdot \left( m,\sigma(k) \right) = \cdot \left( \sigma(k),m \right)$が成り立つ。以上より、$\forall m,n \in \mathcal{N}$に対し、$\cdot (m,n) = \cdot (n,m)$が成り立つ。\par
+$\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( l, + (m,n) \right) = + \left( \cdot (l,m), \cdot (l,n) \right)$が成り立つことを示そう。$l = \nu$のとき、次のようになる。
+\begin{align*}
+\cdot \left( \nu, + (m,n) \right) &= \cdot \left( + (m,n),\nu \right)\\
+&= \nu = + (\nu,\nu)\\
+&= + \left( \cdot (m,\nu), \cdot (n,\nu) \right)\\
+&= + \left( \cdot (\nu,m), \cdot (\nu,n) \right)
+\end{align*}
+$l = k$のとき、$\forall m,n \in \mathcal{N}$に対し、$\cdot \left( k, + (m,n) \right) = + \left( \cdot (k,m), \cdot (k,n) \right)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、次のようになる。
+\begin{align*}
+\cdot \left( \sigma(k), + (m,n) \right) &= \cdot \left( + (m,n),\sigma(k) \right)\\
+&= + \left( \cdot \left( + (m,n),k \right), + (m,n) \right)\\
+&= + \left( \cdot \left( k, + (m,n) \right), + (m,n) \right)\\
+&= + \left( + \left( \cdot (k,m), \cdot (k,n) \right), + (m,n) \right)\\
+&= + \left( + \left( \cdot (k,m), \cdot (k,n) \right), + (m,n) \right)\\
+&= + \left( + \left( + \left( \cdot (k,m), \cdot (k,n) \right),m \right),n \right)\\
+&= + \left( + \left( \cdot (k,m), + \left( \cdot (k,n),m \right) \right),n \right)\\
+&= + \left( + \left( \cdot (k,m), + \left( m, \cdot (k,n) \right) \right),n \right)\\
+&= + \left( + \left( + \left( \cdot (k,m),m \right), \cdot (k,n) \right),n \right)\\
+&= + \left( + \left( \cdot (k,m),m \right), + \left( \cdot (k,n),n \right) \right)\\
+&= + \left( + \left( \cdot (m,k),m \right), + \left( \cdot (n,k),n \right) \right)\\
+&= + \left( \cdot \left( m,\sigma(k) \right), \cdot \left( n,\sigma(k) \right) \right)
+\end{align*}
+したがって、$n = \sigma(k)$のとき、$\forall m,n \in \mathcal{N}$に対し、$\cdot \left( \sigma(k), + (m,n) \right) = + \left( \cdot \left( m,\sigma(k) \right), \cdot \left( n,\sigma(k) \right) \right)$が成り立つ。また、上記の議論により$\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( l, + (m,n) \right) = \cdot \left( + (m,n),l \right)$が成り立つ。以上より、$\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( l, + (m,n) \right) = \cdot \left( + (m,n),l \right) = + \left( \cdot (l,m), \cdot (l,n) \right)$が成り立つ。\par
+$\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),n \right) = \cdot \left( l, \cdot (m,n) \right)$が成り立つことを示そう。$n = \nu$のとき、次のようになる。
+\begin{align*}
+\cdot \left( \cdot (l,m),\nu \right) = \nu = \cdot (l.\nu) = \cdot \left( l, \cdot (m,\nu) \right)
+\end{align*}
+したがって、$n = \nu$のとき、$\forall l,m \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),\nu \right) = \cdot \left( l, \cdot (m,\nu) \right)$が成り立つ。$n = k$のとき、$\forall l,m \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),k \right) = \cdot \left( l, \cdot (m,k) \right)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、次のようになる。
+\begin{align*}
+\cdot \left( \cdot (l,m),\sigma(k) \right) &= + \left( \cdot \left( \cdot (l,m),k \right), \cdot (l,m) \right)\\
+&= + \left( \cdot \left( l, \cdot (m,k) \right), \cdot (l,m) \right)\\
+&= \cdot \left( l, + \left( \cdot (m,n),m \right) \right)\\
+&= \cdot \left( l, \cdot \left( m,\sigma(n) \right) \right)
+\end{align*}
+したがって、$n = \sigma(k)$のとき、$\forall l,m \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),\sigma(k) \right) = \cdot \left( l, \cdot \left( m,\sigma(n) \right) \right)$が成り立つ。以上より、$\forall l,m,n \in \mathcal{N}$に対し、$\cdot \left( \cdot (l,m),n \right) = \cdot \left( l, \cdot (m,n) \right)$が成り立つ。\par
+$\forall n \in \mathcal{N}$に対し、次のようになる。
+\begin{align*}
+\cdot \left( n,\sigma(\nu) \right) &= + \left( \cdot (n,\nu),n \right)\\
+&= + (\nu,n) = n
+\end{align*}
+また、上記の議論により$\cdot \left( n,\sigma(\nu) \right) = \cdot \left( \sigma(\nu),n \right)$が成り立つ。したがって、$\forall n \in \mathcal{N}$に対し、$\cdot \left( n,\sigma(\nu) \right) = \cdot \left( \sigma(\nu),n \right) = n$が成り立つ。
+\end{proof}
+%\hypertarget{ux5207ux7247}{%
+\subsubsection{切片}%\label{ux5207ux7247}}
+\begin{dfn}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$\forall n \in \mathcal{N}$に対する写像$+_{n}$が次式のように定義される。
+\begin{align*}
++_{n}\mathcal{:N \rightarrow N;}m \mapsto + (m,n)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.4.15}これについて、次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$+_{n}$は単射である。
+\item
+  $\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$\forall m \in \mathcal{N}$に対し、$+_{n}(m) \neq m$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$\forall n \in \mathcal{N}$に対する写像$+_{n}$が次式のように定義される。
+\begin{align*}
++_{n}\mathcal{:N \rightarrow N;}m \mapsto + (m,n)
+\end{align*}
+ここで、$\forall n \in \mathcal{N}$に対し、その写像$+_{n}$は単射であることを示そう。$n = \nu$のとき、$\forall m \in \mathcal{N}$に対し、次式が成り立つ。
+\begin{align*}
++_{n}(m) = + (m,\nu) = m = I_{\mathcal{N}}(m)
+\end{align*}
+その恒等写像$I_{\mathcal{N}}$は単射であったので、その写像$+_{\nu}$は単射である。$n = k$のとき、その写像$+_{k}$は単射であると仮定しよう。$n = \sigma(k)$のとき、$\forall m \in \mathcal{N}$に対し、次のようになる。
+\begin{align*}
++_{\sigma(k)}(m) &= + \left( m,\sigma(k) \right)\\
+&= \sigma\left( + (m,k) \right)\\
+&= \sigma \circ +_{k}(m)
+\end{align*}
+ここで、仮定よりその写像$+_{k}$は単射であるかつ、その写像$\sigma$も単射であるから、写像$\sigma \circ +_{k}$も単射である。よって、その写像$+_{\sigma(k)}$も単射である。以上より、$\forall n \in \mathcal{N}$に対し、その写像$+_{n}$は単射である。\par
+次に、$\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$\forall m \in \mathcal{N}$に対し、$+_{n}(m) \neq m$が成り立つことを示そう。$m = \nu$のとき、$+_{n}(\nu) = \nu$が成り立つような元$m$がその集合$\mathcal{N}$に存在すると仮定しよう。このとき、次のようになる。
+\begin{align*}
++_{n}(\nu) = + (n,\nu) = n = \nu
+\end{align*}
+ここで、仮定の$n \neq \nu$が成り立つことに矛盾する。したがって、$\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$+_{n}(\nu) \neq \nu$が成り立つ。$n = k$のとき、$\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$+_{n}(k) \neq k$が成り立つと仮定しよう。$n = \sigma(k)$のとき、次のようになる。
+\begin{align*}
++_{n}\left( \sigma(k) \right) &= + \left( n,\sigma(k) \right)\\
+&= \sigma\left( + (n,k) \right)\\
+&= \sigma\left( +_{n}(k) \right)
+\end{align*}
+ここで、その写像$\sigma$は単射であったので、仮定より$+_{n}(k) \neq k$が成り立ち、したがって、$\sigma\left( +_{n}(k) \right) \neq \sigma(k)$が成り立つことになるので、次のようになる。
+\begin{align*}
++_{n}\left( \sigma(k) \right) = \sigma\left( +_{n}(k) \right) \neq \sigma(k)
+\end{align*}
+したがって、$\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$+_{n}\left( \sigma(k) \right) \neq \sigma(k)$が成り立つ。以上より、$\forall n \in \mathcal{N}$に対し、$n \neq \nu$が成り立つなら、$\forall m \in \mathcal{N}$に対し、$+_{n}(m) \neq m$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.4.16}
+$\forall n \in \mathcal{N}$に対し、$n \neq \sigma(n)$が成り立つ。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall n \in \mathcal{N}$に対し、次式が成り立つのであった。
+\begin{align*}
+\sigma(n) = + \left( n,\sigma(\nu) \right) = + \left( \sigma(\nu),n \right)
+\end{align*}
+ここで、写像$+_{\sigma(\nu)}$を用いると、次式のように書き換えられることができる。
+\begin{align*}
+\sigma(n) = +_{\sigma(n)}(n)
+\end{align*}
+ここで、$\sigma(\nu) \neq \nu$が成り立つので、$+_{\sigma(n)}(n) \neq n$が成り立つ。したがって、$\sigma(n) \neq n$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.4.17}
+$\forall m,n \in \mathcal{N}$に対し、次式が成り立つようなその集合$\mathcal{N}$の元$m'$が存在するなら、
+\begin{align*}
+n = + \left( m,m' \right)
+\end{align*}
+このような元$m'$は一意的に存在する。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m,n \in \mathcal{N}$に対し、次式が成り立つようなその集合$\mathcal{N}$の元々$m'$、$m''$が存在するとき、
+\begin{align*}
+n = + \left( m,m' \right) = + \left( m,m'' \right)
+\end{align*}
+$m' \neq m''$が成り立つと仮定しよう。このとき、写像$+_{m}$を用いれば、このことは次式のように書き換えられることができる。
+\begin{align*}
++_{m}\left( m' \right) = +_{m}\left( m'' \right)
+\end{align*}
+ここで、この写像$+_{m}$は単射であったので、$m' = m''$が成り立つ。このとき、仮定の$m' \neq m''$が成り立つことに矛盾する。
+\end{proof}
+\begin{thm}\label{1.2.4.18}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall m_{1},m_{2},n_{1},n_{2}\in \mathcal{N}$に対し、$m_{1} = n_{1}$かつ$m_{2} = n_{2}$が成り立つなら、$+ \left( m_{1},m_{2} \right) = + \left( n_{1},n_{2} \right)$が成り立つ。
+\item
+  $\forall m_{1},m_{2},n \in \mathcal{N}$に対し、$+ \left( m_{1},n \right) = + \left( m_{2},n \right)$が成り立つなら、$m_{1} = m_{2}$が成り立つ。
+\item
+  $\forall m_{1},m_{2},n_{1},n_{2}\in \mathcal{N}$に対し、$m_{1} = n_{1}$かつ$m_{2} = n_{2}$が成り立つなら、$\cdot \left( m_{1},m_{2} \right) = \cdot \left( n_{1},n_{2} \right)$が成り立つ。
+\item
+  $\forall m_{1},m_{2},n \in \mathcal{N}$に対し、$\cdot \left( m_{1},n \right) = \cdot \left( m_{2},n \right)$が成り立つなら、$n = \nu$または$m_{1} = m_{2}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。$\forall m_{1},m_{2},n_{1},n_{2}\in \mathcal{N}$に対し、$m_{1} = n_{1}$かつ$m_{2} = n_{2}$が成り立つなら、次のようになり、
+\begin{align*}
++ \left( m_{1},m_{2} \right) = + \left( n_{1},m_{2} \right) = + \left( n_{1},n_{2} \right)
+\end{align*}
+したがって、$+ \left( m_{1},m_{2} \right) = + \left( n_{1},n_{2} \right)$が成り立つ。\par
+$+ \left( m_{1},n \right) = + \left( m_{2},n \right)$が成り立つかつ、$m_{1} \neq m_{2}$が成り立つようなその集合$\mathcal{N}$の元々$m_{1}$、$m_{2}$、$n$が存在すると仮定しよう。$n = \nu$のとき、次のようになる。
+\begin{align*}
++ \left( m_{1},\nu \right) = m_{1} \neq m_{2} = + \left( m_{2},\nu \right)
+\end{align*}
+$n = k$のとき、$+ \left( m_{1},k \right) \neq + \left( m_{2},k \right)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、写像$+_{\sigma(k)}$が用いられれば、次式のように書き換えられることができる。
+\begin{align*}
++ \left( m_{1},\sigma(k) \right) = + \left( \sigma(k),m_{1} \right) = +_{\sigma(k)}\left( m_{1} \right)
+\end{align*}
+ここで、$\sigma(k) \neq \nu$が成り立つので、その写像$+_{\sigma(k)}$は単射となり、$m_{1} \neq m_{2}$が成り立つなら、$+_{\sigma(k)}\left( m_{1} \right) \neq +_{\sigma(k)}\left( m_{2} \right)$が成り立つことになり、したがって、次式が成り立つ。
+\begin{align*}
++ \left( m_{1},\sigma(k) \right) = +_{\sigma(k)}\left( m_{1} \right) \neq +_{\sigma(k)}\left( m_{2} \right) = + \left( m_{2},\sigma(k) \right)
+\end{align*}
+以上より、$\forall n \in \mathcal{N}$に対し、$m_{1} \neq m_{2}$が成り立つなら、$+ \left( m_{1},n \right) \neq + \left( m_{2},n \right)$が成り立つことになるが、これは仮定の$+ \left( m_{1},n \right) = + \left( m_{2},n \right)$が成り立つことに矛盾する。したがって、$\forall m_{1},m_{2},n \in \mathcal{N}$に対し、$+ \left( m_{1},n \right) = + \left( m_{2},n \right)$が成り立つなら、$m_{1} = m_{2}$が成り立つ。\par
+$\forall m_{1},m_{2},n_{1},n_{2}\in \mathcal{N}$に対し、$m_{1} = n_{1}$かつ$m_{2} = n_{2}$が成り立つなら、次のようになり、
+\begin{align*}
+\cdot \left( m_{1},m_{2} \right) = \cdot \left( n_{1},m_{2} \right) = \cdot \left( n_{1},n_{2} \right)
+\end{align*}
+したがって、$\cdot \left( m_{1},m_{2} \right) = \cdot \left( n_{1},n_{2} \right)$が成り立つ。\par
+$\cdot \left( m_{1},n \right) = \cdot \left( m_{2},n \right)$かつ$n \neq \nu$かつ$m_{1} \neq m_{2}$が成り立つようなその集合$\mathcal{N}$の元々$m_{1}$、$m_{2}$、$n$が存在すると仮定しよう。$n = \nu$のときでは明らかにその仮定が満たされない。$n = k$のとき、$\cdot \left( m_{1},k \right) \neq \cdot \left( m_{2},k \right)$が成り立つと仮定しよう。$n = \sigma(k)$のとき、次式が成り立つ。
+\begin{align*}
+\cdot \left( m_{1},\sigma(k) \right) = + \left( \cdot \left( m_{1},k \right),k \right) = + \left( k, \cdot \left( m_{1},k \right) \right) = +_{k}\left( \cdot \left( m_{1},k \right) \right)
+\end{align*}
+$k = \nu$のときでは明らかにその仮定が満たされない。$k \neq \nu$のとき、その写像$+_{k}$は単射となり、$\cdot \left( m_{1},k \right) \neq \cdot \left( m_{2},k \right)$が成り立つなら、$+_{k}\left( \cdot \left( m_{1},k \right) \right) \neq +_{k}\left( \cdot \left( m_{2},k \right) \right)$が成り立つことになり、したがって、次式が成り立つ。
+\begin{align*}
+\cdot \left( m_{1},\sigma(k) \right) = +_{k}\left( \cdot \left( m_{1},k \right) \right) \neq +_{k}\left( \cdot \left( m_{2},k \right) \right) = \cdot \left( m_{2},\sigma(k) \right)
+\end{align*}
+以上より、$\forall n \in \mathcal{N}$に対し、$m_{1} \neq m_{2}$が成り立つなら、$\cdot \left( m_{1},n \right) \neq \cdot \left( m_{2},n \right)$が成り立つことになるが、これは仮定の$\cdot \left( m_{1},n \right) = \cdot \left( m_{2},n \right)$が成り立つことに矛盾する。したがって、$\forall m_{1},m_{2},n \in \mathcal{N}$に対し、$\cdot \left( m_{1},n \right) \neq \cdot \left( m_{2},n \right)$または$n = \nu$または$m_{1} = m_{2}$が成り立ち$\cdot \left( m_{1},n \right) = \cdot \left( m_{2},n \right)$が成り立つなら、$n = \nu$または$m_{1} = m_{2}$が成り立つ。
+\end{proof}
+\begin{dfn}
+$n \in \mathcal{N}$なる元$n$を用いて次式のように集合たち$\mathcal{N}_{< n}$、$\mathcal{N}_{\leq n}$が定義される。
+\begin{align*}
+\mathcal{N}_{\leq n} &= \left\{ m \in \mathcal{N} \middle| \exists!m'\in \mathcal{N}\left[ n = + \left( m,m' \right) \right] \right\}\\
+\mathcal{N}_{< n} &= \mathcal{N}_{\leq n} \setminus \left\{ n \right\}
+\end{align*}
+この集合$\mathcal{N}_{< n}$をその元$n$によるその集合$\mathcal{N}$の切片という。
+\end{dfn}
+\begin{thm}[その集合$\mathcal{N}$の比較可能性]\label{1.2.4.19}
+$\forall m,n \in \mathcal{N}$に対し、次のことのうちいづれか1つのみ成り立つ。
+\begin{itemize}
+\item
+  $m \in \mathcal{N}_{< n}$が成り立つ。
+\item
+  $m = n$が成り立つ。
+\item
+  $n \in \mathcal{N}_{< m}$が成り立つ。
+\end{itemize}
+\end{thm}
+この性質をその集合$\mathcal{N}$の比較可能性という。
+\begin{proof}
+Peano系$\left( \mathcal{N,}\nu,\sigma \right)$が与えられたとする。このとき、$\forall m,n \in \mathcal{N}$に対し、次のことのうち少なくとも1つは成り立つことを示そう。
+\begin{itemize}
+\item
+  $m \in \mathcal{N}_{< n}$が成り立つ。
+\item
+  $m = n$が成り立つ。
+\item
+  $n \in \mathcal{N}_{< m}$が成り立つ。
+\end{itemize}\par
+$\forall m \in \mathcal{N}$に対し、$n = \nu$のとき、$m = \nu$のとき、明らかに$m = \nu = \nu = n$が成り立つ。$m \neq \nu$のとき、明らかに次式が成り立つので、
+\begin{align*}
+m = + (m,\nu) = + (\nu,m)
+\end{align*}
+次式が成り立つようなその集合$\mathcal{N}$の元$m'$が存在し
+\begin{align*}
+m = + \left( \nu,m' \right)
+\end{align*}
+これが成り立つなら、その元$m'$は一意的に存在するのであったので、$m' = m$が成り立ち、したがって、$\nu \in \mathcal{N}_{\leq m}$が成り立つ。ここで、仮定の$m \neq \nu$が成り立つので、$\nu \in \mathcal{N}_{< m}$が成り立つ。\par
+$n = k$のとき、次のことのうち少なくとも1つは成り立つと仮定しよう。
+\begin{itemize}
+\item
+  $m \in \mathcal{N}_{< k}$が成り立つ。
+\item
+  $m = k$が成り立つ。
+\item
+  $k \in \mathcal{N}_{< m}$が成り立つ。
+\end{itemize}
+$n = \sigma(k)$のとき、$m \in \mathcal{N}_{< k}$が成り立つとき、これが成り立つならそのときに限り、$k = + \left( m,m' \right)$が成り立つような元$m'$がその集合$\mathcal{N}$に一意的に存在するのであった。このとき、次のようになる。
+\begin{align*}
+\sigma(k) = \sigma\left( + \left( m,m' \right) \right) = + \left( m,\sigma\left( m' \right) \right)
+\end{align*}
+ここで、仮定のその元$m'$がその集合$\mathcal{N}$に一意的に存在することに注意すれば、その元$\sigma\left( m' \right)$がその集合$\mathcal{N}$に一意的に存在する。したがって、$m \in \mathcal{N}_{\leq \sigma(k)}$が成り立つ。ここで、$\sigma\left( m' \right) \neq \nu$が成り立つので、写像$+_{\sigma\left( m' \right)}$を用いると、その式$\sigma(k) = + \left( m,\sigma\left( m' \right) \right)$は次式のように書き換えられることができる。
+\begin{align*}
+\sigma(k) = +_{\sigma\left( m' \right)}(m)
+\end{align*}
+このとき、$\sigma\left( m' \right) \neq \nu$が成り立つので、$\forall m \in \mathcal{N}$に対し、$+_{\sigma\left( m' \right)}(m) \neq m$が成り立つ。したがって、$\sigma(k) \neq m$が成り立つので、$m \in \mathcal{N}_{< \sigma(k)}$が成り立つ。$m = k$が成り立つとき、次のようになる。
+\begin{align*}
+\sigma(k) = \sigma(m) = \sigma\left( + (m,\nu) \right) = + \left( m,\sigma(\nu) \right) = + \left( \sigma(\nu),m \right)
+\end{align*}
+ここで、その元$\nu$がその集合$\mathcal{N}$に一意的に存在することに注意すれば、その元$\sigma(\nu)$がその集合$\mathcal{N}$に一意的に存在する。したがって、$m \in \mathcal{N}_{\leq \sigma(k)}$が成り立つ。ここで、$m \neq \sigma(m)$が成り立つ。したがって、$m \neq \sigma(k)$が成り立つので、$m \in \mathcal{N}_{< \sigma(k)}$が成り立つ。$k \in \mathcal{N}_{< m}$が成り立つとき、これが成り立つならそのときに限り、$m = + \left( k,m' \right)$が成り立つような元$m'$がその集合$\mathcal{N}$に一意的に存在するのであった。$m' = \nu$のとき、$m = + (k,\nu)$が成り立つことになり、したがって、$m = k$が成り立つことになるが、その集合$\mathcal{N}_{< m}$の定義より$m \neq k$が成り立つことに矛盾する。したがって、$m' \neq \nu$が成り立つ。$m' \neq \nu$が成り立つなら、$\mathcal{N} =V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つのであったので、$m' = \sigma\left( m'' \right)$なる元$m''$がその集合$\mathcal{N}$に存在する。したがって、次のようになる。
+\begin{align*}
+m = + \left( k,\sigma\left( m'' \right) \right) = \sigma\left( + \left( k,m'' \right) \right) = \sigma\left( + \left( m'',k \right) \right) = + \left( m'',\sigma(k) \right) = + \left( \sigma(k),m'' \right)
+\end{align*}
+$m = + \left( \sigma(k),m'' \right)$が成り立つようなその集合$\mathcal{N}$の元$m''$が存在するなら、このような元$m''$は一意的に存在するので、$\sigma(k) \in \mathcal{N}_{\leq m}$が成り立つ。$m'' = \nu$のとき、次のようになる。
+\begin{align*}
+m = + \left( \sigma(k),\nu \right) = \sigma(k)
+\end{align*}
+したがって、$m = \sigma(k)$が成り立つ。$m'' \neq \nu$のとき、写像$+_{m''}$を用いると、その式$m = + \left( m'',\sigma(k) \right)$は次式のように書き換えられることができる。
+\begin{align*}
+m = +_{m''}\left( \sigma(k) \right)
+\end{align*}
+$m'' \neq \nu$が成り立つので、$\forall m \in \mathcal{N}$に対し、$+_{m''}\left( \sigma(k) \right) \neq \sigma(k)$が成り立つ。したがって、$m \neq \sigma(k)$が成り立つので、$m \in \mathcal{N}_{< \sigma(k)}$が成り立つ。\par
+したがって、$\forall m,n \in \mathcal{N}$に対し、次のことのうちいづれかが成り立つ。
+\begin{itemize}
+\item
+  $m \in \mathcal{N}_{< n}$が成り立つ。
+\item
+  $m = n$が成り立つ。
+\item
+  $n \in \mathcal{N}_{< m}$が成り立つ。
+\end{itemize}\par
+ここで、$m \in \mathcal{N}_{< n}$かつ$m = n$が成り立つような元々$m$、$n$がその集合$\mathcal{N}$に存在すると仮定しよう。このとき、$m \in \mathcal{N}_{< m} = \mathcal{N}_{\leq m} \setminus \left\{ m \right\}$が成り立つので、$m \neq m$が得られこれは矛盾している。したがって、$\forall m,n \in \mathcal{N}$に対し、$m \in \mathcal{N}_{< n}$かつ$m = n$が成り立つことはない。\par
+$m \in \mathcal{N}_{< n}$かつ$n \in \mathcal{N}_{< m}$が成り立つような元々$m$、$n$がその集合$\mathcal{N}$に存在すると仮定しよう。このとき、$n = + \left( m,m' \right)$なる元$m'$がその集合$\mathcal{N}$に存在するかつ、$m = + \left( n,n' \right)$なる元$n'$がその集合$\mathcal{N}$に存在するかつ、$m \neq n$が成り立つ。したがって、次のようになる。
+\begin{align*}
+m = + \left( n,n' \right) = + \left( n', + \left( m,m' \right) \right) = + \left( n', + \left( m',m \right) \right) = + \left( + \left( n',m' \right),m \right)
+\end{align*}
+ここで、写像$+_{+ \left( n',m' \right)}$を用いると、その式$m = + \left( + \left( n',m' \right),m \right)$は次式のように書き換えられることができる。
+\begin{align*}
+m = +_{+ \left( n',m' \right)}(m)
+\end{align*}
+さらに、$m' = \nu$が成り立つと仮定すると、仮定の式$n = + \left( m,m' \right)$より$m = n$が得られるが、これは仮定の$m \neq n$に矛盾する。したがって、$m' \neq \nu$が成り立ち、$\mathcal{N} =V(\sigma) \sqcup \left\{ \nu \right\}$が成り立つのであったので、$m' = \sigma\left( m'' \right)$なる元$m''$がその集合$\mathcal{N}$に存在する。したがって、次のようになる。
+\begin{align*}
++ \left( n',m' \right) = + \left( n',\sigma\left( m'' \right) \right) = \sigma\left( + \left( n',m'' \right) \right)
+\end{align*}
+これにより、$+ \left( n',m' \right) \neq \nu$が成り立つので、$+_{+ \left( n',m' \right)}(m) \neq m$が成り立つが、これは$m \neq m$が成り立ってしまい矛盾している。したがって、$\forall m,n \in \mathcal{N}$に対し、$m \in \mathcal{N}_{< n}$かつ$n \in \mathcal{N}_{< m}$が成り立つことはない。\par
+$m = n$かつ$n \in \mathcal{N}_{< m}$が成り立つような元々$m$、$n$がその集合$\mathcal{N}$に存在すると仮定しよう。このとき、$m \in \mathcal{N}_{< m} = \mathcal{N}_{\leq m} \setminus \left\{ m \right\}$が成り立つので、$m \neq m$が得られこれは矛盾している。したがって、$\forall m,n \in \mathcal{N}$に対し、$m = n$かつ$n \in \mathcal{N}_{< m}$が成り立つことはない。
+\end{proof}
+%\hypertarget{ux5143ux306eux5217}{%
+\subsubsection{元の列}%\label{ux5143ux306eux5217}}
+\begin{dfn}
+1つの集合$A$を用いた次式のように定義される写像$a$をその集合$A$の無限列などという。
+\begin{align*}
+a:\mathbb{N} \rightarrow A
+\end{align*}
+この写像$a$によるその自然数$n$の像$a(n)$を$a_{n}$と書きその写像$a$を$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( a_{n} \in A \middle| n \in \mathbb{N} \right)$、$a_{1},a_{2},\cdots,a_{n},\cdots$などと書く。また、その値域$V(a)$について、次式が成り立つので、
+\begin{align*}
+V(a) = \left\{ a_{n} \in A \middle| \exists n \in \mathbb{N}\left[ a_{n} = a(n) \right] \right\} = \left\{ a_{n} \in A \middle| n \in \mathbb{N} \right\}
+\end{align*}
+その値域$V(a)$を$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$、$\left\{ a_{n} \in A \middle| n \in \mathbb{N} \right\}$、$\left\{ a_{1},a_{2},\cdots,a_{n},\cdots \right\}$などと書く。
+\end{dfn}
+\begin{dfn}
+集合$\left\{ n' \in \mathbb{N} \middle| \exists n'' \in \mathbb{N}\left[ n + 1 = n' + n'' \right] \right\}$を$\varLambda_{n}$、$[ n]$、$\mathbb{N}(n)$などと書くことにし1つの集合$A$を用いた次式のように定義される写像$a$をその集合$A$の長さが$n$の有限列などという。
+\begin{align*}
+a:\varLambda_{n} \rightarrow A
+\end{align*}
+この写像$a$によるその自然数$n'$の像$a\left( n' \right)$を$a_{n'}$と書きその写像$a$を$\left( a_{n'} \right)_{n' \in {\varLambda}_{n}}$、$\left( a_{n'} \in A \middle| n' \in \varLambda_{n} \right)$、$a_{1},a_{2},\cdots,a_{n}$などと書く。また、その値域$V(a)$について、次式が成り立つので、
+\begin{align*}
+V(a) = \left\{ a_{n'} \in A \middle| \exists n' \in \varLambda_{n}\left[ a_{n'} = a\left( n' \right) \right] \right\} = \left\{ a_{n'} \in A \middle| n' \in \varLambda_{n} \right\}
+\end{align*}
+その値域$V(a)$を$\left\{ a_{n'} \right\}_{n' \in \varLambda_{n}}$、$\left\{ a_{n'} \in A \middle| n' \in \varLambda_{n} \right\}$、$\left\{ a_{1},a_{2},\cdots,a_{n} \right\}$などと書く。
+\end{dfn}
+\begin{dfn}
+その集合$A$の無限列と長さが$n$の有限列を合わせてその集合$A$の元の列などという。さらに、この元$a_{n}$をその元の列の第$n$項などという。ところで、その集合$A$の無限列のことをその集合$A$の元の列ということがある。
+\end{dfn}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  Wikipedia. "加法". Wikipedia. \url{https://ja.wikipedia.org/wiki/%E5%8A%A0%E6%B3%95}
+  (2021-2-28 10:30 閲覧)
+\bibitem{1}
+  Rei Frontier Tech Blog. "ZFC公理系について：その1". Hatena Blog. \url{https://tech-blog.rei-frontier.jp/entry/2017/11/02/102042}, (2021-04-01 20:30 閲覧)
+\bibitem{2}
+  Rei Frontier Tech Blog. "ZFC公理系について：その2". Hatena Blog. \url{https://tech-blog.rei-frontier.jp/entry/2017/11/09/100000}, (2021-04-01 20:30 閲覧)
+\bibitem{3}
+  Rei Frontier Tech Blog. "ZFC公理系について：その3". Hatena Blog. \url{https://tech-blog.rei-frontier.jp/entry/2017/11/16/100000} (2021-04-01 20:30 閲覧)
+\bibitem{4}
+  爽籟蜜柑. "ペアノの公理から「足し算」を作る｜自然数上の加法の構成". 蛍雪に染まる. \url{https://sorai-note.com/math/200404/} (2021-2-28 11:00 閲覧)
+\bibitem{5}
+  小澤徹. "数の構成". 早稲田大学. \url{http://www.ozawa.phys.waseda.ac.jp/pdf/kazu.pdf}
+  (2021-3-1 15:20 閲覧)
+\bibitem{6}
+  爽籟蜜柑. "写像の再帰的定義がなぜ許されるのか｜漸化式を満たす写像の存在と一意性". 蛍雪に染まる. \url{https://sorai-note.com/math/200418/} (2021-3-1 17:40 閲覧)
+\bibitem{7}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p39-60 ISBM978-4-00-029871-1
+\end{thebibliography}
+\end{document}

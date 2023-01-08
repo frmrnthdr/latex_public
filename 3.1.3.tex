@@ -1,0 +1,495 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{3.1.1}
+\externaldocument{3.1.2}
+\input{macro}
+\begin{document}
+%\hypertarget{ux5171ux5f79ux985e}{%
+\subsection{共役類}%\label{ux5171ux5f79ux985e}}
+%\hypertarget{ux81eaux5df1ux7fa4ux540cux578bux5199ux50cf}{%
+\subsubsection{自己群同型写像}%\label{ux81eaux5df1ux7fa4ux540cux578bux5199ux50cf}}
+\begin{dfn}
+群$(G,*)$について、群同型写像$f:G\overset{\sim}{\rightarrow}G$をその群$(G,*)$の自己群同型写像という。このような写像全体の集合を$\mathrm{aut}(G,*)$とおく。
+\end{dfn}\par
+例えば、可換群$(G,*)$における写像$\bullet^{- 1}:G\overset{\sim}{\rightarrow}G;a \mapsto a^{- 1}$が挙げられる。
+\begin{thm}\label{3.1.3.1}
+群$(G,*)$について、その組$\left( \mathrm{aut}(G,*), \circ \right)$は群をなす。
+\end{thm}
+\begin{dfn}
+群$(G,*)$について、その群$\left( \mathrm{aut}(G,*), \circ \right)$をその群$(G,*)$の自己群同型群という。
+\end{dfn}
+\begin{proof}
+  群$(G,*)$が与えられたとき、その組$\left( \mathrm{aut}(G,*), \circ \right)$について、恒等写像$I_G :G\rightarrow G; a\mapsto a$を用いれば、$\forall f,g,h\in \mathrm{aut}(G,*)$に対し、写像の合成の結合律より$f\circ \left(g \circ h\right) =\left(f \circ g\right) \circ h$が成り立つ。さらに、$\forall f\in \mathrm{aut}(G,*)$に対し、$f\circ I_G =I_G \circ f =f$が成り立つ。最後に、$\forall f\in \mathrm{aut}(G,*)$に対し、その逆写像$f^{-1}$も存在して、$f^{-1}\in \mathrm{aut}(G,*)$なので、$f\circ f^{-1} =f^{-1} \circ f=I_G $が成り立つ。よって、示すべきことが示された。
+\end{proof}
+\begin{thm}\label{3.1.3.2}
+群$(G,*)$について、$\forall s \in G$に対し、次式のように定義される写像$\sigma_{s}$は$\sigma_{s} \in \mathrm{aut}(G,*)$を満たす、即ち、自己群同型写像となる。
+\begin{align*}
+\sigma_{s}:G \rightarrow G;a \mapsto s^{- 1}*a*s
+\end{align*}
+\end{thm}
+\begin{dfn}
+群$(G,*)$について、上の自己群同型写像$\sigma_{s}$をその群$(G,*)$における内部自己群同型写像という。
+\end{dfn}
+\begin{proof}
+群$(G,*)$について、$\forall s \in G$に対し、次式のように定義される写像$\sigma_{s}$において、
+\begin{align*}
+\sigma_{s}:G \rightarrow G;a \mapsto s^{- 1}*a*s
+\end{align*}
+$\forall a,b \in G$に対し、次のようになることから、
+\begin{align*}
+\sigma_{s}(a*b) &= s^{- 1}*a*b*s\\
+&= s^{- 1}*a*1_{(G,*)}*b*s\\
+&= s^{- 1}*a*s*s^{- 1}*b*s\\
+&= \sigma_{s}(a)*\sigma_{s}(b)
+\end{align*}
+その写像$\sigma_{s}$は群準同型写像である。さらに、$\forall a \in G$に対し、次のようになることから、
+\begin{align*}
+\sigma_{s^{- 1}} \circ \sigma_{s}(a) &= \sigma_{s^{- 1}}\left( \sigma_{s}(a) \right)\\
+&= \sigma_{s^{- 1}}\left( s^{- 1}*a*s \right)\\
+&= \left( s^{- 1} \right)^{- 1}*s^{- 1}*a*s*s^{- 1}\\
+&= 1_{(G,*)}*a*1_{(G,*)} = a\\
+\sigma_{s} \circ \sigma_{s^{- 1}}(a) &= \sigma_{s}\left( \sigma_{s^{- 1}}(a) \right)\\
+&= \sigma_{s}\left( \left( s^{- 1} \right)^{- 1}*a*s^{- 1} \right)\\
+&= s^{- 1}*\left( s^{- 1} \right)^{- 1}*a*s^{- 1}*s\\
+&= 1_{(G,*)}*a*1_{(G,*)} = a
+\end{align*}
+$\sigma_{s}^{- 1} = \sigma_{s^{- 1}}$が成り立つので、その写像$\sigma_{s}$はたしかに自己群同型写像となる。
+\end{proof}
+\begin{thm}\label{3.1.3.3}
+群$(G,*)$について、$\forall z \in G$に対し、$\sigma_{z} = I_{G}$が成り立つならそのときに限り、その群$(G,*)$の中心を$Z(G)$として、$z \in Z(G)$が成り立つ。
+\end{thm}
+\begin{proof}
+群$(G,*)$について、$\forall z \in G$に対し、$\sigma_{z} = I_{G}$が成り立つなら、$\forall a \in G$に対し、$z^{- 1}*a*z = a$が成り立ち、したがって、$z*a = a*z$が成り立つ。これにより、その群$(G,*)$の中心を$Z(G)$として、$z \in Z(G)$が成り立つ。\par
+逆に、$z \in Z(G)$が成り立つなら、$\forall a\in G$に対し、$z*a=a*z$が成り立つので、次のようになる。
+\begin{align*}
+  \sigma_z (a) &=z^{-1} *a*z \\
+  &=z^{-1} *z*a\\
+  &=1_{(G,*)} *a=a
+\end{align*}
+よって、$\sigma_{z} = I_{G}$が成り立つ。
+\end{proof}
+\begin{thm}\label{3.1.3.4}
+群$(G,*)$について、次のことは同値である。
+\begin{itemize}
+\item
+  その群$(G,*)$は可換群である。
+\item
+  $\bullet^{- 1}:G\overset{\sim}{\rightarrow}G;a \mapsto a^{- 1} \in \mathrm{aut}(G,*)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+群$(G,*)$について、その群$(G,*)$は可換群であるなら、写像$\bullet^{- 1}:G\overset{\sim}{\rightarrow}G;a \mapsto a^{- 1}$について、これはもちろん、全単射である。さらに、$\forall a,b \in G$に対し、次のようになることから、
+\begin{align*}
+\bullet^{- 1}(a*b) &= (a*b)^{- 1}\\
+&= b^{- 1}*a^{- 1}\\
+&= a^{- 1}*b^{- 1}\\
+&= \bullet^{- 1}(a)* \bullet^{- 1}(b)
+\end{align*}
+その写像$\bullet^{- 1}$は群同型写像となる。\par
+逆に、$\bullet^{- 1}:G\overset{\sim}{\rightarrow}G;a \mapsto a^{- 1} \in \mathrm{aut}(G,*)$が成り立つなら、定理\ref{3.1.2.3}より次のようになることから、
+\begin{align*}
+a*b &= \left( \bullet^{- 1} \right)^{- 1} \circ \bullet^{- 1}(a*b)\\
+&= \left( \bullet^{- 1} \right)^{- 1} \circ \left( \bullet^{- 1}(a)* \bullet^{- 1}(b) \right)\\
+&= \left( \bullet^{- 1} \right)^{- 1} \circ \left( a^{- 1}*b^{- 1} \right)\\
+&= \left( \bullet^{- 1} \right)^{- 1} \circ (b*a)^{- 1}\\
+&= \left( \bullet^{- 1} \right)^{- 1} \circ \bullet^{- 1}(b*a)\\
+&= b*a
+\end{align*}
+その群$(G,*)$は可換群である。
+\end{proof}
+%\hypertarget{ux5171ux5f79ux985e-1}{%
+\subsubsection{共役類}%\label{ux5171ux5f79ux985e-1}}
+\begin{thm}\label{3.1.3.5}
+群$(G,*)$について、その集合$G$の2元$a$、$b$が与えられたとき、$\exists s \in G$に対し、$\sigma_{s}(a) = b$が成り立つことを$aR_{\sigma}b$とおくことにすると、その関係$R_{\sigma}$は同値関係となる。
+\end{thm}
+\begin{dfn}
+群$(G,*)$について、その集合$G$の2元$a$、$b$が与えられたとき、$aR_{\sigma}b$が成り立つことをそれらの元々$a$、$b$は互いに共役であるという。さらに、その同値類$C_{R_{\sigma}}(a)$をその群$(G,*)$の共役類という。
+\end{dfn}
+\begin{proof}
+群$(G,*)$について、その集合$G$の2元$a$、$b$が与えられたとき、$\exists s \in G$に対し、$\sigma_{s}(a) = b$が成り立つことを$aR_{\sigma}b$とおくことにする。このとき、$\forall a \in G$に対し、次式が成り立つことから、
+\begin{align*}
+a &= 1_{(G,*)}*a*1_{(G,*)}\\
+&= 1_{(G,*)}^{- 1}*a*1_{(G,*)}\\
+&= \sigma_{1_{(G,*)}}(a)
+\end{align*}
+$aR_{\sigma}a$が成り立つ。\par
+$\forall a,b \in G$に対し、$aR_{\sigma}b$が成り立つなら、$\exists s \in G$に対し、$\sigma_{s}(a) = b$が成り立つ、即ち、$s^{- 1}*a*s = b$が成り立つので、$\exists s^{- 1} \in G$に対し、次のようになることから、
+\begin{align*}
+\sigma_{s^{- 1}}(b) &= \left( s^{- 1} \right)^{- 1}*b*s^{- 1}\\
+&= \left( s^{- 1} \right)^{- 1}*s^{- 1}*a*s*s^{- 1}\\
+&= 1_{(G,*)}*a*1_{(G,*)}\\
+&= a
+\end{align*}
+$bR_{\sigma}a$が成り立つ。\par
+$\forall a,b,c \in G$に対し、$aR_{\sigma}b$かつ$bR_{\sigma}c$が成り立つなら、$\exists s,t \in G$に対し、$\sigma_{s}(a) = b$かつ$\sigma_{t}(b) = c$が成り立つので、次のようになることから、
+\begin{align*}
+c &= \sigma_{t}(b)\\
+&= \sigma_{t}\left( \sigma_{s}(a) \right)\\
+&= \sigma_{t}\left( s^{- 1}*a*s \right)\\
+&= t^{- 1}*s^{- 1}a*s*t\\
+&= (s*t)^{- 1}*a*(s*t)\\
+&= \sigma_{s*t}(a)
+\end{align*}
+$\exists s*t \in G$に対し、$\sigma_{s*t}(a) = c$が成り立つ。これにより、$aR_{\sigma}c$が成り立つ。\par
+よって、その関係$R_{\sigma}$は同値関係となる。
+\end{proof}
+\begin{thm}\label{3.1.3.6}
+有限な群$(G,*)$について、その集合$G$の1つの元$a$が与えられたとき、その元$a$の共役類の元の個数は自然数$\left( G:N\left( G,\left\{ a \right\} \right) \right)$に等しい、即ち、$\#{C_{R_{\sigma}}(a)} = \left( G:N\left( G,\left\{ a \right\} \right) \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+有限な群$(G,*)$について、その集合$G$の1つの元$a$が与えられたとき、次のようになることから、
+\begin{align*}
+C_{R_{\sigma}}(a) &= \left\{ b \in G \middle| aR_{\sigma}b \right\}\\
+&= \left\{ b \in G \middle| \exists s \in G\left\lbrack \sigma_{s}(a) = s^{- 1}*a*s = b \right\rbrack \right\}\\
+&= \left\{ s^{- 1}*a*s \in G \middle| s \in G \right\}
+\end{align*}
+正規化群$\left( N\left( G,\left\{ a \right\} \right),* \right)$について、次のような写像たち$f$、$g$が考えられよう。
+\begin{align*}
+f:C_{R_{\sigma}}(a) \rightarrow {G}/_l {N\left( G,\left\{ a \right\} \right)};s^{- 1}*a*s \mapsto s^{- 1}*N\left( G,\left\{ a \right\} \right),\\
+g:{G}/_l {N\left( G,\left\{ a \right\} \right)} \rightarrow C_{R_{\sigma}}(a);s*N\left( G,\left\{ a \right\} \right) \mapsto s*a*s^{- 1}
+\end{align*}\par
+$\forall s^{- 1}*a*s,t^{- 1}*a*t \in C_{R_{\sigma}}(a)$に対し、$s^{- 1}*a*s = t^{- 1}*a*t$が成り立つとする。このとき、$a*s*t^{- 1} = s*t^{- 1}*a$が成り立つので、$s*t^{- 1} \in N\left( G,\left\{ a \right\} \right)$が成り立つ。したがって、次のようになり、
+\begin{align*}
+s*t^{- 1} \in N\left( G,\left\{ a \right\} \right) &\Leftrightarrow \left( s^{- 1} \right)^{- 1}*t^{- 1} \in N\left( G,\left\{ a \right\} \right)\\
+&\Leftrightarrow t^{- 1} \in s^{- 1}*N\left( G,\left\{ a \right\} \right)\\
+&\Leftrightarrow t^{- 1} \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right)\\
+&\Leftrightarrow t^{- 1} \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right) \land t^{- 1} \equiv_{l}t^{- 1}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)\\
+&\Leftrightarrow t^{- 1} \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right) \land t^{- 1} \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( t^{- 1} \right)\\
+&\Leftrightarrow t^{- 1} \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right) \cap C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( t^{- 1} \right)
+\end{align*}
+同値類の性質より$C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right) = C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( t^{- 1} \right)$が成り立つので、定理\ref{3.1.1.13}より次のようになる。
+\begin{align*}
+f\left( s^{- 1}*a*s \right) &= s^{- 1}*N\left( G,\left\{ a \right\} \right)\\
+&= C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( s^{- 1} \right)\\
+&= C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}\left( t^{- 1} \right)\\
+&= t^{- 1}*N\left( G,\left\{ a \right\} \right)\\
+&= f\left( t^{- 1}*a*t \right)
+\end{align*}
+これにより、その対応$f$は確かに写像となっている。\par
+また、$\forall s*N\left( G,\left\{ a \right\} \right),t*N\left( G,\left\{ a \right\} \right) \in Q_{l}$に対し、$s*N\left( G,\left\{ a \right\} \right) = t*N\left( G,\left\{ a \right\} \right)$が成り立つとする。このとき、定理\ref{3.1.1.13}より$C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}(s) = C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}(t)$が成り立つので、$s \in C_{\equiv_{l}\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)}(t)$が成り立ち、したがって、$s \equiv_{l}t\ \mathrm{mod}\left( N\left( G,\left\{ a \right\} \right),* \right)$が成り立つ。これにより、$s^{- 1}*t \in N\left( G,\left\{ a \right\} \right)$が成り立つので、$s^{- 1}*t*a = a*s^{- 1}*t$が得られ、したがって、$s*a*s^{- 1} = t*a*t^{- 1}$が成り立つ。よって、次式が成り立つので、
+\begin{align*}
+g\left( s*N\left( G,\left\{ a \right\} \right) \right) &= s*a*s^{- 1}\\
+&= t*a*t^{- 1}\\
+&= g\left( t*N\left( G,\left\{ a \right\} \right) \right)
+\end{align*}
+その対応$g$は確かに写像となっている。\par
+このとき、$\forall s^{- 1}*a*s \in C_{R_{\sigma}}(a)$に対し、次のようになるかつ、
+\begin{align*}
+g \circ f\left( s^{- 1}*a*s \right) &= g\left( s^{- 1}*N\left( G,\left\{ a \right\} \right) \right)\\
+&= s^{- 1}*a*\left( s^{- 1} \right)^{- 1}\\
+&= s^{- 1}*a*s
+\end{align*}
+$\forall s*N\left( G,\left\{ a \right\} \right) \in {G}/_l {N\left( G,\left\{ a \right\} \right)}$に対し、次のようになることから、
+\begin{align*}
+f \circ g\left( s*N\left( G,\left\{ a \right\} \right) \right) = f\left( s*a*s^{- 1} \right) = f\left( \left( s^{- 1} \right)^{- 1}*a*s^{- 1} \right) = s^{- 1}*N\left( G,\left\{ a \right\} \right)
+\end{align*}
+$g = f^{- 1}$が成り立つ。これにより、それらの集合たち$C_{R_{\sigma}}(a)$、${G}/_l {N\left( G,\left\{ a \right\} \right)} $との間に全単射な写像が存在するので、次のようになる。
+\begin{align*}
+\#{C_{R_{\sigma}}(a)} &= \#{G}/_l {N\left( G,\left\{ a \right\} \right)}\\
+&= \left( G:N\left( G,\left\{ a \right\} \right) \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux985eux7b49ux5f0f}{%
+\subsubsection{類等式}%\label{ux985eux7b49ux5f0f}}
+\begin{thm}\label{3.1.3.7}
+有限な群$(G,*)$について、その集合$G$の1つの元$a$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $C_{R_{\sigma}}(a) = \left\{ a \right\}$が成り立つ。
+\item
+  $\left( G:N\left( G,\left\{ a \right\} \right) \right) = 1$が成り立つ。
+\item
+  その群$(G,*)$の中心を$Z(G)$として$a \in Z(G)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+有限な群$(G,*)$について、その集合$G$の1つの元$a$が与えられたとき、$C_{R_{\sigma}}(a) = \left\{ a \right\}$が成り立つなら、定理\ref{3.1.3.6}より$\left( G:N\left( G,\left\{ a \right\} \right) \right) = 1$が成り立つ。\par
+逆に、$\left( G:N\left( G,\left\{ a \right\} \right) \right) = 1$が成り立つなら、もちろん、集合$1_{(G,*)}*N\left( G,\left\{ a \right\} \right)$は正規化群$\left( N\left( G,\left\{ a \right\} \right),* \right)$を法とする左剰余類であるので、$N\left( G,\left\{ a \right\} \right) \subseteq G$が成り立つかつ、$\forall b \in G$に対し、$b*N\left( G,\left\{ a \right\} \right) = 1_{(G,*)}*N\left( G,\left\{ a \right\} \right) = N\left( G,\left\{ a \right\} \right)$が成り立つことから、$b = b*1_{(G,*)} \in b*N\left( G,\left\{ a \right\} \right) = N\left( G,\left\{ a \right\} \right)$が成り立ち、したがって、$G = N\left( G,\left\{ a \right\} \right)$が成り立つ。もちろん、$a \in C_{R_{\sigma}}(a)$が成り立つかつ、$\forall b \in C_{R_{\sigma}}(a)$に対し、$aR_{\sigma}b$が成り立つなら、$\exists s \in G$に対し、$s^{- 1}*a*s = b$が成り立ち、$s \in N\left( G,\left\{ a \right\} \right)$が成り立つので、$a*s = s*a$が成り立つことから、次のようになるので、
+\begin{align*}
+b &= s^{- 1}*a*s\\
+&= s^{- 1}*s*a\\
+&= 1_{(G,*)}*a = a
+\end{align*}
+$b \in \left\{ a \right\}$が成り立つ。これにより、$C_{R_{\sigma}}(a) = \left\{ a \right\}$が成り立つ。\par
+また、$\left( G:N\left( G,\left\{ a \right\} \right) \right) = 1$が成り立つなら、上記の議論と同様にして、$G = N\left( G,\left\{ a \right\} \right)$が成り立つことが示される。ここで、$\forall b \in G$に対し、$b \in N\left( G,\left\{ a \right\} \right)$が成り立つので、$b*a = a*b$が成り立つ。これにより、$a \in Z(G)$が成り立つ。\par
+逆に、$a \in Z(G)$が成り立つとき、もちろん、$a \in C_{R_{\sigma}}(a)$が成り立つかつ、$\forall b \in C_{R_{\sigma}}(a)$に対し、$aR_{\sigma}b$が成り立つなら、$\exists s \in G$に対し、$s^{- 1}*a*s = b$が成り立ち、$a \in Z(G)$が成り立つので、$a*s = s*a$が成り立つことから、次のようになるので、
+\begin{align*}
+b = s^{- 1}*a*s = s^{- 1}*s*a = 1_{(G,*)}*a = a
+\end{align*}
+$b \in \left\{ a \right\}$が成り立つ。これにより、$C_{R_{\sigma}}(a) = \left\{ a \right\}$が成り立つ。\par
+以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  $C_{R_{\sigma}}(a) = \left\{ a \right\}$が成り立つ。
+\item
+  $\left( G:N\left( G,\left\{ a \right\} \right) \right) = 1$が成り立つ。
+\item
+  その群$(G,*)$の中心を$Z(G)$として$a \in Z(G)$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}[類等式]\label{3.1.3.8}
+有限な群$(G,*)$について、その群$(G,*)$の中心$Z(G)$を用いて考えられれば、次式が成り立つ。
+\begin{align*}
+o(G,*) = o\left( Z(G),* \right) + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right)
+\end{align*}\par
+この式を類等式という。
+\end{thm}
+\begin{proof}
+有限な群$(G,*)$について、その群$(G,*)$の中心$Z(G)$を用いて考えられれば、定理\ref{3.1.3.4}と同値類に関する一定理より次式が成り立つ。
+\begin{align*}
+G &= \bigsqcup_{} {G}/{R_{\sigma}}\\
+&= \bigsqcup_{C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}}} {C_{R_{\sigma}}(a)}\\
+&= \bigsqcup_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \in Z(G) \end{matrix}} {C_{R_{\sigma}}(a)} + \bigsqcup_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} {C_{R_{\sigma}}(a)}
+\end{align*}
+定理\ref{3.1.1.42}、定理\ref{3.1.3.6}、定理\ref{3.1.3.7}より$a,b \in Z(G)$のとき、$a \neq b$が成り立つなら、$C_{R_{\sigma}}(a) = \left\{ a \right\} \neq \left\{ b \right\} = C_{R_{\sigma}}(b)$が成り立つことに注意すれば、したがって、次のようになる。
+\begin{align*}
+o(G,*) &= \#G\\
+&= \#\left( \bigsqcup_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \in Z(G) \end{matrix}} {C_{R_{\sigma}}(a)} + \bigsqcup_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} {C_{R_{\sigma}}(a)} \right)\\
+&= \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \in Z(G) \end{matrix}} {\#{C_{R_{\sigma}}(a)}} + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} {\#{C_{R_{\sigma}}(a)}}\\
+&= \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \in Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right) + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right)\\
+&= \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \in Z(G) \end{matrix}} 1 + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right)\\
+&= \#{Z(G)} + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right)\\
+&= o\left( Z(G),* \right) + \sum_{\scriptsize \begin{matrix} C_{R_{\sigma}}(a) \in {G}/{R_{\sigma}} \\a \notin Z(G) \end{matrix}} \left( G:N\left( G,\left\{ a \right\} \right) \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux5171ux5f79ux90e8ux5206ux7fa4}{%
+\subsubsection{共役部分群}%\label{ux5171ux5f79ux90e8ux5206ux7fa4}}
+\begin{thm}\label{3.1.3.9}
+群$(G,*)$について、その集合$G$の部分集合$S$が与えられたとき、$\forall s \in G$に対し、$V\left( \sigma_{s}|S \right) = s^{- 1}*S*s$が成り立つ。
+\end{thm}
+\begin{proof}
+群$(G,*)$について、その集合$G$の部分集合$S$が与えられたとき、$\forall s \in G$に対し、次のようになることから従う。
+\begin{align*}
+V\left( \sigma_{s}|S \right) &= \left\{ a \in G \middle| \exists b \in S\left\lbrack a = \sigma_{s}(b) \right\rbrack \right\}\\
+&= \left\{ a \in G \middle| \exists b \in S\left\lbrack a = s^{- 1}*b*s \right\rbrack \right\}\\
+&= \left\{ s^{- 1}*b*s \in G \middle| b \in S \right\}\\
+&= s^{- 1}*S*s
+\end{align*}
+\end{proof}
+\begin{thm}\label{3.1.3.10}
+群$(G,*)$について、その集合$G$の2つの部分集合たち$S$、$T$が与えられたとき、$\exists s \in G$に対し、$V\left( \sigma_{s}|S \right) = T$が成り立つことを$SR_{\sigma}T$とおくことにすると、その関係$R_{\sigma}$は同値関係となる。
+\end{thm}
+\begin{dfn}
+群$(G,*)$について、その集合$G$の2つの部分集合たち$S$、$T$が与えられたとき、$SR_{\sigma}T$が成り立つことをそれらの集合たち$S$、$T$は互いに共役であるという。さらに、その同値類$C_{R_{\sigma}}(S)$をその群$(G,*)$の共役類という。
+\end{dfn}
+\begin{proof}
+群$(G,*)$について、その集合$G$の2つの部分集合たち$S$、$T$が与えられたとき、$\exists s \in G$に対し、$V\left( \sigma_{s}|S \right) = T$が成り立つことを$aR_{\sigma}b$とおくことにする。このとき、$\forall S \in \mathfrak{P}(G)$に対し、定理\ref{3.1.3.9}より次式が成り立つことから、
+\begin{align*}
+S &= 1_{(G,*)}*S*1_{(G,*)}\\
+&= 1_{(G,*)}^{- 1}*S*1_{(G,*)}\\
+&= \sigma_{1_{(G,*)}}(S)
+\end{align*}
+$SR_{\sigma}S$が成り立つ。\par
+$\forall S,T \in \mathfrak{P}(G)$に対し、$SR_{\sigma}T$が成り立つなら、$\exists s \in G$に対し、$V\left( \sigma_{s}|S \right) = T$が成り立つ、即ち、$s^{- 1}*S*s = T$が成り立つので、$\exists s^{- 1} \in G$に対し、次のようになることから、
+\begin{align*}
+V\left( \sigma_{s}^{- 1}|T \right) &= V\left( \sigma_{s^{- 1}}|T \right)\\
+&= \left( s^{- 1} \right)^{- 1}*T*s^{- 1}\\
+&= \left( s^{- 1} \right)^{- 1}*s^{- 1}*S*s*s^{- 1}\\
+&= 1_{(G,*)}*S*1_{(G,*)}\\
+&= S
+\end{align*}
+$TR_{\sigma}S$が成り立つ。\par
+$\forall S,T,U \in \mathfrak{P}(G)$に対し、$SR_{\sigma}T$かつ$TR_{\sigma}U$が成り立つなら、$\exists s,t \in G$に対し、$V\left( \sigma_{s}|S \right) = T$かつ$V\left( \sigma_{t}|T \right) = U$が成り立つので、次のようになることから、
+\begin{align*}
+U &= V\left( \sigma_{t}|T \right)\\
+&= V\left( \sigma_{t}|V\left( \sigma_{s}|S \right) \right)\\
+&= V\left( \sigma_{t}|s^{- 1}*S*s \right)\\
+&= t^{- 1}*s^{- 1}S*s*t\\
+&= (s*t)^{- 1}*S*(s*t)\\
+&= V\left( \sigma_{s*t}|S \right)
+\end{align*}
+$\exists s*t \in G$に対し、$V\left( \sigma_{s*t}|S \right) = U$が成り立つ。これにより、$SR_{\sigma}U$が成り立つ。\par
+よって、その関係$R_{\sigma}$は同値関係となる。
+\end{proof}
+\begin{thm}\label{3.1.3.11}
+群$(G,*)$の部分群$(H,*)$が与えられたとき、$\forall I \in C_{R_{\sigma}}(H)$に対し、その組$(I,*)$もその群$(G,*)$の部分群をなす。
+\end{thm}
+\begin{dfn}
+群$(G,*)$の部分群$(H,*)$が与えられたとき、$I \in C_{R_{\sigma}}(H)$なる組$(I,*)$をその部分群$(H,*)$の共役部分群という。
+\end{dfn}
+\begin{proof}
+群$(G,*)$の部分群$(H,*)$が与えられたとき、$\forall I \in C_{R_{\sigma}}(H)$に対し、$HR_{\sigma}I$が成り立つので、$\exists s \in G$に対し、$I = V\left( \sigma_{s}|H \right)$が成り立つ。その写像$\sigma_{s}$は全射であるので、よって、定理\ref{3.1.2.12}、定理\ref{3.1.3.2}よりその組$(I,*)$もその群$(G,*)$の部分群をなす。
+\end{proof}
+\begin{thm}\label{3.1.3.12}
+群$(G,*)$について、次のことは同値である。
+\begin{itemize}
+\item
+  $(N,*) \trianglelefteq (G,*)$が成り立つ。
+\item
+  $\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。
+\item
+  その商集合${G}/{R_{\sigma}}$の部分集合$Q$が存在して、次式が成り立つ。
+\begin{align*}
+N = \bigsqcup_{} Q
+\end{align*}
+\item
+  $C_{R_{\sigma}}(N) = \left\{ N \right\}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+群$(G,*)$について、$(N,*) \trianglelefteq (G,*)$が成り立つなら、$\forall n \in N\forall a \in G$に対し、$a \in C_{R_{\sigma}}(n)$が成り立つなら、$nR_{\sigma}a$が成り立つ、即ち、$\exists s \in G$に対し、$a = s^{- 1}*n*s$が成り立つ。ここで、$n \in N$が成り立つかつ、その部分群$(N,*)$が正規なので、$n*s = s*n$が成り立つことになり、したがって、次のようになる。
+\begin{align*}
+a &= s^{- 1}*n*s\\
+&= s^{- 1}*s*n\\
+&= 1_{(G,*)}*n\\
+&= n \in N
+\end{align*}
+よって、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。\par
+$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つなら、$\forall a \in G\forall n \in N$に対し、$a^{- 1}*n*a$\par
+$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つなら、その商集合${G}/{R_{\sigma}}$の部分集合$Q$が次式のようにおかれれば、
+\begin{align*}
+Q = \left\{ C_{R_{\sigma}}(n) \in {G}/{R_{\sigma}} \middle| C_{R_{\sigma}}(n) \subseteq N \right\}
+\end{align*}
+$\bigsqcup_{} Q = \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)} \subseteq N$が成り立つ。一方で、仮定より$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \in Q$が成り立つので、次のようになる。
+\begin{align*}
+n \in C_{R_{\sigma}}(n) \subseteq \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)} = \bigsqcup_{} Q
+\end{align*}
+これにより、$N \subseteq \bigsqcup_{} Q$が成り立つので、よって、$N = \bigsqcup_{} Q$が成り立つ。\par
+その商集合${G}/{R_{\sigma}}$の部分集合$Q$が存在して、$N = \bigsqcup_{} Q$が成り立つとき、$\forall n \in N$に対し、$nR_{\sigma}n$が成り立つことから、$n \in C_{R_{\sigma}}(n)$が成り立つかつ、仮定より$\exists C_{R_{\sigma}}(a) \in Q$に対し、$n \in C_{R_{\sigma}}(a)$が成り立つことから、$C_{R_{\sigma}}(n) \cap C_{R_{\sigma}}(a) \neq \emptyset$、即ち、$C_{R_{\sigma}}(n) = C_{R_{\sigma}}(a)$が成り立つので、$C_{R_{\sigma}}(n) \in Q$が得られる。ゆえに、次式が成り立つ。
+\begin{align*}
+C_{R_{\sigma}}(n) &\subseteq \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)}\\
+&= \bigsqcup_{} Q = N
+\end{align*}
+よって、$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。\par
+$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つなら、もちろん、$N \in C_{R_{\sigma}}(N)$が成り立つ。一方で、$\forall I \in C_{R_{\sigma}}(N)$に対し、$NR_{\sigma}I$が成り立ち、定理\ref{3.1.3.9}より$\exists s \in G$に対し、$V\left( \sigma_{s}|S \right) = s^{- 1}*I*s = N$が成り立つ。ここで、$\forall a \in I$に対し、$s^{- 1}*a*s \in N$が成り立つので、$\exists n \in N$に対し、$s^{- 1}*a*s = n$が成り立つ、即ち、$aR_{\sigma}n$が成り立つ。これにより、$a \in C_{R_{\sigma}}(n)$が得られ、仮定より$C_{R_{\sigma}}(n) \subseteq N$が成り立つので、$a \in N$が成り立つ。ゆえに、$I \subseteq N$が成り立つ。逆に、$\forall n \in N$に対し、$s^{- 1}*I*s = N$が成り立つことから、$\exists n' \in I$に対し、$s^{- 1}*n'*s = n$が成り立つ。上記の議論により、$I \subseteq N$が成り立つので、$n' \in N$が成り立つ。ここで、次のようになることから、
+\begin{align*}
+n' = 1_{(G,*)}*n'*1_{(G,*)} = s*s^{- 1}*n'*s*s^{- 1} = s*n*s^{- 1} = \left( s^{- 1} \right)^{- 1}*n*s^{- 1}
+\end{align*}
+$n*s^{- 1} \in s^{- 1}*N$が成り立ち、$\exists n'' \in N$に対し、$n*s^{- 1} = s^{- 1}*n''$が成り立つ。これにより、次のようになることから、
+\begin{align*}
+n' = s*n*s^{- 1} = s*s^{- 1}*n'' = 1_{(G,*)}*n'' = n'' \in N
+\end{align*}
+ここで、$\exists I \in C_{R_{\sigma}}(N)\exists n \in N$に対し、$n \notin I$が成り立つと仮定すると、$\exists s \in G$に対し、$I = s^{- 1}*N*s$が成り立つので、$s^{- 1}*n*s \in I$が成り立つ。上記の議論により、$I \subseteq N$が成り立つので、$s^{- 1}*n*s \in N$が成り立つ。したがって、$n*s \in s*N$が成り立つので、$\exists n' \in N$に対し、$n*s = s*n'$が成り立つことから、次のようになるので、
+\begin{align*}
+s^{- 1}*n*s = s^{- 1}*s*n' = 1_{(G,*)}*n' = n' \in I
+\end{align*}
+\begin{align*}
+n = s*n'*s^{- 1}
+\end{align*}
+$\exists C_{R_{\sigma}}(a) \in Q$に対し、$s^{- 1}*n*s \in C_{R_{\sigma}}(a)$が成り立つことになり、$\exists t \in G$に対し、$s^{- 1}*n*s = \sigma_{t}(a) = t^{- 1}*a*t$、即ち、次のようになるので、
+\begin{align*}
+n = s*t^{- 1}*a*t*s^{- 1} = \left( t*s^{- 1} \right)^{- 1}*a*t*s^{- 1} = \sigma_{t*s^{- 1}}(a)
+\end{align*}
+$n \in C_{R_{\sigma}}(a)$が成り立つ。これにより、$I \subseteq C_{R_{\sigma}}(a) \subseteq \bigsqcup_{} Q = N$が成り立つ。$\forall n \in N$に対し、$N = \bigsqcup_{} Q$より$\exists C_{R_{\sigma}}(a) \in Q$に対し、$n \in C_{R_{\sigma}}(a)$が成り立つので、$\exists s \in G$に対し、$n = s^{- 1}*a*s$が成り立ち、したがって、
+\begin{align*}
+C_{R_{\sigma}}(h)
+\end{align*}
+\begin{align*}
+\forall s^{- 1}*h*s \in
+\end{align*}
+$\forall a \in G$に対し、$a \in s^{- 1}*H*s$が成り立つならそのときに限り、$\exists h \in H$に対し、$a = s^{- 1}*h*s$が成り立ち、が成り立つことに注意すれば、したがって、次のようになるので、
+\begin{align*}
+a = s^{- 1}*h*s = s^{- 1}*s*h = 1_{(G,*)}*h = h
+\end{align*}
+次のようになるので、
+\begin{align*}
+a \in s^{- 1}*H*s \Leftrightarrow \exists h \in H\left\lbrack a = s^{- 1}*h*s \right\rbrack
+\end{align*}
+\begin{align*}
+\Leftrightarrow \exists h \in H\left\lbrack a = s^{- 1}*s*h \right\rbrack
+\end{align*}
+\begin{align*}
+s^{- 1}*H*s = \left\{ s^{- 1}*h*s \in G \middle| h \in H \right\}
+\end{align*}
+\begin{align*}
+= \left\{ s^{- 1}*s*h \in G \middle| h \in H \right\}
+\end{align*}
+\end{proof}
+\begin{thm}\label{3.1.3.12}
+群$(G,*)$について、次のことは同値である。
+\begin{itemize}
+\item
+  $(N,*) \trianglelefteq (G,*)$が成り立つ。
+\item
+  $\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。
+\item
+  その商集合${G}/{R_{\sigma}}$の部分集合$Q$が存在して、次式が成り立つ。
+\begin{align*}
+N = \bigsqcup_{} Q
+\end{align*}
+\item
+  $C_{R_{\sigma}}(N) = \left\{ N \right\}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+群$(G,*)$について、$(N,*) \trianglelefteq (G,*)$が成り立つなら、$\forall n \in N\forall a \in G$に対し、$a \in C_{R_{\sigma}}(n)$が成り立つなら、$nR_{\sigma}a$が成り立つ、即ち、$\exists s \in G$に対し、$a = s*n*s^{- 1}$が成り立つ。ここで、$n \in N$が成り立つかつ、その部分群$(N,*)$が正規なので、$n*s = s*n$が成り立つことになり、したがって、次のようになる。
+\begin{align*}
+a = s*n*s^{- 1} = n*s*s^{- 1} = n*1_{(G,*)} = n \in N
+\end{align*}
+よって、$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。\par
+$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つなら、$\forall a \in G\forall n \in N$に対し、$a*n*a^{- 1} = \sigma_{a}(n)$が成り立つので、$a*n*a^{- 1} \in C_{R_{\sigma}}(n)$が成り立つことから、$a*n*a^{- 1} \in N$が得られる。定理\ref{3.1.1.22}より$(N,*) \trianglelefteq (G,*)$が成り立つ。\par
+$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つなら、その商集合${G}/{R_{\sigma}}$の部分集合$Q$が次式のようにおかれれば、
+\begin{align*}
+Q = \left\{ C_{R_{\sigma}}(n) \in {G}/{R_{\sigma}} \middle| C_{R_{\sigma}}(n) \subseteq N \right\}
+\end{align*}
+$\bigsqcup_{} Q = \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)} \subseteq N$が成り立つ。一方で、仮定より$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \in Q$が成り立つので、次のようになる。
+\begin{align*}
+n \in C_{R_{\sigma}}(n) \subseteq \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)} = \bigsqcup_{} Q
+\end{align*}
+これにより、$N \subseteq \bigsqcup_{} Q$が成り立つので、よって、$N = \bigsqcup_{} Q$が成り立つ。\par
+その商集合${G}/{R_{\sigma}}$の部分集合$Q$が存在して、$N = \bigsqcup_{} Q$が成り立つとき、$\forall n \in N$に対し、$nR_{\sigma}n$が成り立つことから、$n \in C_{R_{\sigma}}(n)$が成り立つかつ、仮定より$\exists C_{R_{\sigma}}(a) \in Q$に対し、$n \in C_{R_{\sigma}}(a)$が成り立つことから、$C_{R_{\sigma}}(n) \cap C_{R_{\sigma}}(a) \neq \emptyset$、即ち、$C_{R_{\sigma}}(n) = C_{R_{\sigma}}(a)$が成り立つので、$C_{R_{\sigma}}(n) \in Q$が得られる。ゆえに、次式が成り立つ。
+\begin{align*}
+C_{R_{\sigma}}(n) \subseteq \bigsqcup_{C_{R_{\sigma}}(n) \in Q} {C_{R_{\sigma}}(n)} = \bigsqcup_{} Q = N
+\end{align*}
+よって、$\forall n \in N$に対し、$C_{R_{\sigma}}(n) \subseteq N$が成り立つ。\par
+$(N,*) \trianglelefteq (G,*)$が成り立つなら、$N = 1_{(G,*)}*N*1_{(G,*)}^{- 1}$より$\left\{ N \right\} \subseteq C_{R_{\sigma}}(N)$が成り立つ。一方で、$\forall H \in C_{R_{\sigma}}(N)$に対し、$HR_{\sigma}N$が成り立つので、$\exists s \in G$に対し、定理\ref{3.1.3.9}より$H = s*N*s^{- 1}$が成り立つ。ここで、その部分群$(N,*)$は正規なので、定理\ref{3.1.1.22}より$s*N*s^{- 1} = N$が成り立つことから、$H = N$が得られる。これにより、$C_{R_{\sigma}}(N) \subseteq \left\{ N \right\}$が得られ、よって、$C_{R_{\sigma}}(N) = \left\{ N \right\}$が成り立つ。\par
+逆に、$C_{R_{\sigma}}(N) = \left\{ N \right\}$が成り立つなら、$\forall a \in G$に対し、定理\ref{3.1.3.9}より$a*N*a^{- 1} \in C_{R_{\sigma}}(N)$が成り立つ。ここで、仮定より$a*N*a^{- 1} = N$が成り立つので、定理\ref{3.1.1.22}より$(N,*) \trianglelefteq (G,*)$が成り立つ。
+\end{proof}
+\begin{thm}\label{3.1.3.13}
+群$(G,*)$の部分集合$S$の正規化群$\left( N(G,S),* \right)$が与えられ、さらに、その正規化群$\left( N(G,S),* \right)$の指数$\left( G:N(G,S) \right)$が有限であるとする。このとき、次式が成り立つ。
+\begin{align*}
+\#{C_{R_{\sigma}}(S)} = \left( G:N(G,S) \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+群$(G,*)$の部分集合$S$の正規化群$\left( N(G,S),* \right)$が与えられ、さらに、その正規化群$\left( N(G,S),* \right)$の指数$\left( G:N(G,S) \right)$が有限であるとする。このとき、その正規化群$\left( N(G,S),* \right)$の左剰余類全体の集合を$Q_{l}$とおくと、$\left( G:N(G,S) \right) = \#Q_{l}$が成り立つことから、それらの集合たち$C_{R_{\sigma}}(S)$、$Q_{l}$との間に全単射な写像が構成されればよい。そこで、定理\ref{3.1.3.9}より次のような写像たち$f$、$g$が考えられよう。
+\begin{align*}
+f:C_{R_{\sigma}}(S) \rightarrow Q_{l};s*S*s^{- 1} \mapsto s*N(G,S)
+\end{align*}
+\begin{align*}
+g:Q_{l} \rightarrow C_{R_{\sigma}}(S);s*N(G,S) \mapsto s*S*s^{- 1}
+\end{align*}\par
+$\forall s*S*s^{- 1},t*S*t^{- 1} \in C_{R_{\sigma}}(S)$に対し、$s*S*s^{- 1} = t*S*t^{- 1}$が成り立つなら、$t^{- 1}*s*S = S*t^{- 1}*s$が成り立つので、$t^{- 1}*s \in N(G,S)$が成り立つ。ここで、左剰余類の定義より$s \in t*N(G,S)$が成り立つかつ、$t \equiv_{l}t\ \mathrm{mod}\left( N(G,S),* \right)$が成り立つことにより$t \in t*N(G,S)$が成り立つので、$s*N(G,S) \cap t*N(G,S) \neq \emptyset$が成り立つ。同値類の一定理より$s*N(G,S) = t*N(G,S)$が得られるので、次のようになることから、
+\begin{align*}
+f\left( s*S*s^{- 1} \right) = s*N(G,S) = t*N(G,S) = f\left( t*S*t^{- 1} \right)
+\end{align*}
+その対応$f$は確かに写像となっている。\par
+$\forall s*N(G,S),t*N(G,S) \in Q_{l}$に対し、$s*N(G,S) = t*N(G,S)$が成り立つなら、$s \in s*N(G,S)$より$s \in t*N(G,S)$が得られる。したがって、$s \equiv_{l}t\ \mathrm{mod}\left( N(G,S),* \right)$が成り立つことから、$t^{- 1}*s \in N(G,S)$が得られ、したがって、$t^{- 1}*s*S = S*t^{- 1}*s$が成り立つ、即ち、$s*S*s^{- 1} = t*S*t^{- 1}$が成り立つ。これにより、次のようになることから、
+\begin{align*}
+g\left( s*N(G,S) \right) = s*S*s^{- 1} = t*S*t^{- 1} = g\left( t*N(G,S) \right)
+\end{align*}
+その対応$g$は確かに写像となっている。\par
+このとき、$\forall s*S*s^{- 1} \in C_{R_{\sigma}}(S)$に対し、次のようになるかつ、
+\begin{align*}
+g \circ f\left( s*S*s^{- 1} \right) = g\left( s*N(G,S) \right) = s*S*s^{- 1}
+\end{align*}
+$\forall s*N(G,S) \in Q_{l}$に対し、次のようになるので、
+\begin{align*}
+f \circ g\left( s*N(G,S) \right) = f\left( s*S*s^{- 1} \right) = s*N(G,S)
+\end{align*}
+$g = f^{- 1}$が成り立つ。これにより、それらの集合たち$C_{R_{\sigma}}(S)$、$Q_{l}$との間に全単射な写像が存在するので、次のようになる。
+\begin{align*}
+\#{C_{R_{\sigma}}(S)} = \#Q_{l} = \left( G:N(G,S) \right)
+\end{align*}
+
+\end{proof}
+\begin{thm}\label{3.1.3.14}
+群$(G,*)$の有限な部分群$(N,*)$が与えられ、さらに、部分群の位数がその位数$o(N,*)$に等しいその群$(G,*)$のその部分群がその部分群$(N,*)$以外にないとするとき、$(N,*) \trianglelefteq (G,*)$が成り立つ。
+\end{thm}
+\begin{proof}
+群$(G,*)$の有限な部分群$(N,*)$が与えられ、さらに、部分群の位数がその位数$o(N,*)$に等しいその群$(G,*)$のその部分群がその部分群$(N,*)$以外にないとする。$\forall a \in G$に対し、定理\ref{3.1.3.11}より組$\left( a*N*a^{- 1},* \right)$はその部分群$(N,*)$の共役部分群であり、さらに、定理\ref{3.1.3.9}より内部自己同型写像$\sigma_{a}$を用いれば、これらの集合たち$N$、$a*N*a^{- 1}$の間に全単射な写像が存在するので、$o(N,*) = o\left( a*N*a^{- 1},* \right)$が成り立つ。そこで、仮定より$(N,*) = \left( a*N*a^{- 1},* \right)$が成り立つことから、$N = a*N*a^{- 1}$が得られ、定理\ref{3.1.1.22}よりよって、$(N,*) \trianglelefteq (G,*)$が成り立つ。
+\end{proof}
+\begin{thm}\label{3.1.3.15}
+群$(G,*)$の有限な部分群$(N,*)$が与えられ、
+\end{thm}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p65-71 ISBN978-4-00-029873-5
+  \bibitem{2}
+  よしいず. "群の同型定理". MATHEMATICS.PDF. \url{https://mathematics-pdf.com/pdf/grp_iso_thm.pdf} (2021-8-8 15:30 取得)
+  \bibitem{3}
+  花木章秀. "群論". 信州大学. \url{http://math.shinshu-u.ac.jp/~hanaki/edu/group/group2011pre.pdf} (2021-8-8 16:00 取得)
+\end{thebibliography}
+\end{document}

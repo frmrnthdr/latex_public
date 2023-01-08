@@ -1,0 +1,2491 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{7}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.1.7}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6383ux304dux51faux3057ux8a08ux7b97}{%
+\subsection{掃き出し計算}%\label{ux6383ux304dux51faux3057ux8a08ux7b97}}
+%\hypertarget{ux6383ux304dux51faux3057ux8a08ux7b97-1}{%
+\subsubsection{掃き出し計算}%\label{ux6383ux304dux51faux3057ux8a08ux7b97-1}}
+\begin{dfn}
+体$K$上の$m$次元vector空間$V$の基底を$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$としそのvector空間$V$の零vector$\mathbf{0}$でないものが存在するような族$\left\{ \mathbf{w}_{j}\right\}_{j \in \varLambda_{n}} $の$n$つの元々$\mathbf{w}_{j}$が$\sum_{i \in \varLambda_{m}} {a_{ij}\mathbf{v}_{i}}$と書かれることができる、即ち、組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$を基底としたときのそれらのvectors$\mathbf{w}_{j}$の座標が$\left( a_{ij} \right)_{i \in \varLambda_{m}}$であるとき、その組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$が基底とするときの$\forall i \in \varLambda_{m}\forall j \in \varLambda_{n}$に対しそれらのvectors$\mathbf{v}_{i}$とそれらのvectors$\mathbf{w}_{j}$の座標たちを並べて得られる$(m,m + n)$型の行列$A_{m,m + n}$について考えると、その行列$A_{m,m + n}$は次式のように表される。
+\begin{align*}
+A_{m,m + n} = \begin{pmatrix}
+\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{m}} & \left( \mathbf{w}_{j} \right)_{j \in \varLambda_{n}} \\
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & \cdots & 0 & a_{11} & a_{12} & \cdots & a_{1n} \\
+0 & 1 & \cdots & 0 & a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 1 & a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}
+\end{align*}
+ここで、$\forall j \in \varLambda_{n}$に対し$n$つのそれらのvectors$\mathbf{w}_{j}$のうちその行列$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$の各成分のうち0でないものが存在するので、これを第$\left( i',j' \right)$成分とし$a$とおくと、その行列$A_{m,m + n}$は次式のように表される。
+%\begin{comment}
+\begin{align*}
+  A_{m,m + n} &= \left( \begin{matrix}
+  1 & 0 & \cdots & 0 & \cdots & 0 & a_{11} & a_{12} & \cdots & a_{1j'} & \cdots & a_{1n} \\
+  0 & 1 & \cdots & 0 & \cdots & 0 & a_{21} & a_{22} & \cdots & a_{2j'} & \cdots & a_{2n} \\
+   \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+  0 & 0 & \cdots & 1 & \cdots & 0 & a_{i'1} & a_{i'2} & \cdots & a & \cdots & a_{i'n} \\
+   \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+  0 & 0 & \cdots & 0 & \cdots & 1 & a_{m1} & a_{m2} & \cdots & a_{mj'} & \cdots & a_{mn} \\
+  \end{matrix} \right)
+\end{align*}
+%\end{comment}
+\begin{comment}
+\begin{align*}
+A_{m,m + n} &= \left( \begin{matrix}
+1 & 0 & \cdots & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 1 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 0 & \cdots & 1 \\
+\end{matrix} \ \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1j'} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2j'} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{i'1} & a_{i'2} & \cdots & a & \cdots & a_{i'n} \\
+ \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mj'} & \cdots & a_{mn} \\
+\end{matrix} \right)
+\end{align*}
+\end{comment}
+ここで、$\forall i \in \varLambda_{m} \setminus \left\{ i' \right\}$に対し第$i'$行の成分全体を$- \frac{a_{ij'}}{a}$倍しその各成分を第$i$行の対応する各成分に加えると、
+\begin{align*}
+A_{m,m + n} &\rightarrow \begin{pmatrix}
+1 & \cdots & - \frac{a_{1j'}}{a} & \cdots & 0 & a_{11} - \frac{a_{1j'}}{a}a_{i'1} & \cdots & a_{1j'} - \frac{a_{1j'}}{a}a & \cdots & a_{1n} - \frac{a_{1j'}}{a_{i'j'}}a_{i'n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & \cdots & 0 & a_{i',1} & \cdots & a & \cdots & a_{i'n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & - \frac{a_{mj'}}{a} & \cdots & 1 & a_{m1} - \frac{a_{mj'}}{a}a_{i'1} & \cdots & a_{mj'} - \frac{a_{mj'}}{a}a & \cdots & a_{mn} - \frac{a_{mj'}}{a_{i'j'}}a_{i'n} \\
+\end{pmatrix}\\
+&\rightarrow \begin{pmatrix}
+1 & \cdots & - \frac{a_{1j'}}{a} & \cdots & 0 & a_{11} - \frac{a_{1j'}}{a}a_{i'1} & \cdots & 0 & \cdots & a_{1n} - \frac{a_{1j'}}{a}a_{i'n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & \cdots & 0 & a_{i'1} & \cdots & a & \cdots & a_{i'n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & - \frac{a_{mj'}}{a} & \cdots & 1 & a_{m1} - \frac{a_{mj'}}{a}a_{i'1} & \cdots & 0 & \cdots & a_{mn} - \frac{a_{mj'}}{a}a_{i'n} \\
+\end{pmatrix}
+\end{align*}
+第$i'$行の成分全体を$\frac{1}{a}$倍すると、次の行列が得られる。ここで、この行列を$A_{m,m + n}'$とおく。
+\begin{align*}
+A_{m,m + n} \rightarrow A_{m,m + n}' = \begin{pmatrix}
+1 & \cdots & - \frac{a_{1j'}}{a} & \cdots & 0 & a_{11} - \frac{a_{1j'}}{a}a_{i'1} & \cdots & 0 & \cdots & a_{1n} - \frac{a_{1j'}}{a}a_{i'n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & \frac{1}{a} & \cdots & 0 & \frac{a_{i'1}}{a} & \cdots & 1 & \cdots & \frac{a_{i'n}}{a} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0 & \cdots & - \frac{a_{mj'}}{a} & \cdots & 1 & a_{m1} - \frac{a_{mj'}}{a}a_{i'1} & \cdots & 0 & \cdots & a_{mn} - \frac{a_{mj'}}{a}a_{i'n} \\
+\end{pmatrix}\end{align*}
+ここで、定理\ref{2.1.1.24}よりこの行列$A_{m,m + n}'$は組$\left\langle \left\{ \begin{matrix}
+\mathbf{w}_{j'} & \mathrm{if} & i = i' \\
+\mathbf{v}_{i} & \mathrm{if} & i \neq i' \\
+\end{matrix} \right.\  \right\rangle_{i \in \varLambda_{n}}$を基底としたとき、$\forall i \in \varLambda_{m}\forall j \in \varLambda_{n}$に対し、それらのvectors$\mathbf{v}_{i}$とそれらのvectors$\mathbf{w}_{j}$の座標たちを並べて得られる$(m,m + n)$型の行列である。したがって、次のような写像$G_{a}$が定義されることができ、この写像$G_{a}$で行列をうつすことをその元$a$をかなめとする掃き出し計算、とりかえ計算、Gauss-Jordan消去法などという。
+\begin{align*}
+G_{a}:M_{m,m + n}(K) \rightarrow M_{m,m + n}(K);A_{m,m + n} \mapsto A_{m,m + n}'
+\end{align*}
+\end{dfn}
+%\hypertarget{blockux884cux5217ux306bux95a2ux3059ux308bux4e8cux5b9aux7406}{%
+\subsubsection{block行列に関する二定理}%\label{blockux884cux5217ux306bux95a2ux3059ux308bux4e8cux5b9aux7406}}
+\begin{thm}\label{2.1.8.1}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって次のように変形できるとき、
+\begin{align*}
+A_{mn} \rightarrow P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+行列$\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$は次のように変形できる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} \rightarrow P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} = \begin{pmatrix}
+P_{\mathrm{R}}A_{mn}P_{\mathrm{C}} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって次のように変形できるとき、
+\begin{align*}
+A_{mn} \rightarrow P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} \rightarrow P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} &= \begin{pmatrix}
+P_{\mathrm{R}}A_{mn} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+P_{\mathrm{R}}A_{mn}P_{\mathrm{C}} + P_{\mathrm{R}}\mathbf{b}O & P_{\mathrm{R}}A_{mn}O + P_{\mathrm{R}}\mathbf{b}1 \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+P_{\mathrm{R}}A_{mn}P_{\mathrm{C}} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.8.2}
+$\forall A_{mm} \in M_{mm}(K)\forall B_{nn} \in M_{nn}(K)$に対し、$A_{mm} \in {\mathrm{GL}}_{m}(K)$かつ$B_{nn} \in {\mathrm{GL}}_{n}(K)$が成り立つならそのときに限り、その行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}$の逆行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}^{- 1}$が存在し$\begin{pmatrix}
+A_{mm}^{- 1} & O \\
+O & B_{nn}^{- 1} \\
+\end{pmatrix}$となる。これにより、その行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}$は正則行列となる。
+\end{thm}\begin{proof}
+$\forall A_{mm} \in M_{mm}(K)\forall B_{nn} \in M_{nn}(K)$に対し、$A_{mm} \in {\mathrm{GL}}_{m}(K)$かつ$B_{nn} \in {\mathrm{GL}}_{n}(K)$が成り立つなら、これらの逆行列たちが存在し$A_{mm}^{- 1} \in {\mathrm{GL}}_{m}(K)$、$B_{nn}^{- 1} \in {\mathrm{GL}}_{n}(K)$となる。ここで、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+A_{mm}^{- 1} & O \\
+O & B_{nn}^{- 1} \\
+\end{pmatrix} &= \begin{pmatrix}
+A_{mm}A_{mm}^{- 1} + O & A_{mm}O + OB_{nn}^{- 1} \\
+OA_{mm}^{- 1} + B_{nn}O & O + B_{nn}B_{nn}^{- 1} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+I_{m} & O \\
+O & I_{n} \\
+\end{pmatrix} = I_{m + n}\\
+\begin{pmatrix}
+A_{mm}^{- 1} & O \\
+O & B_{nn}^{- 1} \\
+\end{pmatrix}\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix} &= \begin{pmatrix}
+A_{mm}^{- 1}A_{mm} + O & A_{mm}O + OB_{nn} \\
+OA_{mm} + B_{nn}^{- 1}O & O + B_{nn}^{- 1}B_{nn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+I_{m} & O \\
+O & I_{n} \\
+\end{pmatrix} = I_{m + n}
+\end{align*}
+したがって、その行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}$の逆行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}^{- 1}$が存在し$\begin{pmatrix}
+A_{mm}^{- 1} & O \\
+O & B_{nn}^{- 1} \\
+\end{pmatrix}$となる。\par
+逆に、その行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}$の逆行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}^{- 1}$が存在するとすると、その逆行列$\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}^{- 1}$を$X_{11} \in M_{mm}(K)$、$X_{12} \in M_{mn}(K)$、$X_{21} \in M_{nm}(K)$、$X_{22} \in M_{nn}(K)$として$\begin{pmatrix}
+X_{11} & X_{12} \\
+X_{21} & X_{22} \\
+\end{pmatrix}$とおくと、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+X_{11} & X_{12} \\
+X_{21} & X_{22} \\
+\end{pmatrix} &= \begin{pmatrix}
+A_{mm}X_{11} + OX_{21} & A_{mm}X_{12} + OX_{22} \\
+OX_{11} + B_{nn}X_{21} & OX_{12} + B_{nm}X_{22} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+A_{mm}X_{11} & A_{mm}X_{12} \\
+B_{nn}X_{21} & B_{nm}X_{22} \\
+\end{pmatrix}\\
+&= I_{m + n} = \begin{pmatrix}
+I_{m} & O \\
+O & I_{n} \\
+\end{pmatrix}
+\end{align*}
+また、次のようになり、
+\begin{align*}
+\begin{pmatrix}
+X_{11} & X_{12} \\
+X_{21} & X_{22} \\
+\end{pmatrix}\begin{pmatrix}
+A_{mm} & O \\
+O & B_{nn} \\
+\end{pmatrix} &= \begin{pmatrix}
+X_{11}A_{mm} + X_{12}O & X_{11}O + X_{12}B_{nn} \\
+X_{21}A_{mm} + X_{22}O & X_{21}O + X_{22}B_{nn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+X_{11}A_{mm} & X_{12}B_{nn} \\
+X_{21}A_{mm} & X_{22}B_{nn} \\
+\end{pmatrix}\\
+&= I_{m + n} = \begin{pmatrix}
+I_{m} & O \\
+O & I_{n} \\
+\end{pmatrix}
+\end{align*}
+成分を比較すると、次式が成り立つことになる。
+\begin{align*}
+A_{mm}X_{11} = X_{11}A_{mm} = I_{m},\ \ B_{nm}X_{22} = X_{12}B_{nn} = I_{n}
+\end{align*}
+これにより、それらの行列たち$A_{mm}$、$B_{nn}$の逆行列が存在することになる。したがって、$A_{mm} \in {\mathrm{GL}}_{m}(K)$かつ$B_{nn} \in {\mathrm{GL}}_{n}(K)$が成り立つ。
+\end{proof}
+%\hypertarget{ux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}{%
+\subsubsection{連立1次方程式}%\label{ux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}}
+\begin{dfn}
+体$K$上で$a_{ij},b_{i},x_{j} \in K$として次式のように書かれる式を$n$元連立1次方程式という。
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.
+\end{align*}
+この式に対し、$n$元連立1次方程式$\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = 0 \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = 0 \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = 0 \\
+\end{matrix} \right.\ $も考えられることができ、これをこの式$\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.\ $に随伴する$n$元連立1次方程式という。また、$n$元連立1次方程式$\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = 0 \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = 0 \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = 0 \\
+\end{matrix} \right.\ $を満たす組$\left( x_{j} \right)_{j \in \varLambda_{n}}$あるいはその体$K$の元々$x_{j}$をその式の解といい、特に、$x_{j} = 0$なる解を自明な解といい、これらの組$\left( x_{j} \right)_{j \in \varLambda_{n}}$全体の集合を解空間という。このような元々$x_{j}$が存在するとき、その式は解をもつという。
+\end{dfn}
+\begin{thm}\label{2.1.8.3}
+$n$元連立1次方程式$\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.\ $は次のように書き換えられることができる。
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.\  &\Leftrightarrow \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} & b_{1} \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_{2} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} & b_{m} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+また、$b_{i} = 0$のとき、次のようにおくと、
+\begin{align*}
+A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\end{align*}
+その解空間はそのvector空間$K^{n}$の部分空間でその次元は$n - {\mathrm{rank}}A_{mn}$に等しい。
+\end{thm}
+\begin{proof}
+次式のような$n$元連立1次方程式を考えよう。
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.
+\end{align*}
+このとき、次のようになり、
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right. &\Leftrightarrow \forall i \in \varLambda_{m}\left\lbrack a_{i1}x_{1} + a_{i2}x_{2} + \cdots + a_{in}x_{n} = b_{i} \right\rbrack\\
+&\Leftrightarrow \forall i \in \varLambda_{m}\left\lbrack \sum_{h \in \varLambda_{n}} {a_{ih}x_{h}} = b_{i} \right\rbrack\\
+&\Leftrightarrow \left( \sum_{h \in \varLambda_{n}} {a_{ih}x_{h}} \right)_{i \in \varLambda_{m}} = \left( b_{i} \right)_{i \in \varLambda_{m}}\\
+&\Leftrightarrow \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( x_{i} \right)_{i \in \varLambda_{n}} = \left( b_{i} \right)_{i \in \varLambda_{m}}\\
+&\Leftrightarrow \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}
+\end{align*}
+また、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right. &\Leftrightarrow \left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} - b_{1} = 0 \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} - b_{2} = 0 \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} - b_{m} = 0 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \forall i \in \varLambda_{m}\left\lbrack a_{i1}x_{1} + a_{i2}x_{2} + \cdots + a_{in}x_{n} - b_{i} = 0 \right\rbrack\\
+&\Leftrightarrow \forall i \in \varLambda_{m}\left\lbrack \sum_{h \in \varLambda_{n}} {a_{ih}x_{h}} - b_{i} = 0 \right\rbrack\\
+&\Leftrightarrow \left( \sum_{h \in \varLambda_{n}} {a_{ih}x_{h}} - b_{i} \right)_{i \in \varLambda_{m}} = (0)_{i \in \varLambda_{m}}\\
+&\Leftrightarrow \begin{pmatrix}
+\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} & \left( b_{i} \right)_{i \in \varLambda_{m}} \\
+\end{pmatrix}\begin{pmatrix}
+\left( x_{i} \right)_{i \in \varLambda_{n}} \\
+ - 1 \\
+\end{pmatrix} = (0)_{i \in \varLambda_{m}}\\
+&\Leftrightarrow \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} & b_{1} \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_{2} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} & b_{m} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}\par
+また、$b_{i} = 0$のとき、次のようにおくと、
+\begin{align*}
+A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}
+\end{align*}
+その解空間は線形写像$L_{A_{mn}}:K^{n} \rightarrow K^{m};\mathbf{v} \mapsto A_{mn}\mathbf{v}$の核$\ker L_{A_{mn}}$に等しいので、その解空間はそのvector空間$K^{n}$の部分空間である。ここで次元公式より次のようになる。
+\begin{align*}
+\dim{\ker L_{A_{mn}}} = {\mathrm{nullity}}L_{A_{mn}} = \dim K^{n} - {\mathrm{rank}}L_{A_{mn}} = n - {\mathrm{rank}}A_{mn}
+\end{align*}
+\end{proof}
+\begin{dfn}
+この定理によって、この式$\left\{ \begin{matrix}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{2} \\
+ \vdots \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{m} \\
+\end{matrix} \right.\ $は$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\mathbf{x} = \left( x_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{b} = \left( b_{i} \right)_{i \in \varLambda_{m}}$とすれば、$A_{mn}\mathbf{x} = \mathbf{b}$または$\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix} = \mathbf{0}$のように書き換えられることができる。ここで、この行列$A_{mn}$をその連立1次方程式の係数行列、このvector$\mathbf{b}$をその連立1次方程式の定数項vectorという。さらに、その定数項vector$\mathbf{b}$が零vector$\mathbf{0}$であるとき、その連立1次方程式は同次である、そうでないとき、その連立1次方程式は非同次であるといい、その連立1次方程式を考えたとき、その定数項vector$\mathbf{b}$を零vector$\mathbf{0}$に置き換えた式をその連立1次方程式に随伴する式という。
+\end{dfn}
+%\hypertarget{ux540cux6b21ux306aux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}{%
+\subsubsection{同次な連立1次方程式}%\label{ux540cux6b21ux306aux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}}
+\begin{thm}\label{2.1.8.4}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$に随伴する連立方程式$A_{mn}\mathbf{x} = \mathbf{0}$は、次の方法にしたがって式変形されれば、必ずその解をもつことがわかる。この式$A_{mn}\mathbf{x} = \mathbf{0}$を解こう。この方法は次のようになる。
+\begin{enumerate}
+\item
+  行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のような行標準形に変形する。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix}
+\end{align*}
+\item
+  $P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちそれぞれ$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いると、行標準形にされたその行列は$P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}$と書かれることができるのであった。そのvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+\item
+  したがって、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + 1}'x_{p(r + 1)} - \cdots - a_{1n}'x_{p(n)} \\
+ \vdots \\
+ - a_{r,r + 1}'x_{p(r + 1)} - \cdots - a_{rn}'x_{p(n)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+\item
+  $\forall j \in \varLambda_{n} \setminus \varLambda_{r}$に対し、$t_{j - r} = x_{p(j)} \in K$とおくと、$\forall\begin{pmatrix}
+  t_{1} \\
+  t_{2} \\
+   \vdots \\
+  t_{n - r} \\
+  \end{pmatrix} \in K^{n - r}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix}
+\end{align*}
+\item
+  これにより、その連立1次方程式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間$\ker L_{A_{mn}}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} \in \ker L_{A_{mn}} = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\}
+\end{align*}
+\end{enumerate}
+\end{thm}\par
+\begin{dfn}
+なお、それらのvectors$\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix}$、$\cdots$、$\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix}$をその式$A_{mn}\mathbf{x} = \mathbf{0}$の基本解という。このようにしても、連立1次方程式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間の次元は$n - r$に、即ち、$n - {\mathrm{rank}}A_{mn}$に等しいことがわかる。また、$n = r = {\mathrm{rank}}A_{mn}$が成り立つなら、明らかに解空間$\ker L_{A_{mn}}は\left\{ \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \right\}$となる。この方法を詳しく述べたものを証明としよう。
+\end{dfn}
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$に随伴する連立方程式$A_{mn}\mathbf{x} = \mathbf{0}$を解こう。このとき、行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形できるのであった。なお、$P_{\mathrm{R}}$、$P_{\mathrm{C}}$はそれぞれ$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちである。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+$P_{\mathrm{C}}^{- 1}\mathbf{x} \in K^{n}$よりvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、したがって、次のようになる。
+\begin{align*}
+A_{mn}\mathbf{x} = \mathbf{0} &\Leftrightarrow P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}P_{\mathrm{C}}^{- 1}\mathbf{x} = \mathbf{0}\\
+&\Leftrightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix}\mathbf{x}' = \mathbf{0}
+\end{align*}
+ここで、その基本行列$P_{\mathrm{C}}$は行列$A_{mn}$の列の入れ替えを行っているのであったので、その逆行列$P_{\mathrm{C}}^{- 1}$はそのvector$\mathbf{x}$を行列とみなしたとき、その行列$\mathbf{x}$の行の入れ替えを行うことになるので、そのvector$\mathbf{x}'$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$\mathbf{x}'$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+したがって、その行列$\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix}$が次式のように成分表示されたらば、
+\begin{align*}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix}
+\end{align*}
+その式$\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix}\mathbf{x}' = \mathbf{0}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix}\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\end{align*}
+したがって、次のようになる。
+\begin{align*}
+&\quad \begin{pmatrix}
+x_{p(1)} + a_{1,r + 1}'x_{p(r + 1)} + \cdots + a_{1n}'x_{p(n)} \\
+ \vdots \\
+x_{p(r)} + a_{r,r + 1}'x_{p(r + 1)} + \cdots + a_{rn}'x_{p(n)} \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} + a_{1,r + 1}'x_{p(r + 1)} + \cdots + a_{1n}'x_{p(n)} \\
+ \vdots \\
+x_{p(r)} + a_{r,r + 1}'x_{p(r + 1)} + \cdots + a_{rn}'x_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + 1}'x_{p(r + 1)} - \cdots - a_{1n}'x_{p(n)} \\
+ \vdots \\
+ - a_{r,r + 1}'x_{p(r + 1)} - \cdots - a_{rn}'x_{p(n)} \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + 1}'x_{p(r + 1)} - \cdots - a_{1n}'x_{p(n)} \\
+ \vdots \\
+ - a_{r,r + 1}'x_{p(r + 1)} - \cdots - a_{rn}'x_{p(n)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = x_{p(r + 1)}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + x_{p(n)}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix}
+\end{align*}
+ここで、$\forall j \in \varLambda_{n} \setminus \varLambda_{r}$に対し、$t_{j - r} = x_{p(j)} \in K$とおくと、$j \in \varLambda_{n} \setminus \varLambda_{r}$なるそれらの係数たち$t_{j - r}$は任意で、$\forall\begin{pmatrix}
+t_{1} \\
+t_{2} \\
+ \vdots \\
+t_{n - r} \\
+\end{pmatrix} \in K^{n - r}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix}
+\end{align*}
+これにより、その連立1次方程式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間$\ker L_{A_{mn}}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} \in \ker L_{A_{mn}} = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\}
+\end{align*}
+このようにしても、連立1次方程式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間の次元は$n - r$に、即ち、$n - {\mathrm{rank}}A_{mn}$に等しいことがわかる。
+\end{proof}
+%\hypertarget{ux975eux540cux6b21ux306aux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}{%
+\subsubsection{非同次な連立1次方程式}%\label{ux975eux540cux6b21ux306aux9023ux7acb1ux6b21ux65b9ux7a0bux5f0f}}
+\begin{thm}[有解条件]\label{2.1.8.5}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$について考えよう。ここで、次のことは同値である。
+\begin{itemize}
+\item
+  $A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつ、即ち、$\exists\mathbf{x} \in K^{n}$に対し、$A_{mn}\mathbf{x} = \mathbf{b}$が成り立つ。
+\item
+  ${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+  A_{mn} & \mathbf{b} \\
+  \end{pmatrix}$が成り立つ。
+\item
+  $P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たち$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いて行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形されたとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+$P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+\mathbf{b}^{*} \\
+\mathbf{b}_{*} \\
+\end{pmatrix}$、$\mathbf{b}^{*} \in K^{r}$とおくと、$\mathbf{b}_{*} = \mathbf{0}$が成り立つ。
+\end{itemize}
+この定理を有解条件という。
+\end{thm}
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$が与えられたとする。\par
+ここで、$A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつ、即ち、$\exists\mathbf{x} \in K^{n}$に対し、$A_{mn}\mathbf{x} = \mathbf{b}$が成り立つとき、定理\ref{2.1.7.4}より$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たち$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いて行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形できる。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+ここで、$P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+\mathbf{b}^{*} \\
+\mathbf{b}_{*} \\
+\end{pmatrix}$、$\mathbf{b}^{*} \in K^{r}$とおくと、定理\ref{2.1.8.1}より次のようになることから、
+\begin{align*}
+P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} &= \begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & \begin{pmatrix}
+\mathbf{b}^{*} \\
+\mathbf{b}_{*} \\
+\end{pmatrix} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+I_{r} & * & \mathbf{b}^{*} \\
+O & O & \mathbf{b}_{*} \\
+\end{pmatrix}
+\end{align*}
+定理\ref{2.1.8.2}よりその行列$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}$の逆行列$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}$が存在でき$\begin{pmatrix}
+P_{\mathrm{C}}^{- 1} & O \\
+O & 1 \\
+\end{pmatrix}$となるので、$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix} \in K^{n + 1}$よりvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、定理\ref{2.1.8.3}よりしたがって、次のようになる。
+\begin{align*}
+\mathbf{0} &= P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix}\\
+&= P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+I_{r} & * & \mathbf{b}^{*} \\
+O & O & \mathbf{b}_{*} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x}' \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+* \\
+ - \mathbf{b}_{*} \\
+\end{pmatrix}
+\end{align*}
+ゆえに、$\mathbf{b}_{*} = \mathbf{0}$が成り立つ。\par
+また、$\mathbf{b}_{*} = \mathbf{0}$が成り立つなら、上記の議論により次のようになるので、
+\begin{align*}
+P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} &= \begin{pmatrix}
+I_{r} & * & \mathbf{b}^{*} \\
+O & O & \mathbf{b}_{*} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+I_{r} & * & \mathbf{b}^{*} \\
+O & O & \mathbf{0} \\
+\end{pmatrix}
+\end{align*}
+${\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} = r$が成り立つ、即ち、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$が成り立つ。\par
+${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$が成り立つなら、次式が成り立つので、
+\begin{align*}
+{\mathrm{rank}}\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix} = {\mathrm{rank}}\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} & b_{1} \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_{2} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} & b_{m} \\
+\end{pmatrix}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\dim{{\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix} \right\}} = \dim{{\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix},\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix} \right\}}
+\end{align*}
+ここで、次式が成り立つので、
+\begin{align*}
+{\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix} \right\} \subseteq {\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix},\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix} \right\}
+\end{align*}
+次元が等しいことから、次式が成り立つ。
+\begin{align*}
+{\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix} \right\} = {\mathrm{span} }\left\{ \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix},\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix},\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix} \right\}
+\end{align*}
+ゆえに、そのvector$\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$が$i \in \varLambda_{n}$なるそれらのvectors$\begin{pmatrix}
+a_{1i} \\
+a_{2i} \\
+ \vdots \\
+a_{mi} \\
+\end{pmatrix}$の線形結合であり次のようになるので、
+\begin{align*}
+\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix} &= x_{1}\begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix} + x_{2}\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix} + \cdots + x_{n}\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}\end{align*}
+$\exists\mathbf{x} \in K^{n}$に対し、$A_{mn}\mathbf{x} = \mathbf{b}$が成り立つ。\par
+以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  $A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつ、即ち、$\exists\mathbf{x} \in K^{n}$に対し、$A_{mn}\mathbf{x} = \mathbf{b}$が成り立つ。
+\item
+  ${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+  A_{mn} & \mathbf{b} \\
+  \end{pmatrix}$が成り立つ。
+\item
+  $P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たち$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いて行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形されたとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+$P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+\mathbf{b}^{*} \\
+\mathbf{b}_{*} \\
+\end{pmatrix}$、$\mathbf{b}^{*} \in K^{r}$とおくと、$\mathbf{b}_{*} = \mathbf{0}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.1.8.6}
+さて、その連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$を解こう。この方法は次のようになる。
+\begin{enumerate}
+\item
+  この式$A_{mn}\mathbf{x} = \mathbf{b}$は定理\ref{2.1.8.3}より次のように変形できる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix} = \mathbf{0}
+\end{align*}
+\item
+  $P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形できるとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+行列$\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$は次のように変形できる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} \rightarrow P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} = \begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}
+\end{align*}
+\item
+  その行列$\begin{pmatrix}
+  P_{\mathrm{C}} & O \\
+  O & I_{1} \\
+  \end{pmatrix}$の逆行列が$\begin{pmatrix}
+  P_{\mathrm{C}}^{- 1} & O \\
+  O & I_{1} \\
+  \end{pmatrix}$となるので、vector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x}' \\
+ - 1 \\
+\end{pmatrix} = \mathbf{0}
+\end{align*}
+\item
+  ここで、そのvector$\mathbf{x}'$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$\mathbf{x}'$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+\item
+  また、次式のように成分表示されることができる。
+\begin{align*}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix},\ \ P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{m}' \\
+\end{pmatrix}
+\end{align*}
+\item
+  4. と5. よりその式$A_{mn}\mathbf{x} = \mathbf{b}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' & b_{1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' & b_{r}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{r + 1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{m}' \\
+\end{pmatrix}\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+\item
+  $\exists i \in \varLambda_{m} \setminus \varLambda_{r}$に対し、$b_{i}' \neq 0$が成り立つなら、その式$A_{mn}\mathbf{x} = \mathbf{b}$はその解をもたない。
+\item
+  $\forall i \in \varLambda_{m} \setminus \varLambda_{r}$に対し、$b_{i}' = 0$が成り立つなら、その式$A_{mn}\mathbf{x} = \mathbf{b}$はその解をもつ。
+\item
+  8. のとき、$t_{j - r} = x_{p(j)} \in K$とおくと、$\forall\begin{pmatrix}
+  t_{1} \\
+  t_{2} \\
+   \vdots \\
+  t_{n - r} \\
+  \end{pmatrix} \in K^{n - r}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\end{align*}
+\item
+  これにより、写像$L_{A_{mn}}':K^{n} \rightarrow K^{m};\mathbf{x} \mapsto A_{mn}\mathbf{x} - \mathbf{b}$を考えることで、連立1次方程式$A_{mn}\mathbf{x} = \mathbf{b}$の解空間$\ker L_{A_{mn}}'$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} \in \ker L_{A_{mn}}' = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+\end{enumerate}
+\end{thm}\par
+なお、そのvector$\begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}$をその式$A_{mn}\mathbf{x} = \mathbf{b}$の特殊解という。このようにしても、その式$A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつならそのときに限り、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$が成り立つことがわかる。また、$n = r = {\mathrm{rank}}A_{mn}$が成り立ちその式$A_{mn}\mathbf{x} = \mathbf{b}$が解をもつなら、明らかに解空間$\ker L_{A_{mn}}'は\left\{ \begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{n}' \\
+\end{pmatrix} \right\}$となる。\par
+このように、その式$A_{mn}\mathbf{x} = \mathbf{b}$の解は次のように3通りに分類されることができる。
+\begin{longtable}[c]{|c|c|c|}
+\hline
+\multirow{2}{*}{名称} & 解空間$\ker L_{A_{mn}}'$ & \multirow{2}{*}{有解条件} \\ \cline{2-2}
+& 解$\mathbf{x}'$ & \\
+\hline \hline
+\multirow{2}{*}{その解は不能である} & $\emptyset$ &
+\multirow{2}{*}{${\mathrm{rank}}A_{mn} \neq {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$} \\ \cline{2-2}
+& $\mathrm{nothing} $ & \\
+\hline
+\multirow{2}{*}{その解は不定である} & ${\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}$ & \multirow{2}{*}{$\begin{matrix}
+{\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\ 
+\end{pmatrix} \\ 
+\land {\mathrm{rank}}A_{mn} \neq n
+\end{matrix}$} \\ \cline{2-2}
+& \begin{tabular}{c}
+$\forall\begin{pmatrix}
+t_{1} \\
+t_{2} \\
+ \vdots \\
+t_{n - r} \\
+\end{pmatrix} \in K^{n - r}\left[ \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \right. $\\
+$\left. + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \right] $ \end{tabular} & \\ \hline
+\multirow{2}{*}{} & $\left\{ \begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{n}' \\
+\end{pmatrix} \right\}$ & \multirow{2}{*}{$\begin{matrix}
+  {\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+  A_{mn} & \mathbf{b} \\ 
+  \end{pmatrix} \\ 
+  \land {\mathrm{rank}}A_{mn} = n
+  \end{matrix}$} \\ \cline{2-2}
+& $\begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{n}' \\
+\end{pmatrix}$ & \\
+\hline
+\end{longtable}
+この方法を詳しく述べたものを証明としよう。
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$は定理\ref{2.1.8.3}より次のように変形できる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix} = \mathbf{0}
+\end{align*}
+$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって${\mathrm{rank}}A_{mn} = r$として次のように変形できるのであった。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+このとき、定理\ref{2.1.8.1}より行列$\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$は次のように変形できる。
+\begin{align*}
+\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} \rightarrow P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix} = \begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}
+\end{align*}
+ここで、定理\ref{2.1.8.2}よりその行列$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}$の逆行列$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}$が存在でき$\begin{pmatrix}
+P_{\mathrm{C}}^{- 1} & O \\
+O & 1 \\
+\end{pmatrix}$となるので、$\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix} \in K^{n + 1}$よりvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、定理\ref{2.1.8.3}よりしたがって、次のようになる。
+\begin{align*}
+\mathbf{0} &= P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix}\\
+&= P_{\mathrm{R}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}\begin{pmatrix}
+P_{\mathrm{C}} & O \\
+O & 1 \\
+\end{pmatrix}^{- 1}\begin{pmatrix}
+\mathbf{x} \\
+ - 1 \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} & P_{\mathrm{R}}\mathbf{b} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{x}' \\
+ - 1 \\
+\end{pmatrix}
+\end{align*}
+ここで、その基本行列$P_{\mathrm{C}}$は行列$A_{mn}$の列の入れ替えを行っているのであった。その逆行列$P_{\mathrm{C}}^{- 1}$はそのvector$\mathbf{x}$を行列とみなしたとき、その行列$\mathbf{x}$の行の入れ替えを行うことになるので、そのvector$\mathbf{x}'$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$\mathbf{x}'$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+したがって、$P_{\mathrm{R}}\mathbf{b} \in K^{m}$が成り立つことに注意して、その行列$\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix}$、そのvector$P_{\mathrm{R}}\mathbf{b}$が次式のように成分表示されたらば、
+\begin{align*}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix},\ \ P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{m}' \\
+\end{pmatrix}\end{align*}
+その式$A_{mn}\mathbf{x} = \mathbf{b}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' & b_{1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' & b_{r}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{r + 1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{m}' \\
+\end{pmatrix}\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} + a_{1,r + 1}'x_{p(r + 1)} + \cdots + a_{1n}'x_{p(n)} - b_{1}' \\
+ \vdots \\
+x_{p(r)} + a_{r,r + 1}'x_{p(r + 1)} + \cdots + a_{rn}'x_{p(n)} - b_{r}' \\
+ - b_{r + 1}' \\
+ \vdots \\
+ - b_{m}' \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+ここで、有解条件より$\exists i \in \varLambda_{m} \setminus \varLambda_{r}$に対し、$b_{i}' \neq 0$が成り立つなら、$A_{mn}\mathbf{x} = \mathbf{b}$の解はもたない。\par
+一方で有解条件より、$\forall i \in \varLambda_{m} \setminus \varLambda_{r}$に対し、$b_{i}' = 0$が成り立つなら、明らかにその式$A_{mn}\mathbf{x} = \mathbf{b}$も成り立つ。なお、その式$\begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' & b_{1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' & b_{r}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{r + 1}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 & b_{m}' \\
+\end{pmatrix}\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+ - 1 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}$はその行列$\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$が変形された行標準形になっており${\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix} = r = {\mathrm{rank}}A_{mn}$が成り立っている。したがって、次のようになる。
+\begin{align*}
+&\quad \begin{pmatrix}
+x_{p(1)} + a_{1,r + 1}'x_{p(r + 1)} + \cdots + a_{1n}'x_{p(n)} - b_{1}' \\
+ \vdots \\
+x_{p(r)} + a_{r,r + 1}'x_{p(r + 1)} + \cdots + a_{rn}'x_{p(n)} - b_{r}' \\
+ - b_{r + 1}' \\
+ \vdots \\
+ - b_{m}' \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} + a_{1,r + 1}'x_{p(r + 1)} + \cdots + a_{1n}'x_{p(n)} - b_{1}' \\
+ \vdots \\
+x_{p(r)} + a_{r,r + 1}'x_{p(r + 1)} + \cdots + a_{rn}'x_{p(n)} - b_{r}' \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + 1}'x_{p(r + 1)} - \cdots - a_{1n}'x_{p(n)} + b_{1}' \\
+ \vdots \\
+ - a_{r,r + 1}'x_{p(r + 1)} - \cdots - a_{rn}'x_{p(n)} + b_{r}' \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + 1}'x_{p(r + 1)} - \cdots - a_{1n}'x_{p(n)} + b_{1}' \\
+ \vdots \\
+ - a_{r,r + 1}'x_{p(r + 1)} - \cdots - a_{rn}'x_{p(n)} + b_{r}' \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}\\
+&\Leftrightarrow \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+x_{p(r + 2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = x_{p(r + 1)}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + x_{p(n)}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+ここで、$\forall j \in \varLambda_{n} \setminus \varLambda_{r}$に対し、$t_{j - r} = x_{p(j)} \in K$とおくと、$j \in \varLambda_{n} \setminus \varLambda_{r}$なるそれらの係数たち$t_{j - r}$は任意で、$\forall\begin{pmatrix}
+t_{1} \\
+t_{2} \\
+ \vdots \\
+t_{n - r} \\
+\end{pmatrix} \in K^{n - r}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+x_{p(1)} \\
+ \vdots \\
+x_{p(r)} \\
+x_{p(r + 1)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+これにより、写像$L_{A_{mn}}':K^{n} \rightarrow K^{m};\mathbf{x} \mapsto A_{mn}\mathbf{x} - \mathbf{b}$を考えることで、連立1次方程式$A_{mn}\mathbf{x} = \mathbf{b}$の解空間$\ker L_{A_{mn}}'$は次のようになる。
+\begin{align*}
+\ker L_{A_{mn}}' = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+このようにしても、その式$A_{mn}\mathbf{x} = \mathbf{b}$が解をもつならそのときに限り、${\mathrm{rank}}A_{mn} = {\mathrm{rank}}\begin{pmatrix}
+A_{mn} & \mathbf{b} \\
+\end{pmatrix}$が成り立つことがわかる。
+\end{proof}
+\begin{thm}\label{2.1.8.7}
+その式$A_{mn}\mathbf{x} = \mathbf{b}$の特殊解$\mathbf{x}_{0}$が与えられたら、これに随伴する式$A_{mn}\mathbf{x} = \mathbf{0}$の解を$\mathbf{x}_{1}$とおいてvector$\mathbf{x}_{0} + \mathbf{x}_{1}$もその式$A_{mn}\mathbf{x} = \mathbf{b}$の解となる。
+\end{thm}
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、vectors$\mathbf{x}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$を考えよう。その式$A_{mn}\mathbf{x} = \mathbf{b}$の特殊解$\mathbf{x}_{0}$が与えられたら、これに随伴する式$A_{mn}\mathbf{x} = \mathbf{0}$の解を$\mathbf{x}_{1}$とおくと、
+\begin{align*}
+A_{mn}\mathbf{x}_{0} = \mathbf{b} \land A_{mn}\mathbf{x}_{1} = \mathbf{0} &\Rightarrow A_{mn}\mathbf{x}_{0} + A_{mn}\mathbf{x}_{1} = \mathbf{b}\\
+&\Leftrightarrow A_{mn}\left( \mathbf{x}_{0} + \mathbf{x}_{1} \right) = \mathbf{b}
+\end{align*}
+よって、vector$\mathbf{x}_{0} + \mathbf{x}_{1}$もその式$A_{mn}\mathbf{x} = \mathbf{b}$の解となる。
+\end{proof}
+\begin{thm}\label{2.1.8.8}
+このことを用いれば、その式$A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつとき、その式$A_{mn}\mathbf{x} = \mathbf{b}$に随伴する式$A_{mn}\mathbf{x} = \mathbf{0}$の解が$\mathbf{x}_{1}$と求まっており${\mathrm{rank}}A_{mn} = r$として$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たち$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いて次のようにその行列$A_{mn}$の行標準形に変形できたとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+その式は次のようにして求めることができる。
+\begin{enumerate}
+\item
+  その行列$A_{mn}$がされた行基本変形でそのvector$\mathbf{b}$を変形する。
+\begin{align*}
+\mathbf{b} \rightarrow P_{\mathrm{R}}\mathbf{b}
+\end{align*}
+\item
+  vector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、そのvector$\mathbf{x}'はそのvector\mathbf{x}$の成分の順序を入れ替えたものになることに注意すれば、このvector$\mathbf{x}'$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+\item
+  その式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間$\ker A_{mn}$を用いて写像$L_{A_{mn}}':K^{n} \rightarrow K^{m};\mathbf{x} \mapsto A_{mn}\mathbf{x} - \mathbf{b}$を考えることで、そのvector$\mathbf{x}'$が属するその式$A_{mn}\mathbf{x} = \mathbf{b}$の解空間$\ker L_{A_{mn}}'$は次のようになる。
+\begin{align*}
+\ker L_{A_{mn}}' = \ker L_{A_{mn}} + P_{\mathrm{R}}\mathbf{b}
+\end{align*}
+\end{enumerate}
+\end{thm}\par
+この方法を詳しく述べたものを証明としよう。
+\begin{proof}
+$\forall A_{mn} \in M_{mn}(K)\forall\mathbf{b} \in K^{m}$に対し、$A_{mn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}$、$\mathbf{b} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m} \\
+\end{pmatrix}$としてvectors$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}$を用いた連立方程式$A_{mn}\mathbf{x} = \mathbf{b}$を考えよう。その式$A_{mn}\mathbf{x} = \mathbf{b}$がその解をもつとき、その式$A_{mn}\mathbf{x} = \mathbf{b}$に随伴する式$A_{mn}\mathbf{x} = \mathbf{0}$の解が$\mathbf{x}_{1}$と求まっており${\mathrm{rank}}A_{mn} = r$として$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たち$P_{\mathrm{R}}$、$P_{\mathrm{C}}$を用いて次のようにその行列$A_{mn}$の行標準形に変形でき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+この行列$\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix}$とこのvector$P_{\mathrm{R}}\mathbf{b}$を次のように成分表示されたとき、
+\begin{align*}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix},\ \ P_{\mathrm{R}}\mathbf{b} = \begin{pmatrix}
+b_{1}' \\
+b_{2}' \\
+ \vdots \\
+b_{m}' \\
+\end{pmatrix}
+\end{align*}
+vector$P_{\mathrm{C}}^{- 1}\mathbf{x}$を$\mathbf{x}'$とおくと、その基本行列$P_{\mathrm{C}}$は行列$A_{mn}$の列の入れ替えを行っているのであったので、その逆行列$P_{\mathrm{C}}^{- 1}$はそのvector$\mathbf{x}$を行列とみなしたとき、その行列$\mathbf{x}$の行の入れ替えを行うことになるので、そのvector$\mathbf{x}'$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$\mathbf{x}'$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+\mathbf{x}' = \begin{pmatrix}
+x_{p(1)} \\
+x_{p(2)} \\
+ \vdots \\
+x_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+上の議論よりそのvector$\mathbf{x}'$が属するその式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間$\ker L_{A_{mn}}$は次のようになり、
+\begin{align*}
+\ker L_{A_{mn}} = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\}
+\end{align*}
+上と同様な議論により、写像$L_{A_{mn}}':K^{n} \rightarrow K^{m};\mathbf{x} \mapsto A_{mn}\mathbf{x} - \mathbf{b}$を考えることで、そのvector$\mathbf{x}'$が属するその式$A_{mn}\mathbf{x} = \mathbf{b}$の解空間$\ker L_{A_{mn}}'$は次のようになる。
+\begin{align*}
+\ker L_{A_{mn}}' = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\} + \begin{pmatrix}
+b_{1}' \\
+ \vdots \\
+b_{r}' \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+それらの解空間たち$\ker L_{A_{mn}}$、$\ker L_{A_{mn}}'$とそのvector$P_{\mathrm{R}}\mathbf{b}$を比較することにより次式が成り立つ。
+\begin{align*}
+\ker L_{A_{mn}}' = \ker L_{A_{mn}} + P_{\mathrm{R}}\mathbf{b}
+\end{align*}
+\end{proof}
+%\hypertarget{ux751fux6210ux3055ux308cux305fux90e8ux5206ux7a7aux9593ux306eux57faux5e95ux3092ux6c42ux3081ux3088ux3046}{%
+\subsubsection{生成された部分空間の基底を求めよう}%\label{ux751fux6210ux3055ux308cux305fux90e8ux5206ux7a7aux9593ux306eux57faux5e95ux3092ux6c42ux3081ux3088ux3046}}
+\begin{thm}\label{2.1.8.9}
+$\mathbf{a}_{j} \in K^{n}$なるvectors$\mathbf{a}_{j} = \begin{pmatrix}
+a_{1j} \\
+a_{2j} \\
+ \vdots \\
+a_{mj} \\
+\end{pmatrix}$を用いた部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$の基底を求めよう。これは次のようにして求められることができる。
+\begin{enumerate}
+\item
+  $A_{mn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+   \vdots & \vdots & \ddots & \vdots \\
+  a_{m1} & a_{m2} & \cdots & a_{mn} \\
+  \end{pmatrix} \in M_{mn}(K)$なる行列$A_{mn}$と$\mathbf{x} = \begin{pmatrix}
+  c_{1} \\
+  c_{2} \\
+   \vdots \\
+  c_{m} \\
+  \end{pmatrix}$なるvector$\mathbf{x}$を用いて考えよう。
+\item
+  その行列$A_{mn}$は行基本変形と列の入れ替えによって次のように変形できるのであった。なお、$P_{\mathrm{R}}$、$P_{\mathrm{C}}$はそれぞれ$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちで${\mathrm{rank}}A_{mn} = r$とした。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+\item
+  そのvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+P_{\mathrm{C}}^{- 1}\mathbf{x} = \begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+\item
+  次の組$\left\langle \mathbf{a}_{p(j)} \right\rangle_{j \in \varLambda_{r}}$がその部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$の基底となる。
+\begin{align*}
+\left\langle \mathbf{a}_{p(j)} \right\rangle_{j \in \varLambda_{r}} = \left\langle \begin{pmatrix}
+a_{1p(1)} \\
+a_{2p(1)} \\
+ \vdots \\
+a_{mp(1)} \\
+\end{pmatrix},\begin{pmatrix}
+a_{1p(2)} \\
+a_{2p(2)} \\
+ \vdots \\
+a_{mp(2)} \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+a_{1p(r)} \\
+a_{2p(r)} \\
+ \vdots \\
+a_{mp(r)} \\
+\end{pmatrix} \right\rangle
+\end{align*}
+\end{enumerate}
+\end{thm}\par
+この方法を詳しく述べたものを証明としよう。
+\begin{proof}
+$\mathbf{a}_{j} \in K^{n}$なるvectors$\mathbf{a}_{j} = \begin{pmatrix}
+a_{1j} \\
+a_{2j} \\
+ \vdots \\
+a_{mj} \\
+\end{pmatrix}$を用いた部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$の基底を求めよう。このとき、$c_{i} \in K$なる体の元々$c_{i}$を用いて次式を考えよう。
+\begin{align*}
+c_{1}\begin{pmatrix}
+a_{11} \\
+a_{21} \\
+ \vdots \\
+a_{m1} \\
+\end{pmatrix} + c_{2}\begin{pmatrix}
+a_{12} \\
+a_{22} \\
+ \vdots \\
+a_{m2} \\
+\end{pmatrix} + \cdots + c_{n}\begin{pmatrix}
+a_{1n} \\
+a_{2n} \\
+ \vdots \\
+a_{mn} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+これは$A_{mn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix} \in M_{mn}(K)$なる行列$A_{mn}$と$\mathbf{x} = \begin{pmatrix}
+c_{1} \\
+c_{2} \\
+ \vdots \\
+c_{m} \\
+\end{pmatrix}$なるvector$\mathbf{x}$を用いた次式に書き換えられることができる。
+\begin{align*}
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}\begin{pmatrix}
+c_{1} \\
+c_{2} \\
+ \vdots \\
+c_{m} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+ここで、その連立1次方程式を解こう。その行列$A_{mn}$は行基本変形と列の入れ替えによって次のように変形できるのであった。なお、$P_{\mathrm{R}}$、$P_{\mathrm{C}}$はそれぞれ$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちで${\mathrm{rank}}A_{mn} = r$とした。
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+1 & \cdots & 0 & a_{1,r + 1}' & \cdots & a_{1n}' \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 1 & a_{r,r + 1}' & \cdots & a_{rn}' \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+そのvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$はそのvector$\mathbf{x}$の成分の順序を入れ替えたものになることに注意すると、このvector$P_{\mathrm{C}}^{- 1}\mathbf{x}$は、ある全単射な写像$p:\varLambda_{n}\overset{\sim}{\rightarrow}\varLambda_{n}$が存在して、次式のように書かれることができる。
+\begin{align*}
+P_{\mathrm{C}}^{- 1}\mathbf{x} = \begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(n)} \\
+\end{pmatrix}
+\end{align*}
+したがって、$\forall j \in \varLambda_{n - r}$に対し、$t_{j} = c_{p(r + j)} \in K$とおくと、$\forall j \in \varLambda_{n - r}$なるそれらの係数たち$t_{j}$は任意で、$\forall\begin{pmatrix}
+t_{1} \\
+t_{2} \\
+ \vdots \\
+t_{n - r} \\
+\end{pmatrix} \in K^{n - r}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+c_{p(1)} \\
+ \vdots \\
+c_{p(r)} \\
+c_{p(r + 1)} \\
+ \vdots \\
+c_{p(n)} \\
+\end{pmatrix} = t_{1}\begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} + \cdots + t_{n - r}\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix}
+\end{align*}
+これにより、その連立1次方程式$A_{mn}\mathbf{x} = \mathbf{0}$の解空間$\ker L_{A_{mn}}$は次のようになる。
+\begin{align*}
+\begin{pmatrix}
+c_{p(1)} \\
+ \vdots \\
+c_{p(r)} \\
+c_{p(r + 1)} \\
+ \vdots \\
+c_{p(n)} \\
+\end{pmatrix} \in \ker L_{A_{mn}} = {\mathrm{span} }\left\{ \begin{pmatrix}
+ - a_{1,r + 1}' \\
+ \vdots \\
+ - a_{r,r + 1}' \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix},\cdots,\begin{pmatrix}
+ - a_{1n}' \\
+ \vdots \\
+ - a_{rn}' \\
+0 \\
+ \vdots \\
+1 \\
+\end{pmatrix} \right\}
+\end{align*}\par
+ここで、$\forall j' \in \varLambda_{n} \setminus \varLambda_{r}$に対し、$t_{j} = \delta_{j' - r,j}$とすれば、次式が成り立ち、
+\begin{align*}
+\begin{pmatrix}
+c_{p(1)} \\
+ \vdots \\
+c_{p(r)} \\
+c_{p(r + 1)} \\
+ \vdots \\
+c_{p(j)} \\
+ \vdots \\
+c_{p(n)} \\
+\end{pmatrix} = \begin{pmatrix}
+ - a_{1,r + j'}' \\
+ \vdots \\
+ - a_{r,r + j'}' \\
+0 \\
+ \vdots \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+- a_{1j'}'\begin{pmatrix}
+a_{1p(1)} \\
+a_{2p(1)} \\
+ \vdots \\
+a_{mp(1)} \\
+\end{pmatrix} - a_{2j'}'\begin{pmatrix}
+a_{1p(2)} \\
+a_{2p(2)} \\
+ \vdots \\
+a_{mp(2)} \\
+\end{pmatrix} + \cdots - a_{rj'}'\begin{pmatrix}
+a_{1p(r)} \\
+a_{2p(r)} \\
+ \vdots \\
+a_{mp(r)} \\
+\end{pmatrix} + \begin{pmatrix}
+a_{1p\left( j' \right)} \\
+a_{2p\left( j' \right)} \\
+ \vdots \\
+a_{mp\left( j' \right)} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+これにより次式が成り立つので、
+\begin{align*}
+\begin{pmatrix}
+a_{1p\left( j' \right)} \\
+a_{2p\left( j' \right)} \\
+ \vdots \\
+a_{mp\left( j' \right)} \\
+\end{pmatrix} = a_{1j'}'\begin{pmatrix}
+a_{1p(1)} \\
+a_{2p(1)} \\
+ \vdots \\
+a_{mp(1)} \\
+\end{pmatrix} + a_{2j'}'\begin{pmatrix}
+a_{1p(2)} \\
+a_{2p(2)} \\
+ \vdots \\
+a_{mp(2)} \\
+\end{pmatrix} + \cdots + a_{rj'}'\begin{pmatrix}
+a_{1p(r)} \\
+a_{2p(r)} \\
+ \vdots \\
+a_{mp(r)} \\
+\end{pmatrix}
+\end{align*}
+$\forall j \in \varLambda_{n} \setminus \varLambda_{r}$に対し、そのvector$\mathbf{a}_{p(j)}$は族$\left\{ \mathbf{a}_{p\left( j'\right) } \right\}_{j' \in \varLambda_{r} } $の線形結合となる。\par
+一方で、$A^{*} = \begin{pmatrix}
+a_{1p(1)} & a_{1p(2)} & \cdots & a_{1p(r)} \\
+a_{2p(1)} & a_{2p(2)} & \cdots & a_{2p(r)} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{mp(1)} & a_{mp(2)} & \cdots & a_{mp(r)} \\
+\end{pmatrix}$、$\mathbf{c}^{*} = \begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(r)} \\
+\end{pmatrix}$とし$A_{mn}P_{\mathrm{C}} = \begin{pmatrix}
+A^{*} & A_{*} \\
+\end{pmatrix}$、$P_{\mathrm{C}}^{- 1}\mathbf{x} = \begin{pmatrix}
+\mathbf{c}^{*} \\
+\mathbf{c}_{*} \\
+\end{pmatrix}$とおくと、次のようになるので、
+\begin{align*}
+\begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} &= P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}\\
+&= P_{\mathrm{R}}\begin{pmatrix}
+A^{*} & A_{*} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+P_{\mathrm{R}}A^{*} & P_{\mathrm{R}}A_{*} \\
+\end{pmatrix}
+\end{align*}
+$P_{\mathrm{R}}A^{*} = \begin{pmatrix}
+I_{r} \\
+O \\
+\end{pmatrix}$が成り立つ。このことに注意すれば、次式が成り立つなら、
+\begin{align*}
+c_{p(1)}\begin{pmatrix}
+a_{1p(1)} \\
+a_{2p(1)} \\
+ \vdots \\
+a_{mp(1)} \\
+\end{pmatrix} + c_{p(2)}\begin{pmatrix}
+a_{1p(2)} \\
+a_{2p(2)} \\
+ \vdots \\
+a_{mp(2)} \\
+\end{pmatrix} + \cdots + c_{p(r)}\begin{pmatrix}
+a_{1p(r)} \\
+a_{2p(r)} \\
+ \vdots \\
+a_{mp(r)} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}
+\end{align*}
+次のようになるので、
+\begin{align*}
+\begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} &= c_{p(1)}\begin{pmatrix}
+a_{1p(1)} \\
+a_{2p(1)} \\
+ \vdots \\
+a_{mp(1)} \\
+\end{pmatrix} + c_{p(2)}\begin{pmatrix}
+a_{1p(2)} \\
+a_{2p(2)} \\
+ \vdots \\
+a_{mp(2)} \\
+\end{pmatrix} + \cdots + c_{p(r)}\begin{pmatrix}
+a_{1p(r)} \\
+a_{2p(r)} \\
+ \vdots \\
+a_{mp(r)} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1p(1)} & a_{1p(2)} & \cdots & a_{1p(r)} \\
+a_{2p(1)} & a_{2p(2)} & \cdots & a_{2p(r)} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{mp(1)} & a_{mp(2)} & \cdots & a_{mp(r)} \\
+\end{pmatrix}\begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(r)} \\
+\end{pmatrix}
+\end{align*}
+左から行列$P_{\mathrm{R}}$をかければ、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+0 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 1 \\
+0 & 0 & \cdots & 0 \\
+0 & 0 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 0 \\
+\end{pmatrix}\begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(r)} \\
+\end{pmatrix} = \begin{pmatrix}
+c_{p(1)} \\
+c_{p(2)} \\
+ \vdots \\
+c_{p(r)} \\
+\end{pmatrix}
+\end{align*}
+$\forall j \in \varLambda_{r}$に対し、$c_{p(j)} = 0$が成り立つ。ゆえに、族$\left\{ \mathbf{a}_{p(j)} \right\}_{j \in \varLambda_{r} } $は線形独立である。\par
+基底の定義よりその部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$を生成するそれらのvectors$\mathbf{a}_{j}$のうち線形独立なものが基底となるのであったので、よって、その組$\left\langle \mathbf{a}_{p(j)} \right\rangle_{j \in \varLambda_{r}}$がその部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$の基底となる。
+\end{proof}
+%\hypertarget{ux9006ux884cux5217ux3092ux6c42ux3081ux3088ux3046}{%
+\subsubsection{逆行列を求めよう}%\label{ux9006ux884cux5217ux3092ux6c42ux3081ux3088ux3046}}
+\begin{thm}\label{2.1.8.10}
+体$K$上で$\forall A_{nn} \in {\mathrm{GL}}_{n}(K)$に対し、その行列$A_{nn}$の逆行列を求めよう。
+\begin{enumerate}
+\item
+  その行列$A_{nn}$を用いた行列$\begin{pmatrix}
+  A_{nn} & I_{n} \\
+  \end{pmatrix}$を考えこれを、その行列$A_{nn}$が単位行列$I_{n}$となるように、行基本変形をする。
+\item
+  1. で行基本変形をされた行列$\begin{pmatrix}
+  I_{n} & X_{nn} \\
+  \end{pmatrix}$に用いられるその行列$X_{nn}$はその行列$A_{nn}$の逆行列となる。
+\end{enumerate}
+\end{thm}\par
+この方法を詳しく述べたものを証明としよう。
+\begin{proof}
+体$K$上で$\forall A_{nn} \in {\mathrm{GL}}_{n}(K)$に対し、定理\ref{2.1.7.8}より行基本変形だけで$I_{n}$に変形できるのであった。なお、$P_{\mathrm{R}}$は$P_{\mathrm{R}} \in {\mathrm{GL}}_{n}(K)$なる行列である。
+\begin{align*}
+A_{nn} \rightarrow I_{n} = P_{\mathrm{R}}A_{nn}
+\end{align*}
+ここで、その行列$P_{\mathrm{R}}$について、これの逆行列が存在するのであったので、$P_{\mathrm{R}}A_{nn} = I_{n}$が成り立つことに注意すると、次のようになる。
+\begin{align*}
+A_{nn}P_{\mathrm{R}} = P_{\mathrm{R}}^{- 1}P_{\mathrm{R}}A_{nn}P_{\mathrm{R}} = P_{\mathrm{R}}^{- 1}I_{n}P_{\mathrm{R}} = P_{\mathrm{R}}^{- 1}P_{\mathrm{R}} = I_{n}
+\end{align*}
+また、明らかに、$P_{\mathrm{R}}A_{nn} = I_{n}$が成り立つ。したがって、逆行列の定義よりその行列$P_{\mathrm{R}}$がその行列$A_{nn}$の逆行列となる。\par
+ここで、行列$\begin{pmatrix}
+A_{nn} & I_{n} \\
+\end{pmatrix}$もその行列$A_{nn}$と同じような行基本変形で変形されると、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+A_{nn} & I_{n} \\
+\end{pmatrix} \rightarrow P_{\mathrm{R}}\begin{pmatrix}
+A_{nn} & I_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+P_{\mathrm{R}}A_{nn} & P_{\mathrm{R}}I_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+I_{n} & P_{\mathrm{R}} \\
+\end{pmatrix}
+\end{align*}
+このとき、その行列$A_{nn}$が単位行列$I_{n}$となるように、その行列$\begin{pmatrix}
+A_{nn} & I_{n} \\
+\end{pmatrix}$が行列$\begin{pmatrix}
+I_{n} & X_{nn} \\
+\end{pmatrix}$に変形されたとき、右側のその行列$X_{nn}$はその行列$P_{\mathrm{R}}$に一致しこれがその行列$A_{nn}$の逆行列となる。
+\end{proof}
+%\hypertarget{ux751fux6210ux3055ux308cux305fux90e8ux5206ux7a7aux9593ux3068ux89e3ux7a7aux9593}{%
+\subsubsection{生成された部分空間と解空間}%\label{ux751fux6210ux3055ux308cux305fux90e8ux5206ux7a7aux9593ux3068ux89e3ux7a7aux9593}}
+\begin{thm}\label{2.1.8.11}
+体$K$上のvector空間$V$の部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$が与えられたとき、$A_{mn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$、${\mathrm{rank}}A_{mn} = r$として$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって次のように変形されることができるとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+$P_{\mathrm{R}}^{*} \in M_{m - r,m}(K)$として$P_{\mathrm{R}} = \begin{pmatrix}
+* \\
+P_{\mathrm{R}}^{*} \\
+\end{pmatrix}$とおくと、その部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$は次式のように書き換えられることができる。
+\begin{align*}
+{\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}} = \left\{ \mathbf{v} \in K^{m} \middle| P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0} \right\}
+\end{align*}
+\end{thm}\par
+これはその部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$は連立1次方程式$P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0}$の解空間に一致することを表している。
+\begin{proof}
+体$K$上のvector空間$V$の部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$が与えられたとき、$A_{mn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$、${\mathrm{rank}}A_{mn} = r$として$P_{\mathrm{R}} \in {\mathrm{GL}}_{m}(K)$、$P_{\mathrm{C}} \in {\mathrm{GL}}_{n}(K)$なる行列たちを用いて行基本変形と列の入れ替えによって次のように変形されることができるとき、
+\begin{align*}
+A_{mn} \rightarrow \begin{pmatrix}
+I_{r} & * \\
+O & O \\
+\end{pmatrix} = P_{\mathrm{R}}A_{mn}P_{\mathrm{C}}
+\end{align*}
+定義より$k_{j} \in K$なる元々$k_{j}$を用いて$\forall\mathbf{v} \in K^{m}$に対し、$\mathbf{v} \in {\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$が成り立つなら、$\mathbf{v} = \sum_{j \in \varLambda_{n}} {k_{j}\mathbf{a}_{j}}$のように書かれることができる。ここで、$\mathbf{k} = \begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix}$とおくと、次のようになる。
+\begin{align*}
+\mathbf{v} &= \sum_{j \in \varLambda_{n}} {k_{j}\mathbf{a}_{j}} \\
+&= k_{1}\mathbf{a}_{1} + k_{2}\mathbf{a}_{2} + \cdots + k_{n}\mathbf{a}_{n} \\
+&= \begin{pmatrix}
+\mathbf{a}_{1} & \mathbf{a}_{2} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix}\\
+&= A_{mn}\mathbf{k}
+\end{align*}
+$P_{\mathrm{R}}^{*} \in M_{m - r,m}(K)$として$P_{\mathrm{R}} = \begin{pmatrix}
+* \\
+P_{\mathrm{R}}^{*} \\
+\end{pmatrix}$とおくと、有解条件より$P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0}$が得られる。したがって、次式が成り立つ。
+\begin{align*}
+{\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}} \subseteq \left\{ \mathbf{v} \in K^{m} \middle| P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0} \right\}
+\end{align*}\par
+逆に、$P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0}$が成り立つなら、有解条件より$\exists\mathbf{k} \in K^{n}$に対し、$A_{mn}\mathbf{k} = \mathbf{v}$が成り立つので、$\mathbf{k} = \begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix}$とおくと、次のようになる。
+\begin{align*}
+\mathbf{v} &= A_{mn}\mathbf{k} \\
+&= \begin{pmatrix}
+\mathbf{a}_{1} & \mathbf{a}_{2} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix}\\
+&= k_{1}\mathbf{a}_{1} + k_{2}\mathbf{a}_{2} + \cdots + k_{n}\mathbf{a}_{n} \\
+&= \sum_{j \in \varLambda_{n}} {k_{j}\mathbf{a}_{j}}
+\end{align*}
+したがって、$\mathbf{v} \in {\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$が成り立つので、次式が成り立つ。
+\begin{align*}
+{\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}} \supseteq \left\{ \mathbf{v} \in K^{m} \middle| P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0} \right\}
+\end{align*}\par
+よって、その部分空間${\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}$は次式のように書き換えられることができる。
+\begin{align*}
+{\mathrm{span} }\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}} = \left\{ \mathbf{v} \in K^{m} \middle| P_{\mathrm{R}}^{*}\mathbf{v} = \mathbf{0} \right\}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p118-131 ISBN978-4-00-029872-8
+  \bibitem{2}
+    対馬龍司, 線形代数学講義, 共立出版, 2007. 改訂版8刷 p114-128 ISBN978-4-320-11097-7
+\end{thebibliography}
+\end{document}

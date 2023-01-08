@@ -1,0 +1,552 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{4}
+\setcounter{subsection}{6}
+\usepackage{xr}
+\externaldocument{2.4.5}
+\input{macro}
+\begin{document}
+%\hypertarget{kroneckerux7a4d}{%
+\subsection{Kronecker積}%\label{kroneckerux7a4d}}
+\subsubsection{Kronecker積}
+\begin{dfn}
+体$K$上の$A_{mn} \in M_{mn}(K)$、$B_{op} \in M_{op}(K)$なる行列たち$A_{mn}$、$B_{op}$が与えられたとき、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{op} = \left( b_{kl} \right)_{(k,l) \in \varLambda_{o} \times \varLambda_{p}}$と成分表示されれば、次式のように行列たち$A_{mn}$、$B_{op}$の二項演算$\otimes$が定義される。この二項演算$\otimes$をKronecker積という。
+\begin{align*}
+A_{mn} \otimes B_{op} = \begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1p} & \  & a_{1n}b_{11} & \cdots & a_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} & \cdots & a_{11}b_{op} & \  & a_{1n}b_{o1} & \cdots & a_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1p} & \  & a_{mn}b_{11} & \cdots & a_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} & \cdots & a_{m1}b_{op} & \  & a_{mn}b_{o1} & \cdots & a_{mn}b_{op} \\
+\end{pmatrix}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.4.7.1}
+体$K$上の適切な行列たち$A_{mn}$、$B_{op}$、$C_{qr}$が与えられたとき、$\forall k \in K$に対し、次式が成り立つ。
+\begin{align*}
+A_{mn} \otimes \left( B_{op} + C_{op} \right) &= A_{mn} \otimes B_{op} + A_{mn} \otimes C_{op}\\
+\left( A_{mn} + B_{mn} \right) \otimes C_{op} &= A_{mn} \otimes C_{op} + B_{mn} \otimes C_{op}\\
+\left( kA_{mn} \right) \otimes B_{op} &= A_{mn} \otimes \left( kB_{op} \right) = kA_{mn} \otimes B_{op}\\
+\left( A_{mn} \otimes B_{op} \right) \otimes C_{qr} &= A_{mn} \otimes \left( B_{op} \otimes C_{qr} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上の適切な行列たち$A_{mn}$、$B_{op}$、$C_{qr}$が与えられたとき、$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$B_{op} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{p}}$、$C_{qr} = \left( c_{ij} \right)_{(i,j) \in \varLambda_{q} \times \varLambda_{r}}$と成分表示されれば、$\forall k \in K$に対し、次のようになる。
+\begin{align*}
+&\quad A_{mn} \otimes \left( B_{op} + C_{op} \right)\\
+&= \begin{pmatrix}
+a_{11}\left( b_{11} + c_{11} \right) & \cdots & a_{11}\left( b_{1p} + c_{1p} \right) & \  & a_{1n}\left( b_{11} + c_{11} \right) & \cdots & a_{1n}\left( b_{1p} + c_{1p} \right) \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}\left( b_{o1} + c_{o1} \right) & \cdots & a_{11}\left( b_{op} + c_{op} \right) & \  & a_{1n}\left( b_{o1} + c_{o1} \right) & \cdots & a_{1n}\left( b_{op} + c_{op} \right) \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}\left( b_{11} + c_{11} \right) & \cdots & a_{m1}\left( b_{1p} + c_{1p} \right) & \  & a_{mn}\left( b_{11} + c_{11} \right) & \cdots & a_{mn}\left( b_{1p} + c_{1p} \right) \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}\left( b_{o1} + c_{o1} \right) & \cdots & a_{m1}\left( b_{op} + c_{op} \right) & \  & a_{mn}\left( b_{o1} + c_{o1} \right) & \cdots & a_{mn}\left( b_{op} + c_{op} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11}b_{11} + a_{11}c_{11} & \cdots & a_{11}b_{1p} + a_{11}c_{1p} & \  & a_{1n}b_{11} + a_{1n}c_{11} & \cdots & a_{1n}b_{1p} + a_{1n}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} + a_{11}c_{o1} & \cdots & a_{11}b_{op} + a_{11}c_{op} & \  & a_{1n}b_{o1} + a_{1n}c_{o1} & \cdots & a_{1n}b_{op} + a_{1n}c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} + a_{m1}c_{11} & \cdots & a_{m1}b_{1p} + a_{m1}c_{1p} & \  & a_{mn}b_{11} + a_{mn}c_{11} & \cdots & a_{mn}b_{1p} + a_{mn}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} + a_{m1}c_{o1} & \cdots & a_{m1}b_{op} + a_{m1}c_{op} & \  & a_{mn}b_{o1} + a_{mn}c_{o1} & \cdots & a_{mn}b_{op} + a_{mn}c_{op} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1p} & \  & a_{1n}b_{11} & \cdots & a_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} & \cdots & a_{11}b_{op} & \  & a_{1n}b_{o1} & \cdots & a_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1p} & \  & a_{mn}b_{11} & \cdots & a_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} & \cdots & a_{m1}b_{op} & \  & a_{mn}b_{o1} & \cdots & a_{mn}b_{op} \\
+\end{pmatrix} + \begin{pmatrix}
+a_{11}c_{11} & \cdots & a_{11}c_{1p} & \  & a_{1n}c_{11} & \cdots & a_{1n}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}c_{o1} & \cdots & a_{11}c_{op} & \  & a_{1n}c_{o1} & \cdots & a_{1n}c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}c_{11} & \cdots & a_{m1}c_{1p} & \  & a_{mn}c_{11} & \cdots & a_{mn}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}c_{o1} & \cdots & a_{m1}c_{op} & \  & a_{mn}c_{o1} & \cdots & a_{mn}c_{op} \\
+\end{pmatrix}\\
+&= A_{mn} \otimes B_{op} + A_{mn} \otimes C_{op}\\
+&\quad \left( A_{mn} + B_{mn} \right) \otimes C_{op}\\
+&= \begin{pmatrix}
+\left( a_{11} + b_{11} \right)c_{11} & \cdots & \left( a_{11} + b_{11} \right)c_{1p} & \  & \left( a_{1n} + b_{1n} \right)c_{11} & \cdots & \left( a_{1n} + b_{1n} \right)c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+\left( a_{11} + b_{11} \right)c_{o1} & \cdots & \left( a_{11} + b_{11} \right)c_{op} & \  & \left( a_{1n} + b_{1n} \right)c_{o1} & \cdots & \left( a_{1n} + b_{1n} \right)c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+\left( a_{m1} + b_{m1} \right)c_{11} & \cdots & \left( a_{m1} + b_{m1} \right)c_{1p} & \  & \left( a_{mn} + b_{mn} \right)c_{11} & \cdots & \left( a_{mn} + b_{mn} \right)c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+\left( a_{m1} + b_{m1} \right)c_{o1} & \cdots & \left( a_{m1} + b_{m1} \right)c_{op} & \  & \left( a_{mn} + b_{mn} \right)c_{o1} & \cdots & \left( a_{mn} + b_{mn} \right)c_{op} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11}c_{11} + b_{11}c_{11} & \cdots & a_{11}c_{1p} + b_{11}c_{1p} & \  & a_{1n}c_{11} + b_{1n}c_{11} & \cdots & a_{1n}c_{1p} + b_{1n}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}c_{o1} + b_{11}c_{o1} & \cdots & a_{11}c_{op} + b_{11}c_{op} & \  & a_{1n}c_{o1} + b_{1n}c_{o1} & \cdots & a_{1n}c_{op} + b_{1n}c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}c_{11} + b_{m1}c_{11} & \cdots & a_{m1}c_{1p} + b_{m1}c_{1p} & \  & a_{mn}c_{11} + b_{mn}c_{11} & \cdots & a_{mn}c_{1p} + b_{mn}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}c_{o1} + b_{m1}c_{o1} & \cdots & a_{m1}c_{op} + b_{m1}c_{op} & \  & a_{mn}c_{o1} + b_{mn}c_{o1} & \cdots & a_{mn}c_{op} + b_{mn}c_{op} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11}c_{11} & \cdots & a_{11}c_{1p} & \  & a_{1n}c_{11} & \cdots & a_{1n}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}c_{o1} & \cdots & a_{11}c_{op} & \  & a_{1n}c_{o1} & \cdots & a_{1n}c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}c_{11} & \cdots & a_{m1}c_{1p} & \  & a_{mn}c_{11} & \cdots & a_{mn}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}c_{o1} & \cdots & a_{m1}c_{op} & \  & a_{mn}c_{o1} & \cdots & a_{mn}c_{op} \\
+\end{pmatrix} + \begin{pmatrix}
+b_{11}c_{11} & \cdots & b_{11}c_{1p} & \  & b_{1n}c_{11} & \cdots & b_{1n}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+b_{11}c_{o1} & \cdots & b_{11}c_{op} & \  & b_{1n}c_{o1} & \cdots & b_{1n}c_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+b_{m1}c_{11} & \cdots & b_{m1}c_{1p} & \  & b_{mn}c_{11} & \cdots & b_{mn}c_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+b_{m1}c_{o1} & \cdots & b_{m1}c_{op} & \  & b_{mn}c_{o1} & \cdots & b_{mn}c_{op} \\
+\end{pmatrix}\\
+&= A_{mn} \otimes C_{op} + B_{mn} \otimes C_{op}\\
+&\quad \left( kA_{mn} \right) \otimes B_{op}\\
+&= \begin{pmatrix}
+ka_{11}b_{11} & \cdots & ka_{11}b_{1p} & \  & ka_{1n}b_{11} & \cdots & ka_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+ka_{11}b_{o1} & \cdots & ka_{11}b_{op} & \  & ka_{1n}b_{o1} & \cdots & ka_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+ka_{m1}b_{11} & \cdots & ka_{m1}b_{1p} & \  & ka_{mn}b_{11} & \cdots & ka_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+ka_{m1}b_{o1} & \cdots & ka_{m1}b_{op} & \  & ka_{mn}b_{o1} & \cdots & ka_{mn}b_{op} \\
+\end{pmatrix}\\
+&= k\begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1p} & \  & a_{1n}b_{11} & \cdots & a_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} & \cdots & a_{11}b_{op} & \  & a_{1n}b_{o1} & \cdots & a_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1p} & \  & a_{mn}b_{11} & \cdots & a_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} & \cdots & a_{m1}b_{op} & \  & a_{mn}b_{o1} & \cdots & a_{mn}b_{op} \\
+\end{pmatrix}\\
+&= kA_{mn} \otimes B_{op}\\
+&\quad A_{mn} \otimes \left( kB_{op} \right)\\
+&= \begin{pmatrix}
+a_{11}kb_{11} & \cdots & a_{11}kb_{1p} & \  & a_{1n}kb_{11} & \cdots & a_{1n}kb_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}kb_{o1} & \cdots & a_{11}kb_{op} & \  & a_{1n}kb_{o1} & \cdots & a_{1n}kb_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}kb_{11} & \cdots & a_{m1}kb_{1p} & \  & a_{mn}kb_{11} & \cdots & a_{mn}kb_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}kb_{o1} & \cdots & a_{m1}kb_{op} & \  & a_{mn}kb_{o1} & \cdots & a_{mn}kb_{op} \\
+\end{pmatrix}\\
+&= k\begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1p} & \  & a_{1n}b_{11} & \cdots & a_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} & \cdots & a_{11}b_{op} & \  & a_{1n}b_{o1} & \cdots & a_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1p} & \  & a_{mn}b_{11} & \cdots & a_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} & \cdots & a_{m1}b_{op} & \  & a_{mn}b_{o1} & \cdots & a_{mn}b_{op} \\
+\end{pmatrix}\\
+&= kA_{mn} \otimes B_{op}\\
+&\quad \left( A_{mn} \otimes B_{op} \right) \otimes C_{qr}\\
+&= \begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1p} & \  & a_{1n}b_{11} & \cdots & a_{1n}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{o1} & \cdots & a_{11}b_{op} & \  & a_{1n}b_{o1} & \cdots & a_{1n}b_{op} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1p} & \  & a_{mn}b_{11} & \cdots & a_{mn}b_{1p} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{o1} & \cdots & a_{m1}b_{op} & \  & a_{mn}b_{o1} & \cdots & a_{mn}b_{op} \\
+\end{pmatrix} \otimes \begin{pmatrix}
+c_{11} & \cdots & c_{1r} \\
+ \vdots & \ddots & \vdots \\
+c_{q1} & \cdots & c_{qr} \\
+\end{pmatrix}\\
+&= \left( \begin{matrix}
+a_{11}b_{11}c_{11} & \cdots & a_{11}b_{11}c_{1r} & \cdots & a_{11}b_{1p}c_{11} & \cdots & a_{11}b_{1p}c_{1r} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{11}b_{11}c_{q1} & \cdots & a_{11}b_{11}c_{qr} & \cdots & a_{11}b_{1p}c_{q1} & \cdots & a_{11}b_{1p} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{11}b_{o1}c_{11} & \cdots & a_{11}b_{o1}c_{1r} & \cdots & a_{11}b_{op}c_{11} & \cdots & a_{11}b_{op}c_{1r} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{11}b_{o1}c_{q1} & \cdots & a_{11}b_{o1}c_{qr} & \cdots & a_{11}b_{op}c_{q1} & \cdots & a_{11}b_{op}c_{qr} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{m1}b_{11}c_{11} & \cdots & a_{m1}b_{11}c_{1r} & \cdots & a_{m1}b_{1p}c_{11} & \cdots & a_{m1}b_{1p}c_{1r} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{m1}b_{11}c_{q1} & \cdots & a_{m1}b_{11}c_{qr} & \cdots & a_{m1}b_{1p}c_{q1} & \cdots & a_{m1}b_{1p}c_{qr} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{m1}b_{o1}c_{11} & \cdots & a_{m1}b_{o1}c_{1r} & \cdots & a_{m1}b_{op}c_{11} & \cdots & a_{m1}b_{op}c_{1r} & \cdots \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots \\
+a_{m1}b_{o1}c_{q1} & \cdots & a_{m1}b_{o1}c_{qr} & \cdots & a_{m1}b_{op}c_{q1} & \cdots & a_{m1}b_{op}c_{qr} & \cdots \\
+\end{matrix} \right.\\
+&\quad  \left. \begin{matrix}
+a_{1n}b_{11}c_{11} & \cdots & a_{1n}b_{11}c_{1r} & \cdots & a_{1n}b_{1p}c_{11} & \cdots & a_{1n}b_{1p}c_{1r} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{1n}b_{11}c_{q1} & \cdots & a_{1n}b_{11}c_{qr} & \cdots & a_{1n}b_{1p}c_{q1} & \cdots & a_{1n}b_{1p}c_{qr} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{1n}b_{o1}c_{11} & \cdots & a_{1n}b_{o1}c_{1r} & \cdots & a_{1n}b_{op}c_{11} & \cdots & a_{1n}b_{op}c_{1r} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{1n}b_{o1}c_{q1} & \cdots & a_{1n}b_{o1}c_{qr} & \cdots & a_{1n}b_{op}c_{q1} & \cdots & a_{1n}b_{op}c_{qr} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{mn}b_{11}c_{11} & \cdots & a_{mn}b_{11}c_{1r} & \cdots & a_{mn}b_{1p}c_{11} & \cdots & a_{mn}b_{1p}c_{1r} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{mn}b_{11}c_{q1} & \cdots & a_{mn}b_{11}c_{qr} & \cdots & a_{mn}b_{1p}c_{q1} & \cdots & a_{mn}b_{1p}c_{qr} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{mn}b_{o1}c_{11} & \cdots & a_{mn}b_{o1}c_{1r} & \cdots & a_{mn}b_{op}c_{11} & \cdots & a_{mn}b_{op}c_{1r} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{mn}b_{o1}c_{q1} & \cdots & a_{mn}b_{o1}c_{qr} & \cdots & a_{mn}b_{op}c_{q1} & \cdots & a_{mn}b_{op}c_{qr} \\
+\end{matrix} \right)\\
+&= \begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+ \vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mn} \\
+\end{pmatrix} \otimes \begin{pmatrix}
+b_{11}c_{11} & \cdots & b_{11}c_{1r} & \  & b_{1p}c_{11} & \cdots & b_{1p}c_{1r} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+b_{11}c_{q1} & \cdots & b_{11}c_{qr} & \  & b_{1p}c_{q1} & \cdots & b_{1p}c_{qr} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+b_{o1}c_{11} & \cdots & b_{o1}c_{1r} & \  & b_{op}c_{11} & \cdots & b_{op}c_{1r} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+b_{o1}c_{q1} & \cdots & b_{o1}c_{qr} & \  & b_{op}c_{q1} & \cdots & b_{op}c_{qr} \\
+\end{pmatrix}\\
+&= A_{mn} \otimes \left( B_{op} \otimes C_{qr} \right)
+\end{align*}
+\end{proof}
+\begin{dfn}
+体$K$上の$A_{i} \in M_{m_{i}n_{i}}(K)$なる行列たち$A_{i}$が与えられたとき、次式のようにして$\bigotimes_{i \in \varLambda_{n}} A_{i} \in M_{\prod_{i \in \varLambda_{n}} m_{i}\prod_{i \in \varLambda_{n}} n_{i}}(K)$なる行列$\bigotimes_{i \in \varLambda_{n}} A_{i}$が定義される。その組$\left( A_{i} \right)_{i \in \varLambda_{n}}$からその行列$\bigotimes_{i \in \varLambda_{n}} A_{i}$へ写す写像を一般化されたKronecker積、または単に、Kronecker積ということにする。
+\begin{align*}
+\bigotimes_{i \in \varLambda_{n}} A_{i} = \left\{ \begin{matrix}
+A_{1} & \mathrm{if} & n = 1 \\
+\bigotimes_{i \in \varLambda_{n - 1}} A_{i} \otimes A_{n} & \mathrm{if} & 2 \leq n \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+%\hypertarget{tensorux7a4dux3068kroneckerux7a4d}{%
+\subsubsection{tensor積とKronecker積}%\label{tensorux7a4dux3068kroneckerux7a4d}}
+\begin{thm}\label{2.4.7.2}
+体$K$上の$m$次元vector空間$V$、$n$次元vector空間$W$、そのvector空間$V$の基底たち$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$、そのvector空間$W$の基底たち$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$が与えられたとき、これらの基底たちをそれぞれ$\alpha$、$\gamma$、$\beta$、$\delta$とおかれると、定理\ref{2.4.5.2}よりそのvector空間$V \otimes W$の基底として$\alpha \otimes \beta$、$\gamma \otimes \delta$があげられるのであった。このとき、そのvector空間$V \otimes W$のそれらの基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関する基底変換行列$\left[ I_{V \otimes W} \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta}$は次式を満たす\footnote{なお、vector$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$は$\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+   \vdots & \vdots & \ddots & \vdots \\
+  a_{m1} & a_{m2} & \cdots & a_{mn} \\
+  \end{pmatrix} = \begin{pmatrix}
+  a_{11} \\
+  a_{12} \\
+   \vdots \\
+  a_{1n} \\
+  a_{21} \\
+  a_{22} \\
+   \vdots \\
+  a_{2n} \\
+   \vdots \\
+  a_{m1} \\
+  a_{m2} \\
+   \vdots \\
+  a_{mn} \\
+  \end{pmatrix}$とみなしていることに注意されたい。もちろん、これは2つの添字の並べ方の問題なので、これが気に入らなければ各自好きな並べ方で議論されてもよいと思う。}。
+\begin{align*}
+\left[ I_{V \otimes W} \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta} = \left[ I_{V} \right]^{\gamma}_{\alpha} \otimes \left[ I_{W} \right]^{\delta}_{\beta}
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$V$、$n$次元vector空間$W$、そのvector空間$V$の基底たち$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$、そのvector空間$W$の基底たち$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$が与えられたとき、これらの基底たちをそれぞれ$\alpha$、$\gamma$、$\beta$、$\delta$とおかれると、定理\ref{2.4.5.2}よりそのvector空間$V \otimes W$の基底として$\alpha \otimes \beta$、$\gamma \otimes \delta$があげられるのであった。このとき、そのvector空間$V \otimes W$のそれらの基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関する基底変換行列$\left[ I_{V \otimes W} \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta}$について、vector空間たち$K^{m}$、$K^{n}$、$K^{mn}$の標準直交基底たちが$\left\langle \mathbf{d}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{e}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{f}_{ij} \right\rangle_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、それらの基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関する基底変換における線形同型写像たちが$\varphi_{\alpha \otimes \beta}$、$\varphi_{\gamma \otimes \delta}$、それらの基底たち$\alpha$、$\gamma$に関する基底変換行列$\left[ I_{V} \right]^{\gamma}_{\alpha}$、それらの基底たち$\beta$、$\delta$に関する基底変換行列$\left[ I_{W} \right]^{\delta}_{\beta}$がそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m}^{2}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$とおかれると、次のようになる。
+\begin{align*}
+\varphi_{\gamma \otimes \delta}^{- 1} \circ I_{V \otimes W} \circ \varphi_{\alpha \otimes \beta}\left( \mathbf{f}_{ij} \right) &= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\alpha \otimes \beta}\left( \mathbf{f}_{ij} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \mathbf{t}_{i} \otimes \mathbf{u}_{j} \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma} \circ \varphi_{\gamma}^{- 1} \circ I_{V} \circ \varphi_{\alpha} \circ \varphi_{\alpha}^{- 1}\left( \mathbf{t}_{i} \right) \otimes \varphi_{\delta} \circ \varphi_{\delta}^{- 1} \circ I_{W} \circ \varphi_{\beta} \circ \varphi_{\beta}^{- 1}\left( \mathbf{u}_{j} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}\left( \varphi_{\gamma}^{- 1} \circ I_{V} \circ \varphi_{\alpha}\left( \varphi_{\alpha}^{- 1}\left( \mathbf{t}_{i} \right) \right) \right) \otimes \varphi_{\delta}\left( \varphi_{\delta}^{- 1} \circ I_{W} \circ \varphi_{\beta}\left( \varphi_{\beta}^{- 1}\left( \mathbf{u}_{j} \right) \right) \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}\left( \varphi_{\gamma}^{- 1} \circ I_{V} \circ \varphi_{\alpha}\left( \mathbf{d}_{i} \right) \right) \otimes \varphi_{\delta}\left( \varphi_{\delta}^{- 1} \circ I_{W} \circ \varphi_{\beta}\left( \mathbf{e}_{j} \right) \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}\left( \left[ I_{V} \right]^{\gamma}_{\alpha}\mathbf{d}_{i} \right) \otimes \varphi_{\delta}\left( \left[ I_{W} \right]^{\delta}_{\beta}\mathbf{e}_{j} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}\left( \sum_{k \in \varLambda_{m}} {a_{ki}\mathbf{d}_{k}} \right) \otimes \varphi_{\delta}\left( \sum_{l \in \varLambda_{n}} {b_{lj}\mathbf{e}_{l}} \right) \right)\\
+&= \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} {a_{ki}b_{lj}\varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}\left( \mathbf{d}_{k} \right) \otimes \varphi_{\delta}\left( \mathbf{e}_{l} \right) \right)}}\\
+&= \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} {a_{ki}b_{lj}\varphi_{\gamma \otimes \delta}^{- 1}\left( \mathbf{v}_{k} \otimes \mathbf{w}_{l} \right)}}\\
+&= \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} {a_{ki}b_{lj}\mathbf{f}_{kl}}}\\
+&= \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} {a_{ki}b_{lj}\left( \delta_{gk}\delta_{hl} \right)_{(g,h) \in \varLambda_{m} \times \varLambda_{n}}}}\\
+&= \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{ki}b_{lj} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix}}\\
+&= \begin{matrix}
+\  & \begin{pmatrix}
+\begin{pmatrix}
+a_{1i}b_{1j} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} & + & \cdots & + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{1i}b_{nj} \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} \\
+\  & \  & \  & \cdots & \  & \  \\
+ + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+a_{mi}b_{1j} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} & + & \cdots & + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{mi}b_{nj} \\
+\end{pmatrix} \\
+\end{pmatrix} \\
+\end{matrix}\\
+&= \begin{pmatrix}
+\begin{pmatrix}
+a_{1i}b_{1j} \\
+ \vdots \\
+a_{1i}b_{nj} \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+a_{mi}b_{1j} \\
+ \vdots \\
+a_{mi}b_{nj} \\
+\end{pmatrix} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{1i}b_{1j} \\
+ \vdots \\
+a_{1i}b_{nj} \\
+ \vdots \\
+a_{mi}b_{1j} \\
+ \vdots \\
+a_{mi}b_{nj} \\
+\end{pmatrix}
+\end{align*}
+これにより、したがって、次のようになる。
+\begin{align*}
+\left[ I_{V \otimes W} \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta} &= \begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1n} & \  & a_{1m}b_{11} & \cdots & a_{1m}b_{1n} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{n1} & \cdots & a_{11}b_{nn} & \  & a_{1m}b_{n1} & \cdots & a_{1m}b_{nn} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{m1}b_{11} & \cdots & a_{m1}b_{1n} & \  & a_{mm}b_{11} & \cdots & a_{mm}b_{1n} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{m1}b_{n1} & \cdots & a_{m1}b_{nn} & \  & a_{mm}b_{n1} & \cdots & a_{mm}b_{nn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11} & \cdots & a_{1m} \\
+ \vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mm} \\
+\end{pmatrix} \otimes \begin{pmatrix}
+b_{11} & \cdots & b_{1n} \\
+ \vdots & \ddots & \vdots \\
+b_{n1} & \cdots & b_{nn} \\
+\end{pmatrix} = \left[ I_{V} \right]^{\gamma}_{\alpha} \otimes \left[ I_{W} \right]^{\delta}_{\beta}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.7.3}
+$n$つの体$K$上$m_{i}$次元vector空間たち$V_{i}$、これらの基底たち$\left\langle \mathbf{v}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$、$\left\langle \mathbf{w}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$が与えられたとき、これらの基底たちをそれぞれ$\alpha_{i}$、$\beta_{i}$とおかれると、定理\ref{2.4.5.2}よりそのtensor空間$\bigotimes_{i \in \varLambda_{n}} V_{i}$の基底として$\bigotimes_{i \in \varLambda_{n}} \alpha_{i}$、$\bigotimes_{i \in \varLambda_{n}} \beta_{i}$があげられるのであった。このとき、そのtensor空間$\bigotimes_{i \in \varLambda_{n}} V_{i}$のそれらの基底たち$\bigotimes_{i \in \varLambda_{n}} \alpha_{i}$、$\bigotimes_{i \in \varLambda_{n}} \beta_{i}$に関する基底変換行列$\left[ I_{\bigotimes_{i \in \varLambda_{n}} V_{i}} \right]^{\bigotimes_{i \in \varLambda_{n}} \beta_{i}}_{\bigotimes_{i \in \varLambda_{n}} \alpha_{i}}$は次式を満たす。
+\begin{align*}
+\left[ I_{\bigotimes_{i \in \varLambda_{n}} V_{i}} \right]^{\bigotimes_{i \in \varLambda_{n}} \beta_{i}}_{\bigotimes_{i \in \varLambda_{n}} \alpha_{i}} = \bigotimes_{i \in \varLambda_{n}} \left[ I_{V_{i}} \right]^{\beta_{i}}_{\alpha_{i}}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.7.2}と数学的帰納法により直ちにわかる。
+\end{proof}
+\begin{thm}\label{2.4.7.4}
+体$K$上の$m$次元vector空間$T$、$n$次元vector空間$U$、$o$次元vector空間$V$、$p$次元vector空間$W$が与えられたとき、それらのvector空間たち$T$、$U$、$V$、$W$の基底がそれぞれ$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{o}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{p}}$と与えられたらば、$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}} = \alpha$、$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}} = \beta$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{o}} = \gamma$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{p}} = \delta$とおいて、vector空間$L(T \otimes U,V \otimes W)$と、$\forall\varphi \in L(T,V)\forall\chi \in L(U,W)\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\rho(\varphi,\chi)\left( \mathbf{t}_{i} \otimes \mathbf{u}_{j} \right) = \varphi\left( \mathbf{t}_{i} \right) \otimes \chi\left( \mathbf{u}_{j} \right)$なる線形写像$\rho(\varphi,\chi):T \otimes U \rightarrow V \otimes W$を用いた次式のような写像$\rho$との組$\left( L(T \otimes U,V \otimes W),\rho \right)$はtensor積であった。
+\begin{align*}
+\rho:L(T,V) \times L(U,W) \rightarrow L(T \otimes U,V \otimes W);(\varphi,\chi) \mapsto \rho(\varphi,\chi)
+\end{align*}
+そこで、それらの線形写像たち$\varphi$、$\chi$のそれらの基底たち$\alpha$、$\gamma$、$\beta$、$\delta$に関する表現行列たち$[\varphi]^{\gamma}_{\alpha}$、$[\chi]^{\delta}_{\beta}$とvector空間たち$T \otimes U$、$V \otimes W$の基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関するtensor積$\left( L(T \otimes U,V \otimes W),\rho \right)$で定義される線形写像$\rho(\varphi,\chi):T \otimes U \rightarrow V \otimes W$の表現行列$\left[ \rho(\varphi,\chi) \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta}$について、次式が成り立つ。
+\begin{align*}
+\left[ \rho(\varphi,\chi) \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta} = [\varphi]^{\gamma}_{\alpha} \otimes [\chi]^{\delta}_{\beta}
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$T$、$n$次元vector空間$U$、$o$次元vector空間$V$、$p$次元vector空間$W$が与えられたとき、それらのvector空間たち$T$、$U$、$V$、$W$の基底がそれぞれ$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{o}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{p}}$と与えられたらば、$\left\langle \mathbf{t}_{i} \right\rangle_{i \in \varLambda_{m}} = \alpha$、$\left\langle \mathbf{u}_{j} \right\rangle_{j \in \varLambda_{n}} = \beta$、$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{o}} = \gamma$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{p}} = \delta$とおいて、vector空間$L(T \otimes U,V \otimes W)$と、$\forall\varphi \in L(T,V)\forall\chi \in L(U,W)\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\rho(\varphi,\chi)\left( \mathbf{t}_{i} \otimes \mathbf{u}_{j} \right) = \varphi\left( \mathbf{t}_{i} \right) \otimes \chi\left( \mathbf{u}_{j} \right)$なる線形写像$\rho(\varphi,\chi):T \otimes U \rightarrow V \otimes W$を用いた次式のような写像$\rho$との組$\left( L(T \otimes U,V \otimes W),\rho \right)$はtensor積であった。
+\begin{align*}
+\rho:L(T,V) \times L(U,W) \rightarrow L(T \otimes U,V \otimes W);(\varphi,\chi) \mapsto \rho(\varphi,\chi)
+\end{align*}
+そこで、それらの線形写像たち$\varphi$、$\chi$のそれらの基底たち$\alpha$、$\gamma$、$\beta$、$\delta$に関する表現行列たち$[\varphi]^{\gamma}_{\alpha}$、$[\chi]^{\delta}_{\beta}$と、定理\ref{2.4.5.2}よりそれらの組々$\left\langle \mathbf{t}_{i} \otimes \mathbf{u}_{j} \right\rangle_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left\langle \mathbf{v}_{i} \otimes \mathbf{w}_{j} \right\rangle_{(i,j) \in \varLambda_{o} \times \varLambda_{p}}$はそれぞれvector空間たち$T \otimes U$、$V \otimes W$の基底となるので、vector空間たち$T \otimes U$、$V \otimes W$の基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関するtensor積$\left( L(T \otimes U,V \otimes W),\rho \right)$で定義される線形写像$\rho(\varphi,\chi):T \otimes U \rightarrow V \otimes W$の表現行列$\left[ \rho(\varphi,\chi) \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta}$について、それらの表現行列たち$[\varphi]^{\gamma}_{\alpha}$、$[\chi]^{\delta}_{\beta}$がそれぞれ$[\varphi]^{\gamma}_{\alpha} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{m}}$、$[\chi]^{\delta}_{\beta} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{p} \times \varLambda_{n}}$とおかれれば、それらのvector空間たち$T \otimes U$、$V \otimes W$の基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関するtensor積$\left( L(T \otimes U,V \otimes W),\rho \right)$で定義される線形写像$\rho(\varphi,\chi):T \otimes U \rightarrow V \otimes W$の表現行列$\left[ \rho(\varphi,\chi) \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta}$について、vector空間たち$K^{m}$、$K^{n}$、$K^{o}$、$K^{p}$の標準直交基底たち$\left\langle \mathbf{d}_{k} \right\rangle_{k \in \varLambda_{m}}$、$\left\langle \mathbf{e}_{l} \right\rangle_{l \in \varLambda_{n}}$、$\left\langle \mathbf{f}_{i} \right\rangle_{i \in \varLambda_{o}}$、$\left\langle \mathbf{g}_{j} \right\rangle_{j \in \varLambda_{p}}$、それらの基底たち$\alpha \otimes \beta$、$\gamma \otimes \delta$に関する基底変換における線形同型写像たち$\varphi_{\alpha \otimes \beta}$、$\varphi_{\gamma \otimes \delta}$を用いて次のようになる。
+\begin{align*}
+\varphi_{\gamma \otimes \delta}^{- 1} \circ \rho(\varphi,\chi) \circ \varphi_{\alpha \otimes \beta}\left( \delta_{ik}\delta_{jl} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} &= \varphi_{\gamma \otimes \delta}^{- 1}\left( \rho(\varphi,\chi)\left( \varphi_{\alpha \otimes \beta}\left( \delta_{ik}\delta_{jl} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \rho(\varphi,\chi)\left( \mathbf{t}_{k} \otimes \mathbf{u}_{l} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi\left( \mathbf{t}_{k} \right) \otimes \chi\left( \mathbf{u}_{l} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}^{- 1} \circ \varphi_{\gamma} \circ \varphi \circ \varphi_{\alpha}^{- 1} \circ \varphi_{\alpha}\left( \mathbf{t}_{k} \right) \otimes \varphi_{\delta}^{- 1} \circ \varphi_{\delta} \circ \chi \circ \varphi_{\beta}^{- 1} \circ \varphi_{\beta}\left( \mathbf{u}_{l} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}^{- 1}\left( \varphi_{\gamma} \circ \varphi \circ \varphi_{\alpha}^{- 1}\left( \varphi_{\alpha}\left( \mathbf{t}_{k} \right) \right) \right) \otimes \varphi_{\delta}^{- 1}\left( \varphi_{\delta} \circ \chi \circ \varphi_{\beta}^{- 1}\left( \varphi_{\beta}\left( \mathbf{u}_{l} \right) \right) \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}^{- 1}\left( \varphi_{\gamma} \circ \varphi \circ \varphi_{\alpha}^{- 1}\left( \mathbf{d}_{k} \right) \right) \otimes \varphi_{\delta}^{- 1}\left( \varphi_{\delta} \circ \chi \circ \varphi_{\beta}^{- 1}\left( \mathbf{e}_{l} \right) \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}^{- 1}\left( [\varphi]^{\gamma}_{\alpha}\mathbf{d}_{k} \right) \otimes \varphi_{\delta}^{- 1}\left( [\chi]^{\delta}_{\beta}\mathbf{e}_{l} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \varphi_{\gamma}^{- 1}\left( \sum_{g \in \varLambda_{o}} {a_{gk}\mathbf{f}_{g}} \right) \otimes \varphi_{\delta}^{- 1}\left( \sum_{h \in \varLambda_{p}} {b_{hl}\mathbf{g}_{h}} \right) \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \sum_{g \in \varLambda_{o}} {a_{gk}\varphi_{\gamma}^{- 1}\left( \mathbf{f}_{g} \right)} \otimes \sum_{h \in \varLambda_{p}} {b_{hl}\varphi_{\delta}^{- 1}\left( \mathbf{g}_{h} \right)} \right)\\
+&= \varphi_{\gamma \otimes \delta}^{- 1}\left( \sum_{g \in \varLambda_{o}} {a_{gk}\mathbf{v}_{g}} \otimes \sum_{h \in \varLambda_{p}} {b_{hl}\mathbf{w}_{h}} \right)\\
+&= \sum_{g \in \varLambda_{o}} {\sum_{h \in \varLambda_{p}} {a_{gk}b_{hl}\varphi_{\gamma \otimes \delta}^{- 1}\left( \mathbf{v}_{g} \otimes \mathbf{w}_{h} \right)}}\\
+&= \sum_{g \in \varLambda_{o}} {\sum_{h \in \varLambda_{p}} {a_{gk}b_{hl}\left( \delta_{ig}\delta_{jh} \right)_{(i,j) \in \varLambda_{o} \times \varLambda_{p}}}}\\
+&= \sum_{g \in \varLambda_{o}} {\sum_{h \in \varLambda_{p}} \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{gk}b_{hl} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix}}\\
+&= \begin{matrix}
+\  & \begin{pmatrix}
+\begin{pmatrix}
+a_{1k}b_{1l} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} & + & \cdots & + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{1k}b_{pl} \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} \\
+\  & \  & \  & \cdots & \  & \  \\
+ + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+a_{ok}b_{1l} \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+\end{pmatrix} & + & \cdots & + & \begin{pmatrix}
+\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+0 \\
+ \vdots \\
+a_{ok}b_{pl} \\
+\end{pmatrix} \\
+\end{pmatrix} \\
+\end{matrix}\\
+&= \begin{pmatrix}
+\begin{pmatrix}
+a_{1k}b_{1l} \\
+ \vdots \\
+a_{1k}b_{pl} \\
+\end{pmatrix} \\
+ \vdots \\
+\begin{pmatrix}
+a_{ok}b_{1l} \\
+ \vdots \\
+a_{ok}b_{pl} \\
+\end{pmatrix} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{1k}b_{1l} \\
+ \vdots \\
+a_{1k}b_{pl} \\
+ \vdots \\
+a_{ok}b_{1l} \\
+ \vdots \\
+a_{ok}b_{pl} \\
+\end{pmatrix}
+\end{align*}
+これにより、したがって、次のようになる。
+\begin{align*}
+\left[ \rho(\varphi,\chi) \right]^{\gamma \otimes \delta}_{\alpha \otimes \beta} &= \begin{pmatrix}
+a_{11}b_{11} & \cdots & a_{11}b_{1n} & \  & a_{1m}b_{11} & \cdots & a_{1m}b_{1n} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{11}b_{p1} & \cdots & a_{11}b_{pn} & \  & a_{1m}b_{p1} & \cdots & a_{1m}b_{pn} \\
+\  & \vdots & \  & \ddots & \  & \vdots & \  \\
+a_{o1}b_{11} & \cdots & a_{o1}b_{1n} & \  & a_{om}b_{11} & \cdots & a_{om}b_{1n} \\
+ \vdots & \ddots & \vdots & \cdots & \vdots & \ddots & \vdots \\
+a_{o1}b_{p1} & \cdots & a_{o1}b_{pn} & \  & a_{om}b_{p1} & \cdots & a_{om}b_{pn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{11} & \cdots & a_{1m} \\
+ \vdots & \ddots & \vdots \\
+a_{o1} & \cdots & a_{om} \\
+\end{pmatrix} \otimes \begin{pmatrix}
+b_{11} & \cdots & b_{1n} \\
+ \vdots & \ddots & \vdots \\
+b_{p1} & \cdots & b_{pn} \\
+\end{pmatrix} = [\varphi]^{\gamma}_{\alpha} \otimes [\chi]^{\delta}_{\beta}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  佐武一郎, 線型代数学, 裳華房, 1958. 第53版 p206-207 ISBN4-7853-1301-3
+  \bibitem{2}
+  Wikipedia. クロネッカー積. Wikipedia. \url{https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%8D%E3%83%83%E3%82%AB%E3%83%BC%E7%A9%8D} (2022-2-18 2:25 閲覧)
+\end{thebibliography}
+\end{document}

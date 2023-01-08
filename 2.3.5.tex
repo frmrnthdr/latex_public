@@ -1,0 +1,512 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{4}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.1.5}
+\externaldocument{2.1.7}
+\externaldocument{2.3.4}
+\input{macro}
+\begin{document}
+%\hypertarget{sylvesterux306eux6163ux6027ux6cd5ux5247}{%
+\subsection{Sylvesterの慣性法則}%\label{sylvesterux306eux6163ux6027ux6cd5ux5247}}
+%\hypertarget{ux6b21ux5f62ux5f0fux3068hermiteux5f62ux5f0f}{%
+\subsubsection{Sylvesterの慣性法則}%\label{sylvesterux306eux6163ux6027ux6cd5ux5247-1}}
+\begin{dfn}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$について、もちろん、$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{v} \right) \in \mathbb{R}$が成り立つので、次のように定義されよう\footnote{$\mathbb{R} \subset K$のときでは、$\forall a \in K$に対し、$0 \leq a^{2}$が成り立つとはいえないので、あまりうまく定義されない。なお、書籍によっては半正値、正値、半負値、負値をそれぞれ正値、真正値、負値、真負値としていることもある。}。
+\begin{itemize}
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、その対称双線形形式$B$は半正値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 < B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、その対称双線形形式$B$は正値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \geq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、その対称双線形形式$B$は半負値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 > B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、その対称双線形形式$B$は負値であるという。
+\end{itemize}
+\end{dfn}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、定理\ref{2.3.4.3}より$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{v} \right) \in \mathbb{R}$が成り立つ。これにより、大小関係で比較できることになるので、次のように定義されよう\footnote{これも同様に、書籍によっては半正値、正値、半負値、負値をそれぞれ正値、真正値、負値、真負値としていることもある。}。
+\begin{itemize}
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、そのHermite双線形形式$B$は半正値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 < B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、そのHermite双線形形式$B$は正値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \geq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、そのHermite双線形形式$B$は半負値であるという。
+\item
+  $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 > B\left( \mathbf{v},\mathbf{v} \right)$が成り立つとき、そのHermite双線形形式$B$は負値であるという。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{2.3.5.17}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、次のことが成り立つ。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  その対称双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  その対称双線形形式$B$が半負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \geq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  その対称双線形形式$B$が負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、その対称双線形形式$B$が半正値であるなら、もちろん、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。逆に、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つなら、$\forall\mathbf{v} \in V$に対し、次のようにおかれれば、
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{v}_{i}}
+\end{align*}
+$\forall i \in \varLambda_{n}$に対し、$0 \leq a_{i}^{2}$が成り立つので、$0 \leq a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が得られる。これにより、$0 \leq \sum_{i \in \varLambda_{n}} {a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)}$が得られ、定理\ref{2.3.5.15}より次式が成り立つので、
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) = \sum_{i \in \varLambda_{n}} {a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)}
+\end{align*}
+$\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ、即ち、その対称双線形形式$B$は半正値である。\par
+その対称双線形形式$B$が正値であるなら、$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} \neq \mathbf{0}$が成り立つので、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。逆に、$\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つなら、$\forall\mathbf{v} \in V$に対し、次のようにおかれれば、
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{v}_{i}}
+\end{align*}
+$\forall i \in \varLambda_{n}$に対し、$0 \leq a_{i}^{2}$が成り立つので、$0 \leq a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が得られる。$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$\exists i \in \varLambda_{n}$に対し、$a_{i} \neq 0$が成り立つことに注意すると、$\exists i \in \varLambda_{n}$に対し、$0 < a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。これにより、$0 < \sum_{i \in \varLambda_{n}} {a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)}$が得られ、定理\ref{2.3.5.15}より次式が成り立つので、
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) = \sum_{i \in \varLambda_{n}} {a_{i}^{2}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)}
+\end{align*}
+$\forall\mathbf{v} \in V$に対し、$0 < B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ、即ち、その対称双線形形式$B$は正値である。\par
+以上の議論により、次のことが成り立つ。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  その対称双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\end{itemize}
+同様にして、次のことが示される。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \geq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  その対称双線形形式$B$が負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.3.5.18}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$が半正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  そのHermite双線形形式$B$が半負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \geq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  そのHermite双線形形式$B$が負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{2.3.5.17}と同様にして示される。
+\end{proof}
+\begin{thm}[Sylvesterの慣性法則]\label{2.3.5.19}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれれば、その組$(\pi,\xi,\nu)$は、その対称双線形形式$B$に関するものであるなら、その直交基底$\mathcal{B}$に依らず、その対称双線形形式$B$に対し、一意的に確定する。\par
+この定理をSylvesterの慣性法則という。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底たち$\mathcal{B}$、$\mathcal{C}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$、$\mathcal{C} =\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi_{\mathcal{B}}$、$\xi_{\mathcal{B}}$、$\nu_{\mathcal{B}}$と$\pi_{\mathcal{B}} + \xi_{\mathcal{B}} + \nu_{\mathcal{B}} = n$が成り立つように、$0 < B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right)$、$0 = B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right)$、$0 > B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi_{\mathcal{C}}$、$\xi_{\mathcal{C}}$、$\nu_{\mathcal{C}}$と$\pi_{\mathcal{C}} + \xi_{\mathcal{C}} + \nu_{\mathcal{C}} = n$が成り立つようにおかれ、必要があれば、添数を付け替えることで、$\forall i \in \varLambda_{\pi_{\mathcal{B}}}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$\forall i \in \varLambda_{n} \setminus \varLambda_{\pi_{\mathcal{B}}}$に対し、$0 \geq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$\forall i \in \varLambda_{\pi_{\mathcal{C}}}$に対し、$0 < B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right)$、$\forall i \in \varLambda_{n} \setminus \varLambda_{\pi_{\mathcal{C}}}$に対し、$0 \geq B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right)$とおかれてもよいので、そうして、次式のようにおかれれば、
+\begin{align*}
+V_{\mathcal{B}} = {\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{\pi_{\mathcal{B}}}},\ \ W_{\mathcal{C}} = {\mathrm{span}}\left\{ \mathbf{w}_{i} \right\}_{i \in \varLambda_{n} \setminus \varLambda_{\pi_{\mathcal{C}}}}
+\end{align*}
+その組$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{\pi_{\mathcal{B}}}}$がそのvector空間$V_{\mathcal{B}}$上のその対称双線形形式$B$に関する直交基底をなしており、$\forall i \in \varLambda_{\pi_{\mathcal{B}}}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = B|\left( V_{\mathcal{B}} \times V_{\mathcal{B}} \right)\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つので、定理\ref{2.3.5.17}よりその対称双線形形式$B|\left( V_{\mathcal{B}} \times V_{\mathcal{B}} \right)$は正値である。同様に、その組$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{n} \setminus \varLambda_{\pi_{\mathcal{C}}}}$がそのvector空間$W_{\mathcal{C}}$上のその対称双線形形式$B$に関する直交基底をなしており、$\forall i \in \varLambda_{n} \setminus \varLambda_{\pi_{\mathcal{C}}}$に対し、$0 \geq B\left( \mathbf{w}_{i},\mathbf{w}_{i} \right) = B|\left( W_{\mathcal{C}} \times W_{\mathcal{C}} \right)\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つので、定理\ref{2.3.5.17}よりその対称双線形形式$B|\left( W_{\mathcal{C}} \times W_{\mathcal{C}} \right)$は半負値である。\par
+このとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{v} \in V_{\mathcal{B}} \cap W_{\mathcal{C}}$が成り立つかつ、$\mathbf{v} \neq \mathbf{0}$が成り立つと仮定すると、次のようになるかつ、
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) = B|\left( V_{\mathcal{B}} \times V_{\mathcal{B}} \right)\left( \mathbf{v},\mathbf{v} \right) \geq 0
+\end{align*}
+次のようになるので、
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) = B|\left( W_{\mathcal{C}} \times W_{\mathcal{C}} \right)\left( \mathbf{v},\mathbf{v} \right) < 0
+\end{align*}
+$0 \leq B\left( \mathbf{v},\mathbf{v} \right) \leq 0$が得られるが、これは矛盾している。したがって、$\mathbf{v} \in V_{\mathcal{B}} \cap W_{\mathcal{C}}$が成り立つなら、$\mathbf{v} = \mathbf{0}$が成り立つ。もちろん、$\left\{ \mathbf{0} \right\} \subseteq V_{\mathcal{B}} \cap W_{\mathcal{C}}$が成り立つので、$\left\{ \mathbf{0} \right\} = V_{\mathcal{B}} \cap W_{\mathcal{C}}$が成り立つ。したがって、$V_{\mathcal{B}} \oplus W_{\mathcal{C}} \subseteq V$が得られたので、次のようになる。
+\begin{align*}
+\pi_{\mathcal{B}} &= \pi_{\mathcal{B}} + n - n + \pi_{\mathcal{C}} - \pi_{\mathcal{C}}\\
+&= \pi_{\mathcal{B}} + \left( n - \pi_{\mathcal{C}} \right) - n + \pi_{\mathcal{C}}\\
+&= \dim V_{\mathcal{B}} + \dim W_{\mathcal{C}} - \dim V + \pi_{\mathcal{C}}\\
+&= \dim{V_{\mathcal{B}} \oplus W_{\mathcal{C}}} - \dim V + \pi_{\mathcal{C}}\\
+&\leq \dim V - \dim V + \pi_{\mathcal{C}} = \pi_{\mathcal{C}}
+\end{align*}
+これにより、$\pi_{\mathcal{B}} \leq \pi_{\mathcal{C}}$が得られる。\par
+同様にして、$\pi_{\mathcal{C}} \leq \pi_{\mathcal{B}}$が得られるので、$\pi_{\mathcal{B}} = \pi_{\mathcal{C}}$が成り立つ。さらに、同様にして、$\nu_{\mathcal{B}} = \nu_{\mathcal{C}}$が得られるので、$\xi_{\mathcal{B}} = \xi_{\mathcal{C}}$も得られる。よって、その組$\left( \pi_{\mathcal{B}},\xi_{\mathcal{B}},\nu_{\mathcal{B}} \right)$は、その対称双線形形式$B$に関するものであるなら、その直交基底$\mathcal{B}$に依らず、その対称双線形形式$B$に対し、一意的に確定する。
+\end{proof}
+\begin{thm}[Sylvesterの慣性法則]\label{2.3.5.20}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれれば、その組$(\pi,\xi,\nu)$は、そのHermite双線形形式$B$に関するものであるなら、その直交基底$\mathcal{B}$に依らず、そのHermite双線形形式$B$に対し、一意的に確定する。この定理もSylvesterの慣性法則という。
+\end{thm}
+\begin{proof} 定理\ref{2.3.5.19}と同様にして示される。
+\end{proof}
+\begin{dfn}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれたとき、その組$(\pi,\nu)$をその対称双線形形式$B$の符号という。
+\end{dfn}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれたとき、その組$(\pi,\nu)$をそのHermite双線形形式$B$の符号という。
+\end{dfn}
+\begin{thm}\label{2.3.5.21}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれれば、次のことが成り立つ。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半正値であるならそのときに限り、その対称双線形形式$B$の符号が$(\pi,0)$である。
+\item
+  その対称双線形形式$B$が正値であるならそのときに限り、その対称双線形形式$B$の符号が$(n,0)$である。
+\item
+  その対称双線形形式$B$が半負値であるならそのときに限り、その対称双線形形式$B$の符号が$(0,\nu)$である。
+\item
+  その対称双線形形式$B$が負値であるならそのときに限り、その対称双線形形式$B$の符号が$(0,n)$である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれれば、その対称双線形形式$B$が半正値であるなら、定理\ref{2.3.5.17}より$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ、即ち、$\nu = 0$が得られるので、その対称双線形形式$B$の符号が$(\pi,0)$である。逆に、その対称双線形形式$B$の符号が$(\pi,0)$であるなら、$\nu = 0$が成り立つので、$\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。そこで、定理\ref{2.3.5.17}よりその対称双線形形式$B$が半正値である。\par
+また、その対称双線形形式$B$が正値であるなら、定理\ref{2.3.5.17}より$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} \neq \mathbf{0}$が成り立つことに注意すれば、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ、即ち、$\pi = n$かつ$\nu = 0$が得られるので、その対称双線形形式$B$の符号が$(n,0)$である。逆に、その対称双線形形式$B$の符号が$(n,0)$であるなら、$\pi = n$かつ$\nu = 0$が成り立つので、$\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。そこで、定理\ref{2.3.5.17}よりその対称双線形形式$B$が正値である。\par
+以上の議論により、次のことが成り立つ。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半正値であるならそのときに限り、その対称双線形形式$B$の符号が$(\pi,0)$である。
+\item
+  その対称双線形形式$B$が正値であるならそのときに限り、その対称双線形形式$B$の符号が$(n,0)$である。
+\end{itemize}
+同様にして、次のことが示される。
+\begin{itemize}
+\item
+  その対称双線形形式$B$が半負値であるならそのときに限り、その対称双線形形式$B$の符号が$(0,\nu)$である。
+\item
+  その対称双線形形式$B$が負値であるならそのときに限り、その対称双線形形式$B$の符号が$(0,n)$である。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.3.5.22}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれれば、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$が半正値であるならそのときに限り、そのHermite双線形形式$B$の符号が$(\pi,0)$である。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、そのHermite双線形形式$B$の符号が$(n,0)$である。
+\item
+  そのHermite双線形形式$B$が半負値であるならそのときに限り、そのHermite双線形形式$B$の符号が$(0,\nu)$である。
+\item
+  そのHermite双線形形式$B$が負値であるならそのときに限り、そのHermite双線形形式$B$の符号が$(0,n)$である。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{2.3.5.21}と同様にして示される。
+\end{proof}
+\begin{dfn}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれたとき、自然数たち$\pi + \nu$、$\xi$をそれぞれその対称双線形形式$B$の階数、退化次数といい、それぞれ${\mathrm{rank}}B$、${\mathrm{nullity}}B$と書くことにする。
+\end{dfn}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれたとき、自然数たち$\pi + \nu$、$\xi$をそれぞれそのHermite双線形形式$B$の階数、退化次数といい、それぞれ${\mathrm{rank}}B$、${\mathrm{nullity}}B$と書くことにする。
+\end{dfn}
+\begin{thm}\label{2.3.5.23}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  その対称双線形形式$B$の任意の基底$\alpha$に関する表現行列$[ B]_{\alpha}$を用いて次のように線形写像$L_{[ B]_{\alpha}}$がおかれれば、
+\begin{align*}
+L_{[ B]_{\alpha}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto [ B]_{\alpha}\mathbf{v}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+{\mathrm{nullity}}B = {\mathrm{nullity}}L_{[ B]_{\alpha}}
+\end{align*}
+\item
+  その対称双線形形式$B$の任意の基底$\alpha$に関する表現行列$[ B]_{\alpha}$を用いれば、次式が成り立つ。
+\begin{align*}
+{\mathrm{rank}}B = {\mathrm{rank}}[ B]_{\alpha}
+\end{align*}
+\item
+  ${\mathrm{nullity}}B = 0$が成り立つならそのときに限り、その対称双線形形式$B$の任意の基底$\alpha$に関する表現行列$[ B]_{\alpha}$が正則行列である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = n$が成り立つようにおかれることで、その対称双線形形式$B$のその基底$\mathcal{B}$に関する表現行列$[ B]_{\mathcal{B}}$を用いて次のように線形写像$L_{[ B]_{\mathcal{B}}}$が考えられよう。
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto [ B]_{\mathcal{B}}\mathbf{v}
+\end{align*}
+$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる任意の添数$i$に対するvector$\mathbf{v}_{i}$全体から生成される部分空間${\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}$について、これの基底として$\left\langle \mathbf{v}_{i} \right\rangle_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}$があげられるので、$\dim{{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}} = \xi = {\mathrm{nullity}}B$が成り立つ。その表現行列$[ B]_{\mathcal{B}}$が$[ B]_{\mathcal{B}} = \left( B_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と成分表示されれば、定理\ref{2.3.4.8}より$B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = B_{ii} = 0$が成り立つ。さらに、その基底$\mathcal{B}$が直交基底なので、$\forall j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、定理\ref{2.3.4.8}より$B\left( \mathbf{v}_{j},\mathbf{v}_{i} \right) = B_{ji} = 0$が成り立つ。その基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いれば、組$\left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$もそのvector空間$K^{n}$の基底で次元公式より次式が成り立つので、
+\begin{align*}
+\dim{V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right)} &= \dim{{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}} \\
+&\quad - \dim{\ker{\varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}}}\\
+&= \dim{{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}} - 0\\
+&= \dim{{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}}\\
+&= \xi = {\mathrm{nullity}}B
+\end{align*}\par
+$\forall\mathbf{v} \in K^{n}$に対し、$\mathbf{v} \in V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right)$が成り立つなら、次のようにおかれれば、
+\begin{align*}
+\mathbf{v} = \varphi_{\mathcal{B}}^{- 1}\left( \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\mathbf{v}_{i}} \right)
+\end{align*}
+次のようになることから、
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}\left( \mathbf{v} \right) &= L_{[ B]_{\mathcal{B}}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\mathbf{v}_{i}} \right) \right)\\
+&= L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\mathbf{v}_{i}} \right)\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{i} \right)}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}L_{[ B]_{\mathcal{B}}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{i} \right) \right)}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{i} \right)}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\begin{pmatrix}
+B_{11} & \cdots & B_{1i} & \cdots & B_{1n} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots \\
+B_{i1} & \cdots & B_{ii} & \cdots & B_{in} \\
+ \vdots & \ddots & \vdots & \ddots & \vdots \\
+B_{n1} & \cdots & B_{ni} & \cdots & B_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+0 \\
+ \vdots \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix}}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\begin{pmatrix}
+B_{1i} \\
+ \vdots \\
+B_{ii} \\
+ \vdots \\
+B_{ni} \\
+\end{pmatrix}}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\begin{pmatrix}
+0 \\
+ \vdots \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}} = \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} {a_{i}\mathbf{0}} = \mathbf{0}
+\end{align*}
+$V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right) \subseteq \ker L_{[ B]_{\mathcal{B}}}$が得られる。これにより、次のようになる。
+\begin{align*}
+{\mathrm{nullity}}B = \dim{V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right)} \leq \dim{\ker L_{[ B]_{\mathcal{B}}}} = {\mathrm{nullity}}L_{[ B]_{\mathcal{B}}}
+\end{align*}\par
+逆に、$\forall\mathbf{v} \in K^{n}$に対し、$\mathbf{v} \notin V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right)$が成り立つなら、$\mathbf{v} = \begin{pmatrix}
+v_{1} \\
+v_{2} \\
+ \vdots \\
+v_{n} \\
+\end{pmatrix}$とおかれれば、次のようになり、
+\begin{align*}
+\begin{pmatrix}
+v_{1} \\
+v_{2} \\
+ \vdots \\
+v_{n} \\
+\end{pmatrix} &= \varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\mathcal{B}}\begin{pmatrix}
+v_{1} \\
+v_{2} \\
+ \vdots \\
+v_{n} \\
+\end{pmatrix}\\
+&= \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{B}}\begin{pmatrix}
+v_{1} \\
+v_{2} \\
+ \vdots \\
+v_{n} \\
+\end{pmatrix} \right)\\
+&= \varphi_{\mathcal{B}}^{- 1}\left( \sum_{i \in \varLambda_{n}} {v_{i}\mathbf{v}_{i}} \right)
+\end{align*}
+$\sum_{i \in \varLambda_{n}} {v_{i}\mathbf{v}_{i}} \notin {\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}$が得られる。\par
+そこで、次のようになることから、
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}\left( \mathbf{v} \right) &= [ B]_{\mathcal{B}}\mathbf{v} \\
+&= \begin{pmatrix}
+B_{11} & B_{12} & \cdots & B_{1n} \\
+B_{21} & B_{22} & \cdots & B_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+B_{n1} & B_{n2} & \cdots & B_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+v_{1} \\
+v_{2} \\
+ \vdots \\
+v_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+v_{1}B_{11} + v_{2}B_{12} + \cdots + v_{n}B_{1n} \\
+v_{1}B_{21} + v_{2}B_{22} + \cdots + v_{n}B_{2n} \\
+ \vdots \\
+v_{1}B_{n1} + v_{2}B_{n2} + \cdots + v_{n}B_{nn} \\
+\end{pmatrix}
+\end{align*}
+$\forall i \in \varLambda_{n}$に対し、定義より次のようになり、
+\begin{align*}
+v_{1}B_{i1} + v_{2}B_{i2} + \cdots + v_{n}B_{in} &= \sum_{j \in \varLambda_{n}} {v_{j}B_{ij}}\\
+&= \sum_{\scriptsize \begin{matrix} j \in \varLambda_{n} \\i = j \end{matrix}} {v_{j}B_{ij}} + \sum_{\scriptsize \begin{matrix} j \in \varLambda_{n} \\i \neq j \end{matrix}} {v_{j}B_{ij}}\\
+&= \sum_{\scriptsize \begin{matrix} j \in \varLambda_{n} \\i = j \end{matrix}} {v_{j}B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right)} + \sum_{\scriptsize \begin{matrix} j \in \varLambda_{n} \\i \neq j \end{matrix}} {v_{j}B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right)}
+\end{align*}
+上記のように、その基底$\mathcal{B}$が直交基底なので、$\forall j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$B\left( \mathbf{v}_{j},\mathbf{v}_{i} \right) = 0$が成り立つので、次のようになる。
+\begin{align*}
+v_{1}B_{i1} + v_{2}B_{i2} + \cdots + v_{n}B_{in} = \sum_{\scriptsize \begin{matrix} j \in \varLambda_{n} \\i = j \end{matrix}} {v_{j}B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right)} = v_{i}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)
+\end{align*}\par
+そこで、$\forall i \in \varLambda_{n}$に対し、$v_{i}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0$が成り立つと仮定しよう。このとき、次のようになることから、
+\begin{align*}
+v_{i}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 &\Leftrightarrow v_{i} = 0 \vee B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0\\
+&\Leftrightarrow \left( v_{i} = 0 \vee B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right) \land \top\\
+&\Leftrightarrow \left( v_{i} = 0 \vee B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right) \\
+&\quad \land \left( B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \vee B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right)\\
+&\Leftrightarrow \left( v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \right) \vee B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0\\
+&\Leftrightarrow \left( v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \right) \vee \left( \top \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right)\\
+&\Leftrightarrow \left( v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \right) \\
+&\quad \vee \left( \left( v_{i} \neq 0 \vee v_{i} = 0 \right) \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right)\\
+&\Leftrightarrow \left( v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \right) \\
+&\quad \vee \left( v_{i} \neq 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right) \\
+&\quad \vee \left( v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \right)
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {v_{i}\mathbf{v}_{i}} &= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0 \end{matrix}} {v_{i}\mathbf{v}_{i}} + \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\v_{i} \neq 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \end{matrix}} {v_{i}\mathbf{v}_{i}} + \sum_{i \in \varLambda_{n} ,v_{i} = 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 } {v_{i}\mathbf{v}_{i}}\\
+&= \sum_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\v_{i} \neq 0 \land B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0 \end{matrix}} {v_{i}\mathbf{v}_{i}} \in {\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}
+\end{align*}
+しかしながら、これは$\sum_{i \in \varLambda_{n}} {v_{i}\mathbf{v}_{i}} \notin {\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}}$が成り立つことに矛盾している。\par
+したがって、$\exists i \in \varLambda_{n}$に対し、$v_{i} = 0$かつ$B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) = 0$が成り立つことになる。ゆえに、$\exists i \in \varLambda_{n}$に対し、$v_{i}B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \neq 0$が成り立つことになるので、
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}\left( \mathbf{v} \right) &= \begin{pmatrix}
+v_{1}B_{11} + v_{2}B_{12} + \cdots + v_{n}B_{1n} \\
+v_{1}B_{21} + v_{2}B_{22} + \cdots + v_{n}B_{2n} \\
+ \vdots \\
+v_{1}B_{n1} + v_{2}B_{n2} + \cdots + v_{n}B_{nn} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+v_{1}B\left( \mathbf{v}_{1},\mathbf{v}_{1} \right) \\
+v_{2}B\left( \mathbf{v}_{2},\mathbf{v}_{2} \right) \\
+ \vdots \\
+v_{n}B\left( \mathbf{v}_{n},\mathbf{v}_{n} \right) \\
+\end{pmatrix} \neq \mathbf{0}
+\end{align*}
+$\mathbf{v} \notin \ker L_{[ B]_{\mathcal{B}}}$が得られ、したがって、$V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right) \supseteq \ker L_{[ B]_{\mathcal{B}}}$が得られる。これにより、次のようになる。
+\begin{align*}
+{\mathrm{nullity}}B &= \dim{V\left( \varphi_{\mathcal{B}}^{- 1}|{\mathrm{span}}\left\{ \mathbf{v}_{i} \right\}_{\scriptsize \begin{matrix} i \in \varLambda_{n} \\0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right) \end{matrix}} \right)}\\
+&\geq \dim{\ker L_{[ B]_{\mathcal{B}}}}\\
+&= {\mathrm{nullity}}L_{[ B]_{\mathcal{B}}}
+\end{align*}
+よって、${\mathrm{nullity}}B = {\mathrm{nullity}}L_{[ B]_{\mathcal{B}}}$が得られた。\par
+そこで、そのvector空間$V$上の任意の基底$\alpha$に対し、定理\ref{2.3.4.14}より次式が成り立つ。
+\begin{align*}
+[ B]_{\mathcal{B}} =^{t}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}[ B]_{\alpha}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}
+\end{align*}
+そこで、その行列$\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$は定理\ref{2.1.5.9}よりその基底$\mathcal{B}$からその基底$\alpha$への基底変換行列そのものでありこれは正則行列である。さらに、その行列$^{t}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$もまた正則行列である\footnote{手っ取り早い示し方としては、$\det{^{t}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}} = \det\left[ I_{V} \right]^{\alpha}_{\mathcal{B}} \neq 0$によるものがあげられます。}。また、定理\ref{2.1.7.9}よりある2つの正則行列たち$\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$、$^{t}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$が存在して、$[ B]_{\mathcal{B}} =^{t}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}[ B]_{\alpha}\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$が成り立つならそのときに限り、その行列$[ B]_{\mathcal{B}}$が行列の変形でその行列$[ B]_{\alpha}$に変形されることができる。定理\ref{2.1.7.3}よりその行列$[ B]_{\mathcal{B}}$が行列の基本変形をされたとしても、その行列の階数は一定であるので、${\mathrm{rank}}[ B]_{\mathcal{B}} = {\mathrm{rank}}[ B]_{\alpha}$が得られる。したがって、次元公式より次式のような線形写像が考えられれば、
+\begin{align*}
+L_{[ B]_{\alpha}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto [ B]_{\alpha}\mathbf{v}
+\end{align*}
+次のようになる。
+\begin{align*}
+{\mathrm{nullity}}B &= {\mathrm{nullity}}L_{[ B]_{\mathcal{B}}}\\
+&= n - {\mathrm{rank}}L_{[ B]_{\mathcal{B}}}\\
+&= n - {\mathrm{rank}}[ B]_{\mathcal{B}}\\
+&= n - {\mathrm{rank}}[ B]_{\alpha}\\
+&= n - {\mathrm{rank}}L_{[ B]_{\alpha}}\\
+&= {\mathrm{nullity}}L_{[ B]_{\alpha}}
+\end{align*}\par
+また、次元公式より次のようになる。
+\begin{align*}
+{\mathrm{rank}}B &= \pi + \nu\\
+&= \pi + \xi + \nu - \xi\\
+&= n - \xi\\
+&= n - {\mathrm{nullity}}L_{[ B]_{\alpha}}\\
+&= {\mathrm{rank}}L_{[ B]_{\alpha}}\\
+&= {\mathrm{rank}}[ B]_{\alpha}
+\end{align*}\par
+${\mathrm{nullity}}B = 0$が成り立つならそのときに限り、上記の議論により${\mathrm{nullity}}L_{[ B]_{\alpha}} = 0$が成り立つので、次元公式より次のようになる。
+\begin{align*}
+n = {\mathrm{rank}}L_{[ B]_{\alpha}} = {\mathrm{rank}}[ B]_{\alpha}
+\end{align*}
+これが成り立つならそのときに限り、その表現行列$[ B]_{\alpha}$は正則行列である。
+\end{proof}
+\begin{thm}\label{2.3.5.24}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$の任意の基底$\alpha$に関する表現行列$[ B]_{\alpha}$を用いて次のように線形写像$L_{[ B]_{\alpha}}$がおかれれば、
+\begin{align*}
+L_{[ B]_{\alpha}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto [ B]_{\alpha}\mathbf{v}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+{\mathrm{nullity}}B = {\mathrm{nullity}}L_{[ B]_{\alpha}}
+\end{align*}
+\item
+  そのHermite双線形形式$B$のその基底$\alpha$に関する表現行列$[ B]_{\alpha}$を用いれば、次式が成り立つ。
+\begin{align*}
+{\mathrm{rank}}B = {\mathrm{rank}}[ B]_{\alpha}
+\end{align*}
+\item
+  ${\mathrm{nullity}}B = 0$が成り立つならそのときに限り、そのHermite双線形形式$B$のその基底$\alpha$に関する表現行列$[ B]_{\alpha}$が正則行列である。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{2.3.5.23}と同様にして示される。
+\end{proof}
+\begin{dfn}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$について、次式のような集合$\ker B$をその対称双線形形式$B$の核という。
+\begin{align*}
+\ker B = \left\{ \mathbf{w} \in V \middle| \forall\mathbf{v} \in V\left[ B\left( \mathbf{v},\mathbf{w} \right) = 0 \right] \right\}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、次式のような集合$\ker B$をそのHermite双線形形式$B$の核という。
+\begin{align*}
+\ker B = \left\{ \mathbf{w} \in V \middle| \forall\mathbf{v} \in V\left[ B\left( \mathbf{v},\mathbf{w} \right) = 0 \right] \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.3.5.25}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$について、その対称双線形形式$B$の核$\ker B$はそのvector空間$V$の部分空間であり、さらに、次式が成り立つ。
+\begin{align*}
+{\mathrm{nullity}}B = \dim{\ker B}
+\end{align*}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{R}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意の対称双線形形式$B$の核$\ker B$について、もちろん、$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{0} \right) = 0$が成り立つので、$\mathbf{0} \in \ker B$が成り立つ。$\forall k,l \in K\forall\mathbf{u},\mathbf{w} \in \ker B$に対し、次のようになることから、
+\begin{align*}
+\left\{ \begin{matrix}
+\forall\mathbf{v} \in V\left[ B\left( \mathbf{v},\mathbf{u} \right) = 0 \right] \\
+\forall\mathbf{v} \in V\left[ B\left( \mathbf{v},\mathbf{w} \right) = 0 \right] \\
+\end{matrix} \right.\  &\Rightarrow \left\{ \begin{matrix}
+\forall\mathbf{v} \in V\left[ kB\left( \mathbf{v},\mathbf{u} \right) = 0 \right] \\
+\forall\mathbf{v} \in V\left[ lB\left( \mathbf{v},\mathbf{w} \right) = 0 \right] \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\forall\mathbf{v} \in V\left[ B\left( \mathbf{v},k\mathbf{u} \right) = 0 \right] \\
+\forall\mathbf{v} \in V\left[ B\left( \mathbf{v},l\mathbf{w} \right) = 0 \right] \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \forall\mathbf{v} \in V\left[ B\left( \mathbf{v},k\mathbf{u} \right) = 0 \land B\left( \mathbf{v},l\mathbf{w} \right) = 0 \right]\\
+&\Rightarrow \forall\mathbf{v} \in V\left[ B\left( \mathbf{v},k\mathbf{u} \right) + B\left( \mathbf{v},l\mathbf{w} \right) = 0 \right]\\
+&\Leftrightarrow \forall\mathbf{v} \in V\left[ B\left( \mathbf{v},k\mathbf{u} + l\mathbf{w} \right) = 0 \right]
+\end{align*}
+$k\mathbf{u} + l\mathbf{w} \in \ker B$が成り立つ。定理\ref{2.1.1.9}よりその核$\ker B$はそのvector空間$V$の部分空間であることが示された。\par
+その対称双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$と与えられたとき、その基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いれば、組$\left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$もそのvector空間$K^{n}$の基底であるので、$\dim{\ker B} = \dim{V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right)}$が得られる。\par
+その対称双線形形式$B$のその基底$\mathcal{B}$に関する表現行列$[ B]_{\mathcal{B}}$を用いて次のように線形写像$L_{[ B]_{\mathcal{B}}}$が考えられよう。
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto [ B]_{\mathcal{B}}\mathbf{v}
+\end{align*}
+$\forall\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \in V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right)$に対し、$\mathbf{w} \in \ker B$が成り立つので、$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{w} \right) = 0$が成り立ち、そこで、定理\ref{2.3.4.8}より$^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = 0$が成り立つ。そこで、その線形写像$\varphi_{\mathcal{B}}^{- 1}$は線形同型写像であるので、$\forall\mathbf{v} \in K^{n}$に対し、$^{t}\mathbf{v}[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = 0$が成り立つ。ここで、$[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \neq \mathbf{0}$が成り立つと仮定すると、そのvector$[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)$が$\left( b_{i} \right)_{i \in \varLambda_{n}}$と成分表示されれば、$\exists j \in \varLambda_{n}$に対し、$b_{j} \neq 0$が成り立つので、あるvector$\left( \delta_{ij} \right)_{i \in \varLambda_{n}}$が存在して、次式が成り立つ。
+\begin{align*}
+^{t}\left( \delta_{ij} \right)_{i \in \varLambda_{n}}[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = \begin{pmatrix}
+0 & \cdots & 1 & \cdots & 0 \\
+\end{pmatrix}\begin{pmatrix}
+b_{1} \\
+ \vdots \\
+b_{j} \\
+ \vdots \\
+b_{n} \\
+\end{pmatrix} = b_{j} \neq 0
+\end{align*}
+しかしながら、これは、$\forall\mathbf{v} \in K^{n}$に対し、$^{t}\mathbf{v}[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = 0$が成り立つことに矛盾している。したがって、$[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = \mathbf{0}$が成り立つ。このとき、次のようになっているので、
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right) = [ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) = \mathbf{0}
+\end{align*}
+$\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \in \ker L_{[ B]_{\mathcal{B}}}$が成り立つ。これにより、$V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right) \subseteq \ker L_{[ B]_{\mathcal{B}}}$が得られる。\par
+逆に、$\mathbf{w} \in \ker L_{[ B]_{\mathcal{B}}}$が成り立つなら、$\mathbf{w} = \varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\mathcal{B}}\left( \mathbf{w} \right) = \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right)$が成り立つことにより次のようになっているので、
+\begin{align*}
+L_{[ B]_{\mathcal{B}}}\left( \mathbf{w} \right) = [ B]_{\mathcal{B}}\mathbf{w} = [ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right) = \mathbf{0}
+\end{align*}
+$\forall\mathbf{v} \in V$に対し、次のようになるので、
+\begin{align*}
+B\left( \mathbf{v},\varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right) =^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right) = 0
+\end{align*}
+$\varphi_{\mathcal{B}}\left( \mathbf{w} \right) \in \ker B$が得られる。ゆえに、$\mathbf{w} \in V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right)$が成り立つ。これにより、$V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right) \supseteq \ker L_{[ B]_{\mathcal{B}}}$が得られる。\par
+以上の議論により、$V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right) = \ker L_{[ B]_{\mathcal{B}}}$が成り立つので、定理\ref{2.3.5.23}より次のようになる。
+\begin{align*}
+\dim{\ker B} = \dim{V\left( \varphi_{\mathcal{B}}^{- 1}|\ker B \right)} = {\mathrm{nullity}}L_{[ B]_{\mathcal{B}}} = {\mathrm{nullity}}B
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.3.5.26}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、そのHermite双線形形式$B$の核$\ker B$はそのvector空間$V$の部分空間であり、さらに、次式が成り立つ。
+\begin{align*}
+{\mathrm{nullity}}B = \dim{\ker B}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.3.5.25}と同様にして示される。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, "線型代数入門", 岩波書店, 1980. 新装版第2刷 p333-336 ISBN978-4-00-029872-8
+\end{thebibliography}
+\end{document}

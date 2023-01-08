@@ -1,0 +1,276 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{8.1.1}
+\externaldocument{8.1.2}
+\externaldocument{8.1.7}
+\externaldocument{8.2.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux96c6ux5408ux9593ux306eux8dddux96e2}{%
+\subsection{集合間の距離}%\label{ux96c6ux5408ux9593ux306eux8dddux96e2}}
+%\hypertarget{ux96c6ux5408ux306eux76f4ux5f84}{%
+\subsubsection{集合の直径}%\label{ux96c6ux5408ux306eux76f4ux5f84}}
+\begin{dfn}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、その直積$M \times M$に制限されたその距離関数$d$の値域$V\left( d|M \times M \right)$の上限をその集合$M$の直径といい、$\delta(M)$と書く、即ち、次式のように定義される。
+\begin{align*}
+\delta(M) = \sup{V\left( d|M \times M \right)} = \sup\left\{ d(a,b) \in \mathbb{R} \middle| a,b \in M \right\}
+\end{align*}
+\end{dfn}\par
+ここで、その集合$M$の直径は無限大となるときがあることに注意されたい。例えば、1次元Euclid空間$E$でのその集合$\mathbb{R}$の直径などが挙げられる。
+\begin{thm}\label{8.2.3.1}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、$\delta(M) = 0$が成り立つならそのときに限り、${\#}M = 1$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、$\delta(M) = 0$が成り立つかつ、${\#}M > 1$が成り立つと仮定すると、$\exists a,b \in M$に対し、$a \neq b$が成り立つ。一方で、$\delta(M) = 0$が成り立つことにより、$\forall a,b \in M$に対し、$d(a,b) = 0$が成り立つので、$a = b$が成り立つことになる。しかしながら、このことは矛盾している。よって、$\forall M \in \mathfrak{P}(S)$に対し、$\delta(M) = 0$が成り立つなら、${\#}M = 1$が成り立つ。逆は明らかである。
+\end{proof}
+\begin{thm}\label{8.2.3.2}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、$\emptyset \subset M \subseteq N$が成り立つなら、$\delta(M) \leq \delta(N)$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、$\emptyset \subset M \subseteq N$が成り立つなら、当然ながら$M \times M \subseteq N \times N$が成り立つので、$V\left( d|M \times M \right) \subseteq V\left( d|N \times N \right)$も成り立つ。したがって、次式が成り立つ。
+\begin{align*}
+\delta(M) &= \sup{V\left( d|M \times M \right)}\\
+&\leq \sup{V\left( d|N \times N \right)}\\
+&= \delta(N)
+\end{align*}
+\end{proof}
+\begin{dfn}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でなく、$\delta(M) < \infty$が成り立つなら、その集合$M$は有界であるという。
+\end{dfn}\par
+例えば、その集合$S$の元$a$を中心とする半径$\varepsilon$の開球体$B(a,\varepsilon)$の直径は$2\varepsilon$以下であるから、その集合$B(a,\varepsilon)$は有界である。
+\begin{thm}\label{8.2.3.3}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が有界であるならそのときに限り、$\forall a \in S\exists\varepsilon \in \mathbb{R}^{+}$に対し、$M \subseteq B(a,\varepsilon)$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が有界であるなら、$\forall b \in M\forall a \in S$に対し、その集合のある元$b'$を用いて次のようになる。
+\begin{align*}
+d(a,b) &\leq d\left( a,b' \right) + d\left( b,b' \right)\\
+&\leq d\left( a,b' \right) + \delta(M)
+\end{align*}
+ここで、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$d\left( a,b' \right) \in \mathbb{R}$が成り立つので、$d(a,b) \leq d\left( a,b' \right) + \delta(M) < \varepsilon$が成り立つ。したがって、$b \in B(a,\varepsilon)$が成り立つので、$\forall a \in S\exists\varepsilon \in \mathbb{R}^{+}$に対し、$M \subseteq B(a,\varepsilon)$が成り立つ。\par
+逆に、$\forall a \in S\exists\varepsilon \in \mathbb{R}^{+}$に対し、$M \subseteq B(a,\varepsilon)$が成り立つなら、定理\ref{8.2.3.2}より$\delta(M) \leq \delta\left( B(a,\varepsilon) \right)$が成り立ち、ここで、$\forall b,c \in B(a,\varepsilon)$に対し、次のようになることから、
+\begin{align*}
+d(b,c) &\leq d(a,b) + d(b,c)\\
+&< \varepsilon + \varepsilon = 2\varepsilon
+\end{align*}
+$\delta(M) \leq \delta\left( B(a,\varepsilon) \right) \leq 2\varepsilon$が成り立つ。よって、その集合$M$が有界である。
+\end{proof}
+%\hypertarget{ux96c6ux5408ux9593ux306eux8dddux96e2-1}{%
+\subsubsection{集合間の距離}%\label{ux96c6ux5408ux9593ux306eux8dddux96e2-1}}
+\begin{dfn}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、その直積$M \times N$に制限された距離関数$d$による値域$V\left( d|M \times N \right)$は下に有界であるので、その値域の下限が存在してこれをそれらの集合たち$M$、$N$の間の距離といい、$\mathrm{dist}(M,N)$と書くことにする、即ち、次式のように定義される。
+\begin{align*}
+\mathrm{dist}(M,N) = \inf{V\left( d|M \times N \right)}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{8.2.3.4} 距離空間$(S,d)$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、$0 \leq \mathrm{dist}(M,N) < \infty$が成り立つ。
+\item
+  $\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、$\mathrm{dist}(M,N) = \mathrm{dist}(N,M)$が成り立つ。
+\item
+  $\forall a,b \in S$に対し、$\mathrm{dist}\left( \left\{ a \right\},\ \left\{ b \right\} \right) = d(a,b)$が成り立つ。
+\item
+  $\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でなく$M \cap N \neq \emptyset$が成り立つなら、$\mathrm{dist}(M,N) = 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、$\forall d(a,b) \in V\left( d|M \times N \right)$に対し、$0 \leq d(a,b) < \infty$が成り立つので、$0 \leq \mathrm{dist}(M,N) \leq d(a,b) < \infty$が成り立つ。\par
+$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、$V\left( d|M \times N \right) = V\left( d|N \times M \right)$が成り立つことにより、$\mathrm{dist}(M,N) = \mathrm{dist}(N,M)$が成り立つ。\par
+$\forall a,b \in S$に対し、次のようになる。
+\begin{align*}
+\mathrm{dist}\left( \left\{ a \right\},\left\{ b \right\} \right) &= \inf{V\left( d|\left\{ a \right\} \times \left\{ b \right\} \right)}\\
+&= \inf\left\{ d(a,b) \right\}\\
+&= d(a,b)
+\end{align*}\par
+$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でなく$M \cap N \neq \emptyset$が成り立つなら、$\exists a \in M \cap N$に対し、$a \in M$が成り立つかつ、$a \in N$が成り立つので、$d(a,a) = 0 \in V\left( d|M \times N \right)$が成り立つ。したがって、$\mathrm{dist}(M,N) = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{8.2.3.5}
+距離空間$(S,d)$が与えられたとき、$\forall a \in S\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、次のことが成り立つ。
+\begin{itemize}
+\item
+  その元$a$がその集合$M$の触点である、即ち、$a \in {\mathrm{cl}}M$が成り立つならそのときに限り、$\mathrm{dist}\left( \left\{ a \right\},M \right) = 0$が成り立つ。
+\item
+  その元$a$がその集合$M$の内点である、即ち、$a \in {\mathrm{int}}M$が成り立つならそのときに限り、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) > 0$が成り立つ。
+\item
+  その元$a$がその集合$M$の外点である、即ち、$a \in {\mathrm{ext}}M$が成り立つならそのときに限り、$\mathrm{dist}\left( \left\{ a \right\},M \right) > 0$が成り立つ。
+\item
+  その元$a$がその集合$M$の境界点である、即ち、$a \in \partial M$が成り立つならそのときに限り、$\mathrm{dist}\left( \left\{ a \right\},M \right) = 0$が成り立つかつ、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) = 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall a \in S\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないとする。このとき、$\mathrm{dist}\left( \left\{ a \right\},M \right) = 0$が成り立つならそのときに限り、$\exists b \in M$に対し、$d(a,b) = 0$が成り立ち、これが成り立つならそのときに限り、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$0 \leq d(a,b) < \varepsilon$が成り立つ、即ち、$b \in B(a,\varepsilon) \cap M$が成り立つので、$B(a,\varepsilon) \cap M \neq \emptyset$が成り立ち、これが成り立つならそのときに限り、定理\ref{8.1.2.17}、定理\ref{8.2.1.6}より$a \in {\mathrm{cl}}M$が成り立つ。\par
+その元$a$がその集合$M$の内点である、即ち、$a \in {\mathrm{int}}M$が成り立つならそのときに限り、$a \notin {\mathrm{cl}}(S \setminus M)$が成り立つので、これが成り立つならそのときに限り、上記の議論により、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) \neq 0$が成り立つ、即ち、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) > 0$が成り立つ。\par
+その元$a$がその集合$M$の外点である、即ち、$a \in {\mathrm{ext}}M$が成り立つならそのときに限り、$a \in {\mathrm{int}}(S \setminus M)$が成り立つので、これが成り立つならそのときに限り、上記の議論により、$\mathrm{dist}\left( \left\{ a \right\},M \right) > 0$が成り立つ。\par
+その元$a$がその集合$M$の境界点である、即ち、$a \in \partial M$が成り立つならそのときに限り、$a \in {\mathrm{cl}}M$が成り立つかつ、$a \in {\mathrm{int}}M$が成り立たないことになり、これが成り立つならそのときに限り、上記の議論により、$\mathrm{dist}\left( \left\{ a \right\},M \right) = 0$が成り立つかつ、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) > 0$が成り立たない、即ち、$\mathrm{dist}\left( \left\{ a \right\},M \right) = 0$が成り立つかつ、$\mathrm{dist}\left( \left\{ a \right\},S \setminus M \right) = 0$が成り立つことになる。
+\end{proof}
+\begin{thm}\label{8.2.3.6}
+距離空間$(S,d)$が与えられたとき、$\forall a,b \in S\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、次式が成り立つ。
+\begin{align*}
+\left| \mathrm{dist}\left( \left\{ a \right\},M \right) - \mathrm{dist}\left( \left\{ b \right\},M \right) \right| \leq d(a,b)
+\end{align*}
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall a,b \in S\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、$\forall c \in M$に対し、次式が成り立つ。
+\begin{align*}
+\mathrm{dist}\left( \left\{ a \right\},M \right) - d(a,b) &\leq d(a,c) - d(a,b)\\
+&\leq d(a,b) + d(b,c) - d(a,b)\\
+&= d(b,c)
+\end{align*}
+これにより、$\mathrm{dist}\left( \left\{ a \right\},M \right) - d(a,b) \leq \inf{V\left( d|\left\{ b \right\} \times M \right)} = \mathrm{dist}\left( \left\{ b \right\},M \right)$が成り立つ。これにより、$\mathrm{dist}\left( \left\{ a \right\},M \right) - \mathrm{dist}\left( \left\{ b \right\},M \right) \leq d(a,b)$が得られる。同様にして、$\mathrm{dist}\left( \left\{ b \right\},M \right) - \mathrm{dist}\left( \left\{ a \right\},M \right) \leq d(a,b)$が得られるので、次式が成り立つ。
+\begin{align*}
+\left| \mathrm{dist}\left( \left\{ a \right\},M \right) - \mathrm{dist}\left( \left\{ b \right\},M \right) \right| \leq d(a,b)
+\end{align*}
+\end{proof}
+\begin{thm}\label{8.2.3.7}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、次式が成り立つ。
+\begin{align*}
+\delta(M \cup N) \leq \mathrm{dist}(M,N) + \delta(M) + \delta(N)
+\end{align*}
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M,N \in \mathfrak{P}(S)$に対し、それらの集合たち$M$、$N$が空集合でないなら、$\forall a,b \in M \cup N\forall a' \in M\forall b' \in N$に対し、次のようになる。
+\begin{align*}
+d(a,b) &\leq d\left( a,a' \right) + d\left( b,b' \right) + d\left( a',b' \right)\\
+&= d\left( a',b' \right) + d\left( a,a' \right) + d\left( b,b' \right)\\
+&\leq d\left( a',b' \right) + \delta(M) + \delta(N)
+\end{align*}
+したがって、両辺に下限がとられれば、次のようになる。
+\begin{align*}
+\delta(M \cup N) &\leq \inf{V\left( d|M \times N \right)} + \delta(M) + \delta(N)\\
+&= \mathrm{dist}(M,N) + \delta(M) + \delta(N)
+\end{align*}
+\end{proof}
+\begin{thm}\label{8.2.3.8}
+距離空間$(S,d)$について、添数集合$\varLambda_{n}$によって添数づけられたその集合$S$の有界な部分集合の族$\left\{ M_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、これらの和集合$\bigcup_{i \in \varLambda_{n}} M_{i}$も有界である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$について、添数集合$\varLambda_{n}$によって添数づけられたその集合$S$の有界な部分集合の族$\left\{ M_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall i \in \varLambda_{n}$に対し、$\delta\left( M_{i} \right) < \infty$が成り立つので、$n = 1$のときは明らかであるから、$n = k$のとき、$\delta\left( \bigcup_{i \in \varLambda_{k}} M_{i} \right) < \infty$が成り立つと仮定すると、$n = k + 1$のとき、定理\ref{8.2.3.4}、定理\ref{8.2.3.7}より次のようになる。
+\begin{align*}
+\delta\left( \bigcup_{i \in \varLambda_{k + 1}} M_{i} \right) &= \delta\left( \bigcup_{i \in \varLambda_{k}} M_{i} \cup M_{k + 1} \right)\\
+&\leq \mathrm{dist}\left( \bigcup_{i \in \varLambda_{k}} M_{i},M_{k + 1} \right) + \delta\left( \bigcup_{i \in \varLambda_{k}} M_{i} \right) + \delta\left( M_{k + 1} \right)\\
+&< \infty + \infty + \infty = \infty
+\end{align*}
+よって、数学的帰納法によりその集合$S$の有界な部分集合のその族$\left\{ M_{i} \right\}_{i \in \varLambda_{n}}$が与えられたとき、これらの和集合$\bigcup_{i \in \varLambda_{n}} M_{i}$も有界であることが示された。
+\end{proof}
+\begin{thm}\label{8.2.3.9}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、$\delta(M) = \delta\left( {\mathrm{cl}}M \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、定理\ref{8.2.3.2}より$\delta(M) \leq \delta\left( {\mathrm{cl}}M \right)$が成り立つ。$\delta(M) = \infty$のときは明らかであるから、$\delta(M) < \infty$のとき、$0 \leq \delta\left( {\mathrm{cl}}M \right) - \delta(M)$が成り立つ。$\forall a,b \in {\mathrm{cl}}M$に対し、定理\ref{8.2.3.5}より$\mathrm{dist}\left( \left\{ a \right\},M \right) = \mathrm{dist}\left( \left\{ b \right\},M \right) = 0$が成り立つので、$\exists a',b' \in M$に対し、$d\left( a,a' \right) = d\left( b,b' \right) = 0$が成り立つ。これにより、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$d\left( a,a' \right) < \varepsilon$かつ$d\left( b,b' \right) < \varepsilon$が成り立ち、したがって、次のようになる。
+\begin{align*}
+d(a,b) &\leq d\left( a,a' \right) + d\left( a',b' \right) + d\left( b',b \right)\\
+&\leq \delta(M) + d\left( a,a' \right) + d\left( b,b' \right)\\
+&< \delta(M) + \varepsilon + \varepsilon\\
+&= \delta(M) + 2\varepsilon
+\end{align*}
+したがって、$\delta\left( {\mathrm{cl}}M \right) < \delta(M) + 2\varepsilon$が成り立つので、$0 \leq \delta\left( {\mathrm{cl}}M \right) - \delta(M) < 2\varepsilon$が成り立つ。ここで、その正の実数$\varepsilon$の任意性より$\delta\left( {\mathrm{cl}}M \right) = \delta(M)$が成り立つ。
+\end{proof}
+\begin{thm}\label{8.2.3.10}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でなく有界であるなら、その開核${\mathrm{int}}M$、その閉包${\mathrm{cl}}M$も有界である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でなく有界であるなら、その集合$M$の開核${\mathrm{int}}M$は${\mathrm{int}}M \subseteq M$を満たすので、定理\ref{8.2.3.3}より$\forall a \in S\exists\varepsilon \in \mathbb{R}^{+}$に対し、${\mathrm{int}}M \subseteq M \subseteq B(a,\varepsilon)$が成り立つ。したがって、再び定理\ref{8.2.3.3}よりその集合$M$の開核${\mathrm{int}}M$も有界である。一方で、その集合$M$の閉包${\mathrm{cl}}M$は定理\ref{8.2.3.9}より$\delta(M) = \delta\left( {\mathrm{cl}}M \right)$を満たすので、その集合$M$が有界であることにより$\delta(M) = \delta\left( {\mathrm{cl}}M \right) < \infty$が成り立つ。したがって、その閉包${\mathrm{cl}}M$も有界である。
+\end{proof}
+%\hypertarget{ux8dddux96e2ux7a7aux9593ux3068t_4-ux7a7aux9593}{%
+\subsubsection{距離空間と$\mathrm{T}_{4}$-空間}%\label{ux8dddux96e2ux7a7aux9593ux3068t_4-ux7a7aux9593}}
+\begin{thm}\label{8.2.3.11}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、次式のように写像$f_{M}$が定義されると、
+\begin{align*}
+f_{M}:S \rightarrow \mathbb{R};a \mapsto \mathrm{dist}\left( \left\{ a \right\},M \right)
+\end{align*}
+その写像$f_{M}$はその集合$S$上で連続である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$が空集合でないなら、次式のように写像$f_{M}$が定義されると、
+\begin{align*}
+f_{M}:S \rightarrow \mathbb{R};a \mapsto \mathrm{dist}\left( \left\{ a \right\},M \right)
+\end{align*}
+$\forall a,b \in S\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\delta = \varepsilon$とすれば、$\exists\delta \in \mathbb{R}^{+}$に対し、定理\ref{8.2.3.6}より次のようになる。
+\begin{align*}
+d(a,b) < \delta &\Leftrightarrow d(a,b) < \varepsilon = \delta\\
+&\Leftrightarrow \left| \mathrm{dist}\left( \left\{ a \right\},M \right) - \mathrm{dist}\left( \left\{ b \right\},M \right) \right| \leq d(a,b) < \varepsilon\\
+&\Leftrightarrow \left| f_{M}(a) - f_{M}(b) \right| \leq d(a,b) < \varepsilon\\
+&\Rightarrow \left| f_{M}(a) - f_{M}(b) \right| < \varepsilon
+\end{align*}
+定理\ref{8.2.1.14}よりよって、その写像$f_{M}$はその集合$S$上で連続である。
+\end{proof}
+\begin{thm}\label{8.2.3.12}
+距離空間$(S,d)$が与えられたとき、この距離空間における位相空間$\left( S,\mathfrak{O}_{d} \right)$は$\mathrm{T}_{4}$-空間である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、この距離空間における位相空間$\left( S,\mathfrak{O}_{d} \right)$において、$\forall a \in S$に対し、定理\ref{8.2.3.4}、定理\ref{8.2.3.5}より次のようになる。
+\begin{align*}
+a' \in \left\{ a \right\} &\Leftrightarrow a = a'\\
+&\Leftrightarrow d\left( a,a' \right) = 0\\
+&\Leftrightarrow \mathrm{dist}\left( \left\{ a \right\},\left\{ a' \right\} \right) = 0\\
+&\Leftrightarrow a' \in {\mathrm{cl}}\left\{ a \right\}
+\end{align*}
+したがって、$\left\{ a \right\} = {\mathrm{cl}}\left\{ a \right\}$が成り立つので、その集合$\left\{ a \right\}$は閉集合となり、したがって、その位相空間$\left( S,\mathfrak{O}_{d} \right)$は定理\ref{8.1.7.3}より$\mathrm{T}_{1}$-空間である。\par
+ここで、閉集合たち$A$、$B$が$A \cap B = \emptyset$を満たすなら、次のような写像$g_{(A,B)}$が定義されれば、
+\begin{align*}
+g_{(A,B)}:S \rightarrow \mathbb{R};a \mapsto \mathrm{dist}\left( \left\{ a \right\},A \right) - \mathrm{dist}\left( \left\{ a \right\},B \right)
+\end{align*}
+定理\ref{8.2.3.11}よりその写像$g_{(A,B)}$はその集合$S$上で連続である。したがって、次のように集合たち$O$、$P$がおかれれば、
+\begin{align*}
+O = V\left( g_{(A,B)}^{- 1}|( - \infty,0) \right),\ \ P = V\left( g_{(A,B)}^{- 1}|(0,\infty) \right)
+\end{align*}
+集合たち$( - \infty,0)$、$(0,\infty)$はいづれも開集合なので、その写像$g_{(A,B)}$は連続であることから、それらの集合たち$O$、$P$は開集合である。このとき、次のようになる。
+\begin{align*}
+O &= V\left( g_{(A,B)}^{- 1}|( - \infty,0) \right)\\
+&= \left\{ a \in S \middle| g_{(A,B)}(a) \in ( - \infty,0) \right\}\\
+&= \left\{ a \in S \middle| g_{(A,B)}(a) < 0 \right\}\\
+P &= V\left( g_{(A,B)}^{- 1}|(0,\infty) \right)\\
+&= \left\{ a \in S \middle| g_{(A,B)}(a) \in (0,\infty) \right\}\\
+&= \left\{ a \in S \middle| 0 < g_{(A,B)}(a) \right\}
+\end{align*}
+ここで、次のようになる。
+\begin{align*}
+O \cap P &= \left\{ a \in S \middle| g_{(A,B)}(a) < 0 \right\} \cap \left\{ a \in S \middle| 0 < g_{(A,B)}(a) \right\}\\
+&= \left\{ a \in S \middle| g_{(A,B)}(a) < 0 \land 0 < g_{(A,B)}(a) \right\}\\
+&= \left\{ a \in S \middle| \bot \right\} = \emptyset
+\end{align*}
+さらに、$\forall a \in A$に対し、$\left\{ a \right\} \cap A \neq \emptyset$が成り立つので、定理\ref{8.2.3.4}より$\mathrm{dist}\left( \left\{ a \right\},A \right) = 0$が成り立つ。このとき、仮定より$a \notin B = {\mathrm{cl}}B$が成り立ち、定理\ref{8.2.3.5}より$\mathrm{dist}\left( \left\{ a \right\},B \right) \neq 0$が成り立つ、即ち、$\mathrm{dist}\left( \left\{ a \right\},B \right) > 0$が成り立つので、次のようになる。
+\begin{align*}
+g_{(A,B)}(a) &= \mathrm{dist}\left( \left\{ a \right\},A \right) - \mathrm{dist}\left( \left\{ a \right\},B \right)\\
+&= - \mathrm{dist}\left( \left\{ a \right\},B \right) < 0
+\end{align*}
+したがって、$a \in O$が成り立つので、$A \subseteq O$が成り立つ。同様にして、$B \subseteq P$も成り立つ。\par
+以上より、任意の閉集合たち$A$、$B$に対し、$A \cap B = \emptyset$が成り立つなら、$A \subseteq O$かつ$B \subseteq P$かつ$O \cap P = \emptyset$が成り立つような開集合たち$O$、$P$が存在するので、その位相空間$\left( S,\mathfrak{O}_{d} \right)$は正規空間である。よって、位相空間$\left( S,\mathfrak{O}_{d} \right)$は$\mathrm{T}_{4}$-空間である。
+\end{proof}
+\begin{thm}\label{8.2.3.12s}
+距離空間$(S,d)$が与えられたとき、この距離空間における任意の閉集合たち$A$、$B$に対し、$A \cap B = \emptyset$が成り立つなら、その距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O}_{d} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+\begin{itemize}
+\item
+  $\forall a \in A$に対し、$f(a) = 0$が成り立つ。
+\item
+  $\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+\item
+  $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof} Urysohnの補題より明らかである。
+\end{proof}
+\begin{thm}\label{8.2.3.13}
+連結な位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への写像について、$\forall a \in S$に対し、これのある近傍$V$が存在して、$\forall b \in V$に対し、$f(b) = f(a)$が成り立つなら、$\forall a,b \in S$に対し、$f(a) = f(b)$が成り立つ。
+\end{thm}
+\begin{proof}
+連結な位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への写像について、$\forall a \in S$に対し、これのある近傍$V$が存在して、$\forall b \in V$に対し、$f(b) = f(a)$が成り立つなら、その実数$f(a)$の任意の近傍$V'$に対し、$\left\{ f(a) \right\} = \left\{ f(b) \right\} \subseteq {\mathrm{int}}V' \subseteq V'$が成り立つので、次のようになり、
+\begin{align*}
+V\left( f^{- 1}|\left\{ f(a) \right\} \right) &= V\left( f^{- 1}|\left\{ f(b) \right\} \right)\\
+&\subseteq V\left( f^{- 1}|{\mathrm{int}}V' \right)\\
+&\subseteq V\left( f^{- 1}|V' \right)
+\end{align*}
+したがって、$a,b \in V\left( f^{- 1}|V' \right)$が成り立つ。したがって、$V \subseteq V\left( f^{- 1}|V' \right)$が成り立つので、$a \in {\mathrm{int}}V \subseteq {\mathrm{int}}{V\left( f^{- 1}|V' \right)}$となり、したがって、その値域$V\left( f^{- 1}|V' \right)$もその元$a$の近傍となる。ゆえに、その写像$f$は連続である。\par
+ここで、$\forall a \in S$に対し、値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$が与えられたとき、定理\ref{8.2.3.11}よりその位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$は$\mathrm{T}_{4}$-空間であるから、定理\ref{8.1.7.6}、定理\ref{8.1.7.10}、定理\ref{8.1.7.14}よりその位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$は$\mathrm{T}_{1}$-空間でもある。ここで、定理\ref{8.1.7.3}よりその集合$\left\{ f(a) \right\}$は閉集合であるから、その写像$f$が連続であることにより、その値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$も閉集合である。\par
+また、$a \in V\left( f^{- 1}|\left\{ f(a) \right\} \right)$が成り立つことにより、その値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$は空集合でなく、$\forall b \in V\left( f^{- 1}|\left\{ f(a) \right\} \right)$に対し、$f(b) = f(a)$が成り立つので、この元$b$のある近傍$V$が存在して、$\forall c \in V$に対し、$f(c) = f(a)$が成り立ち、したがって、$c \in V\left( f^{- 1}|\left\{ f(a) \right\} \right)$が成り立つ。これにより、$V \subseteq V\left( f^{- 1}|\left\{ f(a) \right\} \right)$が成り立つので、その値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$は$b \in {\mathrm{int}}V \subseteq {\mathrm{int}}{V\left( f^{- 1}|\left\{ f(a) \right\} \right)}$を満たすことから、その元$b$の近傍であり、定理\ref{8.1.1.23}よりその値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$は開集合でもある。\par
+ここで、その位相空間$\left( S,\mathfrak{O} \right)$は連結であるので、これの閉集合系を$\mathfrak{A}$とおくと、$\mathfrak{O \cap A} =\left\{ S,\emptyset \right\}$が成り立つかつ、その値域$V\left( f^{- 1}|\left\{ f(a) \right\} \right)$は空集合ではないので、$V\left( f^{- 1}|\left\{ f(a) \right\} \right) = S$が成り立つ。これにより、$\forall b \in S$に対し、$f(a) = f(b)$が成り立つ。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p247 ISBN978-4-00-029871-1
+\end{thebibliography}
+\end{document}

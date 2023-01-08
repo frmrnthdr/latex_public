@@ -1,0 +1,70 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{5}
+\setcounter{subsection}{0}
+\input{macro}
+\begin{document}
+%\hypertarget{ux96c6ux5408ux306eux6975ux9650}{%
+\subsection{集合の極限}%\label{ux96c6ux5408ux306eux6975ux9650}}\par
+%\hypertarget{ux96c6ux5408ux306eux6975ux9650-1}{%
+\subsubsection{集合の極限}%\label{ux96c6ux5408ux306eux6975ux9650-1}}
+\begin{dfn}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式のように極限たち$\limsup_{n \rightarrow \infty}A_{n}$、$\liminf_{n \rightarrow \infty}A_{n}$が定義される。
+\begin{align*}
+\limsup_{n \rightarrow \infty}A_{n} &= \bigcap_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}}\\
+\liminf_{n \rightarrow \infty}A_{n} &= \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}}
+\end{align*}
+このような極限たち$\limsup_{n \rightarrow \infty}A_{n}$、$\liminf_{n \rightarrow \infty}A_{n}$をそれぞれその族$\left( A_{n} \right)_{n \in \mathbb{N}}$の上極限集合、下極限集合という。
+\end{dfn}\par
+この意味合いとして、和集合、積集合をそれぞれ論理和、論理積とみなすことで、上極限集合$\limsup_{n \rightarrow \infty}A_{n}$の元$a$は任意の自然数$n$に対し、これ以上の自然数$k$が存在して$a \in A_{k}$を満たす、即ち、$a \in A_{k}$なる添数$k$がいくらでも大きくとられることができこのような集合$A_{k}$が無限に存在する、下極限集合$\liminf_{n \rightarrow \infty}A_{n}$の元$a$はある自然数$n$が存在してこれ以上の任意の自然数$k$に対し、$a \in A_{k}$を満たす、即ち、添数$k$が十分大きくなれば、$a \in A_{k}$が成り立ち$a \notin A_{k}$なる集合$A_{k}$がたかだか有限にしか存在しないという意味をもつことになる。
+\begin{thm}\label{4.5.1.1}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\liminf_{n \rightarrow \infty}A_{n} \subseteq \limsup_{n \rightarrow \infty}A_{n}
+\end{align*}
+\end{thm}
+\begin{proof}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall a \in \liminf_{n \rightarrow \infty}A_{n}$に対し、次式が成り立つ。
+\begin{align*}
+\exists n \in \mathbb{N}\left[ a \in \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right]
+\end{align*}
+ここで、$\forall m \in \mathbb{N}$に対し、次式が成り立つので、
+\begin{align*}
+\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \subseteq \bigcup_{k \in \mathbb{N} \setminus \varLambda_{m - 1}} A_{k}
+\end{align*}
+$\forall m \in \mathbb{N}$に対し、$a \in \bigcup_{k \in \mathbb{N} \setminus \varLambda_{m - 1}} A_{k}$が成り立つ。これにより、$a \in \limsup_{n \rightarrow \infty}A_{n}$が成り立つことになるので、次式が成り立つ。
+\begin{align*}
+\liminf_{n \rightarrow \infty}A_{n} \subseteq \limsup_{n \rightarrow \infty}A_{n}
+\end{align*}
+\end{proof}
+\begin{dfn}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとする。$\liminf_{n \rightarrow \infty}A_{n} \supseteq \limsup_{n \rightarrow \infty}A_{n}$が成り立つとき、このことは定理\ref{4.5.1.1}より次式のように書かれ
+\begin{align*}
+\lim_{n \rightarrow \infty}A_{n} = \liminf_{n \rightarrow \infty}A_{n} = \limsup_{n \rightarrow \infty}A_{n}
+\end{align*}
+この集合$\lim_{n \rightarrow \infty}A_{n}$をその集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$の極限集合という。
+\end{dfn}
+\begin{thm}\label{4.5.1.2}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとする。これが単調増加する、または、単調減少するとき、その集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$の極限集合$\lim_{n \rightarrow \infty}A_{n}$が存在する。
+\end{thm}
+\begin{proof}
+添数集合$\mathbb{N}$によって添数づけられた集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとする。これが単調増加するとき、次のようになる。
+\begin{align*}
+\limsup_{n \rightarrow \infty}A_{n} &= \bigcap_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} = \bigcap_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N}} A_{k}}\\
+&= \bigcup_{k \in \mathbb{N}} A_{k} = \bigcup_{n \in \mathbb{N}} A_{n}\\
+&= \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} = \liminf_{n \rightarrow \infty}A_{n}
+\end{align*}
+これが単調減少するとき、次のようになる。
+\begin{align*}
+\limsup_{n \rightarrow \infty}A_{n} &= \bigcap_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} = \bigcap_{n \in \mathbb{N}} A_{n}\\
+&= \bigcap_{k \in \mathbb{N}} A_{k} = \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N}} A_{k}}\\
+&= \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} = \liminf_{n \rightarrow \infty}A_{n}
+\end{align*}
+よって、その集合の列$\left( A_{n} \right)_{n \in \mathbb{N}}$の極限集合$\lim_{n \rightarrow \infty}A_{n}$が存在する。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1980, 第34刷. p362-366 ISBN978-4-13-062005-5
+\bibitem{2}
+  数学の景色. "上極限集合・下極限集合の定義とその包含関係の証明". 数学の景色. \url{https://mathlandscape.com/limit-set/} (2021-8-18 8:15 閲覧)
+\end{thebibliography}
+\end{document}

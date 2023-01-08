@@ -1,0 +1,360 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{8}
+\usepackage{xr}
+\externaldocument{8.1.1}
+\externaldocument{8.1.3}
+\externaldocument{8.1.4}
+\externaldocument{8.1.6}
+\externaldocument{8.1.8}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6709ux5411ux70b9ux65cf}{%
+\subsection{有向点族}%\label{ux6709ux5411ux70b9ux65cf}}
+%\hypertarget{ux6709ux5411ux70b9ux65cf-1}{%
+\subsubsection{有向点族}%\label{ux6709ux5411ux70b9ux65cf-1}}
+\begin{dfn}
+空集合でない集合$A$と関係$P$が与えられたとする。次のことをみたすとき、その組$(A,P)$を有向集合という。
+\begin{itemize}
+\item
+  $\forall\alpha \in A$に対し、$\alpha P\alpha$が成り立つ。
+\item
+  $\forall\alpha,\beta,\gamma \in A$に対し、$\alpha P\beta$かつ$\beta P\gamma$が成り立つなら、$\alpha P\gamma$が成り立つ。
+\item
+  $\forall\alpha,\beta \in A\exists\gamma \in A$に対し、$\alpha P\gamma$かつ$\beta P\gamma$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{dfn}
+集合$S$と有向集合$(A,P)$が与えられたとき、写像$a:A \rightarrow S$をその有向集合$(A,P)$によって添数づけられたその集合$S$の有向点族、netといい、その値$a(\alpha)$、その写像$a$を$a_{\alpha}$、$\left( a_{\alpha} \right)_{\alpha \in A}$と書くことが多い。
+\end{dfn}\par
+例えば、点列$\left( a_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R}^{n}$が有向集合$\left( \mathbb{N}, \leq \right)$によって添数づけられた$n$次元数空間$\mathbb{R}^{n}$の有向点族となっている。そこで、後の便利のために次のように定義する。
+\begin{dfn}
+集合$S$が与えられたとき、写像$\left( a_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow S;n \mapsto a_{n}$もその集合$S$の点列ということにする。
+\end{dfn}
+\begin{dfn}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$と有向集合$(B,Q)$が与えられたとする。ある写像$\varphi:B \rightarrow A$が存在して、$\forall\alpha_{0} \in A\exists\beta_{0} \in B\forall\beta \in B$に対し、$\beta_{0}Q\beta$が成り立つなら、$\alpha_{0}P\varphi(\beta)$が成り立つとき、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$への合成$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$をその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族、部分netという。
+\end{dfn}\par
+この定義は点列に対しても同様にして定義される。
+\begin{dfn}\label{部分列}
+特に、集合$S$の点列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、ある写像$\left( n_{k} \right)_{k \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{N};k \mapsto n_{k}$が存在して、$\forall k,l \in \mathbb{N}$に対し、$k < l$が成り立つなら、$n_{k} < n_{l}$が成り立つとき、その点列$\left( a_{n} \right)_{n \in \mathbb{N}}$への合成$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$をその点列$\left( a_{n} \right)_{n \in \mathbb{N}}$の部分列という。
+\end{dfn}\par
+これは、もちろん、その点列$\left( a_{n} \right)_{n \in \mathbb{N}}$の部分有向点族でもある。実際、$\forall n \in \mathbb{N}$に対し、集合$V\left( \left( n_{k} \right)_{k \in \mathbb{N}}^{- 1}|\varLambda_{n} \right)$が考えられれば、次式が成り立つので、
+\begin{align*}
+V\left( \left( n_{k} \right)_{k \in \mathbb{N}}|V\left( \left( n_{k} \right)_{k \in \mathbb{N}}^{- 1}|\varLambda_{n} \right) \right) \subseteq \varLambda_{n}
+\end{align*}
+その集合$V\left( \left( n_{k} \right)_{k \in \mathbb{N}}|V\left( \left( n_{k} \right)_{k \in \mathbb{N}}^{- 1}|\varLambda_{n} \right) \right)$は有限集合である。これが空集合なら、任意に自然数$k_{0}$がとられれば、$n < n_{k_{0}}$が成り立つ。さらに、これが空集合でないなら、自然数全体の集合$\mathbb{N}$の部分集合なので、最大値が存在する\footnote{これは数学的帰納法によって示すと分かりやすいかもしれない。実際、$\varLambda \subseteq \mathbb{N}$なる有限集合$\varLambda$において、${\#}\varLambda$のときは明らかで、${\#}\varLambda = k$のとき、最大値$\max\varLambda$が存在するとすれば、${\#}\varLambda = k + 1$のとき、$n \in \varLambda$な自然数を用いて考えれば、$\max\varLambda = \max\left\{ n,\max{\varLambda \setminus \left\{ n \right\}} \right\}$が成り立つので、たしかに従う。}。これを$m$とおくと、$\exists k_{0} \in \mathbb{N}$に対し、$n_{k_{0}} \leq n$が成り立つかつ、$m = n_{k_{0}}$が成り立つ。そこで、$\forall k \in \mathbb{N}$に対し、$k_{0} < k$が成り立つなら、$m = n_{k_{0}} < n_{k}$なので、$k \notin V\left( \left( n_{k} \right)_{k \in \mathbb{N}}^{- 1}|\varLambda_{n} \right)$が成り立つことになり、よって、$n_{k_{0}} \leq n < n_{k}$が成り立つことから従う。
+\begin{dfn}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。その集合$S$の部分集合$M$について、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in M$が成り立つとき、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$M$にほとんど属するという。
+\end{dfn}
+\begin{dfn}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。その集合$S$の部分集合$M$について、$\forall\alpha \in A\exists\alpha_{0} \in A$に対し、$\alpha P\alpha_{0}$が成り立つかつ、$a_{\alpha_{0}} \in M$が成り立つとき、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$M$にしばしば属するという。
+\end{dfn}
+\begin{thm}[有向点族の基本補題]\label{8.1.9.1}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。その集合$\mathfrak{P}(S)$の部分集合$\mathfrak{M}$について、組$\left( \mathfrak{M, \supseteq} \right)$が有向集合で、$\forall M \in \mathfrak{M}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$M$にしばしば属するなら、ある有向集合$(B,Q)$とその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$のある部分有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$が存在して、$\forall M \in \mathfrak{M}$に対し、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$はその集合$M$にほとんど属する。この定理を有向点族の基本補題という。
+\end{thm}
+\begin{proof}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。その集合$\mathfrak{P}(S)$の部分集合$\mathfrak{M}$について、組$\left( \mathfrak{M, \supseteq} \right)$が有向集合で、$\forall M \in \mathfrak{M}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$M$にしばしば属するなら、次のように集合$B$がおかれ、
+\begin{align*}
+B = \left\{ (\alpha,M) \in A \times \mathfrak{M} \middle| a_{\alpha} \in M \right\}
+\end{align*}
+さらに、次のように関係$Q$が定義されれば、
+\begin{itemize}
+\item
+  $\forall(\alpha,M),(\beta,N) \in B$に対し、$\alpha P\beta$かつ$M \supseteq N$が成り立つことを$(\alpha,M)Q(\beta,N)$とする。
+\end{itemize}
+$\forall(\alpha,M) \in B$に対し、$\alpha P\alpha$かつ$M \supseteq M$が成り立つので、$(\alpha,B)Q(\alpha,B)$が成り立つかつ、$\forall(\alpha,M),(\beta,N),(\gamma,O) \in B$に対し、$(\alpha,M)Q(\beta,N)$かつ$(\beta,N)Q(\gamma,O)$が成り立つなら、$\alpha P\beta$かつ$\beta P\gamma$かつ$M \supseteq N$かつ$N \supseteq O$が成り立つので、$\alpha P\gamma$かつ$M \supseteq O$が成り立ち、したがって、$(\alpha,M)Q(\gamma,O)$が成り立つかつ、$\forall(\alpha,M),(\beta,N) \in B\exists\gamma \in A$に対し、$\alpha P\gamma$かつ$\beta P\gamma$が成り立つかつ、$\exists O \in \mathfrak{M}$に対し、$M \supseteq O$かつ$N \supseteq O$が成り立つので、$(\alpha,M)Q(\gamma,O)$かつ$(\beta,N)Q(\gamma,O)$が成り立つ。これにより、その組$(B,Q)$は有向集合である。\par
+このとき、$\varphi = {\mathrm{pr}}_{A}:B \rightarrow A;(\alpha,M) \mapsto \alpha$とおかれれば、$\forall\alpha_{0} \in A$に対し、その集合$\mathfrak{M}$の元$M_{0}$を用いて、$\forall\beta \in B$に対し、$\beta_{0} = \left( \alpha_{0},M_{0} \right)$、$\beta = (\alpha,M)$として、$\beta_{0}Q\beta$が成り立つなら、$\alpha_{0}P\alpha$かつ$M_{0} \supseteq M$が成り立ち、$\alpha = \varphi(\alpha,M)$より$\alpha_{0}P\varphi(\beta)$が成り立つので、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$はその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族である。\par
+$\forall M_{0}\in \mathfrak{M}$に対し、その集合$A$の元$\alpha$を用いて、$\beta_{0} = \left( \alpha,M_{0} \right)$とすれば、$\forall\beta \in B$に対し、$\beta_{0}Q\beta$が成り立つなら、$\beta = (\alpha,M)$として、$\alpha_{0}P\alpha$かつ$M_{0} \supseteq M$が成り立つので、$a_{\varphi(\beta)} = a_{\alpha} \in M \subseteq M_{0}$が成り立つので、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$はその集合$M_{0}$にほとんど属する。
+\end{proof}
+%\hypertarget{ux666eux904dux6709ux5411ux70b9ux65cf}{%
+\subsubsection{普遍有向点族}%\label{ux666eux904dux6709ux5411ux70b9ux65cf}}
+\begin{dfn}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$とその集合$S$上のfilter$\mathfrak{F}$が与えられたとき、$\forall F\in \mathfrak{F}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$F$にしばしば属するようなそのfilter$\mathfrak{F}$をその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilterという\footnote{実は$\mathfrak{\emptyset \notin F}$という条件はなくてもよい。}。
+\end{dfn}
+\begin{thm}\label{8.1.9.2}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilter$\mathfrak{F}$が与えられたとき、これ全体の集合が$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$とおかれれば、その組$\left( \varphi\left( S,\ \ \left( a_{\alpha} \right)_{\alpha \in A} \right),\ \  \subseteq \right)$は順序集合で任意の全順序な部分順序集合$\left( \varphi', \subseteq \right)$は上に有界となる。
+\end{thm}
+\begin{proof}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilter$\mathfrak{F}$が与えられたとき、これ全体の集合が$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$とおかれれば、順序集合の定義より明らかにその組$\left( \varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right), \subseteq \right)$は順序集合となる。ここで、その順序集合$\left( \varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right), \subseteq \right)$の任意の全順序な部分順序集合$\left( \varphi', \subseteq \right)$に対し、その和集合$\bigcup_{} \varphi'$について、もちろん、これは空集合でない。$\forall F \in \bigcup_{} \varphi'\forall G \in \mathfrak{P}(S)$に対し、$F \subseteq G$が成り立つなら、あるfilter$\mathfrak{F}$がその集合$\varphi'$に存在して、$F\in \mathfrak{F}$が成り立ち、したがって、$G \in \mathfrak{F \subseteq}\bigcup_{} \varphi'$も成り立つ。$\forall F,G \in \bigcup_{} \varphi'$に対し、あるfilters$\mathfrak{F}$、$\mathfrak{G}$がその集合$\varphi'$に存在して、$F\in \mathfrak{F}$かつ$G \in \mathfrak{G}$が成り立ち、仮定より$\mathfrak{F \subseteq G}$が成り立つとしてもよいので、$F,G \in \mathfrak{G}$が成り立ち、したがって、$F \cap G \in \mathfrak{G \subseteq}\bigcup_{} \varphi'$が成り立つ。最後に、$\forall F \in \bigcup_{} \varphi'$に対し、あるfilter$\mathfrak{F}$がその集合$\varphi'$に存在して、$F \in \mathfrak{F}$が成り立ち、$\forall\alpha \in A\exists\alpha_{0} \in A$に対し、$\alpha P\alpha_{0}$かつ$\alpha_{0} \in F$が成り立つので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$F$にしばしば属する。これにより、その和集合$\bigcup_{} \varphi'$はその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilterとなる。\par
+このとき、$\mathfrak{\forall F \in}\varphi'$に対し、$\mathfrak{F \subseteq}\bigcup_{} \varphi'$が成り立つので、その和集合$\bigcup_{} \varphi'$はその順序関係$\subseteq$におけるその集合$\varphi'$の上界であり、よって、その部分順序集合$\left( \varphi', \subseteq \right)$は上に有界となる。
+\end{proof}
+\begin{dfn}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。その集合$S$の部分集合$M$について、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$M$にほとんど属する、または、その集合$S \setminus M$にほとんど属するとき、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$をその集合$S$の普遍有向点族、普遍netという。さらに、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族で普遍有向点族であるものをその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の普遍部分有向点族、普遍部分netという。
+\end{dfn}
+\begin{thm}\label{8.1.9.3}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、これの普遍部分有向点族が存在する。
+\end{thm}
+\begin{proof}
+有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとする。定理\ref{8.1.9.2}よりその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilterが与えられたとき、これ全体の集合が$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$とおかれれば、その組$\left( \varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right), \subseteq \right)$は順序集合で任意の全順序な部分順序集合$\left( \varphi', \subseteq \right)$は上に有界となる。したがって、よりよいZornの補題よりその集合$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$の極大元が存在する。これが$\mathfrak{F}$とおかれれば、$\forall M \in \mathfrak{P}(S)\forall F \in \mathfrak{F}$に対し、そのfilter$\mathfrak{F}$の与え方によりその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$F$にしばしば属する、即ち、$\forall\alpha \in A\exists\alpha_{0} \in A$に対し、$\alpha P\alpha_{0}$が成り立つかつ、$a_{\alpha_{0}} \in F$が成り立つので、$a_{\alpha_{0}} \in F \cap M$または$a_{\alpha_{0}} \in F \setminus M$が成り立つ。\par
+$a_{\alpha_{0}} \in F \cap M$が成り立つとき、次のように集合$\mathfrak{G}_{F \cap M}$がおかれると、
+\begin{align*}
+\mathfrak{G}_{F \cap M} = \left\{ G \in \mathfrak{P}(S) \middle| \exists F \in \mathfrak{F}[ F \cap M \subseteq G] \right\}
+\end{align*}
+$\forall F \in \mathfrak{F}$に対し、もちろん、$F \cap M \subseteq F$が成り立つので、$F \in \mathfrak{G}_{F \cap M}$が成り立ち、したがって、$\mathfrak{F \subseteq}\mathfrak{G}_{F \cap M}$が成り立つ。さらに、これは空集合でないかつ、$\forall G \in \mathfrak{G}_{F \cap M}\forall H \in \mathfrak{P}(S)$に対し、$G \subseteq H \subseteq S$が成り立つなら、$\exists F \in \mathfrak{F}$に対し、$F \cap M \subseteq G \subseteq H$が成り立つので、$H \in \mathfrak{G}_{F \cap M}$が成り立つかつ、$\forall G,H \in \mathfrak{G}_{F \cap M}$に対し、その集合$\mathfrak{F}$の元々$F_{G}$、$F_{H}$が存在して、$F_{G} \cap M \subseteq G$かつ$F_{H} \cap M \subseteq H$が成り立ち、filterの定義より$F_{G} \cap F_{H}\in \mathfrak{F}$が成り立つことに注意すれば、$F_{G} \cap F_{H} \cap M \subseteq G \cap H$が成り立つので、$G \cap H \in \mathfrak{G}_{F \cap M}$が成り立つ。したがって、その集合$\mathfrak{G}_{F \cap M}$はその集合$S$上のfilterである。さらに、$\forall G \in \mathfrak{G}_{F \cap M}\forall\alpha \in A$に対し、あるそのfilter$\mathfrak{F}$の元$F$が存在して、$F \cap M \subseteq G$が成り立ち、ここで、仮定より$\alpha P\alpha_{0}$が成り立つかつ、$a_{\alpha_{0}} \in F \cap M$が成り立つので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$G$にしばしば属する。以上の議論により、$\mathfrak{G}_{F \cap M} \in \varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$が成り立つ。\par
+ここで、そのfilter$\mathfrak{F}$がその集合$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$の極大元であるので、$\mathfrak{F} =\mathfrak{G}_{F \cap M}$が成り立ち、$F \cap M \subseteq M$より$M \in \mathfrak{G}_{F \cap M}$が成り立つので、$M \in \mathfrak{F}$が成り立つ。そこで、そのfilter$\mathfrak{F}$がその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilterであるので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$M$にしばしば属する。組$\left( \mathfrak{P}(S), \supseteq \right)$が有向集合となっていることに注意すれば、有向点族の基本補題によりある有向集合$\left( B_{F \cap M},Q_{F \cap M} \right)$とその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$のある部分有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B_{F \cap M}}$が存在して、$\forall M \in \mathfrak{P}(S)$に対し、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B_{F \cap M}}$はその集合$M$にほとんど属する。\par
+$a_{\alpha_{0}} \in F \setminus M$が成り立つとき、次のように集合$\mathfrak{G}_{F \setminus M}$がおかれると、
+\begin{align*}
+\mathfrak{G}_{F \setminus M} = \left\{ G \in \mathfrak{P}(S) \middle| \exists F \in \mathfrak{F}[ F \setminus M \subseteq G] \right\}
+\end{align*}
+$\forall F \in \mathfrak{F}$に対し、もちろん、$F \setminus M \subseteq F$が成り立つので、$F \in \mathfrak{G}_{F \setminus M}$が成り立ち、したがって、$\mathfrak{F \subseteq}\mathfrak{G}_{F \setminus M}$が成り立つ。さらに、これは空集合でないかつ、$\forall G \in \mathfrak{G}_{F \setminus M}\forall H \in \mathfrak{P}(S)$に対し、$G \subseteq H \subseteq S$が成り立つなら、$\exists F \in \mathfrak{F}$に対し、$F \setminus M \subseteq G \subseteq H$が成り立つので、$H \in \mathfrak{G}_{F \setminus M}$が成り立つかつ、$\forall G,H \in \mathfrak{G}_{F \setminus M}$に対し、その集合$\mathfrak{F}$の元々$F_{G}$、$F_{H}$が存在して、$F_{G} \setminus M \subseteq G$かつ$F_{H} \setminus M \subseteq H$が成り立ち、filterの定義より$F_{G} \cap F_{H}\in \mathfrak{F}$が成り立つことに注意すれば、$\left( F_{G} \cap F_{H} \right) \setminus M \subseteq G \cap H$が成り立つので、$G \cap H \in \mathfrak{G}_{F \setminus M}$が成り立つ。したがって、その集合$\mathfrak{G}_{F \setminus M}$はその集合$S$上のfilterである。さらに、$\forall G \in \mathfrak{G}_{F \setminus M}\forall\alpha \in A$に対し、あるそのfilter$\mathfrak{F}$の元$F$が存在して、$F \setminus M \subseteq G$が成り立ち、ここで、仮定より$\alpha P\alpha_{0}$が成り立つかつ、$a_{\alpha_{0}} \in F \setminus M$が成り立つので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$G$にしばしば属する。以上の議論により、$\mathfrak{G}_{F \setminus M} \in \varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$が成り立つ。\par
+ここで、そのfilter$\mathfrak{F}$がその集合$\varphi\left( S,\left( a_{\alpha} \right)_{\alpha \in A} \right)$の極大元であるので、$\mathfrak{F} =\mathfrak{G}_{F \setminus M}$が成り立ち、$F \setminus M \subseteq S \setminus M$より$S \setminus M \in \mathfrak{G}_{F \setminus M}$が成り立つので、$S \setminus M \in \mathfrak{F}$が成り立つ。そこで、そのfilter$\mathfrak{F}$がその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対するfilterであるので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$S \setminus M$にしばしば属する。組$\left( \mathfrak{P}(S), \supseteq \right)$が有向集合となっていることに注意すれば、有向点族の基本補題によりある有向集合$\left( B_{F \setminus M},Q_{F \setminus M} \right)$とその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$のある部分有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B_{F \setminus M}}$が存在して、$\forall M \in \mathfrak{P}(S)$に対し、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B_{F \setminus M}}$はその集合$S \setminus M$にほとんど属する。\par
+以上の議論により、その集合$S$の部分集合$M$について、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族が存在して、その集合$M$にほとんど属する、または、その集合$S \setminus M$にほとんど属することになるので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の普遍部分有向点族が存在する。
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux306eux53ceux675f}{%
+\subsubsection{有向点族の収束}%\label{ux6709ux5411ux70b9ux65cfux306eux53ceux675f}}
+\begin{thm}\label{8.1.9.4}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall a \in S$に対し、その元の全近傍系$\mathbf{V}(a)$を用いた組$\left( \mathbf{V}(a), \supseteq \right)$は有向集合である。
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall a \in S$に対し、その元の全近傍系$\mathbf{V}(a)$を用いた組$\left( \mathbf{V}(a), \supseteq \right)$について、もちろん、$\forall V \in \mathbf{V}(a)$に対し、$V \supseteq V$が成り立つかつ、$\forall U,V,W \in \mathbf{V}(a)$に対し、$U \supseteq V$かつ$V \supseteq W$が成り立つなら、$U \supseteq W$が成り立つかつ、$\forall V,W \in \mathbf{V}(a)$に対し、$V \cap W \in \mathbf{V}(a)$が成り立つので、$V \supseteq V \cap W$かつ$W \supseteq V \cap W$が成り立つ。これにより、その組$\left( \mathbf{V}(a), \supseteq \right)$は有向集合をなす。
+\end{proof}
+\begin{dfn}\label{有向点族の収束}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、$\forall a \in S$に対し、その元$a$の全近傍系が$\mathbf{V}(a)$とおかれれば、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその近傍$V$にほとんど属することをその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその元$a$に収束するといいその元$a$をその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の収束点という。この元$a$がただ1つのみ存在するとき、その元$a$を$\lim\left( a_{\alpha} \right)_{\alpha \in A}$、$\lim_{\alpha \in A}a_{\alpha}$などと書く。式で書けば次のようになる\footnote{比較として、実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が実数$a$に収束する$\Leftrightarrow \forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall n \in \mathbb{N}\left[ n_{0} \leq n \Rightarrow \left| a_{n} - a \right| < \varepsilon \right]$}。
+\begin{align*}
+\forall V \in \mathbf{V}(a)\exists\alpha_{0} \in A\forall\alpha \in A\left[ \alpha_{0}P\alpha \Rightarrow a_{\alpha} \in V \right]
+\end{align*}
+\end{dfn}\par
+この定義の仕方は後に述べる定理\ref{8.1.9.6}より定義\ref{filterの収束}、即ち、filterの収束と矛盾しない。
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、$\forall a \in S$に対し、その元$a$の全近傍系が$\mathbf{V}(a)$とおかれれば、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその近傍$V$にしばしば属するようなその元$a$をその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の堆積点という。式で書けば次のようになる。
+\begin{align*}
+\forall V \in \mathbf{V}(a)\forall\alpha \in A\exists\alpha_{0} \in A\left[ \alpha P\alpha_{0} \land a_{\alpha_{0}} \in V \right]
+\end{align*}
+\end{dfn}
+\begin{thm}\label{8.1.9.5}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その集合$S$の元$a$がその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の堆積点である。
+\item
+  その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族でその元$a$に収束するものが存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、その集合$S$の元$a$がその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の堆積点であるなら、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$V$にしばしば属する。そこで、定理\ref{8.1.9.4}よりその組$\left( \mathbf{V}(a), \supseteq \right)$は有向集合をなす。したがって、有向点族の基本補題よりある有向集合$(B,Q)$とその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$のある部分有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$が存在して、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$はその集合$V$にほとんど属する。これがまさしくその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の部分有向点族でその元$a$に収束するものである。\par
+逆に、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の有向集合$(B,Q)$によって添数づけられた部分有向点族でその元$a$に収束するもの$\left( a_{\varphi(\beta)} \right)_{\beta \in B}$が存在するなら、$\forall V \in \mathbf{V}(a)\exists\beta_{0} \in B\forall\beta \in B$に対し、$\beta_{0}Q\beta$が成り立つなら、$a_{\varphi(\beta)} \in V$が成り立つ、即ち、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in V$が成り立つ。ここで、$\forall\alpha' \in A\exists\alpha'' \in A$に対し、$\alpha'P\alpha''$かつ$\alpha_{0}P\alpha''$が成り立つので、$a_{\alpha''} \in V$が成り立つ。これにより、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$V$にしばしば属する。これがまさしくその集合$S$の元$a$がその有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$の堆積点であることになる。
+\end{proof}
+\begin{thm}\label{8.1.9.6}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in F \subseteq S$が成り立つようなその集合$F$全体の集合$\mathfrak{F}$はその集合$S$上のfilterである。さらに、このfilter$\mathfrak{F}$がその集合$S$の元$a$に収束するならそのときに限り、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束する。
+\end{thm}\par
+この定理によって、定義\ref{有向点族の収束}、即ち、有向点族の収束は定義\ref{filterの収束}、即ち、filterの収束と矛盾していないことがわかる。
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$と有向集合$(A,P)$によって添数づけられた集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が与えられたとき、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in F \subseteq S$が成り立つようなその集合$F$全体の集合$\mathfrak{F}$について、もちろん、$\mathfrak{\emptyset \notin F}$が成り立つ。$\forall F \in \mathfrak{F\forall}G \in \mathfrak{P}(S)$に対し、$F \subseteq G$が成り立つなら、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in F \subseteq G$が成り立つので、$G\in \mathfrak{F}$が成り立つ。$\forall F,G \in \mathfrak{F}$に対し、$\exists\alpha_{F} \in A\forall\alpha \in A$に対し、$\alpha_{F}P\alpha$が成り立つなら、$a_{\alpha} \in F$が成り立つかつ、$\exists\alpha_{G} \in A\forall\alpha \in A$に対し、$\alpha_{G}P\alpha$が成り立つなら、$a_{\alpha} \in F \subseteq S$が成り立つのであった。そこで、有向集合の定義より$\exists\alpha_{0} \in A$に対し、$\alpha_{F}P\alpha_{0}$かつ$\alpha_{G}P\alpha_{0}$が成り立つので、$\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in F$かつ$a_{\alpha} \in G$が成り立ち、したがって、$a_{\alpha} \in F \cap G$が成り立つことにより$F \cap G \in \mathfrak{F}$が成り立つ。以上の議論により、その集合$\mathfrak{F}$はその集合$S$上のfilterである。\par
+さらに、このfilter$\mathfrak{F}$がその集合$S$の元$a$に収束するならそのときに限り、その元$a$の全近傍系$\mathbf{V}(a)$が$\mathbf{V}(a)\subseteq \mathfrak{F}$を満たす。これが成り立つならそのときに限り、$\forall V \in \mathfrak{P}(S)$に対し、$V \in \mathbf{V}(a) \Rightarrow V \in \mathfrak{F}$が成り立つ。これが成り立つならそのときに限り、$\forall V \in \mathbf{V}(a)\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in V$が成り立つ、即ち、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束する。
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux3068ux4f4dux76f8ux7a7aux9593}{%
+\subsubsection{有向点族と位相空間}%\label{ux6709ux5411ux70b9ux65cfux3068ux4f4dux76f8ux7a7aux9593}}
+\begin{thm}\label{8.1.9.7}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall M \in \mathfrak{P}(S)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  $a \in {\mathrm{cl}}M$が成り立つ。
+\item
+  $\forall V \in \mathbf{V}(a)$に対し、$M \cap V \neq \emptyset$が成り立つ。
+\item
+  その集合$S$の元$a$に収束するその集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall M \in \mathfrak{P}(S)$に対し、$a \in {\mathrm{cl}}(M)$が成り立つならそのときに限り、$\forall V \in \mathbf{V}(a)$に対し、$M \cap V \neq \emptyset$が成り立つことはすでに定理\ref{8.1.1.26}で示した。\par
+$\forall V \in \mathbf{V}(a)$に対し、$M \cap V \neq \emptyset$が成り立つとき、$a_{V} \in M \cap V$なる元$a_{V}$がとられる。さらに、定理\ref{8.1.9.4}よりその組$\left( \mathbf{V}(a), \supseteq \right)$は有向集合をなす。そこで、次のような写像$\left( a_{V} \right)_{V \in \mathbf{V}(a)}$が考えられれば、
+\begin{align*}
+\left( a_{V} \right)_{V \in \mathbf{V}(a)}:\mathbf{V}(a) \rightarrow S;V \mapsto a_{V} \in M \cap V
+\end{align*}
+これは有向点族である。このとき、$\forall V,W \in \mathbf{V}(a)$に対し、$V \supseteq W$が成り立つなら、$a_{W} \in M \cap W \subseteq M \cap V \subseteq V$が成り立つ。これはまさしくその有向点族$\left( a_{V} \right)_{V \in \mathbf{V}(a)}$がほとんどその近傍$V$に属することになる\footnote{つまり、$\forall V \in \mathbf{V}(a)\exists V \in \mathbf{V}(a)\forall W \in \mathbf{V}(a)$に対し、$V \supseteq W$が成り立つなら、$a_{W} \in V$が成り立つことになる。}。よって、その集合$S$の元$a$に収束するその集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が存在する。\par
+逆に、その集合$S$の元$a$に収束するその集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が存在するなら、$\forall V \in \mathbf{V}(a)$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその近傍$V$にほとんど属するので、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in V$が成り立つ。ここで、$a_{\alpha} \in M$が成り立つので、これにより、$a_{\alpha} \in M \cap V$が成り立つ、即ち、$M \cap V \neq \emptyset$が成り立つ。
+\end{proof}
+\begin{thm}\label{8.1.9.8}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall M \in \mathfrak{P}(S)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  その集合$M$は閉集合である。
+\item
+  その集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が収束するなら、その収束点$a$は$a \in M$を満たす。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$において、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$は閉集合であるなら、定理\ref{8.1.1.7}より${\mathrm{cl}}M = M$が成り立つ。そこで、その集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が収束するなら、その収束点$a$は定理\ref{8.1.9.7}より$a \in {\mathrm{cl}}M$が成り立つので、その収束点$a$は$a \in M$を満たす。\par
+逆に、その集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が収束するなら、その収束点$a$が$a \in M$を満たすとすると、$\forall a \in S$に対し、$a \in {\mathrm{cl}}M$が成り立つなら、その集合$S$の元$a$に収束するその集合$M$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$が存在する。仮定より$a \in M$が成り立つので、${\mathrm{cl}}M \subseteq M$が成り立つことになり、したがって、${\mathrm{cl}}M = M$が成り立つ。定理\ref{8.1.1.7}よりその集合$M$は閉集合である。
+\end{proof}
+\begin{thm}\label{8.1.9.9}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  写像$f:S \rightarrow T$が連続である。
+\item
+  任意のその集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束するなら、その有向点族$\left( f\left( a_{\alpha} \right) \right)_{\alpha \in A}$もその元$f(a)$に収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、写像$f:S \rightarrow T$が連続であるとき、$a \in S$、$b \in T$における全近傍系それぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$において、任意のその集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束する、即ち、$\forall V \in \mathbf{V}(a)\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in V$が成り立つとする。$\forall V \in \mathbf{W}\left( f(a) \right)\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、定理\ref{8.1.3.1}より$V\left( f^{- 1}|V \right) \in \mathbf{V}(a)$が成り立つので、仮定より$a_{\alpha} \in V\left( f^{- 1}|V \right)$が得られる。このとき、$f\left( a_{\alpha} \right) \in V\left( f|V\left( f^{- 1}|V \right) \right) = V$が成り立つので、$\forall V \in \mathbf{W}\left( f(a) \right)$に対し、その有向点族$\left( f\left( a_{\alpha} \right) \right)_{\alpha \in A}$はその近傍$V$にほとんど属する、即ち、その有向点族$\left( f\left( a_{\alpha} \right) \right)_{\alpha \in A}$はその元$f(a)$に収束する。\par
+逆に、写像$f:S \rightarrow T$が連続でないなら、定理\ref{8.1.3.1}より$\exists V \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|V \right) \notin \mathbf{V}(a)$が成り立つ。ここで、定理8.1.1.22
+より$\forall O \in \mathfrak{O}$に対し、$a \in O$が成り立つなら、$O \setminus V\left( f^{- 1}|V \right) \neq \emptyset$が成り立つので、$\forall W \in \mathbf{V}(a)$に対し、${\mathrm{int}}W\in \mathfrak{O}$かつ$a \in {\mathrm{int}}W$より$\emptyset \neq {\mathrm{int}}W \setminus V\left( f^{- 1}|V \right)$が成り立ち、${\mathrm{int}}W \setminus V\left( f^{- 1}|V \right) \subseteq W \setminus V\left( f^{- 1}|V \right)$が成り立つので、$W \setminus V\left( f^{- 1}|V \right) \neq \emptyset$が成り立つことになり$a_{W} \in W \setminus V\left( f^{- 1}|V \right)$なる元$a_{W}$がとられることができる。定理\ref{8.1.9.4}よりその組$\left( \mathbf{V}(a), \supseteq \right)$は有向集合をなすので、次のような写像$\left( a_{V} \right)_{V \in \mathbf{V}(a)}$は有向点族である。
+\begin{align*}
+\left( a_{W} \right)_{W \in \mathbf{V}(a)}:\mathbf{V}(a) \rightarrow S;W \mapsto a_{W} \in W \setminus V\left( f^{- 1}|V \right)
+\end{align*}
+このとき、$\forall U,W \in \mathbf{V}(a)$に対し、$U \supseteq W$が成り立つなら、$a_{W} \in W \setminus V\left( f^{- 1}|V \right) \subseteq W \subseteq U$が成り立つ。これはまさしくその有向点族$\left( a_{W} \right)_{W \in \mathbf{V}(a)}$がほとんどその近傍$U$に属することになる\footnote{つまり、$\forall U \in \mathbf{V}(a)\exists U \in \mathbf{V}(a)\forall W \in \mathbf{V}(a)$に対し、$U \supseteq W$が成り立つなら、$a_{W} \in U$が成り立つことになる。}、即ち、その有向点族$\left( a_{W} \right)_{W \in \mathbf{V}(a)}$がその元$a$に収束する。一方で、$\forall W \in \mathbf{V}(a)$に対し、$a_{W} \in W \setminus V\left( f^{- 1}|V \right)$より$a_{W} \notin V\left( f^{- 1}|V \right)$が成り立つので、$f\left( a_{W} \right) \notin V$が成り立つ、即ち、$\exists V \in \mathbf{W}\left( f(a) \right)\forall W \in \mathbf{V}(a)$に対し、$W \supseteq W$が成り立つかつ、$f\left( a_{W} \right) \notin V$が成り立つので、その有向点族$\left( f\left( a_{W} \right) \right)_{W \in \mathbf{V}_{1}(a)}$がその元$f(a)$に収束しない。対偶律により任意のその集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対し、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束するなら、その有向点族$\left( f\left( a_{\alpha} \right) \right)_{\alpha \in A}$もその元$f(a)$に収束するなら、その写像$f:S \rightarrow T$が連続である。
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux3068ux8a98ux5c0eux4f4dux76f8ux7a7aux9593}{%
+\subsubsection{有向点族と誘導位相空間}%\label{ux6709ux5411ux70b9ux65cfux3068ux8a98ux5c0eux4f4dux76f8ux7a7aux9593}}
+\begin{thm}\label{8.1.9.10}
+集合$S$が与えられたとき、その写像の族$\left\{ f_{\lambda}:S \rightarrow S_{\lambda} \right\}_{\lambda \in \varLambda}$によるその位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$からの誘導位相$\mathfrak{O}_{0}$が考えられれば、その集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$とその集合$S$の元$a$について、次のことは同値である。
+\begin{itemize}
+\item
+  その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束する。
+\item
+  $\forall\lambda \in \varLambda$に対し、その有向点族$\left( f_{\lambda}\left( a_{\alpha} \right) \right)_{\alpha \in A}$がその元$f_{\lambda}(a)$に収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$S$が与えられたとき、その写像の族$\left\{ f_{\lambda}:S \rightarrow S_{\lambda} \right\}_{\lambda \in \varLambda}$によるその位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$からの誘導位相$\mathfrak{O}_{0}$が考えられれば、その集合$S$の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$とその集合$S$の元$a$について、の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその元$a$に収束するなら、$\forall\lambda \in \varLambda$に対し、その写像$f_{\lambda}$は連続なので、定理\ref{8.1.9.9}よりその有向点族$\left( f_{\lambda}\left( a_{\alpha} \right) \right)_{\alpha \in A}$がその元$f_{\lambda}(a)$に収束する。\par
+逆に、$\forall\lambda \in \varLambda$に対し、その有向点族$\left( f_{\lambda}\left( a_{\alpha} \right) \right)_{\alpha \in A}$がその元$f_{\lambda}(a)$に収束するなら、$\forall V \in \mathbf{V}(a)$に対し、ある開集合$O$がその位相$\mathfrak{O}_{0}$に存在して、$a \in O$かつ$O \subseteq V$が成り立ち、定理\ref{8.1.4.6}よりその位相空間$\left( S,\mathfrak{O}_{0} \right)$のある開基$\mathfrak{B}$の任意の元$W$はその添数集合$\varLambda$の有限な部分集合である添数集合$N$の添数$\nu$に対し、$O_{\nu} \in \mathfrak{O}_{\nu}$なる開集合たち$O_{\nu}$を用いて次式のように書かれることができるので、
+\begin{align*}
+W = \bigcap_{\nu \in N } {V\left( f_{\nu}^{- 1}|O_{\nu} \right)}
+\end{align*}
+開基の定義より次式が成り立つ。
+\begin{align*}
+a \in \bigcap_{\nu \in N } {V\left( f_{\nu}^{- 1}|O_{\nu} \right)} \subseteq O \subseteq V
+\end{align*}
+したがって、$\forall\nu \in N$に対し、次式が成り立つ。
+\begin{align*}
+f_{\nu}(a) \in V\left( f_{\nu}|\bigcap_{\nu' \in N } {V\left( f_{\nu'}^{- 1}|O_{\nu'} \right)} \right) &\subseteq \bigcap_{\nu' \in N} {V\left( f_{\nu}|V\left( f_{\nu'}^{- 1}|O_{\nu'} \right) \right)}\\
+&\subseteq V\left( f_{\nu}|V\left( f_{\nu}^{- 1}|O_{\nu} \right) \right)\\
+&= O_{\nu}
+\end{align*}
+これにより、位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$における$a_{\lambda} \in S_{\lambda}$なる元$a_{\lambda}$の全近傍系が$\mathbf{V}_{\lambda}\left( a_{\lambda} \right)$とおかれれば、$O_{\nu} \in \mathbf{V}_{\nu}\left( f_{\nu}(a) \right)$が成り立つので、$\exists\alpha_{\nu} \in A\forall\alpha \in A$に対し、$\alpha_{\nu}P\alpha$が成り立つなら、$f_{\nu}\left( a_{\alpha} \right) \in O_{\nu}$が成り立つ。そこで、その組$(A,P)$は有向集合なので、$\forall\nu \in N$に対し、$\alpha_{\nu}P\alpha_{0}$が成り立つようなその集合$A$の元$\alpha_{0}$が存在して、$\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$f_{\nu}\left( a_{\alpha} \right) \in O_{\nu}$が成り立つ。したがって、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in V\left( f_{\nu}^{- 1}|O_{\nu} \right)$が成り立つ。ここで、その元$\alpha_{0}$はその添数$\nu$によらないことに注意すれば、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、次のようになる。
+\begin{align*}
+a_{\alpha} \in \bigcap_{\nu \in N } {V\left( f_{\nu}^{- 1}|O_{\nu} \right)} \subseteq O \subseteq V
+\end{align*}
+これにより、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその元$a$に収束する。
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux3068ux76f4ux7a4dux4f4dux76f8ux7a7aux9593}{%
+\subsubsection{有向点族と直積位相空間}%\label{ux6709ux5411ux70b9ux65cfux3068ux76f4ux7a4dux4f4dux76f8ux7a7aux9593}}
+\begin{thm}\label{8.1.9.11}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O}_{0} \right)$が与えられたとき、その集合$S$の有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$とその集合$\prod_{\lambda \in \varLambda} S_{\lambda}$の元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$について、次のことは同値である。
+\begin{itemize}
+\item
+  その有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$がその元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$に収束する。
+\item
+  $\forall\lambda \in \varLambda$に対し、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$がその元$a_{\lambda}$に収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O}_{0} \right)$が与えられたとき、その集合$S$の有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$とその集合$\prod_{\lambda \in \varLambda} S_{\lambda}$の元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$について、その直積位相$\mathfrak{O}_{0}$はその射影の族$\left\{ {\mathrm{pr}}_{\lambda}:\prod_{\lambda \in \varLambda} S_{\lambda} \rightarrow S_{\lambda} \right\}_{\lambda \in \varLambda}$によるその位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$からの誘導位相$\mathfrak{O}_{0}$でもあるので、定理\ref{8.1.9.10}より次のことは同値である。
+\begin{itemize}
+\item
+  その有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$がその元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$に収束する。
+\item
+  $\forall\lambda \in \varLambda$に対し、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$がその元$a_{\lambda}$に収束する。
+\end{itemize}
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux3068compactux7a7aux9593}{%
+\subsubsection{有向点族とcompact空間}%\label{ux6709ux5411ux70b9ux65cfux3068compactux7a7aux9593}}\par
+ここで、次の定理が述べられるまえに、次の定義と定理が述べられよう。
+\begin{dfn*}[定義\ref{有限交叉性}の再掲]
+集合$S$の部分集合系$\mathfrak{X}$が与えられたとき、これの任意の空でない有限集合である部分集合に属する集合同士の共通部分が空でないとき、即ち、$\forall\mathfrak{X}'\in \mathfrak{P}\left( \mathfrak{X} \right)$に対し、$0 < {\#}\mathfrak{X}' < \aleph_{0}$が成り立つなら、$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つとき、その集合$\mathfrak{X}$は有限交叉性を持つという。
+\end{dfn*}
+\begin{thm*}[定理\ref{8.1.6.1}の再掲]
+位相空間$\left( S,\mathfrak{O} \right)$について、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、その台集合$S$の任意の部分集合系$\mathfrak{X}$が$\mathfrak{X \subseteq A}$かつ有限交叉性を持つなら、$\bigcap_{} \mathfrak{X} \neq \emptyset$が成り立つ。
+\item
+  その台集合$S$の任意の部分集合系$\mathfrak{X}$が有限交叉性を持つなら、$\bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X} \neq \emptyset$が成り立つ。
+\end{itemize}
+\end{thm*}\par
+さて本題に戻って、次の定理が掲げられよう。
+\begin{thm}\label{8.1.9.12}
+位相空間$\left( S,\mathfrak{O} \right)$において、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。
+\item
+  その集合$S$の任意の有向点族は堆積点をもつ。
+\item
+  その集合$S$の任意の有向点族に対し、ある部分有向点族が存在して、これが収束する。
+\item
+  その集合$S$の任意の普遍有向点族は収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$において、その位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるなら、その集合$S$の任意の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対し、次式のように集合$F_{\alpha}$が定義されよう。
+\begin{align*}
+F_{\alpha} = \left\{ a_{\beta} \in S \middle| \alpha P\beta \right\}
+\end{align*}
+$\bigcap_{\alpha \in A} {{\mathrm{cl}}F_{\alpha}} = \emptyset$が成り立つなら、定理\ref{8.1.6.1}よりその部分集合系$\left\{ F_{\alpha} \right\}_{\alpha \in A}$が有限交叉性をもたない、即ち、$\exists\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}}\in \mathfrak{P}(A)$に対し、$\bigcap_{i \in \varLambda_{n}} F_{\alpha_{i}} = \emptyset$が成り立つ。ここで、有向集合の定義より$\exists\alpha_{0} \in A\forall i \in \varLambda_{n}$に対し、$\alpha_{i}P\alpha_{0}$が成り立つので、$\forall i \in \varLambda_{n}$に対し、$a_{\alpha_{0}} \in F_{\alpha_{i}}$が成り立ち、したがって、$a_{\alpha_{0}} \in \bigcap_{i \in \varLambda_{n}} F_{\alpha_{i}}$が成り立つことになるが、これは$\bigcap_{i \in \varLambda_{n}} F_{\alpha_{i}} = \emptyset$が成り立つことに矛盾する。したがって、$\bigcap_{\alpha \in A} {{\mathrm{cl}}F_{\alpha}} \neq \emptyset$が成り立つ。そこで、その集合$\bigcap_{\alpha \in A} {{\mathrm{cl}}F_{\alpha}}$の元$a$がとられれば、定理\ref{8.1.9.7}より$\forall\alpha \in A\forall V \in \mathbf{V}(a)$に対し、$F_{\alpha} \cap V \neq \emptyset$が成り立つ。したがって、$\forall V \in \mathbf{V}(a)\forall\alpha \in A\exists\beta \in A$に対し、$\alpha P\beta$かつ$a_{\beta} \in F_{\alpha} \cap V \subseteq V$が成り立つので、その集合$S$の任意の有向点族は堆積点をもつ。\par
+逆に、その集合$S$の任意の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$は堆積点をもつとする。その位相空間$\left( S,\mathfrak{O} \right)$がcompact空間でないと仮定しよう。このとき、その集合$S$のある開被覆$\mathfrak{U}$が存在して、有限集合であるようなこれの任意の部分集合がその集合$S$の開被覆でありえない。そこで、その集合$\mathfrak{U}$の有限集合であるような部分集合全体の集合が$\mathcal{F}$とおかれれば、その組$\left( \mathcal{F, \subseteq} \right)$は有向集合となる。実際、その関係$\subseteq$は順序関係であり、$\forall\mathfrak{U}',\mathfrak{V}'\in \mathcal{F}$に対し、$\mathfrak{U}' \cup \mathfrak{V}'\subseteq \mathfrak{U}$が成り立つかつ、その和集合$\mathfrak{U}' \cup \mathfrak{V}'$も有限集合であるので、$\mathfrak{U}' \cup \mathfrak{V}'\in \mathcal{F}$が成り立つ。このとき、$\forall\mathfrak{U}'\in \mathcal{F}$に対し、その集合$\mathfrak{U}'$がその集合$S$の開被覆でなりえないのであったので、$\bigcup_{} \mathfrak{U}' \subset S$が成り立つ、即ち、その差集合$S \setminus \bigcup_{} \mathfrak{U}'$が空集合でないので、次のような写像$\left( a_{\mathfrak{U}'} \right)_{\mathfrak{U}'\in \mathcal{F}}$は有向点族となる。
+\begin{align*}
+\left( a_{\mathfrak{U}'} \right)_{\mathfrak{U}'\in \mathcal{F}}\mathcal{:F \rightarrow}S;\mathfrak{U}' \mapsto a_{\mathfrak{U}'} \in S \setminus \bigcup_{} \mathfrak{U}'
+\end{align*}
+このとき、仮定よりその有向点族$\left( a_{\mathfrak{U}'} \right)_{\mathfrak{U}'\in \mathcal{F}}$は堆積点$a$をもつ、即ち、$\forall V \in \mathbf{V}(a)\forall\mathfrak{U}'\in \mathcal{F\exists}\mathfrak{U}_{0}\in \mathcal{F}$に対し、$\mathfrak{U}' \subseteq \mathfrak{U}_{0}$かつ$a_{\mathfrak{U}_{0}} \in V$が成り立つ。ここで、$a \in S = \bigcup_{} \mathfrak{U}$より$\exists V_{a}\in \mathfrak{U}$に対し、$a \in V_{a} = {\mathrm{int}}V_{a}$が成り立つので、$V_{a} \in \mathbf{V}(a)$が成り立つ。したがって、$\exists\mathfrak{U}_{0}\in \mathcal{F}$に対し、$\left\{ V_{a} \right\} \subseteq \mathfrak{U}_{0}$かつ$a_{\mathfrak{U}_{0}} \in V_{a}$が成り立つことになり、$V_{a} \subseteq \bigcup_{} \mathfrak{U}_{0}$より$a_{\mathfrak{U}_{0}} \in \bigcup_{} \mathfrak{U}_{0}$が得られるが、その有向点族$\left( a_{\mathfrak{U}'} \right)_{\mathfrak{U}'\in \mathcal{F}}$の定義より$a_{\mathfrak{U}_{0}} \in S \setminus \bigcup_{} \mathfrak{U}_{0}$が成り立つことに矛盾する。よって、その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。\par
+その集合$S$の任意の有向点族が堆積点をもつなら、その集合$S$の任意の普遍有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$も堆積点$a$をもつ、即ち、$\forall V \in \mathbf{V}(a)\forall\alpha \in A\exists\alpha_{0} \in A$に対し、$\alpha P\alpha_{0}$かつ$a_{\alpha} \in V$が成り立つ。そこで、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$V$にほとんど属する、または、その集合$S \setminus V$にほとんど属することになり、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$がその集合$S \setminus V$にほとんど属すると仮定すると、次のようになる。
+\begin{align*}
+\exists\alpha \in A\forall\alpha_{0} \in A\left[ \alpha P\alpha_{0} \Rightarrow a_{\alpha_{0}} \in S \setminus V \right] &\Leftrightarrow \exists\alpha \in A\forall\alpha_{0} \in A\left[ \neg\alpha P\alpha_{0} \vee \neg a_{\alpha} \in V \right]\\
+&\Leftrightarrow \exists\alpha \in A\forall\alpha_{0} \in A\left[ \neg\left( \alpha P\alpha_{0} \land a_{\alpha} \in V \right) \right]\\
+&\Leftrightarrow \neg\forall\alpha \in A\exists\alpha_{0} \in A\left[ \alpha P\alpha_{0} \land a_{\alpha} \in V \right]
+\end{align*}
+これは、$\forall\alpha \in A\exists\alpha_{0} \in A$に対し、$\alpha P\alpha_{0}$かつ$a_{\alpha} \in V$が成り立つことに矛盾しているので、その有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその集合$V$にほとんど属する。よって、その普遍有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$はその元$a$に収束する。\par
+その集合$S$の任意の普遍有向点族が収束するなら、定理\ref{8.1.9.3}よりその集合$S$の任意の有向点族に対し、ある普遍部分有向点族が存在することになるので、その部分有向点族は収束する。\par
+その集合$S$の任意の有向点族に対し、ある部分有向点族が存在して、これが収束するなら、定理\ref{8.1.9.5}よりその集合$S$の任意の有向点族は堆積点をもつ。\par
+以上の議論により、次のことは同値であることが示された。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。
+\item
+  その集合$S$の任意の有向点族は堆積点をもつ。
+\item
+  その集合$S$の任意の有向点族に対し、ある部分有向点族が存在して、これが収束する。
+\item
+  その集合$S$の任意の普遍有向点族は収束する。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{8.1.9.13}
+添数集合$\varLambda$によって添数づけられた集合の族$\left\{ S_{\lambda} \right\}_{\lambda \in \varLambda}$が与えられたとき、その集合$\prod_{\lambda \in \varLambda} S_{\lambda}$の任意の有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$に対し、これが普遍有向点族であるなら、$\forall\lambda \in \varLambda$に対し、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$が普遍有向点族である。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた集合の族$\left\{ S_{\lambda} \right\}_{\lambda \in \varLambda}$が与えられたとき、その集合$\prod_{\lambda \in \varLambda} S_{\lambda}$の任意の有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$に対し、これが普遍有向点族であるとする。$\forall\lambda \in \varLambda\forall M_{\lambda}\in \mathfrak{P}\left( S_{\lambda} \right)$に対し、$\prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times M_{\lambda} \subseteq \prod_{\lambda \in \varLambda} S_{\lambda}$が成り立つので、次のようになることに注意すれば、
+\begin{align*}
+\prod_{\lambda \in \varLambda} S_{\lambda} \setminus \left( \prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times M_{\lambda} \right) = \prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times \left( S_{\lambda} \setminus M_{\lambda} \right)
+\end{align*}
+仮定よりその有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$がその集合$\prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times M_{\lambda}$にほとんど属する、または、その集合$\prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times \left( S_{\lambda} \setminus M_{\lambda} \right)$にほとんど属する、即ち、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$\left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \in \prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times M_{\lambda}$が成り立つ、または、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$\left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \in \prod_{\lambda' \in \varLambda \setminus \left\{ \lambda \right\}} S_{\lambda'} \times \left( S_{\lambda} \setminus M_{\lambda} \right)$が成り立つ。したがって、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\lambda,\alpha} \in M_{\lambda}$が成り立つ、または、$\exists\alpha_{0} \in A\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\lambda,\alpha} \in S_{\lambda} \setminus M_{\lambda}$が成り立つ、即ち、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$がその集合$M_{\lambda}$にほとんど属する、または、その集合$S_{\lambda} \setminus M_{\lambda}$にほとんど属する。よって、$\forall\lambda \in \varLambda$に対し、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$が普遍有向点族である。
+\end{proof}
+\begin{thm}[Tikhonovの定理]\label{8.1.9.14}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$がcompact空間であるならそのときに限り、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がcompact空間である。\par
+この定理をTikhonovの定理という。
+\end{thm}\par
+この定理はすでに定理\ref{8.1.6.7}として示されているが別の証明も与えておこう。
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$がcompact空間であるなら、$\forall\lambda \in \varLambda$に対し、射影たち${\mathrm{pr}}_{\lambda}:\prod_{\lambda \in \varLambda} S_{\lambda} \rightarrow S_{\lambda}$は定義より明らかに連続写像で、このとき、定理\ref{8.1.6.5}よりその位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$の部分位相空間$\left( V\left( {\mathrm{pr}}_{\lambda} \right),\mathfrak{O}_{V\left( {\mathrm{pr}}_{\lambda} \right)} \right)$はcompact空間となるのであった。このとき、それらの射影たち${\mathrm{pr}}_{\lambda}$の定義より明らかに$V\left( {\mathrm{pr}}_{\lambda} \right) = S_{\lambda}$が成り立ち、さらに、その直積位相$\mathfrak{O}$はその直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O}_{0} \right)$の初等開集合全体の集合が1つの開基となるので、これの和集合に制限されたそれらの射影たち${\mathrm{pr}}_{\lambda}$の値域がそれらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$の開集合$O_{\lambda}$となることに注意すれば、やはり$\mathfrak{O}_{V\left( {\mathrm{pr}}_{\lambda} \right)} = \mathfrak{O}_{\lambda}$が成り立つ。以上より、その位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$はcompact空間である\footnote{ここまでは定理\ref{8.1.6.7}の証明と同様です!!}。\par
+逆に、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がcompact空間であるとき、その集合$\prod_{\lambda \in \varLambda} S_{\lambda}$の任意の普遍有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$に対し、定理\ref{8.1.9.13}より$\forall\lambda \in \varLambda$に対し、その有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$も普遍有向点族である。定理\ref{8.1.9.12}よりその普遍有向点族$\left( a_{\lambda,\alpha} \right)_{\alpha \in A}$は収束することになるので、その収束点を$a_{\lambda}$とおくと、定理\ref{8.1.9.11}よりその普遍有向点族$\left( \left( a_{\lambda,\alpha} \right)_{\lambda \in \varLambda} \right)_{\alpha \in A}$はその元$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$に収束する。再び定理\ref{8.1.9.13}よりその直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$はcompact空間である。
+\end{proof}
+%\hypertarget{ux6709ux5411ux70b9ux65cfux3068hausdorffux7a7aux9593}{%
+\subsubsection{有向点族とHausdorff空間}%\label{ux6709ux5411ux70b9ux65cfux3068hausdorffux7a7aux9593}}
+\begin{thm}\label{8.1.9.15}
+位相空間$\left( S,\mathfrak{O} \right)$において、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間である。
+\item
+  その集合$S$の任意の有向点族に対し、これが収束するなら、その収束点はただ1つ存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$において、その位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間であるとする。その集合$S$の任意の有向点族$\left( a_{\alpha} \right)_{\alpha \in A}$に対し、これが収束するとき、その収束点が$a$、$b$と与えられたとしよう。$a \neq b$が成り立つと仮定すると、仮定より$\exists W_{a} \in \mathbf{V}(a)\exists W_{b} \in \mathbf{V}(b)$に対し、$W_{a} \cap W_{b} = \emptyset$が成り立つ。ここで、$\forall V_{a} \in \mathbf{V}(a)\exists\alpha_{a} \in A\forall\alpha \in A$に対し、$\alpha_{a}P\alpha$が成り立つなら、$a_{\alpha} \in V_{a}$が成り立つかつ、$\forall V_{b} \in \mathbf{V}(a)\exists\alpha_{b} \in A\forall\alpha \in A$に対し、$\alpha_{b}P\alpha$が成り立つなら、$a_{\alpha} \in V_{b}$が成り立つので、有向集合の定義より$\exists\alpha_{0} \in A$に対し、$\alpha_{a}P\alpha_{0}$かつ$\alpha_{b}P\alpha_{0}$が成り立つことに注意すれば、$\forall\alpha \in A$に対し、$\alpha_{0}P\alpha$が成り立つなら、$a_{\alpha} \in W_{a}$かつ$a_{\alpha} \in W_{b}$が成り立ち、したがって、$a_{\alpha} \in W_{a} \cap W_{b}$が成り立つことになる。しかしながら、これは$W_{a} \cap W_{b} = \emptyset$が成り立つことに矛盾する。よって、$a = b$が成り立つので、その収束点はただ1つ存在する。\par
+逆に、その位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間でないとする。このとき、$\exists a,b \in S\forall V_{a} \in \mathbf{V}(a)\forall V_{b} \in \mathbf{V}(b)$に対し、$V_{a} \cap V_{b} \neq \emptyset$が成り立つので、次のように集合$B$が定義されれば、
+\begin{align*}
+B = \left\{ V_{a} \cap V_{b}\in \mathfrak{P}(S) \middle| \left( V_{a},V_{b} \right) \in \mathbf{V}(a) \times \mathbf{V}(b) \right\}
+\end{align*}
+その組$(B, \supseteq )$について、もちろん、$\forall V \in B$に対し、$V \supseteq V$が成り立つかつ、$\forall U,V,W \in B$に対し、$U \supseteq V$かつ$V \supseteq W$が成り立つなら、$U \supseteq W$が成り立つかつ、$\forall V,W \in B$に対し、$V \cap W \in B$が成り立つので、$V \supseteq V \cap W$かつ$W \supseteq V \cap W$が成り立つ。これにより、その組$(B, \supseteq )$は有向集合である。$\emptyset \notin B$が成り立つことに注意すれば、次のような写像$\left( a_{V} \right)_{V \in B}$は有向点族である。
+\begin{align*}
+\left( a_{V} \right)_{V \in B}:B \rightarrow S;V \mapsto a_{V} \in V
+\end{align*}
+このとき、$\forall V_{a} \in \mathbf{V}(a)\exists V_{a} \cap V_{b} \in B\forall V \in B$に対し、$V_{a} \cap V_{b} \supseteq V$が成り立つなら、$a_{V} \in V \subseteq V_{a} \cap V_{b} \subseteq V_{a}$が成り立つかつ\footnote{その近傍$V_{b}$は$V_{b} \in \mathbf{V}(b)$を満たすならなんでもよい。}、$\forall V_{b} \in \mathbf{V}(b)\exists V_{a} \cap V_{b} \in B\forall V \in B$に対し、$V_{a} \cap V_{b} \supseteq V$が成り立つなら、$a_{V} \in V \subseteq V_{a} \cap V_{b} \subseteq V_{b}$が成り立つので、ある有向点族$\left( a_{V} \right)_{V \in B}$が存在して、これは収束するかつ、互いに異なる2つの元々$a$、$b$いづれも収束する。よって、対偶律によりその集合$S$の任意の有向点族に対し、これが収束するなら、その収束点はただ1つ存在するなら、その位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間である。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  Mathpedia. "ネットによる位相空間論". Mathpedia. \url{https://math.jp/wiki/%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%82%88%E3%82%8B%E4%BD%8D%E7%9B%B8%E7%A9%BA%E9%96%93%E8%AB%96} (2022-5-4 1:12 閲覧)
+\end{thebibliography}
+\end{document}

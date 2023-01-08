@@ -1,0 +1,312 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.3.1}
+\externaldocument{2.3.2}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6570ux5217ux7a7aux9593}{%
+\subsection{数列空間}%\label{ux6570ux5217ux7a7aux9593}}
+%\hypertarget{ux6570ux5217ux7a7aux9593-1}{%
+\subsubsection{数列空間}%\label{ux6570ux5217ux7a7aux9593-1}}
+\begin{thm}\label{2.3.3.1}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、写像$\left( a_{n} \right)_{n \in \mathbb{N}}$全体の集合$\mathfrak{F}\left( \mathbb{N},K \right)$において、次のように定義されれば、
+\begin{itemize}
+\item
+  $\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、$k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( b_{n} \right)_{n \in \mathbb{N}} = \left( ka_{n} + lb_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\end{itemize}
+その集合$\mathfrak{F}\left( \mathbb{N},K \right)$はvector空間をなす。
+\end{thm}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、vector空間$\mathfrak{F}\left( \mathbb{N},K \right)$をその体$K$上の数列空間という。
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、写像$\left( a_{n} \right)_{n \in \mathbb{N}}$全体の集合$\mathfrak{F}\left( \mathbb{N},K \right)$において、次のように定義されれば、
+\begin{itemize}
+\item
+  $\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、$k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( b_{n} \right)_{n \in \mathbb{N}} = \left( ka_{n} + lb_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\end{itemize}
+$\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}},\left( c_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のことが成り立つかつ、
+\begin{align*}
+\left( \left( a_{n} \right)_{n \in \mathbb{N}} + \left( b_{n} \right)_{n \in \mathbb{N}} \right) + \left( c_{n} \right)_{n \in \mathbb{N}} &= \left( a_{n} + b_{n} \right)_{n \in \mathbb{N}} + \left( c_{n} \right)_{n \in \mathbb{N}} \\
+&= \left( \left( a_{n} + b_{n} \right) + c_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( a_{n} + \left( b_{n} + c_{n} \right) \right)_{n \in \mathbb{N}} \\
+&= \left( a_{n} \right)_{n \in \mathbb{N}} + \left( b_{n} + c_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( a_{n} \right)_{n \in \mathbb{N}} + \left( \left( b_{n} \right)_{n \in \mathbb{N}} + \left( c_{n} \right)_{n \in \mathbb{N}} \right)
+\end{align*}
+$\exists(0)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のことが成り立つかつ、
+\begin{align*}
+\left( a_{n} \right)_{n \in \mathbb{N}} + (0)_{n \in \mathbb{N}} &= \left( a_{n} + 0 \right)_{n \in \mathbb{N}} = \left( a_{n} \right)_{n \in \mathbb{N}}\\
+(0)_{n \in \mathbb{N}} + \left( a_{n} \right)_{n \in \mathbb{N}} &= \left( 0 + a_{n} \right)_{n \in \mathbb{N}} = \left( a_{n} \right)_{n \in \mathbb{N}}
+\end{align*}
+$\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)\exists\left( - a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のことが成り立つので、
+\begin{align*}
+\left( a_{n} \right)_{n \in \mathbb{N}} + \left( - a_{n} \right)_{n \in \mathbb{N}} &= \left( a_{n} - a_{n} \right)_{n \in \mathbb{N}} = (0)_{n \in \mathbb{N}}\\
+\left( - a_{n} \right)_{n \in \mathbb{N}} + \left( a_{n} \right)_{n \in \mathbb{N}} &= \left( - a_{n} + a_{n} \right)_{n \in \mathbb{N}} = (0)_{n \in \mathbb{N}}
+\end{align*}
+その集合$\mathfrak{F}\left( \mathbb{N},K \right)$は加法について可換群$\left( \mathfrak{F}\left( \mathbb{N},K \right), + \right)$をなす。\par
+もちろん、$\forall k \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、scalar倍が定義されており、$\forall k \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のようになる。
+\begin{align*}
+k\left( \left( a_{n} \right)_{n \in \mathbb{N}} + \left( b_{n} \right)_{n \in \mathbb{N}} \right) &= k\left( a_{n} + b_{n} \right)_{n \in \mathbb{N}} = \left( k\left( a_{n} + b_{n} \right) \right)_{n \in \mathbb{N}} = \left( ka_{n} + kb_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( ka_{n} \right)_{n \in \mathbb{N}} + \left( kb_{n} \right)_{n \in \mathbb{N}} = k\left( a_{n} \right)_{n \in \mathbb{N}} + k\left( b_{n} \right)_{n \in \mathbb{N}}
+\end{align*}\par
+$\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のようになる。
+\begin{align*}
+(k + l)\left( a_{n} \right)_{n \in \mathbb{N}} &= \left( (k + l)a_{n} \right)_{n \in \mathbb{N}} = \left( ka_{n} + la_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( ka_{n} \right)_{n \in \mathbb{N}} + \left( la_{n} \right)_{n \in \mathbb{N}} = k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( a_{n} \right)_{n \in \mathbb{N}}
+\end{align*}\par
+$\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のようになる。
+\begin{align*}
+(kl)\left( a_{n} \right)_{n \in \mathbb{N}} = \left( (kl)a_{n} \right)_{n \in \mathbb{N}} = \left( k\left( la_{n} \right) \right)_{n \in \mathbb{N}} = k\left( la_{n} \right)_{n \in \mathbb{N}} = k\left( l\left( a_{n} \right)_{n \in \mathbb{N}} \right)
+\end{align*}\par
+$\exists 1 \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right)$に対し、次のようになる。
+\begin{align*}
+1\left( a_{n} \right)_{n \in \mathbb{N}} = \left( 1a_{n} \right)_{n \in \mathbb{N}} = \left( a_{n} \right)_{n \in \mathbb{N}}
+\end{align*}
+以上より、その集合$\mathfrak{F}\left( \mathbb{N},K \right)$はvector空間をなす。
+\end{proof}
+\begin{thm}\label{2.3.3.2}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、その体$K$上の数列空間$\mathfrak{F}\left( \mathbb{N},K \right)$の元のうちnorm空間$\left( K,| \bullet | \right)$から誘導される距離空間の意味で収束するもの全体$c_{K}$はその数列空間$\mathfrak{F}\left( \mathbb{N},K \right)$の部分空間である。
+\end{thm}
+\begin{proof}
+$\subseteq \mathbb{C}$なる体$K$が与えられたとき、その体$K$上の数列空間$\mathfrak{F}\left( \mathbb{N},K \right)$の元のうちnorm空間$\left( K,| \bullet | \right)$から誘導される距離空間の意味で収束するもの全体$c_{K}$は明らかにその数列空間$\mathfrak{F}\left( \mathbb{N},K \right)$の部分集合である。そこで、もちろん、$(0)_{n \in \mathbb{N}} \in c_{K}$が成り立つかつ、$\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}} \in c_{K}$に対し、定義よりあるその体の元々$\alpha$、$\beta$が存在して、$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$n_{0} \leq n$が成り立つなら、$\left| a_{n} - \alpha \right| < \varepsilon$かつ$\left| b_{n} - \beta \right| < \varepsilon$が成り立つとしてもよい。このとき、次のようになる。
+\begin{align*}
+\left| \left( ka_{n} + lb_{n} \right) - (k\alpha + l\beta) \right| &= \left| k\left( a_{n} - \alpha \right) + l\left( b_{n} - \beta \right) \right|\\
+&\leq \left| k\left( a_{n} - \alpha \right) \right| + \left| l\left( b_{n} - \beta \right) \right|\\
+&= |k|\left| a_{n} - \alpha \right| + |l|\left| b_{n} - \beta \right|\\
+&< |k|\varepsilon + |l|\varepsilon\\
+&= \left( |k| + |l| \right)\varepsilon
+\end{align*}
+よって、その元の列$k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( b_{n} \right)_{n \in \mathbb{N}}$はその体$K$の元$k\alpha + l\beta$に収束するので、$k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( b_{n} \right)_{n \in \mathbb{N}} \in c_{K}$が成り立つ。以上、定理\ref{2.1.1.9}よりその集合$c_{K}$はその数列空間$\mathfrak{F}\left( \mathbb{N},K \right)$の部分空間である。
+\end{proof}
+%\hypertarget{l_p-normux7a7aux9593}{%
+\subsubsection{$l_{p}$-norm空間}%\label{l_p-normux7a7aux9593}}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$として次式のように定義される集合$l_{p}$をその体$K$上の$l_{p}$空間という。
+\begin{align*}
+l_{p} = \left\{ \left( a_{n} \right)_{n \in \mathbb{N}}\in \mathfrak{F}\left( \mathbb{N},K \right) \middle| \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} < \infty \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.3.3.3}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$としてその体$K$上の$l_{p}$空間は集合$c_{K}$の部分空間であり、さらに、$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、$\lim_{n \rightarrow \infty}a_{n} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$としてその体$K$上の$l_{p}$空間において、$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、$\sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} < \infty$が成り立つので、実数列$\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)_{n \in \mathbb{N}}$はよりCauchy列でないといけない\footnote{距離空間$(S,d)$におけるその集合$S$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するとき、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$はCauchy列であるということを主張するという定理です。}。したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$n_{0} \leq m$かつ$n_{0} \leq n$が成り立つなら、$\left| \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} - \sum_{i \in \varLambda_{m}} \left| a_{i} \right|^{p} \right| < \varepsilon$が成り立つ。したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$n_{0} \leq n < n + 1$が成り立つなら、次のようになる。
+\begin{align*}
+\left| a_{n + 1} \right|^{p} &= \left| \left| a_{n + 1} \right|^{p} \right|\\
+&= \left| \left| a_{n + 1} \right|^{p} + \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} - \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right|\\
+&= \left| \sum_{i \in \varLambda_{n + 1}} \left| a_{i} \right|^{p} - \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right| < \varepsilon
+\end{align*}
+これにより、$\left| a_{n + 1} \right| < \varepsilon^{\frac{1}{p}}$が成り立つので、$\lim_{n \rightarrow \infty}a_{n} = 0$が成り立つ。ゆえに、$l_{p} \subseteq c_{K}$が成り立つ。\par
+一方で、もちろん、$(0)_{n \in \mathbb{N}} \in l_{p}$が成り立つかつ、$\forall k,l \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}},\left( b_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、次式が成り立つことに注意すれば、
+\begin{align*}
+\left| ka_{i} + lb_{i} \right| \leq \left| ka_{i} \right| + \left| lb_{i} \right| \leq 2\max\left\{ \left| ka_{i} \right|,\left| lb_{i} \right| \right\}
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} \left| ka_{i} + lb_{i} \right|^{p} &\leq \sum_{i \in \varLambda_{n}} \left( 2\max\left\{ \left| ka_{i} \right|,\left| lb_{i} \right| \right\} \right)^{p}\\
+&= 2^{p}\sum_{i \in \varLambda_{n}} {\max\left\{ \left| ka_{i} \right|,\left| lb_{i} \right| \right\}}^{p}\\
+&\leq 2^{p}\sum_{i \in \varLambda_{n}} \left( \left| ka_{i} \right|^{p} + \left| lb_{i} \right|^{p} \right)\\
+&= 2^{p}\left( \sum_{i \in \varLambda_{n}} \left| ka_{i} \right|^{p} + \sum_{i \in \varLambda_{n}} \left| lb_{i} \right|^{p} \right)\\
+&= 2^{p}|k|^{p}\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} + 2^{p}|l|^{p}\sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{p} < \infty
+\end{align*}
+したがって、$k\left( a_{n} \right)_{n \in \mathbb{N}} + l\left( b_{n} \right)_{n \in \mathbb{N}} \in l_{p}$が成り立つので、定理\ref{2.1.1.9}よりその$l_{p}$空間はその集合$c_{K}$の部分空間である。
+\end{proof}
+\begin{thm}\label{2.3.3.4}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$としてその体$K$上の$l_{p}$空間が与えられたとき、次式のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:K^{n} \rightarrow \mathbb{R};\left( a_{n} \right)_{n \in \mathbb{N}} \mapsto \left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( l_{p},\varphi_{p} \right)$はnorm空間をなす。
+\end{thm}
+\begin{dfn}
+上で定義されたnorm空間$\left( l_{p},\varphi_{p} \right)$をその体$K$上の$l_{p}$-norm空間という。
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$としてその体$K$上の$l_{p}$空間が与えられたとき、次式のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:K^{n} \rightarrow \mathbb{R};\left( a_{n} \right)_{n \in \mathbb{N}} \mapsto \left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+定義より直ちに$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、$0 \leq \varphi_{p}\left( a_{n} \right)_{n \in \mathbb{N}}$が成り立つことがわかる。\par
+$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、$\varphi_{p}\left( a_{n} \right)_{n \in \mathbb{N}} = 0$が成り立つなら、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\varphi_{p}\left( a_{n} \right)_{n \in \mathbb{N}} = \left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}} = 0 &\Leftrightarrow 0 \leq \left| a_{n} \right|^{p} \leq \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} = 0\\
+&\Rightarrow 0 \leq \left| a_{n} \right| \leq 0 \Leftrightarrow a_{n} = \left| a_{n} \right| = 0
+\end{align*}
+したがって、$\left( a_{n} \right)_{n \in \mathbb{N}} = (0)_{n \in \mathbb{N}}$が得られる。逆に、$\left( a_{n} \right)_{n \in \mathbb{N}} = (0)_{n \in \mathbb{N}}$が成り立つなら、直ちに$\varphi_{p}\left( a_{n} \right)_{n \in \mathbb{N}} = 0$が成り立つことがわかる。\par
+$\forall k \in K\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、次のようになる。
+\begin{align*}
+\varphi_{p}\left( k\left( a_{n} \right)_{n \in \mathbb{N}} \right) &= \varphi_{p}\left( ka_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( \sum_{n \in \mathbb{N}} \left| ka_{n} \right|^{p} \right)^{\frac{1}{p}}\\
+&= \left( |k|^{p}\sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}}\\
+&= |k|\left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}}\\
+&= |k|\varphi_{p}\left( a_{n} \right)_{n \in \mathbb{N}}
+\end{align*}
+したがって、$\varphi_{p}\left( k\left( a_{n} \right)_{n \in \mathbb{N}} \right) = |k|\varphi\left( a_{n} \right)_{n \in \mathbb{N}}$が成り立つ。\par
+$\forall\left( a_{n} \right)_{n \in \mathbb{N}}、\left( b_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、定理\ref{2.3.1.9}、即ち、Mikowskiの不等式より次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} \left| a_{i} + b_{i} \right|^{p} \right)^{\frac{1}{p}} \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+あとは、$n \rightarrow \infty$とすれば、$l_{p}$空間の定義に注意すれば、次式のようになるので、
+\begin{align*}
+\left( \sum_{n \in \mathbb{N}} \left| a_{n} + b_{n} \right|^{p} \right)^{\frac{1}{p}} \leq \left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{n \in \mathbb{N}} \left| b_{n} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+$\varphi_{p}\left( \left( a_{n} \right)_{n \in \mathbb{N}} + \left( b_{n} \right)_{n \in \mathbb{N}} \right) \leq \varphi\left( a_{n} \right)_{n \in \mathbb{N}} + \varphi\left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。\par
+ゆえに、その組$\left( l_{p},\varphi_{p} \right)$はnorm空間をなす。
+\end{proof}
+%\hypertarget{l_p-normux7a7aux9593ux3068banachux7a7aux9593}{%
+\subsubsection{$l_{p}$-norm空間とBanach空間}%\label{l_p-normux7a7aux9593ux3068banachux7a7aux9593}}
+\begin{thm}\label{2.3.3.4}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$として集合$\mathbb{R}$上の$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$はBanach空間である。
+\end{thm}
+\begin{proof}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$として集合$\mathbb{R}$上の$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$が与えられたとき、その$l_{p}$空間の任意のCauchy列$\left( \left( a_{mn} \right)_{n \in \mathbb{N}} \right)_{m \in \mathbb{N}}$に対し、Cauchy列の定義より$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$m_{0} \leq l$かつ$m_{0} \leq m$が成り立つなら、次式が成り立つ。
+\begin{align*}
+d_{\varphi_{p}}\left( \left( a_{\ln} \right)_{n \in \mathbb{N}},\left( a_{mn} \right)_{n \in \mathbb{N}} \right) < \varepsilon
+\end{align*}
+したがって、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\left( \left| a_{mn} - a_{\ln} \right|^{p} \right)^{\frac{1}{p}} &\leq \left( \sum_{n \in \mathbb{N}} \left| a_{mn} - a_{\ln} \right|^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( a_{mn} - a_{\ln} \right)_{n \in \mathbb{N}}\\
+&= \varphi_{p}\left( \left( a_{mn} \right)_{n \in \mathbb{N}} - \left( a_{\ln} \right)_{n \in \mathbb{N}} \right)\\
+&= d_{\varphi_{p}}\left( \left( a_{\ln} \right)_{n \in \mathbb{N}},\left( a_{mn} \right)_{n \in \mathbb{N}} \right) < \varepsilon
+\end{align*}
+これにより、集合$\mathbb{R}$上の$L_{p}$-norm空間$\left( \mathbb{R},\varphi_{p} \right)$が考えられれば、これから誘導される距離空間$\left( \mathbb{R},d_{\varphi_{p}} \right)$の意味で$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$m_{0} \leq l$かつ$m_{0} \leq m$が成り立つなら、次のようになるので、
+\begin{align*}
+d_{\varphi_{p}}\left( a_{\ln},a_{mn} \right) = \varphi_{p}\left( a_{mn} - a_{\ln} \right) = \left( \left| a_{mn} - a_{\ln} \right|^{p} \right)^{\frac{1}{p}} < \varepsilon
+\end{align*}
+その元の列$\left( a_{mn} \right)_{m \in \mathbb{N}}$はCauchy列である。\par
+そこで、定理\ref{2.3.2.12}よりそのnorm空間$\left( \mathbb{R},\varphi_{p} \right)$はBanach空間であるから、これから誘導される距離空間$\left( \mathbb{R},d_{\varphi_{p}} \right)$は完備である、即ち、その距離空間$\left( \mathbb{R},d_{\varphi_{p}} \right)$の意味で任意のCauchy列は収束するので、先ほどの元の列$\left( a_{mn} \right)_{m \in \mathbb{N}}$はその距離空間$\left( \mathbb{R},d_{\varphi_{p}} \right)$の意味で収束することになる。以下、その極限を$a_{n}$とおく。\par
+$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$m_{0} \leq l$かつ$m_{0} \leq m$が成り立つなら、仮定より次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \left( a_{\ln} \right)_{n \in \mathbb{N}},\left( a_{mn} \right)_{n \in \mathbb{N}} \right) &= \varphi_{p}\left( \left( a_{mn} \right)_{n \in \mathbb{N}} - \left( a_{\ln} \right)_{n \in \mathbb{N}} \right)\\
+&= \varphi_{p}\left( a_{mn} - a_{\ln} \right)_{n \in \mathbb{N}}\\
+&= \left( \sum_{n \in \mathbb{N}} \left| a_{mn} - a_{\ln} \right|^{p} \right)^{\frac{1}{p}} < \varepsilon
+\end{align*}
+したがって、$\forall h \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{h}} \left| a_{mi} - a_{li} \right|^{p} \leq \sum_{n \in \mathbb{N}} \left| a_{mn} - a_{\ln} \right|^{p} < \varepsilon^{p}
+\end{align*}
+ここで、$l \rightarrow \infty$とすれば、$\lim_{l \rightarrow \infty}a_{li} = a_{i}$が成り立つので、次のようになる。
+\begin{align*}
+\lim_{l \rightarrow \infty}{\sum_{i \in \varLambda_{h}} \left| a_{mi} - a_{li} \right|^{p}} &= \sum_{i \in \varLambda_{h}} {\lim_{l \rightarrow \infty}\left| a_{mi} - a_{li} \right|^{p}}\\
+&= \sum_{i \in \varLambda_{h}} \left| a_{mi} - \lim_{l \rightarrow \infty}a_{li} \right|^{p}\\
+&= \sum_{i \in \varLambda_{h}} \left| a_{mi} - a_{i} \right|^{p} \leq \varepsilon^{p}
+\end{align*}
+そこで、$h \rightarrow \infty$とすれば、次のようになる。
+\begin{align*}
+\lim_{h \rightarrow \infty}{\sum_{i \in \varLambda_{h}} \left| a_{mi} - a_{i} \right|^{p}} = \sum_{n \in \mathbb{N}} \left| a_{mn} - a_{n} \right|^{p} \leq \varepsilon^{p}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、次のようになることから、
+\begin{align*}
+\left| a_{n} \right|^{p} &= \left| a_{mn} - a_{mn} + a_{n} \right|^{p}\\
+&= \left| a_{mn} - \left( a_{mn} - a_{n} \right) \right|^{p}\\
+&\leq \left( \left| a_{mn} \right| + \left| a_{mn} - a_{n} \right| \right)^{p}\\
+&\leq \left( 2\max\left\{ \left| a_{mn} \right|,\left| a_{mn} - a_{n} \right| \right\} \right)^{p}\\
+&= 2^{p}{\max\left\{ \left| a_{mn} \right|,\left| a_{mn} - a_{n} \right| \right\}}^{p}\\
+&\leq 2^{p}\left| a_{mn} \right|^{p} + 2^{p}\left| a_{mn} - a_{n} \right|^{p}\\
+&= 2^{p}\left( \left| a_{mn} \right|^{p} + \left| a_{mn} - a_{n} \right|^{p} \right)
+\end{align*}
+$\left( a_{mn} \right)_{n \in \mathbb{N}} \in l_{p}$が成り立つことに注意すれば、$\sum_{n \in \mathbb{N}} \left| a_{mn} \right|^{p} < \infty$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} &\leq \sum_{n \in \mathbb{N}} \left( 2^{p}\left| a_{mn} \right|^{p} + 2^{p}\left| a_{mn} - a_{n} \right|^{p} \right)\\
+&= 2^{p}\sum_{n \in \mathbb{N}} \left| a_{mn} \right|^{p} + 2^{p}\sum_{n \in \mathbb{N}} \left| a_{mn} - a_{n} \right|^{p}\\
+&< 2^{p}\sum_{n \in \mathbb{N}} \left| a_{mn} \right|^{p} + 2^{p}\varepsilon^{p} < \infty
+\end{align*}
+これにより、$\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$が成り立つ。\par
+さらに、上記の議論により次のようになるので、
+\begin{align*}
+d_{\varphi_{p}}\left( \left( a_{mn} \right)_{n \in \mathbb{N}},\left( a_{n} \right)_{n \in \mathbb{N}} \right) &= \varphi_{p}\left( \left( a_{n} \right)_{n \in \mathbb{N}} - \left( a_{mn} \right)_{n \in \mathbb{N}} \right)\\
+&= \varphi_{p}\left( a_{mn} - a_{n} \right)_{n \in \mathbb{N}}\\
+&= \left( \sum_{n \in \mathbb{N}} \left| a_{mn} - a_{n} \right|^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \varepsilon^{p} \right)^{\frac{1}{p}} = \varepsilon
+\end{align*}
+$\lim_{m \rightarrow \infty}{d_{\varphi_{p}}\left( \left( a_{mn} \right)_{n \in \mathbb{N}},\left( a_{n} \right)_{n \in \mathbb{N}} \right)} = 0$が成り立つ、即ち、その$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$から誘導される距離空間$\left( l_{p},d_{\varphi_{p}} \right)$の意味で$\lim_{m \rightarrow \infty}\left( a_{mn} \right)_{n \in \mathbb{N}} = \left( a_{n} \right)_{n \in \mathbb{N}}$が成り立つ。\par
+これにより、その距離空間$\left( l_{p},d_{\varphi_{p}} \right)$の任意のCauchy列は収束することになるので、その$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$はBanach空間である。
+\end{proof}\par
+次の定理を述べる前に必要となる次の定理をまず述べておこう。
+\begin{thm}[距離空間の極限による特徴づけ]
+距離空間$(S,d)$が与えられたとき、$\forall a \in S\forall M \in \mathfrak{P}(S)$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  その元$a$がその部分集合$M$の触点である、即ち、$a \in {\mathrm{cl}}M$が成り立つならそのときに限り、その元$a$がその集合$M$のある元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が存在してこれの極限となる。\footnote{この定理と位相空間論における閉包作用子による位相空間の特徴づけにより、距離空間$(S,d)$が与えられたとき、$\forall M \in \mathfrak{P}(S)$に対し、その集合$M$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$の極限全体の集合を${\mathrm{cl}}M$とおき、写像$\mathrm{cl}\mathfrak{:P}(S)\mathfrak{\rightarrow P}(S);M \mapsto {\mathrm{cl}}M$が与えられれば、その写像$\mathrm{cl}$を閉包作用子とする位相が構成されることができます! }
+\item
+  その元$a$がその部分集合$M$の内点である、即ち、$a \in \mathrm{int}M$が成り立つならそのときに限り、その元$a$が極限であるようなその集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある自然数$n_{0}$が存在して、任意の自然数$n$に対し、$n_{0} < n$が成り立つなら、$a_{n} \in M$が成り立つ。
+\item
+  その元$a$がその部分集合$M$の集積点であるならそのときに限り、任意の自然数$n$に対し、$a_{n} \neq a$なるその集合$M$のある元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$の極限がその元$a$である。
+\item
+  その元$a$がその部分集合$M$の孤立点であるならそのときに限り、その元$a$が極限であるようなその集合$M$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある自然数$n_{0}$が存在して、任意の自然数$n$に対し、$n_{0} < n$が成り立つなら、$a_{n} = a$が成り立つ。
+\end{itemize}
+\end{thm}
+このことは幾何学の距離空間論の議論のみによって示されることができる。\par
+さて、本題を述べよう。
+\begin{thm}\label{2.3.3.5}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$として集合$\mathbb{R}$上の$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$から誘導される距離空間$\left( l_{p},d_{\varphi_{p}} \right)$から誘導される位相空間$\left( l_{p},\mathfrak{O}_{d_{\varphi_{p}}} \right)$は可分である。
+\end{thm}
+\begin{proof}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$として集合$\mathbb{R}$上の$l_{p}$-norm空間$\left( l_{p},\varphi_{p} \right)$から誘導される距離空間$\left( l_{p},d_{\varphi_{p}} \right)$から誘導される位相空間$\left( l_{p},\mathfrak{O}_{d_{\varphi_{p}}} \right)$において、次のように集合$M$が定義されよう。
+\begin{align*}
+M = \left\{ \left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p} \middle| a_{n} \in \mathbb{Q} \land \exists n_{0} \in \mathbb{N}\forall n \in \mathbb{N}\left[ n_{0} < n \Rightarrow a_{n} = 0 \right] \right\}
+\end{align*}
+このとき、そのような集合$M$はたかだか可算でもちろん${\mathrm{cl}}M \subseteq {\mathrm{cl}}l_{p} = l_{p}$が成り立つ。\par
+逆に、$\exists\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、ある正の実数$\varepsilon$が存在して、$\forall n_{0} \in \mathbb{N}$に対し、次式が成り立つと仮定すると、
+\begin{align*}
+\varepsilon \leq \left( \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+次のようになる。
+\begin{align*}
+\varepsilon^{p} \leq \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| a_{n} \right|^{p} = \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} - \sum_{n \in \varLambda_{n_{0}}} \left| a_{n} \right|^{p}
+\end{align*}
+ここで、$n_{0} \rightarrow \infty$とすれば、次式のようになるが、
+\begin{align*}
+0 &< \varepsilon^{p} = \lim_{n_{0} \rightarrow \infty}\left( \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} - \sum_{n \in \varLambda_{n_{0}}} \left| a_{n} \right|^{p} \right)\\
+&= \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} - \lim_{n_{0} \rightarrow \infty}{\sum_{n \in \varLambda_{n_{0}}} \left| a_{n} \right|^{p}}\\
+&= \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} - \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} = 0
+\end{align*}
+これは矛盾している。ゆえに、$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}\forall\varepsilon \in \mathbb{R}^{+}$に対し、ある自然数$n_{0}$が存在して、次式が成り立つ。
+\begin{align*}
+\left( \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}} < \varepsilon
+\end{align*}\par
+そこで、$\forall n \in \mathbb{N}$に対し、$n \leq n_{0}$が成り立つなら、$a_{n}' = a_{n}$が成り立ち、$n_{0} < n$が成り立つなら、$a_{n}' = 0$が成り立つような元の列$\left( a_{n}' \right)_{n \in \mathbb{N}}$が考えられれば、もちろん、次式が成り立つので、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left| a_{n}' \right|^{p} = \sum_{i \in \varLambda_{n_{0}}} \left| a_{i} \right|^{p} \leq \sum_{n \in \mathbb{N}} \left| a_{n} \right|^{p} < \infty
+\end{align*}
+$\left( a_{n}' \right)_{n \in \mathbb{N}} \in l_{p}$が成り立つ。さらに、$\forall\varepsilon \in \mathbb{R}^{+}\forall n \in N$に対し、有理数の稠密性よりある集合$\mathbb{Q}$の元の列$\left( q_{n} \right)_{n \in \mathbb{N}}$が存在して、$\forall n \in \mathbb{N}$に対し、$n_{0} < n$が成り立つなら、$q_{n} = 0$となるようにされるかつ、$\left| q_{n} - a_{n}' \right| < \varepsilon$が成り立つようにすることができるので、次のようになる。
+\begin{align*}
+\left( \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}} &= \left( \sum_{n \in \varLambda_{n_{0}}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}}\\
+&< \left( \sum_{n \in \varLambda_{n_{0}}} \varepsilon^{p} \right)^{\frac{1}{p}} = \left( n_{0}\varepsilon^{p} \right)^{\frac{1}{p}} = n_{0}^{\frac{1}{p}}\varepsilon
+\end{align*}
+さらに、上記の議論により$\sum_{n \in \mathbb{N}} \left| a_{n}' \right|^{p} < \infty$が成り立つので、もちろん、次のようになる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left| q_{n} \right|^{p} &= \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' + a_{n}' \right|^{p}\\
+&\leq \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} + \sum_{n \in \mathbb{N}} \left| a_{n}' \right|^{p}\\
+&< \left( n_{0}^{\frac{1}{p}}\varepsilon \right)^{p} + \sum_{n \in \mathbb{N}} \left| a_{n}' \right|^{p}\\
+&= n_{0}\varepsilon^{p} + \sum_{n \in \mathbb{N}} \left| a_{n}' \right|^{p} < \infty
+\end{align*}
+これにより、$\left( q_{n} \right)_{n \in \mathbb{N}} \in M$が成り立つ。\par
+以上より、$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}\forall\varepsilon \in \mathbb{R}^{+}$に対し、ある自然数$n_{0}$が存在して、これを用いたその$l_{p}$空間の元$\left( a_{n}' \right)_{n \in \mathbb{N}}$が考えられれば、その集合$M$に元$\left( q_{n} \right)_{n \in \mathbb{N}}$が存在して、次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \left( a_{n} \right)_{n \in \mathbb{N}},\left( q_{n} \right)_{n \in \mathbb{N}} \right) &\leq d_{\varphi_{p}}\left( \left( a_{n} \right)_{n \in \mathbb{N}},\left( a_{n}' \right)_{n \in \mathbb{N}} \right) + d_{\varphi_{p}}\left( \left( a_{n}' \right)_{n \in \mathbb{N}},\left( q_{n} \right)_{n \in \mathbb{N}} \right)\\
+&= \varphi_{p}\left( \left( a_{n}' \right)_{n \in \mathbb{N}} - \left( a_{n} \right)_{n \in \mathbb{N}} \right) + \varphi_{p}\left( \left( q_{n} \right)_{n \in \mathbb{N}} - \left( a_{n}' \right)_{n \in \mathbb{N}} \right)\\
+&= \varphi_{p}\left( a_{n}' - a_{n} \right)_{n \in \mathbb{N}} + \varphi_{p}\left( q_{n} - a_{n}' \right)_{n \in \mathbb{N}}\\
+&= \left( \sum_{n \in \mathbb{N}} \left| a_{n}' - a_{n} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{n \in \varLambda_{n_{0}}} \left| a_{n}' - a_{n} \right|^{p} + \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| a_{n}' - a_{n} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{n \in \varLambda_{n_{0}}} \left| a_{n} - a_{n} \right|^{p} + \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| 0 - a_{n} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{n \in \mathbb{N} \setminus \varLambda_{n_{0}}} \left| a_{n} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{n \in \mathbb{N}} \left| q_{n} - a_{n}' \right|^{p} \right)^{\frac{1}{p}}\\
+&< \varepsilon + n_{0}^{\frac{1}{p}}\varepsilon = \left( 1 + n_{0}^{\frac{1}{p}} \right)\varepsilon
+\end{align*}
+これにより、その元の列$\left( q_{n} \right)_{n \in \mathbb{N}}$ごとに自然数を割り当てることで、その元$\left( a_{n} \right)_{n \in \mathbb{N}}$がその集合$M$のある元の列$\left( \left( q_{mn} \right)_{n \in \mathbb{N}} \right)_{m \in \mathbb{N}}$が存在してこれの極限となる。そこで、先に述べた定理より\footnote{距離空間の極限による特徴づけのことです。}その元$\left( a_{n} \right)_{n \in \mathbb{N}}$がその部分集合$M$の触点である、即ち、$\left( a_{n} \right)_{n \in \mathbb{N}} \in {\mathrm{cl}}M$が成り立つならそのときに限り、その元$\left( a_{n} \right)_{n \in \mathbb{N}}$がその集合$M$のある元の列が存在してこれの極限となるので、$\forall\left( a_{n} \right)_{n \in \mathbb{N}} \in l_{p}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \in {\mathrm{cl}}M$が成り立つ。\par
+これで、$l_{p} \subseteq {\mathrm{cl}}M$が成り立つことがいえたので、$l_{p} = {\mathrm{cl}}M$が成り立つことになる。これにより、その$l_{p}$空間において稠密であるかつ、たかだか可算集合である集合$M$が存在するので、その位相空間$\left( l_{p},\mathfrak{O}_{d_{\varphi_{p}}} \right)$は可分である。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, "集合・位相入門", 岩波書店, 1968. 新装版第2刷 p111,275-285 ISBN978-4-00-029871-1
+\bibitem{2}
+  harlekin. "Showing the inequality $|\alpha +\beta |^p\le2^{p-1}(|\alpha |^p+|\beta |^p ) $". StackExchange. \url{https://math.stackexchange.com/questions/143173/showing-the-inequality-alpha-betap-leq-2p-1-alphap-betap} (2021-12-30 1:17 閲覧)
+\bibitem{3}
+  倉田和浩. "解析学概論(1)(解析学特別講義I) 倉田　和浩 2019.4.15（第
+  2 回講義ノート）". 東京都立大学. \url{https://www.comp.tmu.ac.jp/tmu-kurata/lectures/fun19/note-2.pdf} (2021-12-30 21:59 取得)
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,421 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux52feux914d}{%
+\subsection{勾配}%\label{ux52feux914d}}
+%\hypertarget{ux52feux914d-1}{%
+\subsubsection{勾配}%\label{ux52feux914d-1}}
+\begin{thm}\label{4.2.5.1}
+開区間$I$を用いた$I \subseteq D(f) \subseteq \mathbb{R}$なる関数$f:D(f) \rightarrow \mathbb{R}$と$x \in I$なる実数$x$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  その関数$f$はその区間$I$で微分可能で$\partial f(x) = c$が成り立つ。
+\item
+  $r \in o_{h,0}$なる関数$r:U_{0}(0,\varepsilon) \rightarrow \mathbb{R}$を用いた次式が成り立つ。
+\begin{align*}
+f(x + h) - f(x) = ch + r(h)
+\end{align*}
+\item
+  $0$の$\varepsilon$近傍$U(0,\varepsilon)$を用いた実数0で連続で次式を満たすような関数$g:U(0,\varepsilon) \rightarrow \mathbb{R}$が存在する。
+\begin{align*}
+f(x + h) - f(x) = hg(h) \land g(0) = c
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開区間$I$を用いた$I \subseteq D(f) \subseteq \mathbb{R}$なる関数$f:D(f) \rightarrow \mathbb{R}$と$x \in I$なる実数$x$に対し、その関数$f$は微分可能で$\partial f(x) = c$が成り立つならそのときに限り、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h} = c \in \mathbb{R}
+\end{align*}\par
+ここで、次式のように関数$r$が定義されると、
+\begin{align*}
+r:U_{0}(0,\varepsilon) \rightarrow \mathbb{R};h \mapsto f(x + h) - f(x) - ch
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{r(h)}{h} &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x) - ch}{h} \\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{f(x + h) - f(x)}{h} - c \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h} - c \\
+&= c - c = 0
+\end{align*}
+これにより、$r \in o_{h,0}$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+f(x + h) - f(x) = ch + r(h)
+\end{align*}\par
+また、$r \in o_{h,0}$なる関数$r:U_{0}(0,\varepsilon) \rightarrow \mathbb{R}$を用いた次式が成り立つとき、
+\begin{align*}
+f(x + h) - f(x) = ch + r(h)
+\end{align*}
+その関数$r$は次式のようになる。
+\begin{align*}
+r:U_{0}(0,\varepsilon) \rightarrow \mathbb{R};h \mapsto f(x + h) - f(x) - ch
+\end{align*}
+ここで、次式のように関数$g$が定義されると、
+\begin{align*}
+g:U(0,\varepsilon) \rightarrow \mathbb{R};h \mapsto \left\{ \begin{matrix}
+c + \frac{r(h)}{h} & \mathrm{if} & h \neq 0 \\
+c & \mathrm{if} & h = 0 \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、明らかに、$g(0) = c$となる。また、次式が成り立ち、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(h)} = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( c + \frac{r(h)}{h} \right) = c + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{r(h)}{h}
+\end{align*}
+ここで、$r \in o_{h,0}$が成り立つので、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(h)} = c + 0 = c
+\end{align*}
+以上より、その関数$g$は実数$0$で連続である。さらに、$h = 0$のときでは明らかに、$f(x + h) - f(x) = hg(h)$が成り立つ。$h \neq 0$のときもまた、次式が成り立つ。
+\begin{align*}
+f(x + h) - f(x) = ch + r(h) = h\left( c + \frac{r(h)}{h} \right) = hg(h)
+\end{align*}\par
+0の$\varepsilon$近傍$U(0,\varepsilon)$を用いた実数0で連続で次式を満たすような関数$g:U(0,\varepsilon) \rightarrow \mathbb{R}$が存在するとする。
+\begin{align*}
+f(x + h) - f(x) = hg(h),\ \ g(0) = c
+\end{align*}
+$h \neq 0$が成り立つとき、次式が成り立つ。
+\begin{align*}
+\frac{f(x + h) - f(x)}{h} = g(h)
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h} = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(h)} = c
+\end{align*}
+これにより、その関数$f$はその区間$I$で微分可能である。
+\end{proof}
+\begin{dfn}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$について、$\mathbf{a} \in U$なる点$\mathbf{a}$と$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}$を用いて次式を満たすような$\mathbf{c} \in \mathbb{R}^{n}$なるvector$\mathbf{c}$が存在するとき、その関数$f$はその点$\mathbf{a}$で微分可能であるという。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) ={}^{t}\mathbf{ch} + r\left( \mathbf{h} \right)
+\end{align*}
+このときのそのvector$\mathbf{c}$をその関数$f$のその点$\mathbf{a}$における導値、微分係数などといい$\mathrm{grad}f\left( \mathbf{a} \right)$、$\partial f\left( \mathbf{a} \right)$、$Df\left( \mathbf{a} \right)$などと書く。さらに、$\forall\mathbf{x} \in U$に対し、その関数$f$がその点$\mathbf{x}$で微分可能であるとき、その関数$f$はその開集合$U$で微分可能であるという。このときのそのvector$\mathbf{c} = \mathrm{grad}f\left( \mathbf{x} \right)$は次式のように関数の像となっているので、その関数$\mathrm{grad}f$をその関数$f$の勾配、導関数という。
+\begin{align*}
+\mathrm{grad}f:U \rightarrow \mathbb{R}^n;\mathbf{x} \mapsto \mathbf{c}
+\end{align*}
+これは後述するようにその点$\mathbf{x}$でその関数$f$の変化率が最大となる方向でその変化率を長さとするvectorとなっている。また、記法について次のように書くこともある。
+\begin{align*}
+\mathrm{grad}f:U \rightarrow \mathbb{R}^n;\mathbf{x} \mapsto \frac{\partial}{\partial\mathbf{x}}f\left( \mathbf{x} \right) = \left. \ \frac{\partial}{\partial\mathbf{x}'}f\left( \mathbf{x}' \right) \right|_{\mathbf{x} = \mathbf{x}'}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.2.5.2}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$について、その関数$f$がその点$\mathbf{a}$で微分可能であるとき、その式$f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) ={}^{t}\mathbf{ch} + r\left( \mathbf{h} \right)$は次のようにも書き換えられることができる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathbf{ch}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるならそのときに限り、$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$なる関数$r:U \rightarrow \mathbb{R}$を用いて次式を満たすような$\mathbf{c} \in \mathbb{R}^{n}$なるvectorが存在するのであった。
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) ={}^{t}\mathbf{ch} + r\left( \mathbf{h} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+r\left( \mathbf{h} \right) = f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) -{}^{t}\mathbf{ch}
+\end{align*}
+ここで、$r \in o_{\left\| \mathbf{h} \right\|,\mathbf{0}}$が成り立つので、次のようになる。
+\begin{align*}
+\mathbf{0} &= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h \neq 0} \\
+\end{matrix}}\frac{r\left( \mathbf{x} \right)}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) -{}^{t}\mathbf{ch}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} - \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathbf{ch}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathbf{ch}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.5.3}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとき、次のことが成り立つ。なお、これの逆は必ずしも成り立たないことに注意されたい。
+\begin{itemize}
+\item
+  $\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、その関数$f$は$\mathbf{a} \in Uなる点\mathbf{a}で\mathbf{e}$方向に微分可能で次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{a} \right) ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}
+\end{align*}
+\item
+  その関数$f$は各成分で偏微分可能で次式が成り立つ。
+\begin{align*}
+\mathrm{grad}f\left( \mathbf{a} \right) = \left( \partial_{i}f\left( \mathbf{a} \right) \right)_{i \in \varLambda_{n}}
+\end{align*}
+\end{itemize}\par
+特に、開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$がその開集合$U$で微分可能であるとき、次のことが成り立つ。なお、これの逆は必ずしも成り立たないことに注意されたい。
+\begin{itemize}
+\item
+  $\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、その関数$f$はその開集合$U$で$\mathbf{e}$方向に微分可能で次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}:U \rightarrow \mathbb{R}
+\end{align*}
+\item
+  その関数$f$は各成分で偏微分可能で次式が成り立つ。
+\begin{align*}
+\mathrm{grad}f = \left( \partial_{i}f \right)_{i \in \varLambda_{n}}:U \rightarrow \mathbb{R}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるとき、$\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、$\mathbf{e} = \mathbf{0}$のとき、明らかにその関数$f$はその開集合$U$で$\mathbf{e}$方向に微分可能で次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{a} \right) ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e} = \mathbf{0}
+\end{align*}
+$\mathbf{e} \neq \mathbf{0}$のとき、$\mathbf{h} = t\mathbf{e}$とおくと、$\mathbf{h} \neq \mathbf{0} \Leftrightarrow t \neq 0$が成り立つかつ、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\mathbf{h} = \mathbf{0},\ \ \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}t = 0
+\end{align*}
+また、仮定よりその関数$f$は$\mathbf{a} \in U$なる点$\mathbf{a}$で微分可能であるので、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+したがって次のようになる。
+\begin{align*}
+0 &= \left\| \mathbf{e} \right\|\left( \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} - \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} \right)\\
+&= \left\| \mathbf{e} \right\|\left( \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right)}{\left\| \mathbf{h} \right\|} - \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} \right)\\
+&= \left\| \mathbf{e} \right\|\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}\\
+&= \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{\left\| \mathbf{e} \right\|\left( f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)t\mathbf{e} \right)}{|t|\left\| \mathbf{e} \right\|}\\
+&= \pm \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right) - t{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}}{t}\\
+&= \pm \left( \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right)}{t} -{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e} \right)
+\end{align*}
+これにより、次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{a} \right) = \lim_{\scriptsize \begin{matrix}
+t \rightarrow 0 \\
+t \neq 0 \\
+\end{matrix}}\frac{f\left( \mathbf{a} + t\mathbf{e} \right) - f\left( \mathbf{a} \right)}{t} ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}
+\end{align*}
+上記の議論より$\forall j \in \varLambda_{n}$に対し、vectors$\mathbf{e}_{j}$が次式のように定義されるとすると、
+\begin{align*}
+\mathbf{e}_{j} = \left( \delta_{ij} \right)_{i \in \varLambda_{n}} = \left( \left\{ \begin{matrix}
+1 & \mathrm{if} & i = j \\
+0 & \mathrm{if} & i \neq j \\
+\end{matrix} \right.\  \right)_{i \in \varLambda_{n}}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+D_{\mathbf{e}_{j}}f\left( \mathbf{a} \right) = \partial_{j}f\left( \mathbf{a} \right) ={}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}_{j}
+\end{align*}
+ここで、$\mathrm{grad}f\left( \mathbf{a} \right) = \left( c_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つので、
+\begin{align*}
+{}^{t}\mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}_{j} = \begin{pmatrix}
+c_{1} & \cdots & c_{j} & \cdots & c_{n} \\
+\end{pmatrix}\begin{pmatrix}
+0 \\
+ \vdots \\
+1 \\
+ \vdots \\
+0 \\
+\end{pmatrix} = c_{j}
+\end{align*}
+次式のようになる。
+\begin{align*}
+\mathrm{grad}f\left( \mathbf{a} \right) = \left( \mathrm{grad}f\left( \mathbf{a} \right)\mathbf{e}_{j} \right)_{i \in \varLambda_{n}} = \left( \partial_{i}f\left( \mathbf{a} \right) \right)_{i \in \varLambda_{n}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.5.4}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なるその開集合$U$で$C^{1}$級の関数$f:D(f) \rightarrow \mathbb{R}$はその開集合$U$で微分可能である。
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる$C^{1}$級の関数$f:D(f) \rightarrow \mathbb{R}$について考えよう。$\mathbf{x} = \left( x_{i} \right)_{i \in \varLambda_{n}} \in U$が成り立つなら、その点の$\varepsilon$近傍$U\left( \mathbf{x},\varepsilon \right)$を用いた$U\left( \mathbf{x},\varepsilon \right) \subseteq U$が成り立つような正の実数$\varepsilon$が存在する。ここで、$\mathbf{h} = \left( h_{i} \right)_{i \in \varLambda_{n}} \neq \mathbf{0}$なるvector$\mathbf{h}$を用いて$\left\| \mathbf{h} \right\| < \varepsilon$が成り立つなら、$\left\| \mathbf{x} - \left( \mathbf{x} + \mathbf{h} \right) \right\| < \varepsilon$が成り立つので、$\mathbf{x} + \mathbf{h} \in U$が成り立つ。ここで、$\forall i' \in \varLambda_{n + 1}$に対し、vector$\mathbf{h}_{i'}'$が次式のように定義されるとする。
+\begin{align*}
+\mathbf{h}_{i'}' = \left( \left\{ \begin{matrix}
+0 & \mathrm{if} & i \in \varLambda_{i' - 1} \\
+h_{i} & \mathrm{if} & i \in \varLambda_{n} \setminus \varLambda_{i' - 1} \\
+\end{matrix} \right.\  \right)_{i \in \varLambda_{n}}
+\end{align*}
+このとき、その関数$f$は$C^{1}$級であるから、平均値の定理より$\forall i' \in \varLambda_{n + 1}$に対し、次式が成り立つような実数$c_{i'}$が区間$\left( x_{i'},x_{i'} + h_{i'} \right) \cup \left( x_{i'} + h_{i'},x_{i'} \right)$に存在する。
+\begin{align*}
+\frac{f\left( \mathbf{x} + h_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right) - f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)}{h_{i'}} = \partial_{i}f\left( \mathbf{x} + c_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right)
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\sum_{i' \in \varLambda_{n}} \left( f\left( \mathbf{x} + h_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right) - f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right) \right) = \sum_{i' \in \varLambda_{n}} {h_{i'}\partial_{i'}f\left( \mathbf{x} + c_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right)}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sum_{i' \in \varLambda_{n}} {h_{i'}\partial_{i'}f\left( \mathbf{x} + c_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right)} &= \sum_{i' \in \varLambda_{n + 1}} \left( f\left( \mathbf{x} + h_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right) - f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right) \right)\\
+&= \sum_{i' \in \varLambda_{n + 1}} {f\left( \mathbf{x} + h_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right)} - \sum_{i' \in \varLambda_{n + 1}} {f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)}\\
+&= f\left( \mathbf{x} + h_{1}\mathbf{e}_{1} + \mathbf{h}_{2}' \right) + \sum_{i' \in \varLambda_{n + 1} \setminus \left\{ 1 \right\}} {f\left( \mathbf{x} + h_{i'}\mathbf{e}_{i'} + \mathbf{h}_{i' + 1}' \right)} \\
+&\quad - \sum_{i' \in \varLambda_{n + 1} \setminus \left\{ n + 1 \right\}} {f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)} - f\left( \mathbf{x} + \mathbf{h}_{n + 1}' \right)\\
+&= f\left( \mathbf{x} + \mathbf{h} \right) + \sum_{i' \in \varLambda_{n + 1} \setminus \left\{ 1 \right\}} {f\left( \mathbf{x} + \mathbf{h}_{i'}' \right)} - \sum_{i' \in \varLambda_{n}} {f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)} - f\left( \mathbf{x} \right)\\
+&= f\left( \mathbf{x} + \mathbf{h} \right) + \sum_{i' \in \varLambda_{n}} {f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)} - \sum_{i' \in \varLambda_{n}} {f\left( \mathbf{x} + \mathbf{h}_{i' + 1}' \right)} - f\left( \mathbf{x} \right)\\
+&= f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+&\quad \left| \frac{f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} \right|\\
+&= \frac{1}{\left\| \mathbf{h} \right\|}\left| f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) - \begin{pmatrix}
+\partial_{1}f\left( \mathbf{x} \right) & \partial_{2}f\left( \mathbf{x} \right) & \cdots & \partial_{n}f\left( \mathbf{x} \right) \\
+\end{pmatrix}\begin{pmatrix}
+h_{1} \\
+h_{2} \\
+ \vdots \\
+h_{n} \\
+\end{pmatrix} \right|\\
+&= \frac{1}{\left\| \mathbf{h} \right\|}\left| f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) - \sum_{i \in \varLambda_{n}} {h_{i}\partial_{i}f\left( \mathbf{x} \right)} \right|\\
+&= \frac{1}{\left\| \mathbf{h} \right\|}\left| \sum_{i \in \varLambda_{n}} {h_{i}\partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right)} - \sum_{i \in \varLambda_{n}} {h_{i}\partial_{i}f\left( \mathbf{x} \right)} \right|\\
+&= \frac{1}{\left\| \mathbf{h} \right\|}\left| \sum_{i \in \varLambda_{n}} {h_{i}\left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)} \right|\\
+&= \frac{1}{\left\| \mathbf{h} \right\|}\left|{}^{t}\mathbf{h}\left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)_{i \in \varLambda_{n}} \right|
+\end{align*}
+ここで、Schwarzの不等式より次のようになる。
+\begin{align*}
+\left| \frac{f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} \right| &\leq \frac{1}{\left\| \mathbf{h} \right\|}\left\| \mathbf{h} \right\|\left\| \left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)_{i \in \varLambda_{n}} \right\|\\
+&= \left\| \left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)_{i \in \varLambda_{n}} \right\|\\
+&= \left( \sum_{i \in \varLambda_{n}} \left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)^{2} \right)^{\frac{1}{2}}
+\end{align*}
+ここで、次式が成り立つので、
+\begin{align*}
+\lim_{\mathbf{h} \rightarrow \mathbf{0}}\left( c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) = \lim_{\scriptsize \begin{matrix}
+h_{i} \rightarrow 0 \\
+\forall i' \in \varLambda_{n} \setminus \varLambda_{i}\left[ h_{i'} \rightarrow 0 \right] \\
+\end{matrix}}\left( c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) = \lim_{\scriptsize \begin{matrix}
+c_{i} \rightarrow 0 \\
+h_{i + 1}' \rightarrow 0 \\
+\end{matrix}}\left( c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) = \mathbf{0}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+&\quad \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left( \sum_{i \in \varLambda_{n}} \left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)^{2} \right)^{\frac{1}{2}}\\
+&= \lim_{\scriptsize \begin{matrix}
+c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \rightarrow \mathbf{0} \\
+\end{matrix}}\left( \sum_{i \in \varLambda_{n}} \left( \partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right) - \partial_{i}f\left( \mathbf{x} \right) \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{n}} \left( \lim_{c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \rightarrow \mathbf{0}}{\partial_{i}f\left( \mathbf{x} + c_{i}\mathbf{e}_{i} + \mathbf{h}_{i + 1}' \right)} - \partial_{i}f\left( \mathbf{x} \right) \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \sum_{i \in \varLambda_{n}} \left( \partial_{i}f\left( \mathbf{x} \right) - \partial_{i}f\left( \mathbf{x} \right) \right)^{2} \right)^{\frac{1}{2}} = \left( \sum_{i \in \varLambda_{n}} 0^{2} \right)^{\frac{1}{2}} = 0
+\end{align*}
+これにより、はさみうちの原理より次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\left| \frac{f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} \right| = \pm \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right) -{}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|} = 0
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{f\left( \mathbf{x} + \mathbf{h} \right) - f\left( \mathbf{x} \right)}{\left\| \mathbf{h} \right\|} = \lim_{\scriptsize \begin{matrix}
+\mathbf{h} \rightarrow \mathbf{0} \\
+\mathbf{h} \neq \mathbf{0} \\
+\end{matrix}}\frac{{}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{h}}{\left\| \mathbf{h} \right\|}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.5.5}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$がその開集合$U$で微分可能であるとき、$\mathbf{e} \in \mathbb{R}^{n}$かつ$\left\| \mathbf{e} \right\| = 1$なるvector$\mathbf{e}$が負でない実数$t$を用いて$\mathrm{grad}f\left( \mathbf{x} \right) = t\mathbf{e}$を満たすなら、実数$D_{\mathbf{e}}f\left( \mathbf{x} \right)$は次式を満たす、即ち、これがそのvector$\mathbf{e}$の関数とみなされたとき、最大となる。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{x} \right) = \max{V(D)} = t,\ \ D:\mathbb{R}^{n} \rightarrow \mathbb{R};\mathbf{e} \mapsto D_{\mathbf{e}}f\left( \mathbf{x} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合$U$を用いた$U \subseteq D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$がその開集合$U$で微分可能であるとき、$\forall\mathbf{e} \in \mathbb{R}^{n}$に対し、明らかにその関数$f$はその開集合$U$で$\mathbf{e}$方向に微分可能で$D_{\mathbf{e}}f\left( \mathbf{x} \right) ={}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{e}$が成り立つ。Schwarzの不等式より$D_{\mathbf{e}}f\left( \mathbf{x} \right) \leq \left\| \mathrm{grad}f\left( \mathbf{x} \right) \right\|\left\| \mathbf{e} \right\|$が成り立つ。$\mathbf{e} \in \mathbb{R}^{n}$かつ$\left\| \mathbf{e} \right\| = 1$なるvector$\mathbf{e}$が負でない実数$t$を用いて$\partial f\left( \mathbf{x} \right) = t\mathbf{e}$を満たすなら、次のようになるので、
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{x} \right) &={}^{t}\mathrm{grad}f\left( \mathbf{x} \right)\mathbf{e} = t{}^{t}\mathbf{ee} = t\left\| \mathbf{e} \right\|^{2} = t\\
+\left\| \mathrm{grad}f\left( \mathbf{x} \right) \right\| &= \left\| t\mathbf{e} \right\| = t
+\end{align*}
+$D_{\mathbf{e}}f\left( \mathbf{x} \right) = \left\| \mathrm{grad}f\left( \mathbf{x} \right) \right\|\left\| \mathbf{e} \right\| = t$が成り立つ。以上より、実数$D_{\mathbf{e}}f\left( \mathbf{x} \right)$は次式を満たす、即ち、これがそのvector$\mathbf{e}$の関数とみなされたとき、最大となる。
+\begin{align*}
+D_{\mathbf{e}}f\left( \mathbf{x} \right) = \max{V(D)} = t,\ \ D:\mathbb{R}^{n} \rightarrow \mathbb{R};\mathbf{e} \mapsto D_{\mathbf{e}}f\left( \mathbf{x} \right)
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p118-126 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

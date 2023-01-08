@@ -1,0 +1,754 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{7}
+\usepackage{xr}
+\externaldocument{4.2.6}
+\input{macro}
+\begin{document}
+%\hypertarget{ux8907ux7d20ux5faeux5206}{%
+\subsection{複素微分}%\label{ux8907ux7d20ux5faeux5206}}
+%\hypertarget{ux8907ux7d20ux5faeux5206-1}{%
+\subsubsection{複素微分}%\label{ux8907ux7d20ux5faeux5206-1}}
+\begin{dfn}
+開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$なる関数$f:D(f) \rightarrow \mathbb{C}$について、$a \in U$なる複素数$a$を用いて極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h}$が収束するとき、即ち、次式が成り立つような複素数$b$が存在するとき、その関数$f$はその複素数$a$で複素微分可能であるという。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h} = b \in \mathbb{C}
+\end{align*}
+このときのその複素数$b$をその関数$f$のその点$a$における導値、微分係数などといい$\partial_{\mathrm{hol}}f(a)$、$\partial f(a)$、$f'(a)$などと書く。さらに、$\forall z \in U$に対し、その関数$f$がその複素数$z$で複素微分可能であるとき、その関数$f$はその開集合$U$で正則であるという。このときのその複素数$b = \partial_{\mathrm{hol}}f(z)$は次式のように関数の像となっているので、その関数$\partial_{\mathrm{hol}}f$をその関数$f$の導関数という。
+\begin{align*}
+\partial_{\mathrm{hol}}f:U \rightarrow \mathbb{C};z \mapsto \partial_{\mathrm{hol}}f(z)
+\end{align*}
+また、次のように書くこともある。
+\begin{align*}
+\partial_{\mathrm{hol}}f:U \rightarrow \mathbb{C};z \mapsto \frac{d}{dz}f(z) = \left. \ \frac{d}{dz'}f\left( z' \right) \right|_{z' = z}
+\end{align*}
+その複素数体$\mathbb{C}$と同一視された2次元数空間$\mathbb{R}^{2}$を複素平面、Gauss平面などという。
+\end{dfn}
+\begin{thm}\label{4.2.8.1} 行列$\begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix} \in M_{22}\left( \mathbb{R} \right)$を用いた次式のように定義される任意の関数$A$はその集合$\mathbb{R}$上で線形的である\footnote{というか、こんなものは線形代数学に参照したほうがはやいし、分かりやすいかも…σ(\ \_\ ;)}、
+\begin{align*}
+A:\mathbb{C} \rightarrow \mathbb{C};x+iy \mapsto \begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+即ち、$\forall k,l \in \mathbb{R}\forall z,w \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+A(kz + lw) = kA(z) + lA(w)
+\end{align*}
+\end{thm}
+\begin{proof} 行列$\begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix} \in M_{22}\left( \mathbb{R} \right)$を用いて任意の関数$A$が次式のように与えられたとする。
+\begin{align*}
+A:\mathbb{C} \rightarrow \mathbb{C};x+iy \mapsto \begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+このとき、$\forall k,l \in \mathbb{R}\forall z,w \in \mathbb{C}$に対し、$z=x+iy$、$w=u+iv$として次のようになる。
+\begin{align*}
+A(kz + lw) &= \begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\begin{pmatrix}
+kx + lu \\
+ky + lv \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\left( k\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} + l\begin{pmatrix}
+u \\
+v \\
+\end{pmatrix} \right)\\
+&= k\begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} + l\begin{pmatrix}
+a_{xx} & a_{xy} \\
+a_{yx} & a_{yy} \\
+\end{pmatrix}\begin{pmatrix}
+u \\
+v \\
+\end{pmatrix}\\
+&= kA(z) + lA(w)
+\end{align*}
+\end{proof}
+\begin{dfn}
+特に、複素数$c \in \mathbb{C}$を用いて次式のように定義される関数$A_{0}$を2次元数空間$\mathbb{R}^{2}$の複素線形変換、複素線型変換、複素1次変換などという。
+\end{dfn}
+\begin{align*}
+A_{0}:\mathbb{C} \rightarrow \mathbb{C};z \mapsto cz
+\end{align*}
+\begin{thm}\label{4.2.8.2} これについて、次のことが成り立つ。
+\begin{itemize}
+\item
+  任意の複素線形変換$A_{0}$はその集合$\mathbb{C}$上で線形的である、即ち、$\forall k,l \in \mathbb{C}\forall z,w \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+A_{0}(kz + lw) = kA_{0}(z) + lA_{0}(w)
+\end{align*}
+\item
+  複素数$c \in \mathbb{C}$を用いた複素線形変換$A_{0}$が次式のように与えられたとき、
+\begin{align*}
+A_{0}:\mathbb{C} \rightarrow \mathbb{C};z \mapsto cz
+\end{align*}
+$a,b,x,y \in \mathbb{R}$、$c = a + ib$、$z = x + iy$として次式が成り立つ。
+\begin{align*}
+A_{0}(z) = \begin{pmatrix}
+a & - b \\
+b & a \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+複素数$c \in \mathbb{C}$を用いた複素線形変換$A_{0}$が次式のように与えられたとき、
+\begin{align*}
+A_{0}:\mathbb{C} \rightarrow \mathbb{C};z \mapsto cz
+\end{align*}
+$\forall k,l \in \mathbb{C}\forall z,w \in \mathbb{C}$に対し、$a,b,x,y \in \mathbb{R}$、$c = a + ib$、$z = x + iy$として次のようになる。
+\begin{align*}
+A_{0}(kz + lw) &= c(kz + lw)\\
+&= ckz + clw\\
+&= kcz + lcw\\
+&= kA_{0}(z) + lA_{0}(w)\\
+A_{0}(z) &= cz = (a + ib)(x + iy)\\
+&= (ax - by) + i(ay + bx)\\
+&= \begin{pmatrix}
+ax - by \\
+bx + ay \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a & - b \\
+b & a \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.8.3}
+開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$なる関数$f:D(f) \rightarrow \mathbb{C}$について、次のことは同値である。
+\begin{itemize}
+\item
+  その関数$f$は$a \in U$なる複素数$a$で複素微分可能である。
+\item
+  その関数$f$は$a \in U$なるvector$a$で微分可能で変数$z$の実部$\mathrm{Re}z$、虚部$\mathrm{Im}z$をそれぞれ$x$成分、$y$成分ということにし$f = \begin{pmatrix}
+  u \\
+  v \\
+  \end{pmatrix} = u + iv$として次式が成り立つ。この式をCauchy-Riemannの方程式という。
+\begin{align*}
+\left\{ \begin{matrix}
+\partial_{x}u(a) = \partial_{y}v(a) \\
+\partial_{y}u(a) = - \partial_{x}v(a) \\
+\end{matrix} \right.\ 
+\end{align*}
+\item
+  その関数$f$は$a \in U$なるvector$a$で微分可能でそのJacobi行列$J_{f}(a)$を用いた次の関数は複素線形変換となる。
+\begin{align*}
+L_{J_{f}(a)}:\mathbb{C} \rightarrow \mathbb{C};z \mapsto J_{f}(a)z
+\end{align*}
+このとき、変数$z$の実部$\mathrm{Re}z$、虚部$\mathrm{Im}z$をそれぞれ$x$成分、$y$成分ということにし$f = \begin{pmatrix}
+u \\
+v \\
+\end{pmatrix} = u + iv$として次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f(a) = \partial_{x}u(a) + i\partial_{x}v(a) = \partial_{y}v(a) - i\partial_{y}u(a)
+\end{align*}
+\end{itemize}\par
+特に、その関数$f$がその開集合$U$で微分可能であるとき、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f(a) = \partial_{x}u + i\partial_{x}v = \partial_{y}v - i\partial_{y}u:U \rightarrow \mathbb{C}
+\end{align*}
+\end{thm}
+\begin{proof}
+開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$なる関数$f:D(f) \rightarrow \mathbb{C}$について、その関数$f$は$a \in U$なる複素数$a$で複素微分可能であるなら、定義より次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f(a) = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h} \in \mathbb{C}
+\end{align*}
+ここで、変数$z$の実部$\mathrm{Re}z$、虚部$\mathrm{Im}z$をそれぞれ$x$成分、$y$成分ということにし、$c,d,k,l \in \mathbb{R}$、$a = c + id$、$h = k + il$、$f = \begin{pmatrix}
+u \\
+v \\
+\end{pmatrix} = u + iv$、$\partial_{\mathrm{hol}}f = \begin{pmatrix}
+u' \\
+v' \\
+\end{pmatrix} = u' + iv'$として、これは次式のように書き換えられることができる。
+\begin{align*}
+u'(a) + iv'(a) &= \partial_{\mathrm{hol}}f(a) = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+k,l \rightarrow 0 \\
+k,l \neq 0 \\
+\end{matrix}}\frac{1}{k + il}\left( \left( u\left( (c + id) + (k + il) \right) \right. \right. \\
+&\quad  \left.  \left.+ iv\left( (c + id) + (k + il) \right) \right) - \left( u(c + id) + iv(c + id) \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+k,l \rightarrow 0 \\
+k,l \neq 0 \\
+\end{matrix}}\frac{1}{k + il}\left( \left( u\left( (c + k) + i(y + l) \right) - u(c + id) \right) \right. \\
+&\quad \left. + i\left( v\left( (c + k) + i(d + l) \right) - v(c + id) \right) \right)
+\end{align*}\par
+ここで、$l = 0$のとき、次のようになる。
+\begin{align*}
+u'(a) + iv'(a) &= \lim_{\scriptsize \begin{matrix}
+k \rightarrow 0 \\
+k \neq 0 \\
+\end{matrix}}\frac{1}{k}\left( \left( u\left( (c + k) + id \right) - u(c + id) \right) \right. \\
+&\quad \left. + i\left( v\left( (c + k) + id \right) - v(c + id) \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+k \rightarrow 0 \\
+k \neq 0 \\
+\end{matrix}}\frac{u\left( (c + k) + id \right) - u(c + id)}{k} \\
+&\quad + i\lim_{\scriptsize \begin{matrix}
+k \rightarrow 0 \\
+k \neq 0 \\
+\end{matrix}}\frac{v\left( (c + k) + id \right) - v(c + id)}{k}\\
+&= \partial_{x}u(c + id) + i\partial_{x}v(c + id)\\
+&= \partial_{x}u(a) + i\partial_{x}v(a)
+\end{align*}\par
+$k = 0$のとき、次のようになる。
+\begin{align*}
+u'(a) + iv'(a) &= \lim_{\scriptsize \begin{matrix}
+l \rightarrow 0 \\
+l \neq 0 \\
+\end{matrix}}\frac{1}{il}\left( \left( u\left( c + i(d + l) \right) - u(c + id) \right) \right. \\
+&\quad \left. + i\left( v\left( c + i(d + l) \right) - v(c + id) \right) \right)\\
+&= \frac{1}{i}\left( \lim_{\scriptsize \begin{matrix}
+l \rightarrow 0 \\
+l \neq 0 \\
+\end{matrix}}\frac{u\left( c + i(d + l) \right) - u(c + id)}{l} \right. \\
+&\quad \left. + i\lim_{\scriptsize \begin{matrix}
+l \rightarrow 0 \\
+l \neq 0 \\
+\end{matrix}}\frac{v\left( c + i(d + l) \right) - v(c + id)}{l} \right)\\
+&= \frac{1}{i}\left( \partial_{y}u(c + id) + i\partial_{y}v(c + id) \right)\\
+&= \partial_{v}y(a) + i\left( - \partial_{y}u(a) \right)
+\end{align*}
+ここで、その極限値$\partial_{\mathrm{hol}}f(a)$が存在するなら、これは一意的であったので、次式が成り立つ。
+\begin{align*}
+u'(a) + iv'(a) = \partial_{x}u(a) + i\partial_{x}v(a) = \partial_{y}v(a) + i\left( - \partial_{y}u(a) \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+\partial_{x}u(a) = \partial_{y}v(a) \\
+\partial_{x}v(a) = - \partial_{y}u(a) \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、確かにその行列$\begin{pmatrix}
+\partial_{x}u(a) & \partial_{y}u(a) \\
+\partial_{x}v(a) & \partial_{y}v(a) \\
+\end{pmatrix}$が存在できているので、次のようになり
+\begin{align*}
+J_{f}(a) = \begin{pmatrix}
+\partial_{x}u(a) & \partial_{y}u(a) \\
+\partial_{x}v(a) & \partial_{y}v(a) \\
+\end{pmatrix}
+\end{align*}
+その関数$f$はその複素数$a$で複素微分可能である。\par
+このとき、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f(a) = \partial_{x}u(a) + i\partial_{x}v(a) = \partial_{y}v(a) - i\partial_{y}u(a)
+\end{align*}\par
+逆に、その関数$f$はその複素数$a$で微分可能で次式が成り立つなら、
+\begin{align*}
+\left\{ \begin{matrix}
+\partial_{x}u(a) = \partial_{y}v(a) \\
+\partial_{x}v(a) = - \partial_{y}u(a) \\
+\end{matrix} \right.\ 
+\end{align*}
+そのJacobi行列$\begin{pmatrix}
+\partial_{x}u(a) & \partial_{y}u(a) \\
+\partial_{x}v(a) & \partial_{y}v(a) \\
+\end{pmatrix}$が存在し次式が成り立つ。
+\begin{align*}
+\partial_{x}u(a) + i\partial_{x}v(a) = \partial_{y}v(a) - i\partial_{y}u(a)
+\end{align*}
+また、$\exists\theta,\iota \in (0,1)$に対し、多変数のTaylorの定理より次のようになる。
+\begin{align*}
+u(a + h) &= u(a) + \frac{1}{1!}(du)_{a}(h) + \frac{1}{2!}\left( d^{2}u \right)_{a + \theta h}(h)\\
+&= u(a) + (du)_{a}(h) + \frac{1}{2}\left( d^{2}u \right)_{a + \theta h}(h)\\
+&= u(a) + \left( \partial_{x}u(a)k + \partial_{y}u(a)l \right) \\
+&\quad + \frac{1}{2}\left( \partial_{xx}u(a + \theta h)k^{2} + 2\partial_{xy}u(a + \theta h)kl + \partial_{yy}u(a + \theta h)l^{2} \right)\\
+&= u(a) + \partial_{x}u(a)k + \partial_{y}u(a)l + \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} + \partial_{xy}u(a + \theta h)kl \\
+&\quad + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2}\\
+v(a + h) &= v(a) + \frac{1}{1!}(dv)_{a}(h) + \frac{1}{2!}\left( d^{2}v \right)_{a + \iota h}(h)\\
+&= v(a) + (dv)_{a}(h) + \frac{1}{2}\left( d^{2}v \right)_{a + \iota h}(h)\\
+&= v(a) + \left( \partial_{x}v(a)k + \partial_{y}v(a)l \right) \\
+&\quad + \frac{1}{2}\left( \partial_{xx}v(a + \iota h)k^{2} + 2\partial_{xy}v(a + \iota h)kl + \partial_{yy}v(a + \iota h)l^{2} \right)\\
+&= v(a) + \partial_{x}v(a)k + \partial_{y}v(a)l \\
+&\quad + \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h} &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\left( u(a + h) + iv(a + h) \right) - \left( u(a) + iv(a) \right)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\left( u(a + h) - u(a) \right) + i\left( v(a + h) - v(a) \right)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{1}{k + il}\left( \left( \partial_{x}u(a)k + \partial_{y}u(a)l + \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} \right. \right. \\
+&\quad \left. + \partial_{xy}u(a + \theta h)kl + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2} \right) \\
+&\quad + i\left( \partial_{x}v(a)k + \partial_{y}v(a)l + \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} \right. \\
+&\quad \left. \left. + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2} \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{1}{k + il}\left( \partial_{x}u(a)k + \partial_{y}u(a)l + i\partial_{x}v(a)k + i\partial_{y}v(a)l \right. \\
+&\quad + \left( \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} + \partial_{xy}u(a + \theta h)kl + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2} \right) \\
+&\quad \left. + i\left( \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2} \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{1}{k + il}\left( \partial_{x}u(a)k - \partial_{x}v(a)l + i\partial_{x}v(a)k + i\partial_{x}u(a)l \right. \\
+&\quad + \left( \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} + \partial_{xy}u(a + \theta h)kl + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2} \right) \\
+&\quad \left. + i\left( \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2} \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{1}{k + il}\left( \partial_{x}u(a)k - \partial_{x}v(a)l + i\partial_{x}v(a)k + i\partial_{x}u(a)l \right) \right. \\
+&\quad + \frac{1}{k + il}\left( \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} + \partial_{xy}u(a + \theta h)kl + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2} \right) \\
+&\quad \left. + \frac{i}{k + il}\left( \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2} \right) \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{\frac{1}{h}\left( \partial_{x}u(a)h + i\partial_{x}v(a)h \right)} \\
+&\quad + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{\frac{1}{h}\left( \frac{1}{2}\partial_{xx}u(a + \theta h)k^{2} + \partial_{xy}u(a + \theta h)kl + \frac{1}{2}\partial_{yy}u(a + \theta h)l^{2} \right)} \\
+&\quad + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{\frac{i}{h}\left( \frac{1}{2}\partial_{xx}v(a + \iota h)k^{2} + \partial_{xy}v(a + \iota h)kl + \frac{1}{2}\partial_{yy}v(a + \iota h)l^{2} \right)}\\
+&= \partial_{x}u(a) + i\partial_{x}v(a) \\
+&\quad + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{1}{2}\partial_{xx}u(a + \theta h)\frac{k^{2}}{h} + \partial_{xy}u(a + \theta h)\frac{kl}{h} + \frac{1}{2}\partial_{yy}u(a + \theta h)\frac{l^{2}}{h} \right) \\
+&\quad + i\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{1}{2}\partial_{xx}v(a + \iota h)\frac{k^{2}}{h} + \partial_{xy}v(a + \iota h)\frac{kl}{h} + \frac{1}{2}\partial_{yy}v(a + \iota h)\frac{l^{2}}{h} \right)\\
+&= \partial_{x}u(a) + i\partial_{x}v(a) \\
+&\quad + \frac{1}{2}\partial_{xx}u(a + \theta h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{k^{2}}{h} + \partial_{xy}u(a + \theta h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{kl}{h} + \frac{1}{2}\partial_{yy}u(a + \theta h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{l^{2}}{h} \\
+&\quad + \frac{i}{2}\partial_{xx}v(a + \iota h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{k^{2}}{h} + i\partial_{xy}v(a + \iota h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{kl}{h} + \frac{i}{2}\partial_{yy}v(a + \iota h)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{l^{2}}{h}
+\end{align*}
+ここで、$\varepsilon$-$\delta$論法により次のことが成り立つので、
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{k^{2}}{h} = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{kl}{h} = \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{l^{2}}{h} = 0
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(a + h) - f(a)}{h} = \partial_{x}u(a) + i\partial_{x}v(a)
+\end{align*}
+これにより、その関数$f$はその複素数$a$で複素微分可能である。\par
+また、その関数$f$はその複素数$a$で微分可能で次式が成り立つならそのときに限り、
+\begin{align*}
+\left\{ \begin{matrix}
+\partial_{x}u(a) = \partial_{y}v(a) \\
+\partial_{x}v(a) = - \partial_{y}u(a) \\
+\end{matrix} \right.\ 
+\end{align*}
+そのJacobi行列$J_{f}(a)$が存在しこれを用いた次式のような関数$L_{J_{f}(a)}$が与えられると、
+\begin{align*}
+L_{J_{f}(a)}:\mathbb{C} \rightarrow \mathbb{C};z = \begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} \mapsto J_{f}(a)z = J_{f}(a)\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+その像$L_{J_{f}(a)}(z)$は次式のようになり
+\begin{align*}
+L_{J_{f}(a)}(z) &= J_{f}(a)z = \begin{pmatrix}
+\partial_{x}u(a) & \partial_{y}u(a) \\
+\partial_{x}v(a) & \partial_{y}v(a) \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\partial_{x}u(a) & - \partial_{x}v(a) \\
+\partial_{x}v(a) & \partial_{x}u(a) \\
+\end{pmatrix}\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix}
+\end{align*}
+したがって、その関数$L_{J_{f}(a)}$は複素線形変換となる。逆に、これが成り立つなら、Cauchy-Riemannの方程式が成り立つ。
+\end{proof}
+\begin{thm}\label{4.2.8.4}
+開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$かつ$U \subseteq D(g) \subseteq \mathbb{C}$なる関数たち$f:D(f) \rightarrow \mathbb{C}$、$g:D(g) \rightarrow \mathbb{C}$が$a \in U$なる複素数$a$で複素微分可能であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k,l \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(kf + lg)(a) = k\partial_{\mathrm{hol}}f(a) + l\partial_{\mathrm{hol}}g(a)
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(fg)(a) = \partial_{\mathrm{hol}}f(a)g(a) + f(a)\partial_{\mathrm{hol}}g(a)
+\end{align*}
+\item
+  それらの関数たち$g$、$f$が合成可能であるとき、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(g \circ f)(a) = \partial_{\mathrm{hol}}g\left( f(a) \right)\partial_{\mathrm{hol}}f(a)
+\end{align*}
+\end{itemize}\par
+特に、開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$かつ$U \subseteq D(g) \subseteq \mathbb{C}$なる関数たち$f:D(f) \rightarrow \mathbb{C}$、$g:D(g) \rightarrow \mathbb{C}$がその開集合$U$で複素微分可能であるとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k,l \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(kf + lg) = k\partial_{\mathrm{hol}}f + l\partial_{\mathrm{hol}}g:U \rightarrow \mathbb{C}
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(fg) = \partial_{\mathrm{hol}}fg + f\partial_{\mathrm{hol}}g:U \rightarrow \mathbb{C}
+\end{align*}
+\item
+  それらの関数たち$g$、$f$が合成可能であるとき、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}(g \circ f) = \left( \partial_{\mathrm{hol}}g \circ f \right)\partial_{\mathrm{hol}}f:U \rightarrow \mathbb{C}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$かつ$U \subseteq D(g) \subseteq \mathbb{C}$なる関数たち$f:D(f) \rightarrow \mathbb{C}$、$g:D(g) \rightarrow \mathbb{C}$が$a \in U$なる複素数$a$で複素微分可能であるとき、変数$z$の実部$\mathrm{Re}z$、虚部$\mathrm{Im}z$をそれぞれ$x$成分、$y$成分ということにし$c,d,k,l \in \mathbb{R}$、$a = c + id$、$k = m + in$、$f = \begin{pmatrix}
+u \\
+v \\
+\end{pmatrix} = u + iv$、$g = \begin{pmatrix}
+w \\
+z \\
+\end{pmatrix} = w + iz$として、$\forall k \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}(f + g)(a) &= \partial_{x}(u + w)(a) + i\partial_{x}(v + z)(a)\\
+&= \left( \partial_{x}u(a) + \partial_{x}w(a) \right) + i\left( \partial_{x}v(a) + \partial_{x}z(a) \right)\\
+&= \left( \partial_{x}u(a) + i\partial_{x}v(a) \right) + i\left( \partial_{x}w(a) + i\partial_{x}z(a) \right)\\
+&= \partial_{\mathrm{hol}}f(a) + \partial_{\mathrm{hol}}g(a)\\
+\partial_{\mathrm{hol}}(kf)(a) &= \partial_{x}(mu - nv)(a) + i\partial_{x}(mv + nu)(a)\\
+&= m\partial_{x}u(a) - n\partial_{x}v(a) + im\partial_{x}v(a) + in\partial_{x}u(a)\\
+&= (m + in)\partial_{x}u(a) + i(m + in)\partial_{x}v(a)\\
+&= k\left( \partial_{x}u(a) + i\partial_{x}v(a) \right) = k\partial_{\mathrm{hol}}f(a)
+\end{align*}
+したがって、$\forall k,l \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}(kf + lg)(a) = \partial_{\mathrm{hol}}(kf)(a) + \partial_{\mathrm{hol}}\left( \lg \right)(a) = k\partial_{\mathrm{hol}}f(a) + l\partial_{\mathrm{hol}}g(a)
+\end{align*}\par
+また、$\partial_{\mathrm{hol}}(fg)(a)$について次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}(fg)(a) &= \partial_{x}(uw - vz)(a) + i\partial_{x}(uz + vw)(a)\\
+&= \partial_{x}(uw)(a) - \partial_{x}(vz)(a) + i\left( \partial_{x}(uz)(a) + \partial_{x}(vw)(a) \right)\\
+&= \partial_{x}u(a)w(a) + u(a)\partial_{x}w(a) - \partial_{x}v(a)z(a) - v(a)\partial_{x}z(a) \\
+&\quad + i\left( \partial_{x}u(a)z(a) + u(a)\partial_{x}z(a) + \partial_{x}v(a)w(a) + v(a)\partial_{x}w(a) \right)\\
+&= \partial_{x}u(a)w(a) + i\partial_{x}u(a)z(a) + i\partial_{x}v(a)w(a) - \partial_{x}v(a)z(a) \\
+&\quad + u(a)\partial_{x}w(a) + iu(a)\partial_{x}z(a) + iv(a)\partial_{x}w(a) - v(a)\partial_{x}z(a)\\
+&= \left( \partial_{x}u(a) + i\partial_{x}v(a) \right)\left( w(a) + iz(a) \right) \\
+&\quad + \left( u(a) + iv(a) \right)\left( \partial_{x}w(a) + i\partial_{x}z(a) \right)\\
+&= \partial_{\mathrm{hol}}f(a)g(a) + f(a)\partial_{\mathrm{hol}}g(a)
+\end{align*}\par
+また、それらの関数たち$g$、$f$が合成可能であるとき、次のようになる。
+\begin{align*}
+J_{g \circ f}(a) &= J_{g}\left( f(a) \right)J_{f}(a)\\
+&= \begin{pmatrix}
+\partial_{x}w\left( f(a) \right) & \partial_{y}w\left( f(a) \right) \\
+\partial_{x}z\left( f(a) \right) & \partial_{y}z\left( f(a) \right) \\
+\end{pmatrix}\begin{pmatrix}
+\partial_{x}u(a) & \partial_{y}u(a) \\
+\partial_{x}v(a) & \partial_{y}v(a) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\partial_{x}w\left( f(a) \right) & - \partial_{x}z\left( f(a) \right) \\
+\partial_{x}z\left( f(a) \right) & \partial_{x}w\left( f(a) \right) \\
+\end{pmatrix}\begin{pmatrix}
+\partial_{x}u(a) & - \partial_{x}v(a) \\
+\partial_{x}v(a) & \partial_{x}u(a) \\
+\end{pmatrix}\\
+&= \left( \begin{matrix}
+\partial_{x}w\left( f(a) \right)\partial_{x}u(a) - \partial_{x}z\left( f(a) \right)\partial_{x}v(a) \\
+\partial_{x}z\left( f(a) \right)\partial_{x}u(a) + \partial_{x}w\left( f(a) \right)\partial_{x}v(a) \\
+\end{matrix} \right. \\
+&\quad \left. \begin{matrix}
+- \partial_{x}w\left( f(a) \right)\partial_{x}v(a) - \partial_{x}z\left( f(a) \right)\partial_{x}u(a) \\
+- \partial_{x}z\left( f(a) \right)\partial_{x}v(a) + \partial_{x}w\left( f(a) \right)\partial_{x}u(a) \\
+\end{matrix} \right) \\
+&= \left( \begin{matrix}
+\partial_{x}w\left( f(a) \right)\partial_{x}u(a) - \partial_{x}z\left( f(a) \right)\partial_{x}v(a) \\
+\partial_{x}z\left( f(a) \right)\partial_{x}u(a) + \partial_{x}w\left( f(a) \right)\partial_{x}v(a) \\
+\end{matrix} \right.\\
+&\quad \left. \begin{matrix}
+ - \left( \partial_{x}z\left( f(a) \right)\partial_{x}u(a) + \partial_{x}w\left( f(a) \right)\partial_{x}v(a) \right) \\
+\partial_{x}w\left( f(a) \right)\partial_{x}u(a) - \partial_{x}z\left( f(a) \right)\partial_{x}v(a) \\
+\end{matrix} \right)
+\end{align*}\par
+これにより、その合成関数$g \circ f$もその複素数$a$で複素微分可能で次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}(g \circ f)(a) &= \partial_{x}w\left( f(a) \right) + i\partial_{x}v\left( f(a) \right)\\
+&= \left( \partial_{x}w\left( f(a) \right)\partial_{x}u(a) - \partial_{x}z\left( f(a) \right)\partial_{x}v(a) \right) \\
+&\quad + i\left( \partial_{x}z\left( f(a) \right)\partial_{x}u(a) + \partial_{x}w\left( f(a) \right)\partial_{x}v(a) \right)\\
+&= \left( \partial_{x}w\left( f(a) \right) + i\partial_{x}z\left( f(a) \right) \right)\left( \partial_{x}u(a) + i\partial_{x}v(a) \right)\\
+&= \partial_{\mathrm{hol}}g\left( f(a) \right)\partial_{\mathrm{hol}}f(a)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.8.5}
+連結な開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$なる関数$f:D(f) \rightarrow \mathbb{C}$がその集合$U$で正則で、$\forall z \in U$に対し、$\partial_{\mathrm{hol}}f(z) = 0$が成り立つなら、その関数$f|U$は定数である。
+\end{thm}
+\begin{proof}
+連結な開集合$U$を用いて$U \subseteq D(f) \subseteq \mathbb{C}$なる関数$f:D(f) \rightarrow \mathbb{C}$がその集合$U$で正則で、$\forall z \in U$に対し、$\partial_{\mathrm{hol}}f(z) = 0$が成り立つなら、その関数$f$はそのvector$z$で微分可能であり$J_{f}(z) = \begin{pmatrix}
+0 & 0 \\
+0 & 0 \\
+\end{pmatrix}$が成り立つ。したがって、その関数$f|U$は定数である。
+\end{proof}
+%\hypertarget{ux8907ux7d20ux5faeux5206ux3068ux6574ux7d1aux6570}{%
+\subsubsection{複素微分と整級数}%\label{ux8907ux7d20ux5faeux5206ux3068ux6574ux7d1aux6570}}
+\begin{thm}\label{4.2.8.6}
+複素数たち$a_{n}$、$b_{n}$、$a$、$z$を用いた任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$とこれに対応する整級数$\left( \sum_{k \in \varLambda_{n}} {ka_{k}(z - a)^{k - 1}} \right)_{n \in \mathbb{N}}$は同じ収束半径をもつ。
+\end{thm}
+\begin{proof}
+複素数たち$a_{n}$、$b_{n}$、$a$、$z$を用いた任意の整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$とこれに対応する整級数$\left( \sum_{k \in \varLambda_{n}} {ka_{k}(z - a)^{k - 1}} \right)_{n \in \mathbb{N}}$の収束半径がをそれぞれ$R$、$R'$、その複素数$a$を中心とする半径$R$、$R'$の円板たちがそれぞれ$D(a,R)$、$D\left( a,R' \right)$とおかれるとする。$k \geq 1$のとき、$1 \leq k = |k|$より次のようになる。
+\begin{align*}
+\left| a_{k}(z - a)^{k} \right| \leq \left| ka_{k}(z - a)^{k} \right| = \left| ka_{k}(z - a)^{k - 1} \right||z - a|
+\end{align*}
+したがって、その整級数$\left( \sum_{k \in \varLambda_{n}} {ka_{k}(z - a)^{k - 1}} \right)_{n \in \mathbb{N}}$が絶対収束するなら、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$も絶対収束することになるので、$D\left( a,R' \right) \subseteq D(a,R)$が成り立つ。したがって、$0 \leq R' \leq R$も成り立つ。$R = 0$が成り立つなら、当然ながら、$R = R' = 0$が成り立つ。$R > 0$が成り立つなら、$\forall z \in D(a,R)$に対し、$|z - a| < r < R$となる実数$r$が存在する。このとき、整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}r^{k}} \right)_{n \in \mathbb{N}}$も絶対収束し有界であることになるので、$\exists M \in \mathbb{R}^{+}\forall k \in \mathbb{N}$に対し、$\left| a_{k}r^{k} \right| \leq M$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\left| ka_{k}(z - a)^{k - 1} \right| = |k|\left| a_{k} \right||z - a|^{k - 1}\frac{\left| r^{k} \right|}{\left| r^{k} \right|} = \left| a_{k}r^{k} \right|\frac{k}{r}\left| \frac{z - a}{r} \right|^{k - 1} \leq \frac{Mk}{r}\left| \frac{z - a}{r} \right|^{k - 1}
+\end{align*}
+ここで、$|z - a| < r$より$\left| \frac{z - a}{r} \right| < 1$が成り立つかつ、$\left| \frac{z - a}{r} \right| = r_{0}$とおくと、次のように変形されることができるので、$n \geq 2$のとき、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {k\left| \frac{z - a}{r} \right|^{k - 1}} &= \frac{1}{r_{0}}\sum_{k \in \varLambda_{n}} {kr_{0}^{k}} = \frac{1}{r_{0}\left( 1 - r_{0} \right)}\sum_{k \in \varLambda_{n}} {k\left( r_{0}^{k} - r_{0}^{k + 1} \right)}\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( \sum_{k \in \varLambda_{n}} {kr_{0}^{k}} - \sum_{k \in \varLambda_{n}} {kr_{0}^{k + 1}} \right)\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( r_{0} + \sum_{k \in \varLambda_{n} \setminus \left\{ 1 \right\}} {kr_{0}^{k}} - \sum_{k \in \varLambda_{n - 1}} {kr_{0}^{k + 1}} - nr_{0}^{n + 1} \right)\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( r_{0} + \sum_{k \in \varLambda_{n - 1}} {(k + 1)r_{0}^{k + 1}} - \sum_{k \in \varLambda_{n - 1}} {kr_{0}^{k + 1}} - nr_{0}^{n + 1} \right)\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( r_{0} + \sum_{k \in \varLambda_{n - 1}} {kr_{0}^{k + 1}} + \sum_{k \in \varLambda_{n - 1}} r_{0}^{k + 1} - \sum_{k \in \varLambda_{n - 1}} {kr_{0}^{k + 1}} - nr_{0}^{n + 1} \right)\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( \sum_{k \in \varLambda_{n - 1}} r_{0}^{k + 1} + r_{0} - nr_{0}^{n + 1} \right) \\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\left( \sum_{k \in \varLambda_{n}} r_{0}^{k} - nr_{0}^{n + 1} \right)\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)}\sum_{k \in \varLambda_{n}} r_{0}^{k} - \frac{nr_{0}^{n}}{1 - r_{0}} = \frac{1}{r_{0}\left( 1 - r_{0} \right)^{2}}\sum_{k \in \varLambda_{n}} \left( r_{0}^{k} - r_{0}^{k + 1} \right) - \frac{nr_{0}^{n}}{1 - r_{0}}\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)^{2}}\left( r_{0} + \sum_{k \in \varLambda_{n} \setminus \left\{ 1 \right\}} r_{0}^{k} - \sum_{k \in \varLambda_{n - 1}} r_{0}^{k + 1} - r_{0}^{n + 1} \right) - \frac{nr_{0}^{n}}{1 - r_{0}}\\
+&= \frac{1}{r_{0}\left( 1 - r_{0} \right)^{2}}\left( r_{0} + \sum_{k \in \varLambda_{n - 1}} r_{0}^{k + 1} - \sum_{k \in \varLambda_{n - 1}} r_{0}^{k + 1} - r_{0}^{n + 1} \right) - \frac{nr_{0}^{n}}{1 - r_{0}}\\
+&= \frac{1 - r_{0}^{n}}{\left( 1 - r_{0} \right)^{2}} - \frac{nr_{0}^{n}}{1 - r_{0}} = \frac{1 - r_{0}^{n} - nr_{0}^{n} + nr_{0}^{n + 1}}{\left( 1 - r_{0} \right)^{2}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} \left| \frac{Mk}{r}\left( \frac{z - a}{r} \right)^{k - 1} \right|} &= \frac{M}{r}\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {kr_{0}^{k - 1}}} = \frac{M}{r}\lim_{n \rightarrow \infty}\frac{1 - r_{0}^{n} - nr_{0}^{n} + nr_{0}^{n + 1}}{\left( 1 - r_{0} \right)^{2}}\\
+&= \frac{M}{r\left( 1 - r_{0} \right)^{2}}\lim_{n \rightarrow \infty}\left( 1 - r_{0}^{n} - nr_{0}^{n} + nr_{0}^{n + 1} \right)\\
+&= \frac{M}{r\left( 1 - r_{0} \right)^{2}}(1 - 0 - 0 + 0) = \frac{M}{r\left( 1 - \left| \frac{z - a}{r} \right| \right)^{2}}
+\end{align*}
+その整級数$\left( \sum_{k \in \varLambda_{n}} \left| \frac{Mk}{r}\left( \frac{z - a}{r} \right)^{k - 1} \right| \right)_{n \in \mathbb{N}}$は収束するので、比較定理よりその整級数$\left( \sum_{k \in \varLambda_{n}} {ka_{k}(z - a)^{k - 1}} \right)_{n \in \mathbb{N}}$も絶対収束し$D(a,R) \subseteq D\left( a,R' \right)$が成り立つ。したがって、$0 \leq R \leq R'$も成り立つ。\par
+以上より、$R = R'$が得られた。
+\end{proof}
+\begin{thm}\label{4.2.8.7}
+複素数たち$a_{n}$、$a$を用いて次式のような関数$f$を考える。
+\begin{align*}
+f:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}
+\end{align*}
+この整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R > 0$を満たすとき、その関数$f$はその収束円板$D(a,R)$上で正則で次式が成り立つ。この式をその関数$f$の項別微分という。
+\begin{align*}
+\partial_{\mathrm{hol}}f:D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N}} {na_{n}(z - a)^{n - 1}}
+\end{align*}
+さらに、その関数$f$はその収束円板$D(a,R)$上で何回でも複素微分可能であり次式が成り立つ。
+\begin{align*}
+a_{n} = \frac{1}{n!}\partial_{\mathrm{hol}}^{n}f(a)
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、複素数たち$a_{n}$、$a$を用いて次式のような関数$f$を考える。
+\begin{align*}
+f:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}
+\end{align*}
+この整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R > 0$を満たすとき、その収束円板$D(a,R)$を用いて$z \in D(a,R)$なる複素数$z$がとられれば、その集合$\mathbb{R}$は稠密順序集合であるので、$|z - a| < r < R$となるような実数$r$が存在する。このとき、$|h| < R - r$が成り立つとすれば、次式が成り立ち
+\begin{align*}
+|z + h - a| \leq |z - a| + |h| < r + R - r = R
+\end{align*}
+$z + h \in D(a,R)$が成り立つので、像$f(z + h)$が存在する。ここで、集合$D(g)$が次式のように定義されるとして
+\begin{align*}
+D(g) = \left\{ h \in \mathbb{C} \middle| |h| < R - r \right\}
+\end{align*}
+次式のように関数$g$が定義される。
+\begin{align*}
+g:D(g) \rightarrow \mathbb{C};h \mapsto \left\{ \begin{matrix}
+\frac{f(z + h) - f(z)}{h} & \mathrm{if} & h \neq 0 \\
+\sum_{n \in \mathbb{N}} {na_{n}(z - a)^{n - 1}} & \mathrm{if} & h = 0 \\
+\end{matrix} \right.\ 
+\end{align*}\par
+このとき、数学的帰納法によって明らかに次のようになる。
+\begin{align*}
+\frac{f(z + h) - f(z)}{h} &= \frac{1}{h}\left( \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z + h - a)^{n}} - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{a_{n}}{h}\left( (z + h - a)^{n} - (z - a)^{n} \right)}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{a_{n}}{h}\left( (z + h - a) - (z - a) \right)\left( \sum_{k \in \varLambda_{n}} {(z + h - a)^{n - k}(z - a)^{k - 1}} \right)}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}\left( \sum_{k \in \varLambda_{n}} {(z + h - a)^{n - k}(z - a)^{k - 1}} \right)}
+\end{align*}
+ここで、次式のような関数$h_{n}$が定義されるとすれば、
+\begin{align*}
+h_{n}:D(g) \rightarrow \mathbb{C};z \mapsto a_{n}\left( \sum_{k \in \varLambda_{n}} {(z + h - a)^{n - k}(z - a)^{k - 1}} \right)
+\end{align*}
+明らかに$\forall n \in \mathbb{N}$に対し、それらの関数たち$h_{n}$はその集合$D(g)$で連続である。\par
+また、$|z - a| < r$が成り立つことに注意して次式のように集合$E$が定義され
+\begin{align*}
+E = \left\{ h \in \mathbb{C} \middle| |h| < r - |z - a| \right\}
+\end{align*}
+$h \in E$が成り立つとすれば、三角不等式より$|z - a + h| \leq |z - a| + |h| < r$が成り立つので、次のようになる。
+\begin{align*}
+\left| h_{n}(z) \right| &= \left| a_{n}\left( \sum_{k \in \varLambda_{n}} {(z + h - a)^{n - k}(z - a)^{k - 1}} \right) \right|\\
+&= \left| a_{n} \right|\left| \sum_{k \in \varLambda_{n}} {(z + h - a)^{n - k}(z - a)^{k - 1}} \right|\\
+&\leq \left| a_{n} \right|\sum_{k \in \varLambda_{n}} \left| (z + h - a)^{n - k}(z - a)^{k - 1} \right|\\
+&= \left| a_{n} \right|\sum_{k \in \varLambda_{n}} {|z + h - a|^{n - k}|z - a|^{k - 1}} \leq \left| a_{n} \right|\sum_{k \in \varLambda_{n}} {r^{n - k}r^{k - 1}}\\
+&= \left| a_{n} \right|\sum_{k \in \varLambda_{n}} r^{n - 1} = n\left| a_{n} \right|r^{n - 1}
+\end{align*}
+ここで、$r < R$が成り立つので、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\left| a_{k} \right|r^{k}} \right)_{n \in \mathbb{N}}$は絶対収束しこれとその整級数$\left( \sum_{k \in \varLambda_{n}} {k\left| a_{k} \right|r^{k - 1}} \right)_{n \in \mathbb{N}}$との収束半径が等しいので、その整級数$\left( \sum_{k \in \varLambda_{n}} {k\left| a_{k} \right|r^{k - 1}} \right)_{n \in \mathbb{N}}$もやはり収束する。\par
+以上より、その関数$g$は次式のように書かれることができ
+\begin{align*}
+g:D(g) \rightarrow \mathbb{C};h \mapsto \left\{ \begin{matrix}
+\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {h_{n}(z)} & \mathrm{if} & h \neq 0 \\
+\sum_{n \in \mathbb{N}} {na_{n}(z - a)^{n - 1}} & \mathrm{if} & h = 0 \\
+\end{matrix} \right.\ 
+\end{align*}
+次のことが成り立つので、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}$に対し、それらの関数たち$h_{n}$はその集合$D(g) \cap E$で連続である。
+\item
+  $\forall n \in \mathbb{N}$に対し、負でない実数の定数たち$n\left| a_{n} \right|r^{n - 1}$が存在して、$\forall h \in D(g) \cap E$に対し、$\left| h_{n}(z) \right| \leq n\left| a_{n} \right|r^{n - 1}$が成り立つ。
+\item
+  その整級数$\left( \sum_{k \in \varLambda_{n}} {k\left| a_{k} \right|r^{k - 1}} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+その整級数$\left( \sum_{k \in \varLambda_{n}} {k\left| a_{k} \right|r^{k - 1}} \right)_{n \in \mathbb{N}}$がその整級数$\left( \sum_{k \in \varLambda_{n}} \left| h_{k}(z) \right| \right)_{n \in \mathbb{N}}$の優級数となりその関数$g$はその集合$D(g) \cap E$で連続である。したがって、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(h)} = g(0)
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(z + h) - f(z)}{h} = \sum_{n \in \mathbb{N}} {na_{n}(z - a)^{n - 1}}
+\end{align*}
+これにより、その関数$f$はその収束円板$D(a,R)$上で正則で次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f:D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N}} {na_{n}(z - a)^{n - 1}}
+\end{align*}\par
+さらに、これが何回も適用されれば、その関数$f$はその収束円板$D(a,R)$上で何回でも複素微分可能であることが示され、数学的帰納法によって明らかに次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}^{k}f:D(a,R) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \setminus \varLambda_{k - 1}} {\frac{n!}{(n - k)!}a_{n}(z - a)^{n - k}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\frac{1}{k!}\partial_{\mathrm{hol}}^{k}f(a) &= \frac{1}{k!}\sum_{n \in \mathbb{N} \setminus \varLambda_{k - 1}} {\frac{n!}{(n - k)!}a_{n}(a - a)^{n - k}}\\
+&= \frac{1}{k!}\left( \frac{k!}{(k - k)!}a_{k}(a - a)^{k - k} + \sum_{n \in \mathbb{N} \setminus \varLambda_{k}} {\frac{n!}{(n - k)!}a_{n}(a - a)^{n - k}} \right)\\
+&= \frac{1}{0!}a_{k}(a - a)^{0} + \frac{1}{k!}\sum_{n \in \mathbb{N} \setminus \varLambda_{k}} {\frac{n!}{(n - k)!}a_{n}(a - a)^{n - k}}\\
+&= a_{k} + \frac{1}{k!}\sum_{n \in \mathbb{N} \setminus \varLambda_{k}} {\frac{n!}{(n - k)!}a_{n}0^{n - k}} = a_{k}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.8.8}
+複素数たち$a_{n}$、$a$を用いて次式のような関数$f$を考える。
+\begin{align*}
+f:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}
+\end{align*}
+この整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R > 0$を満たすとき、$C \in \mathbb{C}$なる任意の定数$C$を用いて次式のような関数$F$が定義されると、
+\begin{align*}
+F:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{a_{n}}{n + 1}(z - a)^{n + 1}} + C
+\end{align*}
+これを用いた整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{a_{k}}{k + 1}(z - a)^{k + 1}} + C \right)_{n \in \mathbb{N}}$の収束半径も$R$でその収束円板$D(a,R)$を用いて$z \in D(a,R)$が成り立つなら、次式も成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}F(z) = f(z)
+\end{align*}
+\end{thm}
+\begin{proof} 複素数たち$a_{n}$、$a$を用いて次式のような関数$f$を考える。
+\begin{align*}
+f:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}}
+\end{align*}
+この整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$の収束半径$R$が$R > 0$を満たすとし$C \in \mathbb{C}$なる任意の定数$C$を用いて次式のような関数$F$が定義される。
+\begin{align*}
+F:D(f) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{a_{n}}{n + 1}(z - a)^{n + 1}} + C
+\end{align*}
+このとき、その整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{k}(z - a)^{k}} \right)_{n \in \mathbb{N}}$とこの関数$F$を用いた整級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{a_{k}}{k + 1}(z - a)^{k + 1}} + C \right)_{n \in \mathbb{N}}$の収束半径はどちらも$R$となるのであった。このとき、その関数$F$はその収束円板$D(a,R)$上で正則で、$z \in D(a,R)$が成り立つなら、次式が成り立つことに注意すれば、
+\begin{align*}
+\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{a_{n}}{n + 1}(z - a)^{n + 1}} + C = \sum_{n \in \mathbb{N}} {\frac{a_{n - 1}}{n}(z - a)^{n}} + C
+\end{align*}
+次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}F(z) &= \sum_{n \in \mathbb{N}} {\frac{na_{n - 1}}{n}(z - a)^{n - 1}} + \partial_{\mathrm{hol}}C\\
+&= \sum_{n \in \mathbb{N}} {a_{n - 1}(z - a)^{n - 1}} + 0\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {a_{n}(z - a)^{n}} = f(z)
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p146-149 ISBN978-4-13-062005-5
+  \bibitem{2}
+  棚橋典大. "複素関数論　講義ノート". 京都大学. \url{https://www2.yukawa.kyoto-u.ac.jp/~norihiro.tanahashi/pdf/complex-analysis/note.pdf} (2021-3-19 取得)
+\end{thebibliography}
+\end{document}

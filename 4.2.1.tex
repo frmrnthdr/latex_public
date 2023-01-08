@@ -1,0 +1,405 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\usepackage{xr}
+\externaldocument{4.1.4}
+\externaldocument{4.1.7}
+\externaldocument{4.1.8}
+\externaldocument{4.1.11}
+\externaldocument{4.1.12}
+\input{macro}
+\begin{document}
+%\hypertarget{ux5faeux5206}{%
+\subsection{関数$\mathbb{R}\supseteq D(f)\rightarrow \mathbb{R}^{n} $の微分}%\label{ux5faeux5206}}
+%\hypertarget{ux5faeux5206-1}{%
+\subsubsection{関数$\mathbb{R}\supseteq D(f)\rightarrow \mathbb{R}^{n} $の微分}%\label{ux5faeux5206-1}}
+\begin{dfn}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、$\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$が収束するとき、その関数$f$はその区間$I$で微分可能であるといい、特に、その関数$f$はその実数$x$で微分可能であるともいう。このとき、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$は関数となり$\partial f:I \rightarrow \mathbb{R}^{n}$、$Df:I \rightarrow \mathbb{R}^{n}$、$f':I \rightarrow \mathbb{R}^{n}$などと書くことがある。特に、その関数$\partial f$について、次のように書くこともある。
+\begin{align*}
+\partial f:I \rightarrow \mathbb{R}^{n};x \mapsto \frac{d}{dx}f(x) = \left. \ \frac{d}{dx'}f\left( x' \right) \right|_{x' = x}
+\end{align*}
+このとき、その関数$\partial f$のことをその関数$f$の導関数といいこれを求めることをその関数$f$を$x$で微分するという。
+\end{dfn}
+\begin{dfn}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、$\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h > 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$が収束するとき、その関数$f$はその区間$I$で右微分可能である、右から微分可能であるといい、特に、その関数$f$はその実数$x$で右微分可能である、右から微分可能であるという。このとき、式$\lim_{h \rightarrow 0}\frac{f(x + h) - f(x)}{h}$は関数となり$\partial_{+}f:I \rightarrow \mathbb{R}^{n}$などと書くことがある。特に、その関数$\partial_{+}f$について、次のように書くこともある。
+\begin{align*}
+\partial_{+}f:I \rightarrow \mathbb{R}^{n};x \mapsto \frac{d}{dx}_{+}f(x) = \left. \ \frac{d}{dx'}_{+}f\left( x' \right) \right|_{x' = x}
+\end{align*}
+このとき、その関数$\partial_{+}f$のことをその関数$f$の右導値といいこれを求めることをその関数$f$を$x$で右から微分する、右微分するという。\par
+同様にして、$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、$\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h < 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$が収束するとき、その関数$f$はその区間$I$で左微分可能である、左から微分可能であるといい、特に、その関数$f$はその実数$x$で左微分可能である、左から微分可能であるという。このとき、式$\lim_{h \rightarrow 0}\frac{f(x + h) - f(x)}{h}$は関数となり$\partial_{-}f:I \rightarrow \mathbb{R}^{n}$などと書くことがある。特に、その関数$\partial_{-}f$について、次のように書くこともある。
+\begin{align*}
+\partial_{-}f:I \rightarrow \mathbb{R}^{n};x \mapsto \frac{d}{dx}_{-}f(x) = \left. \ \frac{d}{dx'}_{-}f\left( x' \right) \right|_{x' = x}
+\end{align*}
+このとき、その関数$\partial_{-}f$のことをその関数$f$の左導値といいこれを求めることをその関数$f$を$x$で左から微分する、左微分するという。
+\end{dfn}
+\begin{thm}\label{4.2.1.1}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、関数$f$がその区間$I$で右微分可能でありその関数$f$はその区間$I$で左微分可能であるかつ、$\partial_{+}f = \partial_{-}f = \mathbf{c}$が成り立つならそのときに限り、その関数$f$はその区間$I$で微分可能でありその$\partial f = \mathbf{c}$が成り立つ。
+\end{thm}
+\begin{proof}
+これは右側極限と左側極限が収束しこれらの極限値たちが一致する場合を考えれば、明らかである。
+\end{proof}
+\begin{dfn}
+$I = [ a,b] \subseteq D(f) \subseteq \mathbb{R}$なる閉区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、その関数$f$は開区間$\mathrm{int}I = (a,b)$で微分可能であるかつ、その実数$a$で右微分可能でありその実数$b$で左微分可能であるとき、その関数$f$はその区間$I$で微分可能であるという。
+\end{dfn}
+\begin{thm}\label{4.2.1.2}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、その関数$f$が$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$と成分表示されたとき、その関数$f$が区間$I$で微分可能であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、それらの関数たち$f_{i}$がその区間$I$で微分可能である。このとき、次式が成り立つ。
+\begin{align*}
+\partial f = \left( \partial f_{i} \right)_{i \in \varLambda_{n}}:I \rightarrow \mathbb{R}^{n}
+\end{align*}
+\end{thm}
+\begin{proof}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、その関数$f$が$f = \left( f_{i} \right)_{i \in \varLambda_{n}}$と成分表示されたとき、その関数$f$が区間$I$で微分可能であるならそのときに限り、$\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$が収束するのであったが、定理\ref{4.1.4.6}より$\forall i \in \varLambda_{n}\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f_{i}(x + h) - f_{i}(x)}{h}$が収束することになる。したがって、$\forall i \in \varLambda_{n}$に対し、それらの関数たち$f_{i}$がその区間$I$で微分可能である。以上より、次式が成り立つ。
+\begin{align*}
+\partial f(x) &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}\\
+&= \left( \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f_{i}(x + h) - f_{i}(x)}{h} \right)_{i \in \varLambda_{n}}\\
+&= \left( \partial f_{i}(x) \right)_{i \in \varLambda_{n}} = \left( \partial f_{i} \right)_{i \in \varLambda_{n}}(x)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.1.3}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、関数$f$が区間$I$で微分可能であるなら、その関数$f$はその区間$I$で連続である。
+\end{thm}
+\begin{proof}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、その関数$f$が区間$I$で微分可能であるならそのときに限り、$\forall x \in I$に対し、極限$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}$が収束するのであった。このとき、$\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}h = 0$が成り立つので、収束条件より次式が成り立つ。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( f(x + h) - f(x) \right) = \mathbf{0}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( f(x + h) - f(x) \right) &= \mathbf{0} \Leftrightarrow \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{f(x + h)} - \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{f(x)} = \mathbf{0}\\
+&\Leftrightarrow \lim_{\scriptsize \begin{matrix}
+x + h \rightarrow x \\
+x + h \neq x \\
+\end{matrix}}{f(x + h)} - f(x) = \mathbf{0}\\
+&\Leftrightarrow \lim_{\scriptsize \begin{matrix}
+a \rightarrow x \\
+a \neq x \\
+\end{matrix}}{f(a)} = f(x)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.1.4}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$、$I \subseteq D(g) \subseteq \mathbb{R}$なる2つの関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$が与えられたとき、それらの関数たち$f$、$g$がその区間$I$で微分可能であるとき、$\forall k,l \in \mathbb{R}\forall\mathbf{c} \in \mathbb{R}^{n}$に対し、次式が成り立つ\footnote{あれ、合成関数や逆関数の微分はどこへ行ったの?? と不安になるかもしれませんが、これについてはだいぶ後にかなり一般的な定理として述べます。}。
+\begin{align*}
+\partial\left( kf + lg + \mathbf{c} \right) = k\partial f + l\partial g:I \rightarrow \mathbb{R}^{n}
+\end{align*}
+また、$\mathbb{R}^{n} = \mathbb{C}$のとき、次式が成り立つ。
+\begin{align*}
+\partial(fg) &= \partial fg + f\partial g:I \rightarrow \mathbb{R}^{n}\\
+\partial\frac{f}{g} &= \frac{\partial fg - f\partial g}{g^{2}}:I \rightarrow \mathbb{R}^{n}\ \mathrm{if}\ g \neq 0
+\end{align*}
+\end{thm}
+\begin{proof}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$、$I \subseteq D(g) \subseteq \mathbb{R}$なる2つの関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$が与えられたとき、それらの関数たち$f$、$g$がその区間$I$で微分可能であるとき、$\forall k,l \in \mathbb{R}\forall\mathbf{c} \in \mathbb{R}^{n}$に対し、次のようになる。
+\begin{align*}
+\partial\left( kf + lg + \mathbf{c} \right)(x) &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\left( kf + lg + \mathbf{c} \right)(x + h) - \left( kf + lg + \mathbf{c} \right)(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\left( kf(x + h) + lg(x + h) + \mathbf{c} \right) - \left( kf(x) + lg(x) + \mathbf{c} \right)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{kf(x + h) - kf(x) + lg(x + h) - lg(x) + \mathbf{c} - \mathbf{c}}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( k\frac{f(x + h) - f(x)}{h} + l\frac{g(x + h) - g(x)}{h} \right)\\
+&= k\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h} + l\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{g(x + h) - g(x)}{h}\\
+&= k\partial f(x) + l\partial g(x)\\
+&= (k\partial f + l\partial g)(x)
+\end{align*}\par
+$\mathbb{R}^{n} = \mathbb{C}$のとき、次のようになる\footnote{ちなみに結構しれっと微分可能なら連続であるという定理\ref{4.2.1.3}を使っています。}。
+\begin{align*}
+\partial(fg)(x) &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{fg(x + h) - fg(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h)g(x + h) - f(x)g(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h)g(x + h) - f(x)g(x + h) + f(x)g(x + h) - f(x)g(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{\left( f(x + h) - f(x) \right)g(x + h)}{h} + \frac{f(x)\left( g(x + h) - g(x) \right)}{h} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \frac{f(x + h) - f(x)}{h}g(x + h) + f(x)\frac{g(x + h) - g(x)}{h} \right)\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(x + h)} + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{f(x)}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{g(x + h) - g(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(x + h)} + \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{f(x)}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{g(x + h) - g(x)}{h}\\
+&= \partial f(x)g(x) + f(x)\partial g(x)\\
+&= (\partial fg + f\partial g)(x)
+\end{align*}\par
+$\mathbb{R}^{n} = \mathbb{C}$かつ$g \neq 0$のとき、定理\ref{4.2.1.3}に注意すれば、次のようになる。
+\begin{align*}
+\partial\frac{f}{g}(x) &= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\frac{f}{g}(x + h) - \frac{f}{g}(x)}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{\left( \frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)} \right)g(x)g(x + h)}{hg(x)g(x + h)}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x + h)}{hg(x)g(x + h)}\\
+&= \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\left( \left( \frac{f(x + h) - f(x)}{h}g(x) - f(x)\frac{g(x + h) - g(x)}{h} \right)\frac{1}{g(x)g(x + h)} \right)\\
+&= \left( \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{f(x + h) - f(x)}{h}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{g(x)} - \lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}{f(x)}\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{g(x + h) - g(x)}{h} \right)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{1}{g(x)g(x + h)}\\
+&= \left( \partial f(x)g(x) - f(x)\partial g(x) \right)\frac{1}{g(x)g(x)}\\
+&= \frac{\partial f(x)g(x) - f(x)\partial g(x)}{{g(x)}^{2}}\\
+&= \frac{\partial fg - f\partial g}{g^{2}}(x)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.2.1.5}
+$I = [ a,b] \subseteq \mathbb{R}$なる関数$f:I \rightarrow \mathbb{R}^{n}$について、その関数$f$がその閉区間$I$で微分可能であるならそのときに限り、その関数$f$はその区間$I$を含むある開区間$J$で微分可能な関数$g$に延長できる。
+\end{thm}
+\begin{proof}
+$I = [ a,b] \subseteq \mathbb{R}$なる関数$f:I \rightarrow \mathbb{R}^{n}$について、その関数$f$がその閉区間$I$で微分可能であるなら、その区間$I$を含むある開区間$J$を用いて、次式のようにおくと、
+\begin{align*}
+g:J \rightarrow \mathbb{R}^{n};x \mapsto \left\{ \begin{matrix}
+f(b) + \partial_{-}f(b)(x - b) & \mathrm{if} & b < x \\
+f(x) & \mathrm{if} & a \leq x \leq b \\
+f(a) + \partial_{+}f(a)(x - a) & \mathrm{if} & x < a \\
+\end{matrix} \right.\ 
+\end{align*}
+区間$x < a$では、次のようになり、
+\begin{align*}
+\partial(g)(x) &= \frac{d}{dx}\left( f(a) + \partial_{+}f(a)(x - a) \right)\\
+&= \frac{d}{dx}\left( f(a) + \partial_{+}f(a)x - \partial_{+}f(a)a \right)\\
+&= \partial_{+}f(a)\frac{dx}{dx}\\
+&= \partial_{+}f(a)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}\frac{(x + h) - x}{h}\\
+&= \partial_{+}f(a)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h \neq 0 \\
+\end{matrix}}1 = \partial_{+}f(a) \in \mathbb{R}^{n}
+\end{align*}
+以上より、その区間$x < a$でその関数$g$は微分可能である。\par
+区間$x = a$では、次のようになり、
+\begin{align*}
+\partial_{-}g(x) &= \frac{d}{dx}_{-}\left( f(a) + \partial_{+}f(a)(x - a) \right)\\
+&= \frac{d}{dx}_{-}\left( f(a) + \partial_{+}f(a)x - \partial_{+}f(a)a \right)\\
+&= \partial_{+}f(a)\frac{dx}{dx}_{-}\\
+&= \partial_{+}f(a)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h < 0 \\
+\end{matrix}}\frac{(x + h) - x}{h}\\
+&= \partial_{+}f(a)\lim_{\scriptsize \begin{matrix}
+h \rightarrow 0 \\
+h < 0 \\
+\end{matrix}}1 = \partial_{+}f(a)\\
+&= \partial f(a) = \partial f(x)\\
+&= \partial_{+}g(x) \in \mathbb{R}^{n}
+\end{align*}
+以上より、その区間$x = a$でその関数$g$は微分可能である。\par
+区間$a < x < b$では、仮定より明らかに、次のようになり、
+\begin{align*}
+\partial g(x) = \partial f(x) \in \mathbb{R}^{n}
+\end{align*}
+以上より、その区間$a < x < b$でその関数$g$は微分可能である。\par
+同様にして、区間$x = b$、区間$b < x$でその関数$g$は微分可能である。以上より、その関数$f$はその区間$I$を含むある開区間$J$で微分可能な関数$g$に延長できる。\par
+逆に、その関数$f$がその区間$I$を含むある開区間$J$で微分可能な関数$g$に延長できるなら、$\partial_{-}f(x) = \partial f(x) = \partial_{+}f(x)$が成り立つことより明らかにその関数$f$がその閉区間$I$で微分可能である。
+\end{proof}
+%\hypertarget{ux5b9fux95a2ux6570ux306eux9ad8ux968eux5faeux5206}{%
+\subsubsection{関数$\mathbb{R}\supseteq D(f)\rightarrow \mathbb{R}^{n} $の高階微分}%\label{ux5b9fux95a2ux6570ux306eux9ad8ux968eux5faeux5206}}
+\begin{dfn}
+$I = (a,b) \subseteq D(f) \subseteq \mathbb{R}$なる開区間$I$と関数$f:D(f) \rightarrow \mathbb{R}^{n}$について、その関数$f$の導関数$\partial f$がその区間$I$で微分可能なとき、その関数$f$はその区間$I$で$2$階微分可能であるという。このとき、その関数$\partial f$の導関数$\partial\partial f$が定義されこれをその関数$f$の$2$階導関数といいこれを求めることをその関数$f$を$2$階微分するという。帰納的に、その関数$f$がその区間$I$で$k$階微分可能でその関数$f$の$k$階導関数$\partial^{k}f$がその区間$I$で微分可能なとき、その関数$f$はその区間$I$で$k + 1$階微分可能であるという。このとき、その関数$\partial^{k}f$の導関数$\partial\partial^{k}f$が定義されこれをその関数$f$の$k + 1$階導関数といい$\partial^{k + 1}f$などと書く。これを求めることをその関数$f$を$k + 1$階微分するという。なお、その関数$f$の$0$階導関数はその関数$f$自身と定義することが多い。
+\end{dfn}
+\begin{dfn}
+関数$f:D(f) \rightarrow \mathbb{R}^{n}$がその区間$I$で$k$階までの導関数$\partial^{k}f$が存在しその関数$\partial^{k}f$がその区間$I$で連続であるとき、その関数$f$はその区間$I$で$C^{k}$級である、$k$回連続微分可能であるという。なお、その関数$f$はその区間$I$で$C^{0}$級であることはその関数$f$はその区間$I$で連続であるということである。その区間$I$で$C^{k}$級であるような関数全体の集合を$C^{k}\left( I,\mathbb{R}^{n} \right)$と書くことがある。また、$\forall k \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、その関数$f$がその区間$I$で$C^{k}$級であるとき、その関数$f$はその区間$I$で$C^{\infty}$級である、無限回微分可能であるという。その区間$I$で$C^{\infty}$級であるような関数全体の集合を$C^{\infty}\left( I,\mathbb{R}^{n} \right)$と書くことがある。
+\end{dfn}
+\begin{thm}[Leibnizの公式]\label{4.2.1.6}
+$I \subseteq D(f),D(g)\in \mathfrak{P}\left( \mathbb{R} \right)$なる2つの関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$に対し、それらの関数たち$f$、$g$がその区間$I$で$k$階微分可能であるとき、次式が成り立つ。この式をLeibnizの公式という。
+\begin{align*}
+\partial^{k}(fg) = \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix}\partial^{i}f\partial^{k - i}g}:I \rightarrow \mathbb{R}^{n}
+\end{align*}
+ただし、係数$\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix}$は次式のように定義されこれを二項係数という。
+\begin{align*}
+\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix} = \frac{k!}{i!(k - i)!} = \left\{ \begin{matrix}
+\frac{k(k - 1)\cdots\left( k - (i - 1) \right)}{i(i - 1)\cdots 2 \cdot 1} & \mathrm{if} & i > 0 \\
+1 & \mathrm{if} & i = 0 \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{thm}
+\begin{proof}
+$I \subseteq D(f),D(g)\in \mathfrak{P}\left( \mathbb{R} \right)$とし、2つの関数たち$f:D(f) \rightarrow \mathbb{R}^{n}$、$g:D(g) \rightarrow \mathbb{R}^{n}$に対し、それらの関数たち$f$、$g$がその区間$I$で$0$階微分可能であるとき、明らかに次のようになる。
+\begin{align*}
+\partial^{0}(fg) &= \sum_{i = 0} {\begin{pmatrix}
+0 \\
+i \\
+\end{pmatrix}\partial^{i}f\partial^{0 - i}g}\\
+&= \begin{pmatrix}
+0 \\
+0 \\
+\end{pmatrix}\partial^{0}f\partial^{0}g\\
+&= \frac{0!}{0!0!}fg = fg
+\end{align*}\par
+同様に、それらの関数たち$f$、$g$がその区間$I$で$1$階微分可能であるとき、次のようになる。
+\begin{align*}
+\partial^{1}(fg) &= \sum_{i \in \varLambda_{1} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+1 \\
+i \\
+\end{pmatrix}\partial^{i}f\partial^{1 - i}g}\\
+&= \begin{pmatrix}
+1 \\
+0 \\
+\end{pmatrix}\partial^{0}f\partial^{1}g + \begin{pmatrix}
+1 \\
+1 \\
+\end{pmatrix}\partial^{1}f\partial^{0}g\\
+&= \frac{1!}{0!1!}f\partial g + \frac{1!}{1!0!}\partial fg\\
+&= f\partial g + \partial fg
+\end{align*}\par
+ここで$2 \leq k$とし、それらの関数たち$f$、$g$がその区間$I$で$k + 1$階微分可能であるとき、次式が成り立つと仮定する。
+\begin{align*}
+\partial^{k}(fg) = \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix}\partial^{i}f\partial^{k - i}g}
+\end{align*}
+このとき、次のようになる。
+\begin{align*}
+\partial^{k + 1}(fg) &= \partial\partial^{k}(fg)\\
+&= \partial\sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix}\partial^{i}f\partial^{k - i}g}\\
+&= \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+k \\
+i \\
+\end{pmatrix}\partial\left( \partial^{i}f\partial^{k - i}g \right)}\\
+&= \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} \left( \frac{k!}{i!(k - i)!}\partial^{i + 1}f\partial^{k - i}g + \frac{k!}{i!(k - i)!}\partial^{i}f\partial^{k - i + 1}g \right)\\
+&= \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{k!}{i!(k - i)!}\partial^{i + 1}f\partial^{k - i}g} + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{k!}{i!(k - i)!}\partial^{i}f\partial^{k - i + 1}g}\\
+&= \frac{k!}{0!k!}\partial^{0}f\partial^{k + 1}g + \sum_{i \in \varLambda_{k - 1} \cup \left\{ 0 \right\}} {\frac{k!}{i!(k - i)!}\partial^{i + 1}f\partial^{k - i}g} \\
+&\quad + \sum_{i \in \varLambda_{k}} {\frac{k!}{i!(k - i)!}\partial^{i}f\partial^{k - i + 1}g} + \frac{k!}{k!0!}\partial^{k + 1}f\partial^{0}g\\
+&= \frac{(k + 1)!}{0!(k + 1)!}\partial^{0}f\partial^{k + 1}g + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{k!}{(i - 1)!(k - i + 1)!}\partial^{i}f\partial^{k - i + 1}g} \\
+&\quad + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{k!}{i!(k - i)!}\partial^{i}f\partial^{k - i + 1}g} + \frac{(k + 1)!}{(k + 1)!0!}\partial^{k + 1}f\partial^{0}g\\
+&= \frac{(k + 1)!}{0!(k + 1)!}\partial^{0}f\partial^{k + 1}g + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\left( \frac{k!}{(i - 1)!(k - i + 1)!} + \frac{k!}{i!(k - i)!} \right)\partial^{i}f\partial^{k - i + 1}g} \\
+&\quad + \frac{(k + 1)!}{(k + 1)!0!}\partial^{k + 1}f\partial^{0}g\\
+&= \frac{(k + 1)!}{0!(k + 1)!}\partial^{0}f\partial^{k + 1}g + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{k!i + k!(k - i + 1)}{(i - 1)!i(k - i)!(k - i + 1)}\partial^{i}f\partial^{k - i + 1}g} \\
+&\quad + \frac{(k + 1)!}{(k + 1)!0!}\partial^{k + 1}f\partial^{0}g\\
+&= \frac{(k + 1)!}{0!(k - 0 + 1)!}\partial^{0}f\partial^{k - 0 + 1}g + \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\frac{(k + 1)!}{i!(k - i + 1)!}\partial^{i}f\partial^{k - i + 1}g} \\
+&\quad + \frac{(k + 1)!}{(k + 1)!\left( k - (k + 1) + 1 \right)!}\partial^{k + 1}f\partial^{k - (k + 1) + 1}g\\
+&= \sum_{i \in \varLambda_{k + 1} \cup \left\{ 0 \right\}} {\frac{(k + 1)!}{i!(k - i + 1)!}\partial^{i}f\partial^{k - i + 1}g}\\
+&= \sum_{i \in \varLambda_{k + 1} \cup \left\{ 0 \right\}} {\frac{(k + 1)!}{i!\left( (k + 1) - i \right)!}\partial^{i}f\partial^{k - i + 1}g}
+\end{align*}
+以上より数学的帰納法によって示すべきことは示された。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p81-90 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

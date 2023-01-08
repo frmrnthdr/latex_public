@@ -1,0 +1,415 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{6}
+\setcounter{subsection}{5}
+\usepackage{xr}
+\externaldocument{4.1.8}
+\externaldocument{4.5.4}
+\externaldocument{4.5.5}
+\externaldocument{4.6.1}
+\externaldocument{4.6.3}
+\input{macro}
+\begin{document}
+%\hypertarget{lebesgueux7a4dux5206}{%
+\subsection{Lebesgue積分}%\label{lebesgueux7a4dux5206}}
+%\hypertarget{riemannux7a4dux5206ux306eux7b2c1ux5e73ux5747ux5024ux306eux5b9aux7406}{%
+\subsubsection{Riemann積分の第1平均値の定理}%\label{riemannux7a4dux5206ux306eux7b2c1ux5e73ux5747ux5024ux306eux5b9aux7406}}
+\begin{thm}[Riemann積分の第1平均値の定理]\label{4.6.6.1}
+$\forall E \in \mathfrak{F}_{m}$に対し、連続な関数$f:\mathrm{cl}E \rightarrow \mathbb{R}$、Lebesgue測度空間においてその閉包$\mathrm{cl}E$で定積分可能で$0 \leq g$な関数$g:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$\exists\mathbf{x} \in \mathrm{cl}E$に対し、次式が成り立つ。
+\begin{align*}
+\int_{\mathrm{cl}E} {fg\lambda} = f\left( \mathbf{x} \right)\int_{\mathrm{cl}E} {g\lambda}
+\end{align*}
+特に、$g = 1$とすれば次式が成り立つ。
+\begin{align*}
+\int_{\mathrm{cl}E} {f\lambda} = f\left( \mathbf{x} \right)\lambda\left( \mathrm{cl}E \right)
+\end{align*}
+この定理をRiemann積分の第1平均値の定理という。
+\end{thm}
+\begin{proof}
+$\forall E \in \mathfrak{F}_{m}$に対し、連続な関数$f:\mathrm{cl}E \rightarrow \mathbb{R}$、Lebesgue測度空間で定積分可能で$0 \leq g$な関数$g:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、定理\ref{4.1.8.7}、即ち、最大値最小値の定理よりその関数$f$の最大値$\max f$、最小値$\min f$が存在するので、その関数$f$は有界である。したがって、定理\ref{4.6.1.33}、即ち、積分の第1平均値の定理よりその関数$fg$はその集合$\mathrm{cl}E$で積分可能で$\inf{f|\mathrm{cl}E} \leq c \leq \sup{f|\mathrm{cl}E}$なるある実数$c$が存在して、$0 \leq g$が成り立つので、次式が成り立つ。
+\begin{align*}
+\int_{\mathrm{cl}E} {fg\lambda} = c\int_{\mathrm{cl}E} {g\lambda}
+\end{align*}
+このとき、$\inf{f|\mathrm{cl}E} = \min f$、$\sup{f|\mathrm{cl}E} = \max f$が成り立つので、中間値の定理の拡張より$\exists\mathbf{x} \in \mathrm{cl}E$に対し、$c = f\left( \mathbf{x} \right)$が成り立つ\footnote{中間値の定理の拡張は次のことを主張する定理です。
+\begin{quote}
+連結な位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$について、$\forall a,b \in S$に対し、$f(a) < f(b)$が成り立つなら、$\forall\gamma \in \left[ f(a),f(b) \right]$に対し、$f(c) = \gamma$なるその集合$S$の元$c$が存在する。
+\end{quote}
+なお、定理\ref{4.1.8.8}より強いことを主張していることに注意です。証明は位相空間論の内容をかなり要求するので、省略いたします。}。したがって、次のようになる。
+\begin{align*}
+\int_{\mathrm{cl}E} {fg\lambda} = f\left( \mathbf{x} \right)\int_{\mathrm{cl}E} {g\lambda}
+\end{align*}
+特に、$g = 1$とすれば次式が成り立つ。
+\begin{align*}
+\int_{\mathrm{cl}E} {f\lambda} = f\left( \mathbf{x} \right)\lambda\left( \mathrm{cl}E \right)
+\end{align*}
+\end{proof}
+%\hypertarget{lebesgueux7a4dux5206ux3068urysohnux306eux88dcux984c}{%
+\subsubsection{Lebesgue積分とUrysohnの補題}%\label{lebesgueux7a4dux5206ux3068urysohnux306eux88dcux984c}}
+\begin{thm}\label{4.6.6.2}
+Lebesgue測度空間において$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、連続であり、ある有界な開集合$O$と、$\mathbf{x} \notin O$が成り立つなら、$f_{\varepsilon}\left( \mathbf{x} \right) = 0$が成り立つようなその関数$f_{\varepsilon}:\mathbb{R}^{n} \rightarrow \mathbb{R}$が存在して、次式が成り立つ。
+\begin{align*}
+\int_{E} {\left| f - f_{\varepsilon} \right|\lambda} < \varepsilon
+\end{align*}
+\end{thm}
+\begin{proof}
+Lebesgue測度空間において、$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$0 \leq f$と仮定すれば、定理\ref{4.5.5.18}における非負可測関数の非負単関数の列による近似での列$\left( (f)_{m} \right)_{m \in \mathbb{N}}$を用いて、点$\mathbf{0}$を中心とした半径$m$の開球が$U\left( \mathbf{0},m \right)$とおかれれば、$\forall m \in \mathbb{N}$に対し、$U\left( \mathbf{0},m \right) \subseteq U\left( \mathbf{0},m + 1 \right)$が成り立つので、$0 \leq \chi_{U\left( \mathbf{0},m \right)} \leq \chi_{U\left( \mathbf{0},m + 1 \right)}$が成り立つかつ、$0 \leq (f)_{m} \leq (f)_{m + 1}$も成り立つので、$(f)_{m}\chi_{U\left( \mathbf{0},m \right)} \leq (f)_{m + 1}\chi_{U\left( \mathbf{0},m + 1 \right)}$が成り立つ。これにより、その関数の列$\left( (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right)_{m \in \mathbb{N}}$は単調増加する。さらに、前述のことに加えて$\lim_{m \rightarrow \infty}\chi_{U\left( \mathbf{0},m \right)} = 1$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+(f)_{m}\chi_{U\left( \mathbf{0},m \right)} &\leq \sup\left\{ (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right\}_{m \in \mathbb{N}}\\
+&= \lim_{m \rightarrow \infty}{(f)_{m}\chi_{U\left( \mathbf{0},m \right)}}\\
+&= \lim_{m \rightarrow \infty}(f)_{m}\lim_{m \rightarrow \infty}\chi_{U\left( \mathbf{0},m \right)}\\
+&= f \cdot 1 = f
+\end{align*}
+したがって、定理\ref{4.6.1.26}、即ち、単調収束定理より次のようになる。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\int_{E} {\left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right|\lambda}} &= \lim_{m \rightarrow \infty}{\int_{E} {\left| \sup\left\{ (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right\}_{m \in \mathbb{N}} - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right|\lambda}}\\
+&= \lim_{m \rightarrow \infty}\left( \int_{E} {\sup\left\{ (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right\}_{m \in \mathbb{N}}\lambda} - \int_{E} {(f)_{m}\chi_{U\left( \mathbf{0},m \right)}\lambda} \right)\\
+&= \int_{E} {\sup\left\{ (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right\}_{m \in \mathbb{N}}\lambda} - \lim_{m \rightarrow \infty}{\int_{E} {(f)_{m}\chi_{U\left( \mathbf{0},m \right)}\lambda}}\\
+&= \lim_{m \rightarrow \infty}{\int_{E} {(f)_{m}\chi_{U\left( \mathbf{0},m \right)}\lambda}} - \lim_{m \rightarrow \infty}{\int_{E} {(f)_{m}\chi_{U\left( \mathbf{0},m \right)}\lambda}} = 0
+\end{align*}\par
+これにより、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、ある自然数$m_{0}$が存在して、$m_{0} \leq m$が成り立つなら、次式が成り立つ。
+\begin{align*}
+0 \leq \int_{E} {\left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right|\lambda} = \left| \int_{E} {\left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right|\lambda} \right| < \frac{\varepsilon}{2}
+\end{align*}
+そこで、その関数$(f)_{m}\chi_{U\left( \mathbf{0},m \right)}$は単関数同士の積であるから、単関数となって$0 < \alpha_{i}$、$E_{i} \subseteq U\left( \mathbf{0},m \right)$として次のようにおかれることができる。
+\begin{align*}
+(f)_{m}\chi_{U\left( \mathbf{0},m \right)} = \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}
+\end{align*}
+なお、$E = \bigsqcup_{i \in \varLambda_{k}} E_{i}$が成り立つ。ここで、$\forall i \in \varLambda_{k}$に対し、定理\ref{4.5.4.14}と定理\ref{4.5.4.16}より開集合$O_{i}$と閉集合$A_{i}$が存在して、次式が成り立つ。
+\begin{align*}
+A_{i} \subseteq E_{i} \subseteq O_{i},\ \ \lambda\left( O_{i} \setminus E_{i} \right) < \frac{\varepsilon}{4k\alpha_{i}},\ \ \lambda\left( E_{i} \setminus A_{i} \right) < \frac{\varepsilon}{4k\alpha_{i}}
+\end{align*}
+ここで、$A_{i} \subseteq E_{i} \subseteq O_{i}$かつその集合$E_{i}$が有界であることにより、$\lambda\left( E_{i} \right) < \infty$が成り立つので、次のようになる。
+\begin{align*}
+\lambda\left( O_{i} \setminus E_{i} \right) + \lambda\left( E_{i} \setminus A_{i} \right) &= \lambda\left( O_{i} \right) - \lambda\left( E_{i} \right) + \lambda\left( E_{i} \right) - \lambda\left( A_{i} \right)\\
+&= \lambda\left( O_{i} \right) - \lambda\left( A_{i} \right)\\
+&= \lambda\left( O_{i} \setminus A_{i} \right)\\
+&< \frac{\varepsilon}{4k\alpha_{i}} + \frac{\varepsilon}{4k\alpha_{i}} = \frac{\varepsilon}{2k\alpha_{i}}
+\end{align*}
+これにより、$\lambda\left( O_{i} \setminus A_{i} \right) < \frac{\varepsilon}{2k\alpha_{i}}$が得られる。\par
+そこで、差集合$\mathbb{R}^{n} \setminus O_{i}$は閉集合で$A_{i} \subseteq O_{i}$より$\forall\mathbf{a} \in \mathbb{R}^{n}$に対し、$\mathbf{a} \in A_{i}$が成り立つなら、$\mathbf{a} \in O_{i}$が成り立つことになり、これの否定が$\mathbf{a} \in A_{i}$かつ$\mathbf{a} \notin O_{i}$が成り立つことなので、$A_{i} \cap \mathbb{R}^{n} \setminus O_{i} = \emptyset$が成り立つ。もちろん、$n$次元Euclid空間$E^{n}$における位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$は$\mathrm{T}_{4}$-空間なので、Urysohnの補題よりその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続な関数$g_{i}:\mathbb{R}^{n} \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する\footnote{Urysohnの補題は次のことを主張する定理です。
+  \begin{quote}
+  $\mathrm{T}_{4}$-空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、$\forall A,B \in \mathfrak{A}$に対し、$A \cap B = \emptyset$が成り立つなら、その位相空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$で次のことを満たすようなものが存在する。
+  \begin{itemize}
+  \item
+    $\forall a \in A$に対し、$f(a) = 0$が成り立つかつ、$\forall b \in B$に対し、$f(b) = 1$が成り立つ。
+  \item
+    $\forall c \in S$に対し、$0 \leq f(c) \leq 1$が成り立つ。
+  \end{itemize}
+  \end{quote}
+なお、証明は大変なので割愛させていただきます。}。
+\begin{itemize}
+\item
+  $\forall\mathbf{x} \in A_{i}$に対し、$g_{i}\left( \mathbf{x} \right) = 0$が成り立つかつ、$\forall\mathbf{x} \in \mathbb{R}^{n} \setminus O_{i}$に対し、$g_{i}\left( \mathbf{x} \right) = 1$が成り立つ。
+\item
+  $\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$0 \leq g_{i}\left( \mathbf{x} \right) \leq 1$が成り立つ。
+\end{itemize}\par
+そこで、次のように関数$f_{\varepsilon}$がおかれれば、
+\begin{align*}
+f_{\varepsilon} = \sum_{i \in \varLambda_{k}} {\alpha_{i}g_{i}}
+\end{align*}
+これは連続で、$\mathbf{x} \notin O_{i} \setminus A_{i}$のとき、$\mathbf{x} \notin O_{i} \setminus A_{i}$が成り立つならそのときに限り、$\mathbf{x} \in A_{i} \sqcup \mathbb{R}^{n} \setminus O_{i}$が成り立つので、$\mathbf{x} \in A_{i}$のとき、$A_{i} \subseteq E_{i}$より$\mathbf{x} \in E_{i}$が成り立つかつ、その関数$g_{i}$の定義より$\chi_{E_{i}}\left( \mathbf{x} \right) = g_{i}\left( \mathbf{x} \right) = 1$が成り立つ。$\mathbf{x} \in \mathbb{R}^{n} \setminus O_{i}$のとき、$E_{i} \subseteq O_{i}$より$\mathbf{x} \in \mathbb{R}^{n} \setminus E_{i}$が成り立つかつ、その関数$g_{i}$の定義より$\chi_{E_{i}}\left( \mathbf{x} \right) = g_{i}\left( \mathbf{x} \right) = 0$が成り立つ。以上の議論により、$\mathbf{x} \notin O_{i} \setminus A_{i}$のとき、$\chi_{E_{i}} = g_{i}$が成り立つことになる。\par
+したがって、$\left| \chi_{E_{i}} - g_{i} \right| \leq I_{\mathbb{R}^{n}}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\int_{E} {\left| (f)_{m}\chi_{U\left( \mathbf{0},m \right)} - f_{\varepsilon} \right|\lambda} &= \int_{E} {\left| \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}} - \sum_{i \in \varLambda_{k}} {\alpha_{i}g_{i}} \right|\lambda}\\
+&= \int_{E} {\left| \sum_{i \in \varLambda_{k}} {\alpha_{i}\left( \chi_{E_{i}} - g_{i} \right)} \right|\lambda}\\
+&\leq \int_{E} {\sum_{i \in \varLambda_{k}} {\alpha_{i}\left| \chi_{E_{i}} - g_{i} \right|}\lambda}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\int_{E} {\left| \chi_{E_{i}} - g_{i} \right|\lambda}}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\int_{E \setminus \left( O_{i} \setminus A_{i} \right) \sqcup O_{i} \setminus A_{i}} {\left| \chi_{E_{i}} - g_{i} \right|\lambda}}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\left( \int_{E \setminus \left( O_{i} \setminus A_{i} \right)} {\left| \chi_{E_{i}} - g_{i} \right|\lambda} + \int_{O_{i} \setminus A_{i}} {\left| \chi_{E_{i}} - g_{i} \right|\lambda} \right)}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\left( \int_{E \setminus \left( O_{i} \setminus A_{i} \right)} {0\lambda} + \int_{O_{i} \setminus A_{i}} {\left| \chi_{E_{i}} - g_{i} \right|\lambda} \right)}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\int_{O_{i} \setminus A_{i}} {\left| \chi_{E_{i}} - g_{i} \right|\lambda}}\\
+&\leq \sum_{i \in \varLambda_{k}} {\alpha_{i}\int_{O_{i} \setminus A_{i}} {I_{\mathbb{R}^{n}}\lambda}}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\int_{O_{i} \setminus A_{i}} \lambda}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\lambda\left( O_{i} \setminus A_{i} \right)}\\
+&< \sum_{i \in \varLambda_{k}} {\alpha_{i} \cdot \frac{\varepsilon}{2k\alpha_{i}}}\\
+&= \sum_{i \in \varLambda_{k}} \frac{\varepsilon}{2k} = \frac{\varepsilon}{2}
+\end{align*}\par
+以上の議論により、次のようになる。
+\begin{align*}
+\int_{E} {\left| f - f_{\varepsilon} \right|\lambda} &= \int_{E} {\left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} + (f)_{m}\chi_{U\left( \mathbf{0},m \right)} - f_{\varepsilon} \right|\lambda}\\
+&\leq \int_{E} {\left( \left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right| + \left| (f)_{m}\chi_{U\left( \mathbf{0},m \right)} - f_{\varepsilon} \right| \right)\lambda}\\
+&= \int_{E} {\left| f - (f)_{m}\chi_{U\left( \mathbf{0},m \right)} \right|\lambda} + \int_{E} {\left| (f)_{m}\chi_{U\left( \mathbf{0},m \right)} - f_{\varepsilon} \right|\lambda}\\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+\end{align*}\par
+このとき、$O = \bigcup_{i \in \varLambda_{k}} O_{i}$とおかれれば、これは有界な開集合で、$\mathbf{x} \notin O$が成り立つなら、$\forall i \in \varLambda_{k}$に対し、$\mathbf{x} \notin O_{i}$が成り立つことになるので、次のようになる。
+\begin{align*}
+f_{\varepsilon}\left( \mathbf{x} \right) = \sum_{i \in \varLambda_{k}} {\alpha_{i}g_{i}}\left( \mathbf{x} \right) = \sum_{i \in \varLambda_{k}} {\alpha_{i}g_{i}\left( \mathbf{x} \right)} = \sum_{i \in \varLambda_{k}} {\alpha_{i} \cdot 0} = 0
+\end{align*}\par
+$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$f = (f)_{+} - (f)_{-}$が成り立つかつ、$0 \leq (f)_{+}$かつ$0 \leq (f)_{-}$が成り立つので、上記の議論により$\forall\varepsilon \in \mathbb{R}^{+}$に対し、連続であり、ある有界な開集合たち$O_{+}$、$O_{-}$と、$\mathbf{x} \notin O_{+}$が成り立つなら、$\left( f_{\varepsilon} \right)_{+}\left( \mathbf{x} \right) = 0$、$\mathbf{x} \notin O_{-}$が成り立つなら、$\left( f_{\varepsilon} \right)_{-}\left( \mathbf{x} \right) = 0$が成り立つようなそれらの関数たち$\left( f_{\varepsilon} \right)_{+}:\mathbb{R}^{n} \rightarrow \mathbb{R}$、$\left( f_{\varepsilon} \right)_{-}:\mathbb{R}^{n} \rightarrow \mathbb{R}$が存在して、次式が成り立つ。
+\begin{align*}
+\int_{E} {\left| (f)_{+} - \left( f_{\varepsilon} \right)_{+} \right|\lambda} < \frac{\varepsilon}{2},\ \ \int_{E} {\left| (f)_{-} - \left( f_{\varepsilon} \right)_{-} \right|\lambda} < \frac{\varepsilon}{2}
+\end{align*}
+そこで、$O = O_{+} \cup O_{-}$、$f_{\varepsilon} = \left( f_{\varepsilon} \right)_{+} - \left( f_{\varepsilon} \right)_{-}$とおかれれば、次のようになる。
+\begin{align*}
+\int_{E} {\left| f - f_{\varepsilon} \right|\lambda} &= \int_{E} {\left| \left( (f)_{+} - (f)_{-} \right) - \left( \left( f_{\varepsilon} \right)_{+} - \left( f_{\varepsilon} \right)_{-} \right) \right|\lambda}\\
+&= \int_{E} {\left| (f)_{+} - \left( f_{\varepsilon} \right)_{+} - (f)_{-} + \left( f_{\varepsilon} \right)_{-} \right|\lambda}\\
+&\leq \int_{E} {\left( \left| (f)_{+} - \left( f_{\varepsilon} \right)_{+} \right| + \left| - (f)_{-} + \left( f_{\varepsilon} \right)_{-} \right| \right)\lambda}\\
+&= \int_{E} {\left| (f)_{+} - \left( f_{\varepsilon} \right)_{+} \right|\lambda} + \int_{E} {\left| (f)_{-} - \left( f_{\varepsilon} \right)_{-} \right|\lambda}\\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+\end{align*}
+さらに、その集合$O$は有界な開集合で、$\mathbf{x} \notin O$が成り立つなら、$\mathbf{x} \notin O_{+}$かつ$\mathbf{x} \notin O_{-}$が成り立つので、次のようになる。
+\begin{align*}
+f_{\varepsilon}\left( \mathbf{x} \right) = \left( \left( f_{\varepsilon} \right)_{+} - \left( f_{\varepsilon} \right)_{-} \right)\left( \mathbf{x} \right) = \left( f_{\varepsilon} \right)_{+}\left( \mathbf{x} \right) - \left( f_{\varepsilon} \right)_{-}\left( \mathbf{x} \right) = 0 - 0 = 0
+\end{align*}
+\end{proof}
+%\hypertarget{lebesgueux7a4dux5206ux3068affineux5909ux63db}{%
+\subsubsection{Lebesgue積分とaffine変換}%\label{lebesgueux7a4dux5206ux3068affineux5909ux63db}}
+\begin{thm}\label{4.6.6.3}
+Lebesgue測度空間において$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分をもつ関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$\forall A_{nn} \in \mathrm{GL}_{n}\left( \mathbb{R} \right)\forall\mathbf{b} \in \mathbb{R}^{n}$に対し、関数$f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)$も可測で定積分をもち次式が成り立つ。
+\begin{align*}
+\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} = \frac{1}{\left| \det A_{nn} \right|}\int_{E} {f\lambda}
+\end{align*}
+特に、その行列$A_{nn}$が直交行列であるなら、次式が成り立つ。
+\begin{align*}
+\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} = \int_{E} {f\lambda}
+\end{align*}
+\end{thm}
+\begin{proof}
+Lebesgue測度空間において$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分をもつ関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$\forall A_{nn} \in \mathrm{GL}_{n}\left( \mathbb{R} \right)\forall\mathbf{b} \in \mathbb{R}^{n}$に対し、$0 \leq f$と仮定すれば、定理\ref{4.5.5.18}における非負可測関数の非負単関数の列による近似での列$\left( (f)_{m} \right)_{m \in \mathbb{N}}$を用いて、$(f)_{m} = \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}$とおかれれば、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、次のようになることから、
+\begin{align*}
+(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\left( \mathbf{x} \right) &= \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\left( \mathbf{x} \right)\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}\left( \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\left( \mathbf{x} \right) \right)}\\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}\left( A_{nn}\mathbf{x} + \mathbf{b} \right)}\\
+&= \sum_{i \in \varLambda_{k}} \left\{ \begin{matrix}
+\alpha_{i} & \mathrm{if} & A_{nn}\mathbf{x} + \mathbf{b} \in E_{i} \\
+0 & \mathrm{if} & A_{nn}\mathbf{x} + \mathbf{b} \notin E_{i} \\
+\end{matrix} \right.\ \\
+&= \sum_{i \in \varLambda_{k}} \left\{ \begin{matrix}
+\alpha_{i} & \mathrm{if} & \mathbf{x} \in A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right) \\
+0 & \mathrm{if} & \mathbf{x} \notin A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right) \\
+\end{matrix} \right.\ \\
+&= \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right)}\left( \mathbf{x} \right)}\\
+&= \left( \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right)}} \right)\left( \mathbf{x} \right)
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right) = \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right)}}
+\end{align*}\par
+このとき、その関数$(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)$が単関数であることから可測なので、次のようになることにより
+\begin{align*}
+f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right) &= \sup\left\{ (f)_{m} \right\}_{m \in \mathbb{N}} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\\
+&= \lim_{m \rightarrow \infty}(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\\
+&= \sup\left\{ (f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right) \right\}_{m \in \mathbb{N}}
+\end{align*}
+その関数$f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)$も可測である。また、定理\ref{4.5.4.22}より$A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right) \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$が成り立つ。\par
+さらに、$\lambda\left( A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right) \right) = \frac{\lambda\left( E_{i} \right)}{\left| \det A_{nn} \right|}$が成り立つので、定理\ref{4.6.1.26}、即ち、単調収束定理より次のようになる。
+\begin{align*}
+\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} &= \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {\sup\left\{ (f)_{m} \right\}_{m \in \mathbb{N}} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda}\\
+&= \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {\lim_{m \rightarrow \infty}(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda}\\
+&= \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {\sup\left\{ (f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right) \right\}_{m \in \mathbb{N}}\lambda}\\
+&= \lim_{m \rightarrow \infty}{\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {(f)_{m} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda}}\\
+&= \lim_{m \rightarrow \infty}{\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {\sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right)}}\lambda}}\\
+&= \lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} {\alpha_{i}\lambda\left( A_{nn}^{- 1}\left( E_{i} - \mathbf{b} \right) \right)}}\\
+&= \lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} \frac{\alpha_{i}\lambda\left( E_{i} \right)}{\left| \det A_{nn} \right|}}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} {\alpha_{i}\lambda\left( E_{i} \right)}}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\lim_{m \rightarrow \infty}{\int_{E} {\sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}\lambda}}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\lim_{m \rightarrow \infty}{\int_{E} {(f)_{m}\lambda}}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\int_{E} {\sup\left\{ (f)_{m} \right\}_{m \in \mathbb{N}}\lambda}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\int_{E} {f\lambda}
+\end{align*}\par
+$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$f = (f)_{+} - (f)_{-}$が成り立つかつ、$0 \leq (f)_{+}$かつ$0 \leq (f)_{-}$が成り立つので、上記の議論により次のようになる。
+\begin{align*}
+\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} &= \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {\left( (f)_{+} - (f)_{-} \right) \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda}\\
+&= \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {(f)_{+} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} \\
+&\quad - \int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {(f)_{-} \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\int_{E} {(f)_{+}\lambda} - \frac{1}{\left| \det A_{nn} \right|}\int_{E} {(f)_{-}\lambda}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\int_{E} {\left( (f)_{+} - (f)_{-} \right)\lambda}\\
+&= \frac{1}{\left| \det A_{nn} \right|}\int_{E} {f\lambda}
+\end{align*}\par
+特に、その行列$A_{nn}$が直交行列であるなら、unitary行列でもあることに注意してその行列$A_{nn}$のJordan標準形が$J$とおかれれば、次のようになることから\footnote{$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、等長変換$f:V \rightarrow V$が与えられたとき、その等長変換$f$の任意の固有値$\lambda$は、もしこれが存在するなら、$|\lambda| = 1$を満たすという定理を用いた。ただし、体$\mathbb{C}$は代数的閉体であることに注意されたい。}、
+\begin{align*}
+\left| \det A_{nn} \right| = \left| \det J \right| = 1
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\int_{A_{nn}^{- 1}\left( E - \mathbf{b} \right)} {f \circ \left( A_{nn}I_{\mathbb{R}^{n}} + \mathbf{b} \right)\lambda} = \int_{E} {f\lambda}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.6.4}
+Lebesgue測度空間において$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} = 0
+\end{align*}
+\end{thm}
+\begin{proof}
+Lebesgue測度空間において$E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$なる集合$E$で定積分可能な関数$f:\mathbb{R}^{n} \rightarrow \mathbb{R}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、定理\ref{4.6.6.2}より連続であり、ある有界な開集合$O$と、$\mathbf{x} \notin O$が成り立つなら、$f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right)\left( \mathbf{x} \right) = 0$が成り立つようなその関数$f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right):\mathbb{R}^{n} \rightarrow \mathbb{R}$が存在して、次式が成り立つ。
+\begin{align*}
+\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) \right|\lambda} &= \int_{E - \mathbf{h}} {\left| f - f_{\varepsilon} \right| \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right)\lambda}\\
+&= \int_{E} {\left| f - f_{\varepsilon} \right|\lambda} < \varepsilon
+\end{align*}
+そこで、その集合$O$は有界なので、ある自然数$m$が存在して、次のようになる。
+\begin{align*}
+\left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \left\| \mathbf{h} \right\| < 1 \land f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right)\left( \mathbf{x} \right) \neq 0 \right\} &= \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \left\| \mathbf{h} \right\| < 1 \land f_{\varepsilon}\left( \mathbf{x} + \mathbf{h} \right) \neq 0 \right\}\\
+&\subseteq \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \left\| \mathbf{h} \right\| < 1 \land \mathbf{x} + \mathbf{h} \in O \right\}\\
+&= \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \mathbf{x} + \mathbf{h} \in O + U\left( \mathbf{0},1 \right) \right\} \subseteq U\left( \mathbf{0},m \right)
+\end{align*}
+このとき、その関数$f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right)$は有界な閉集合$\mathrm{cl}{U\left( \mathbf{0},m \right)}$で連続であるので、定理\ref{4.1.8.4}と定理\ref{4.1.8.5}、即ち、Heine-Borelの被覆定理よりその集合$\mathrm{cl}{U\left( \mathbf{0},m \right)}$がcompactであることに注意すれば、その写像$f_{\varepsilon}$は一様連続であるので\footnote{次のことを主張する位相幾何学の定理から従う。
+  \begin{quote}
+  2つの距離空間たち$(S,d)$、$(T,e)$とこれらの間の任意の写像$f:S \rightarrow T$が与えられたとする。その距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O}_{d} \right)$がcompact空間であるとき、その写像$f$が連続であるなら、その写像$f$は一様連続である。
+  \end{quote}
+}、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}\forall\mathbf{x},\mathbf{h} \in \mathrm{cl}{U\left( \mathbf{0},m \right)}$に対し、$\left\| \mathbf{h} \right\| < \delta \Rightarrow \left| f_{\varepsilon}\left( \mathbf{x} + \mathbf{h} \right) - f_{\varepsilon}\left( \mathbf{x} \right) \right| < \varepsilon$が成り立つ。このとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\left\| \mathbf{h} \right\| < \delta \Rightarrow \sup_{\mathbf{x} \in U\left( \mathbf{0},m \right)}\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right| < \varepsilon$が成り立つので、次のようになる。
+\begin{align*}
+0 &\leq \lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}}\\
+&\leq \lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\sup_{\mathbf{x} \in U\left( \mathbf{0},m \right)}\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|\lambda}}\\
+&= \lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\sup_{\mathbf{x} \in U\left( \mathbf{0},m \right)}\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|}\int_{E - \mathbf{h}} \lambda\\
+&= \lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\sup_{\mathbf{x} \in U\left( \mathbf{0},m \right)}\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|}\lambda\left( E - \mathbf{h} \right) = 0
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} = 0
+\end{align*}\par
+このとき、次のようになることから\footnote{$\lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}}$ではその極限が存在するかどうか疑わしくなるため。}、
+\begin{align*}
+\limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} &= \limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}\int_{E - \mathbf{h}} \left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) \right. \\
+&\quad \left. + f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} + f_{\varepsilon} - f \right|\lambda\\
+&\leq \limsup_{\left\| \mathbf{h} \right\| \rightarrow 0} \left( \int_{E - \mathbf{h}}  \left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) \right| \lambda \right. \\
+&\quad \left. + \int_{E - \mathbf{h}} {\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|\lambda} + \int_{E - \mathbf{h}}  \left| f_{\varepsilon} - f \right|\lambda \right)\\
+&< \limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}\left( \varepsilon + \int_{E - \mathbf{h}} {\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|\lambda} + \varepsilon \right)\\
+&= \varepsilon + \limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|\lambda}} + \varepsilon\\
+&= 2\varepsilon + \lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f_{\varepsilon} \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f_{\varepsilon} \right|\lambda}} = 2\varepsilon
+\end{align*}
+その正の実数$\varepsilon$の任意性により次式が成り立つ。
+\begin{align*}
+\limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} = 0
+\end{align*}
+このとき、次式が成り立つことから、
+\begin{align*}
+\liminf_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} = - \limsup_{\left\| \mathbf{h} \right\| \rightarrow 0}\left( - \int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda} \right) = 0
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\lim_{\left\| \mathbf{h} \right\| \rightarrow 0}{\int_{E - \mathbf{h}} {\left| f \circ \left( I_{\mathbb{R}^{n}} + \mathbf{h} \right) - f \right|\lambda}} = 0
+\end{align*}
+\end{proof}
+%\hypertarget{lebesgueux7a4dux5206ux3068ux9023ux7d9aux95a2ux6570}{%
+\subsubsection{Lebesgue積分と連続関数}%\label{lebesgueux7a4dux5206ux3068ux9023ux7d9aux95a2ux6570}}
+\begin{thm}\label{4.6.6.5}
+Lebesgue測度空間において、$\forall E,F \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、$\lambda(F) = 0$が成り立つかつ、その集合$E \setminus F$上で連続な関数$f:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$はその集合$E$で定積分可能で次式が成り立つ\footnote{ちゃんというのなら、その集合$E \setminus F$上で連続な関数$f:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$が与えられたとき、その関数$f\chi_{E}$はその集合$E$で定積分可能で次式が成り立つ。
+\begin{align*}
+\int_{E} {f\chi_{E}\lambda} = \int_{E \setminus F} {f\chi_{E}\lambda}
+\end{align*}}。
+\begin{align*}
+\int_{E} {f\lambda} = \int_{E \setminus F} {f\lambda}
+\end{align*}
+\end{thm}
+\begin{proof}
+Lebesgue測度空間において、$\forall E,F \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、$\lambda(F) = 0$が成り立つかつ、その集合$E \setminus F$上で連続な関数$f:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$が与えられたとき、定理\ref{4.5.5.25}よりその関数$f\chi_{E \setminus F}$は可測である。このとき、$- \infty < f\chi_{E \setminus F} < \infty$なので、その関数$f\chi_{E \setminus F}$はその集合$\mathbb{R}^{n}$上で定積分可能でありその集合$E \setminus F$上で定積分可能で次のようになる。
+\begin{align*}
+\int_{\mathbb{R}^{n}} {f\chi_{E \setminus F}\lambda} = \int_{E \setminus F} {f\chi_{E \setminus F}\lambda}
+\end{align*}
+そこで、定理\ref{4.6.1.21}よりその関数$f\chi_{E \setminus F}$はその集合$E$上で定積分可能であり次のようになるかつ、
+\begin{align*}
+\int_{\mathbb{R}^{n}} {f\chi_{E \setminus F}\lambda} = \int_{E \setminus F} {f\chi_{E \setminus F}\lambda} = \int_{E} {f\chi_{E \setminus F}\lambda}
+\end{align*}
+$f\chi_{E}\left( \mathbf{x} \right) = f\chi_{E \setminus F}\left( \mathbf{x} \right)\ \left( \mathbb{R}^{n},\ \ \mathfrak{M}_{C}\left( \lambda^{*} \right),\ \ \lambda \right) \ \text{-} \ \mathrm{a.e.}\ \mathbf{x} \in \mathbb{R}^{n}$が成り立ち定理\ref{4.6.3.5}より次のようになることから、
+\begin{align*}
+\int_{E} {f\chi_{E}\lambda} = \int_{\mathbb{R}^{n}} {f\chi_{E}\lambda} = \int_{\mathbb{R}^{n}} {f\chi_{E \setminus F}\lambda} = \int_{E \setminus F} {f\chi_{E \setminus F}\lambda} = \int_{E} {f\chi_{E \setminus F}\lambda}
+\end{align*}
+定理\ref{4.6.1.21}よりその関数$f\chi_{E}$はそれらの集合たち$E$、$E \setminus F$上で定積分可能で次のようになる。
+\begin{align*}
+\int_{E} {f\lambda} = \int_{E} {f\chi_{E}\lambda} = \int_{\mathbb{R}^{n}} {f\chi_{E}\lambda} = \int_{\mathbb{R}^{n}} {f\chi_{E \setminus F}\lambda} = \int_{E \setminus F} {f\chi_{E \setminus F}\lambda} = \int_{E \setminus F} {f\chi_{E}\lambda} = \int_{E \setminus F} {f\lambda}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7a4dux5206ux306eux5f37ux5358ux8abfux6027}{%
+\subsubsection{積分の強単調性}%\label{ux7a4dux5206ux306eux5f37ux5358ux8abfux6027}}
+\begin{thm}[積分の強単調性]\label{4.6.6.6}
+Lebesgue測度空間において、$\forall E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、その集合$E$上で連続な関数たち$f:\mathbb{R}^{n} \rightarrow \mathrm{cl}\mathbb{R}$、$g:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$が$f|E \leq g|E$を満たし、$\exists\mathbf{x} \in E$に対し、$f\left( \mathbf{x} \right) < g\left( \mathbf{x} \right)$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\lambda} < \int_{E} {g\lambda}
+\end{align*}
+この定理を積分の強単調性という。
+\end{thm}
+\begin{proof}
+Lebesgue測度空間において、$\forall E \in \mathfrak{M}_{C}\left( \lambda^{*} \right)$に対し、その集合$E$上で連続な関数たち$f:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$、$g:\mathbb{R}^{n} \rightarrow{}^{*}\mathbb{R}$が$f|E \leq g|E$を満たし、$\exists\mathbf{x} \in E$に対し、$f\left( \mathbf{x} \right) < g\left( \mathbf{x} \right)$が成り立つなら、$0 \leq g - f$かつ$0 < (g - f)\left( \mathbf{x} \right)$が成り立つので、$a = \frac{1}{2}(g - f)\left( \mathbf{x} \right)$とおかれれば、その関数$g - f$は連続なので、$\exists\delta \in \mathbb{R}^{+}\forall\mathbf{y} \in E$に対し、$\left\| \mathbf{x} - \mathbf{y} \right\| < \delta$が成り立つ、即ち、$\mathbf{y} \in U\left( \mathbf{x},\delta \right) \cap E$が成り立つなら、$\left| (g - f)\left( \mathbf{x} \right) - (g - f)\left( \mathbf{y} \right) \right| < a$が成り立つ。これにより、次のようになる。
+\begin{align*}
+\left| (g - f)\left( \mathbf{x} \right) - (g - f)\left( \mathbf{y} \right) \right| < a &\Leftrightarrow \left| 2a - (g - f)\left( \mathbf{y} \right) \right| < a\\
+&\Leftrightarrow - a < 2a - (g - f)\left( \mathbf{y} \right) < a\\
+&\Leftrightarrow - a < (g - f)\left( \mathbf{y} \right) - 2a < a\\
+&\Leftrightarrow a < (g - f)\left( \mathbf{y} \right) < 3a
+\end{align*}
+ここで、定理\ref{4.5.4.11}より次式が成り立つことから、
+\begin{align*}
+U\left( \mathbf{x},\delta \right) \in \mathfrak{O}_{d_{E^{n}}} \subseteq \varSigma\left( \mathfrak{O}_{d_{E^{n}}} \right) = \mathfrak{B}_{\mathfrak{T}_{n}} \subseteq \mathfrak{M}_{C}\left( \lambda^{*} \right)
+\end{align*}
+次のようになり、
+\begin{align*}
+\int_{U\left( \mathbf{x},\delta \right) \cap E} {a\lambda} = a\int_{U\left( \mathbf{x},\delta \right) \cap E} \lambda = a\lambda\left( U\left( \mathbf{x},\delta \right) \cap E \right) \leq \int_{U\left( \mathbf{x},\delta \right) \cap E} {(g - f)\lambda}
+\end{align*}
+$0 < \lambda\left( U\left( \mathbf{x},\delta \right) \cap E \right)$が成り立つことに注意すれば、次式が成り立つので、
+\begin{align*}
+0 < \int_{U\left( \mathbf{x},\delta \right) \cap E} {(g - f)\lambda}
+\end{align*}
+次のようになる。
+\begin{align*}
+\int_{E} {f\lambda} &= \int_{E} {f\lambda} + \int_{E} {g\lambda} - \int_{E} {g\lambda}\\
+&= - \int_{E} {(g - f)\lambda} + \int_{E} {g\lambda}\\
+&= - \int_{\left( E \setminus U\left( \mathbf{x},\delta \right) \right) \sqcup \left( E \cap U\left( \mathbf{x},\delta \right) \right)} {(g - f)\lambda} + \int_{E} {g\lambda}\\
+&= - \left( \int_{E \setminus U\left( \mathbf{x},\delta \right)} {(g - f)\lambda} + \int_{E \cap U\left( \mathbf{x},\delta \right)} {(g - f)\lambda} \right) + \int_{E} {g\lambda}\\
+&= - \int_{E \setminus U\left( \mathbf{x},\delta \right)} {(g - f)\lambda} - \int_{E \cap U\left( \mathbf{x},\delta \right)} {(g - f)\lambda} + \int_{E} {g\lambda}\\
+&< - \int_{E \setminus U\left( \mathbf{x},\delta \right)} {(g - f)\lambda} + \int_{E} {g\lambda}\\
+&\leq \int_{E} {g\lambda}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7d2fux6b21ux7a4dux5206}{%
+\subsubsection{累次積分}%\label{ux7d2fux6b21ux7a4dux5206}}
+\begin{thm}[累次積分]\label{4.6.6.7}
+$n$次元Lebesgue測度空間$\left( \mathbb{R}^{n},\ \ \mathfrak{M}_{C}\left( \gamma_{l^{n}} \right),\ \ \lambda^{n} \right)$、$n + 1$次元Lebesgue測度空間$\left( \mathbb{R}^{n + 1},\ \ \mathfrak{M}_{C}\left( \gamma_{l^{n + 1}} \right),\ \ \lambda^{n + 1} \right)$において、$\forall E \in \mathfrak{M}_{C}\left( \gamma_{l^{n}} \right)$に対し、可測な関数$f:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が与えられたとき、次式のような集合$I_{E,f}$は
+\begin{align*}
+I_{E,f} = \left\{ \begin{pmatrix}
+\mathbf{x} \\
+y \\
+\end{pmatrix} \in \mathbb{R}^{n + 1} \middle| \mathbf{x} \in E \land 0 \leq y < f\left( \mathbf{x} \right) \right\}
+\end{align*}
+$I_{E,f} \in \mathfrak{M}_{C}\left( \gamma_{l^{n + 1}} \right)$を満たし、さらに、次式が成り立つ。
+\begin{align*}
+\lambda^{n + 1}\left( I_{E,f} \right) = \int_{E} {f\lambda^{n}}
+\end{align*}
+この定理を累次積分という。
+\end{thm}
+\begin{proof}
+$n$次元Lebesgue測度空間$\left( \mathbb{R}^{n},\ \ \mathfrak{M}_{C}\left( \gamma_{l^{n}} \right),\ \ \lambda^{n} \right)$、$n + 1$次元Lebesgue測度空間$\left( \mathbb{R}^{n + 1},\ \ \mathfrak{M}_{C}\left( \gamma_{l^{n + 1}} \right),\ \ \lambda^{n + 1} \right)$において、$\forall E \in \mathfrak{M}_{C}\left( \gamma_{l^{n}} \right)$に対し、可測な関数$f:E \rightarrow \mathrm{cl}\mathbb{R}^{+}$が与えられたとき、定理\ref{4.5.5.18}における非負可測関数の非負単関数の列による近似での列$\left( (f)_{m} \right)_{m \in \mathbb{N}}$を用いて、$(f)_{m} = \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}$とおかれれば、次のようになるので、
+\begin{align*}
+I_{E,(f)_{m}} &= \left\{ \begin{pmatrix}
+\mathbf{x} \\
+y \\
+\end{pmatrix} \in \mathbb{R}^{n + 1} \middle| \mathbf{x} \in E \land 0 \leq y < (f)_{m}\left( \mathbf{x} \right) \right\}\\
+&= \left\{ \begin{pmatrix}
+\mathbf{x} \\
+y \\
+\end{pmatrix} \in \mathbb{R}^{n + 1} \middle| \exists i \in \varLambda_{k}\left[ \mathbf{x} \in E_{i} \land 0 \leq y < (f)_{m}\left( \mathbf{x} \right) = \sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}\left( \mathbf{x} \right) \right] \right\}\\
+&= \left\{ \begin{pmatrix}
+\mathbf{x} \\
+y \\
+\end{pmatrix} \in \mathbb{R}^{n + 1} \middle| \exists i \in \varLambda_{k}\left[ \mathbf{x} \in E_{i} \land 0 \leq y < \alpha_{i} \right] \right\}\\
+&= \bigsqcup_{i \in \varLambda_{k}} \left\{ \begin{pmatrix}
+\mathbf{x} \\
+y \\
+\end{pmatrix} \in \mathbb{R}^{n + 1} \middle| \mathbf{x} \in E_{i} \land 0 \leq y < \alpha_{i} \right\}\\
+&= \bigsqcup_{i \in \varLambda_{k}} {E_{i} \times \left[ 0,\alpha_{i} \right)}
+\end{align*}
+その集合$I_{E,(f)_{m}}$は$I_{E,(f)_{m}} \in \mathfrak{M}_{C}\left( \gamma_{l^{n + 1}} \right)$を満たす。このとき、その列$\left( (f)_{m} \right)_{m \in \mathbb{N}}$は単調増加するので、その列$\left( I_{E,(f)_{m}} \right)_{m \in \mathbb{N}}$も単調増加し次式が成り立つ。
+\begin{align*}
+\bigcup_{m \in \mathbb{N}} I_{E,(f)_{m}} = \lim_{m \rightarrow \infty}I_{E,(f)_{m}} = I_{E,f}
+\end{align*}
+これにより、その集合$I_{E,f}$は$I_{E,f} \in \mathfrak{M}_{C}\left( \gamma_{l^{n + 1}} \right)$を満たす。\par
+したがって、単調収束定理より次のようになる。
+\begin{align*}
+\lambda^{n + 1}\left( I_{E,f} \right) &= \lambda^{n + 1}\left( \lim_{m \rightarrow \infty}I_{E,(f)_{m}} \right)\\
+&= \lim_{m \rightarrow \infty}{\lambda^{n + 1}\left( I_{E,(f)_{m}} \right)}\\
+&= \lim_{m \rightarrow \infty}{\lambda^{n + 1}\left( \bigsqcup_{i \in \varLambda_{k}} {E_{i} \times \left[ 0,\alpha_{i} \right)} \right)}\\
+&= \lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} {\lambda^{n + 1}\left( E_{i} \times \left[ 0,\alpha_{i} \right) \right)}}\\
+&= \lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} {\lambda^{n}\left( E_{i} \right)\lambda\left( \left[ 0,\alpha_{i} \right) \right)}}\\
+&= \lim_{m \rightarrow \infty}{\sum_{i \in \varLambda_{k}} {\alpha_{i}\lambda^{n}\left( E_{i} \right)}}\\
+&= \lim_{m \rightarrow \infty}{\int_{E} {\sum_{i \in \varLambda_{k}} {\alpha_{i}\chi_{E_{i}}}\lambda^{n}}}\\
+&= \lim_{m \rightarrow \infty}{\int_{E} {(f)_{m}\lambda^{n}}}\\
+&= \int_{E} {\lim_{m \rightarrow \infty}(f)_{m}\lambda^{n}} = \int_{E} {f\lambda^{n}}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 第24刷 p82-86,111-114 ISBN4-7853-1304-8
+\bibitem{2}
+  日野正訓. "解析学 I(Lebesgue 積分論)". 京都大学. \url{https://www.math.kyoto-u.ac.jp/~hino/jugyoufile/AnalysisI210710.pdf} (2022年4月4日4:05 取得)
+\bibitem{3}
+  岩田耕一郎, ルベーグ積分, 森北出版, 2015. 第1版第2刷 p58-59 ISBN978-4-627-05431-8
+\end{thebibliography}
+\end{document}

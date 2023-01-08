@@ -1,0 +1,423 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{5}
+\usepackage{xr}
+\externaldocument{8.1.1}
+\externaldocument{8.1.3}
+\externaldocument{8.1.4}
+\externaldocument{8.1.5}
+\input{macro}
+\begin{document}
+%\hypertarget{compactux7a7aux9593}{%
+\subsection{compact空間}%\label{compactux7a7aux9593}}
+%\hypertarget{compactux7a7aux9593-1}{%
+\subsubsection{compact空間}%\label{compactux7a7aux9593-1}}
+\begin{dfn}
+任意の位相空間$\left( S,\mathfrak{O} \right)$が与えられたとする。その台集合$S$の部分集合系$\mathfrak{U}$の和集合$\bigcup_{} \mathfrak{U}$が$\bigcup_{} \mathfrak{U} = S$を満たすとき、その集合$S$はその集合$\mathfrak{U}$によって覆われるといい、その集合$\mathfrak{U}$をその集合$S$の被覆という。特に、$\mathfrak{U \subseteq O}$が成り立つとき、即ち、$\forall U \in \mathfrak{U}$に対し、それらの集合たち$U$が開集合であるとき、その集合$\mathfrak{U}$をその集合$S$の開被覆という。さらに、その集合$\mathfrak{U}$がその位相$\mathfrak{O}$の部分集合で有限集合である、即ち、$\mathfrak{U \subseteq O}$かつ${\#}\mathfrak{U} < \aleph_{0}$が成り立つとき、その集合$\mathfrak{U}$をその集合$S$の有限開被覆という。
+\end{dfn}
+\begin{dfn}
+その位相空間$\left( S,\mathfrak{O} \right)$において、その台集合$S$の任意の開被覆$\mathfrak{U}$に対し、これの部分集合となるその台集合$S$の有限開被覆$\mathfrak{U}'$が存在するとき、この位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である、完閉であるなどという。
+\end{dfn}
+\begin{dfn}\label{有限交叉性}
+集合$S$の部分集合系$\mathfrak{X}$が与えられたとき、これの任意の空でない有限集合である部分集合に属する集合同士の共通部分が空でないとき、即ち、$\forall\mathfrak{X}'\in \mathfrak{P}\left( \mathfrak{X} \right)$に対し、$0 < {\#}\mathfrak{X}' < \aleph_{0}$が成り立つなら、$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つとき、その集合$\mathfrak{X}$は有限交叉性を持つという。
+\end{dfn}
+\begin{thm}\label{8.1.6.1}
+位相空間$\left( S,\mathfrak{O} \right)$について、次のことは同値である。
+\begin{itemize}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、その台集合$S$の任意の部分集合系$\mathfrak{X}$が$\mathfrak{X \subseteq A}$かつ有限交叉性を持つなら、$\bigcap_{} \mathfrak{X} \neq \emptyset$が成り立つ。
+\item
+  その台集合$S$の任意の部分集合系$\mathfrak{X}$が有限交叉性を持つなら、$\bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X} \neq \emptyset$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとする。その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間でその位相空間$\left( S,\mathfrak{O} \right)$の閉集合系を$\mathfrak{A}$とおくとき、その台集合$S$の任意の部分集合系$\mathfrak{X}$が$\mathfrak{X \subseteq A}$かつ有限交叉性を持つなら、$\forall X \in \mathfrak{X}$に対し、$X \in \mathfrak{A}$が成り立ち$S \setminus X \in \mathfrak{O}$が成り立つので、次式が成り立つ。
+\begin{align*}
+\left\{ S \setminus X \in \mathfrak{P}(S) \middle| X\in \mathfrak{X} \right\}\subseteq \mathfrak{O}
+\end{align*}
+ここで、その集合$\mathfrak{X}$が有限交叉性を持つので、$\forall\mathfrak{X}'\in \mathfrak{P}\left( \mathfrak{X} \right)$に対し、${\#}\mathfrak{X}' < \aleph_{0}$が成り立つなら、$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つ。したがって、$\forall a \in \bigcap_{} \mathfrak{X}$に対し、次のようになる。
+\begin{align*}
+a \in \bigcap_{} \mathfrak{X}' &\Leftrightarrow \forall X \in \mathfrak{X}'[ a \in X]\\
+&\Leftrightarrow \forall X \in \mathfrak{X}'[ a \notin S \setminus X]\\
+&\Leftrightarrow \forall S \setminus X \in \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}[ a \notin S \setminus X]\\
+&\Leftrightarrow \neg\exists S \setminus X \in \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}[ a \in S \setminus X]\\
+&\Leftrightarrow \neg a \in \bigcup_{S \setminus X \in \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}} (S \setminus X)\\
+&\Leftrightarrow a \notin \bigcup_{} \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}
+\end{align*}
+これにより、次式が得られ、
+\begin{align*}
+S \setminus \bigcup_{} \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\} \neq \emptyset
+\end{align*}
+したがって、その集合$\left\{ S \setminus X \in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}$はその台集合$S$の有限開被覆ではないことになり、ここで、compact空間の定義が対偶律に適用されれば、次のようになる。
+\begin{align*}
+\emptyset &\neq S \setminus \bigcup_{} \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X\in \mathfrak{X} \right\}\\
+&= S \setminus \bigcup_{S \setminus X \in \left\{ S \setminus X \in \mathfrak{P}(S) \middle| X\in \mathfrak{X} \right\}} (S \setminus X)\\
+&= S \setminus \bigcup_{X \in \mathfrak{X}} (S \setminus X)\\
+&= S \setminus \left( S \setminus \bigcap_{X \in \mathfrak{X}} X \right)\\
+&= \bigcap_{X \in \mathfrak{X}} X\\
+&= \bigcap_{} \mathfrak{X}
+\end{align*}
+したがって、$\bigcap_{} \mathfrak{X} \neq \emptyset$が成り立つ。\par
+逆に、その台集合$S$の任意の部分集合系$\mathfrak{X}$が$\mathfrak{X \subseteq A}$かつ有限交叉性を持つなら、$\bigcap_{} \mathfrak{X} \neq \emptyset$が成り立つとき、その台集合$S$の任意の開被覆$\mathfrak{U}$について、$S = \bigcup_{} \mathfrak{U}$が成り立つので、
+\begin{align*}
+\emptyset &= S \setminus S\\
+&= S \setminus \bigcup_{} \mathfrak{U}\\
+&= S \setminus \bigcup_{U \in \mathfrak{U}} U\\
+&= \bigcap_{U \in \mathfrak{U}} (S \setminus U)\\
+&= \bigcap_{S \setminus U \in \left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}} (S \setminus U)\\
+&= \bigcap_{} \left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}
+\end{align*}
+ここで、仮定が対偶律に適用されれば、閉集合でないその集合$\left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}$の元が存在するか、その集合$\left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}$は有限交叉性を持たないことになる。ここで、閉集合でないその集合$\left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}$の元が存在すると仮定すれば、このような元を$S \setminus U'$とおくと、次のようになり、
+\begin{align*}
+S \setminus U'\mathfrak{\notin A} &\Leftrightarrow \neg\exists O \in \mathfrak{O}\left[ S \setminus U' = S \setminus O \right]\\
+&\Leftrightarrow \forall O \in \mathfrak{O}\left[ S \setminus U' \neq S \setminus O \right]\\
+&\Leftrightarrow \forall O \in \mathfrak{O}\left[ U' \neq O \right]
+\end{align*}
+これはその集合$\mathfrak{U}$がその台集合$S$の開被覆であることに矛盾する。したがって、その集合$\left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}$は有限交叉性を持たないことになり、$\mathfrak{X}' \subseteq \left\{ S \setminus U \in \mathfrak{P}(S) \middle| U \in \mathfrak{U} \right\}$かつ${\#}\mathfrak{X}' < \aleph_{0}$なるある集合$\mathfrak{X}'$に対し、$\bigcap_{} \mathfrak{X}' = \emptyset$が成り立つ。したがって、次のようになり、
+\begin{align*}
+S &= S \setminus \emptyset\\
+&= S \setminus \bigcap_{} \mathfrak{X}'\\
+&= S \setminus \bigcap_{S \setminus U \in \mathfrak{X}'} (S \setminus U)\\
+&= \bigcup_{S \setminus U \in \mathfrak{X}'} \left( S \setminus (S \setminus U) \right)\\
+&= \bigcup_{S \setminus U \in \mathfrak{X}'} U
+\end{align*}
+これにより、その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間である。\par
+その台集合$S$の任意の部分集合系$\mathfrak{X}$が$\mathfrak{X \subseteq A}$かつ有限交叉性を持つなら、$\bigcap_{} \mathfrak{X} \neq \emptyset$が成り立つとき、その台集合$S$の任意の部分集合系$\mathfrak{X}'$が有限交叉性を持つなら、集合$\left\{ {\mathrm{cl}}X\in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}$の部分集合で${\#}\mathfrak{X}'' < \aleph_{0}$なる任意の集合$\mathfrak{X}''$に対し、次式が成り立つので、
+\begin{align*}
+\bigcap_{} \mathfrak{X}'' &= \bigcap_{{\mathrm{cl}}X \in \mathfrak{X}''} {{\mathrm{cl}}X}\\
+&= \bigcap_{\scriptsize \begin{matrix}
+X \in \mathfrak{X}' \\
+{\mathrm{cl}}X \in \mathfrak{X}'' \\
+\end{matrix}} {{\mathrm{cl}}X}\\
+&\supseteq \bigcap_{\scriptsize \begin{matrix}
+X \in \mathfrak{X}' \\
+{\mathrm{cl}}X \in \mathfrak{X}'' \\
+\end{matrix}} X \neq \emptyset
+\end{align*}
+その集合$\left\{ {\mathrm{cl}}X\in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\}$も有限交叉性をもつことになり、この集合は明らかにその集合$\mathfrak{A}$の部分集合であるから、仮定より次式が成り立つ。
+\begin{align*}
+\bigcap_{} \left\{ {\mathrm{cl}}X\in \mathfrak{P}(S) \middle| X \in \mathfrak{X}' \right\} = \bigcap_{X \in \mathfrak{X}'} {{\mathrm{cl}}X} \neq \emptyset
+\end{align*}\par
+逆に、その台集合$S$の任意の部分集合系$\mathfrak{X}$が有限交叉性を持つなら、$\bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X} \neq \emptyset$が成り立つとき、その台集合$S$の任意の部分集合系$\mathfrak{X}'$が$\mathfrak{X}'\subseteq \mathfrak{A}$かつ有限交叉性を持つなら、次のようになる。
+\begin{align*}
+\bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X} = \bigcap_{X \in \mathfrak{X}'} X \neq \emptyset
+\end{align*}
+\end{proof}
+\begin{thm}\label{8.1.6.2}
+位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるならそのときに限り、$\mathfrak{U \subseteq O}$かつ$M \subseteq \bigcup_{} \mathfrak{U}$なる任意の集合$\mathfrak{U}$に対し$\mathfrak{U}'\subseteq \mathfrak{U}$かつ$M \subseteq \bigcup_{} \mathfrak{U}'$かつ${\#}\mathfrak{U}' < \aleph_{0}$なる集合$\mathfrak{U}'$が存在する。
+\end{thm}
+\begin{proof}
+定義より位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるならそのときに限り、任意のその位相$\mathfrak{O}_{M}$の元の族$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda}$に対し、$M = \bigcup_{\lambda \in \varLambda} O_{\lambda}$が成り立つなら、$\varLambda' \subseteq \varLambda$かつ${\#}\varLambda' < \aleph_{0}$に対し、$M = \bigcup_{\lambda \in \varLambda'} O_{\lambda}$が成り立つ。ここで、$\forall O \in \mathfrak{O}_{M}$に対し、$O = M \cap O'$なる集合$O'$がその位相$\mathfrak{O}$に存在するのであった。これにより、$\forall\lambda \in \varLambda$に対し、$O_{\lambda} = M \cap O_{\lambda}'$なる任意のその位相$\mathfrak{O}$の元の族$\left\{ O_{\lambda}' \right\}_{\lambda \in \varLambda}$に対し、次式が成り立つ。
+\begin{align*}
+M &= \bigcup_{\lambda \in \varLambda'} O_{\lambda}\\
+&= \bigcup_{\lambda \in \varLambda'} \left( M \cap O_{\lambda}' \right)\\
+&= M \cap \bigcup_{\lambda \in \varLambda'} O_{\lambda}'\\
+&\subseteq \bigcup_{\lambda \in \varLambda'} O_{\lambda}'\\
+&\subseteq \bigcup_{\lambda \in \varLambda} O_{\lambda}'
+\end{align*}
+\end{proof}
+\begin{thm}\label{8.1.6.3}
+位相空間$\left( S,\mathfrak{O} \right)$の有限集合である添数集合$\varLambda$によって添数づけられた部分位相空間からなる族$\left\{ \left( M_{\lambda},\mathfrak{O}_{M_{\lambda}} \right) \right\}_{\lambda \in \varLambda }$がいずれもcompact空間であるなら、部分位相空間$\left( \bigcup_{\lambda \in \varLambda } M_{\lambda},\mathfrak{O}_{\bigcup_{\lambda \in \varLambda } M_{\lambda}} \right)$もcompact空間である。
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$の有限集合である添数集合$\varLambda$によって添数づけられた部分位相空間からなる族$\left\{ \left( M_{\lambda},\mathfrak{O}_{M_{\lambda}} \right) \right\}_{\lambda \in \varLambda }$がいずれもcompact空間であるなら、$\mathfrak{U}_{\lambda}\subseteq \mathfrak{O}$かつ$M_{\lambda} \subseteq \bigcup_{} \mathfrak{U}_{\lambda}$なる任意の集合$\mathfrak{U}_{\lambda}$に対し、$\mathfrak{U}_{\lambda}' \subseteq \mathfrak{U}_{\lambda}$かつ$M_{\lambda} \subseteq \bigcup_{} \mathfrak{U}_{\lambda}'$かつ${\#}\mathfrak{U}_{\lambda}' < \aleph_{0}$なる集合$\mathfrak{U}_{\lambda}'$が存在する。したがって、$\bigcup_{\lambda \in \varLambda } \mathfrak{U}_{\lambda}\subseteq \mathfrak{O}$かつ$\bigcup_{\lambda \in \varLambda } M_{\lambda} \subseteq \bigcup_{\lambda \in \varLambda } {\bigcup_{} \mathfrak{U}_{\lambda}}$なる集合$\bigcup_{} \mathfrak{U}_{\lambda}$には任意性があり、これにより、$\bigcup_{\lambda \in \varLambda } \mathfrak{U}_{\lambda}' \subseteq \bigcup_{\lambda \in \varLambda } \mathfrak{U}_{\lambda}$が成り立つかつ、$\bigcup_{\lambda \in \varLambda} M_{\lambda} \subseteq \bigcup_{\lambda \in \varLambda } {\bigcup_{} \mathfrak{U}_{\lambda}'}$が成り立ち、さらに、${\#}\mathfrak{U}_{\lambda}' < \aleph_{0}$かつ${\#}\varLambda < \aleph_{0}$が成り立つので、その集合$\bigcup_{\lambda \in \varLambda } {\bigcup_{} \mathfrak{U}_{\lambda}'}$はその位相$\mathfrak{O}$の有限集合である部分集合$\mathfrak{U}$を用いて$\bigcup_{} \mathfrak{U}$とおくことができる。よって、部分位相空間$\left( \bigcup_{\lambda \in \varLambda } M_{\lambda},\mathfrak{O}_{\bigcup_{\lambda \in \varLambda } M_{\lambda}} \right)$もcompact空間である。
+\end{proof}
+\begin{thm}\label{8.1.6.4}
+位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるなら、その位相空間$\left( S,\mathfrak{O} \right)$での任意の閉集合$A$を台集合とする部分位相空間$\left( A,\mathfrak{O}_{A} \right)$もcompact空間である。
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるとき、その位相空間$\left( S,\mathfrak{O} \right)$での任意の閉集合$A$を台集合とする部分位相空間$\left( A,\mathfrak{O}_{A} \right)$について、その位相$\mathfrak{O}$の部分集合で$A \subseteq \bigcup_{} \mathfrak{U}$が成り立つような集合$\mathfrak{U}$が用いられると、次のようになる。
+\begin{align*}
+S &= A \sqcup (S \setminus A)\\
+&= \bigcup_{} \mathfrak{U} \cup (S \setminus A)
+\end{align*}
+ここで、$S \setminus A \in \mathfrak{O}$が成り立つので、集合$\mathfrak{U} \cup \left\{ S \setminus A \right\}$はその台集合$S$の開被覆である。このとき、$\mathfrak{U}'\subseteq \mathfrak{U \cup}\left\{ S \setminus A \right\}$かつ${\#}\mathfrak{U}' < \aleph_{0}$なるその台集合$S$の開被覆$\mathfrak{U}'$が存在し、やはり、$\mathfrak{U}' \cup \left\{ S \setminus A \right\}\subseteq \mathfrak{U \cup}\left\{ S \setminus A \right\}$かつ${\#}\left( \mathfrak{U}' \cup \left\{ S \setminus A \right\} \right) < \aleph_{0}$が成り立つので、その集合$\mathfrak{U}' \cup \left\{ S \setminus A \right\}$もその台集合$S$の開被覆となり、したがって、次式が成り立つ。
+\begin{align*}
+S &= \bigcup_{} \left( \mathfrak{U}' \cup \left\{ S \setminus A \right\} \right)\\
+&= \bigcup_{} \mathfrak{U}' \cup (S \setminus A)\\
+&= A \sqcup (S \setminus A)
+\end{align*}
+これにより、$A \subseteq \bigcup_{} \mathfrak{U}'$が成り立つので、その部分位相空間$\left( A,\mathfrak{O}_{A} \right)$もcompact空間である。
+\end{proof}
+\begin{thm}\label{8.1.6.5}
+compact空間である位相空間$\left( S,\mathfrak{O} \right)$ともう1つの位相空間$\left( T,\mathfrak{P} \right)$を用いて連続写像$f:S \rightarrow T$が与えられたとする。このとき、位相空間$\left( V\left( f|S \right),\mathfrak{O}_{V\left( f|S \right)} \right)$もcompact空間となる。
+\end{thm}
+\begin{proof}
+compact空間である位相空間$\left( S,\mathfrak{O} \right)$ともう1つの位相空間$\left( T,\mathfrak{P} \right)$を用いて連続写像$f:S \rightarrow T$が与えられたとする。このとき、その位相$\mathfrak{P}$の開集合たちからなる族$\left\{ P_{\lambda} \right\}_{\lambda \in \varLambda}$を用いて、$V\left( f|S \right) \subseteq \bigcup_{\lambda \in \varLambda} P_{\lambda}$が成り立つとすれば、次式が成り立つ。
+\begin{align*}
+S &= V\left( f^{- 1}|V\left( f|S \right) \right)\\
+&= V\left( f^{- 1}|\bigcup_{\lambda \in \varLambda} P_{\lambda} \right)\\
+&= \bigcup_{\lambda \in \varLambda} {V\left( f^{- 1}|P_{\lambda} \right)}
+\end{align*}
+ここで、その写像$f$は連続なので、$\forall\lambda \in \varLambda$に対し、$V\left( f^{- 1}|P_{\lambda} \right)\in \mathfrak{O}$が成り立ちその位相$\mathfrak{O}$の族$\left\{ V\left( f^{- 1}|P_{\lambda} \right) \right\}_{\lambda \in \varLambda}$はその台集合$S$の開被覆であり、その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間なので、$\varLambda' \subseteq \varLambda$かつ${\#}\varLambda' < \aleph_{0}$なるその位相$\mathfrak{O}$の族$\left\{ V\left( f^{- 1}|P_{\lambda} \right) \right\}_{\lambda \in \varLambda'}$もその台集合$S$の開被覆であることになる。したがって、次のようになる。
+\begin{align*}
+V\left( f|S \right) &= V\left( f|\bigcup_{\lambda \in \varLambda'} {V\left( f^{- 1}|P_{\lambda} \right)} \right)\\
+&\subseteq \bigcup_{\lambda \in \varLambda'} {V\left( f|V\left( f^{- 1}|P_{\lambda} \right) \right)}\\
+&\subseteq \bigcup_{\lambda \in \varLambda'} P_{\lambda}
+\end{align*}
+定理\ref{8.1.6.2}よりよって、その位相空間$\left( V\left( f|S \right),\mathfrak{O}_{V\left( f|S \right)} \right)$もcompact空間となる。
+\end{proof}
+\begin{thm}\label{8.1.6.6}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$と連続写像$f:S \rightarrow T$が与えられたとする。その位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるなら、その位相空間$\left( T,\mathfrak{P} \right)$の部分位相空間$\left( V\left( f|M \right),\mathfrak{O}_{V\left( f|M \right)} \right)$もcompact空間である。
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$と連続写像$f:S \rightarrow T$が与えられたとする。その位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるとき、その位相$\mathfrak{P}$の開集合たちからなる族$\left\{ P_{\lambda} \right\}_{\lambda \in \varLambda}$を用いて、$V\left( f|M \right) \subseteq \bigcup_{\lambda \in \varLambda} P_{\lambda}$が成り立つとすれば、次式が成り立つ。
+\begin{align*}
+M &\subseteq V\left( f^{- 1}|V\left( f|M \right) \right)\\
+&\subseteq V\left( f^{- 1}|\bigcup_{\lambda \in \varLambda} P_{\lambda} \right)\\
+&= \bigcup_{\lambda \in \varLambda} {V\left( f^{- 1}|P_{\lambda} \right)}
+\end{align*}
+ここで、その写像$f$は連続なので、$\forall\lambda \in \varLambda$に対し、$V\left( f^{- 1}|P_{\lambda} \right)\in \mathfrak{O}$が成り立ちその位相$\mathfrak{O}$の族$\left\{ V\left( f^{- 1}|P_{\lambda} \right) \right\}_{\lambda \in \varLambda}$は$M \subseteq \bigcup_{\lambda \in \varLambda} {V\left( f^{- 1}|P_{\lambda} \right)}$を満たしその位相空間$\left( M,\mathfrak{O}_{M} \right)$はcompact空間なので、$\varLambda' \subseteq \varLambda$かつ${\#}\varLambda' < \aleph_{0}$なるその位相$\mathfrak{O}$の族$\left\{ V\left( f^{- 1}|P_{\lambda} \right) \right\}_{\lambda \in \varLambda'}$も$M \subseteq \bigcup_{\lambda \in \varLambda'} {V\left( f^{- 1}|P_{\lambda} \right)}$を満たすことになる。したがって、次のようになる。
+\begin{align*}
+V\left( f|M \right) &\subseteq V\left( f|\bigcup_{\lambda \in \varLambda'} {V\left( f^{- 1}|P_{\lambda} \right)} \right)\\
+&\subseteq \bigcup_{\lambda \in \varLambda'} {V\left( f|V\left( f^{- 1}|P_{\lambda} \right) \right)}\\
+&\subseteq \bigcup_{\lambda \in \varLambda'} P_{\lambda}
+\end{align*}
+定理\ref{8.1.6.2}よりよって、その部分位相空間$\left( V\left( f|M \right),\mathfrak{O}_{V\left( f|M \right)} \right)$もcompact空間である。
+\end{proof}
+%\hypertarget{ux442ux438ux445ux43eux43dux43eux432ux306eux5b9aux7406}{%
+\subsubsection{Tikhonovの定理}%\label{ux442ux438ux445ux43eux43dux43eux432ux306eux5b9aux7406}}
+\begin{thm}\label{8.1.6.7}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$がcompact空間であるならそのときに限り、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がcompact空間である。\par
+この定理をTikhonovの定理という\footnote{ロシア人の人名なので、綴り通りにティホノフと読みます。この定理は1935年と割と最近に証明されたものだそうです。この定理からわかることが多く濃密な定理ですが、このことについてはかなり長くなるかつ、本旨とはややずれるので割愛させていただきます。}。
+\end{thm}\par
+これは次のようにして示される。
+\begin{enumerate}
+\item
+  定理\ref{8.1.6.5}に注意すれば、定理\ref{8.1.5.11}の証明の前半と同様にして、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$がcompact空間であるなら、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がcompact空間であることが示される。
+\item
+  その集合$\mathfrak{P}\left( \prod_{\lambda \in \varLambda} S_{\lambda} \right)$の部分集合$\mathfrak{X}$が有限交叉性をもつことは有限的な性質である\footnote{ある集合$A$の部分集合$A'$に関する命題$P\left( A' \right)$があって、その集合$A$の部分集合$A''$について$P\left( A'' \right)$が成り立つこととその集合$A''$の全ての有限な部分集合たち$A'''$について$P\left( A''' \right)$が成り立つことが同値なとき、その命題$P$を有限的な性質、有限的な条件などといったりします。これはTukeyの補題などの証明で使われます。}ことを示す。
+\item
+  その集合$\mathfrak{P}\left( \prod_{\lambda \in \varLambda} S_{\lambda} \right)$の有限交叉性をもつような部分集合$\mathfrak{X}$全体の集合$\varOmega$について、Tukeyの補題の系より\footnote{集合$A$の部分集合に関する有限的な性質$P$を満たすようなその集合$A$の部分集合$A'$が与えられたなら、その命題$P$を満たすようなその集合$A$の部分集合全体の集合を$\mathfrak{M}$とおくとき、順序集合$\mathfrak{(M, \subseteq )}$で極大な部分集合$A''$が存在し$A' \subseteq A''$が成り立つという内容の定理でこれはZornの補題から示されることができます。これの詳細についてはかなり長くなりますので、ここでは割愛させていただきます。}順序集合$(\varOmega, \subseteq )$で極大な部分集合$\mathfrak{X}^{*}$が存在し、$\mathfrak{\forall X \in}\varOmega$に対し、$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X} \subseteq \bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X}$が成り立つことを述べる。
+\item
+  選択の公理より\footnote{選択の公理と空でない集合$\varLambda$によって添数づけられた族$\left\{ A_{\lambda} \right\}_{\lambda \in \varLambda}$の直積$\prod_{\lambda \in \varLambda} A_{\lambda}$において、$\forall\lambda \in \varLambda に対しA_{\lambda} \neq \emptyset$が成り立つならそのときに限り、その直積$\prod_{\lambda \in \varLambda} A_{\lambda}$が空集合でないという主張とは同値です。}その直積$\prod_{\lambda \in \varLambda} {\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)}}}$は空集合でないことを示す。
+\item
+  この直積の任意の元$a$に対し、その元${\mathrm{pr}}_{\lambda}a$の任意の近傍$V_{\lambda}$を用いて、$\forall X \in \mathfrak{X}^{*}$に対し、定理\ref{8.1.1.10}より\footnote{1つの位相空間$\left( S,\mathfrak{O} \right)$が与えられたとするとき、次のことが成り立つということを主張する定理です。
+  \begin{itemize}
+  \item
+    $\forall O \in \mathfrak{O\forall}M \in \mathfrak{P}(S)$に対し、$O \cap {\mathrm{cl}}M \subseteq {\mathrm{cl}}(O \cap M)$が成り立つ。
+  \item 
+    $\forall O \in \mathfrak{O\forall}M \in \mathfrak{P}(S)$に対し、$O \cap M = \emptyset$が成り立つなら、$O \cap {\mathrm{cl}}M = \emptyset$が成り立つ。
+  \end{itemize}}集合$X \cap V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)$が空集合でないことを示す。
+\item
+  その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$の基本近傍系を構成して定理\ref{8.1.1.9}より\footnote{1つの位相空間$\left( S,\mathfrak{O} \right)$が与えられたとすると、$\forall a \in S$に対し、$a \in {\mathrm{cl}}M$が成り立つならそのときに限り、$\forall O \in \mathfrak{O}$に対し、$a \in O$が成り立つなら、$O \cap M \neq \emptyset$が成り立つということを主張する定理です。}その集合$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X}$空集合でないことを示す。
+\item
+  定理\ref{8.1.6.1}よりその位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$はcompact空間であることが示される。
+\end{enumerate}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$の直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$がcompact空間であるなら、$\forall\lambda \in \varLambda$に対し、射影たち${\mathrm{pr}}_{\lambda}:\prod_{\lambda \in \varLambda} S_{\lambda} \rightarrow S_{\lambda}$は定義より明らかに連続写像で、このとき、定理\ref{8.1.6.5}よりその位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$の部分位相空間$\left( V\left( {\mathrm{pr}}_{\lambda} \right),\mathfrak{O}_{V\left( {\mathrm{pr}}_{\lambda} \right)} \right)$はcompact空間となるのであった。このとき、それらの射影たち${\mathrm{pr}}_{\lambda}$の定義より明らかに$V\left( {\mathrm{pr}}_{\lambda} \right) = S_{\lambda}$が成り立ち、さらに、その直積位相$\mathfrak{O}$はその直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O}_{0} \right)$の初等開集合全体の集合が1つの開基となるので、これの和集合に制限されたそれらの射影たち${\mathrm{pr}}_{\lambda}$の値域がそれらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$の開集合$O_{\lambda}$となることに注意すれば、やはり$\mathfrak{O}_{V\left( {\mathrm{pr}}_{\lambda} \right)} = \mathfrak{O}_{\lambda}$が成り立つ。以上より、その位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$はcompact空間である\footnote{ここまでの議論は定理\ref{8.1.5.11}と類似性があることに注意すれば、意外と思いつきやすいかもしれません…。}。\par
+逆に、$\forall\lambda \in \varLambda$に対し、それらの位相空間たち$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がcompact空間であるとしよう。\par
+その直積$\prod_{\lambda \in \varLambda} S_{\lambda}$の部分集合全体の集合$\mathfrak{P}\left( \prod_{\lambda \in \varLambda} S_{\lambda} \right)$の有限交叉性をもつような部分集合$\mathfrak{X}$全体の集合$\varOmega$について、$\mathfrak{\forall X \in}\varOmega$に対し、$\mathfrak{X}'\subseteq \mathfrak{X}$なる任意の有限な部分集合$\mathfrak{X}'$を用いて$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つことになるのであった。これにより、その部分集合$\mathfrak{X}'$の任意の部分集合$\mathfrak{X}''$はもちろん有限で$\bigcap_{} \mathfrak{X}' \subseteq \bigcap_{} \mathfrak{X}''$が成り立つので、$\bigcap_{} \mathfrak{X}'' \neq \emptyset$が成り立つことになる。したがって、その任意の部分集合$\mathfrak{X}''$は有限交叉性をもつ。逆に、その集合$\mathfrak{P}\left( \prod_{\lambda \in \varLambda} S_{\lambda} \right)$の任意の部分集合$\mathfrak{X}$に対し、その集合$\mathfrak{X}$の任意の有限な部分集合$\mathfrak{X}'$の部分集合$\mathfrak{X}''$に対し、$\bigcap_{} \mathfrak{X}'' \neq \emptyset$が成り立つなら、その集合$\mathfrak{X}'$もその集合$\mathfrak{X}'$自身の部分集合でもあるので、$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つことになる。したがって、この集合$\mathfrak{X}$は有限交叉性をもつ。以上より、その集合$\mathfrak{P}\left( \prod_{\lambda \in \varLambda} S_{\lambda} \right)$の部分集合$\mathfrak{X}$が有限交叉性をもつことは有限的な性質である。\par
+Tukeyの補題の系より順序集合$(\varOmega, \subseteq )$で極大な部分集合$\mathfrak{X}^{*}$が存在し、$\mathfrak{\forall X \in}\varOmega$に対し、$\mathfrak{X \subseteq}\mathfrak{X}^{*}$が成り立つ。ここで、$\mathfrak{\forall X,Y \in}\varOmega$に対し、$\mathfrak{X \subseteq Y}$が成り立つなら、$\bigcap_{X \in \mathfrak{Y}} {{\mathrm{cl}}X} \subseteq \bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X}$が成り立つことに注意すれば、$\mathfrak{\forall X \in}\varOmega$に対し、$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X} \subseteq \bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X}$が成り立つことになる。\par
+ここで、$\forall X \in \mathfrak{X}^{*}$に対し、射影${\mathrm{pr}}_{\lambda}:\prod_{\lambda \in \varLambda} S_{\lambda} \rightarrow S_{\lambda}$のその集合$X$による値域$V\left( {\mathrm{pr}}_{\lambda}|X \right)$全体の集合を$\mathfrak{X}_{\lambda}$とおく。これの任意の有限な部分集合$\mathfrak{X}_{\lambda}'$の任意の元$X_{\lambda}'$に対し、その射影${\mathrm{pr}}_{\lambda}$の逆対応の値域$V\left( {\mathrm{pr}}_{\lambda}^{- 1}|X_{\lambda}' \right)$について、$X_{\lambda}' = V\left( {\mathrm{pr}}_{\lambda}|X \right)$なるその集合$\mathfrak{X}^{*}$の元$X$が存在するので、次式が成り立つ。
+\begin{align*}
+V\left( {\mathrm{pr}}_{\lambda}^{- 1}|X_{\lambda}' \right) = V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V\left( {\mathrm{pr}}_{\lambda}|X \right) \right) \supseteq X
+\end{align*}
+このような集合$X$全体の集合を$\mathfrak{X}'$とおくと、$\bigcap_{} \mathfrak{X}' \neq \emptyset$が成り立つので、その集合$\bigcap_{} \mathfrak{X}'$の元$a$が存在して、$\forall X_{\lambda}' \in \mathfrak{X}_{\lambda}'$に対し、${\mathrm{pr}}_{\lambda}a \in X_{\lambda}'$が成り立ち、したがって、${\mathrm{pr}}_{\lambda}a \in \bigcap_{} \mathfrak{X}_{\lambda}'$が成り立つ。これにより、その集合$\bigcap_{} \mathfrak{X}_{\lambda}'$は空集合でなくその集合$\mathfrak{X}_{\lambda}$は有限交叉性をもつ。ここで、その集合$S_{\lambda}$はcompact空間であるから、$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)}} \neq \emptyset$が成り立つ。このようなことが全ての添数$\lambda$に対し成り立つので、選択の公理よりその直積$\prod_{\lambda \in \varLambda} {\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)}}}$は空集合でない。\par
+この直積の任意の元$a$に対し、${\mathrm{pr}}_{\lambda}a \in \bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)}}$が成り立つので、$\forall X \in \mathfrak{X}^{*}$に対し、その元${\mathrm{pr}}_{\lambda}a$のその位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$における任意の近傍$V_{\lambda}$を用いて次のようになる。
+\begin{align*}
+{\mathrm{pr}}_{\lambda}a \in \bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)}} \cap {\mathrm{int}}V_{\lambda} \subseteq {\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)} \cap {\mathrm{int}}V_{\lambda}
+\end{align*}
+これにより、その集合${\mathrm{cl}}{V\left( {\mathrm{pr}}_{\lambda}|X \right)} \cap {\mathrm{int}}V_{\lambda}$は空集合でなく、定理\ref{8.1.1.10}よりその集合$V\left( {\mathrm{pr}}_{\lambda}|X \right) \cap V_{\lambda}$も空集合でない。したがって、次のようになる。
+\begin{align*}
+\emptyset &\neq V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V\left( {\mathrm{pr}}_{\lambda}|X \right) \cap V_{\lambda} \right)\\
+&= V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V\left( {\mathrm{pr}}_{\lambda}|X \right) \right) \cap V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)\\
+&\subseteq X \cap V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)
+\end{align*}\par
+その集合$\mathfrak{X}$の任意の有限な部分集合$\mathfrak{X}'$を用いて$\bigcap_{} \mathfrak{X}' \cap V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right) \neq \emptyset$が成り立つので、$\varLambda' \subseteq \varLambda$なる有限な添数集合$\varLambda'$を用いて$\bigcap_{} \mathfrak{X}' \cap \bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)} \neq \emptyset$が成り立ち、したがって、$\mathfrak{X}^{*} \cup \left\{ \bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)} \right\} \in \varOmega$が成り立つ。ここで、$\bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)} \notin \mathfrak{X}^{*}$が成り立つと仮定すると、$\mathfrak{X}^{*} \subset \mathfrak{X}^{*} \cup \left\{ \bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)} \right\}$が成り立ち、その集合$\mathfrak{X}^{*}$が極大元であることに矛盾する。したがって、$\bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)} \in \mathfrak{X}^{*}$が成り立つ。\par
+$\forall X \in \mathfrak{X}^{*}$に対し、その集合$\bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)}$の形の集合全体の集合$\mathbf{V}^{*}(a)$はその元$a$のその位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$における1つの基本近傍系をなす。これにより、$a \in O$なる任意の開集合$O$に対し、$V^{*} \subseteq O$なるその集合$\mathbf{V}^{*}(a)$の元が存在し、$\forall X \in \mathfrak{X}^{*}$に対し、次式が成り立つので、
+\begin{align*}
+\emptyset \neq X \cap \bigcap_{\lambda \in \varLambda' } {V\left( {\mathrm{pr}}_{\lambda}^{- 1}|V_{\lambda} \right)}
+\end{align*}
+$a \in O$なる任意の開集合$O$に対し、$O \cap X \neq \emptyset$が成り立つので、定理\ref{8.1.1.9}より$a \in {\mathrm{cl}}X$が成り立つ。これにより、$a \in \bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X}$が成り立つので、その集合$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X}$は空集合でない。\par
+$\mathfrak{\forall X \in}\varOmega$に対し、$\bigcap_{X \in \mathfrak{X}^{*}} {{\mathrm{cl}}X} \subseteq \bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X}$が成り立つことに注意すれば、その集合$\bigcap_{X \in \mathfrak{X}} {{\mathrm{cl}}X}$は空集合でなく、定理\ref{8.1.6.1}よりその位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$はcompact空間である。
+\end{proof}
+%\hypertarget{hausdorffux7a7aux9593}{%
+\subsubsection{Hausdorff空間}%\label{hausdorffux7a7aux9593}}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$a \in S$なる元$a$の基本近傍系を$\mathbf{V}(a)$とおくことにすると、$\forall a,b \in S$に対し、$a \neq b$が成り立つなら、$\exists V_{a} \in \mathbf{V}(a)\exists V_{b} \in \mathbf{V}(b)$に対し、$V_{a} \cap V_{b} = \emptyset$が成り立つ、即ち、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在するような位相空間$\left( S,\mathfrak{O} \right)$をHausdorff空間という\footnote{ドイツ人の人名なので、ほぼ綴り通りにハウスドル゛フといいます。}。
+\end{dfn}
+\begin{thm}\label{8.1.6.8}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a \in S$に対し、集合$\left\{ a \right\}$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$での閉集合となる。
+\end{thm}
+\begin{proof}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a \in S$に対し、集合$\left\{ a \right\}$が考えられれば、$\forall b \in S$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たちそれぞれ$V_{a}$、$V_{b}$が存在することになり、$\left\{ a \right\} \subseteq {\mathrm{int}}V_{a}$が成り立つことに注意すれば、${\mathrm{int}}\left( V_{a} \cap V_{b} \right) = {\mathrm{int}}V_{a} \cap {\mathrm{int}}V_{b} = \emptyset$が成り立ち、したがって、$\left\{ a \right\} \cap {\mathrm{int}}V_{b} = \emptyset$が成り立つ。ここで、定理\ref{8.1.1.10}より${\mathrm{cl}}\left\{ a \right\} \cap {\mathrm{int}}V_{b} = \emptyset$が成り立つので、$b \notin {\mathrm{cl}}\left\{ a \right\}$が成り立つ。対偶律により、$b \in {\mathrm{cl}}\left\{ a \right\}$が成り立つなら、$b \in {\mathrm{cl}}\left\{ a \right\}$が成り立つので、${\mathrm{cl}}\left\{ a \right\} = \left\{ a \right\}$が得られる。よって、$\forall a \in S$に対し、集合$\left\{ a \right\}$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$での閉集合となる。
+\end{proof}
+\begin{thm}\label{8.1.6.9}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$もHausdorff空間である。
+\end{thm}
+\begin{proof}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$が与えられたとき、これの任意の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$について、$\forall a,b \in M$に対し、$a \neq b$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$のその位相空間$\left( S,\mathfrak{O} \right)$における近傍たちそれぞれ$V_{a}$、$V_{b}$が存在するのであった。ここで、それらの集合たち$V_{a} \cap M$、$V_{b} \cap M$はそれぞれそれらの元々$a$、$b$のその位相空間$\left( M,\mathfrak{O}_{M} \right)$における近傍となることに注意すれば、次のようになるので、
+\begin{align*}
+\emptyset &= V_{a} \cap V_{b}\\
+&= V_{a} \cap V_{b} \cap M\\
+&= \left( V_{a} \cap M \right) \cap \left( V_{b} \cap M \right)
+\end{align*}
+その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$もHausdorff空間である。
+\end{proof}
+\begin{thm}\label{8.1.6.10}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるなら、その集合$M$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$での閉集合となる。
+\end{thm}
+\begin{proof}
+Hausdorff空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$がcompact空間であるとき、その集合$S \setminus M$の任意の元$a$とその集合$M$の任意の元$b$は明らかに$a \neq b$を満たし、その位相空間$\left( S,\mathfrak{O} \right)$はHausdorff空間でもあるので、$U_{b} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$のその位相空間$\left( S,\mathfrak{O} \right)$における近傍たちそれぞれ$U_{b}$、$V_{b}$が存在する。$b \in M$なるこのような近傍$V_{b}$の開核全体の集合を$\mathfrak{V}$とおくと、$\forall b \in M$に対し、$b \in {\mathrm{int}}V_{b}$なる集合${\mathrm{int}}V_{b}$がこの集合$\mathfrak{V}$に存在することから、その集合$\mathfrak{V}$はその集合$M$の開被覆であり$M \subseteq \bigcup_{} \mathfrak{V}$が成り立つ。そこで、その部分位相空間$\left( M,\mathfrak{O}_{M} \right)$はcompact空間であるので、定理\ref{8.1.6.2}よりその集合$\mathfrak{V}$の有限な部分集合$\mathfrak{V}'$で$M \subseteq \bigcup_{} \mathfrak{V}'$が成り立つようなその集合$\mathfrak{V}'$が存在する。$\forall V \in \mathfrak{V}'$に対し、定義より$V = {\mathrm{int}}V_{b}$なるその集合$M$の元が存在して、これのうち1つ$b$全体の集合を$M'$とおくと、その集合$M'$は有限集合であり、$\forall b \in M'$に対し、$a \in {\mathrm{int}}U_{b}$が成り立つので、$a \in \bigcap_{b \in M'} {{\mathrm{int}}U_{b}}$が成り立つ。したがって、$\forall b \in M'$に対し、$\bigcap_{b \in M'} {{\mathrm{int}}U_{b}} \subseteq U_{b}$かつ$U_{b} \cap V_{b} = \emptyset$が成り立つので、次のようになる。
+\begin{align*}
+\emptyset &= \bigcup_{b \in M'} \left( U_{b} \cap V_{b} \right)\\
+&\supseteq \bigcup_{b \in M'} {{\mathrm{int}}\left( U_{b} \cap V_{b} \right)}\\
+&= \bigcup_{b \in M'} \left( {\mathrm{int}}U_{b} \cap {\mathrm{int}}V_{b} \right)\\
+&\supseteq \bigcup_{b \in M'} \left( \bigcap_{b' \in M'} {{\mathrm{int}}U_{b'}} \cap {\mathrm{int}}V_{b} \right)\\
+&= \bigcup_{b \in M'} \left( {\mathrm{int}}{\bigcap_{b' \in M'} U_{b'}} \cap {\mathrm{int}}V_{b} \right)\\
+&= {\mathrm{int}}{\bigcap_{b \in M'} U_{b}} \cap \bigcup_{b \in M'} {{\mathrm{int}}V_{b}}\\
+&= {\mathrm{int}}{\bigcap_{b \in M'} U_{b}} \cap \bigcup_{} \mathfrak{V}'\\
+&\supseteq {\mathrm{int}}{\bigcap_{b \in M'} U_{b}} \cap M
+\end{align*}
+これにより、その集合${\mathrm{int}}{\bigcap_{b \in M'} U_{b}} \cap M$は空集合であるので、その集合${\mathrm{int}}{\bigcap_{b \in M'} U_{b}}$は明らかにその元$a$の近傍で${\mathrm{int}}{\bigcap_{b \in M'} U_{b}} \subseteq S \setminus M$が成り立つ。したがって、${\mathrm{int}}{\bigcap_{b \in M'} U_{b}} = {\mathrm{int}}{{\mathrm{int}}{\bigcap_{b \in M'} U_{b}}} \subseteq {\mathrm{int}}(S \setminus M)$が成り立つので、その集合$S \setminus M$はその元$a$のそのHausdorff空間$\left( S,\mathfrak{O} \right)$における近傍となっており、$\forall a \in S \setminus M$に対し、その集合$S \setminus M$はその元$a$の近傍となっているので、定理\ref{8.1.1.23}よりその集合$S \setminus M$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$における開集合となり、よって、その集合$M$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$での閉集合となる。
+\end{proof}
+\begin{thm}\label{8.1.6.11}
+compact空間$\left( S,\mathfrak{O} \right)$からHausdorff空間$\left( T,\mathfrak{P} \right)$への連続写像$f$は閉写像である。
+\end{thm}
+\begin{proof}
+compact空間$\left( S,\mathfrak{O} \right)$からHausdorff空間$\left( T,\mathfrak{P} \right)$への連続写像$f$が与えられたとき、定理\ref{8.1.6.4}よりそのcompact空間$\left( S,\mathfrak{O} \right)$の任意の閉集合$M$を台集合とする部分位相空間$\left( M,\mathfrak{O}_{M} \right)$もcompact空間で定理\ref{8.1.6.6}よりそのHausdorff空間$\left( T,\mathfrak{P} \right)$の部分位相空間$\left( V\left( f|M \right),\mathfrak{O}_{V\left( f|M \right)} \right)$はcompact空間であるので、定理\ref{8.1.6.10}よりその集合$V\left( f|M \right)$はそのHausdorff空間$\left( S,\mathfrak{O} \right)$での閉集合となる。以上より、その写像$f$は閉写像である。
+\end{proof}
+\begin{thm}\label{8.1.6.12}
+compact空間$\left( S,\mathfrak{O} \right)$からHausdorff空間$\left( T,\mathfrak{P} \right)$への全単射な連続写像$f$は同相写像である。
+\end{thm}
+\begin{proof}
+compact空間$\left( S,\mathfrak{O} \right)$からHausdorff空間$\left( T,\mathfrak{P} \right)$への連続写像$f$は閉写像でもあるのであった。ここで、連続写像が閉写像であるかつ全単射であるなら、定理\ref{8.1.3.10}よりその写像$f$は同相写像である。
+\end{proof}
+\begin{thm}\label{8.1.6.13}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとする。$\forall\lambda \in \varLambda$に対し、その位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がHausdorff空間であるなら、その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$もHausdorff空間である。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda$によって添数づけられた位相空間の族$\left\{ \left( S_{\lambda},\mathfrak{O}_{\lambda} \right) \right\}_{\lambda \in \varLambda}$が与えられたとする。$\forall\lambda \in \varLambda$に対し、その位相空間$\left( S_{\lambda},\mathfrak{O}_{\lambda} \right)$がHausdorff空間であるとする。その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$において、$\forall\left( a_{\lambda} \right)_{\lambda \in \varLambda},\left( b_{\lambda} \right)_{\lambda \in \varLambda} \in \prod_{\lambda \in \varLambda} S_{\lambda}$に対し、$\left( a_{\lambda} \right)_{\lambda \in \varLambda} \neq \left( b_{\lambda} \right)_{\lambda \in \varLambda}$が成り立つなら、$\exists\lambda' \in \varLambda$に対し、これらの元々$a_{\lambda'}$、$b_{\lambda'}$のある近傍たちそれぞれ$V_{a_{\lambda'}}$、$V_{b_{\lambda'}}$が存在して、$V_{a_{\lambda'}} \cap V_{b_{\lambda'}} = \emptyset$が成り立つ。このとき、その全近傍系自身も基本近傍系であることに注意すれば、残りの添数$\lambda$について、その集合$S_{\lambda}$がそれらの元々$a_{\lambda}$、$b_{\lambda}$の近傍であるので、それらの集合たち$\prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} S_{\lambda} \times V_{a_{\lambda'}}$、$\prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} S_{\lambda} \times V_{b_{\lambda'}}$はこれらの元々$\left( a_{\lambda} \right)_{\lambda \in \varLambda}$、$\left( b_{\lambda} \right)_{\lambda \in \varLambda}$の近傍となる。このとき、選択の公理より次のようになるので、
+\begin{align*}
+\left( \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} S_{\lambda} \times V_{a_{\lambda'}} \right) \cap \left( \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} S_{\lambda} \times V_{b_{\lambda'}} \right) &= \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} \left( S_{\lambda} \cap S_{\lambda} \right) \times \left( V_{a_{\lambda'}} \cap V_{b_{\lambda'}} \right)\\
+&= \prod_{\lambda \in \varLambda \setminus \left\{ \lambda' \right\}} S_{\lambda} \times \emptyset = \emptyset
+\end{align*}
+その直積位相空間$\left( \prod_{\lambda \in \varLambda} S_{\lambda},\mathfrak{O} \right)$もHausdorff空間である。
+\end{proof}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、$\forall a \in S$に対し、その元$a$の近傍$V$でその部分位相空間$\left( V,\mathfrak{O}_{V} \right)$がcompact空間であるようなものが少なくとも1つ存在するようなその位相空間$\left( S,\mathfrak{O} \right)$を局所compact空間である、局所的に完閉であるという。
+\end{dfn}
+\begin{thm}\label{8.1.6.14}
+位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるなら、局所compact空間である。
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるなら、$\forall a \in S$に対し、その元$a$の近傍としてその台集合$S$がとれる。実際、$a \in S = {\mathrm{int}}S$が成り立つ。このとき、その近傍$S$を台集合とする部分位相空間$\left( S,\mathfrak{O} \right)$はもとの位相空間$\left( S,\mathfrak{O} \right)$自身そのものであるから、その位相空間$\left( S,\mathfrak{O} \right)$はcompact空間であったことに注意すれば、その位相空間$\left( S,\mathfrak{O} \right)$は局所compact空間である。
+\end{proof}
+%\hypertarget{ux70b9compactux5316}{%
+\subsubsection{1点compact化}%\label{ux70b9compactux5316}}\par
+位相空間$\left( S,\mathfrak{O} \right)$と同相な位相空間を部分位相空間として含むようなcompact空間を求めることについて考えよう。この問題は位相空間$\left( S,\mathfrak{O} \right)$のcompact化の問題といわれる。これについてはさまざまな方法があることが知られており、本項では、その位相空間$\left( S,\mathfrak{O} \right)$が局所compact空間であるかつ、Hausdorff空間であるとき、その位相空間$\left( S,\mathfrak{O} \right)$に1つの点を付け加えることでその位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるかつ、Hausdorff空間であることができる。このことを詳しく述べたものが次の定理として与えられよう。
+\begin{thm}\label{8.1.6.15}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その台集合$S$にない点$a_{\infty}$を付け加えた集合$S \cup \left\{ a_{\infty} \right\}$を$S^{*}$とおき、これを台集合とするある位相$\mathfrak{O}^{*}$を用いた位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$が次のことを満たすように構成されることができるならそのときに限り、
+\begin{itemize}
+\item
+  その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はcompact空間である。
+\item
+  その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はHausdorff空間である。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$の部分位相空間となっている。
+\end{itemize}
+その位相空間$\left( S,\mathfrak{O} \right)$が局所compact空間なHausdorff空間である。さらに、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$は一意的である。この定理は1点compact化、Alexandrov拡大などといわれる\footnote{ロシア人の人名なので綴り通りにアレクサンドル゛ォスと読むそうです。}。
+\end{thm}\par
+これは次のようにして示される。
+\begin{enumerate}
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、ある手続きで集合$\mathfrak{O}^{*}$が定義されたとする。
+\item
+  このとき、$O \in \mathfrak{O}^{*}$が成り立つなら、$O \setminus \left\{ a_{\infty} \right\} = O \cap S \in \mathfrak{O}$が成り立つ。
+\item
+  これにより、その組$\left( S^{*},\mathfrak{O}^{*} \right)$が位相空間で、さらに、その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$の部分位相空間でもあることが分かる。
+\item
+  その集合$S^{*}$の任意の開被覆$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda}$のうち$a_{\infty}$に属されるもの$\mathfrak{O}_{\lambda'}$が存在しcompact空間$\left( S^{*} \setminus O_{\lambda'},\mathfrak{O}_{S^{*} \setminus O_{\lambda'}} \right)$が得られることから、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はcompact空間であることが示される。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$が局所compact空間なHausdorff空間であるとすることで、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はHausdorff空間でもあることも示される。
+\item
+  以上で、必要条件が示された。
+\item
+  逆に、その集合$S^{*}$を台集合とするある位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$が所定のことを満たすように構成されることができたとする。
+\item
+  このとき、その位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間であることがすぐ分かる。
+\item
+  また、$\forall a \in S$に対し、$V_{a} \cap V_{a_{\infty}} = \emptyset$なるそれらの元々$a$、$a_{\infty}$のその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$での近傍たち$V_{a}$、$V_{a_{\infty}}$が存在してその部分位相空間$\left( {\mathrm{cl}}V_{a},{\widetilde{\mathfrak{O}^{*}}}_{{\mathrm{cl}}V_{a}} \right)$はcompact空間であることにより、その位相空間$\left( S,\mathfrak{O} \right)$は局所compact空間であることが分かる。
+\item
+  以上で、十分条件が示された。
+\item
+  $\forall O \in \widetilde{\mathfrak{O}^{*}}$に対し、$a_{\infty} \in O$のときと$a_{\infty} \notin O$のときで場合分けすることで、$\widetilde{\mathfrak{O}^{*}}\subseteq \mathfrak{O \cup}\mathfrak{O}_{\infty}$が示される。
+\item
+  $\mathfrak{O \subseteq}\widetilde{\mathfrak{O}^{*}}$と$\mathfrak{O \subseteq}\widetilde{\mathfrak{O}^{*}}$が示されることで$\mathfrak{O \cup}\mathfrak{O}_{\infty} \subseteq \widetilde{\mathfrak{O}^{*}}$が示される。
+\item
+  以上より、$\widetilde{\mathfrak{O}^{*}} = \mathfrak{O \cup}\mathfrak{O}_{\infty}$が得られることで、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$は一意的であることが分かる。
+\end{enumerate}
+\begin{proof}
+任意の位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その台集合$S$にない点$a_{\infty}$を付け加えた集合$S \cup \left\{ a_{\infty} \right\}$を$S^{*}$とおき、その位相空間$\left( S,\mathfrak{O} \right)$での閉集合$A$を台集合とする部分位相空間$\left( A,\mathfrak{O}_{A} \right)$がcompact空間となるようなその閉集合$A$全体の集合と空集合との和集合を$\mathfrak{A}_{0}$とおく。そこで、その集合$S^{*}$の部分集合系たち$\mathfrak{O}_{\infty}$、$\mathfrak{O}^{*}$が次式のように定義されるとする。
+\begin{align*}
+\mathfrak{O}_{\infty} = \left\{ O \in \mathfrak{P}\left( S^{*} \right) \middle| S^{*} \setminus O \in \mathfrak{A}_{0} \right\},\ \ \mathfrak{O}^{*} = \mathfrak{O \cup}\mathfrak{O}_{\infty}
+\end{align*}
+ここで、その集合$\mathfrak{A}_{0}$に属する閉集合すべてその集合$S$の部分集合でその点$a_{\infty}$に属されていないので、$S^{*} \setminus O \in \mathfrak{A}_{0}$が成り立つような空集合でない集合$O$はその点$a_{\infty}$に属されていることになる。したがって、その集合$\mathfrak{O}_{\infty}$に属する全ての集合$O$はその点$a_{\infty}$に属されていることになり$\mathfrak{O}^{*} = \mathfrak{O \sqcup}\mathfrak{O}_{\infty}$が成り立つ。このとき、$O \in \mathfrak{O}^{*}$が成り立つなら、$O \setminus \left\{ a_{\infty} \right\} = O \cap \left( S^{*} \setminus \left\{ a_{\infty} \right\} \right) = O \cap S$が成り立ち、ここで、$S \setminus (O \cap S) = S \setminus O = S^{*} \setminus O \in \mathfrak{A}_{0}$が成り立つことに注意すれば、その集合$S \setminus (O \cap S)$はその位相空間$\left( S,\mathfrak{O} \right)$における閉集合となるので、$O \setminus \left\{ a_{\infty} \right\} = O \cap S \in \mathfrak{O}$が成り立つ。\par
+次に、その組$\left( S^{*},\mathfrak{O}^{*} \right)$が位相空間であるかどうかについて議論しよう。その集合$\mathfrak{A}_{0}$の定義より$\emptyset \in \mathfrak{A}_{0}$が成り立つので、$S^{*} \in \mathfrak{O}_{\infty}$が成り立ち、したがって、$S^{*} \in \mathfrak{O}^{*}$が成り立つ。また、位相の定義より$\mathfrak{\emptyset \in O}$が成り立つので、$\emptyset \in \mathfrak{O}^{*}$が成り立つ。有限集合である添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{O}^{*}$の族$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda }$が与えられたとき、$\forall\lambda \in \varLambda$に対し、$O_{\lambda}\in \mathfrak{O}$または$O_{\lambda} \in \mathfrak{O}_{\infty}$が成り立つ。ここで、$\forall\lambda \in \varLambda$に対し、$O_{\lambda} \setminus \left\{ a_{\infty} \right\}\in \mathfrak{O}$が成り立ち、$S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \in \mathfrak{A}_{0}$が成り立つなら、定理8.1.6.3
+より$\bigcup_{\lambda \in \varLambda } \left( S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \right) = S^{*} \setminus \left( \bigcap_{\lambda \in \varLambda } O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \in \mathfrak{A}_{0}$が成り立つので、$\bigcap_{\lambda \in \varLambda } O_{\lambda} \setminus \left\{ a_{\infty} \right\} \in \mathfrak{O}^{*}$が成り立つ。集合$\left\{ a_{\infty} \right\}$との和集合が考えられれば、したがって、$\bigcap_{\lambda \in \varLambda } O_{\lambda} \in \mathfrak{O}^{*}$が成り立つ。任意の添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{O}^{*}$の族$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda }$が与えられたとき、$\forall\lambda \in \varLambda$に対し、$O_{\lambda}\in \mathfrak{O}$または$O_{\lambda} \in \mathfrak{O}_{\infty}$が成り立つ。ここで、$\forall\lambda \in \varLambda$に対し、$O_{\lambda} \setminus \left\{ a_{\infty} \right\}\in \mathfrak{O}$が成り立ち、$S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \in \mathfrak{A}_{0}$が成り立つなら、これらの集合たち$S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right)$は閉集合でありその積集合$\bigcap_{\lambda \in \varLambda } \left( S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \right)$も閉集合となり、定理\ref{8.1.6.4}より$\bigcap_{\lambda \in \varLambda } \left( S^{*} \setminus \left( O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \right) = S^{*} \setminus \left( \bigcup_{\lambda \in \varLambda } O_{\lambda} \setminus \left\{ a_{\infty} \right\} \right) \in \mathfrak{A}_{0}$が成り立つので、$\bigcup_{\lambda \in \varLambda } O_{\lambda} \setminus \left\{ a_{\infty} \right\} \in \mathfrak{O}^{*}$が成り立つ。集合$\left\{ a_{\infty} \right\}$との和集合が考えられれば、したがって、$\bigcup_{\lambda \in \varLambda } O_{\lambda} \in \mathfrak{O}^{*}$が成り立つ。以上より、その組$\left( S^{*},\mathfrak{O}^{*} \right)$が位相空間である。さらに、$\forall O \in \mathfrak{O}^{*}$に対し、$O \setminus \left\{ a_{\infty} \right\} = O \cap S \in \mathfrak{O}$が成り立つのであったので、定理\ref{8.1.4.7}よりその位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$の部分位相空間でもある。\par
+その集合$S^{*}$の任意の開被覆$\mathfrak{U}$が与えられたとき、これの添数集合$\varLambda$によって添数づけられた族$\left\{ O_{\lambda} \right\}_{\lambda \in \varLambda}$を用いれば、次のようになることから、
+\begin{align*}
+S^{*} = \bigcup_{} \mathfrak{U} &\Leftrightarrow S \cup \left\{ a_{\infty} \right\} = \bigcup_{\lambda \in \varLambda} O_{\lambda}\\
+&\Rightarrow S = \bigcup_{\lambda \in \varLambda} O_{\lambda} \setminus \left\{ a_{\infty} \right\} = \bigcup_{\lambda \in \varLambda} \left( O_{\lambda} \cap S \right)
+\end{align*}
+そのような族$\left\{ O_{\lambda} \cap S \right\}_{\lambda \in \varLambda}$はその集合$S$の開被覆となる。ここで、その開被覆$\mathfrak{U}$に属する位相たちのうち$a_{\infty}$に属されるものが存在するので、その位相を$\mathfrak{O}_{\lambda'}$とおくと、$\mathfrak{O}^{*} = \mathfrak{O \sqcup}\mathfrak{O}_{\infty}$が成り立つので、$O_{\lambda'} \in \mathfrak{O}_{\infty}$が成り立つ。このとき、$S^{*} \setminus O_{\lambda'} \in \mathfrak{A}_{0}$が成り立つので、その位相空間$\left( S^{*} \setminus O_{\lambda'},\mathfrak{O}_{S^{*} \setminus O_{\lambda'}} \right)$はcompact空間でその族$\left\{ O_{\lambda} \cap S \right\}_{\lambda \in \varLambda}$の部分集合である有限集合である添数集合$\varLambda'$によって添数づけられた族$\left\{ O_{\lambda} \cap S \right\}_{\lambda \in \varLambda }$を用いて次式が成り立つ。
+\begin{align*}
+S^{*} \setminus O_{\lambda'} \subseteq \bigcup_{\lambda \in \varLambda } \left( O_{\lambda} \cap S \right)
+\end{align*}
+したがって、次のようになり、
+\begin{align*}
+S^{*} &= S \sqcup \left\{ a_{\infty} \right\}\\
+&= S^{*} \setminus O_{\lambda'} \sqcup S \setminus \left( S^{*} \setminus O_{\lambda'} \right) \sqcup \left\{ a_{\infty} \right\}\\
+&\subseteq \bigcup_{\lambda \in \varLambda } \left( O_{\lambda} \cap S \right) \cup O_{\lambda'}\\
+&\subseteq \bigcup_{\lambda \in \varLambda } O_{\lambda} \cup O_{\lambda'}
+\end{align*}
+その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はcompact空間である。\par
+その位相空間$\left( S,\mathfrak{O} \right)$が局所compact空間なHausdorff空間であるとする。$\forall a,b \in S^{*}$に対し、$a,b \in S$が成り立つなら、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たち$V_{a}$、$V_{b}$が存在するのであった。さらに、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$のそれらの元々$a$、$b$のある近傍たち$V_{a}'$、$V_{b}'$が存在して次式が成り立つので、
+\begin{align*}
+a \in {\mathrm{int}}V_{a}\in \mathfrak{O \subseteq}\mathfrak{O}^{*},\ \ b \in {\mathrm{int}}V_{b}\in \mathfrak{O \subseteq}\mathfrak{O}^{*}
+\end{align*}
+これらの近傍たちはその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$における近傍となっている。$\forall a \in S^{*}$に対し、その位相空間$\left( S,\mathfrak{O} \right)$は局所compact空間であるから、その元$a$の近傍のうちその部分位相空間$\left( V_{a},\mathfrak{O}_{V_{a}} \right)$がcompact空間であるようなその近傍$V_{a}$が存在し、これはその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$におけるその元$a$の近傍でもある。ここで、その位相空間$\left( S,\mathfrak{O} \right)$はHausdorff空間であるので、定理\ref{8.1.6.10}よりその近傍$V_{a}$はその位相空間$\left( S,\mathfrak{O} \right)$での閉集合となる。したがって、$V_{a} \in \mathfrak{A}_{0}$が成り立つことになり$S^{*} \setminus V_{a} \in \mathfrak{O}_{\infty}$が得られる。このとき、その集合$S^{*} \setminus V_{a}$はその元$a_{\infty}$に属されるその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$の開集合でその元$x_{\infty}$の近傍でもある。このとき、$V_{a} \cap S^{*} \setminus V_{a} = \emptyset$が成り立つ。以上より、$\forall a,b \in S^{*}$に対し、$V_{a} \cap V_{b} = \emptyset$なるそれらの元々$a$、$b$の近傍たち$V_{a}$、$V_{b}$が存在するので、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はHausdorff空間でもある。\par
+以上より、その位相空間$\left( S,\mathfrak{O} \right)$が局所compact空間なHausdorff空間であるなら、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$が次のことを満たすように構成されることができる。
+\begin{itemize}
+\item
+  その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はcompact空間である。
+\item
+  その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$はHausdorff空間である。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$の部分位相空間となっている。
+\end{itemize}\par
+逆に、その集合$S^{*}$を台集合とするある位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$が次のことを満たすように構成されることができたとしよう。
+\begin{itemize}
+\item
+  その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はcompact空間である。
+\item
+  その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はHausdorff空間である。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の部分位相空間となっている。
+\end{itemize}
+このとき、定理\ref{8.1.6.9}よりその位相空間$\left( S,\mathfrak{O} \right)$がHausdorff空間であることが分かる。また、$\forall a \in S$に対し、$a \neq a_{\infty}$が成り立つので、$V_{a} \cap V_{a_{\infty}} = \emptyset$なるそれらの元々$a$、$a_{\infty}$のその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$での近傍たち$V_{a}$、$V_{a_{\infty}}$が存在する。このとき、定理\ref{8.1.1.10}より${\mathrm{cl}}V_{a} \cap V_{a_{\infty}} = \emptyset$が成り立つので、定理\ref{8.1.1.24}よりその集合${\mathrm{cl}}V_{a}$はその元$a$の近傍で$a_{\infty} \notin {\mathrm{cl}}V_{a}$が成り立ち、したがって、${\mathrm{cl}}V_{a} \subseteq S$が成り立つ。定理\ref{8.1.4.12}よりその集合${\mathrm{cl}}V_{a}$はその位相空間$\left( S,\mathfrak{O} \right)$でのその元$a$の近傍でもある。ここで、その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はcompact空間であるから、定理\ref{8.1.6.4}よりその部分位相空間$\left( {\mathrm{cl}}V_{a},{\widetilde{\mathfrak{O}^{*}}}_{{\mathrm{cl}}V_{a}} \right)$はcompact空間である。また、その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の部分位相空間であるから、定理\ref{8.1.4.13}よりその部分位相空間$\left( {\mathrm{cl}}V_{a},{\widetilde{\mathfrak{O}^{*}}}_{{\mathrm{cl}}V_{a}} \right)$はその位相空間$\left( S,\mathfrak{O} \right)$のcompact空間でもあるような部分位相空間である。したがって、その位相空間$\left( S,\mathfrak{O} \right)$は局所compact空間である。\par
+最後に、$\forall O \in \widetilde{\mathfrak{O}^{*}}$に対し、$a_{\infty} \notin O$が成り立つなら、$O \subseteq S$が成り立つかつ、その位相空間$\left( S,\mathfrak{O} \right)$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の部分位相空間であるから、その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$がHausdorff空間であることに注意すれば、その集合$\left\{ a_{\infty} \right\}$が定理\ref{8.1.6.8}より閉集合でその集合$S$が開集合となり定理\ref{8.1.4.11}よりその集合$O$はその位相空間$\left( S,\mathfrak{O} \right)$での開集合でもある。これにより、$O \in \mathfrak{O}$が成り立つ。また、$a_{\infty} \in O$が成り立つとき、$S^{*} \setminus O \subseteq S$が成り立つが、その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はcompact空間でその集合$S^{*} \setminus O$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の閉集合であるから、定理\ref{8.1.6.4}よりその部分位相空間$\left( S^{*} \setminus O,\mathfrak{O}_{S^{*} \setminus O} \right)$はcompact空間で、これはその位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間としてもcompact空間であるから、$S^{*} \setminus O \in \mathfrak{A}_{0}$が成り立ち、したがって、$O \in \mathfrak{O}_{\infty}$が得られる。以上より、$\widetilde{\mathfrak{O}^{*}}\subseteq \mathfrak{O \cup}\mathfrak{O}_{\infty}$が成り立つ。\par
+その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はHausdorff空間であるから、その集合$\left\{ a_{\infty} \right\}$が定理\ref{8.1.6.8}より閉集合でその集合$S$が開集合となりその位相空間$\left( S,\mathfrak{O} \right)$の任意の開集合はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の開集合でもあり、したがって、$\mathfrak{O \subseteq}\widetilde{\mathfrak{O}^{*}}$が成り立つ。また、$\forall O \in \mathfrak{O}_{\infty}$に対し、$S^{*} \setminus O \in \mathfrak{A}_{0}$が成り立つので、その部分位相空間$\left( S^{*} \setminus O,\mathfrak{O}_{S^{*} \setminus O} \right)$はその位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間としてcompact空間で、これはその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の部分位相空間としてもcompact空間で、さらに、その位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$はHausdorff空間であるから、定理\ref{8.1.6.10}よりその集合$S^{*} \setminus O$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の閉集合となる。したがって、その集合$O$はその位相空間$\left( S^{*},\widetilde{\mathfrak{O}^{*}} \right)$の開集合となり、したがって、$\mathfrak{O}_{\infty} \subseteq \widetilde{\mathfrak{O}^{*}}$が成り立つ。以上より、$\mathfrak{O \cup}\mathfrak{O}_{\infty} \subseteq \widetilde{\mathfrak{O}^{*}}$が成り立つ。\par
+これにより、$\widetilde{\mathfrak{O}^{*}} = \mathfrak{O \cup}\mathfrak{O}_{\infty}$が得られるので、その位相空間$\left( S^{*},\mathfrak{O}^{*} \right)$は一意的である。
+\end{proof}
+%\hypertarget{lindeluxf6fux306eux6027ux8cea}{%
+\subsubsection{Lindelöfの性質}%\label{lindeluxf6fux306eux6027ux8cea}}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$において、その台集合$S$の任意の開被覆$\mathfrak{U}$に対し、その台集合$S$の開被覆$\mathfrak{U}'$が存在して、その開被覆$\mathfrak{U}$の部分集合でたかだか可算である、即ち、${\#}\mathfrak{U}' \leq \aleph_{0}$が成り立つとき、その位相空間$\left( S,\mathfrak{O} \right)$はLindelöfの性質をもっているという。
+\end{dfn}
+\begin{thm}[Lindelöfの被覆定理の拡張]\label{8.1.6.16}
+位相空間$\left( S,\mathfrak{O} \right)$が第2可算公理を満たすなら、その位相空間$\left( S,\mathfrak{O} \right)$はLindelöfの性質をもっている。この定理をLindelöfの被覆定理の拡張という\footnote{フィンランド人の人名なので、ほぼ綴り通りにリンデレフと読みます。}。
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$が第2可算公理を満たすなら、その台集合$S$の任意の開被覆$\mathfrak{U}$に対し、$\mathfrak{U} =\left\{ O_{i} \right\}_{i \in \varLambda}$とおかれると、任意の開集合は高々可算な開基の元々$W_{j_{i}}$の和集合で書かれることができ、たかだか可算な添数集合$\varLambda'$を用いれば、$\bigcup_{} \mathfrak{U} = \bigcup_{i \in \varLambda} O_{i} = \bigcup_{j \in \varLambda' } W_{j}$が成り立つ。このとき、$\forall j \in \varLambda'$に対し、開集合$W_{j}$を含むその開被覆$\mathfrak{U}$の元が存在するので、これらのうち1つが$O_{i_{j}}$とおかれると、$\bigcup_{} \mathfrak{U} = \bigcup_{i \in \varLambda} O_{i} = \bigcup_{j \in \varLambda' } W_{j} \subseteq \bigcup_{j \in \varLambda' } O_{i_{j}}$が成り立つ。よって、$\varLambda' \subseteq \varLambda$なるたかだか可算な添数集合$\varLambda'$によって添数づけられたその開被覆$\mathfrak{U}$の部分集合$\left\{ O_{i} \right\}_{i \in \varLambda' }$が存在して、これが$\mathfrak{U}'$とおかれると、$S \subseteq \bigcup_{} \mathfrak{U}'$が成り立つので、その位相空間$\left( S,\mathfrak{O} \right)$はLindelöfの性質をもっている。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p208-216 ISBN978-4-00-029871-1
+\bibitem{2}
+  加塩朋和. "一般位相A（２組）". 東京理科大学. \url{https://www.rs.tus.ac.jp/a25594/2018-2019_General_Topology.pdf} (2021-8-6 12:15 取得)
+\end{thebibliography}
+\end{document}

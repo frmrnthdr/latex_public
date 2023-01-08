@@ -1,0 +1,467 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{4}
+\usepackage{xr}
+\externaldocument{4.1.3}
+\externaldocument{4.1.4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux9023ux7d9aux306eux516cux7406}{%
+\subsection{連続の公理}%\label{ux9023ux7d9aux306eux516cux7406}}
+%\hypertarget{cauchyux5217}{%
+\subsubsection{Cauchy列}%\label{cauchyux5217}}
+\begin{dfn}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l$かつ$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| < \varepsilon$が成り立つようなその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$をCauchy列、基本列という。このことを$\lim_{l,m \rightarrow \infty}\left( \mathbf{a}_{l} - \mathbf{a}_{m} \right) = 0$とも書く。
+\end{dfn}
+\begin{thm}\label{4.1.5.1}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これがCauchy列であるならそのときに限り、$\mathbf{a}_{m} = \left( a_{m,k} \right)_{k \in \varLambda_{n}}$として、$\forall k \in \varLambda_{n}$に対し、その実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$もCauchy列である。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これがCauchy列であるなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l$かつ$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| < \varepsilon$が成り立つ。そこで、$\mathbf{a}_{m} = \left( a_{m,k} \right)_{k \in \varLambda_{n}}$として、$\forall k \in \varLambda_{n}$に対し、次式が成り立つので、
+\begin{align*}
+\left| a_{l,k} - a_{m,k} \right|^{2} \leq \sum_{k \in \varLambda_{n}}\left| a_{l,k} - a_{m,k} \right|^{2} = \left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\|^{2} < \varepsilon^{2}
+\end{align*}
+$\left| a_{l,k} - a_{m,k} \right| < \varepsilon$が得られる。よって、$\forall k \in \varLambda_{n}$に対し、その実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$もCauchy列である。\par
+逆に、$\forall k \in \varLambda_{n}$に対し、その実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$がCauchy列であるとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N_{k} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N_{k} \leq l$かつ$N_{k} \leq m$が成り立つなら、$\left| a_{l,k} - a_{m,k} \right| < \varepsilon$が成り立つ。そこで、次のようにおかれれば、
+\begin{align*}
+N = \max\left\{ N_{k} \right\}_{k \in \varLambda_{n}},\ \ D_{m} = \max\left\{ \left| a_{l,k} - a_{m,k} \right| \right\}_{k \in \varLambda_{n}}
+\end{align*}
+$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$かつ$N \leq n$が成り立つなら、$D_{m} < \varepsilon$が成り立つかつ、$\forall k \in \varLambda_{n}$に対し、$\left| a_{l,k} - a_{m,k} \right| \leq D_{m}$が成り立つので、次のようになる。
+\begin{align*}
+\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\|^{2} = \sum_{k \in \varLambda_{n}}\left| a_{l,k} - a_{m,k} \right|^{2} \leq \sum_{k \in \varLambda_{n}}D_{m}^{2} = nD_{m}^{2} < n\varepsilon^{2}
+\end{align*}
+したがって、$\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| < \sqrt{n}\varepsilon$が得られる。よって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はCauchy列である。
+\end{proof}
+\begin{thm}\label{4.1.5.2}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界である。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$の任意のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l$かつ$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| < \varepsilon$が成り立つ。特に、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{m} - \mathbf{a}_{N} \right\| < \varepsilon$が成り立つので、次式が成り立ち、
+\begin{align*}
+- \varepsilon < - \left\| \mathbf{a}_{m} - \mathbf{a}_{N} \right\| \leq \left\| \mathbf{a}_{m} \right\| - \left\| \mathbf{a}_{N} \right\| \leq \left\| \mathbf{a}_{m} - \mathbf{a}_{N} \right\| < \varepsilon
+\end{align*}
+したがって、$\left\| \mathbf{a}_{m} \right\| < \left\| \mathbf{a}_{N} \right\| + \varepsilon$が成り立つ。ここで、正の実数$M$が次のようにおかれれば、
+\begin{align*}
+M &= \max\left\{ a \in \mathbb{R}^{+} \cup \left\{ 0 \right\}|\exists m \in \varLambda_{N - 1}\left[ a = \left\| \mathbf{a}_{m} \right\| \right] \vee a = \left\| \mathbf{a}_{N} \right\| + \varepsilon \right\}\\
+&= \max\left\{ \left\| \mathbf{a}_{1} \right\|,\left\| \mathbf{a}_{2} \right\|,\cdots,\left\| \mathbf{a}_{N - 1} \right\|,\left\| \mathbf{a}_{N} \right\| + \varepsilon \right\}
+\end{align*}
+$m < N$のとき、即ち、$m \leq N - 1$のとき、$\left\| \mathbf{a}_{m} \right\| \leq M$が成り立つし、$N \leq m$かつ$\mathbf{a}_{m} = \mathbf{0}$のとき、$\left\| \mathbf{a}_{m} \right\| = 0 < \varepsilon \leq \left\| \mathbf{a}_{N} \right\| + \varepsilon \leq M$が成り立ち、$N \leq m$かつ$\mathbf{a}_{m} \neq \mathbf{0}$のとき、$\left\| \mathbf{a}_{m} \right\| < \left\| \mathbf{a}_{N} \right\| + \varepsilon \leq M$が成り立つ。以上より、$\forall m \in \mathbb{N}\exists M \in \mathbb{R}^{+}$に対し、$\left\| \mathbf{a}_{m} \right\| \leq M$が成り立つので、定理\ref{4.1.3.7}よりそのCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界である。
+\end{proof}
+\begin{thm}\label{4.1.5.3}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これの任意の部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$もCauchy列である。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$の任意のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、これの任意の部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$について、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall k,l \in \mathbb{N}$に対し、$N \leq k$かつ$N \leq l$が成り立つなら、定理\ref{4.1.4.10}より$k \leq m_{k}$かつ$l \leq m_{l}$が成り立つので、仮定より$\left\| \mathbf{a}_{m_{k}} - \mathbf{a}_{m_{l}} \right\| < \varepsilon$が成り立つ。よって、その部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$もCauchy列である。
+\end{proof}
+\begin{thm}\label{4.1.5.4}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これのある部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$がその集合$R$である点$\mathbf{a}$に収束するなら、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$もその集合$R$でその点$\mathbf{a}$に収束する。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$の任意のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、これのある部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$がその集合$R$である点$\mathbf{a}$に収束するとする。このとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists M \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$M \leq l$かつ$M \leq m$が成り立つなら、$\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| < \varepsilon$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$N \leq k$が成り立つなら、$\left\| \mathbf{a}_{m_{k}} - \mathbf{a} \right\| < \varepsilon$が成り立つ。そこで、次のように自然数$N'$がおかれれば、
+\begin{align*}
+N' = \max\left\{ M,N \right\}
+\end{align*}
+$\exists N' \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$N' \leq k$が成り立つなら、定理\ref{4.1.4.10}より$k \leq m_{k}$が成り立つので、$N' \leq k \leq m_{k}$が成り立つことになる。三角不等式よりしたがって次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+\left\| \mathbf{a}_{k} - \mathbf{a}_{m_{k}} \right\| < \varepsilon \\
+\left\| \mathbf{a}_{m_{k}} - \mathbf{a} \right\| < \varepsilon \\
+\end{matrix} \right.\  &\Rightarrow \left\| \mathbf{a}_{k} - \mathbf{a}_{m_{k}} \right\| + \left\| \mathbf{a}_{m_{k}} - \mathbf{a} \right\| < 2\varepsilon\\
+&\Leftrightarrow \left\| \left( \mathbf{a}_{k} - \mathbf{a}_{m_{k}} \right) + \left( \mathbf{a}_{m_{k}} - \mathbf{a} \right) \right\| \leq \left\| \mathbf{a}_{k} - \mathbf{a}_{m_{k}} \right\| + \left\| \mathbf{a}_{m_{k}} - \mathbf{a} \right\| < 2\varepsilon\\
+&\Rightarrow \left\| \mathbf{a}_{k} - \mathbf{a} \right\| < 2\varepsilon
+\end{align*}
+これが成り立つならそのときに限り、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$もその集合$R$でその点$\mathbf{a}$に収束する。
+\end{proof}
+\begin{thm}\label{4.1.5.5}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これが$n$次元数空間$\mathbb{R}^{n}$で点$\mathbf{a}$に収束するなら、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はCauchy列である。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$の任意の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、これが$n$次元数空間$\mathbb{R}^{n}$で点$\mathbf{a}$に収束するなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つ。そこで、$\forall l,m \in \mathbb{N}$に対し、$N \leq l$かつ$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{l} - \mathbf{a} \right\| < \varepsilon$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つので、次のようになる。
+\begin{align*}
+\left\| \mathbf{a}_{l} - \mathbf{a}_{m} \right\| &= \left\| \left( \mathbf{a}_{l} - \mathbf{a} \right) + \left( \mathbf{a} - \mathbf{a}_{m} \right) \right\|\\
+&\leq \left\| \mathbf{a}_{l} - \mathbf{a} \right\| + \left\| \mathbf{a} - \mathbf{a}_{m} \right\|\\
+&= \left\| \mathbf{a}_{l} - \mathbf{a} \right\| + \left\| \mathbf{a}_{m} - \mathbf{a} \right\| < 2\varepsilon
+\end{align*}
+よって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はCauchy列である。
+\end{proof}
+%\hypertarget{ux533aux9593ux7e2eux5c0fux6cd5}{%
+\subsubsection{区間縮小法}%\label{ux533aux9593ux7e2eux5c0fux6cd5}}
+\begin{thm}[区間縮小法]\label{4.1.5.6}
+有界閉区間全体の集合$\left\{ [ a,b]\in \mathfrak{P}\left( \mathbb{R} \right) \middle| a,b \in \mathbb{R} \right\}$を$\mathfrak{I}$とおく。その集合$\mathfrak{I}$の元の無限列、即ち、集合$\mathbb{N}$からその集合$\mathfrak{I}$への写像$\left( I_{n} \right)_{n \in \mathbb{N}}:\mathbb{N}\mathfrak{\rightarrow I;}n \mapsto I_{n} = \left[ a_{n},b_{n} \right]$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}$に対し、$I_{n} \supseteq I_{n + 1}$が成り立つなら、$\exists c \in \mathbb{R}$に対し、$c \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つ、即ち、それらの有界閉区間たち$I_{n}$の共通部分$\bigcap_{n \in \mathbb{N}}I_{n}$に含まれる実数が存在する。
+\item
+  $\forall n \in \mathbb{N}$に対し、$I_{n} \supseteq I_{n + 1}$が成り立つかつ、$\lim_{n \rightarrow \infty}\left( b_{n} - a_{n} \right) = 0$が成り立つなら、$\exists c \in \mathbb{R}$に対し、$\left\{ c \right\} = \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つかつ、$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$が成り立つ、即ち、それらの有界閉区間たち$I_{n}$の共通部分$\bigcap_{n \in \mathbb{N}}I_{n}$は1つの$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$なる実数$c$のみを含む。
+\end{itemize}
+この定理を区間縮小法という。
+\end{thm}\par
+このことは次のようにして示される。
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  $\forall n \in \mathbb{N}$に対し、$\left[ a_{n},b_{n} \right] \supseteq \left[ a_{n + 1},b_{n + 1} \right]$が成り立つならそのときに限り、$a_{n} \leq a_{n + 1} \leq b_{n + 1} \leq b_{n}$が成り立つ。
+\item
+  定理\ref{4.1.4.16}より$\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$かつ$\lim_{n \rightarrow \infty}b_{n} = \inf\left\{ b_{n} \right\}_{n \in \mathbb{N}}$が成り立つ。
+\item
+  定理\ref{4.1.4.12}より$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \leq \inf\left\{ b_{n} \right\}_{n \in \mathbb{N}}$が成り立つ。
+\item
+  3. より次式が成り立つ。
+\begin{align*}
+\left[ {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \right] \subseteq \left[ a_{n},b_{n} \right]
+\end{align*}
+\item
+  $\bigcap_{n \in \mathbb{N}}I_{n} \neq \emptyset$が成り立つことにより、$\exists c \in \mathbb{R}$に対し、$c \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つことが示される。
+\item
+  4. より$0 \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - a_{n}$が成り立つ。
+\item
+  $\lim_{n \rightarrow \infty}\left( b_{n} - a_{n} \right) = 0$が成り立つことと6. より${\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}}$が成り立つ。
+\item
+  7. より$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$とおかれるとき、$\left\{ c \right\} \subseteq \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$a \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つなら、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq a \leq b_{n}$が得られ、2. 、7. より$a = c$が成り立つ。
+\item
+  8. 、9. より$\exists c \in \mathbb{R}$に対し、$\left\{ c \right\} = \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つかつ、$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$が成り立つことが示される。
+\end{enumerate}
+\begin{proof}
+有界閉区間全体の集合$\left\{ [ a,b]\in \mathfrak{P}\left( \mathbb{R} \right) \middle| a,b \in \mathbb{R} \right\}$を$\mathfrak{I}$とおく。その集合$\mathfrak{I}$の元の無限列、即ち、集合$\mathbb{N}$からその集合$\mathfrak{I}$への写像$\left( I_{n} \right)_{n \in \mathbb{N}}:\mathbb{N}\mathfrak{\rightarrow I;}n \mapsto I_{n} = \left[ a_{n},b_{n} \right]$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$\left[ a_{n},b_{n} \right] \supseteq \left[ a_{n + 1},b_{n + 1} \right]$が成り立つならそのときに限り、明らかに$a_{n} \leq a_{n + 1} \leq b_{n + 1} \leq b_{n}$が成り立つ。したがって、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は上に有界な単調増加の実数列でその実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$も下に有界な単調減少の実数列であるので、定理\ref{4.1.4.16}より次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},\ \ \lim_{n \rightarrow \infty}b_{n} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}}
+\end{align*}
+ここで、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つので、定理\ref{4.1.4.12}より次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} = \lim_{n \rightarrow \infty}b_{n}
+\end{align*}
+したがって、次のようにおかれれば、
+\begin{align*}
+I = \left[ {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \right]
+\end{align*}
+${\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \in I$より空集合でない閉区間$I$が存在し、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n}$が成り立ち、これが成り立つならそのときに限り、明らかに$\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+I = \left[ {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \right] \subseteq \left[ a_{n},b_{n} \right] = I_{n}
+\end{align*}
+したがって、$I \subseteq \bigcap_{n \in \mathbb{N}}I_{n}$が成り立ち、その閉区間$I$が空集合でないので、全ての有界閉区間たち$I_{n}$のその共通部分$\bigcap_{n \in \mathbb{N}}I_{n}$も空集合でなく、$\exists c \in \mathbb{R}$に対し、$c \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つ。\par
+また上記より、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n}$が成り立つので、したがって、次のようになる。
+\begin{align*}
+a_{n} \leq {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} &\Leftrightarrow \left\{ \begin{matrix}
+a_{n} \leq {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \\
+\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \\
+\inf\left\{ b_{n} \right\}_{n \in \mathbb{N}} \leq b_{n} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+ - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq - a_{n} \\
+ - {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \leq - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \\
+{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+b_{n} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - a_{n} \\
+0 \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \\
+{\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow 0 \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - a_{n}\\
+&\Rightarrow 0 \leq {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \leq b_{n} - a_{n}
+\end{align*}
+仮定より$\lim_{n \rightarrow \infty}\left( b_{n} - a_{n} \right) = 0$が成り立つことよりしたがって、はさみうちの原理より次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left( {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} - {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} \right) = 0 \Leftrightarrow {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}}
+\end{align*}
+ここで、次のように実数$c$がおかれれば、
+\begin{align*}
+c = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}}
+\end{align*}
+$I = \left\{ c \right\}$が成り立ち、上記の議論により$I \subseteq \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つので、$\left\{ c \right\} \subseteq \bigcap_{n \in \mathbb{N}}I_{n}$が得られる。ここで、$\forall a \in \mathbb{R}$に対し、$a \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つなら、$\forall n \in \mathbb{N}$に対し、$a \in I_{n}$が成り立つので、$a_{n} \leq a \leq b_{n}$が得られる。次式が成り立つことに注意すれば、
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}},\ \ \lim_{n \rightarrow \infty}b_{n} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}},\ \ c = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}}
+\end{align*}
+\ref{4.1.4.12}より次式が成り立つことから、
+\begin{align*}
+c = {\sup\left\{ a_{n} \right\}}_{n \in \mathbb{N}} = \lim_{n \rightarrow \infty}a_{n} \leq \lim_{n \rightarrow \infty}a = a \leq \lim_{n \rightarrow \infty}b_{n} = {\inf\left\{ b_{n} \right\}}_{n \in \mathbb{N}} = c
+\end{align*}
+$a = c$が得られ、よって、$a \in \left\{ c \right\}$が成り立つ。ゆえに、$\exists c \in \mathbb{R}$に対し、$\left\{ c \right\} = \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つかつ、$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$が成り立つ。
+\end{proof}
+%\hypertarget{bolzano-weierstrassux306eux5b9aux7406}{%
+\subsubsection{Bolzano-Weierstrassの定理}%\label{bolzano-weierstrassux306eux5b9aux7406}}
+\begin{thm}[Bolzano-Weierstrassの定理]\label{4.1.5.7}
+任意の有界な実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は集合$\mathbb{R}$で収束する部分列をもつ。この定理をBolzano-Weierstrassの定理、点列compact性定理などという。
+\end{thm}\par
+このことは次のようにして示される。
+\begin{enumerate}
+\item
+  有界閉区間全体の集合の元の列$\left( \left[ b_{n},c_{n} \right] \right)_{n \in \mathbb{N}}$が、有界閉区間$\left[ b_{n + 1},c_{n + 1} \right]$が2つの有界閉区間たち$\left[ b_{n},\frac{b_{n} + c_{n}}{2} \right]$、$\left[ \frac{b_{n} + c_{n}}{2},c_{n} \right]$のうち$a_{n}$の項が無限個入っている方とされるように、帰納的に定義される。
+\item
+  このとき、$0 \leq c_{n} - b_{n} = \frac{1}{2^{n - 1}}\left( c_{1} - b_{1} \right)$が成り立つ。
+\item
+  $\lim_{n \rightarrow \infty}\left( c_{n} - b_{n} \right) = 0$が$\varepsilon$-$N$論法より成り立つ。
+\item
+  区間縮小法によって、$\lim_{n \rightarrow \infty}b_{n} = \lim_{n \rightarrow \infty}c_{n} = a$なる実数$a$が存在する。
+\item
+  次のように集合$A_{k}$がおかれ
+\begin{align*}
+A_{k} = \left\{ m \in \mathbb{N} \middle| a_{m} \in \left[ b_{k},c_{k} \right] \right\}
+\end{align*}
+集合$\mathbb{N}$の元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が$n_{k} < n_{k + 1}$かつ$n_{k} = \min A_{k}$を満たすように定義される。
+\item
+  4. と不等式$b_{k} \leq a_{n_{k}} \leq c_{k}$が成り立つこととはさみうちの原理より、$\lim_{k \rightarrow \infty}a_{n_{k}} = a$が成り立つ。
+\end{enumerate}
+\begin{proof}
+任意の有界な実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\exists M \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| \leq M$が成り立つので、$b_{1} = - M$、$c_{1} = M$として、$b_{1} \leq a_{n} \leq c_{1}$が成り立つ。ここで、有界閉区間全体の集合の元の列$\left( \left[ b_{n},c_{n} \right] \right)_{n \in \mathbb{N}}$が次のように帰納的に定義される。有界閉区間$\left[ b_{n + 1},c_{n + 1} \right]$を2つの有界閉区間たち$\left[ b_{n},\frac{b_{n} + c_{n}}{2} \right]$、$\left[ \frac{b_{n} + c_{n}}{2},c_{n} \right]$のうち$a_{n}$の項が無限個入っている方とする。両方とも入っている場合はその有界閉区間$\left[ b_{n},\frac{b_{n} + c_{n}}{2} \right]$のほうにする。このとき、$\forall n \in \mathbb{N}$に対し、$\left[ b_{n},c_{n} \right] \supseteq \left[ b_{n + 1},c_{n + 1} \right]$が成り立ち、したがって、次のようになることにより\footnote{この記号$\{$は場合分けのほうの意味での$\{$です。}、
+\begin{align*}
+c_{n + 1} - b_{n + 1} = \left\{ \begin{matrix}
+\frac{b_{n} + c_{n}}{2} - b_{n} \\
+c_{n} - \frac{b_{n} + c_{n}}{2} \\
+\end{matrix} \right.\  = \left\{ \begin{matrix}
+\frac{b_{n} + c_{n} - 2b_{n}}{2} \\
+\frac{2c_{n} - b_{n} - c_{n}}{2} \\
+\end{matrix} \right.\  = \left\{ \begin{matrix}
+\frac{c_{n} - b_{n}}{2} \\
+\frac{c_{n} - b_{n}}{2} \\
+\end{matrix} \right.\  = \frac{1}{2}\left( c_{n} - b_{n} \right)
+\end{align*}
+数学的帰納法によって、次式が成り立つ。
+\begin{align*}
+0 \leq c_{n} - b_{n} = \frac{1}{2^{n - 1}}\left( c_{1} - b_{1} \right)
+\end{align*}
+したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\frac{2\left( c_{1} - b_{1} \right)}{\varepsilon} < 2^{N}$なる自然数$N$が存在して、$\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+N \leq n &\Leftrightarrow 2^{N} \leq 2^{n}\\
+&\Leftrightarrow \frac{1}{2^{n}} \leq \frac{1}{2^{N}}\\
+&\Leftrightarrow 0 \leq \frac{1}{2^{n - 1}}\left( c_{1} - b_{1} \right) \leq \frac{1}{2^{N - 1}}\left( c_{1} - b_{1} \right) = \frac{2}{2^{N}}\left( c_{1} - b_{1} \right)\\
+&\Leftrightarrow 0 \leq \frac{1}{2^{n - 1}}\left( c_{1} - b_{1} \right) \leq \frac{2}{\frac{2\left( c_{1} - b_{1} \right)}{\varepsilon}}\left( c_{1} - b_{1} \right) = \varepsilon\\
+&\Rightarrow 0 \leq \left| \frac{1}{2^{n - 1}}\left( c_{1} - b_{1} \right) \right| \leq \varepsilon
+\end{align*}
+これが成り立つならそのときに限り、$\lim_{n \rightarrow \infty}\left( c_{n} - b_{n} \right) = 0$が成り立ち、区間縮小法によって、$\lim_{n \rightarrow \infty}b_{n} = \lim_{n \rightarrow \infty}c_{n} = a$なる実数$a$が存在する。\par
+また、次のように集合$A_{k}$がおかれ
+\begin{align*}
+A_{k} = \left\{ m \in \mathbb{N} \middle| a_{m} \in \left[ b_{k},c_{k} \right] \right\}
+\end{align*}
+集合$\mathbb{N}$の元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が$n_{k} < n_{k + 1}$かつ$n_{k} = \min A_{k}$を満たすように定義されると、有界閉区間全体の集合の元の列$\left( \left[ b_{n},c_{n} \right] \right)_{n \in \mathbb{N}}$の定義よりそのような元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$は存在して、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$の部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が与えられ、不等式$b_{k} \leq a_{n_{k}} \leq c_{k}$が成り立つかつ、$\lim_{n \rightarrow \infty}b_{n} = \lim_{n \rightarrow \infty}c_{n} = a$なる実数$a$が存在するので、はさみうちの原理より、$\lim_{k \rightarrow \infty}a_{n_{k}} = a$が成り立つ。よって、任意の有界な実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は集合$\mathbb{R}$で収束する部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$をもつ。
+\end{proof}
+\begin{thm}[Bolzano-Weierstrassの定理の拡張]\label{4.1.5.8}
+任意の有界な$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は$n$次元数空間$\mathbb{R}^{n}$で収束する部分列をもつ。この定理をBolzano-Weierstrassの定理の拡張、点列compact性定理の拡張など、あるいは単に、Bolzano-Weierstrassの定理、点列compact性定理などという。
+\end{thm}
+\begin{proof}
+任意の有界な$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、$n = 1$のときは定理\ref{4.1.5.7}より明らかである。\par
+$n = k$のとき、$k$次元数空間$\mathbb{R}^{k}$の有界な点列は収束する部分列をもつと仮定すると、$n = k + 1$のとき、$k + 1$次元数空間$\mathbb{R}^{k + 1}$の有界な点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は次式のようにみなされることができる。
+\begin{align*}
+\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}} = \begin{pmatrix}
+\mathbf{a}_{m}^{*} \\
+a_{m,k + 1} \\
+\end{pmatrix}_{m \in \mathbb{N}},\ \ \left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}} = \left( \left( a_{m,l} \right)_{l \in \varLambda_{k}} \right)_{m \in \mathbb{N}}
+\end{align*}
+ここで、$\exists M \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、$\left\| \mathbf{a}_{m} \right\| < M$が成り立つので、次のようになることから、
+\begin{align*}
+\left\| \mathbf{a}_{m}^{*} \right\|^{2} &= \sum_{l \in \varLambda_{k}}\left| a_{m,l} \right|^{2} \leq \sum_{l \in \varLambda_{k + 1}}\left| a_{m,l} \right|^{2} = \left\| \mathbf{a}_{m} \right\|^{2} < M^{2}\\
+\left| a_{m,k + 1} \right|^{2} &\leq \sum_{l \in \varLambda_{k + 1}}\left| a_{m,l} \right|^{2} = \left\| \mathbf{a}_{m} \right\|^{2} < M^{2}
+\end{align*}
+これらの点列たち$\left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}}$、$\left( a_{m,k + 1} \right)_{m \in \mathbb{N}}$は有界である。仮定よりその点列$\left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}}$は$k$次元数空間$\mathbb{R}^{k}$で収束する部分列$\left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}} \circ \left( m_{m'} \right)_{m' \in \mathbb{N}}$をもち、その極限値を$\mathbf{a}^{*}$とする。さらに、実数列$\left( a_{m,k + 1} \right)_{m \in \mathbb{N}} \circ \left( m_{m'} \right)_{m' \in \mathbb{N}}$はその実数列$\left( a_{m,k + 1} \right)_{m \in \mathbb{N}}$の部分列であることから有界であり、これが定理\ref{4.1.5.7}よりその集合$\mathbb{R}$で収束する部分列$\left( a_{m,k + 1} \right)_{m \in \mathbb{N}} \circ \left( m_{m'} \right)_{m' \in \mathbb{N}} \circ \left( m_{m''}' \right)_{m'' \in \mathbb{N}}$をもち、その極限値を$a_{k + 1}$とする。このとき、定理\ref{4.1.4.11}よりその点列$\left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}}$の部分列$\left( \mathbf{a}_{m}^{*} \right)_{m \in \mathbb{N}} \circ \left( m_{m'} \right)_{m' \in \mathbb{N}} \circ \left( m_{m''}' \right)_{m'' \in \mathbb{N}}$もその点$\mathbf{a}^{*}$に収束するので、$\mathbf{a} = \begin{pmatrix}
+\mathbf{a}^{*} \\
+a_{k + 1} \\
+\end{pmatrix}$とすれば、定理\ref{4.1.4.6}よりその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の部分列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}} \circ \left( m_{m'} \right)_{m' \in \mathbb{N}} \circ \left( m_{m''}' \right)_{m'' \in \mathbb{N}}$も$k + 1$次元数空間$\mathbb{R}^{k + 1}$でその点$\mathbf{a}$に収束する。\par
+以上より、数学的帰納法によって、有界な$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は$n$次元数空間$\mathbb{R}^{n}$で収束する部分列をもつことが示された。
+\end{proof}
+\begin{thm}\label{4.1.5.9}
+任意の拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、広い意味で収束する部分列をもつ。\par
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{dfn}
+任意の拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、広い意味で収束する部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$をもつのであった。この極限$\lim_{k \rightarrow \infty}\mathbf{a}_{m_{k}}$をその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の集積値という。
+\end{dfn}
+\begin{proof}
+任意の拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、$\mathbf{a}_{m} = a_{\infty}$なる自然数$m$が無限にあるとき、これ全体の集合を$A$とすれば、$A \subseteq \mathbb{N}$より$A = \left\{ m_{k} \right\}_{k \in \mathbb{N}}$とおくことができる。このようにして得られたその点列$\left( \mathbf{a}_{m} \right)$の部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$が考えられれば、もちろん、$\lim_{k \rightarrow \infty}\mathbf{a}_{m_{k}} = a_{\infty}$が成り立つ。\par
+$\mathbf{a}_{m} = a_{\infty}$なる自然数$m$が有限のみしかないとき、そのような第$m$項を$\mathbf{r} \in R$なる点$\mathbf{r}$におきかえたもので考えても、定理\ref{4.1.4.3}より一般性は失われない\footnote{定理\ref{4.1.4.3}は次のことを主張する定理です。
+\begin{quote}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列たち$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$のその集合$R$の広い意味での極限値$\mathbf{a}$が存在するかつ、次式が成り立つなら、
+\begin{align*}
+\#\left\{ m \in \mathbb{N} \middle| \mathbf{a}_{m} \neq \mathbf{b}_{m} \right\} < \aleph_{0}
+\end{align*}
+その点列$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$もその集合$R$の広い意味での極限値$\mathbf{a}$をもつ。
+\end{quote}
+}。ゆえに、以下、$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$で考えることにする。\par
+これが有界であるなら、Bolzano-Weierstrassの定理より収束する部分列をもつ。\par
+有界でないなら、$\forall M \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$M \leq \left\| \mathbf{a}_{m} \right\|$が成り立つので、$m_{1} = 1$かつ、$\forall k \in \mathbb{N}$に対し、次のような自然数$m$のうち1つを$m_{k + 1}$とおくことにすると、
+\begin{align*}
+\max\left\{ \left\| \mathbf{a}_{m} \right\| \right\}_{m \in \varLambda_{m_{k}}} \leq \left\| \mathbf{a}_{m} \right\|
+\end{align*}
+このようにして得られるその集合$\mathbb{N}$の元の列$\left( m_{k} \right)_{k \in \mathbb{N}}$は狭義単調増加している。実際、$\exists k \in \mathbb{N}$に対し、$m_{k} \geq m_{k + 1}$が成り立つと仮定すると、$\exists m \in \varLambda_{n_{k}}$に対し、$m_{k + 1} = m$が成り立つので、次式が得られるが、
+\begin{align*}
+\left\| \mathbf{a}_{m_{k + 1}} \right\| = \left\| \mathbf{a}_{m} \right\| \leq \max\left\{ \left\| \mathbf{a}_{m} \right\| \right\}_{m \in \varLambda_{m_{k}}} \leq \left\| \mathbf{a}_{m_{k + 1}} \right\|
+\end{align*}
+これは矛盾している。これにより、その点列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$はその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の部分列となっている。このとき、$\forall k \in \mathbb{N}$に対し、$\left\| \mathbf{a}_{m_{k}} \right\| \leq \left\| \mathbf{a}_{m_{k + 1}} \right\|$が成り立つ。実際、$\exists k \in \mathbb{N}$に対し、$\left\| \mathbf{a}_{m_{k}} \right\| > \left\| \mathbf{a}_{m_{k + 1}} \right\|$が成り立つと仮定すると、その集合$\mathbb{N}$の元の列$\left( m_{k} \right)_{k \in \mathbb{N}}$のおき方より次のようになるが、
+\begin{align*}
+\left\| \mathbf{a}_{m_{k + 1}} \right\| < \left\| \mathbf{a}_{m_{k}} \right\| \leq \max\left\{ \left\| \mathbf{a}_{m} \right\| \right\}_{m \in \varLambda_{m_{k}}} \leq \left\| \mathbf{a}_{m_{k + 1}} \right\|
+\end{align*}
+これは矛盾している。したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、仮定より$\exists N \in \mathbb{N}$に対し、$\varepsilon \leq \left\| \mathbf{a}_{N} \right\|$が成り立つので、$\forall k \in \mathbb{N}$に対し、$N + 1 \leq k$が成り立つなら、定理\ref{4.1.4.10}より$N \leq m_{N}$が成り立つかつ、その集合$\mathbb{N}$の元の列$\left( m_{k} \right)_{k \in \mathbb{N}}$のおき方より$\left\| \mathbf{a}_{N} \right\| \leq \max\left\{ \left\| \mathbf{a}_{m} \right\| \right\}_{m \in \varLambda_{m_{k - 1}}} \leq \left\| \mathbf{a}_{m_{k}} \right\|$が成り立つので、$\varepsilon \leq \left\| \mathbf{a}_{m_{k}} \right\|$が得られる。これにより、$\lim_{k \rightarrow \infty}\mathbf{a}_{m_{k}} = a_{\infty}$が成り立つ。\par
+よって、任意の拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、広い意味で収束する部分列をもつ。
+\end{proof}
+%\hypertarget{cauchyux306eux53ceux675fux6761ux4ef6}{%
+\subsubsection{Cauchyの収束条件}%\label{cauchyux306eux53ceux675fux6761ux4ef6}}
+\begin{thm}[Cauchyの収束条件]\label{4.1.5.10}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、任意のその集合$R$のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は$n$次元数空間$\mathbb{R}^{n}$で収束する。この定理をCauchyの収束条件という。
+\end{thm}\par
+ここで、注意点としては、Cauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$がその集合$R$で収束するとはいっていないことである。このことは$n = 1$、$R = \mathbb{Q}$で考えればわかるのであろう。なお、その集合$R$がどういう集合のときにCauchyの収束条件が成り立つのかは一般にそこまでやさしくない問題のようである。詳しくは距離空間論の完備性のところを参照するといいかもしれない。この定理により、与えられた実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$がCauchy列であるか否かはその実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するか否かの極めて有効な判定するための条件といえる。実際、ある実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するか否かを判定するとき、ほとんどの場合はCauchyの収束条件を用いるといってもよい。上に有界な単調増加の実数列か否かで判定する方が簡単であるが、与えられた実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調増加であることはそんなに多くない。さらに、定理\ref{4.1.5.4}より任意のその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これが点$\mathbf{a}$に収束することとその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$がCauchy列であることとは同値であることもわかる。
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$のCauchy列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、定理\ref{4.1.5.2}よりその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界であり、Bolzano-Weierstrassの定理より、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は収束する部分列$\left( \mathbf{a}_{m_{k}} \right)_{k \in \mathbb{N}}$をもち、定理\ref{4.1.5.3}よりその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$も$n$次元数空間$\mathbb{R}^{n}$で収束する。
+\end{proof}
+%\hypertarget{ux9023ux7d9aux306eux516cux7406-1}{%
+\subsubsection{連続の公理}%\label{ux9023ux7d9aux306eux516cux7406-1}}\par
+\begin{axs}[連続の公理]
+我々は実数の公理の1つとして次の上限性質を採用した。
+\begin{enumerate}
+\item
+  $\forall A \in \mathfrak{P}(O)$に対し、その集合$A$が上に有界で空集合$\emptyset$でないなら、$\exists u \in O$に対し、$u = \sup A$が成り立つ。この公理を上限性質という。
+\end{enumerate}
+ここで、上限性質から次の6つの定理たちが導かれるのであった。
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  $\forall A \in \mathfrak{P}(O)$に対し、その集合$A$が下に有界で空集合$\emptyset$でないなら、$\exists u \in O$に対し、$u = \inf A$が成り立つ。この公理を下限性質という。
+\item
+  順序体$O$のDedekindの切断$\left( O_{-},O_{+} \right)$が次の2通りのみに限る。この公理をDedekindの公理という。
+  \begin{itemize}
+  \item
+    その集合$O_{-}$の最大元が存在せず、その集合$O_{+}$の最小元が存在する。
+  \item
+    その集合$O_{-}$の最大元が存在し、その集合$O_{+}$の最小元が存在しない。
+  \end{itemize}
+\item
+  $\forall a,b \in \mathbb{R}^{+}\exists n \in \mathbb{N}$に対し、$a < nb$が成り立つ。これをArchimedesの性質という。
+\item
+  実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$の収束について次のことが成り立つ。
+  \begin{itemize}
+  \item
+    上に有界な単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+  \item
+    下に有界な単調減少の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \inf\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+  \end{itemize}
+\item
+  有界閉区間全体の集合$\left\{ [ a,b]\in \mathfrak{P}\left( \mathbb{R} \right) \middle| a,b \in \mathbb{R} \right\}$を$\mathfrak{I}$とおく。その集合$\mathfrak{I}$の元の無限列、即ち、集合$\mathbb{N}$からその集合$\mathfrak{I}$への写像$\left( I_{n} \right)_{n \in \mathbb{N}}:\mathbb{N}\mathfrak{\rightarrow I;}n \mapsto I_{n} = \left[ a_{n},b_{n} \right]$が与えられたとき、次のことが成り立つ。
+  \begin{itemize}
+  \item
+    $\forall n \in \mathbb{N}$に対し、$I_{n} \supseteq I_{n + 1}$が成り立つなら、$\exists c \in \mathbb{R}$に対し、$c \in \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つ、即ち、それらの有界閉区間たち$I_{n}$の共通部分$\bigcap_{n \in \mathbb{N}}I_{n}$に含まれる実数が存在する。
+  \item
+    $\forall n \in \mathbb{N}$に対し、$I_{n} \supseteq I_{n + 1}$が成り立つかつ、$\lim_{n \rightarrow \infty}\left( b_{n} - a_{n} \right) = 0$が成り立つなら、$\exists c \in \mathbb{R}$に対し、$\left\{ c \right\} = \bigcap_{n \in \mathbb{N}}I_{n}$が成り立つかつ、$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$が成り立つ、即ち、それらの有界閉区間たち$I_{n}$の共通部分$\bigcap_{n \in \mathbb{N}}I_{n}$は1つの$\lim_{n \rightarrow \infty}a_{n} = \lim_{n \rightarrow \infty}b_{n} = c$なる実数$c$のみを含む。
+  \end{itemize}
+この定理を区間縮小法という。
+\item
+  有界な実数列$\left( a_{n} \right)_{n \in N}$は収束する部分列をもつ。この定理をBolzano-Weierstrassの定理という。
+\item
+  実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$がCauchy列であるなら、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束する。この定理をCauchyの収束条件という。
+\end{enumerate}
+ここで、上記の6つの命題たち上限性質1. 、下限性質2. 、Dedekindの公理3. 、定理\ref{4.1.4.16}5. 、Archimedesの性質4. かつ区間縮小法6. 、Bolzano-Weierstrassの定理7. 、Archimedesの原理4. かつCauchyの収束条件8. どれも公理として採用されることができる。この公理を連続の公理という。
+\end{axs}
+\begin{thm}\label{4.1.5.11} ここでは、Archimedesの性質4. かつCauchyの収束条件8. が公理として採用された場合、上限性質1. を示そう。これは次のようにして示される。
+\begin{enumerate}
+\item
+  $A \in \mathfrak{P}\left( \mathbb{R} \right)$なる空集合でなく上に有界な集合$A$が与えられたとする。
+\item
+  $\mathbb{R} \setminus U(A)$も空集合$\emptyset$でない。
+\item
+  その集合$U(A)$の元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$、その集合$\mathbb{R} \setminus U(A)$の元の列$\left( c_{n} \right)_{n \in \mathbb{N}}$を次式のように帰納的に定義する。
+\begin{align*}
+\left\{ \begin{matrix}
+b_{n + 1} = \frac{b_{n} + c_{n}}{2},\ \ c_{n + 1} = c_{n} & \mathrm{if} & \frac{b_{n} + c_{n}}{2} \in U(A) \\
+b_{n + 1} = b_{n},\ \ c_{n + 1} = \frac{b_{n} + c_{n}}{2} & \mathrm{if} & \frac{b_{n} + c_{n}}{2} \in \mathbb{R} \setminus U(A) \\
+\end{matrix} \right.\ 
+\end{align*}
+\item
+  $b_{n} - c_{n} = \frac{1}{2^{n - 1}}\left( b_{1} - c_{1} \right)$よりそれらの実数列たち$\left( b_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$はCauchy列である。
+\item
+  Cauchyの収束条件より$\lim_{n \rightarrow \infty}b_{n} = \lim_{n \rightarrow \infty}c_{n}$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}$に対し、$a < \lim_{n \rightarrow \infty}b_{n}$が成り立つなら、$\exists N \in \mathbb{N}$に対し、$\left| c_{N} - \lim_{n \rightarrow \infty}b_{n} \right| < \lim_{n \rightarrow \infty}b_{n} - a$が成り立つので、$\exists c \in A$に対し、$a < c_{N} < c \leq \lim_{n \rightarrow \infty}b_{n}$が成り立つ。
+\item
+  対偶律により$\lim_{n \rightarrow \infty}b_{n} = \sup A$が成り立つ。
+\end{enumerate}
+\end{thm}
+\begin{proof} Archimedesの性質4. かつCauchyの収束条件8. が公理として採用されたとする。$A \in \mathfrak{P}\left( \mathbb{R} \right)$なる空集合でなく上に有界な集合$A$が与えられたとき、集合$\mathbb{R} \setminus U(A)$の元は明らかにその集合$A$の上界でなく、その集合$U(A)$は空集合でない。また、$a \in A$が成り立つなら、明らかに$a - 1 \in \mathbb{R} \setminus U(A)$が成り立つので、$\mathbb{R} \setminus U(A)$も空集合でない。$\forall b \in U(A)\forall c \in \mathbb{R} \setminus U(A)$に対し、$c \notin U(A)$より$\exists a \in A$に対し、$c < a$が成り立つので、$b \in U(A)$より$c < a \leq b$が成り立つ。ここで、次式が成り立つことにより
+\begin{align*}
+\frac{b_{n} + c_{n}}{2} \in \mathbb{R} = U(A) \sqcup \mathbb{R} \setminus U(A)
+\end{align*}
+その集合$U(A)$の元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$、その集合$\mathbb{R} \setminus U(A)$の元の列$\left( c_{n} \right)_{n \in \mathbb{N}}$が次式のように帰納的に定義される。
+\begin{align*}
+\left\{ \begin{matrix}
+b_{n + 1} = \frac{b_{n} + c_{n}}{2},\ \ c_{n + 1} = c_{n} & \mathrm{if} & \frac{b_{n} + c_{n}}{2} \in U(A) \\
+b_{n + 1} = b_{n},\ \ c_{n + 1} = \frac{b_{n} + c_{n}}{2} & \mathrm{if} & \frac{b_{n} + c_{n}}{2} \in \mathbb{R} \setminus U(A) \\
+\end{matrix} \right.\ 
+\end{align*}
+ここで、明らかに$c_{n} \leq \frac{b_{n} + c_{n}}{2} \leq b_{n}$が成り立つので、その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少でその実数列$\left( c_{n} \right)_{n \in \mathbb{N}}$は単調増加である。ここで、次式が成り立つことにより\footnote{ここでの記号$\{$は場合分けのほうの意味での$\{$です。}
+\begin{align*}
+b_{n + 1} - c_{n + 1} &= \left\{ \begin{matrix}
+\frac{b_{n} + c_{n}}{2} - c_{n} \\
+b_{n} - \frac{b_{n} + c_{n}}{2} \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{b_{n} + c_{n} - 2c_{n}}{2} \\
+\frac{2b_{n} - b_{n} - c_{n}}{2} \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{b_{n} - c_{n}}{2} \\
+\frac{b_{n} - c_{n}}{2} \\
+\end{matrix} \right.\ \\
+&= \frac{1}{2}\left( b_{n} - c_{n} \right)
+\end{align*}
+数学的帰納法によって、次式が成り立つ。
+\begin{align*}
+b_{n} - c_{n} = \frac{1}{2^{n - 1}}\left( b_{1} - c_{1} \right)
+\end{align*}\par
+したがって、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\frac{2\left( b_{1} - c_{1} \right)}{\varepsilon} \leq 2^{N}$なる自然数$N$が存在して、$\forall m,n \in \mathbb{N}$に対し、$N \leq m$かつ$N \leq n$が成り立つなら、$m \leq n$としても一般性は失われず、次のようになる。
+\begin{align*}
+c_{N} \leq c_{m} \leq c_{n} < b_{n} \leq b_{m} \leq b_{N} &\Rightarrow \left\{ \begin{matrix}
+c_{N} - b_{N} < b_{n} - b_{m} \leq 0 \\
+0 \leq c_{n} - c_{m} < b_{N} - c_{N} \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left\{ \begin{matrix}
+0 \leq \left| b_{m} - b_{n} \right| < b_{N} - c_{N} \\
+0 \leq \left| c_{m} - c_{n} \right| < b_{N} - c_{N} \\
+\end{matrix} \right.
+\end{align*}
+ここで、$b_{N} - c_{N} = \frac{1}{2^{N - 1}}\left( b_{1} - c_{1} \right)$が成り立つことにより、
+\begin{align*}
+c_{N} \leq c_{m} \leq c_{n} < b_{n} \leq b_{m} \leq b_{N} &\Rightarrow \left\{ \begin{matrix}
+0 \leq \left| b_{m} - b_{n} \right| < \frac{1}{2^{N - 1}}\left( b_{1} - c_{1} \right) \\
+0 \leq \left| c_{m} - c_{n} \right| < \frac{1}{2^{N - 1}}\left( b_{1} - c_{1} \right) \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+0 \leq \left| b_{m} - b_{n} \right| < \frac{2}{2^{N}}\left( b_{1} - c_{1} \right) \leq \frac{2}{\frac{2\left( b_{1} - c_{1} \right)}{\varepsilon}}\left( b_{1} - c_{1} \right) \\
+0 \leq \left| c_{m} - c_{n} \right| < \frac{2}{2^{N}}\left( b_{1} - c_{1} \right) \leq \frac{2}{\frac{2\left( b_{1} - c_{1} \right)}{\varepsilon}}\left( b_{1} - c_{1} \right) \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+0 \leq \left| b_{m} - b_{n} \right| < \varepsilon \\
+0 \leq \left| c_{m} - c_{n} \right| < \varepsilon \\
+\end{matrix} \right.
+\end{align*}
+したがって、それらの実数列たち$\left( b_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$はCauchy列であり、Cauchyの収束条件よりそれらの実数列たち$\left( b_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$は収束する。ここで、$b_{n} - c_{n} = \frac{1}{2^{n - 1}}\left( b_{1} - c_{1} \right)$が成り立つこと$\varepsilon$-$N$論法より明らかに次式が成り立つので\footnote{つまり定義に戻って参照すればということです。}、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left( b_{n} - c_{n} \right) = \lim_{n \rightarrow \infty}{\frac{1}{2^{n - 1}}\left( b_{1} - c_{1} \right)} = 0
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}b_{n} = \lim_{n \rightarrow \infty}\left( b_{n} - c_{n} \right) + \lim_{n \rightarrow \infty}c_{n} = \lim_{n \rightarrow \infty}c_{n}
+\end{align*}\par
+また、定義より$\forall n \in \mathbb{N}$に対し、$b_{n} \in U(A)$が成り立つので、$\forall a \in A\forall n \in \mathbb{N}$に対し、$a \leq b_{n}$が成り立ち、$n \rightarrow \infty$とすれば、定理\ref{4.1.4.12}より$\forall a \in A\forall n \in \mathbb{N}$に対し、$a \leq \lim_{n \rightarrow \infty}b_{n}$が成り立ち、したがって、$\lim_{n \rightarrow \infty}b_{n} \in U(A)$が成り立つ。$\forall a \in \mathbb{R}$に対し、$a < \lim_{n \rightarrow \infty}b_{n}$が成り立つなら、$\lim_{n \rightarrow \infty}c_{n} = \lim_{n \rightarrow \infty}b_{n}$が成り立つことより、$a < \lim_{n \rightarrow \infty}b_{n}$で、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| c_{n} - \lim_{n \rightarrow \infty}b_{n} \right| < \varepsilon$が成り立つので、特に、$\exists N \in \mathbb{N}$に対し、$\left| c_{N} - \lim_{n \rightarrow \infty}b_{n} \right| < \lim_{n \rightarrow \infty}b_{n} - a$が成り立つ。$\lim_{n \rightarrow \infty}b_{n} \in U(A)$が成り立つかつ、$c_{N} \in \mathbb{R} \setminus U(A)$が成り立つことと定理\ref{4.1.4.12}より次のようになるので、
+\begin{align*}
+\left| c_{N} - \lim_{n \rightarrow \infty}b_{n} \right| < \lim_{n \rightarrow \infty}b_{n} - a &\Rightarrow 0 < - \left( c_{N} - \lim_{n \rightarrow \infty}b_{n} \right) < \lim_{n \rightarrow \infty}b_{n} - a\\
+&\Leftrightarrow - \lim_{n \rightarrow \infty}b_{n} + a < c_{N} - \lim_{n \rightarrow \infty}b_{n} < 0\\
+&\Leftrightarrow a < c_{N} < \lim_{n \rightarrow \infty}b_{n}
+\end{align*}
+ここで、$c_{N} \in \mathbb{R} \setminus U(A)$が成り立つことにより、$\exists c \in A$に対し、$a < c_{N} < c \leq \lim_{n \rightarrow \infty}b_{n}$が成り立つ。これにより、$a \in \mathbb{R} \setminus U(A)$、即ち、$a \notin U(A)$が成り立つ。対偶律により、$\forall a \in \mathbb{R}$に対し、$a \in U(A)$が成り立つなら、$\lim_{n \rightarrow \infty}b_{n} \leq a$が成り立つ。以上の議論により、$\lim_{n \rightarrow \infty}b_{n} = \sup A$が得られる。\par
+以上より、$\forall A \in \mathfrak{P}(O)$に対し、その集合$A$が上に有界で空集合$\emptyset$でないなら、$\exists u \in O$に対し、$u = \sup A$が成り立つ。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p25-29,33-43 ISBN978-4-13-062005-5
+  \bibitem{3}
+  shakayami. "ボルツァーノ＝ワイエルシュトラスの定理". 数学についていろいろ解説するブログ. \url{https://shakayami-math.hatenablog.com/entry/2018/07/30/024710} (2020-8-9 閲覧)
+  \bibitem{4}
+  原隆. "微分積分学 A". \url{https://www2.math.kyushu-u.ac.jp/~hara/lectures/05/biseki4-050615.pdf} (2020-8-10 取得)
+  \bibitem{5}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p42-46,256-260 ISBN978-4-00-029871-1
+\end{thebibliography}
+\end{document}

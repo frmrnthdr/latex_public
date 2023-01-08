@@ -1,0 +1,1020 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{6}
+\setcounter{subsection}{0}
+\usepackage{xr}
+\externaldocument{4.5.3}
+\externaldocument{4.5.5}
+\input{macro}
+\begin{document}
+%\hypertarget{ux7a4dux5206}{%
+\subsection{積分}%\label{ux7a4dux5206}}
+%\hypertarget{ux7a4dux5206ux306eux6e96ux5099}{%
+\subsubsection{積分の準備}%\label{ux7a4dux5206ux306eux6e96ux5099}}
+\begin{thm}\label{4.6.1.1}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} = \bigsqcup_{j \in \varLambda_{n}} F_{j} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} = \sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}} \geq 0$なる単関数たち$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$、$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} = \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} = \bigsqcup_{j \in \varLambda_{n}} F_{j} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} = \sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}} \geq 0$なる単関数たち$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$、$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}}$が与えられたとき、$E_{i'} \cap F_{j'} \neq \emptyset$が成り立つなら、この集合の元$a$がとられることで、次式が成り立つ。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} \right)(a) = \sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}(a)} &= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {a_{i}\chi_{E_{i}}(a)} + a_{i'}\chi_{E_{i'}}(a)\\
+&= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {a_{i} \cdot 0} + a_{i'} \cdot 1 = a_{i'}
+\end{align*}
+同様にして、$\left( \sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}} \right)(a) = b_{j'}$が成り立つので、$a_{i'} = b_{j'}$が得られる。ここで、$\mu\left( E_{i'} \cap F_{j'} \right) = \infty$が成り立つようなものがあれば、$\mu\left( E_{i'} \right) = \mu\left( F_{j'} \right) = \infty$より次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} = \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)} = \infty
+\end{align*}\par
+$\left( E_{i'} \cap F_{j'} \right) = \infty$が成り立つようなものがないとしよう。このとき、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} &= \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)} = \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap \bigsqcup_{j \in \varLambda_{n}} F_{j} \right)}\\
+&= \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( \bigsqcup_{j \in \varLambda_{n}} \left( E_{i} \cap F_{j} \right) \right)} = \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap F_{j} \right)}}\\
+&= \sum_{j \in \varLambda_{n}} {\sum_{i \in \varLambda_{m}} {b_{j}\mu\left( F_{j} \cap E_{i} \right)}} = \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( \bigsqcup_{i \in \varLambda_{m}} \left( F_{j} \cap E_{i} \right) \right)}\\
+&= \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \cap \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)} = \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \cap \bigsqcup_{j \in \varLambda_{n}} F_{j} \right)}\\
+&= \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}\par
+以上より、次式が成り立つ。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} = \sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.2}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} = \bigsqcup_{j \in \varLambda_{n}} F_{j} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} \geq 0$かつ$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}} \geq 0$なる単関数たち$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$、$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}}$が与えられたとき、$\forall k,l \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+\sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( ka_{i} + lb_{j} \right)\mu\left( E_{i} \cap F_{j} \right)} = k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} = \bigsqcup_{j \in \varLambda_{n}} F_{j} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} \geq 0$かつ$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}} \geq 0$なる単関数たち$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$、$\sum_{j \in \varLambda_{n}} {b_{j}\chi_{F_{j}}}$が与えられたとき、$\mu\left( E_{i'} \right) = \infty$が成り立つようなものが存在するなら、次のようになる。
+\begin{align*}
+\mu\left( E_{i'} \right) &= \mu\left( E_{i'} \cap \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) = \mu\left( E_{i'} \cap \bigsqcup_{j \in \varLambda_{n}} F_{j} \right)\\
+&= \mu\left( \bigsqcup_{j \in \varLambda_{n}} \left( E_{i'} \cap F_{j} \right) \right) = \sum_{j \in \varLambda_{n}} {\mu\left( E_{i'} \cap F_{j} \right)}
+\end{align*}
+ここで、$\forall j \in \varLambda_{n}$に対し、$\mu\left( E_{i'} \cap F_{j} \right) < \infty$が成り立つとすれば、$\mu\left( E_{i'} \right) = \sum_{j \in \varLambda_{n}} {\mu\left( E_{i'} \cap F_{j} \right)} < \infty$が成り立つことになり、これは$\mu\left( E_{i'} \right) = \infty$が成り立つことに矛盾するので、$\exists j \in \varLambda_{n}$に対し、$\mu\left( E_{i'} \cap F_{j} \right) = \infty$が成り立つ。したがって、$\forall k,l \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようになる。
+\begin{align*}
+\sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( ka_{i} + lb_{j} \right)\mu\left( E_{i} \cap F_{j} \right)} = \infty = k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}
+$\mu\left( F_{j} \right) = \infty$が成り立つようなものが存在するときも同様である。\par
+以下、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\mu\left( E_{i} \right) < \infty$かつ$\mu\left( F_{j} \right) < \infty$が成り立つとすれば、$\forall k,l \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようになる。
+\begin{align*}
+\sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( ka_{i} + lb_{j} \right)\mu\left( E_{i} \cap F_{j} \right)} &= \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} {\left( ka_{i} + lb_{j} \right)\mu\left( E_{i} \cap F_{j} \right)}}\\
+&= \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} {ka_{i}\mu\left( E_{i} \cap F_{j} \right)}} + \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{n}} {lb_{j}\mu\left( E_{i} \cap F_{j} \right)}}\\
+&= k\sum_{i \in \varLambda_{m}} {a_{i}\sum_{j \in \varLambda_{n}} {\mu\left( E_{i} \cap F_{j} \right)}} + l\sum_{j \in \varLambda_{n}} {b_{j}\sum_{i \in \varLambda_{m}} {\mu\left( E_{i} \cap F_{j} \right)}}\\
+&= k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( \bigsqcup_{j \in \varLambda_{n}} \left( E_{i} \cap F_{j} \right) \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( \bigsqcup_{i \in \varLambda_{m}} \left( E_{i} \cap F_{j} \right) \right)}\\
+&= k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap \bigsqcup_{j \in \varLambda_{n}} F_{j} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \cap \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)}\\
+&= k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \cap \bigsqcup_{j \in \varLambda_{n}} F_{j} \right)}\\
+&= k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}\par
+以上より、次式が成り立つ。
+\begin{align*}
+\sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( ka_{i} + lb_{j} \right)\mu\left( E_{i} \cap F_{j} \right)} = k\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \right)} + l\sum_{j \in \varLambda_{n}} {b_{j}\mu\left( F_{j} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.3}
+測度空間$(X,\varSigma,\mu)$と$A \sqcup B \subseteq \bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} \geq 0$なる単関数$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap (A \sqcup B) \right)} = \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap A \right)} + \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap B \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$A \sqcup B \subseteq \bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}} \geq 0$なる単関数$\sum_{i \in \varLambda_{m}} {a_{i}\chi_{E_{i}}}$が与えられたとき、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap (A \sqcup B) \right)} &= \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( \left( E_{i} \cap A \right) \sqcup \left( E_{i} \cap B \right) \right)}\\
+&= \sum_{i \in \varLambda_{m}} {a_{i}\left( \mu\left( E_{i} \cap A \right) + \mu\left( E_{i} \cap B \right) \right)}\\
+&= \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap A \right)} + \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap B \right)}
+\end{align*}\par
+以上より、次式が成り立つ。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap (A \sqcup B) \right)} = \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap A \right)} + \sum_{i \in \varLambda_{m}} {a_{i}\mu\left( E_{i} \cap B \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.4}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} \geq 0$なる単関数$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}}$と$\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \geq 0$かつ$\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}}$なる単調増加する単関数の列$\left( \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} \geq 0$なる単関数$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}}$と$\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \geq 0$かつ$\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}}$なる単調増加する単関数の列$\left( \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$が与えられたとき、$F = \bigsqcup_{i \in \varLambda_{m}} E_{i} \setminus \left\{ \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} = 0 \right\}$とおかれると、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)} &= \sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap \left\{ \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} = 0 \right\} \right)} + \sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap F \right)}\\
+&\geq \sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap F \right)}\\
+\sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} &= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap \left\{ \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} = 0 \right\} \right)} + \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap F \right)}\\
+&= \sum_{i \in \varLambda_{m}} {0 \cdot \mu\left( E_{i} \cap \left\{ \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} = 0 \right\} \right)} + \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap F \right)}\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap F \right)}
+\end{align*}
+したがって、$\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap F \right)}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap F \right)}$が成り立つことが示されればよい。\par
+このとき、次式のように$\alpha$、$\beta$がおかれると、
+\begin{align*}
+\alpha = \min\left\{ b_{i} \right\}_{i \in \varLambda_{m}},\ \ \beta = \max\left\{ b_{i} \right\}_{i \in \varLambda_{m}}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+0 < \alpha \leq \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} \leq \beta < \infty
+\end{align*}
+ここで、$0 < \varepsilon < \alpha$なる任意の正の実数$\varepsilon$がとられれば、写像$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon$は次のようになることから、単関数で、$\forall x \in F$に対し、$x \in E_{i'}$とすれば、次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon \right)(x) &= \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}(x)} - \varepsilon\\
+&= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {b_{i}\chi_{E_{i}}(x)} + b_{i'}\chi_{E_{i'}}(x) - \varepsilon\\
+&= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {b_{i} \cdot 0} + b_{i'} \cdot 1 - \varepsilon = b_{i'} - \varepsilon\\
+&= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {\left( b_{i} - \varepsilon \right) \cdot 0} + \left( b_{i'} - \varepsilon \right) \cdot 1\\
+&= \sum_{i \in \varLambda_{m} \setminus \left\{ i' \right\}} {\left( b_{i} - \varepsilon \right)\chi_{E_{i}}(x)} + \left( b_{i'} - \varepsilon \right)\chi_{E_{i'}}(x)\\
+&= \sum_{i \in \varLambda_{m}} {\left( b_{i} - \varepsilon \right)\chi_{E_{i}}(x)} = \left( \sum_{i \in \varLambda_{m}} {\left( b_{i} - \varepsilon \right)\chi_{E_{i}}} \right)(x)
+\end{align*}
+したがって、$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon = \sum_{i \in \varLambda_{m}} {\left( b_{i} - \varepsilon \right)\chi_{E_{i}}}$が成り立つので、その写像$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon$は単関数で$\sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon > 0$を満たす。また、$F_{n} = \left\{ \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} > \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon \right\}$とおかれると、その集合の列$\left( F_{n} \right)_{n \in \mathbb{N}}$は、その単関数の列$\left( \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$が単調増加することから、単調増加することになる。また、次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}F_{n} &= \lim_{n \rightarrow \infty}\left\{ \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} > \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon \right\}\\
+&= \left\{ \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} > \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon \right\}\\
+&= \left\{ \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\chi_{E_{i}}} - \varepsilon \right\} = \bigsqcup_{i \in \varLambda_{m}} E_{i}
+\end{align*}
+その集合の列$\left( F_{n} \right)_{n \in \mathbb{N}}$が単調増加することにより次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\mu\left( F_{n} \right)} = \mu\left( \lim_{n \rightarrow \infty}F_{n} \right) = \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)
+\end{align*}\par
+$\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) < \infty$のとき、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \setminus F_{n} \right)} &= \lim_{n \rightarrow \infty}\left( \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) - \mu\left( F_{n} \right) \right)\\
+&= \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) - \lim_{n \rightarrow \infty}{\mu\left( F_{n} \right)}\\
+&= \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) - \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) = 0
+\end{align*}
+これは、即ち、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \setminus F_{n} \right) < \varepsilon$が成り立つことになり、したがって、次のようになるので、
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)} &\geq \sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap F_{n} \right)} \geq \sum_{i \in \varLambda_{m}} {\left( b_{i} - \varepsilon \right)\mu\left( E_{i} \cap F_{n} \right)}\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap F_{n} \right)} - \sum_{i \in \varLambda_{m}} {\varepsilon\mu\left( E_{i} \cap F_{n} \right)}\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap E_{i} \setminus F_{n} \right)} - \sum_{i \in \varLambda_{m}} {\varepsilon\mu\left( E_{i} \cap F_{n} \right)}\\
+&\geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \cap E_{i} \setminus F_{n} \right)} - \sum_{i \in \varLambda_{m}} {\varepsilon\mu\left( E_{i} \right)}\\
+&\geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \sum_{i \in \varLambda_{m}} {\beta\mu\left( E_{i} \cap E_{i} \setminus F_{n} \right)} - \sum_{i \in \varLambda_{m}} {\varepsilon\mu\left( E_{i} \right)}\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \beta\mu\left( \bigsqcup_{i \in \varLambda_{m}} \left( E_{i} \cap E_{i} \setminus F_{n} \right) \right) - \varepsilon\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \beta\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \setminus F_{n} \right) - \varepsilon\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)\\
+&\geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \varepsilon\beta - \varepsilon\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \varepsilon\left( \beta + \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} &\geq \lim_{n \rightarrow \infty}\left( \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \varepsilon\left( \beta + \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) \right) \right)\\
+&= \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)} - \varepsilon\left( \beta + \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) \right)
+\end{align*}
+$\beta + \mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) < \infty$が成り立ちその実数$\varepsilon$の任意性より次式が得られる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)}
+\end{align*}\par
+$\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right) = \infty$のとき、次のようになるので、
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)} &\geq \sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \cap F_{n} \right)}\\
+&\geq \sum_{i \in \varLambda_{m}} {\left( b_{i} - \varepsilon \right)\mu\left( E_{i} \cap F_{n} \right)}\\
+&\geq \sum_{i \in \varLambda_{m}} {(\alpha - \varepsilon)\mu\left( E_{i} \cap F_{n} \right)}\\
+&= (\alpha - \varepsilon)\mu\left( \bigsqcup_{i \in \varLambda_{m}} \left( E_{i} \cap F_{n} \right) \right)\\
+&= (\alpha - \varepsilon)\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \cap F_{n} \right)\\
+&\geq (\alpha - \varepsilon)\mu\left( F_{n} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} &\geq \lim_{n \rightarrow \infty}{(\alpha - \varepsilon)\mu\left( F_{n} \right)}\\
+&= (\alpha - \varepsilon)\lim_{n \rightarrow \infty}{\mu\left( F_{n} \right)}\\
+&= (\alpha - \varepsilon)\mu\left( \bigsqcup_{i \in \varLambda_{m}} E_{i} \right)\\
+&= \infty \geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)}
+\end{align*}\par
+以上より、次式が得られる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \geq \sum_{i \in \varLambda_{m}} {b_{i}\mu\left( E_{i} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.5}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \geq 0$かつ$\sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}} \geq 0$かつ$\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} = \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}}}$なる単調増加する単関数の列々$\left( \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} = \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\mu\left( E_{i} \right)}}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$\bigsqcup_{i \in \varLambda_{m}} E_{i} \in \varSigma$かつ$\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \geq 0$かつ$\sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}} \geq 0$かつ$\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} = \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}}}$なる単調増加する単関数の列々$\left( \sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$、$\left( \sum_{i \in \varLambda_{m}} {b_{n,i}\chi_{E_{i}}} \right)_{n \in \mathbb{N}}$が与えられたとき、任意の自然数$n'$を用いて次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\chi_{E_{i}}}} \geq \sum_{i \in \varLambda_{m}} {b_{n',i}\chi_{E_{i}}}
+\end{align*}
+定理\ref{4.6.1.4}より次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \geq \sum_{i \in \varLambda_{m}} {b_{n',i}\mu\left( E_{i} \right)}
+\end{align*}
+したがって、$n' \rightarrow \infty$とすれば、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \geq \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\mu\left( E_{i} \right)}}
+\end{align*}
+同様にして、次式が得られるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} \leq \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\mu\left( E_{i} \right)}}
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {a_{n,i}\mu\left( E_{i} \right)}} = \lim_{n \rightarrow \infty}{\sum_{i \in \varLambda_{m}} {b_{n,i}\mu\left( E_{i} \right)}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7a4dux5206-1}{%
+\subsubsection{積分}%\label{ux7a4dux5206-1}}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、次式のように集合たち$\mathcal{M}_{(X,\varSigma,\mu)}^{+}$、$\mathcal{M}_{(X,\varSigma,\mu)}$、$\mathcal{M}_{(X,\varSigma,\mu)}^{n}$が定義される。
+\begin{align*}
+\mathcal{M}_{(X,\varSigma,\mu)}^{+} &= \left\{ f \in \mathfrak{F}\left( X,\mathrm{cl}\mathbb{R}^{+} \right) \middle| f:\mathrm{measurable} \right\}\\
+\mathcal{M}_{(X,\varSigma,\mu)} &= \left\{ f \in \mathfrak{F}\left( X,{}^{*}\mathbb{R} \right) \middle| f:\mathrm{measurable} \right\}\\
+\mathcal{M}_{(X,\varSigma,\mu)}^{n} &= \left\{ f \in \mathfrak{F}\left( X,\mathbb{R}^{n} \right) \middle| f:\mathrm{measurable} \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.6.1.6}
+$\forall f \in \mathcal{M}_{(X,\varSigma,\mu)}$に対し、$(f)_{+},(f)_{-} \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$が成り立つかつ、$\forall f \in \mathcal{M}_{(X,\varSigma,\mu)}^{n}$に対し、$\mathrm{pr}_{i} \circ f \in \mathcal{M}_{(X,\varSigma,\mu)}$が成り立つ。
+\end{thm}
+\begin{proof} 定義と定理\ref{4.5.5.5}、定理\ref{4.5.5.11}より明らかである。
+\end{proof}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$なる集合$E$を用いて次式のような写像たち$\int_{E} \mu$が定義される。なお、以下、$X = \bigsqcup_{i \in \varLambda_{n}} E_{i}$とおかれるとする。
+\begin{align*}
+\int_{E} \mu:\mathcal{M}_{(X,\varSigma,\mu)}^{+} \rightarrow{}^{*}\mathbb{R};f \mapsto \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}f \right] \right\}
+\end{align*}
+この写像$\int_{E} \mu$によるその写像$f$の像$\int_{E} \mu(f)$をその写像$f$の集合$E$上の非負値関数の測度論的積分という。以下、その像$\int_{E} \mu(f)$を$\int_{E} {f\mu}$と書くことにする。
+\end{dfn}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$なる集合$E$を用いて$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$が次のことを満たすとき、その写像$f$はその集合$E$で定積分をもつという。
+\begin{align*}
+\int_{E} {(f)_{+}\mu} < \infty \vee \int_{E} {(f)_{-}\mu} < \infty
+\end{align*}
+このような関数$f$全体の集合を$\mathcal{I}_{(X,\varSigma,\mu)}$と書くことにし、また、次のように定義されよう。
+\begin{align*}
+\mathcal{I}_{(X,\varSigma,\mu)}^{n} = \left\{ f \in \mathfrak{F}\left( X,\mathbb{R}^{n} \right) \middle| \forall i \in \varLambda_{n}\left[ \mathrm{pr}_{i} \circ f \in \mathcal{I}_{(X,\varSigma,\mu)} \right] \right\}
+\end{align*}\par
+さらに、$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$が次のことを満たすとき、その写像$f$はその集合$E$で定積分可能である、可積分であるという。
+\begin{align*}
+\int_{E} {(f)_{+}\mu} < \infty \land \int_{E} {(f)_{-}\mu} < \infty
+\end{align*}
+\end{dfn}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$なる集合$E$を用いて次式のような写像たち$\int_{E} \mu$が定義される。
+\begin{align*}
+\int_{E} \mu:\mathcal{I}_{(X,\varSigma,\mu)} \rightarrow{}^{*}\mathbb{R};f \mapsto \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu}
+\end{align*}
+この写像$\int_{E} \mu$によるその写像$f$の像$\int_{E} \mu(f)$をその写像$f$の集合$E$上の測度論的積分、または単に、積分という。以下、その像$\int_{E} \mu(f)$を$\int_{E} {f\mu}$と書くことにする\footnote{これ以外に$\int_{E} {fd\mu}$、$\int_{E} {f(x)d\mu(x)}$、$\int_{E} {f(x)\mu(dx)}$、$L_{\mu}:\int_{E} {f(x)dx}$などという書き方もあります。}。特に、測度空間$\left( \mathbb{R}^{n},\mathfrak{M}_{C}\left( \lambda^{*} \right),\lambda \right)$における積分をLebesgue積分という。
+\end{dfn}\par
+この積分がさきほどの定義での積分の拡張であることは、$(f)_{-} = 0$が成り立つことに注意すれば、すぐわかるのであろう。ここで、その関数$f$が定積分を持たないとき、その関数$f$が可測であってもその関数$f$の積分が定義されないことに注意されたい。
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$E \in \varSigma$なる集合$E$を用いて次式のような写像たち$\int_{E} \mu$が定義される。
+\begin{align*}
+\int_{E} \mu:\mathcal{I}_{(X,\varSigma,\mu)}^{n} \rightarrow \mathbb{R}^{n};f \mapsto \left( \int_{E} {\mathrm{pr}_{i} \circ f\mu} \right)_{i \in \varLambda_{n}}
+\end{align*}
+この写像$\int_{E} \mu$によるその写像$f$の像$\int_{E} \mu(f)$をその写像$f$の集合$E$上の測度論的積分、または単に、積分という。以下、その像$\int_{E} \mu(f)$を$\int_{E} {f\mu}$と書くことにする。
+\end{dfn}
+\begin{thm}\label{4.6.1.7}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$で$0 \leq f$を満たすなら、その写像$f$はその集合$E$で定積分をもつ。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathfrak{L}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$で$0 \leq f$を満たすなら、$(f)_{-} = 0$が成り立つので、次のようになる。
+\begin{align*}
+\int_{E} {(f)_{-}\mu} &= \int_{E} {0\mu}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap [ 0,0] \right\}\\
+&= \sup\left\{ 0 \in \mathrm{cl}\mathbb{R}^{+} \middle| 0 \in \mathcal{S}(X,\varSigma) \cap [ 0,0] \right\}\\
+&= 0 < \infty
+\end{align*}
+ゆえに、その写像$f$はその集合$E$で定積分をもつ。
+\end{proof}
+\begin{thm}\label{4.6.1.8}
+測度空間$(X,\varSigma,\mu)$と$0 \leq \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma)$なる単関数$\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}$が与えられたとき\footnote{定義域はもちろん集合$X$のことです。}、$E \in \varSigma$なる集合$E$を用いて次式が成り立つ。
+\begin{align*}
+\int_{E} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu} = \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap E \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$0 \leq \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma)$なる単関数$s = \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}$が与えられたとき、$E \in \varSigma$なる集合$E$を用いて次のようになる。
+\begin{align*}
+\int_{E} {(s)_{-}\mu} &= \int_{E} {0\mu}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap [ 0,0] \right\}\\
+&= \sup\left\{ 0 \in \mathrm{cl}\mathbb{R}^{+} \middle| 0 \in \mathcal{S}(X,\varSigma) \cap [ 0,0] \right\} = 0\\
+\int_{E} {s\mu} &= \int_{E} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu}\\
+&= \int_{E} {(s)_{+}\mu} - \int_{E} {(s)_{-}\mu}\\
+&= \int_{E} {s\mu} - 0\\
+&= \int_{E} {s\mu}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}'\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}'\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}s \right] \right\}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}'\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}'\chi_{E_{i}}\chi_{E}}\in \mathcal{S}(X,\varSigma) \cap [ 0,s] \right\}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}'\mu\left( E_{i}' \cap E \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}'\chi_{E_{i}' \cap E}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}} \right] \right\}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap E \right)}
+\end{align*}
+\end{proof}
+%\hypertarget{ux975eux8ca0ux5024ux95a2ux6570ux306eux7a4dux5206ux306eux57faux672cux7684ux306aux6027ux8cea}{%
+\subsubsection{非負値関数の積分の基本的な性質}%\label{ux975eux8ca0ux5024ux95a2ux6570ux306eux7a4dux5206ux306eux57faux672cux7684ux306aux6027ux8cea}}
+\begin{thm}\label{4.6.1.9}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = \int_{X} {\chi_{E}f\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、定義より直ちに次のようになる。
+\begin{align*}
+\int_{E} {f\mu} &= \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu}\\
+&= \int_{E} {f\mu} - 0\\
+&= \int_{E} {f\mu}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}f \right] \right\}\\
+&= \int_{X} {\chi_{E}f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.10}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、$\forall k \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+\int_{E} {kf\mu} = k\int_{E} {f\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、$\forall k \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$k = 0$のときは自明であるから、$k > 0$のとき、次のようになる。
+\begin{align*}
+\int_{E} {kf\mu} &= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}kf \right] \right\}\\
+&= \sup\left\{ \sum_{i \in \varLambda_{n}} {k\frac{a_{i}}{k}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {k\frac{a_{i}}{k}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}kf \right] \right\}\\
+&= \sup\left\{ k\sum_{i \in \varLambda_{n}} {\frac{a_{i}}{k}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {\frac{a_{i}}{k}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}f \right] \right\}\\
+&= k\sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}f \right] \right\}\\
+&= k\int_{E} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.11}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$f \leq g$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} \leq \int_{E} {g\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$f \leq g$が成り立つなら、$\left[ 0,\chi_{E}f \right] \subseteq \left[ 0,\chi_{E}g \right]$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\int_{E} {f\mu} &= \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}f \right] \right\}\\
+&\leq \sup\left\{ \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}g \right] \right\}\\
+&= \int_{E} {g\mu}
+\end{align*}
+\end{proof}
+\begin{thm}[Markovの不等式]\label{4.6.1.12}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$E \in \varSigma$なる集合$E$が与えられたとき、$a \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$なる実数がその集合$E$で$a \leq f$を満たすなら、次式が成り立つ。
+\begin{align*}
+a\mu(E) \leq \int_{E} {f\mu}
+\end{align*}
+この不等式をMarkovの不等式という。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$E \in \varSigma$なる集合$E$が与えられたとき、$a \in \mathbb{R}^{+}$なる実数がその集合$E$で$a \leq f$を満たすなら、単関数$a\chi_{E}$を用いて考えれば次のようになる。
+\begin{align*}
+\int_{E} {a\mu} = \int_{X} {a\chi_{E}\mu} = a\mu(E) \leq \int_{E} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.13}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$A,B \in \varSigma$なる互いに素な集合たち$A$、$B$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} = \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$A,B \in \varSigma$なる互いに素な集合たち$A$、$B$が与えられたとき、$\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{A \sqcup B}f \right]$なる単関数$\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}$が考えられると、次のようになる。
+\begin{align*}
+\int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu} &= \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{A \sqcup B}\chi_{E_{i}}}\mu}\\
+&= \int_{A \sqcup B} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap (A \sqcup B) \right)}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap A \right)} + \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap B \right)}\\
+&= \int_{A} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu} + \int_{B} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu}\\
+&= \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{A}\chi_{E_{i}}}\mu} + \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{B}\chi_{E_{i}}}\mu}\\
+&= \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu} + \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu}\\
+&\leq \int_{X} {\chi_{A}f\mu} + \int_{X} {\chi_{B}f\mu}\\
+&= \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}
+したがって、両辺に上限がとられれば、次のようになる。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} \leq \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}\par
+ここで、$\int_{A \sqcup B} {f\mu} = \infty$のときでは当然ながら次式が成り立つ。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} = \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}\par
+$\int_{A \sqcup B} {f\mu} < \infty$のとき、$0 \leq \chi_{A}f \leq \chi_{A \sqcup B}f$が成り立つので、次のようになる。
+\begin{align*}
+\int_{A} {f\mu} = \int_{X} {\chi_{A}f\mu} \leq \int_{X} {\chi_{A \sqcup B}f\mu} = \int_{A \sqcup B} {f\mu} < \infty
+\end{align*}
+ここで、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、積分と上限の定義より次式が成り立つような$\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{A}f \right]$なる単関数$\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}$が存在する。
+\begin{align*}
+\int_{A} {f\mu} = \int_{A} {\chi_{A}f\mu} < \frac{\varepsilon}{2} + \int_{A} {\mu\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}}
+\end{align*}
+同様にして、$\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{B}f \right]$なる単関数$\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}$が存在する。
+\begin{align*}
+\int_{B} {f\mu} = \int_{B} {\chi_{B}f\mu} < \frac{\varepsilon}{2} + \int_{B} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu}
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} + \int_{B} {f\mu} &\leq \varepsilon + \int_{A} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu} + \int_{B} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu}\\
+&= \varepsilon + \sum_{i \in \varLambda_{n}} {b_{i}\mu\left( E_{i} \cap A \right)} + \sum_{i \in \varLambda_{n}} {b_{i}\mu\left( E_{i} \cap B \right)}\\
+&= \varepsilon + \sum_{i \in \varLambda_{n}} {b_{i}\mu\left( E_{i} \cap (A \sqcup B) \right)}\\
+&= \varepsilon + \int_{A \sqcup B} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu}\\
+&= \varepsilon + \int_{X} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{A \sqcup B}\chi_{E_{i}}}\mu}\\
+&= \varepsilon + \int_{A \sqcup B} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu}\\
+&\leq \varepsilon + \int_{A \sqcup B} {f\mu}
+\end{align*}
+ここで、正の実数$\varepsilon$の任意性より次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} + \int_{B} {f\mu} \leq \int_{A \sqcup B} {f\mu}
+\end{align*}\par
+よって、いづれの場合でも、次式が成り立つ。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} = \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.14}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$s \in \mathcal{S}(X,\varSigma)$なる単関数$s$、$E \in \varSigma$なる集合$E$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = \sum_{y \in V\left( s|E \right)} {\int_{\left\{ y = s \right\}} {f\mu}}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$、$s \in \mathcal{S}(X,\varSigma)$なる単関数$s$、$E \in \varSigma$なる集合$E$が与えられたとき、次式が成り立つので、
+\begin{align*}
+\bigsqcup_{\scriptsize \begin{matrix}
+y \in V\left( s|E \right) \\
+\#{V\left( s|E \right)} < \aleph_{0} \\
+\end{matrix}} \left\{ y = s \right\} = E
+\end{align*}
+定理\ref{4.6.1.13}より次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = \sum_{y \in V\left( s|E \right)} {\int_{\left\{ y = s \right\}} {f\mu}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.15}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\int_{E} {|f|\mu} = \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、次式が成り立つことから、
+\begin{align*}
+E = E \cap X = E \cap \left( \left\{ 0 \leq f \right\} \sqcup \left\{ f < 0 \right\} \right) = \left( E \cap \left\{ 0 \leq f \right\} \right) \sqcup \left( E \cap \left\{ f < 0 \right\} \right)
+\end{align*}
+次のようになる。
+\begin{align*}
+\int_{E} {|f|\mu} &= \int_{E \cap \left\{ 0 \leq f \right\}} {|f|\mu} + \int_{E \cap \left\{ f < 0 \right\}} {|f|\mu}\\
+&= \int_{E} {\chi_{E \cap \left\{ 0 \leq f \right\}}|f|\mu} + \int_{E} {\chi_{E \cap \left\{ f < 0 \right\}}|f|\mu}\\
+&= \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7a4dux5206ux306eux57faux672cux7684ux306aux6027ux8cea}{%
+\subsubsection{積分の基本的な性質}%\label{ux7a4dux5206ux306eux57faux672cux7684ux306aux6027ux8cea}}
+\begin{thm}\label{4.6.1.16}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$A,B \in \varSigma$なる互いに素な集合たち$A$、$B$が与えられたとき、その写像$f$がその集合$A \sqcup B$上で定積分可能であるならそのときに限り、その写像$f$がその集合$A$上で定積分可能であるかつ、その集合$B$上で定積分可能である。このとき、次式が成り立つ。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} = \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$A,B \in \varSigma$なる互いに素な集合たち$A$、$B$が与えられたとき、その写像$f$がその集合$A \sqcup B$上で定積分可能であるならそのときに限り、次式が成り立つ。
+\begin{align*}
+\int_{A \sqcup B} {(f)_{+}\mu} < \infty \land \int_{A \sqcup B} {(f)_{-}\mu} < \infty
+\end{align*}
+これにより、次のようになる。
+\begin{align*}
+\int_{A} {(f)_{+}\mu} < \infty \land \int_{B} {(f)_{+}\mu} < \infty \land \int_{A} {(f)_{-}\mu} < \infty \land \int_{B} {(f)_{-}\mu} < \infty
+\end{align*}
+ゆえに、その写像$f$がその集合$A$上で定積分可能であるかつ、その集合$B$上で定積分可能である。\par
+このとき、次のようになる。
+\begin{align*}
+\int_{A \sqcup B} {f\mu} &= \int_{A \sqcup B} {(f)_{+}\mu} - \int_{A \sqcup B} {(f)_{-}\mu}\\
+&= \int_{A} {(f)_{+}\mu} + \int_{B} {(f)_{+}\mu} - \int_{A} {(f)_{-}\mu} - \int_{B} {(f)_{-}\mu}\\
+&= \int_{A} {(f)_{+}\mu} - \int_{A} {(f)_{-}\mu} + \int_{B} {(f)_{+}\mu} - \int_{B} {(f)_{-}\mu}\\
+&= \int_{A} {f\mu} + \int_{B} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.17}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、それらの写像たち$f$、$g$がその集合$E$上で定積分可能であり$f \leq g$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} \leq \int_{E} {g\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、それらの写像たち$f$、$g$がその集合$E$上で定積分可能であり$f \leq g$が成り立つなら、次のようになる。
+\begin{align*}
+f \leq g &\Leftrightarrow f \leq g \land - g \leq - f\\
+&\Rightarrow (f)_{+} \leq (g)_{+} \land (g)_{-} \leq (f)_{-}\\
+&\Rightarrow \int_{E} {(f)_{+}\mu} \leq \int_{E} {(g)_{+}\mu} \land \int_{E} {(g)_{-}\mu} \leq \int_{E} {(f)_{-}\mu}\\
+&\Leftrightarrow \int_{E} {(f)_{+}\mu} \leq \int_{E} {(g)_{+}\mu} \land - \int_{E} {(f)_{-}\mu} \leq - \int_{E} {(g)_{-}\mu}\\
+&\Rightarrow \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu} \leq \int_{E} {(g)_{+}\mu} - \int_{E} {(g)_{-}\mu}\\
+&\Leftrightarrow \int_{E} {f\mu} \leq \int_{E} {g\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.18}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$上で定積分可能であるなら、次式が成り立つ。
+\begin{align*}
+\left| \int_{E} {f\mu} \right| \leq \int_{E} {|f|\mu}
+\end{align*}
+特に、次式が成り立つ。
+\begin{align*}
+\int_{E} {|f|\mu} = 0 \Rightarrow \int_{E} {f\mu} = 0
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$上で定積分可能であるなら、$(f)_{+},(f)_{-} \in \mathfrak{L}'$が成り立つことにより次式が成り立つ。
+\begin{align*}
+0 = \int_{E} {0\mu} \leq \int_{E} {(f)_{+}\mu} \land 0 = \int_{E} {0\mu} \leq \int_{E} {(f)_{-}\mu}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+- \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu} &= - \left( \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu} \right)\\
+&\leq \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu}\\
+&\leq \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu}
+\end{align*}
+これが成り立つならそのときに限り、次のようになる。
+\begin{align*}
+\left| \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu} \right| \leq \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu}
+\end{align*}
+定理\ref{4.6.1.15}より次のようになる。
+\begin{align*}
+\left| \int_{E} {f\mu} \right| &= \left| \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu} \right|\\
+&\leq \int_{E} {(f)_{+}\mu} + \int_{E} {(f)_{-}\mu}\\
+&= \int_{E} {|f|\mu}
+\end{align*}\par
+特に、$\int_{E} {|f|\mu} = 0$が成り立つなら、$0 \leq \left| \int_{E} {f\mu} \right| \leq 0$より$\left| \int_{E} {f\mu} \right| = 0$が成り立つので、$\int_{E} {f\mu} = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.6.1.19}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$上で定積分可能であるなら、次式が成り立つ。
+\begin{align*}
+\mu\left( \left\{ \left| f|E \right| = \infty \right\} \right) = 0
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$上で定積分可能であるなら、$\left\{ \left| f|E \right| = \infty \right\} \in \varSigma$で$\left\{ \left| f|E \right| = \infty \right\} \subseteq E$が成り立つので、Markovの不等式と定理\ref{4.6.1.16}より$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\mu\left( \left\{ \left| f|E \right| = \infty \right\} \right) \leq \frac{1}{n}\int_{\left\{ \left| f|E \right| = \infty \right\}} {f|E\mu} = \frac{1}{n}\int_{\left\{ \left| f|E \right| = \infty \right\}} {f\mu} \leq \frac{1}{n}\int_{E} {f\mu}
+\end{align*}
+その自然数$n$の任意性よりしたがって、$\mu\left( \left\{ \left| f|E \right| = \infty \right\} \right) = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.6.1.20}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  次式が成り立つ。
+\begin{align*}
+\int_{E} {|f|\mu} = 0 \Leftrightarrow \mu\left( \left\{ f|E \neq 0 \right\} \right) = 0
+\end{align*}
+\item
+  $0 < f|E$のとき、次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = 0 \Leftrightarrow \mu(E) = 0
+\end{align*}
+\item
+  $\mu(E) = 0$が成り立つなら、その写像$f$はその集合$E$で定積分可能で次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = 0
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、$E \in \varSigma$なる集合$E$が与えられたとき、$\int_{E} {|f|\mu} = 0$が成り立つなら、その$\sigma$-加法族$\varSigma$の元の列$\left( \left\{ |f| \geq \frac{1}{n} \right\} \right)_{n \in \mathbb{N}}$が単調増加するので、定理\ref{4.5.3.14}とMarkovの不等式より次のようになる。
+\begin{align*}
+\mu\left( \left\{ f \neq 0 \right\} \right) &= \mu\left( \left\{ |f| > 0 \right\} \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} \left\{ |f| \geq \frac{1}{n} \right\} \right)\\
+&= \mu\left( \lim_{n \rightarrow \infty}\left\{ |f| \geq \frac{1}{n} \right\} \right)\\
+&= \lim_{n \rightarrow \infty}{\mu\left( \left\{ |f| \geq \frac{1}{n} \right\} \right)}\\
+&\leq \lim_{n \rightarrow \infty}\left( n\int_{E} {|f|\mu} \right)\\
+&= \lim_{n \rightarrow \infty}0 = 0
+\end{align*}\par
+逆に、$\mu\left( \left\{ f \neq 0 \right\} \right) = 0$が成り立つなら、$s = \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\chi_{E}|f| \right]$なる単関数$s$が与えられたとき、$\forall x \in \left\{ 0 < s \right\}$に対し、$0 < (s)(x) \leq \left( \chi_{E}|f| \right)(x)$が成り立つので、$f|E(x) \neq 0$が成り立つことになる。したがって、$\left\{ 0 < s \right\} \subseteq \left\{ f|E \neq 0 \right\}$が成り立つので、$\mu\left( \left\{ 0 < s \right\} \right) = 0$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\int_{X} {s\mu} &= \sum_{y \in V(s)} {\int_{\left\{ y = s \right\}} {s\mu}}\\
+&= \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\int_{\left\{ y = s \right\}} {s\mu}}\\
+&= \sum_{y \in V(s)} {\sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap \left\{ y = s \right\} \right)}}\\
+&= \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap \left\{ y = s \right\} \right)}} + \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap \left\{ s = 0 \right\} \right)}\\
+&= \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap \left\{ y = s \right\} \right)}} + \sum_{i \in \varLambda_{n}} 0\\
+&= \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \cap \left\{ y = s \right\} \right)}}\\
+&\leq \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\sum_{i \in \varLambda_{n}} {a_{i}\mu\left( \left\{ 0 < s \right\} \right)}}\\
+&= \sum_{y \in V(s) \setminus \left\{ 0 \right\}} {\sum_{i \in \varLambda_{n}} 0} = 0
+\end{align*}
+したがって、上限をとれば、次のようになる。
+\begin{align*}
+\int_{X} {\chi_{E}|f|\mu} = \int_{E} {|f|\mu} = 0
+\end{align*}\par
+$0 < f|E$のとき、次のようになる。
+\begin{align*}
+\int_{E} {f|E\mu} = \int_{E} {|f|\mu} = 0 \Leftrightarrow \mu\left( \left\{ f \neq 0 \right\} \right) = \mu(E) = 0
+\end{align*}\par
+$\mu(E) = 0$が成り立つなら、$0 \leq \mu\left( \left\{ f|E \neq 0 \right\} \right) \leq \mu(E)$が成り立つので、上記の議論と定理\ref{4.6.1.15}、定理\ref{4.6.1.18}より次のようになる。
+\begin{align*}
+\int_{E} {|f|\mu} = 0 \Rightarrow \int_{E} {f\mu} = 0
+\end{align*}
+したがって、その写像$f$はその集合$E$で定積分可能である。
+\end{proof}
+\begin{thm}\label{4.6.1.21}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$A,B \in \varSigma$かつ$\mu(B) = 0$なる集合たち$A$、$B$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$f$がその集合$A$で定積分可能であるならそのときに限り、集合$A \setminus B$で定積分可能である。さらに、次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} = \int_{A \setminus B} {f\mu}
+\end{align*}
+\item
+  それらの写像たち$f$、$g$がその集合$A$で定積分可能な、または、$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$が成り立ち集合$A \setminus B$で$f \leq g$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} \leq \int_{A} {g\mu}
+\end{align*}
+\item
+  集合$A \setminus B$で$f = g$が成り立つかつ、その写像$g$がその集合$A$で定積分可能であるなら、その写像$f$もその集合$A$で定積分可能で次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} = \int_{A} {g\mu}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$A,B \in \varSigma$かつ$\mu(B) = 0$なる集合たち$A$、$B$が与えられたとき、その写像$f$がその集合$A$で定積分可能であるならそのときに限り、$\mu(A \cap B) = 0$が成り立つので、定理\ref{4.6.1.20}より次のようになる。
+\begin{align*}
+\int_{A} {f\mu} = \int_{A \setminus B} {f\mu} + \int_{A \cap B} {f\mu} = \int_{A \setminus B} {f\mu}
+\end{align*}
+よって、集合$A \setminus B$で定積分可能である。\par
+集合$A \setminus B$で$f \leq g$が成り立つなら、上記の議論により次式が成り立つ。
+\begin{align*}
+\int_{A} {f\mu} = \int_{A \setminus B} {f\mu} \leq \int_{A \setminus B} {g\mu} = \int_{A} {g\mu}
+\end{align*}\par
+集合$A \setminus B$で$f = g$が成り立つかつ、その写像$g$がその集合$A$で定積分可能であるなら、上記の議論により次式が成り立つ。
+\begin{align*}
+\int_{A} {g\mu} &= \int_{A \setminus B} {g\mu}\\
+&= \int_{X} {\chi_{A \setminus B}(g)_{+}\mu} - \int_{X} {\chi_{A \setminus B}(g)_{-}\mu}\\
+&= \int_{X} {\chi_{A \setminus B}(f)_{+}\mu} - \int_{X} {\chi_{A \setminus B}(f)_{-}\mu}\\
+&= \int_{A \setminus B} {f\mu} = \int_{A} {f\mu}
+\end{align*}
+よって、その写像$f$もその集合$A$で定積分可能である。
+\end{proof}
+\begin{thm}\label{4.6.1.22}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$A,B \in \varSigma$かつ$\mu(B) = 0$なる集合たち$A$、$B$が与えられたとき、集合$A \setminus B$で$|f| \leq g$が成り立つかつ、その写像$g$がその集合$A$で$0 \leq g$を満たし定積分可能であるなら、その写像$f$はその集合$A$で定積分可能である。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$A,B \in \varSigma$かつ$\mu(B) = 0$なる集合たち$A$、$B$が与えられたとき、集合$A \setminus B$で$|f| \leq g$が成り立つかつ、その写像$g$がその集合$A$で$0 \leq g$を満たし定積分可能であるなら、$|f| \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$が成り立つことに注意すれば、定理\ref{4.6.1.21}より次のようになる。
+\begin{align*}
+\int_{A} {|f|\mu} = \int_{A \setminus B} {|f|\mu} \leq \int_{A \setminus B} {g\mu} = \int_{A} {g\mu} < \infty
+\end{align*}
+したがって、定理\ref{4.6.1.15}より次のようになるので、
+\begin{align*}
+\int_{A} {|f|\mu} = \int_{A} {(f)_{+}\mu} + \int_{A} {(f)_{-}\mu} < \infty
+\end{align*}
+次のようになり
+\begin{align*}
+\int_{A} {(f)_{+}\mu} < \infty \land \int_{A} {(f)_{-}\mu} < \infty
+\end{align*}
+その写像$f$はその集合$A$で定積分可能である。
+\end{proof}
+%\hypertarget{ux5358ux8abfux53ceux675fux5b9aux7406}{%
+\subsubsection{単調収束定理}%\label{ux5358ux8abfux53ceux675fux5b9aux7406}}
+\begin{thm}\label{4.6.1.23}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つかつ、その集合$E$で正の実数$y$が$y \leq \liminf_{n \rightarrow \infty}f_{n}$を満たすなら、次式が成り立つ。
+\begin{align*}
+y\mu(E) \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つかつ、その集合$E$で正の実数$y$が$y \leq \liminf_{n \rightarrow \infty}f_{n}$を満たすとする。このとき、$0 < r < y$なる任意の実数$r$が与えられ、$\forall x \in E$に対し、ある自然数$n$が存在して、$r \leq \inf\left\{ f_{k}(x) \right\}_{k \in \mathbb{N} \setminus \varLambda_{n - 1}}$が成り立つので\footnote{$\varepsilon $-$\delta $論法にすれば直ちに分かりますが、直感的にいえば、その自然数$n$は例えばすごく大きくとることなどが挙げられるかと…。}、集合列に関するFatouの補題とMarkovの不等式より次のようになる。
+\begin{align*}
+r\mu(E) &= r\mu\left( \bigcup_{n \in \mathbb{N}} \left\{ x \in E \middle| r \leq \inf\left\{ f_{k}(x) \right\}_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} \right\} \right)\\
+&= r\mu\left( \bigcup_{n \in \mathbb{N}} \left\{ x \in E \middle| \forall k \in \mathbb{N} \setminus \varLambda_{n - 1}\left[ r \leq f_{k}(x) \right] \right\} \right)\\
+&= r\mu\left( \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} \left\{ x \in E \middle| r \leq f_{k}(x) \right\}} \right)\\
+&= r\mu\left( \bigcup_{n \in \mathbb{N}} {\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} \left\{ r \leq f_{k} \right\}} \right)\\
+&= r\mu\left( \liminf_{n \rightarrow \infty}\left\{ r \leq f_{n} \right\} \right)\\
+&\leq \liminf_{n \rightarrow \infty}{r\mu\left( \left\{ r \leq f_{n} \right\} \right)}\\
+&\leq \liminf_{n \rightarrow \infty}{\int_{\left\{ r \leq f_{n} \right\}} {f_{n}\mu}}\\
+&\leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+その実数$r$の任意性より次式が成り立つ。
+\begin{align*}
+y\mu(E) \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.24}
+測度空間$(X,\varSigma,\mu)$と$0 \leq s \in \mathcal{S}(X,\varSigma)$なる単関数$s$、集合$\mathcal{M}_{(X,\varSigma,\mu)}^{+}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$s \leq \liminf_{n \rightarrow \infty}f_{n}$を満たすなら、次式が成り立つ。
+\begin{align*}
+\int_{X} {s\mu} \leq \liminf_{n \rightarrow \infty}{\int_{X} {f_{n}\mu}}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$0 \leq s \in \mathcal{S}(X,\varSigma)$なる単関数$s$、集合$\mathcal{M}_{(X,\varSigma,\mu)}^{+}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$s \leq \liminf_{n \rightarrow \infty}f_{n}$を満たすとする。このとき、定理\ref{4.6.1.23}より正の実数$y$は次式を満たす。なお、$y = 0$のときも明らかにこれを満たす。
+\begin{align*}
+y\mu\left( \left\{ s = y \right\} \right) \leq \liminf_{n \rightarrow \infty}{\int_{\left\{ s = y \right\}} {f_{n}\mu}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\int_{X} {s\mu} &= \sum_{y \in V(s)} {\int_{\left\{ s = y \right\}} {s\mu}}\\
+&= \sum_{y \in V(s)} {\sum_{i \in \varLambda_{n}} {b_{i}\mu\left( \left\{ s = y \right\} \right)}}\\
+&= \sum_{y \in V(s)} {y\mu\left( \left\{ s = y \right\} \right)}\\
+&\leq \sum_{y \in V(s)} {\liminf_{n \rightarrow \infty}{\int_{\left\{ s = y \right\}} {f_{n}\mu}}}\\
+&\leq \liminf_{n \rightarrow \infty}{\sum_{y \in V(s)} {\int_{\left\{ s = y \right\}} {f_{n}\mu}}}\\
+&= \liminf_{n \rightarrow \infty}{\int_{X} {f_{n}\mu}}
+\end{align*}
+\end{proof}
+\begin{thm}[Fatouの補題]\label{4.6.1.25}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left\{ f_{n} \right\}_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\int_{E} {\liminf_{n \rightarrow \infty}f_{n}\mu} \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+この定理をFatouの補題という。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つなら、$0 \leq \chi_{E}f_{n}$も成り立ち、さらに、次式も成り立つ。
+\begin{align*}
+\liminf_{n \rightarrow \infty}{\chi_{E}f_{n}} = \chi_{E}\liminf_{n \rightarrow \infty}f_{n}
+\end{align*}
+$s = \sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\in \mathcal{S}(X,\varSigma) \cap \left[ 0,\liminf_{n \rightarrow \infty}{\chi_{E}f_{n}} \right]$なる単関数$s$が与えられたとき、定理\ref{4.6.1.24}より次式が成り立つ。
+\begin{align*}
+\int_{X} {s\mu} = \sum_{i \in \varLambda_{n}} {b_{i}\mu\left( E_{i} \right)} \leq \liminf_{n \rightarrow \infty}{\int_{X} {\chi_{E}f_{n}\mu}} = \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+したがって、両辺に上限がとられれば、次のようになる。
+\begin{align*}
+\int_{X} {\liminf_{n \rightarrow \infty}{\chi_{E}f_{n}}\mu} = \int_{X} {\chi_{E}\liminf_{n \rightarrow \infty}f_{n}\mu} = \int_{E} {\liminf_{n \rightarrow \infty}f_{n}\mu} \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+\end{proof}
+\begin{thm}[単調収束定理]\label{4.6.1.26}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つかつ、その元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$がその集合$E$で単調増加するなら、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} = \int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu}
+\end{align*}
+この定理を単調収束定理という。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と集合$\mathcal{M}_{(X,\varSigma,\mu)}$の元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f_{n}$が成り立つかつ、その元の列$\left( f_{n} \right)_{n \in \mathbb{N}}$がその集合$E$で単調増加するなら、その集合$E$で$\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}} = \liminf_{n \rightarrow \infty}f_{n}$が成り立つので、Fatouの補題より次のようになる。
+\begin{align*}
+\int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu} = \int_{E} {\liminf_{n \rightarrow \infty}f_{n}\mu} \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}}
+\end{align*}
+このとき、$f_{n} \leq \sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}$が成り立つので、次式が成り立つ。
+\begin{align*}
+\int_{E} {f_{n}\mu} \leq \int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\limsup_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} \leq \int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu}
+\end{align*}
+以上より、次のようになるので、
+\begin{align*}
+\int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu} \leq \liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} \leq \limsup_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} \leq \int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\liminf_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} = \limsup_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} = \lim_{n \rightarrow \infty}{\int_{E} {f_{n}\mu}} = \int_{E} {\sup\left\{ f_{n} \right\}_{n \in \mathbb{N}}\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.27}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、その$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$f$がその集合$\bigcup_{n \in \mathbb{N}} A_{n}$で定積分可能な、または、$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$が成り立つとき、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調増加するなら、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{A_{n}} {f\mu}} = \int_{\bigcup_{n \in \mathbb{N}} A_{n}} {f\mu}
+\end{align*}
+\item
+  その写像$f$がその集合$A_{1}$で定積分可能であるとき、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調減少するなら、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{A_{n}} {f\mu}} = \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {f\mu}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像$f$、その$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その写像$f$がその集合$\bigcup_{n \in \mathbb{N}} A_{n}$で$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$が成り立つとき、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調増加するなら、その集合$X$で$0 \leq \chi_{A_{n}}f$が成り立つかつ、その元の列$\left( \chi_{A_{n}}f \right)_{n \in \mathbb{N}}$がその集合$X$で単調増加するので、単調収束定理より次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{A_{n}} {f\mu}} = \lim_{n \rightarrow \infty}{\int_{X} {\chi_{A_{n}}f\mu}} = \int_{X} {\chi_{\bigcup_{n \in \mathbb{N}} A_{n}}f\mu} = \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {f\mu}
+\end{align*}\par
+その写像$f$がその集合$\bigcup_{n \in \mathbb{N}} A_{n}$で定積分可能であるとき、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調増加するなら、上記の議論により次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{A_{n}} {f\mu}} &= \lim_{n \rightarrow \infty}\left( \int_{A_{n}} {(f)_{+}\mu} - \int_{A_{n}} {(f)_{-}\mu} \right)\\
+&= \lim_{n \rightarrow \infty}{\int_{A_{n}} {(f)_{+}\mu}} - \lim_{n \rightarrow \infty}{\int_{A_{n}} {(f)_{-}\mu}}\\
+&= \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {(f)_{+}\mu} - \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {(f)_{-}\mu}\\
+&= \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {f\mu}
+\end{align*}\par
+その写像$f$がその集合$A_{1}$で定積分可能であるとき、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調減少するなら、元の列$\left( A_{1} \setminus A_{n} \right)_{n \in \mathbb{N}}$は単調増加するので、上記の議論により次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\int_{A_{n}} {f\mu}} &= \lim_{n \rightarrow \infty}{\int_{A_{1} \cap A_{n}} {f\mu}}\\
+&= \lim_{n \rightarrow \infty}\left( \int_{A_{1}} {f\mu} - \int_{A_{1} \setminus A_{n}} {f\mu} \right)\\
+&= \lim_{n \rightarrow \infty}{\int_{A_{1}} {f\mu}} - \lim_{n \rightarrow \infty}{\int_{A_{1} \setminus A_{n}} {f\mu}}\\
+&= \int_{A_{1}} {f\mu} - \int_{\bigcap_{n \in \mathbb{N}} \left( A_{1} \setminus A_{n} \right)} {f\mu}\\
+&= \int_{A_{1}} {f\mu} - \int_{A_{1} \setminus \bigcup_{n \in \mathbb{N}} A_{n}} {f\mu}\\
+&= \int_{A_{1}} {f\mu} - \left( \int_{A_{1}} {f\mu} - \int_{A_{1} \cap \bigcup_{n \in \mathbb{N}} A_{n}} {f\mu} \right)\\
+&= \int_{A_{1}} {f\mu} - \int_{A_{1}} {f\mu} + \int_{\bigcup_{n \in \mathbb{N}} A_{n}} {f\mu}\\
+&= \int_{\bigcap_{n \in \mathbb{N}} A_{n}} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.28}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$が与えられたとき、非負可測関数の非負単関数の列による近似におけるその集合$\mathcal{M}_{(X,\varSigma,\mu)}^{+}$の元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$は次式を満たす。
+\begin{align*}
+\int_{E} {f\mu} = \int_{E} {\sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}\mu} = \lim_{n \rightarrow \infty}{\int_{E} {(f)_{n}\mu}}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$が与えられたとき、非負可測関数の非負単関数の列による近似におけるその集合$\mathcal{M}_{(X,\varSigma,\mu)}^{+}$の元の列$\left( (f)_{n} \right)_{n \in \mathbb{N}}$のどの写像も可測であるかつ、単調増加列で次式が成り立つ。
+\begin{align*}
+f = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}} = \lim_{n \rightarrow \infty}(f)_{n}
+\end{align*}
+さらに、単調収束定理より次式が成り立つ。
+\begin{align*}
+\int_{E} {f\mu} = \int_{E} {\sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}\mu} = \lim_{n \rightarrow \infty}{\int_{E} {(f)_{n}\mu}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7a4dux5206ux306eux7ddaux5f62ux6027}{%
+\subsubsection{積分の線形性}%\label{ux7a4dux5206ux306eux7ddaux5f62ux6027}}
+\begin{thm}\label{4.6.1.29}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$g$が与えられたとき、その和が定義されることができるなら、次式が成り立つ。
+\begin{align*}
+\int_{X} {(f + g)\mu} = \int_{X} {f\mu} + \int_{X} {g\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像たち$f$、$g$が与えられたとき、その和が定義されることができるとすると、非負可測関数の非負単関数の列による近似よりその集合$\mathfrak{L}'$の元の列々$\left( (f)_{n} \right)_{n \in \mathbb{N}}$、$\left( (g)_{n} \right)_{n \in \mathbb{N}}$が存在して単調増加列で$f = \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}} = \lim_{n \rightarrow \infty}(f)_{n}$かつ$g = \sup\left\{ (g)_{n} \right\}_{n \in \mathbb{N}} = \lim_{n \rightarrow \infty}(g)_{n}$が成り立つ。したがって、$(f)_{n} = \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}$、$(g)_{n} = \sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}$とおかれれば、単調収束定理より次のようになる。
+\begin{align*}
+\int_{X} {(f + g)\mu} &= \int_{X} {\left( \sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}} + \sup\left\{ (g)_{n} \right\}_{n \in \mathbb{N}} \right)\mu}\\
+&= \int_{X} {\sup\left\{ (f)_{n} + (g)_{n} \right\}_{n \in \mathbb{N}}\mu}\\
+&= \lim_{n \rightarrow \infty}{\int_{X} {\left( (f)_{n} + (g)_{n} \right)\mu}}\\
+&= \lim_{n \rightarrow \infty}{\int_{X} {\left( \sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}} + \sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}} \right)\mu}}\\
+&= \lim_{n \rightarrow \infty}{\int_{X} {\sum_{i \in \varLambda_{n}} {\left( a_{i} + b_{i} \right)\chi_{E_{i}}}\mu}}\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{i \in \varLambda_{n}} {\left( a_{i} + b_{i} \right)\mu\left( E_{i} \right)} \right)\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{i \in \varLambda_{n}} {a_{i}\mu\left( E_{i} \right)} + \sum_{i \in \varLambda_{n}} {b_{i}\mu\left( E_{i} \right)} \right)\\
+&= \lim_{n \rightarrow \infty}\left( \int_{X} {\sum_{i \in \varLambda_{n}} {a_{i}\chi_{E_{i}}}\mu} + \int_{X} {\sum_{i \in \varLambda_{n}} {b_{i}\chi_{E_{i}}}\mu} \right)\\
+&= \lim_{n \rightarrow \infty}{\int_{X} {(f)_{n}\mu}} + \lim_{n \rightarrow \infty}{\int_{X} {(g)_{n}\mu}}\\
+&= \int_{X} {\sup\left\{ (f)_{n} \right\}_{n \in \mathbb{N}}\mu} + \int_{X} {\sup\left\{ (g)_{n} \right\}_{n \in \mathbb{N}}\mu}\\
+&= \int_{X} {f\mu} + \int_{X} {g\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.30}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$が与えられたとき、$\forall k \in \mathrm{cl}\mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\int_{X} {kf\mu} = k\int_{X} {f\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f \in \mathcal{M}_{(X,\varSigma,\mu)}^{+}$なる写像$f$が与えられたとき、$\forall k \in \mathrm{cl}\mathbb{R}^{+} \setminus \left\{ \infty \right\} = \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次式が成り立つことは定理\ref{4.6.1.10}そのものである。
+\begin{align*}
+\int_{X} {kf\mu} = k\int_{X} {f\mu}
+\end{align*}
+$k = \infty$のとき、Markovの不等式より任意の自然数$n$に対し、次のようになる。
+\begin{align*}
+n\mu\left( \left\{ 0 < f \right\} \right) \leq \int_{\left\{ 0 < f \right\}} {\infty f\mu} \leq \int_{X} {\infty f\mu}
+\end{align*}
+ここで、$0 < \mu\left( \left\{ 0 < f \right\} \right)$のとき、$\varepsilon$-$\delta$論法より次式が成り立つ。
+\begin{align*}
+\int_{X} {\infty f\mu} = \infty
+\end{align*}
+さらに、定理\ref{4.6.1.20}より$0 < \int_{X} {f\mu}$が成り立つので\footnote{積分の単調性だけでは$0 = \int_{X} {f\mu}$が否定されることができませんので、そうしております。}、次式が成り立つ。
+\begin{align*}
+\int_{X} {\infty f\mu} = \infty = \infty\int_{X} {f\mu}
+\end{align*}\par
+$0 = \mu\left( \left\{ 0 < f \right\} \right)$のとき、$\left\{ 0 < f \right\} = \left\{ 0 < \infty f \right\}$が成り立つので\footnote{$\infty 0 = 0$が成り立つことは約束されています。}、定理\ref{4.6.1.20}より$\mu\left( \left\{ 0 < f \right\} \right) = \mu\left( \left\{ 0 < \infty f \right\} \right) = 0$が成り立つならそのときに限り、次のようになる。
+\begin{align*}
+\int_{X} {\infty f\mu} = 0 = \infty 0 = \infty\int_{X} {f\mu}
+\end{align*}\par
+いづれの場合でも、次式が成り立つ。
+\begin{align*}
+\int_{X} {\infty f\mu} = \infty\int_{X} {f\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.31}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f$かつ$0 \leq g$が成り立つなら、$\forall k,l \in \mathrm{cl}\mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\int_{E} {(kf + lg)\mu} = k\int_{E} {f\mu} + l\int_{E} {g\mu}
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その集合$E$で$0 \leq f$かつ$0 \leq g$が成り立つなら、$\chi_{E}f,\chi_{E}g \in \varSigma$が成り立つので、$\forall k,l \in \mathrm{cl}\mathbb{R}^{+}$に対し、定理\ref{4.6.1.29}、定理\ref{4.6.1.30}より次のようになる。
+\begin{align*}
+\int_{E} {(kf + lg)\mu} &= \int_{X} {\chi_{E}(kf + lg)\mu}\\
+&= \int_{X} {\left( k\chi_{E}f + l\chi_{E}g \right)\mu}\\
+&= \int_{X} {k\chi_{E}f\mu} + \int_{X} {l\chi_{E}g\mu}\\
+&= k\int_{X} {\chi_{E}f\mu} + l\int_{X} {\chi_{E}g\mu}\\
+&= k\int_{E} {f\mu} + l\int_{E} {g\mu}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.1.32}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$f$がその集合$E$で定積分可能であるなら、$\forall k \in \mathbb{R}$に対し、その写像$kf$もその集合$E$で定積分可能である。このとき、次式たちが成り立つ。
+\begin{align*}
+\int_{E} {|kf|\mu} = |k|\int_{E} {|f|\mu},\ \ \int_{E} {kf\mu} = k\int_{E} {f\mu}
+\end{align*}
+\item
+  それらの写像たち$f$、$g$がその集合$E$で定積分可能であるかつ、その集合$X$でその和$f + g$が定義されることができるなら、その写像$f + g$もその集合$E$で定積分可能である。このとき、次式たちが成り立つ\footnote{$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとして、その集合$E$でその和$f + g$が定義されることができるとき、次式のような写像$h$が与えられたなら、
+\begin{align*}
+h:X \rightarrow{}^{*}\mathbb{R};x \mapsto \left\{ \begin{matrix}
+  (f + g)(x) & \mathrm{if} & x \in E \\
+  0 & \mathrm{if} & x \notin E \\
+\end{matrix} \right.\ 
+\end{align*}
+  $\chi_{E}h \in \mathcal{M}_{(X,\varSigma,\mu)}$はもちろん成り立ちますが、$x \notin E$のとき、その和$f + g$が未定義のままなので、$\chi_{E}(f + g) \in \mathcal{M}_{(X,\varSigma,\mu)}$が成り立つとはちょっと分からないということに注意してください…。なお、その集合$E$でその和$f + g$が定義されることしかできないのであれば、次のような写像たち$f'$、$g'$で代用しておくとよいかもしれません。
+\begin{align*}
+f':X \rightarrow{}^{*}\mathbb{R};x \mapsto \left\{ \begin{matrix}
+  f(x) & \mathrm{if} & x \in E \\
+  0 & \mathrm{if} & x \notin E \\
+\end{matrix} \right.\ ,\ \ g':X \rightarrow{}^{*}\mathbb{R};x \mapsto \left\{ \begin{matrix}
+  g(x) & \mathrm{if} & x \in E \\
+  0 & \mathrm{if} & x \notin E \\
+\end{matrix} \right.\ 
+\end{align*}}。
+\begin{align*}
+\int_{E} {|f + g|\mu} \leq \int_{E} {|f|\mu} + \int_{E} {|g|\mu},\ \ \int_{E} {(f + g)\mu} = \int_{E} {f\mu} + \int_{E} {g\mu}
+\end{align*}
+\item
+  それらの写像たち$f$、$g$がその集合$E$で定積分可能であるかつ、$\forall k,l \in \mathbb{R}$に対し、その集合$X$でその和$kf + lg$が定義されることができるなら、その写像$kf + lg$もその集合$E$で定積分可能である。このとき、次式たちが成り立つ。
+\begin{align*}
+\int_{E} {(kf + lg)\mu} = k\int_{E} {f\mu} + l\int_{E} {g\mu}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$がその集合$E$で定積分可能であるなら、定理\ref{4.6.1.29}より次のようになるので、
+\begin{align*}
+\int_{E} {|kf|\mu} = \int_{X} {\chi_{E}|kf|\mu} = |k|\int_{X} {\chi_{E}|f|\mu} = |k|\int_{E} {|f|\mu}
+\end{align*}
+定理\ref{4.6.1.22}よりその写像$kf$もその集合$E$で定積分可能で、$k \geq 0$のとき、定理\ref{4.6.1.30}より次のようになる。
+\begin{align*}
+\int_{E} {kf\mu} &= \int_{X} {\chi_{E}(kf)_{+}\mu} - \int_{X} {\chi_{E}(kf)_{-}\mu}\\
+&= k\int_{X} {\chi_{E}(f)_{+}\mu} - k\int_{X} {\chi_{E}(f)_{-}\mu}\\
+&= k\left( \int_{X} {\chi_{E}(f)_{+}\mu} - \int_{X} {\chi_{E}(f)_{-}\mu} \right)\\
+&= k\int_{E} {f\mu}
+\end{align*}
+$k < 0$のとき、次のようになる。
+\begin{align*}
+\int_{E} {kf\mu} &= \int_{E} {( - k)( - f)\mu}\\
+&= \int_{X} {\chi_{E}\left( ( - k)( - f) \right)_{+}\mu} - \int_{X} {\chi_{E}\left( ( - k)( - f) \right)_{-}\mu}\\
+&= - k\int_{X} {\chi_{E}( - f)_{+}\mu} + k\int_{X} {\chi_{E}( - f)_{-}\mu}\\
+&= k\int_{X} {\chi_{E}(f)_{+}\mu} - k\int_{X} {\chi_{E}(f)_{-}\mu}\\
+&= k\left( \int_{X} {\chi_{E}(f)_{+}\mu} - \int_{X} {\chi_{E}(f)_{-}\mu} \right)\\
+&= k\int_{E} {f\mu}
+\end{align*}
+よって、その写像$f$がその集合$E$で定積分可能であるなら、$\forall k \in \mathbb{R}$に対し、その写像$kf$もその集合$E$で定積分可能である。このとき、次式たちが成り立つ。
+\begin{align*}
+\int_{E} {|kf|\mu} = |k|\int_{E} {|f|\mu},\ \ \int_{E} {kf\mu} = k\int_{E} {f\mu}
+\end{align*}\par
+それらの写像たち$f$、$g$がその集合$E$で定積分可能であるかつ、その集合$X$でその和$f + g$が定義されることができるなら、三角不等式より$|f + g| \leq |f| + |g|$が成り立つので、定理\ref{4.6.1.30}より次のようになる。
+\begin{align*}
+\int_{E} {|f + g|\mu} &\leq \int_{E} {\left( |f| + |g| \right)\mu}\\
+&= \int_{X} {\chi_{E}\left( |f| + |g| \right)\mu}\\
+&= \int_{X} {\left( \chi_{E}|f| + \chi_{E}|g| \right)\mu}\\
+&= \int_{X} {\chi_{E}|f|\mu} + \int_{X} {\chi_{E}|g|\mu}\\
+&= \int_{E} {|f|\mu} + \int_{E} {|g|\mu}
+\end{align*}
+定理\ref{4.6.1.22}よりその写像$f + g$もその集合$E$で定積分可能で、$(f + g)_{+} + (f)_{-} + (g)_{-} = (f + g)_{-} + (f)_{+} + (g)_{+}$が成り立つかつ\footnote{証明するとしたら、場合分けがやりやすいかも…。}、定理\ref{4.6.1.30}より次のようになる。
+\begin{align*}
+\int_{E} {(f + g)\mu} &= \int_{X} {\chi_{E}(f + g)_{+}\mu} - \int_{X} {\chi_{E}(f + g)_{-}\mu}\\
+&= \int_{X} {\chi_{E}(f + g)_{+}\mu} + \int_{X} {\chi_{E}(f)_{-}\mu} + \int_{X} {\chi_{E}(g)_{-}\mu} \\
+&\quad - \int_{X} {\chi_{E}(f + g)_{-}\mu} - \int_{X} {\chi_{E}(f)_{+}\mu} - \int_{X} {\chi_{E}(g)_{+}\mu} \\
+&\quad - \int_{X} {\chi_{E}(f)_{-}\mu} - \int_{X} {\chi_{E}(g)_{-}\mu} + \int_{X} {\chi_{E}(f)_{+}\mu} + \int_{X} {\chi_{E}(g)_{+}\mu}\\
+&= \int_{X} \left( \chi_{E}(f + g)_{+} + \chi_{E}(f)_{-} + \chi_{E}(g)_{-} - \chi_{E}(f + g)_{-} - \chi_{E}(f)_{+} - \chi_{E}(g)_{+} \right)\mu \\
+&\quad + \int_{X} {\chi_{E}(f)_{+}\mu} + \int_{X} {\chi_{E}(g)_{+}\mu} - \int_{X} {\chi_{E}(f)_{-}\mu} - \int_{X} {\chi_{E}(g)_{-}\mu}\\
+&= \int_{X} \chi_{E}\left( \left( (f + g)_{+} + (f)_{-} + (g)_{-} \right) - \left( (f + g)_{-} + (f)_{+} + (g)_{+} \right) \right)\mu \\
+&\quad + \int_{X} {\chi_{E}(f)_{+}\mu} + \int_{X} {\chi_{E}(g)_{+}\mu} - \int_{X} {\chi_{E}(f)_{-}\mu} - \int_{X} {\chi_{E}(g)_{-}\mu}\\
+&= \int_{E} \left( \left( (f + g)_{+} + (f)_{-} + (g)_{-} \right) - \left( (f + g)_{-} + (f)_{+} + (g)_{+} \right) \right)\mu \\
+&\quad + \int_{E} {(f)_{+}\mu} - \int_{E} {(f)_{-}\mu} + \int_{E} {(g)_{+}\mu} - \int_{E} {(g)_{-}\mu}\\
+&= \int_{E} {0\mu} + \int_{E} {f\mu} + \int_{E} {g\mu}\\
+&= \int_{E} {f\mu} + \int_{E} {g\mu}
+\end{align*}\par
+それらの写像たち$f$、$g$がその集合$E$で定積分可能であるかつ、その集合$X$でその和$kf + lg$が定義されることができるなら、上記の議論により次のようになる。
+\begin{align*}
+\int_{E} {(kf + lg)\mu} = \int_{E} {kf\mu} + \int_{E} {lg\mu} = k\int_{E} {f\mu} + l\int_{E} {g\mu}
+\end{align*}
+\end{proof}
+%\hypertarget{ux7a4dux5206ux306eux7b2c1ux5e73ux5747ux5024ux5b9aux7406}{%
+\subsubsection{積分の第1平均値定理}%\label{ux7a4dux5206ux306eux7b2c1ux5e73ux5747ux5024ux5b9aux7406}}
+\begin{thm}[積分の第1平均値定理]\label{4.6.1.33}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$が有界でその写像$g$がその集合$E$で定積分可能であるなら、その写像$fg$はその集合$E$で積分可能である。さらに、$\inf{f|E} \leq c \leq \sup{f|E}$なるある実数$c$が存在して、次式が成り立つ。
+\begin{align*}
+\int_{E} {f|g|\mu} = c\int_{E} {|g|\mu}
+\end{align*}
+この定理を積分の第1平均値定理という。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$と$f,g \in \mathcal{M}_{(X,\varSigma,\mu)}$なる写像たち$f$、$g$、$E \in \varSigma$なる集合$E$が与えられたとき、その写像$f$が有界でその写像$g$がその集合$E$で定積分可能であるなら、実数たち$\inf{f|E}$、$\sup{f|E}$が存在して、これらが$m$、$M$とおかれれば、その集合$E$上で次のようになる。
+\begin{align*}
+m \leq f \leq M &\Leftrightarrow - \max\left\{ |m|,|M| \right\} \leq m \leq f \leq M \leq \max\left\{ |m|,|M| \right\}\\
+&\Leftrightarrow |f| \leq \max\left\{ |m|,|M| \right\}
+\end{align*}
+$\mathcal{M}=\max\left\{ |m|,|M| \right\}$とすると、したがって、次のようになる。
+\begin{align*}
+|fg| = |f||g|\mathcal{\leq M}|g|\mathcal{\Leftrightarrow - M}|g| \leq fg\mathcal{\leq M}|g|
+\end{align*}
+そこで、$|g| = (g)_{+} + (g)_{-}$が成り立つので、その写像$|g|$は定積分可能であるかつ、それらの写像たち$\mathcal{- M}|g|$、$\mathcal{M}|g|$も定理\ref{4.6.1.32}より定積分可能であるので、次のようになる。
+\begin{align*}
+-\mathcal{M}|g| \leq fg\mathcal{\leq M}|g| &\Leftrightarrow \left\{ \begin{matrix}
+\left( \mathcal{M}|g| \right)_{-} \leq (fg)_{-} \leq \left( \mathcal{- M}|g| \right)_{-} \\
+\left( - \mathcal{M}|g| \right)_{+} \leq (fg)_{+} \leq \left( \mathcal{M}|g| \right)_{+} \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left\{ \begin{matrix}
+\int_{E} {(fg)_{-}\mu} \leq \int_{E} {\left( \mathcal{- M}|g| \right)_{-}\mu} < \infty \\
+\int_{E} {(fg)_{+}\mu} \leq \int_{E} {\left( \mathcal{M}|g| \right)_{+}\mu} < \infty \\
+\end{matrix} \right.
+\end{align*}
+これにより、その写像$fg$はその集合$E$で定積分可能である。\par
+また、同様にして、その写像$f|g|$がその集合$E$で定積分可能であることも示される。仮定より$m \leq f \leq M$が成り立つので、$m|g| \leq f|g| \leq M|g|$も得られ、したがって、次のようになる。
+\begin{align*}
+\inf{f|E}\int_{E} {|g|\mu} = \int_{E} {m|g|\mu} \leq \int_{E} {f|g|\mu} \leq \int_{E} {M|g|\mu} = \sup{f|E}\int_{E} {|g|\mu}
+\end{align*}
+$\int_{E} {|g|\mu} = 0$のとき、単に、$\inf{f|E} \leq c \leq \sup{f|E}$とすればよい。$\int_{E} {|g|\mu} \neq 0$のとき、両辺に$\int_{E} {|g|\mu}$で割れば次のようになる。
+\begin{align*}
+\inf{f|E} \leq \frac{\int_{E} {f|g|\mu}}{\int_{E} {|g|\mu}} \leq \sup{f|E}
+\end{align*}
+そこで、$c = \frac{\int_{E} {f|g|\mu}}{\int_{E} {|g|\mu}}$とおかれると、$\inf{f|E} \leq c \leq \sup{f|E}$なるある実数$c$が存在して、次式が成り立つ。
+\begin{align*}
+\int_{E} {f|g|\mu} = c\int_{E} {|g|\mu}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 新装第1版2刷 p76-84 ISBN978-4-7853-1318-0
+\bibitem{2}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 第24刷 p82 ISBN4-7853-1304-8
+\bibitem{3}
+  岩田耕一郎, ルベーグ積分, 森北出版, 2015. 第1版第2刷 p6-34 ISBN978-4-627-05431-8
+\bibitem{4}
+  Mathpedia. "測度と積分". Mathpedia. \url{https://math.jp/wiki/%E6%B8%AC%E5%BA%A6%E3%81%A8%E7%A9%8D%E5%88%86} (2021-7-12 9:20 閲覧)
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,1275 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{5}
+\setcounter{subsection}{2}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6e2cux5ea6}{%
+\subsection{測度}%\label{ux6e2cux5ea6}}
+%\hypertarget{jordanux6e2cux5ea6}{%
+\subsubsection{Jordan測度}%\label{jordanux6e2cux5ea6}}
+\begin{axs}[Jordan測度の公理]
+集合$X$の有限加法族$\mathfrak{F}$を用いた写像$m:\mathfrak{F \rightarrow}\mathrm{cl}\mathbb{R}^{+}$が次のことを満たすとき、その写像$m$をその集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度、集合$X$上の有限加法族$\mathfrak{F}$で定義された有限加法的な測度という。
+\begin{itemize}
+\item
+  $m(\emptyset) = 0$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$m(A \sqcup B) = m(A) + m(B)$が成り立つ。この性質を有限加法性といい、この性質をもっていることを有限加法的であるという。
+\end{itemize}
+\end{axs}
+\begin{thm}\label{4.5.3.1}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$A \subseteq B$が成り立つなら、$m(A) \leq m(B)$が成り立つ。この性質を単調性といい、この性質をもっていることを単調的であるという。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$m(A) < \infty$が成り立つとき、$m(B \setminus A) = m(B) - m(A \cap B)$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$m(A \cup B) \leq m(A) + m(B)$が成り立つ。この性質を劣加法性といい、この性質をもっていることを劣加法的であるという。
+\item
+  添数集合$\varLambda_{n}$によって添数づけられたその集合$\mathfrak{F}$の元の族$\left\{ A_{i} \right\}_{i \in \varLambda_{n} }$が与えられたとき、$m\left( \bigcup_{i \in \varLambda_{n}} A_{i} \right) = \sum_{i \in \varLambda_{n} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+  J \subseteq \varLambda_{n} \\
+  \#J = i \\
+  \end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}}$が成り立つ。この定理を包除原理という。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が与えられたとき、$\forall A,B \in \mathfrak{F}$に対し、$A \subseteq B$が成り立つなら、明らかに$B = A \sqcup (B \setminus A)$が成り立つので、次のようになる。
+\begin{align*}
+m(B) = m\left( A \sqcup (B \setminus A) \right) = m(A) + m(B \setminus A)
+\end{align*}
+ここで、Jordan測度の定義より$m(B \setminus A) \geq 0$が成り立つので、$m(A) \leq m(B)$が得られる。\par
+$\forall A,B \in \mathfrak{F}$に対し、$m(A) < \infty$が成り立つとき、上記と同様にして、次式が成り立つ。
+\begin{align*}
+m(B) = m(B \cap A) + m(B \setminus A)
+\end{align*}
+あとは、移項して$m(B \setminus A) = m(B) - m(B \cap A)$が得られる。\par
+$\forall A,B \in \mathfrak{F}$に対し、明らかに次式が成り立つので、
+\begin{align*}
+A \cup B &= (A \setminus B) \sqcup (A \cap B) \sqcup (B \setminus A)\\
+&= \left( A \setminus (A \cap B) \right) \sqcup (A \cap B) \sqcup \left( B \setminus (A \cap B) \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+m(A \cup B) &= m\left( A \setminus (A \cap B) \right) + m(A \cap B) + m\left( B \setminus (A \cap B) \right)\\
+&= m\left( A \setminus (A \cap B) \right) + m(A \cap B) + m\left( B \setminus (A \cap B) \right) + m(A \cap B) - m(A \cap B)\\
+&= m\left( \left( A \setminus (A \cap B) \right) \sqcup (A \cap B) \right) + m\left( \left( B \setminus (A \cap B) \right) \sqcup (A \cap B) \right) - m(A \cap B)\\
+&= m(A) + m(B) - m(A \cap B)
+\end{align*}
+ここで、Jordan測度の定義より$m(A \cap B) \geq 0$が成り立つので、次式が得られる。
+\begin{align*}
+m(A \cap B) = m(A) + m(B) - m(A \cap B) \leq m(A) + m(B)
+\end{align*}\par
+$\forall A,B \in \mathfrak{F}$に対し、明らかに次式が成り立つので、
+\begin{align*}
+A \cup B = \left( A \setminus (A \cap B) \right) \sqcup (A \cap B) \sqcup \left( B \setminus (A \cap B) \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+m(A \cup B) &= m\left( A \setminus (A \cap B) \right) + m(A \cap B) + m\left( B \setminus (A \cap B) \right)\\
+&= m\left( A \setminus (A \cap B) \right) + m(A \cap B) + m\left( B \setminus (A \cap B) \right) + m(A \cap B) - m(A \cap B)\\
+&= m\left( \left( A \setminus (A \cap B) \right) \sqcup (A \cap B) \right) + m\left( \left( B \setminus (A \cap B) \right) \sqcup (A \cap B) \right) - m(A \cap B)\\
+&= m(A) + m(B) - m(A \cap B)
+\end{align*}
+これにより、添数集合$\varLambda_{n}$によって添数づけられたその集合$\mathfrak{F}$の元の族$\left\{ A_{i} \right\}_{i \in \varLambda_{n} }$が与えられたとき、$n = 2$のとき、次のようになる。
+\begin{align*}
+m\left( A_{1} \cup A_{2} \right) &= m\left( A_{1} \right) + m\left( A_{2} \right) - m\left( A_{1} \cap A_{2} \right)\\
+&= \sum_{j \in \left\{ 1,2 \right\} } {m\left( A_{j} \right)} - m\left( \bigcap_{j \in \varLambda_{2}} A_{j} \right)\\
+&= \sum_{J = \left\{ 1 \right\},\left\{ 2 \right\} } {m\left( \bigcap_{j \in J} A_{j} \right)} - \sum_{J = \varLambda_{2} } {m\left( \bigcap_{j \in J} A_{j} \right)}\\
+&= \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{2} \\
+\#J = 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} - \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{2} \\
+\#J = 2 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}\\
+&= \sum_{i \in \varLambda_{2}} {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{2} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}}
+\end{align*}
+ここで、$n = k$のとき、次式が成り立つと仮定すると、
+\begin{align*}
+m\left( \bigcup_{i \in \varLambda_{k}} A_{i} \right) = \sum_{i \in \varLambda_{k} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}}
+\end{align*}
+$n = k + 1$のとき、次のようになる。
+\begin{align*}
+m\left( \bigcup_{i \in \varLambda_{k + 1}} A_{i} \right) &= m\left( \bigcup_{i \in \varLambda_{k}} A_{i} \cup A_{k + 1} \right)\\
+&= m\left( \bigcup_{i \in \varLambda_{k}} A_{i} \right) + m\left( A_{k + 1} \right) - m\left( \bigcup_{i \in \varLambda_{k}} A_{i} \cap A_{k + 1} \right)\\
+&= m\left( \bigcup_{i \in \varLambda_{k}} A_{i} \right) + m\left( A_{k + 1} \right) - m\left( \bigcup_{i \in \varLambda_{k}} \left( A_{i} \cap A_{k + 1} \right) \right)\\
+&= \sum_{i \in \varLambda_{k} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}} + m\left( A_{k + 1} \right) \\
+&\quad - \sum_{i \in \varLambda_{k} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} \left( A_{j} \cap A_{k + 1} \right) \right)}}\\
+&= \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} + \sum_{i \in \varLambda_{k} \setminus \left\{ 1 \right\}} {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}} + m\left( A_{k + 1} \right) \\
+&\quad + \sum_{i \in \varLambda_{k - 1} } {( - 1)^{i}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} \left( A_{j} \cap A_{k + 1} \right) \right)}} + ( - 1)^{k}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = k \\
+\end{matrix}} {m\left( \bigcap_{j \in J} \left( A_{j} \cap A_{k + 1} \right) \right)}\\
+&= \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} + \sum_{i \in \varLambda_{k} \setminus \left\{ 1 \right\}} ( - 1)^{i - 1}\left( \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} \right. \\
+&\quad \left. + \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k} \\
+\#J = i - 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} \left( A_{j} \cap A_{k + 1} \right) \right)} \right) + ( - 1)^{k + 1 - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = k + 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}\\
+&= \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} + \sum_{i \in \varLambda_{k} \setminus \left\{ 1 \right\}} ( - 1)^{i - 1}\left( \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = i \\
+k + 1 \notin J \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} \right. \\
+&\quad \left. + \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = i \\
+k + 1 \in J \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} \right) + ( - 1)^{k + 1 - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = k + 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}\\
+&= \sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)} + \sum_{i \in \varLambda_{k} \setminus \left\{ 1 \right\}} {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}} \\
+&\quad + ( - 1)^{k + 1 - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = k + 1 \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}\\
+&= \sum_{i \in \varLambda_{k + 1} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{k + 1} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}}
+\end{align*}
+以上、数学的帰納法により添数集合$\varLambda_{n}$によって添数づけられたその集合$\mathfrak{F}$の元の族$\left\{ A_{i} \right\}_{i \in \varLambda_{n} }$が与えられたとき、$m\left( \bigcup_{i \in \varLambda_{n}} A_{i} \right) = \sum_{i \in \varLambda_{n} } {( - 1)^{i - 1}\sum_{\scriptsize \begin{matrix}
+J \subseteq \varLambda_{n} \\
+\#J = i \\
+\end{matrix}} {m\left( \bigcap_{j \in J} A_{j} \right)}}$が成り立つ。
+\end{proof}
+\begin{dfn}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が次のことを満たすとき、そのJordan測度$m$を集合$X$上の有限加法族$\mathfrak{F}$で定義された完全加法的な測度という。
+\begin{itemize}
+\item
+  その集合$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が$\bigsqcup_{n \in \mathbb{N}} A_{n}\in \mathfrak{F}$を満たすとき、$m\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) = \sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}$が成り立つ。この性質を完全加法性といい、この性質をもっていることを完全加法的であるという。
+\end{itemize}
+\end{dfn}
+%\hypertarget{ux5916ux6e2cux5ea6}{%
+\subsubsection{外測度}%\label{ux5916ux6e2cux5ea6}}
+\begin{axs}[外測度の公理]
+集合$X$を用いた写像$\mu^{*}\mathfrak{:P}(X) \rightarrow \mathrm{cl}\mathbb{R}^{+}$が次のことを満たすとき、その写像$\mu^{*}$をその集合$X$上のCarathéodory外測度、または単に、外測度という。
+\begin{itemize}
+\item
+  $\mu^{*}(\emptyset) = 0$が成り立つ。
+\item
+  その写像$\mu^{*}$は単調的である、即ち、$\forall A,B \in \mathfrak{F}$に対し、$A \subseteq B$が成り立つなら、$\mu^{*}\left( A_{1} \right) \leq \mu^{*}\left( A_{2} \right)$が成り立つ。
+\item
+  その写像$\mu^{*}$は劣加法的である、即ち、その集合$\mathfrak{P}(X)$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\mu^{*}\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu^{*}\left( A_{n} \right)}$が成り立つ。
+\end{itemize}
+\end{axs}
+\begin{dfn}
+ある集合$X$が与えられたとしこれの部分集合系$\mathfrak{P}(X)$の部分集合$\mathfrak{A}$を用いて任意の添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{A}$の元の族$\left\{ A_{i} \right\}_{i \in \varLambda}$のうち$A \subseteq \bigcup_{i \in \varLambda} A_{i}$を満たすことをその元の族$\left\{ A_{i} \right\}_{i \in \varLambda}$がその集合$A$を掩うということにする。
+\end{dfn}\par
+このような元の族は存在し、例えば、族$\left\{ A \right\}$が挙げられる。族のみならず列に対してもそういうことにする。
+\begin{thm}\label{4.5.3.2}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が与えられたとする。$\forall A \in \mathfrak{P}(X)$に対し、これを掩うようなその集合$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$とその集合$\mathfrak{F}$上のJordan測度$m$を用いて$\sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}$と書かれることができる集合$\mathrm{cl}\mathbb{R}^{+}$の元全体の集合$\mathcal{G}_{A}$を用いて次式のように写像$\gamma_{m}$が定義されると、
+\begin{align*}
+\gamma_{m}\mathfrak{:P}(X) \rightarrow \mathrm{cl}\mathbb{R}^{+};A \mapsto \inf\mathcal{G}_{A}
+\end{align*}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$\gamma_{m}$は外測度となる。
+\item
+  $\forall A \in \mathfrak{F}$に対し、$\gamma_{m}(A) \leq m(A)$が成り立つ。
+\item
+  そのJordan測度$m$が集合$X$上の有限加法族$\mathfrak{F}$で定義された完全加法的な測度であるなら、$\forall A \in \mathfrak{F}$に対し、$\gamma_{m}(A) = m(A)$が成り立つ、即ち、$\gamma_{m}\mathfrak{|F} =m$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{dfn}
+このような外測度$\gamma_{m}$を集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された外測度と呼ぶことにする。
+\end{dfn}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が与えられたとする。$\forall A \in \mathfrak{P}(X)$に対し、これを掩うようなその集合$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$とその集合$\mathfrak{F}$上のJordan測度$m$を用いて$\sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}$と書かれることができる集合$\mathrm{cl}\mathbb{R}^{+}$の元全体の集合$\mathcal{G}_{A}$を用いて次式のように写像$\gamma_{m}$が定義されるとする。
+\begin{align*}
+\gamma_{m}\mathfrak{:P}(X) \rightarrow \mathrm{cl}\mathbb{R}^{+};A \mapsto \inf\mathcal{G}_{A}
+\end{align*}\par
+このとき、$\mathfrak{\emptyset \in F}$かつ$m(\emptyset) = 0 = \inf\mathcal{G}_{\emptyset}$が成り立つので、$\gamma_{m}(\emptyset) = 0$が成り立つ。$\forall A,B \in \mathfrak{P}(X)$に対し、$A \subseteq B$が成り立つなら、$\forall\sum_{n \in \mathbb{N}} {m\left( B_{n} \right)} \in \mathcal{G}_{B}$に対し、定義より$A \subseteq B \subseteq \bigcup_{n \in \mathbb{N}} B_{n}$が成り立つので、劣加法性より次式が成り立つ。
+\begin{align*}
+\gamma_{m}(A) \leq \sum_{n \in \mathbb{N}} {m\left( B_{n} \right)}
+\end{align*}
+集合$\mathcal{G}_{B}$の下限をとっても次式が成り立つ。
+\begin{align*}
+\gamma_{m}(A) \leq \inf\mathcal{G}_{B} = \gamma_{m}(B)
+\end{align*}
+その集合$\mathfrak{P}(X)$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、その写像$\gamma_{m}$の定義より明らかに次式が成り立つようなその集合$\mathcal{G}_{A_{n}}$の元$\sum_{k \in \mathbb{N}} {m\left( A_{nk} \right)}$が存在できる。
+\begin{align*}
+\sum_{k \in \mathbb{N}} {m\left( A_{nk} \right)} \leq \inf\mathcal{G}_{A_{n}} + \frac{\varepsilon}{2^{n}}
+\end{align*}
+このとき、$A_{n} \subseteq \bigcup_{k \in \mathbb{N}} A_{nk}$が成り立ち$\bigcup_{n \in \mathbb{N}} A_{n} \subseteq \bigcup_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N}} A_{nk}}$が成り立つ。これはその元の族$\left\{ A_{nk} \right\}_{(n,k) \in \mathbb{N}^{2}}$がその集合$A$を掩うことになるので、次式が成り立つ。
+\begin{align*}
+\gamma_{m}\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) = \inf\mathcal{G}_{\bigcup_{n \in \mathbb{N}} A_{n}} \leq \sum_{(n,k) \in \mathbb{N}^{2}} {m\left( A_{nk} \right)} = \sum_{n \in \mathbb{N}} {\sum_{k \in \mathbb{N}} {m\left( A_{nk} \right)}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\gamma_{m}\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) &\leq \sum_{n \in \mathbb{N}} {\sum_{k \in \mathbb{N}} {m\left( A_{nk} \right)}}\\
+&\leq \sum_{n \in \mathbb{N}} \left( \inf\mathcal{G}_{A_{n}} + \frac{\varepsilon}{2^{n}} \right)\\
+&= \sum_{n \in \mathbb{N}} {\inf\mathcal{G}_{A_{n}}} + \sum_{n \in \mathbb{N}} \frac{\varepsilon}{2^{n}}\\
+&= \sum_{n \in \mathbb{N}} {\gamma_{m}\left( A_{n} \right)} + \frac{\varepsilon}{2}\lim_{n \rightarrow \infty}\frac{1 - \left( \frac{1}{2} \right)^{n}}{1 - \frac{1}{2}}\\
+&= \sum_{n \in \mathbb{N}} {\gamma_{m}\left( A_{n} \right)} + \varepsilon
+\end{align*}
+正の実数$\varepsilon$の任意性より次式が成り立つ。
+\begin{align*}
+\gamma_{m}\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) \leq \sum_{n \in \mathbb{N}} {\gamma_{m}\left( A_{n} \right)}
+\end{align*}
+よって、その写像$\gamma_{m}$は外測度であることが示された。\par
+また、$\forall A \in \mathfrak{F}$に対し、$A \in \mathfrak{F}$かつ$\inf\mathcal{G}_{A} \leq m(A)$が成り立つので、$\gamma_{m}(A) \leq m(A)$が成り立つ。\par
+次に、そのJordan測度$m$が集合$X$上の有限加法族$\mathfrak{F}$で定義された完全加法的な測度であるとき、$\forall A \in \mathfrak{F}$に対し、これを掩うようなその集合$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$に対し、次式のように定義されるその集合$\mathfrak{F}$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$を考えよう。
+\begin{align*}
+\left\{ \begin{matrix}
+B_{1} = A_{1} \cap A \\
+\forall n \in \mathbb{N}\left[ B_{n + 1} = \left( A_{n + 1} \setminus \bigcup_{k \in \varLambda_{n}} A_{k} \right) \cap A \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\forall i,j \in \mathbb{N}$に対し、$i < j$が成り立つなら、次のことが成り立つかつ、
+\begin{align*}
+B_{i} \cap B_{j} &= \left( A_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} A_{k} \right) \cap \left( A_{j} \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \cap A\\
+&= \left( \left( A_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \cap A\\
+&= \left( \left( A_{i} \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \cup \left( \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \cap A\\
+&= \left( \left( \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \cap A = \emptyset
+\end{align*}
+明らかに$A = A \cap \bigcup_{n \in \mathbb{N}} A_{n}$が成り立つかつ、定義より明らかに$\forall n \in \mathbb{N}$に対し、$B_{n} \subseteq A_{n}$が成り立つ。また、次のことが成り立ち、
+\begin{align*}
+A \cap \bigcup_{n \in \mathbb{N}} A_{n} &= A \cap \bigcup_{n \in \mathbb{N}} \left( A_{n} \setminus \bigcup_{k \in \varLambda_{n - 1}} A_{k} \sqcup \bigcup_{k \in \varLambda_{n - 1}} A_{k} \right)\\
+&= \left( A \cap \bigcup_{n \in \mathbb{N}} \left( A_{n} \setminus \bigcup_{k \in \varLambda_{n - 1}} A_{k} \right) \right) \cup \left( A \cap \bigcup_{n \in \mathbb{N}} {\bigcup_{k \in \varLambda_{n - 1}} A_{k}} \right)\\
+&= \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \setminus \bigcup_{k \in \varLambda_{n - 1}} A_{k} \right) \cap A \right) \cup \left( A \cap \bigcup_{n \in \mathbb{N}} A_{n} \right)\\
+&= \bigsqcup_{n \in \mathbb{N}} B_{n} \cup \left( A \cap \bigcup_{n \in \mathbb{N}} A_{n} \right)
+\end{align*}
+したがって、$\bigsqcup_{n \in \mathbb{N}} B_{n} \subseteq A \cap \bigcup_{n \in \mathbb{N}} A_{n}$が成り立つかつ、次式をみれば明らかに、
+\begin{align*}
+\bigsqcup_{n \in \mathbb{N}} B_{n} = \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \setminus \bigcup_{k \in \varLambda_{n - 1}} A_{k} \right) \cap A \right)
+\end{align*}
+$A \cap \bigcup_{n \in \mathbb{N}} A_{n} = \bigsqcup_{n \in \mathbb{N}} B_{n}$が成り立つ。したがって、単調性より次のようになる。
+\begin{align*}
+m(A) = m\left( \bigsqcup_{n \in \mathbb{N}} B_{n} \right) = \sum_{n \in \mathbb{N}} {m\left( B_{n} \right)} \leq \sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}
+\end{align*}
+集合$\mathcal{G}_{A}$の下限をとっても次式が成り立つ。
+\begin{align*}
+m(A) \leq \inf\mathcal{G}_{A} = \gamma_{m}(A) \leq \sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}
+\end{align*}
+よって、$\gamma_{m}(A) = m(A)$が成り立つことが示された。
+\end{proof}
+%\hypertarget{ux3baux3b1ux3c1ux3b1ux3b8ux3b5ux3bfux3b4ux3c9ux3c1ux3aeux306eux610fux5473ux3067ux53efux6e2cux3067ux3042ux308b}{%
+\subsubsection{Carathéodoryの意味で可測である}%\label{ux3baux3b1ux3c1ux3b1ux3b8ux3b5ux3bfux3b4ux3c9ux3c1ux3aeux306eux610fux5473ux3067ux53efux6e2cux3067ux3042ux308b}}
+\begin{dfn}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、$E \in \mathfrak{P}(X)$なる集合$E$が、$\forall A \in \mathfrak{P}(X)$に対し、次式を満たすとき、
+\begin{align*}
+\mu^{*}(A) = \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)
+\end{align*}
+その集合$E$はCarathéodoryの意味で可測であるという。
+\end{dfn}
+\begin{thm}\label{4.5.3.3}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、$\forall E \in \mathfrak{P}(X)$に対し、その集合$E$がCarathéodoryの意味で可測であるならそのときに限り、$\forall A \in \mathfrak{P}(E)\forall B \in \mathfrak{P}(X \setminus E)$に対し、次式が成り立つ。
+\begin{align*}
+\mu^{*}(A \sqcup B) = \mu^{*}(A) + \mu^{*}(B)
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、$\forall E \in \mathfrak{P}(X)$に対し、その集合$E$がCarathéodoryの意味で可測であるなら、$\forall A \in \mathfrak{P}(E)\forall B \in \mathfrak{P}(X \setminus E)$に対し、$A \sqcup B\in \mathfrak{P}(X)$が成り立つので、次のようになる。
+\begin{align*}
+\mu^{*}(A \sqcup B) &= \mu^{*}\left( (A \sqcup B) \cap E \right) + \mu^{*}\left( (A \sqcup B) \cap X \setminus E \right)\\
+&= \mu^{*}\left( (A \cap E) \cup (B \cap E) \right) + \mu^{*}\left( (A \cap X \setminus E) \cup (B \cap X \setminus E) \right)\\
+&= \mu^{*}(A \cup \emptyset) + \mu^{*}(\emptyset \cup B)\\
+&= \mu^{*}(A) + \mu^{*}(B)
+\end{align*}\par
+逆に、$\forall A\in \mathfrak{P}(E)\forall B\in \mathfrak{P}(X \setminus E)$に対し、$\mu^{*}(A \sqcup B) = \mu^{*}(A) + \mu^{*}(B)$が成り立つなら、$\forall A \in \mathfrak{P}(X)$に対し、$A \cap E \in \mathfrak{P}(E)$かつ$A \cap X \setminus E \in \mathfrak{P}(X \setminus E)$が成り立つので、次のようになる。
+\begin{align*}
+\mu^{*}(A) &= \mu^{*}(A \cap X)\\
+&= \mu^{*}\left( A \cap (E \sqcup X \setminus E) \right)\\
+&= \mu^{*}\left( (A \cap E) \sqcup (A \cap X \setminus E) \right)\\
+&= \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.3.4}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$X \setminus E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$も成り立つ。
+\item
+  $\forall E \in \mathfrak{P}(X)$に対し、$\mu^{*}(E) = 0$が成り立つなら、$E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+$\mu^{*}(E) = 0$が成り立つような集合$E$を零集合という。空集合はもちろん零集合である。
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、$\forall E \in \mathfrak{M}_{C}\left( \mu^{*} \right)\forall A \in \mathfrak{P}(X)$に対し、次式が成り立つのであった。
+\begin{align*}
+\mu^{*}(A) &= \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)\\
+&= \mu^{*}(A \cap X \setminus E) + \mu^{*}\left( A \cap X \setminus (X \setminus E) \right)
+\end{align*}
+これより明らかに$X \setminus E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。\par
+$\forall E \in \mathfrak{P}(X)$に対し、$\mu^{*}(E) = 0$が成り立つなら、$\forall A \in \mathfrak{P}(X)$に対し、$A \cap E \subseteq E$が成り立つので、単調性より$\mu^{*}(A \cap E) \leq \mu^{*}(E) = 0$が成り立ち、したがって、$\mu^{*}(A \cap E) = 0$が成り立つ。同様にして、$\mu^{*}(A \cap X \setminus E) \leq \mu^{*}(A)$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+\mu^{*}(A) \geq \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)
+\end{align*}
+また、劣加法性より次式が成り立つ。
+\begin{align*}
+\mu^{*}(A) &= \mu^{*}\left( A \cap (E \sqcup X \setminus E) \right)\\
+&= \mu^{*}\left( (A \cap E) \cup (A \cap X \setminus E) \right)\\
+&\leq \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)
+\end{align*}
+以上より、次式が成り立ち$E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つことが示された。
+\begin{align*}
+\mu^{*}(A) = \mu^{*}(A \cap E) + \mu^{*}(A \cap X \setminus E)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.3.5}
+集合$X$上の有限加法族$\mathfrak{F}$上のJordan測度$m$によって構成された外測度$\gamma_{m}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \gamma_{m} \right)$を用いて$\mathfrak{F \subseteq}\mathfrak{M}_{C}\left( \gamma_{m} \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$上のJordan測度$m$によって構成された外測度$\gamma_{m}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合を$\mathfrak{M}_{C}\left( \gamma_{m} \right)$とおくと、$\forall E \in \mathfrak{F\forall}A \in \mathfrak{P}(X)$に対し、これを掩うようなその集合$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$について、有限加法性より次のようになる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} {m\left( A_{n} \right)} &= \sum_{n \in \mathbb{N}} {m\left( A_{n} \cap (E \sqcup X \setminus E) \right)}\\
+&= \sum_{n \in \mathbb{N}} {m\left( \left( A_{n} \cap E \right) \sqcup \left( A_{n} \cap X \setminus E \right) \right)}\\
+&= \sum_{n \in \mathbb{N}} {m\left( A_{n} \cap E \right)} + \sum_{n \in \mathbb{N}} {m\left( A_{n} \cap X \setminus E \right)}
+\end{align*}
+下限とその外測度$\gamma_{m}$の定義より次のようになる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} {m\left( A_{n} \right)} &= \sum_{n \in \mathbb{N}} {m\left( A_{n} \cap E \right)} + \sum_{n \in \mathbb{N}} {m\left( A_{n} \cap X \setminus E \right)}\\
+&\geq \gamma_{m}(A \cap E) + \gamma_{m}(A \cap X \setminus E)
+\end{align*}
+右辺に下限をとっても、やはり次式が成り立つ。
+\begin{align*}
+\gamma_{m}(A) \geq \gamma_{m}(A \cap E) + \gamma_{m}(A \cap X \setminus E)
+\end{align*}
+その外測度$\gamma_{m}$の劣加法性より次式が成り立ち、
+\begin{align*}
+\gamma_{m}(A) = \gamma_{m}(A \cap E) + \gamma_{m}(A \cap X \setminus E)
+\end{align*}
+これにより、$E \in \mathfrak{M}_{C}\left( \gamma_{m} \right)$が得られ、よって、$\mathfrak{F \subseteq}\mathfrak{M}_{C}\left( \gamma_{m} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.6}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、互いに素であるようなCarathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\bigsqcup_{n \in \mathbb{N}} E_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\item
+  $\mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)}$が成り立つ、即ち、完全加法的である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、互いに素であるようなCarathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$について、$\forall A \in \mathfrak{P}(X)\forall n \in \mathbb{N}$に対し、次式が成り立つことを数学的帰納法により示そう。
+\begin{align*}
+\mu^{*}(A) \geq \sum_{i \in \varLambda_{n}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}\par
+$n = 1$のとき、劣加法性より次式が成り立つ。
+\begin{align*}
+\mu^{*}(A) \geq \mu^{*}\left( A \cap E_{1} \right) + \mu^{*}\left( A \cap X \setminus E_{1} \right)
+\end{align*}\par
+$n = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+\mu^{*}(A) \geq \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+$n = k + 1$のとき、劣加法性より次式が成り立つ。
+\begin{align*}
+\mu^{*}\left( A \cap X \setminus E_{k + 1} \right) &\geq \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap X \setminus E_{k + 1} \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus E_{k + 1} \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)\\
+&= \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap X \setminus E_{k + 1} \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \left( E_{k + 1} \cup \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \right)\\
+&= \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap X \setminus E_{k + 1} \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+ここで、その元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$は互いに素なので、$\forall i \in \varLambda_{k}$に対し、$E_{i} \subseteq X \setminus E_{k + 1}$が成り立ち、したがって、次のようになる。
+\begin{align*}
+\mu^{*}\left( A \cap X \setminus E_{k + 1} \right) \geq \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+$E_{k + 1} \in \mathfrak{M}_{C}$が成り立つので、以上の議論より次のようになる。
+\begin{align*}
+\mu^{*}(A) &= \mu^{*}\left( A \cap \left( E_{k + 1} \sqcup X \setminus E_{k + 1} \right) \right)\\
+&= \mu^{*}\left( \left( A \cap E_{k + 1} \right) \sqcup \left( A \cap X \setminus E_{k + 1} \right) \right)\\
+&= \mu^{*}\left( A \cap E_{k + 1} \right) + \mu^{*}\left( A \cap X \setminus E_{k + 1} \right)\\
+&\geq \mu^{*}\left( A \cap E_{k + 1} \right) + \sum_{i \in \varLambda_{k}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)\\
+&= \sum_{i \in \varLambda_{k + 1}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}\par
+以上、数学的帰納法により、$\forall A \in \mathfrak{P}(X)\forall n \in \mathbb{N}$に対し、次式が成り立つことが示された。
+\begin{align*}
+\mu^{*}(A) \geq \sum_{i \in \varLambda_{n}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}\par
+あとは、$n \rightarrow \infty$とすれば、次のようになり、
+\begin{align*}
+\mu^{*}(A) &= \lim_{n \rightarrow \infty}{\mu^{*}(A)}\\
+&\geq \lim_{n \rightarrow \infty}\left( \sum_{i \in \varLambda_{n}} {\mu^{*}\left( A \cap E_{i} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \right)\\
+&= \sum_{n \in \mathbb{N}} {\mu^{*}\left( A \cap E_{n} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+劣加法性より、次のようになり、
+\begin{align*}
+\mu^{*}(A) &\geq \mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} \left( A \cap E_{n} \right) \right) + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)\\
+&= \mu^{*}\left( A \cap \bigsqcup_{n \in \mathbb{N}} E_{n} \right) + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+さらに、劣加法性より次のようになることに注意すれば、
+\begin{align*}
+\mu^{*}(A) &= \mu^{*}\left( A \cap \left( \bigsqcup_{n \in \mathbb{N}} E_{n} \sqcup X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \right)\\
+&= \mu^{*}\left( \left( A \cap \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \sqcup \left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \right)\\
+&\leq \mu^{*}\left( A \cap \bigsqcup_{n \in \mathbb{N}} E_{n} \right) + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+その集合$\bigsqcup_{n \in \mathbb{N}} E_{n}$はCarathéodoryの意味で可測な集合で$\bigsqcup_{n \in \mathbb{N}} E_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。劣加法性より次式が成り立つかつ、
+\begin{align*}
+\mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)}
+\end{align*}
+上記の議論により次式が成り立つのであったので、
+\begin{align*}
+\mu^{*}(A) \geq \sum_{n \in \mathbb{N}} {\mu^{*}\left( A \cap E_{n} \right)} + \mu^{*}\left( A \cap X \setminus \bigsqcup_{n \in \mathbb{N}} E_{n} \right)
+\end{align*}
+$A = \bigsqcup_{n \in \mathbb{N}} E_{n}$とおけば、次式が成り立つので、
+\begin{align*}
+\mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) \geq \sum_{n \in \mathbb{N}} {\mu^{*}\left( \bigsqcup_{n' \in \mathbb{N}} E_{n'} \cap E_{n} \right)} + \mu^{*}(\emptyset) = \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)}
+\end{align*}
+$\mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.7}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$E \cap F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\item
+  $\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$F \setminus E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$について、$\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$\forall A \in \mathfrak{P}(E \cap F)\forall B\in \mathfrak{P}\left( X \setminus (E \cap F) \right)$に対し、次のようになる。
+\begin{align*}
+B \cap F &\subseteq X \setminus (E \cap F) \cap F\\
+&= (X \setminus E \cup X \setminus F) \cap F\\
+&= X \setminus E \cap F \subseteq X \setminus E\\
+A \sqcup (B \cap F) &= (A \sqcup B) \cap (A \cup F)\\
+&= (A \sqcup B) \cap F \subseteq F
+\end{align*}
+したがって、劣加法性より次のようになり、
+\begin{align*}
+\mu^{*}(A) + \mu^{*}(B) &= \mu^{*}(A) + \mu^{*}\left( B \cap (F \sqcup X \setminus F) \right)\\
+&= \mu^{*}(A) + \mu^{*}\left( (B \cap F) \sqcup (B \cap X \setminus F) \right)\\
+&\leq \mu^{*}(A) + \mu^{*}(B \cap F) + \mu^{*}(B \cap X \setminus F)
+\end{align*}
+ここで、$B \cap F \subseteq X \setminus E$かつ$E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つことにより$A \cap X \setminus E = B \cap F \cap E = \emptyset$が成り立つので、次のようになり、
+\begin{align*}
+\mu^{*}(A) + \mu^{*}(B) &\leq \mu^{*}(A \cap E) + \mu^{*}(B \cap F \cap X \setminus E) + \mu^{*}(B \cap X \setminus F)\\
+&= \mu^{*}\left( (A \cap E) \cup (B \cap F \cap E) \right) \\
+&\quad + \mu^{*}\left( (A \cap X \setminus E) \cup (B \cap F \cap X \setminus E) \right) + \mu^{*}(B \cap X \setminus F)\\
+&= \mu^{*}\left( \left( A \sqcup (B \cap F) \right) \cap E \right) \\
+&\quad + \mu^{*}\left( \left( A \sqcup (B \cap F) \right) \cap X \setminus E \right) + \mu^{*}(B \cap X \setminus F)\\
+&= \mu^{*}\left( A \sqcup (B \cap F) \right) + \mu^{*}(B \cap X \setminus F)
+\end{align*}
+ここで、$A \sqcup (B \cap F) \subseteq F$かつ$F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つことにより$\left( A \sqcup (B \cap F) \right) \cap X \setminus F = B \cap X \setminus F \cap F = \emptyset$が成り立つので、次のようになり、
+\begin{align*}
+\mu^{*}(A) + \mu^{*}(B) &\leq \mu^{*}\left( \left( A \sqcup (B \cap F) \right) \cap F \right) + \mu^{*}(B \cap X \setminus F \cap X \setminus F)\\
+&= \mu^{*}\left( \left( \left( A \sqcup (B \cap F) \right) \cap F \right) \cup (B \cap X \setminus F \cap F) \right) \\
+&\quad + \mu^{*}\left( \left( \left( A \sqcup (B \cap F) \right) \cap X \setminus F \right) \cup (B \cap X \setminus F \cap X \setminus F) \right)\\
+&= \mu^{*}\left( \left( \left( A \sqcup (B \cap F) \right) \sqcup (B \cap X \setminus F) \right) \cap F \right) \\
+&\quad + \mu^{*}\left( \left( \left( A \sqcup (B \cap F) \right) \sqcup (B \cap X \setminus F) \right) \cap X \setminus F \right)\\
+&= \mu^{*}\left( A \sqcup (B \cap F) \sqcup (B \cap X \setminus F) \right)\\
+&= \mu^{*}\left( A \sqcup \left( B \cap (F \sqcup X \setminus F) \right) \right) = \mu^{*}(A \sqcup B)
+\end{align*}
+その外測度$\mu^{*}$の劣加法性に注意すれば、以上より、$\forall A \in \mathfrak{P}(E \cap F)\forall B\in \mathfrak{P}\left( X \setminus (E \cap F) \right)$に対し、次式が成り立つので、
+\begin{align*}
+\mu^{*}(A) + \mu^{*}(B) = \mu^{*}(A \sqcup B)
+\end{align*}
+$E \cap F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。\par
+ここで、$X \setminus F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$もまた成り立つので、$E \cap X \setminus F = E \setminus F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$も成り立つことになる。
+\end{proof}
+\begin{thm}\label{4.5.3.8}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$E \cap F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\item
+  $\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$E \cup F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$について、定理\ref{4.5.3.7}より明らかに$\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$E \cap F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。\par
+さらに、$\forall E,F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$X \setminus E,X \setminus F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つので、上記の議論によりに$X \setminus E \cap X \setminus F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立ち、したがって、次のようになる。
+\begin{align*}
+X \setminus (X \setminus E \cap X \setminus F) = X \setminus \left( X \setminus (E \cup F) \right) = E \cup F \in \mathfrak{M}_{C}\left( \mu^{*} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.3.9}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\bigcup_{n \in \mathbb{N}} E_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$について、次式のように定義されるその集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( F_{n} \right)_{n \in \mathbb{N}}$を考えよう。なお、この元の列$\left( F_{n} \right)_{n \in \mathbb{N}}$は上記の議論によりその集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列といえるのであった。
+\begin{align*}
+\left\{ \begin{matrix}
+F_{1} = E_{1} \\
+\forall n \in \mathbb{N}\left[ F_{n + 1} = E_{n + 1} \setminus \bigcup_{k \in \varLambda_{n}} E_{k} \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\forall i,j \in \mathbb{N}$に対し、$i < j$が成り立つなら、次のことが成り立つかつ、
+\begin{align*}
+F_{i} \cap F_{j} &= E_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} E_{k} \cap E_{j} \setminus \bigcup_{k \in \varLambda_{j - 1}} E_{k}\\
+&= \left( E_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} E_{k} \cap E_{j} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} E_{k}\\
+&= \left( E_{i} \setminus \bigcup_{k \in \varLambda_{j - 1}} E_{k} \cup \left( \bigcup_{k \in \varLambda_{i - 1}} E_{k} \cap E_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} E_{k} \right) \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} E_{k}\\
+&= \left( \bigcup_{k \in \varLambda_{i - 1}} E_{k} \cap E_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} E_{k} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} E_{k} = \emptyset
+\end{align*}
+$\bigcup_{n \in \mathbb{N}} E_{n} = \bigsqcup_{n \in \mathbb{N}} F_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つので、$\bigcup_{n \in \mathbb{N}} E_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{proof}
+%\hypertarget{ux6e2cux5ea6-1}{%
+\subsubsection{測度}%\label{ux6e2cux5ea6-1}}
+\begin{axs}[測度空間の公理]
+集合$X$の$\sigma$-加法族$\varSigma$を用いた写像$\mu:\varSigma \rightarrow \mathrm{cl}\mathbb{R}^{+}$が次のことを満たすとき、その写像$\mu$をその集合$X$上の$\sigma$-加法族$\varSigma$で定義された測度という。特に、$\mu(X) < \infty$が成り立つとき、その測度を有限測度という。さらに、その組$(X,\varSigma,\mu)$を測度空間という。
+\begin{itemize}
+\item
+  $\mu(\emptyset) = 0$が成り立つ。
+\item
+  その写像$\mu$は完全加法的である、即ち、その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\mu\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) = \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)}$が成り立つ。
+\end{itemize}
+\end{axs}
+\begin{thm}\label{4.5.3.10}
+その$\sigma$-加法族$\varSigma$から誘導されるその集合の空集合でない$A \in \varSigma$なる部分集合$A$上の相対$\sigma$-加法族$\varSigma_{A}$を用いた写像$\mu_{A}:\varSigma_{A} \rightarrow \mathrm{cl}\mathbb{R}^{+};E \cap A \mapsto \mu(E \cap A)$もその相対$\sigma$-加法族$\varSigma_{A}$で定義された測度で測度空間$\left( X,\varSigma_{A},\mu_{A} \right)$を与える。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$で定義された測度$\mu$が与えられたとき、その$\sigma$-加法族$\varSigma$から誘導されるその集合の空集合でない$A \in \varSigma$なる部分集合$A$上の相対$\sigma$-加法族$\varSigma_{A}$を用いた写像$\mu_{A}:\varSigma_{A} \rightarrow \mathrm{cl}\mathbb{R}^{+};E \cap A \mapsto \mu(E \cap A)$について、当然ながら$\mu_{A}(\emptyset) = 0$が成り立つ。\par
+さらに、その集合$\varSigma_{A}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、定理\ref{4.5.2.7}より$\forall n \in \mathbb{N}$に対し、$A_{n} = A \cap A_{n}'$なるその$\sigma$-加法族$\varSigma$の元$A_{n}'$が存在して$A_{n} \subseteq A$が成り立つかつ、$A \in \varSigma$より$A_{n} \in \varSigma$が成り立つので、$\varSigma_{A} \subseteq \varSigma$が成り立ち、したがって、次式が成り立つ。
+\begin{align*}
+\mu_{A}\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) = \mu\left( \bigsqcup_{n \in \mathbb{N}} \left( A \cap A_{n}' \right) \right) = \sum_{n \in \mathbb{N}} {\mu\left( A \cap A_{n}' \right)} = \sum_{n \in \mathbb{N}} {\mu_{A}\left( A_{n} \right)}
+\end{align*}
+よって、次のことが成り立つので、
+\begin{itemize}
+\item
+  $\mu_{A}(\emptyset) = 0$が成り立つ。
+\item
+  その写像$\mu_{A}$は完全加法的である。
+\end{itemize}
+その写像$\mu_{A}$もその相対$\sigma$-加法族$\varSigma_{A}$で定義された測度で測度空間$\left( X,\varSigma_{A},\mu_{A} \right)$を与える。
+\end{proof}
+\begin{thm}\label{4.5.3.11}
+集合$X$上の$\sigma$-加法族$\varSigma$で定義された測度$\mu$はその集合$X$上の$\sigma$-加法族$\varSigma$で定義されたJordan測度でもありその集合$X$上の$\sigma$-加法族$\varSigma$で定義された完全加法的な測度でもある。
+\end{thm}
+\begin{proof}
+その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$のおき方により明らかである。
+\end{proof}
+\begin{thm}\label{4.5.3.12}
+集合$X$上の$\sigma$-加法族$\varSigma$で定義された測度$\mu$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  劣加法的である、即ち、その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$で定義された測度$\mu$とその集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式のように定義されるその集合$\varSigma$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$を考えよう。なお、この元の族$\left( B_{n} \right)_{n \in \mathbb{N}}$は上記の議論によりその集合$\varSigma$の元の族といえるのであった。
+\begin{align*}
+\left\{ \begin{matrix}
+B_{1} = A_{1} \\
+\forall n \in \mathbb{N}\left[ B_{n + 1} = A_{n + 1} \setminus \bigcup_{k \in \varLambda_{n}} A_{k} \right] \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\forall i,j \in \mathbb{N}$に対し、$i < j$が成り立つなら、次のことが成り立つかつ、
+\begin{align*}
+B_{i} \cap B_{j} &= A_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k}\\
+&= \left( A_{i} \setminus \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k}\\
+&= \left( A_{i} \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} \cup \left( \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k}\\
+&= \left( \bigcup_{k \in \varLambda_{i - 1}} A_{k} \cap A_{j} \cap \bigcup_{k \in \varLambda_{j - 1}} A_{k} \right) \setminus \bigcup_{k \in \varLambda_{j - 1}} A_{k} = \emptyset
+\end{align*}
+$\bigcup_{n \in \mathbb{N}} A_{n} = \bigsqcup_{n \in \mathbb{N}} B_{n} \in \varSigma$が成り立つので、$\mu\left( \bigsqcup_{n \in \mathbb{N}} B_{n} \right) = \sum_{n \in \mathbb{N}} {\mu\left( B_{n} \right)}$が成り立つ。ここで、定義より明らかに$\forall n \in \mathbb{N}$に対し、$B_{n} \subseteq A_{n}$が成り立つので、単調性より$\mu\left( \bigsqcup_{n \in \mathbb{N}} B_{n} \right) = \sum_{n \in \mathbb{N}} {\mu\left( B_{n} \right)} \leq \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.13}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$を用いた組$\left( X,\mathfrak{M}_{C}\left( \mu^{*} \right),\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right) \right)$は測度空間をなす。
+\end{thm}
+\begin{dfn}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された外測度$\gamma_{m}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \gamma_{m} \right)$を用いた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{m} \right),\mu^{*}|\mathfrak{M}_{C}\left( \gamma_{m} \right) \right)$、これにおける$\sigma$-加法族$\mathfrak{M}_{C}\left( \gamma_{m} \right)$、測度$\mu^{*}|\mathfrak{M}_{C}\left( \gamma_{m} \right)$を、ここでは、それぞれ集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された測度空間、$\sigma$-加法族、測度ということにし$\left( X,\varSigma_{m}^{\star},m^{\star} \right)$、$\varSigma_{m}^{\star}$、$m^{\star}$と書くことにする。
+\end{dfn}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、Carathéodoryの意味で可測な集合全体の集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$を用いた組$\left( X,\mathfrak{M}_{C}\left( \mu^{*} \right),\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right) \right)$について考えよう。このとき、上記の定理より次のことが成り立つ。
+\begin{itemize}
+\item
+  $\emptyset \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\item
+  $\forall E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$X \setminus E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$も成り立つ。
+\item
+  その集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$\bigcup_{n \in \mathbb{N}} E_{n} \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+ゆえに、この集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$は$\sigma$-加法族である。さらに、上記の定理より次のことが成り立つ。
+\begin{itemize}
+\item
+  $\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)(\emptyset) = \mu^{*}(\emptyset) = 0$が成り立つ。
+\item
+  その集合$\mathfrak{M}_{C}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \mu^{*}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)}
+\end{align*}
+\end{itemize}
+ゆえに、この写像$\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)$は測度である。
+\end{proof}
+\begin{thm}[Fatouの補題やBorel-Cantelliの補題など]\label{4.5.3.14}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$について次のことが成り立つ。
+\begin{itemize}
+\item
+  その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が順序集合$(\varSigma, \subseteq )$で単調増加であるとき、または、単調減少で$\mu\left( A_{1} \right) < \infty$が成り立つとき、次式が成り立つ。
+\begin{align*}
+\mu\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+\item
+  次式が成り立つ。これを集合列に関するFatouの補題という。
+\begin{align*}
+\mu\left( \liminf_{n \rightarrow \infty}A_{n} \right) \leq \liminf_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+\item
+  $\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) \geq \limsup_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+\item
+  $\mu\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つなら、次式が成り立つ。これをBorel-Cantelliの補題という。
+\begin{align*}
+\mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) = 0
+\end{align*}
+\item
+  $\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つかつ、$\lim_{n \rightarrow \infty}A_{n}$が存在するなら、次式が成り立つ。
+\begin{align*}
+\mu\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$について、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が順序集合$(\varSigma, \subseteq )$で単調増加であるとき、数学的帰納法により$A_{0} = \emptyset$とおけば明らかに次式のようにおける。
+\begin{align*}
+A_{n} = \bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right)
+\end{align*}
+したがって、完全加法性より次のようになる。
+\begin{align*}
+\mu\left( \lim_{n \rightarrow \infty}A_{n} \right) &= \mu\left( \lim_{n \rightarrow \infty}{\bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right)} \right)\\
+&= \mu\left( \bigsqcup_{n \in \mathbb{N}} \left( A_{n} \setminus A_{n - 1} \right) \right)\\
+&= \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \setminus A_{n - 1} \right)}\\
+&= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \setminus A_{k - 1} \right)}}\\
+&= \lim_{n \rightarrow \infty}{\mu\left( \bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right) \right)} \\
+&= \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が順序集合$(\varSigma, \subseteq )$で単調減少で$\mu\left( A_{1} \right) < \infty$が成り立つとき、元の列$\left( A_{1} \setminus A_{n} \right)_{n \in \mathbb{N}}$とおくと、これはその集合$\varSigma$の順序集合$(\varSigma, \subseteq )$で単調増加な元の列である。したがって、$\mu\left( A_{1} \right) < \infty$が成り立つことから、$\mu\left( A_{n} \right) < \infty$が成り立ち$\mu\left( A_{1} \setminus A_{n} \right) = \mu\left( A_{1} \right) - \mu\left( A_{n} \right)$が成り立つことにより次のようになる。
+\begin{align*}
+\mu\left( \lim_{n \rightarrow \infty}A_{n} \right) &= \mu\left( \lim_{n \rightarrow \infty}A_{n} \right) - \mu\left( A_{1} \right) + \mu\left( A_{1} \right)\\
+&= - \left( \mu\left( A_{1} \right) - \mu\left( \lim_{n \rightarrow \infty}A_{n} \right) \right) + \mu\left( A_{1} \right)\\
+&= - \mu\left( A_{1} \setminus \lim_{n \rightarrow \infty}A_{n} \right) + \mu\left( A_{1} \right)\\
+&= - \mu\left( \lim_{n \rightarrow \infty}\left( A_{1} \setminus A_{n} \right) \right) + \mu\left( A_{1} \right)\\
+&= - \lim_{n \rightarrow \infty}{\mu\left( A_{1} \setminus A_{n} \right)} + \mu\left( A_{1} \right)\\
+&= - \lim_{n \rightarrow \infty}\left( \mu\left( A_{1} \right) - \mu\left( A_{n} \right) \right) + \mu\left( A_{1} \right)\\
+&= - \mu\left( A_{1} \right) + \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)} + \mu\left( A_{1} \right) = \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}\par
+より一般の場合、その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$を用いて元の列$\left( \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)_{n \in \mathbb{N}}$考えると、明らかにその元の列$\left( \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)_{n \in \mathbb{N}}$はその集合$\varSigma$の単調増加な元の列である。さらに、$n \in \mathbb{N} \setminus \varLambda_{n - 1}$が成り立つことにより明らかに$\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \subseteq A_{n}$が成り立つ。したがって、上記の議論と単調性より次のようになる。
+\begin{align*}
+\mu\left( \liminf_{n \rightarrow \infty}A_{n} \right) &= \mu\left( \lim_{n \rightarrow \infty}{\bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} \right)\\
+&= \lim_{n \rightarrow \infty}{\mu\left( \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)}\\
+&= \liminf_{n \rightarrow \infty}{\mu\left( \bigcap_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)}\\
+&\leq \liminf_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}\par
+また、$\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つとき、同様に元の列$\left( \bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)_{n \in \mathbb{N}}$考えると、明らかにその元の列$\left( \bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)_{n \in \mathbb{N}}$はその集合$\varSigma$の単調減少で$\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つような元の列である。さらに、$n \in \mathbb{N} \setminus \varLambda_{n - 1}$が成り立つことにより明らかに$\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \supseteq A_{n}$が成り立つ。したがって、上記の議論と単調性より次のようになる。
+\begin{align*}
+\mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) &= \mu\left( \lim_{n \rightarrow \infty}{\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} \right)\\
+&= \lim_{n \rightarrow \infty}{\mu\left( \bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)}\\
+&= \limsup_{n \rightarrow \infty}{\mu\left( \bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)}\\
+&\geq \limsup_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}\par
+また、$\mu\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つとき、次のようになる。
+\begin{align*}
+\mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) &= \mu\left( \bigcap_{n \in \mathbb{N}} {\bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k}} \right)\\
+&\leq \mu\left( \bigcup_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} A_{k} \right)\\
+&\leq \sum_{k \in \mathbb{N} \setminus \varLambda_{n - 1}} {\mu\left( A_{k} \right)}
+\end{align*}
+ここで、$\mu\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つので、$\sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} < \infty$が成り立つことになる。したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{N}$に対し、$\delta < n$が成り立つなら、次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \right)} - \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} \right| < \varepsilon &\Leftrightarrow - \varepsilon < \sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \right)} - \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} < \varepsilon\\
+&\Leftrightarrow \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} - \varepsilon < \sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \right)} < \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} + \varepsilon\\
+&\Rightarrow \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} - \varepsilon < \sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \right)} < \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} + \varepsilon
+\end{align*}
+ここで、$n < m$に対し、次のようになるので、
+\begin{align*}
+\sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} - \varepsilon + \sum_{k \in \varLambda_{m} \setminus \varLambda_{n}} {\mu\left( A_{k} \right)} &< \sum_{k \in \varLambda_{n}} {\mu\left( A_{k} \right)} + \sum_{k \in \varLambda_{m} \setminus \varLambda_{n}} {\mu\left( A_{k} \right)}\\
+&\leq \sum_{k \in \varLambda_{m}} {\mu\left( A_{k} \right)} \leq \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)}
+\end{align*}
+$\sum_{k \in \varLambda_{m} \setminus \varLambda_{n}} {\mu\left( A_{k} \right)} < \varepsilon$が得られ$m \rightarrow \infty$とすれば、$0 \leq \sum_{k \in \mathbb{N} \setminus \varLambda_{n}} {\mu\left( A_{k} \right)} < \varepsilon$が成り立つので、その正の実数$\varepsilon$の任意性より次式が成り立つ。
+\begin{align*}
+\mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) = 0
+\end{align*}\par
+$\mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) < \infty$が成り立つかつ、$\lim_{n \rightarrow \infty}A_{n}$が存在するなら、上記の議論により次式が成り立つ。
+\begin{align*}
+\limsup_{n \rightarrow \infty}{\mu\left( A_{n} \right)} \leq \mu\left( \limsup_{n \rightarrow \infty}A_{n} \right) = \mu\left( \lim_{n \rightarrow \infty}A_{n} \right) = \mu\left( \liminf_{n \rightarrow \infty}A_{n} \right) \leq \liminf_{n \rightarrow \infty}{\mu\left( A_{n} \right)}
+\end{align*}
+ここで、$\liminf_{n \rightarrow \infty}{\mu\left( A_{n} \right)} \leq \limsup_{n \rightarrow \infty}{\mu\left( A_{n} \right)}$が成り立つので、よって、$\mu\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\mu\left( A_{n} \right)}$が得られた。
+\end{proof}
+%\hypertarget{ux307bux3068ux3093ux3069ux3059ux3079ux3066}{%
+\subsubsection{ほとんどすべて}%\label{ux307bux3068ux3093ux3069ux3059ux3079ux3066}}
+\begin{dfn}\label{ほとんどすべて}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$なる集合$A$の元$a$に関係した命題$p$があって、その集合$A$のある部分集合$A_{0}$を用いて、$a \in A_{0}$のとき、その命題$p$は偽で、$a \in A \setminus A_{0}$のとき、その命題$p$は真で、$A_{0} \subseteq A_{1} \in \varSigma$なる集合が存在して、$\mu\left( A_{1} \right) = 0$が成り立つとき、即ち、その集合$A_{1}$がその測度空間$(X,\varSigma,\mu)$で零集合であるとき、その集合$A$上でその測度$\mu$に関してほとんどいたるところの元$a$、または、ほとんどすべての元$a$に対し、その命題$p$は成り立つといい、$p\ (X,\varSigma,\mu) \ \text{-} \ \mathrm{a.e.}\ a \in A$とか$p\ (\varSigma,\mu) \ \text{-} \ \mathrm{a.e.}\ a \in A\ \mathrm{on}\ X$、$p\ (X,\varSigma,\mu) \ \text{-} \ \mathrm{a.a.}\ a \in A$、$p\ (\varSigma,\mu) \ \text{-} \ \mathrm{a.a.}\ a \in A\ \mathrm{on}\ X$などと書く。特に、$a \in A_{0} \subseteq A\ (X,\varSigma,\mu) \ \text{-} \ \mathrm{a.e.}a \in A$が成り立つような集合$A_{0}$をその集合$A$上の$(X,\varSigma,\mu) \ \text{-} \ \mathrm{a.e.}$集合という。
+\end{dfn}
+%\hypertarget{ux5b8cux5099}{%
+\subsubsection{完備}%\label{ux5b8cux5099}}
+\begin{dfn}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、$\mu^{*}(E) = 0$が成り立つような集合$E$を零集合という。空集合はもちろん零集合である。また、次式のように定義される集合$\mathcal{N}\left( \mu^{*} \right)$をその外測度$\mu^{*}$の零集合族という。
+\begin{align*}
+\mathcal{N}\left( \mu^{*} \right) = \left\{ E \in \mathfrak{P}(X) \middle| \mu^{*}(E) = 0 \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.5.3.15}
+集合$X$上に外測度$\mu^{*}$の零集合族$\mathcal{N}\left( \mu^{*} \right)$について、次式が成り立つ。
+\begin{itemize}
+\item
+  $\mathcal{\emptyset \in N}\left( \mu^{*} \right)$が成り立つ。
+\item
+  $\mathcal{N}\left( \mu^{*} \right) \subseteq \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。
+\item
+  その零集合族$\mathcal{N}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が集合$F$を掩うなら、$F \in \mathcal{N}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上に外測度$\mu^{*}$の零集合族$\mathcal{N}\left( \mu^{*} \right)$について、$\mathcal{\emptyset \in N}\left( \mu^{*} \right)$が成り立つのは定義より自明である。\par
+また、$\forall E \in \mathcal{N}\left( \mu^{*} \right)\forall F \in \mathfrak{P}(X)$に対し、$E \cap F \subseteq E$かつ$F \setminus E \subseteq F$が成り立つので、次のようになる。
+\begin{align*}
+\mu^{*}(E \cap F) + \mu^{*}(F \setminus E) &\leq \mu^{*}(E) + \mu^{*}(F)\\
+&= 0 + \mu^{*}(F) = \mu^{*}(F)
+\end{align*}
+また、次のようになるので、
+\begin{align*}
+\mu^{*}(F) &= \mu^{*}(F \cap F)\\
+&= \mu^{*}\left( (E \cup F \setminus E) \cap (F \cup F \setminus E) \right)\\
+&= \mu^{*}\left( (E \cap F) \cup F \setminus E \right)\\
+&\leq \mu^{*}(E \cap F) + \mu^{*}(F \setminus E)
+\end{align*}
+$\mu^{*}(F) = \mu^{*}(E \cap F) + \mu^{*}(F \setminus E)$が得られる。よって、$F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つので、$\mathcal{N}\left( \mu^{*} \right) \subseteq \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。\par
+その零集合族$\mathcal{N}\left( \mu^{*} \right)$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が集合$F$を掩うなら、$F \subseteq \bigcup_{n \in \mathbb{N}} E_{n}$が成り立つので、次のようになる。
+\begin{align*}
+0 \leq \mu^{*}(F) \leq \mu^{*}\left( \bigcup_{n \in \mathbb{N}} E_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu^{*}\left( E_{n} \right)} = 0
+\end{align*}
+したがって、$\mu^{*}(F) = 0$が成り立つので、$F \in \mathcal{N}\left( \mu^{*} \right)$が得られる。
+\end{proof}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$\forall E \in \varSigma$に対し、$\mu(E) = 0$が成り立つなら、$\forall F \in \mathfrak{P}(E)$に対し、$F \in \varSigma$が成り立つとき、その測度$\mu$を完備測度といい、そのときの$\sigma$-加法族$\varSigma$はその測度$\mu$に関して完備であるといい、このとき、その測度空間$(X,\varSigma,\mu)$は完備であるという。
+\end{dfn}
+\begin{thm}\label{4.5.3.16}
+集合$X$上に外測度$\mu^{*}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  写像$\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)$は完備測度である。
+\item
+  $\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)(E) = 0$が成り立つならそのときに限り、$E \in \mathcal{N}\left( \mu^{*} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}集合$X$上に外測度$\mu^{*}$が与えられたとき、測度空間$\left( X,\mathfrak{M}_{C}\left( \mu^{*} \right),\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right) \right)$が定理\ref{4.5.3.13}より与えられる。ここで、$\forall E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$に対し、$\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)(E) = 0$が成り立つなら、$E \in \mathcal{N}\left( \mu^{*} \right)$が成り立ち、定理\ref{4.5.3.15}より$\forall F \in \mathfrak{P}(E)$に対し、$F \in \mathcal{N}\left( \mu^{*} \right)$が成り立つかつ、$\mathcal{N}\left( \mu^{*} \right) \subseteq \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つので、$F \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。よって、その写像$\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)$は完備測度である。\par
+$\mu^{*}|\mathfrak{M}_{C}\left( \mu^{*} \right)(E) = 0$が成り立つならそのときに限り、$\mu^{*}(E) = 0$かつ$E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立ち、これが成り立つならそのときに限り、$E \in \mathcal{N}\left( \mu^{*} \right)$かつ
+$E \in \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つ。ここで、定理\ref{4.5.3.15}より$\mathcal{N}\left( \mu^{*} \right) \subseteq \mathfrak{M}_{C}\left( \mu^{*} \right)$が成り立つので、これが成り立つならそのときに限り、$E \in \mathcal{N}\left( \mu^{*} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.17}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された測度$m^{\star}$は完備測度である。
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された外測度$\gamma_{m}$が与えられれば、定理\ref{4.5.3.16}より集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$によって構成された測度$m^{\star}$は完備測度であることが分かる。
+\end{proof}
+%\hypertarget{ux6e2cux5ea6ux306eux5b8cux5099ux5316}{%
+\subsubsection{測度の完備化}%\label{ux6e2cux5ea6ux306eux5b8cux5099ux5316}}
+\begin{thm}\label{4.5.3.18}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するようなその集合$A$全体の集合を$\overline{\varSigma}$とおくと、その集合$\overline{\varSigma}$は$\sigma$-加法族である。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するようなその集合$A$全体の集合を$\overline{\varSigma}$とおく。このとき、$(\emptyset \cup \emptyset) \setminus (\emptyset \cap \emptyset) = \emptyset \setminus \emptyset \subseteq \emptyset$かつ$\mu(\emptyset) = 0$が成り立つので、$\emptyset \in \overline{\varSigma}$が成り立つ。\par
+次に、$\forall A \in \overline{\varSigma}$に対し、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在し、このとき、$X \setminus E \in \varSigma$が成り立つので、$X \setminus A \subseteq X$が成り立つかつ、次のようになることから、
+\begin{align*}
+(X \setminus A) \setminus (X \setminus E) &= (X \setminus A) \setminus X \cup (X \setminus A \cap E)\\
+&= X \setminus (A \cup X) \cup (X \setminus A \cap E)\\
+&= X \setminus X \cup (X \setminus A \cap E)\\
+&= X \setminus A \cap E\\
+(X \setminus E) \setminus (X \setminus A) &= (X \setminus E) \setminus X \cup (X \setminus E \cap A)\\
+&= X \setminus (E \cup X) \cup (X \setminus E \cap A)\\
+&= X \setminus X \cup (X \setminus E \cap A)\\
+&= X \setminus E \cap A
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+(A \cup E) \setminus (A \cap E) &= \left( (A \cup E) \cap X \right) \setminus (A \cap E)\\
+&= X \setminus (A \cap E) \cap (A \cup E)\\
+&= (X \setminus A \cup X \setminus E) \cap (A \cup E)\\
+&= (X \setminus A \cup X \setminus E) \cap (X \setminus A \cup E) \cap (X \setminus E \cup E) \cap (E \cup A)\\
+&= (X \setminus A \cap E) \cup (X \setminus E \cap A)\\
+&= (X \setminus A) \setminus (X \setminus E) \cup (X \setminus E) \setminus (X \setminus A)\\
+&= (X \setminus A) \setminus (X \setminus A) \cup (X \setminus A) \setminus (X \setminus E) \cup (X \setminus E) \setminus (X \setminus A) \cup (X \setminus E) \setminus (X \setminus E)\\
+&= (X \setminus A) \setminus (X \setminus A \cap X \setminus E) \cup (X \setminus E) \setminus (X \setminus A \cap X \setminus E)\\
+&= (X \setminus A \cup X \setminus E) \setminus (X \setminus A \cap X \setminus E) \subseteq F
+\end{align*}
+したがって、$X \setminus A \in \overline{\varSigma}$が得られる。\par
+最後に、その集合$\overline{\varSigma}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$A_{n} \subseteq X$かつ$\left( A_{n} \cup E_{n} \right) \setminus \left( A_{n} \cap E_{n} \right) \subseteq F_{n}$かつ$\mu\left( F_{n} \right) = 0$なる集合たち$E_{1n}$、$F_{n}$がその$\sigma$-加法族$\varSigma$に存在するので、$\bigcup_{n \in \mathbb{N}} E_{n},\bigcup_{n \in \mathbb{N}} F_{n} \in \varSigma$が成り立つかつ、$\bigcup_{n \in \mathbb{N}} A_{n} \subseteq X$が成り立つかつ、次のようになるかつ、
+\begin{align*}
+\left( \bigcup_{n \in \mathbb{N}} A_{n} \cup \bigcup_{n \in \mathbb{N}} E_{n} \right) \setminus \left( \bigcup_{n \in \mathbb{N}} A_{n} \cap \bigcup_{n \in \mathbb{N}} E_{n} \right) &= \bigcup_{n \in \mathbb{N}} \left( A_{n} \cup E_{n} \right) \setminus \bigcup_{n \in \mathbb{N}} \left( A_{n} \cap E_{n} \right)\\
+&= \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \cup E_{n} \right) \setminus \bigcup_{n \in \mathbb{N}} \left( A_{n} \cap E_{n} \right) \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \cup E_{n} \right) \setminus \left( A_{n} \cap E_{n} \right) \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} F_{n}
+\end{align*}
+次のようになるので、
+\begin{align*}
+\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu\left( F_{n} \right)} = \sum_{n \in \mathbb{N}} 0 = 0
+\end{align*}
+$\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \right) = 0$が得られる。以上より、$\bigcup_{n \in \mathbb{N}} A_{n} \in \overline{\varSigma}$が成り立つ。\par
+よって、その集合$\overline{\varSigma}$は$\sigma$-加法族である。
+\end{proof}
+\begin{thm}\label{4.5.3.19}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するようなその集合$A$に対し、実数$\mu(E)$がただ1つ定まる。
+\end{thm}
+\begin{dfn}
+これにより、$\forall A \in \overline{\varSigma}$に対し、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在することにより、次式のような写像$\overline{\mu}$が定義されることができる。
+\begin{align*}
+\overline{\mu}:\overline{\varSigma} \rightarrow \mathrm{cl}\mathbb{R}^{+};A \mapsto \mu(E)
+\end{align*}
+\end{dfn}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するようなその集合$A$に対し、$\left( A \cup E' \right) \setminus \left( A \cap E' \right) \subseteq F'$かつ$\mu\left( F' \right) = 0$なる集合たち$E'$、$F'$がその$\sigma$-加法族$\varSigma$に存在すると仮定する。ここで、次式のように集合たちがおかれると、
+\begin{align*}
+C &= E \cap E' \cap A\\
+G &= \left( E \cap E' \right) \setminus C\\
+E'' &= (E \cap A) \setminus C\\
+E''' &= \left( E' \cap A \right) \setminus C\\
+F'' &= E \setminus \left( G \sqcup C \sqcup E'' \right)\\
+F''' &= E' \setminus \left( G \sqcup C \sqcup E''' \right)\\
+G' &= E \setminus \left( E'' \sqcup E''' \sqcup C \right)
+\end{align*}
+次のようになるので、
+\begin{align*}
+(A \cup E) \setminus (A \cap E) &= F'' \sqcup G \sqcup E''' \sqcup G'\\
+\left( A \cup E' \right) \setminus \left( A \cap E' \right) &= F''' \sqcup G \sqcup E'' \sqcup G'\\
+\left( E \cup E' \right) \setminus \left( E \cap E' \right) &= E'' \sqcup F'' \sqcup E''' \sqcup F'''
+\end{align*}
+次のようになる。
+\begin{align*}
+\left( E \cup E' \right) \setminus \left( E \cap E' \right) &= E'' \sqcup F'' \sqcup E''' \sqcup F'''\\
+&\subseteq E'' \sqcup E''' \sqcup F'' \sqcup F''' \sqcup F \sqcup G'\\
+&= (A \cup E) \setminus (A \cap E) \cup \left( A \cup E' \right) \setminus \left( A \cap E' \right)\\
+&\subseteq F \cup F'
+\end{align*}
+したがって、次のようになることから、
+\begin{align*}
+\mu\left( \left( E \cup E' \right) \setminus \left( E \cap E' \right) \right) &\leq \mu\left( F \cup F' \right)\\
+&\leq \mu(F) + \mu\left( F' \right)\\
+&= 0 + 0 = 0
+\end{align*}
+次のようになり、
+\begin{align*}
+\mu\left( \left( E \cup E' \right) \setminus \left( E \cap E' \right) \right) &= \mu\left( F'' \sqcup E'' \sqcup F''' \sqcup E''' \right)\\
+&= \mu\left( F'' \right) + \mu\left( E'' \right) + \mu\left( F''' \right) + \mu\left( E''' \right) = 0
+\end{align*}
+したがって、$\mu\left( F'' \right) = \mu\left( E'' \right) = \mu\left( F''' \right) = \mu\left( E''' \right) = 0$が得られる。このとき、次のようになるので、
+\begin{align*}
+\mu(E) &= \mu\left( F'' \sqcup E'' \sqcup G \sqcup C \right)\\
+&= \mu\left( F'' \right) + \mu\left( E'' \right) + \mu(G) + \mu(C)\\
+&= \mu(G) + \mu(C)\\
+\mu\left( E' \right) &= \mu\left( F''' \sqcup E''' \sqcup G \sqcup C \right)\\
+&= \mu\left( F''' \right) + \mu\left( E''' \right) + \mu(G) + \mu(C)\\
+&= \mu(G) + \mu(C)
+\end{align*}
+$\mu(E) = \mu\left( E' \right)$が得られる。よって、その集合$A$に対し、そのような実数$\mu(E)$がただ1つ定まる。
+\end{proof}
+\begin{thm}\label{4.5.3.20}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するような集合$A$が与えられたとき、次式のように集合たち$E'$、$F'$がおかれると、
+\begin{align*}
+E' = E \setminus F,\ \ F' = E \cup F
+\end{align*}
+次のことを満たす。
+\begin{align*}
+E' \subseteq A \subseteq F',\ \ \mu\left( F' \setminus E' \right) = 0,\ \ \overline{\mu}(E) = \mu\left( E' \right) = \mu\left( F' \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$A \subseteq X$かつ$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するような集合$A$が与えられたとき、次式のように集合たち$E'$、$F'$がおかれよう。
+\begin{align*}
+E' = E \setminus F,\ \ F' = E \cup F
+\end{align*}
+ここで、次式のように集合たちがおかれると、
+\begin{align*}
+C = A \cap E,\ \ B = A \setminus C,\ \ G = E \setminus C
+\end{align*}
+\begin{align*}
+E' &= E \setminus F\\
+&= (G \sqcup C) \setminus F\\
+&= G \setminus F \cup C \setminus F\\
+&= C \setminus F\\
+&\subseteq C \subseteq B \sqcup C = A\\
+&\subseteq B \sqcup G \sqcup C\\
+&= (B \sqcup G) \cup G \cup C\\
+&\subseteq F \cup G \cup C\\
+&= E \cup F = F'
+\end{align*}
+次のようになることから、
+\begin{align*}
+F' \setminus E' &= (G \cup C \cup F) \setminus \left( (G \sqcup C) \setminus F \right)\\
+&= (G \cup C \cup F) \setminus (G \setminus F \cup C \setminus F)\\
+&= (G \cup C \cup F) \setminus (G \setminus F) \cap (G \cup C \cup F) \setminus (C \setminus F)\\
+&= \left( G \setminus (G \setminus F) \cup C \setminus (G \setminus F) \cup F \setminus (G \setminus F) \right) \cap \left( G \setminus (C \setminus F) \cup C \setminus (C \setminus F) \cup F \setminus (C \setminus F) \right)\\
+&= \left( (G \cap F) \cup C \setminus G \cup (C \cap F) \cup F \right) \cap \left( G \setminus C \cup (G \cap F) \cup (C \cap F) \cup F \right)\\
+&= (G \cap F) \cup (C \cap F) \cup F \cup (C \setminus G \cap G \setminus C)\\
+&= (G \cap F) \cup (C \cap F) \cup F \cup (C \cap G)\\
+&= (G \cap F) \cup (C \cap F) \cup F = F
+\end{align*}
+$\mu\left( F' \setminus E' \right) = 0$が成り立つかつ、次のようになることから、
+\begin{align*}
+\overline{\mu}(A) &= \mu(E) = \mu(E) - \mu(F)\\
+&= \mu(E \setminus F) = \mu\left( E' \right)\\
+\overline{\mu}(A) &= \mu(E) = \mu(F) + \mu(E) - \mu(F)\\
+&= \mu(F) + \mu(E \setminus F)\\
+&= \mu(F \sqcup E \setminus F)\\
+&= \mu(E \cup F) = \mu\left( F' \right)
+\end{align*}
+$\overline{\mu}(A) = \mu\left( E' \right) = \mu\left( F' \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.21}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、組$\left( X,\overline{\varSigma},\overline{\mu} \right)$は完備な測度空間である。
+\end{thm}
+\begin{dfn}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、その完備な測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$をその測度空間$(X,\varSigma,\mu)$から完備化された測度空間といい、これを求めることをその測度空間$(X,\varSigma,\mu)$を完備化するという。
+\end{dfn}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、その集合$\overline{\varSigma}$は定理\ref{4.5.3.18}より$\sigma$-加法族となるのであった。\par
+$(\emptyset \cup \emptyset) \setminus (\emptyset \cap \emptyset) = \emptyset \setminus \emptyset \subseteq \emptyset$かつ$\mu(\emptyset) = 0$が成り立つので、その写像$\overline{\mu}$の定義より$\overline{\mu}(\emptyset) = 0$が成り立つ。その$\sigma$-加法族$\overline{\varSigma}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$A_{n} \subseteq X$かつ$\left( A_{n} \cup E_{n} \right) \setminus \left( A_{n} \cap E_{n} \right) \subseteq F_{n}$かつ$\mu\left( F_{n} \right) = 0$なる集合たち$E_{n}$、$F_{n}$がその$\sigma$-加法族$\varSigma$に存在するので、$\bigcup_{n \in \mathbb{N}} E_{n},\bigcup_{n \in \mathbb{N}} F_{n} \in \varSigma$が成り立つかつ、$\bigcup_{n \in \mathbb{N}} A_{n} \subseteq X$が成り立つかつ、次のようになるかつ、
+\begin{align*}
+\left( \bigcup_{n \in \mathbb{N}} A_{n} \cup \bigcup_{n \in \mathbb{N}} E_{n} \right) \setminus \left( \bigcup_{n \in \mathbb{N}} A_{n} \cap \bigcup_{n \in \mathbb{N}} E_{n} \right) &= \bigcup_{n \in \mathbb{N}} \left( A_{n} \cup E_{n} \right) \setminus \bigcup_{n \in \mathbb{N}} \left( A_{n} \cap E_{n} \right)\\
+&= \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \cup E_{n} \right) \setminus \bigcup_{n \in \mathbb{N}} \left( A_{n} \cap E_{n} \right) \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} \left( \left( A_{n} \cup E_{n} \right) \setminus \left( A_{n} \cap E_{n} \right) \right)\\
+&\subseteq \bigcup_{n \in \mathbb{N}} F_{n}
+\end{align*}
+次のようになり、
+\begin{align*}
+\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu\left( F_{n} \right)} = \sum_{n \in \mathbb{N}} 0 = 0
+\end{align*}
+$\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \right) = 0$が得られる。ここで、定理\ref{4.5.3.20}より、次式のようにそれらの集合たち$E_{n}'$、$F_{n}'$がおかれると、
+\begin{align*}
+E_{n}' = E_{n} \cup F_{n},\ \ F_{n}' = E_{n} \setminus F_{n}
+\end{align*}
+次のことを満たす。
+\begin{align*}
+F_{n}' \subseteq A_{n} \subseteq E_{n}',\ \ \mu\left( E_{n}' \setminus F_{n}' \right) = 0,\ \ \overline{\mu}\left( A_{n} \right) = \mu\left( E_{n}' \right) = \mu\left( F_{n}' \right)
+\end{align*}
+このとき、次のようになるので、
+\begin{align*}
+\mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \right) - \mu\left( \bigcup_{n \in \mathbb{N}} F_{n}' \right) &= \mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \setminus \bigcup_{n \in \mathbb{N}} F_{n}' \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} \left( E_{n} \setminus \bigcup_{n \in \mathbb{N}} F_{n}' \right) \right)\\
+&\leq \mu\left( \bigcup_{n \in \mathbb{N}} \left( E_{n} \setminus F_{n}' \right) \right)\\
+&\leq \mu\left( \bigcup_{n \in \mathbb{N}} \left( E_{n}' \setminus F_{n}' \right) \right)\\
+&\leq \sum_{n \in \mathbb{N}} {\mu\left( E_{n}' \setminus F_{n}' \right)}\\
+&= \sum_{n \in \mathbb{N}} 0 = 0
+\end{align*}
+$\mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \right) = \mu\left( \bigcup_{n \in \mathbb{N}} F_{n}' \right)$が得られる。したがって、次のようになり、
+\begin{align*}
+\overline{\mu}\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) &= \overline{\mu}\left( \bigcup_{n \in \mathbb{N}} A_{n} \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \right)\\
+&= \mu\left( \bigcup_{n \in \mathbb{N}} F_{n}' \right)\\
+&= \mu\left( \bigsqcup_{n \in \mathbb{N}} F_{n}' \right)\\
+&= \sum_{n \in \mathbb{N}} {\mu\left( F_{n}' \right)}\\
+&= \sum_{n \in \mathbb{N}} {\overline{\mu}\left( A_{n} \right)}
+\end{align*}
+その写像$\overline{\mu}$は完全加法的であるので、その組$\left( X,\overline{\varSigma},\overline{\mu} \right)$は測度空間である。\par
+ここで、$\forall A \in \overline{\varSigma}$に対し、$\overline{\mu}(A) = 0$が成り立つなら、$\forall B\in \mathfrak{P}(A)$に対し、定理\ref{4.5.3.20}より次のことを満たすような集合$E$がその$\sigma$-加法族$\overline{\varSigma}$に存在する。
+\begin{align*}
+B \subseteq A \subseteq E,\ \ \overline{\mu}(A) = \mu(E) = 0
+\end{align*}
+したがって、$B \subseteq X$かつ$(B \cup E) \setminus (B \cap E) = E \setminus B \subseteq E$かつ$\mu(E) = 0$なる集合たち$E$がその$\sigma$-加法族$\overline{\varSigma}$に存在するので、$B \in \overline{\varSigma}$が成り立つ。よって、その測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$は完備である。
+\end{proof}
+\begin{dfn}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が与えられたとき、次のことを満たすようなその有限加法族$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在するとき、そのJordan測度$m$は$\sigma$-有限であるという\footnote{もちろん、$n$次元数空間$\mathbb{R}^{n}$が有限加法的なLebesgue測度で$\sigma$-有限です。示し方については、$U(0,1)$、$U(0,2) \setminus U(0,1)$、$\cdots$、$U(0,n + 1) \setminus U(0,n)$、$\cdots$とつなげていけばよろしいかと思います。}。
+\begin{align*}
+X = \bigcup_{n \in \mathbb{N}} A_{n},\ \ m\left( A_{n} \right) < \infty
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.5.3.22}
+集合$X$上の有限加法族$\mathfrak{F}$で定義された$\sigma$-有限なJordan測度$m$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $X = \bigsqcup_{n \in \mathbb{N}} A_{n}$かつ$m\left( A_{n} \right) < \infty$なるその有限加法族$\mathfrak{F}$の互いに素な元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\item
+  $X = \bigcup_{n \in \mathbb{N}} A_{n}$かつ$m\left( A_{n} \right) < \infty$なるその有限加法族$\mathfrak{F}$の単調増加する元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$で定義された$\sigma$-有限なJordan測度$m$が与えられたとき、次のことを満たすようなその有限加法族$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\begin{align*}
+X = \bigcup_{n \in \mathbb{N}} A_{n},\ \ m\left( A_{n} \right) < \infty
+\end{align*}
+このとき、次式のように定義されるその有限加法族$\mathfrak{F}$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$が$X = \bigsqcup_{n \in \mathbb{N}} B_{n}$かつ$m\left( B_{n} \right) < \infty$なるその有限加法族$\mathfrak{F}$の互いに素な元の列である。
+\begin{align*}
+B_{1} = A_{1},\ \ \forall n \in \mathbb{N}\left[ B_{n + 1} = A_{n + 1} \setminus \bigcup_{i \in \varLambda_{n}} A_{i} \right]
+\end{align*}
+同じく、次式のように定義されるその有限加法族$\mathfrak{F}$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$が$X = \bigcup_{n \in \mathbb{N}} B_{n}$かつ$m\left( B_{n} \right) < \infty$なるその有限加法族$\mathfrak{F}$の単調増加する元の列である。
+\begin{align*}
+\forall n \in \mathbb{N}\left[ B_{n} = \bigcup_{i \in \varLambda_{n}} A_{i} \right]
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.3.23}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$が与えられたとき、次式のような写像$\gamma_{\mu}$はその集合$X$上の外測度となり測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$を与える。
+\begin{align*}
+\gamma_{\mu}\mathfrak{:P}(X) \rightarrow \mathrm{cl}\mathbb{R}^{+};A \mapsto \inf\left\{ \mu(E) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq E \in \varSigma \right\}
+\end{align*}
+\end{thm}
+\begin{dfn}
+そのような外測度$\gamma_{\mu}$、測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$をそれぞれその測度空間$(X,\varSigma,\mu)$から導かれた外測度、測度空間という。
+\end{dfn}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$が与えられたとき、次式のような写像$\gamma_{\mu}$が考えられれば、
+\begin{align*}
+\gamma_{\mu}\mathfrak{:P}(X) \rightarrow \mathrm{cl}\mathbb{R}^{+};A \mapsto \inf\left\{ \mu(E) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq E \in \varSigma \right\}
+\end{align*}
+$\forall A \in \mathfrak{P}(X)$に対し、集合$\left\{ \mu(E) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq E \in \varSigma \right\}$は下に有界であるから、下限性質よりそのような実数$\inf\left\{ \mu(E) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq E \in \varSigma \right\}$は存在する。\par
+ここで、その集合$A$を掩うようなその$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その集合$\varSigma$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$が次式のように定義されると、
+\begin{align*}
+B_{1} = A_{1},\ \ \forall n \in \mathbb{N}\left[ B_{n + 1} = A_{n + 1} \setminus \bigcup_{i \in \varLambda_{n}} A_{i} \right]
+\end{align*}
+$A \subseteq \bigsqcup_{n \in \mathbb{N}} B_{n}$が成り立つことになり次のようになる。
+\begin{align*}
+\gamma_{\mu}(A) &= \inf\left\{ \mu(E) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq E \in \varSigma \right\}\\
+&= \inf\left\{ \mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq \bigcup_{n \in \mathbb{N}} A_{n} \land \forall n \in \mathbb{N}\left[ A_{n} \in \varSigma \right] \right\}\\
+&= \inf\left\{ \mu\left( \bigsqcup_{n \in \mathbb{N}} B_{n} \right) \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq \bigsqcup_{n \in \mathbb{N}} B_{n} \land \forall n \in \mathbb{N}\left[ B_{n} \in \varSigma \right] \right\}\\
+&= \inf\left\{ \sum_{n \in \mathbb{N}} {\mu\left( B_{n} \right)} \in \mathrm{cl}\mathbb{R}^{+} \middle| A \subseteq \bigsqcup_{n \in \mathbb{N}} B_{n} \land \forall n \in \mathbb{N}\left[ B_{n} \in \varSigma \right] \right\}
+\end{align*}
+このとき、その写像$\gamma_{\mu}$はその集合$X$上の有限加法族$\varSigma$で定義されたJordan測度$\mu$によって構成された外測度であるから、定理\ref{4.5.3.2}よりその写像$\gamma_{\mu}$はその集合$X$上の外測度となる。\par
+あとは、定理\ref{4.5.3.13}より測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$を与える。
+\end{proof}
+\begin{thm}\label{4.5.3.24}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\varSigma \subseteq \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つ。
+\item
+  $\gamma_{\mu}|\varSigma = \mu$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$について、$\forall E \in \varSigma$に対し、$A \subseteq E$かつ$B \subseteq X \setminus E$なる任意の集合たち$A$、$B$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、次式が成り立つような集合$F$がその$\sigma$-加法族に存在する。
+\begin{align*}
+A \sqcup B \subseteq F,\ \ \mu(F) \leq \gamma_{\mu}(A \sqcup B) + \varepsilon
+\end{align*}
+このとき、次のことが成り立つので、
+\begin{align*}
+A \subseteq E \cap F \in \varSigma,\ \ B \subseteq X \setminus E \cap F \in \varSigma
+\end{align*}
+定理\ref{4.5.3.2}、定理\ref{4.5.3.5}より次のようになる。
+\begin{align*}
+\gamma_{\mu}(A) + \gamma_{\mu}(B) &\leq \gamma_{\mu}(E \cap F) + \gamma_{\mu}(X \setminus E \cap F)\\
+&= \mu(E \cap F) + \mu(X \setminus E \cap F)\\
+&= \mu(F) \leq \gamma_{\mu}(A \sqcup B) + \varepsilon
+\end{align*}
+その正の実数$\varepsilon$の任意性、その外測度$\gamma_{\mu}$の劣加法性より次式が成り立つ。
+\begin{align*}
+\gamma_{\mu}(A) + \gamma_{\mu}(B) = \gamma_{\mu}(A \sqcup B)
+\end{align*}
+定理\ref{4.5.3.3}より$E \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つので、$\varSigma \subseteq \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が得られる。\par
+$\forall E \in \varSigma$に対し、次式が成り立つ。
+\begin{align*}
+\gamma_{\mu}(E) = \inf\left\{ \mu\left( E' \right) \in \mathrm{cl}\mathbb{R}^{+} \middle| E \subseteq E' \in \varSigma \right\} \leq \mu(E)
+\end{align*}
+一方で、$E \subseteq F \in \varSigma$なる任意の集合$F$に対し、$\mu(E) \leq \mu(F)$が成り立つので、$\gamma_{\mu}(E) = \mu(E)$が成り立つ。したがって、$\gamma_{\mu}|\varSigma = \mu$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.5.3.25}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $A \subseteq E \in \varSigma$かつ$\gamma_{\mu}(E) = 0$が成り立つなら、$A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つ。
+\item
+  $\forall A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$に対し、次式が成り立つような集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+E \subseteq A \subseteq F,\ \ \mu(F \setminus E) = 0
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$について、$A \subseteq E \in \varSigma$かつ$\gamma_{\mu}(E) = 0$が成り立つなら、$\gamma_{\mu}(A) \leq \gamma_{\mu(E)} = 0$が成り立つので、$\gamma_{\mu}(A) = 0$が成り立つ。したがって、定理\ref{4.5.3.4}より$A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つ。\par
+$\forall A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$に対し、$\gamma_{\mu}(A) < \infty$のとき、$\forall n \in \mathbb{N}$に対し、次のことを満たすような集合$F_{n}$が存在する。
+\begin{align*}
+A \subseteq F_{n} \in \varSigma,\ \ \mu\left( F_{n} \right) \leq \gamma_{\mu}(A) + \frac{1}{n} < \infty
+\end{align*}
+ここで、$F = \bigcap_{n \in \mathbb{N}} F_{n}$のように集合$F$が定義されると、$A \subseteq F = \bigcap_{n \in \mathbb{N}} F_{n} \in \varSigma$が成り立つかつ、次式が成り立つので、
+\begin{align*}
+\gamma_{\mu}(F \setminus A) = \gamma_{\mu}(F) - \gamma_{\mu}(A) = \gamma_{\mu}\left( \bigcap_{n \in \mathbb{N}} F_{n} \right) - \gamma_{\mu}(A) \leq \gamma_{\mu}\left( F_{n} \right) - \gamma_{\mu}(A) \leq \frac{1}{n}
+\end{align*}
+その正の実数$\frac{1}{n}$の任意性より$\gamma_{\mu}(F \setminus A) = 0$が成り立つ。同様にして、次のことを満たすような集合$D$が存在する。
+\begin{align*}
+F \setminus A \subseteq D \in \varSigma,\ \ \mu(D) = 0
+\end{align*}
+ここで、$E = F \setminus D$のように集合$E$が定義されると、$E \in \varSigma$が成り立つかつ、次のようになるので、
+\begin{align*}
+E = F \setminus D \subseteq F \setminus (F \setminus A) = A,\ \ \mu(F \setminus E) = \mu\left( F \setminus (F \setminus D) \right) = \mu(F \cap D) \leq \mu(D) = 0
+\end{align*}
+次式が成り立つような集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+E \subseteq A \subseteq F,\ \ \mu(F \setminus E) = 0
+\end{align*}\par
+$\gamma_{\mu}(A) = \infty$のとき、その測度空間$(X,\varSigma,\mu)$は$\sigma$-有限なので、次のことを満たすようなその$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\begin{align*}
+X = \bigcup_{n \in \mathbb{N}} A_{n},\ \ \mu\left( A_{n} \right) < \infty
+\end{align*}
+このとき、$\varSigma \subseteq \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つので、次のようになる。
+\begin{align*}
+A = A \cap X = A \cap \bigcup_{n \in \mathbb{N}} A_{n} = \bigcup_{n \in \mathbb{N}} \left( A \cap A_{n} \right),\ \ A \cap A_{n} \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \ \gamma_{\mu}\left( A \cap A_{n} \right) < \infty
+\end{align*}
+上記の議論により次式が成り立つような集合たち$E_{n}$、$F_{n}$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+E_{n} \subseteq A \cap A_{n} \subseteq F_{n},\ \ \mu\left( F_{n} \setminus E_{n} \right) = 0
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\bigcup_{n \in \mathbb{N}} E_{n} \subseteq \bigcup_{n \in \mathbb{N}} \left( A \cap A_{n} \right) = A \subseteq \bigcup_{n \in \mathbb{N}} F_{n},\ \ \bigcup_{n \in \mathbb{N}} E_{n},\bigcup_{n \in \mathbb{N}} F_{n} \in \varSigma
+\end{align*}
+また、次のようになるので、
+\begin{align*}
+\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \setminus \bigcup_{n \in \mathbb{N}} E_{n} \right) &= \mu\left( \bigcup_{n \in \mathbb{N}} \left( F_{n} \setminus \bigcup_{n \in \mathbb{N}} E_{n} \right) \right)\\
+&\leq \mu\left( \bigcup_{n \in \mathbb{N}} \left( F_{n} \setminus E_{n} \right) \right)\\
+&\leq \sum_{n \in \mathbb{N}} {\mu\left( F_{n} \setminus E_{n} \right)} = \sum_{n \in \mathbb{N}} 0 = 0
+\end{align*}
+$\mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \setminus \bigcup_{n \in \mathbb{N}} E_{n} \right) = 0$が得られる。したがって、次式が成り立つような集合たち$\bigcup_{n \in \mathbb{N}} F_{n}$、$\bigcup_{n \in \mathbb{N}} E_{n}$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+\bigcup_{n \in \mathbb{N}} E_{n} \subseteq A \subseteq \bigcup_{n \in \mathbb{N}} F_{n},\ \ \mu\left( \bigcup_{n \in \mathbb{N}} F_{n} \setminus \bigcup_{n \in \mathbb{N}} E_{n} \right) = 0
+\end{align*}\par
+よって、いづれの場合でも、$\forall A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$に対し、次式が成り立つような集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在する。
+\begin{align*}
+E \subseteq A \subseteq F,\ \ \mu(F \setminus E) = 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.3.26}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$はその測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$に等しい。
+\end{thm}
+\begin{proof}
+$\sigma$-有限な測度空間$(X,\varSigma,\mu)$から導かれた測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$は定理\ref{4.5.3.25}より完備である。\par
+また、$\forall A \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$に対し、定理\ref{4.5.3.25}より次式が成り立つようなその$\sigma$-加法族$\varSigma$に属する集合たち$E$、$F$がとられ
+\begin{align*}
+E \subseteq A \subseteq F,\ \ \mu(F \setminus E) = 0
+\end{align*}
+次式のように集合たち$E'$、$F'$がとられれば、
+\begin{align*}
+E' = F,\ \ F' = F \setminus E
+\end{align*}
+$E',F' \in \varSigma$が成り立つかつ、次のようになるので、
+\begin{align*}
+\left( A \cup E' \right) \setminus \left( E \cap E' \right) &= (A \cup F) \setminus \left( A \cap E' \right)\\
+&= F \setminus A = F' \subseteq F'\\
+\mu\left( F' \right) &= \mu(F \setminus E) = 0
+\end{align*}
+$A \in \overline{\varSigma}$が成り立ち、したがって、$\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \subseteq \overline{\varSigma}$が成り立つ。このとき、定理\ref{4.5.3.2}より次のようになる。
+\begin{align*}
+\gamma_{\mu}(A) = \mu(F) = \mu\left( E' \right) = \overline{\mu}(A)
+\end{align*}\par
+逆に、$\forall A \in \overline{\varSigma}$に対し、$(A \cup E) \setminus (A \cap E) \subseteq F$かつ$\mu(F) = 0$なる集合たち$E$、$F$がその$\sigma$-加法族$\varSigma$に存在するので、定理\ref{4.5.3.20}より次式のように集合たち$E'$、$F'$がおかれると、
+\begin{align*}
+E' = E \setminus F,\ \ F' = E \cup F
+\end{align*}
+次のことを満たし
+\begin{align*}
+E' \subseteq A \subseteq F',\ \ \mu\left( F' \setminus E' \right) = 0,\ \ \overline{\mu}(A) = \mu\left( E' \right) = \mu\left( F' \right)
+\end{align*}
+したがって、定理\ref{4.5.3.2}より次のようになる。
+\begin{align*}
+\gamma_{\mu}\left( A \setminus E' \right) \leq \gamma_{\mu}\left( F' \setminus E' \right) = \mu\left( F' \setminus E' \right) = 0
+\end{align*}
+定理\ref{4.5.3.25}より$A \setminus E' \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立つので、$A = A \setminus E' \sqcup E' \in \mathfrak{M}_{C}\left( \gamma_{\mu} \right)$が成り立ち、したがって、$\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \subseteq \overline{\varSigma}$が成り立つ。\par
+以上の議論により、$\mathfrak{M}_{C}\left( \gamma_{\mu} \right) = \overline{\varSigma}$かつ$\gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) = \overline{\mu}$が成り立つので、その測度空間$\left( X,\mathfrak{M}_{C}\left( \gamma_{\mu} \right),\ \gamma_{\mu}|\mathfrak{M}_{C}\left( \gamma_{\mu} \right) \right)$はその測度空間$(X,\varSigma,\mu)$から完備化された測度空間$\left( X,\overline{\varSigma},\overline{\mu} \right)$に等しい。
+\end{proof}
+%\hypertarget{hopfux306eux62e1ux5f35ux5b9aux7406}{%
+\subsubsection{Hopfの拡張定理}%\label{hopfux306eux62e1ux5f35ux5b9aux7406}}
+\begin{dfn}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$と$\mathfrak{F \subseteq}\varSigma$なる測度空間$(X,\varSigma,\mu)$が与えられ$\mu|\mathfrak{F} =m$が成り立つとき、その測度空間$(X,\varSigma,\mu)$がそのJordan測度$m$の拡張であるという。
+\end{dfn}
+\begin{thm}[Hopfの拡張定理]\label{4.5.3.27}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が測度空間$\left( X,\varSigma\left( \mathfrak{F} \right),\mu \right)$に拡張されることができるならそのときに限り、そのJordan測度$m$がその有限加法族$\mathfrak{F}$上で完全加法的である。さらに、そのJordan測度$m$が$\sigma$-有限なら、その測度$\mu$は一意的である。この定理をHopfの拡張定理という。
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$で定義されたJordan測度$m$が測度空間$\left( X,\varSigma\left( \mathfrak{F} \right),\mu \right)$に拡張されることができるなら、その有限加法族$\mathfrak{F}$の互いに素な元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\bigsqcup_{n \in \mathbb{N}} A_{n} \in \varSigma\left( \mathfrak{F} \right)$が成り立つなら、次のようになるので、
+\begin{align*}
+m\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) = \mu\left( \bigsqcup_{n \in \mathbb{N}} A_{n} \right) = \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} = \sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}
+\end{align*}
+そのJordan測度$m$はその有限加法族$\mathfrak{F}$上で完全加法的である。\par
+逆に、そのJordan測度$m$がその有限加法族$\mathfrak{F}$上で完全加法的であるなら、そのJordan測度$m$によって構成された測度空間$\left( X,\varSigma_{m}^{\star},m^{\star} \right)$が得られる。ここで、定理\ref{4.5.3.5}より$\mathfrak{F \subseteq}\mathfrak{M}_{C}\left( \gamma_{m} \right) = \varSigma_{m}^{\star}$が成り立つので、$\varSigma\left( \mathfrak{F} \right) \subseteq \mathfrak{M}_{C}\left( \gamma_{m} \right) = \varSigma_{m}^{\star}$が成り立つ。定理\ref{4.5.3.2}より$\gamma_{m}\mathfrak{|F} =m$が成り立つ。以上より、そのような測度空間$\left( X,\varSigma\left( \mathfrak{F} \right),\gamma_{m}|\varSigma\left( \mathfrak{F} \right) \right)$がまさしくそのJordan測度$m$の拡張である。\par
+さらに、そのJordan測度$m$が$\sigma$-有限であるとする。上記の議論と同様にして、まさしくそのJordan測度$m$の拡張である測度空間$\left( X,\varSigma\left( \mathfrak{F} \right),\gamma_{m}|\varSigma\left( \mathfrak{F} \right) \right)$が得られたかつ、任意のそのJordan測度$m$の拡張である測度空間$\left( X,\varSigma\left( \mathfrak{F} \right),\mu \right)$も与えられたとする。その有限加法族$\mathfrak{F}$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が、$\forall A \in \varSigma\left( \mathfrak{F} \right)$に対し、その集合$E$を掩うとすれば、次式が成り立つので、
+\begin{align*}
+\mu(A) \leq \mu\left( \bigcup_{n \in \mathbb{N}} A_{n} \right) \leq \sum_{n \in \mathbb{N}} {\mu\left( A_{n} \right)} = \sum_{n \in \mathbb{N}} {m\left( A_{n} \right)}
+\end{align*}
+両辺が下限をとられれば、次式が成り立つ。
+\begin{align*}
+\mu(A) \leq \gamma_{m}(A)
+\end{align*}
+次に、そのJordan測度$m$が$\sigma$-有限なので、次のことを満たすようなその有限加法族$\mathfrak{F}$の元の列$\left( B_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\begin{align*}
+X = \bigcup_{n \in \mathbb{N}} B_{n},\ \ m\left( B_{n} \right) < \infty
+\end{align*}
+ここで、次のようにしてその有限加法族$\mathfrak{F}$の元の列$\left( C_{n} \right)_{n \in \mathbb{N}}$が与えられられれば、
+\begin{align*}
+\forall n \in \mathbb{N}\left[ C_{n} = \bigcup_{i \in \varLambda_{n}} B_{i} \right]
+\end{align*}
+定理\ref{4.5.3.22}より次のようになるので、
+\begin{itemize}
+\item
+  その元の列$\left( C_{n} \right)_{n \in \mathbb{N}}$は単調増加する。
+\item
+  $X = \bigcup_{n \in \mathbb{N}} C_{n}$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}$に対し、$m\left( C_{n} \right) < \infty$が成り立つ。
+\end{itemize}
+ここで、$\forall A \in \varSigma\left( \mathfrak{F} \right)$に対し、$A \subseteq C_{n}$なる自然数$n$が存在するとき、上記の議論により次式たちが成り立つ。
+\begin{align*}
+\mu(A) \leq \gamma_{m}(A),\ \ \mu\left( C_{n} \setminus A \right) \leq \gamma_{m}\left( C_{n} \setminus A \right)
+\end{align*}
+一方で、$C_{n}\in \mathfrak{F}$が成り立つことにより、$\mu\left( C_{n} \right) = \gamma_{m}\left( C_{n} \right) = m\left( C_{n} \right)$が成り立つので、次のようになる。
+\begin{align*}
+\mu(A) &\leq \gamma_{m}(A)\\
+&= \gamma_{m}\left( C_{n} \right) - \gamma_{m}\left( C_{n} \right) + \gamma_{m}(A)\\
+&= \gamma_{m}\left( C_{n} \right) - \gamma_{m}\left( C_{n} \setminus A \right)\\
+&\leq \mu\left( C_{n} \right) - \mu\left( C_{n} \setminus A \right)\\
+&= \mu\left( C_{n} \right) - \mu\left( C_{n} \right) + \mu(A)\\
+&= \mu(A)
+\end{align*}
+したがって、$\mu(A) = \gamma_{m}(A)$が成り立つ。\par
+$A \subseteq C_{n}$なる自然数$n$が存在しないとき、その$\sigma$-加法族$\varSigma\left( \mathfrak{F} \right)$の元の列$\left( A \cap C_{n} \right)_{n \in \mathbb{N}}$は次のことを満たす。
+\begin{itemize}
+\item
+  その元の列$\left( A \cap C_{n} \right)_{n \in \mathbb{N}}$は単調増加する。
+\item
+  $A = \bigcup_{n \in \mathbb{N}} \left( A \cap C_{n} \right)$が成り立つ。
+\item
+  $\forall n \in \mathbb{N}$に対し、$\mu\left( A \cap C_{n} \right) = \gamma_{m}\left( A \cap C_{n} \right)$が成り立つ。
+\end{itemize}
+したがって、次のようになる。
+\begin{align*}
+\mu(A) &= \mu\left( \bigcup_{n \in \mathbb{N}} \left( A \cap C_{n} \right) \right)\\
+&= \mu\left( \lim_{n \rightarrow \infty}{\bigcup_{k \in \varLambda_{n}} \left( A \cap C_{k} \right)} \right)\\
+&= \mu\left( \lim_{n \rightarrow \infty}\left( A \cap C_{n} \right) \right)\\
+&= \lim_{n \rightarrow \infty}{\mu\left( A \cap C_{n} \right)}\\
+&= \lim_{n \rightarrow \infty}{\gamma_{m}\left( A \cap C_{n} \right)}\\
+&= \gamma_{m}\left( \lim_{n \rightarrow \infty}\left( A \cap C_{n} \right) \right)\\
+&= \gamma_{m}\left( \lim_{n \rightarrow \infty}{\bigcup_{k \in \varLambda_{n}} \left( A \cap C_{k} \right)} \right)\\
+&= \gamma_{m}\left( \bigcup_{n \in \mathbb{N}} \left( A \cap C_{n} \right) \right) = \gamma_{m}(A)
+\end{align*}\par
+いづれの場合でも、$\mu = \gamma_{m}$が成り立つので、その測度$\mu$は一意的である。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    伊藤清三, ルベーグ積分入門, 裳華房, 1963. 新装第1版2刷 p30-34,45-55 ISBN978-4-7853-1318-0
+  \bibitem{2}
+    岩田耕一郎, ルベーグ積分, 森北出版, 2015. 第1版第2刷 p79-80 ISBN978-4-627-05431-8
+  \bibitem{3}
+    Mathpedia. "測度と積分". Mathpedia. \url{https://math.jp/wiki/%E6%B8%AC%E5%BA%A6%E3%81%A8%E7%A9%8D%E5%88%86} (2021-7-12 9:20 閲覧)
+  \bibitem{4}
+    服部哲弥. "測度論". 慶応義塾大学. \url{https://web.econ.keio.ac.jp/staff/hattori/kaiseki1.pdf} (2021-8-14 12:45 取得)
+\end{thebibliography}
+\end{document}

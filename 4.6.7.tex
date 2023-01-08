@@ -1,0 +1,215 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{6}
+\setcounter{subsection}{6}
+\usepackage{xr}
+\externaldocument{4.5.3}
+\input{macro}
+\begin{document}
+%\hypertarget{ux52a0ux6cd5ux7684ux96c6ux5408ux95a2ux6570}{%
+\subsection{加法的集合関数}%\label{ux52a0ux6cd5ux7684ux96c6ux5408ux95a2ux6570}}
+%\hypertarget{ux52a0ux6cd5ux7684ux96c6ux5408ux95a2ux6570-1}{%
+\subsubsection{加法的集合関数}%\label{ux52a0ux6cd5ux7684ux96c6ux5408ux95a2ux6570-1}}
+\begin{dfn}
+集合$X$とこれ上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$\varPhi:\varSigma \rightarrow \mathbb{R}$が次のことを満たすとき、
+\begin{itemize}
+\item
+  その$\sigma$-加法族$\varSigma$の互いに素な元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \sum_{n \in \mathbb{N}} {\varPhi\left( E_{n} \right)}
+\end{align*}
+\end{itemize}
+その写像$\varPhi$をその集合$X$上のその$\sigma$-加法族$\varSigma$における加法的集合関数という。\par
+さらに、集合$X$とこれ上の$\sigma$-加法族$\varSigma$が与えられたとき、写像$\varPhi:\varSigma \rightarrow \mathbb{C}$が次のことを満たすとき、
+\begin{itemize}
+\item
+  その$\sigma$-加法族$\varSigma$の互いに素な元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) = \sum_{n \in \mathbb{N}} {\varPhi\left( E_{n} \right)}
+\end{align*}
+\end{itemize}
+その写像$\varPhi$をその集合$X$上のその$\sigma$-加法族$\varSigma$における複素数値加法的集合関数という。
+\end{dfn}
+\begin{thm}\label{4.6.7.1}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\varPhi(\emptyset) = 0$が成り立つ。
+\end{thm}
+\begin{proof} 次のようになることから、明らかである。
+\begin{align*}
+\varPhi(\emptyset) &= \varPhi(\emptyset) + \varPhi(\emptyset) - \varPhi(\emptyset)\\
+&= \varPhi(\emptyset) + \varPhi\left( \bigsqcup_{n \in \mathbb{N}} \emptyset \right) - \varPhi(\emptyset)\\
+&= \varPhi(\emptyset) + \sum_{n \in \mathbb{N}} {\varPhi(\emptyset)} - \varPhi(\emptyset)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\varPhi(\emptyset)} - \varPhi(\emptyset)\\
+&= \varPhi\left( \bigsqcup_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \emptyset \right) - \varPhi(\emptyset)\\
+&= \varPhi(\emptyset) - \varPhi(\emptyset) = 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.7.2}
+集合$X$上の$\sigma$-加法族$\varSigma$における複素数値加法的集合関数$\varPhi$が与えられたとき、写像たち$\mathrm{Re} \circ \varPhi$、$\mathrm{Im} \circ \varPhi$もその集合$X$上のその$\sigma$-加法族$\varSigma$における加法的集合関数となる。
+\end{thm}
+\begin{proof}
+和と関数たち$\mathrm{Re}$、$\mathrm{Im}$との順序が交換できることから明らかである。
+\end{proof}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\forall E,F \in \varSigma$に対し、$E \subseteq F$が成り立つなら、$\varPhi(E) \leq \varPhi(F)$が成り立つとき、その加法的集合関数$\varPhi$は単調増加するという。同様に、$\forall E,F \in \varSigma$に対し、$E \subseteq F$が成り立つなら、$\varPhi(E) \geq \varPhi(F)$が成り立つとき、その加法的集合関数$\varPhi$は単調減少するという。
+\end{dfn}
+\begin{thm}\label{4.6.7.3}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その加法的集合関数$\varPhi$が単調増加するならそのときに限り、$0 \leq \varPhi$が成り立つ。
+\item
+  その加法的集合関数$\varPhi$が単調減少するならそのときに限り、$0 \geq \varPhi$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その加法的集合関数$\varPhi$が単調増加するなら、$\forall E \in \varSigma$に対し、$\emptyset \subseteq E$が成り立つので、定理\ref{4.6.7.1}より$0 = \varPhi(\emptyset) \leq \varPhi(E)$が成り立ち、したがって、$0 \leq \varPhi$が成り立つ。逆に、$0 \leq \varPhi$が成り立つなら、$\forall E,F \in \varSigma$に対し、$E \subseteq F$が成り立つなら、$F = E \sqcup (F \setminus E)$が成り立つので、$0 \leq \varPhi(F \setminus E)$より$\varPhi(E) \leq \varPhi(E) + \varPhi(F \setminus E) = \varPhi\left( E \sqcup (F \setminus E) \right) = \varPhi(F)$が成り立つので、その加法的集合関数$\varPhi$は単調増加することになる。よって、その加法的集合関数$\varPhi$が単調増加するならそのときに限り、$0 \leq \varPhi$が成り立つ。\par
+同様にして、その加法的集合関数$\varPhi$が単調減少するならそのときに限り、$0 \geq \varPhi$が成り立つことが示される。
+\end{proof}
+\begin{thm}\label{4.6.7.4}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$\mu(X) < \infty$が成り立つとし、$X = Y \sqcup Z$とおかれ、$\forall a,b \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようにおかれれば、
+\begin{align*}
+\varPhi_{\mu}:\varSigma \rightarrow \mathbb{R};E \mapsto a\mu(E \cap Y) - b\mu(E \cap Z)
+\end{align*}
+その写像$\varPhi_{\mu}$は加法的集合関数で、$b = 0$または$\mu(Z) = 0$が成り立つなら、その加法的集合関数$\varPhi_{\mu}$は単調増加し、$a = 0$または$\mu(Y) = 0$が成り立つなら、その加法的集合関数$\varPhi_{\mu}$は単調減少する。
+\end{thm}
+\begin{proof}
+測度空間$(X,\varSigma,\mu)$が与えられたとき、$\mu(X) < \infty$が成り立つとし、$X = Y \sqcup Z$とおかれ、$\forall a,b \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようにおかれれば、
+\begin{align*}
+\varPhi_{\mu}:\varSigma \rightarrow \mathbb{R};E \mapsto a\mu(E \cap Y) - b\mu(E \cap Z)
+\end{align*}
+その$\sigma$-加法族$\varSigma$の互いに素な元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになることから、
+\begin{align*}
+\varPhi_{\mu}\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \right) &= a\mu\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \cap Y \right) - b\mu\left( \bigsqcup_{n \in \mathbb{N}} E_{n} \cap Z \right)\\
+&= a\mu\left( \bigsqcup_{n \in \mathbb{N}} \left( E_{n} \cap Y \right) \right) - b\mu\left( \bigsqcup_{n \in \mathbb{N}} \left( E_{n} \cap Z \right) \right)\\
+&= a\sum_{n \in \mathbb{N}} {\mu\left( E_{n} \cap Y \right)} + b\sum_{n \in \mathbb{N}} {\mu\left( E_{n} \cap Z \right)}\\
+&= \sum_{n \in \mathbb{N}} \left( a\mu\left( E_{n} \cap Y \right) - b\mu\left( E_{n} \cap Z \right) \right)\\
+&= \sum_{n \in \mathbb{N}} {\varPhi_{\mu}\left( E_{n} \right)}
+\end{align*}
+その写像$\varPhi_{\mu}$は加法的集合関数である。\par
+特に、$b = 0$または$\mu(Z) = 0$が成り立つなら、$\forall E \in \varSigma$に対し、$\mu(E \cap Z) = 0$が成り立つことに注意すれば、次のようになることから、
+\begin{align*}
+\varPhi_{\mu}(E) &= a\mu(E \cap Y) - b\mu(E \cap Z)\\
+&= a\mu(E \cap Y) - 0 = a\mu(E \cap Y) \geq 0
+\end{align*}
+$0 \leq \varPhi_{\mu}$が得られる。定理\ref{4.6.7.3}よりその加法的集合関数$\varPhi_{\mu}$は単調増加する。同様にして、$a = 0$または$\mu(Y) = 0$が成り立つなら、その加法的集合関数$\varPhi_{\mu}$は単調減少する。
+\end{proof}
+\begin{thm}\label{4.6.7.5}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が単調増加する、または、単調減少するなら、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その$\sigma$-加法族$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が順序集合$(\varSigma, \subseteq )$で単調増加するとき、数学的帰納法により$A_{0} = \emptyset$とおけば明らかに次式のようにおける。
+\begin{align*}
+A_{n} = \bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) &= \varPhi\left( \lim_{n \rightarrow \infty}{\bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right)} \right)\\
+&= \varPhi\left( \bigsqcup_{n \in \mathbb{N}} \left( A_{n} \setminus A_{n - 1} \right) \right)\\
+&= \sum_{n \in \mathbb{N}} {\varPhi\left( A_{n} \setminus A_{n - 1} \right)}\\
+&= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {\varPhi\left( A_{k} \setminus A_{k - 1} \right)}}\\
+&= \lim_{n \rightarrow \infty}{\varPhi\left( \bigsqcup_{k \in \varLambda_{n}} \left( A_{k} \setminus A_{k - 1} \right) \right)}\\
+&= \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が順序集合$(\varSigma, \subseteq )$で単調減少で$\varPhi\left( A_{1} \right) < \infty$が成り立つとき、元の列$\left( A_{1} \setminus A_{n} \right)_{n \in \mathbb{N}}$とおくと、これはその集合$\varSigma$の順序集合$(\varSigma, \subseteq )$で単調増加な元の列である。したがって、$\varPhi\left( A_{1} \right) < \infty$が成り立つことに注意すれば、$\varPhi\left( A_{1} \setminus A_{n} \right) = \varPhi\left( A_{1} \right) - \varPhi\left( A_{n} \right)$が成り立つことにより次のようになる。
+\begin{align*}
+\varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) &= \varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) - \varPhi\left( A_{1} \right) + \varPhi\left( A_{1} \right)\\
+&= - \left( \varPhi\left( A_{1} \right) - \varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) \right) + \varPhi\left( A_{1} \right)\\
+&= - \varPhi\left( A_{1} \setminus \lim_{n \rightarrow \infty}A_{n} \right) + \varPhi\left( A_{1} \right)\\
+&= - \varPhi\left( \lim_{n \rightarrow \infty}\left( A_{1} \setminus A_{n} \right) \right) + \varPhi\left( A_{1} \right)\\
+&= - \lim_{n \rightarrow \infty}{\varPhi\left( A_{1} \setminus A_{n} \right)} + \varPhi\left( A_{1} \right)\\
+&= - \lim_{n \rightarrow \infty}\left( \varPhi\left( A_{1} \right) - \varPhi\left( A_{n} \right) \right) + \varPhi\left( A_{1} \right)\\
+&= - \varPhi\left( A_{1} \right) + \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)} + \varPhi\left( A_{1} \right) = \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.6.7.6}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その加法的集合関数$\varPhi$が単調増加するなら、$\sigma$-加法族$\varSigma$の任意の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$に対し、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \liminf_{n \rightarrow \infty}A_{n} \right) \leq \liminf_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)},\ \ \varPhi\left( \limsup_{n \rightarrow \infty}A_{n} \right) \geq \limsup_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+特に、$\lim_{n \rightarrow \infty}A_{n}$が存在するなら、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その加法的集合関数$\varPhi$が単調増加するなら、定理\ref{4.6.7.3}より$0 \leq \varPhi$が成り立つ。さらに、定理\ref{4.6.7.1}より$\varPhi(\emptyset) = 0$が成り立つので、その加法的集合関数$\varPhi$は測度であり測度空間$(X,\varSigma,\varPhi)$がなされる。したがって、$\varPhi < \infty$が成り立つことに注意すれば、定理\ref{4.5.3.14}より$\sigma$-加法族$\varSigma$の任意の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$に対し、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \liminf_{n \rightarrow \infty}A_{n} \right) \leq \liminf_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)},\ \ \varPhi\left( \limsup_{n \rightarrow \infty}A_{n} \right) \geq \limsup_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+特に、$\lim_{n \rightarrow \infty}A_{n}$が存在するなら、次式が成り立つ。
+\begin{align*}
+\varPhi\left( \lim_{n \rightarrow \infty}A_{n} \right) = \lim_{n \rightarrow \infty}{\varPhi\left( A_{n} \right)}
+\end{align*}
+\end{proof}
+%\hypertarget{ux5168ux5909ux52d5}{%
+\subsubsection{全変動}%\label{ux5168ux5909ux52d5}}
+\begin{dfn}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\forall E \in \mathfrak{P}(X)$に対し、$\sup_{A \subseteq E}{\varPhi(A)}$、$\inf_{A \subseteq E}{\varPhi(A)}$をそれぞれその集合$E$上のその加法的集合関数$\varPhi$の上変動、下変動という。また、次式のように定義される負でない実数$V(\varPhi,E)$をその加法的集合関数$\varPhi$の全変動という。
+\begin{align*}
+V(\varPhi,E) = \left| \sup_{A \subseteq E}{\varPhi(A)} \right| + \left| \inf_{A \subseteq E}{\varPhi(A)} \right|
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.6.7.7}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\forall E \in \mathfrak{P}(X)$に対し、$\inf_{A \subseteq E}{\varPhi(A)} \leq 0 \leq \sup_{A \subseteq E}{\varPhi(A)}$が成り立つ。
+\end{thm}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\forall E \in \mathfrak{P}(X)$に対し、もちろん、$\emptyset \subseteq E$が成り立つので、$\inf_{A \subseteq E}{\varPhi(A)} \leq \varPhi(\emptyset) \leq \sup_{A \subseteq E}{\varPhi(A)}$が成り立つ。ここで、定理\ref{4.6.7.1}より$\inf_{A \subseteq E}{\varPhi(A)} \leq 0 \leq \sup_{A \subseteq E}{\varPhi(A)}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.6.7.8}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、その上変動$\sup_{A \subseteq E}{\varPhi(A)}$、下変動$\inf_{A \subseteq E}{\varPhi(A)}$、全変動$V(\varPhi,E)$はいづれも有限である。
+\end{thm}\par
+この定理は次のようにして示される。
+\begin{enumerate}
+\item
+  $\exists E \in \mathfrak{P}(X)$に対し、$V(\varPhi,E) = \infty$が成り立つと仮定する。
+\item
+  数学的帰納法により$\forall n \in \mathbb{N}$に対し、$X_{1} = E$として次のことを満たす単調減少する集合$\mathfrak{P}(E)$の元の列$\left( X_{n} \right)_{n \in \mathbb{N}}$が存在することを示す。
+\begin{align*}
+X_{n} \supseteq X_{n + 1},\ \ V\left( \varPhi,X_{n} \right) = \infty,\ \ n - 1 \leq \left| \varPhi\left( X_{n} \right) \right|
+\end{align*}
+\item
+  $F = \lim_{n \rightarrow \infty}X_{n}$なる集合$F$が存在して、$\left| \varPhi(F) \right| = \infty$が成り立つことになるが、これは加法的集合関数の定義に矛盾することを示す。
+\end{enumerate}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$における加法的集合関数$\varPhi$が与えられたとき、$\exists E \in \mathfrak{P}(X)$に対し、$V(\varPhi,E) = \infty$が成り立つと仮定する。$X_{1} = E$とすれば、もちろん、$V\left( \varPhi,X_{1} \right) = \infty$かつ$0 \leq \left| \varPhi\left( X_{1} \right) \right|$が成り立つ。$n = k$のとき、次のことが成り立つとする。
+\begin{align*}
+X_{k - 1} \supseteq X_{k},\ \ V\left( \varPhi,X_{k} \right) = \infty,\ \ n - 1 \leq \left| \varPhi\left( X_{k} \right) \right|
+\end{align*}
+これにより、$\left| \inf_{A \subseteq X_{k}}{\varPhi(A)} \right| = \infty$または$\left| \sup_{A \subseteq X_{k}}{\varPhi(A)} \right| = \infty$が成り立ち、したがって、$\sup_{A \subseteq X_{k}}\left| \varPhi(A) \right| = \infty$が成り立つ。これにより、$\varPhi\left( X_{k} \right) \in \mathbb{R}$に注意すれば、$\exists F \in \mathfrak{P}\left( X_{k} \right)$に対し、$0 \leq \left| \varPhi\left( X_{k} \right) \right| \leq \left| \varPhi(F) \right| - k$が成り立つ。このとき、$\forall A \in \mathfrak{P}\left( X_{k} \right)$に対し、次のようになる。
+\begin{align*}
+\left| \varPhi(A) \right| &= \left| \varPhi(A \cap F) + \varPhi\left( A \cap \left( X_{k} \setminus F \right) \right) \right|\\
+&\leq \left| \varPhi(A \cap F) \right| + \left| \varPhi\left( A \cap \left( X_{k} \setminus F \right) \right) \right|\\
+&\leq \left| \sup_{A \subseteq F}{\varPhi(A)} \right| + \left| \inf_{A \subseteq F}{\varPhi(A)} \right| + \left| \sup_{A \subseteq X_{k} \setminus F}{\varPhi(A)} \right| + \left| \inf_{A \subseteq X_{k} \setminus F}{\varPhi(A)} \right|\\
+&= V(\varPhi,F) + V\left( \varPhi,X_{k} \setminus F \right)
+\end{align*}
+$\sup_{A \subseteq X_{k}}\left| \varPhi(A) \right| = \infty$より$V(\varPhi,F) = \infty$または$V\left( \varPhi,X_{k} \setminus F \right) = \infty$が成り立つので、$V(\varPhi,F) = \infty$のとき、$X_{k + 1} = F$とすれば、たしかに次のことが成り立つ。
+\begin{align*}
+X_{k} \supseteq F = X_{k + 1},\ \ V\left( \varPhi,X_{k + 1} \right) = V(\varPhi,F) = \infty,\ \ k \leq \left| \varPhi(F) \right| = \left| \varPhi\left( X_{k + 1} \right) \right|
+\end{align*}
+$V\left( \varPhi,X_{k} \setminus F \right) = \infty$のとき、$X_{k + 1} = X_{k} \setminus F$とすれば、たしかに次のことが成り立つ。
+\begin{align*}
+X_{k} \supseteq X_{k} \setminus F = X_{k + 1}&,\ \ V\left( \varPhi,X_{k + 1} \right) = V\left( \varPhi,X_{k} \setminus F \right) = \infty,\\
+k \leq \left| \varPhi(F) \right| - \left| \varPhi\left( X_{k} \right) \right| &\leq \left| \varPhi\left( X_{k} \right) - \varPhi(F) \right| = \left| \varPhi\left( X_{k} \setminus F \right) \right| = \left| \varPhi\left( X_{k + 1} \right) \right|
+\end{align*}
+以上、数学的帰納法により$\forall n \in \mathbb{N}$に対し、$X_{1} = E$として次のことを満たす単調減少する集合$\mathfrak{P}(E)$の元の列$\left( X_{n} \right)_{n \in \mathbb{N}}$が存在する。
+\begin{align*}
+X_{n} \supseteq X_{n + 1},\ \ V\left( \varPhi,X_{n} \right) = \infty,\ \ n - 1 \leq \left| \varPhi\left( X_{n} \right) \right|
+\end{align*}\par
+このとき、その元の列$\left( X_{n} \right)_{n \in \mathbb{N}}$が単調減少しているので、$F = \lim_{n \rightarrow \infty}X_{n}$なる集合$F$が存在して、定理\ref{4.6.7.6}より次のようになる。
+\begin{align*}
+\left| \varPhi(F) \right| = \left| \varPhi\left( \lim_{n \rightarrow \infty}X_{n} \right) \right| = \lim_{n \rightarrow \infty}\left| \varPhi\left( X_{n} \right) \right| = \infty
+\end{align*}
+しかしながら、$\varPhi(F) \in \mathbb{R}$よりこれは矛盾している。\par
+よって、$V(\varPhi,E) < \infty$が成り立つので、$\left| \sup_{A \subseteq E}{\varPhi(A)} \right| < \infty$かつ$\left| \inf_{A \subseteq E}{\varPhi(A)} \right| < \infty$が成り立つことになり、したがって、その上変動$\sup_{A \subseteq E}{\varPhi(A)}$、下変動$\inf_{A \subseteq E}{\varPhi(A)}$、全変動$V(\varPhi,E)$はいづれも有限である。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 第24刷 p82-86,111-114 ISBN4-7853-1304-8
+\bibitem{2}
+  日野正訓. "解析学 I(Lebesgue 積分論)". 京都大学. \url{https://www.math.kyoto-u.ac.jp/~hino/jugyoufile/AnalysisI210710.pdf} (2022年4月4日4:05 取得)
+\bibitem{3}
+  岩田耕一郎, ルベーグ積分, 森北出版, 2015. 第1版第2刷 p58-59 ISBN978-4-627-05431-8
+\end{thebibliography}
+\end{document}

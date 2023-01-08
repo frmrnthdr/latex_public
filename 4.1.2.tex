@@ -1,0 +1,824 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{1}
+\input{macro}
+\begin{document}
+%\hypertarget{vector-ux884cux5217-ux8907ux7d20ux6570}{%
+\subsection{行列 複素数}%\label{vector-ux884cux5217-ux8907ux7d20ux6570}}
+%\hypertarget{vectorux7a7aux9593}{%
+\subsubsection{vector空間}%\label{vectorux7a7aux9593}}
+\begin{axs}[vector空間の公理]
+集合$K$を体とする。空集合でない集合$V$に対し、加法$+ :V \times V \rightarrow V;\left( \mathbf{v},\mathbf{w} \right) \mapsto \mathbf{v} + \mathbf{w}$が与えられたとする。\par
+このとき、次の条件たちを満たす集合$V$を体$K$上のvector空間、有向量空間、線形空間、線型空間という。
+\begin{itemize}
+\item
+  集合$V$は加法について可換群$(V, + )$をなす。
+\item
+  $\forall k \in K\forall\mathbf{v} \in V$に対し、scalar倍$\cdot :K \times V \rightarrow V;\left( k,\mathbf{v} \right) \mapsto k\mathbf{v}$が定義されている。
+\item
+  $\forall k \in K\forall\mathbf{v},\mathbf{w} \in V$に対し、$k\left( \mathbf{v} + \mathbf{w} \right) = k\mathbf{v}\mathbf{+}k\mathbf{w}$が成り立つ。
+\item
+  $\forall k,l \in K\forall\mathbf{v} \in V$に対し、$(k + l)\mathbf{v} = k\mathbf{v}\mathbf{+}l\mathbf{v}$が成り立つ。
+\item
+  $\forall k,l \in K\forall\mathbf{v} \in V$に対し、$(kl)\mathbf{v} = k\left( l\mathbf{v} \right)$が成り立つ。
+\item
+  $\exists 1 \in K\forall\mathbf{v} \in V$に対し、$1\mathbf{v} = \mathbf{v}$が成り立つ。
+\end{itemize}
+体$K$上のvector空間$V$の元をvector、有向量などといいふつう$\mathbf{v}$など小文字太字で表される。特に加法の単位元であるvectorを零vectorといい、\textbf{0}と表す。一方、vector空間を考えるとき体$K$の元をscalar、無向量などという。
+\end{axs}
+\begin{thm}\label{4.1.2.1} 体$K$上のvector空間$V$において、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k \in K\forall\mathbf{v},\mathbf{w} \in V$に対し、$k\left( \mathbf{v}-\mathbf{w} \right) = k\mathbf{v}-k\mathbf{w}$が成り立つ。
+\item
+  $\forall k,l \in K\forall\mathbf{v} \in V$に対し、$(k - l)\mathbf{v} = k\mathbf{v} - l\mathbf{v}$が成り立つ。
+\item
+  $\exists\mathbf{0} \in V\forall k \in K$に対し、$k\mathbf{0} = \mathbf{0}$が成り立つ。
+\item
+  $\exists 0 \in K\forall\mathbf{v} \in V$に対し、$0\mathbf{v} = \mathbf{0}$が成り立つ。
+\item
+  $\forall k \in K\forall\mathbf{v} \in V$に対し、$( - k)\mathbf{v} = k\left( - \mathbf{v} \right) = - k\mathbf{v}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$V$を考えれば、$\forall k \in K\forall\mathbf{v},\mathbf{w} \in V$に対し、次のようになる。
+\begin{align*}
+k\left( \mathbf{v}-\mathbf{w} \right) + k\mathbf{w} - k\mathbf{w}&=k\left( \left( \mathbf{v} - \mathbf{w} \right) + \mathbf{w} \right) - k\mathbf{w}\\
+&=k\mathbf{v} - k\mathbf{w}\\
+&=k\left( \mathbf{v}-\mathbf{w} \right)\\
+&= k\mathbf{v} - k\mathbf{w}
+\end{align*}
+$\forall k,l \in K\forall\mathbf{v} \in V$に対し、次のようになる。
+\begin{align*}
+(k - l)\mathbf{v} + l\mathbf{v} - l\mathbf{v}&=\left( (k - l) + l \right)\mathbf{v} - l\mathbf{v}\\
+&=k\mathbf{v} - l\mathbf{v}\\
+&=(k - l)\mathbf{v}\\
+&= k\mathbf{v} - l\mathbf{v}
+\end{align*}
+$\exists\mathbf{0} \in V\forall k \in K$に対し、次のようになる。
+\begin{align*}
+k\mathbf{0} &= k\left( \mathbf{v}-\mathbf{v} \right)\\
+&= k\mathbf{v}-k\mathbf{v} = \mathbf{0}
+\end{align*}
+$\exists 0 \in K\forall\mathbf{v} \in V$に対し、次のようになる。
+\begin{align*}
+0\mathbf{v} &= (k - k)\mathbf{v}\\
+&= k\mathbf{v} - k\mathbf{v} = \mathbf{0}
+\end{align*}
+$\forall k \in K\forall\mathbf{v} \in V$に対し、次のようになる。
+\begin{align*}
+( - k)\mathbf{v} &= (0 - k)\mathbf{v}\\
+&= 0\mathbf{v} - k\mathbf{v}\\
+&= \mathbf{0} - k\mathbf{v} = - k\mathbf{v}
+\end{align*}
+$\forall k,l \in K\forall\mathbf{v},\mathbf{w} \in V\exists 0 \in K\exists\mathbf{0} \in V$に対し、次のようになる。
+\begin{align*}
+k\left( - \mathbf{v} \right) &= k\left( \mathbf{0} - \mathbf{v} \right)\\
+&= k\mathbf{0} - k\mathbf{v}\\
+&= \mathbf{0} - k\mathbf{v} = - k\mathbf{v}
+\end{align*}
+\end{proof}
+%\hypertarget{ux4f53kux4e0aux306en-vector}{%
+\subsubsection{体$K$上の$n$-vector}%\label{ux4f53kux4e0aux306en-vector}}
+\begin{dfn}
+体$K$の$n$つの積$K^{n}$の元、即ち、体$K$の元$a_{i}$の順序付けられた組$\left( a_{i} \right)_{i \in \varLambda_{n}} = \left( a_{1},a_{2},\cdots,a_{n} \right)$を考え集合$K^{n}$について次のように定義する。
+\begin{itemize}
+\item
+  $\forall\left( a_{i} \right)_{i \in \varLambda_{n}},\left( b_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、$\left( a_{i} \right)_{i \in \varLambda_{n}} + \left( b_{i} \right)_{i \in \varLambda_{n}} = \left( a_{i} + b_{i} \right)_{i \in \varLambda_{n}}$が成り立つ。
+\item
+  $\forall k \in K\forall\left( a_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、${k\left( a_{i} \right)}_{i \in \varLambda_{n}} = \left( {ka}_{i} \right)_{i \in \varLambda_{n}}$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{4.1.2.2} 集合$K^{n}$はvector空間である。
+\end{thm}
+\begin{dfn}
+組$\left( a_{i} \right)_{i \in \varLambda_{n}}$を体$K$上の$n$-vectorといい、$a_{i}$をこのvectorの第$i$成分、第$i$座標という。なお、その自然数$n$をそのvector空間の次元ということにする\footnote{ちゃんとした定義でいえば基底の個数を次元ということになります。ただ、これのwell define性の確認がやや大変なので、ここでは省略させていただきました。}。
+\end{dfn}
+\begin{proof}
+体$K$の$n$つの積$K^{n}$の元、即ち体$K$の元$a_{i}$の順序付けられた組$\left( a_{i} \right)_{i \in \varLambda_{n}} = \left( a_{1},a_{2},\cdots,a_{n} \right)$が与えられたとき、集合$K^{n}$について定義より$\forall\left( a_{i} \right)_{i \in \varLambda_{n}},\left( b_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、$\left( a_{i} \right)_{i \in \varLambda_{n}} + \left( b_{i} \right)_{i \in \varLambda_{n}} = \left( a_{i} + b_{i} \right)_{i \in \varLambda_{n}}$が成り立つ。このとき、体$K$が加法について群$(K, + )$をなし、$a_{i} + b_{i}$のみ着眼して考えると、各成分も加法について群$(K, + )$をなしているので、$K^{n}$は加法について群$\left( K^{n}, + \right)$をなす。\par
+また、定義より$\forall k \in K\forall\left( a_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、$k\left( a_{i} \right)_{i \in \varLambda_{n}} = \left( {ka}_{i} \right)_{i \in \varLambda_{n}}$が成り立ち${ka}_{i} \in K$が成り立つので、$\left( {ka}_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$であり写像$\cdot :K \times K^{n} \rightarrow K^{n};\left( k,\left( a_{i} \right)_{i \in \varLambda_{n}} \right) \mapsto \left( {ka}_{i} \right)_{i \in \varLambda_{n}}$が定義される。\par
+さらに、$\forall k,l \in K\forall\left( a_{i} \right)_{i \in \varLambda_{n}},\left( b_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、次のようになる。
+\begin{align*}
+k\left( \left( a_{i} \right)_{i \in \varLambda_{n}} + \left( b_{i} \right)_{i \in \varLambda_{n}} \right) &= k\left( a_{i} + b_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( k\left( a_{i} + b_{i} \right) \right)_{i \in \varLambda_{n}}\\
+&= \left( ka_{i} + kb_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( ka_{i} \right)_{i \in \varLambda_{n}}\mathbf{+}\left( kb_{i} \right)_{i \in \varLambda_{n}}\\
+&= k\left( a_{i} \right)_{i \in \varLambda_{n}}\mathbf{+}k\left( b_{i} \right)_{i \in \varLambda_{n}}\\
+(k + l)\left( a_{i} \right)_{i \in \varLambda_{n}} &= \left( (k + l)a_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( ka_{i} + la_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( ka_{i} \right)_{i \in \varLambda_{n}}\mathbf{+}\left( la_{i} \right)_{i \in \varLambda_{n}}\\
+&= k\left( a_{i} \right)_{i \in \varLambda_{n}}\mathbf{+}l\left( a_{i} \right)_{i \in \varLambda_{n}}\\
+(kl)\left( a_{i} \right)_{i \in \varLambda_{n}} &= \left( (kl)a_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( k\left( la_{i} \right) \right)_{i \in \varLambda_{n}}\\
+&= {k\left( la_{i} \right)}_{i \in \varLambda_{n}}\\
+&= k\left( l\left( a_{i} \right)_{i \in \varLambda_{n}} \right)\\
+&1\left( a_{i} \right)_{i \in \varLambda_{n}} = \left( 1a_{i} \right)_{i \in \varLambda_{n}} = \left( a_{i} \right)_{i \in \varLambda_{n}}
+\end{align*}\par
+以上より、その集合$K^{n}$はvector空間の定義を満たしているので、vector空間である。
+\end{proof}
+\begin{thm}\label{4.1.2.3}
+体$K$上のvector空間$K^{n}$において、$i \in \varLambda_{n}$なるvectors$\mathbf{e}_{i}$を次式のようにおく。
+\begin{align*}
+\mathbf{e}_{i} = \left( \delta_{ij} \right)_{j \in \varLambda_{n}},\ \ \delta_{ij} = \left\{ \begin{matrix}
+1 & \mathrm{if} & i = j \\
+0 & \mathrm{if} & i \neq j \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、次式が成り立つ\footnote{この組$\left\langle \mathbf{e}_{i} \right\rangle_{i\in \varLambda_{n} }$を自然な正規直交基底とかいったりするらしいです。これについて詳しくは線形代数学のほうを参照していただければ…。}。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} = \mathbf{0} \Leftrightarrow \forall i \in \varLambda_{n}\left[ a_{i} = 0 \right]
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$K^{n}$において、$\forall i \in \varLambda_{n}$に対し、$c_{i} = 0$が成り立つなら、$\forall i \in \varLambda_{n}$に対し$c_{i}\mathbf{e}_{i} = \mathbf{0}$が成り立つので、明らかに$\sum_{i \in \varLambda_{n}} {c_{i}\mathbf{e}_{i}} = \mathbf{0}$が成り立つ。逆に、$a_{i} \in K$なる元々$a_{i}$を用いて式$\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} = \mathbf{0}$について考えよう。$\exists i \in \varLambda_{n}$に対し、$a_{i} \neq 0$と仮定するとき、$\varLambda' = \left\{ i \in \varLambda_{n} \middle| a_{i} \neq 0 \right\}$とおくと、この集合は空集合でなく、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} &= \sum_{i \in \varLambda_{n} \setminus \varLambda' \cup \varLambda'} {a_{i}\mathbf{e}_{i}}\\
+&= \sum_{i \in \varLambda_{n} \setminus \varLambda'} {a_{i}\mathbf{e}_{i}} + \sum_{i \in \varLambda'} {a_{i}\mathbf{e}_{i}}\\
+&= 0\sum_{i \in \varLambda_{n} \setminus \varLambda'} \mathbf{e}_{i} + \sum_{i \in \varLambda'} {a_{i}\mathbf{e}_{i}}\\
+&= \mathbf{0} + \sum_{i \in \varLambda'} {a_{i}\mathbf{e}_{i}}\\
+&= \sum_{i \in \varLambda'} {a_{i}\mathbf{e}_{i}}\\
+&= \sum_{i \in \varLambda'} {a_{i}\left( \delta_{ij} \right)_{i \in \varLambda_{n}}}\\
+&= \sum_{i \in \varLambda'} \left( a_{i}\delta_{ij} \right)_{j \in \varLambda_{n}}
+\end{align*}
+ここで、総和をとられる$i \in \varLambda'$なる各vectors$\left( a_{i}\delta_{ij} \right)_{j \in \varLambda_{n}}$の添数$i$たちは互いに異なり同じ成分同士の和がとられることはなく$i \in \varLambda'$より$a_{i} \neq 0$が成り立つので、
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} = \left( \left\{ \begin{matrix}
+a_{i} & \mathrm{if} & i \in \varLambda' \\
+0 & \mathrm{if} & i \notin \varLambda' \\
+\end{matrix} \right.\  \right)_{i \in \varLambda_{n}}
+\end{align*}
+$i \in \varLambda_{n}$に対する各vectors$\left( \left\{ \begin{matrix}
+a_{i} & \mathrm{if} & i \in \varLambda' \\
+0 & \mathrm{if} & i \notin \varLambda' \\
+\end{matrix} \right.\  \right)_{i \in \varLambda_{n}}$の成分のうち$a_{i} \neq 0$なる成分が存在するので、vector$\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}$は零vector$\mathbf{0} $ではない。しかし、これは仮定に矛盾するので、$\forall i \in \varLambda_{n}$に対し、$a_{i} = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.2.4}
+$\forall\left( a_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し次式が成り立つ。
+\begin{align*}
+\left( a_{i} \right)_{i \in \varLambda_{n}} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}
+\end{align*}
+そのvector$\mathbf{v}$が$\sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}$と書かれることができるとき、そのvector$\mathbf{v}$をそのvector$\left( a_{i} \right)_{i \in \varLambda_{n}}$に書きかえることをそのvector$\mathbf{v}$をそのvector$\left( a_{i} \right)_{i \in \varLambda_{n}}$と成分表示するという。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間$K^{n}$において、$\forall i \in \varLambda_{n}$に対しvectors$\mathbf{e}_{i}$を次式のようにおく。
+\begin{align*}
+\mathbf{e}_{i} = \left( \delta_{ij} \right)_{j \in \varLambda_{n}},\ \ \delta_{ij} = \left\{ \begin{matrix}
+1 & \mathrm{if} & i = j \\
+0 & \mathrm{if} & i \neq j \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\forall\left( a_{i} \right)_{i \in \varLambda_{n}} \in K^{n}$に対し、次のようになる。
+\begin{align*}
+\left( a_{i} \right)_{i \in \varLambda_{n}} &= \sum_{i \in \varLambda_{n}} \left( a_{i}\delta_{ij} \right)_{j \in \varLambda_{n}}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\left( \delta_{ij} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux5ea7ux6a19}{%
+\subsubsection{座標}%\label{ux5ea7ux6a19}}
+\begin{thm}\label{4.1.2.5}
+$\forall\mathbf{v} \in K^{n}$なる元$\mathbf{v}$は$i \in \varLambda_{n}$なるその体$K$の元々$a_{i}$を用いて次式のように表されるのであった。
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}
+\end{align*}
+$i \in \varLambda_{n}$なるこのときのこれらの元々$a_{i}$は一意的である。これは背理法によって示される。
+\end{thm}
+\begin{dfn}
+このvector$\left( a_{i} \right)_{i \in \varLambda_{i}}$を標準直交基底によるそのvector$\mathbf{v}$の座標、座標vector、成分、成分vector、位置、位置vectorなどといい$a_{i}$をそのvector$\mathbf{v}$の第$i$成分、第$i$座標という。
+\end{dfn}
+\begin{proof}
+$\forall\mathbf{v} \in K^{n}$に対し、$i \in \varLambda_{n}$なるその体$K$の元々$a_{i}$を用いて次式のように表されるとする。
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}
+\end{align*}
+$i \in \varLambda_{n}$なるこのときのこれらの元々$a_{i}$は一意的でないと仮定する。このとき、$\exists i \in \varLambda_{n}$に対し、$a_{i} \neq b_{i}$が成り立ち$b_{i} \in K$なる元々$b_{i}$を用いて次式のように表されることができる。
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{n}} {b_{i}\mathbf{e}_{i}}
+\end{align*}
+この式を前述した式$\mathbf{v} = \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}}$から引けば、次式が成り立つ。
+\begin{align*}
+\mathbf{0} &= \mathbf{v} - \mathbf{v}\\
+&= \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} - \sum_{i \in \varLambda_{n}} {b_{i}\mathbf{e}_{i}}\\
+&= \sum_{i \in \varLambda_{n}} {\left( a_{i} - b_{i} \right)\mathbf{e}_{i}}
+\end{align*}
+ここで、上記の定理より次式が成り立つ。
+\begin{align*}
+\forall i \in \varLambda_{n}\left[ a_{i} - b_{i} = 0 \right] &\Leftrightarrow \forall i \in \varLambda_{n}\left[ a_{i} = b_{i} \right]\\
+&\Leftrightarrow \neg\exists i \in \varLambda_{n}\left[ a_{i} \neq b_{i} \right]
+\end{align*}
+これは仮定の$\exists i \in \varLambda_{n}$に対し、$a_{i} \neq b_{i}$が成り立つことに矛盾する。
+\end{proof}
+\begin{dfn}
+集合$\mathbb{R}^{n}$の元を点といい$\forall\mathbf{r} \in \mathbb{R}^{n}$なる点$\mathbf{r}$が$\forall i \in \varLambda_{n}$に対しそれらのvectors$\mathbf{e}_{i}$を用いて$\sum_{i \in \varLambda_{n}} {x_{i}\mathbf{e}_{i}}$と書かれることができるとき、写像$\varphi:\mathbf{r} \mapsto \left( x_{i} \right)_{i \in \varLambda_{n}}$を$n$次元直交座標系、または、単に直交座標系などという。$\forall\mathbf{r} \in \mathbb{R}^{n}$なる点$\mathbf{r}$のその基底が標準直交基底である座標$\left( x_{i} \right)_{i \in \varLambda_{n}}$をその点$\mathbf{r}$の$n$次元直交座標、または単に、直交座標などといいしばしば$\overrightarrow{r}$などの矢印つきの小文字などを用いるときがある。
+\end{dfn}
+\begin{dfn}
+特に、2次元直交座標系なら$x_{1}$、$x_{2}$をそれぞれ$x$、$y$などと表しこの座標系を$xy$平面ともいい、3次元直交座標系なら$x_{1}$、$x_{2}$、$x_{3}$をそれぞれ$x$、$y$、$z$などと表しこの座標系を$xyz$空間ともいい、任意の実数$x_{j}$を用いて、次式で表される集合$P$を$j = 1$なら$yz$平面、$j = 2$なら$zx$平面、$j = 3$なら$xy$平面という。
+\begin{align*}
+P = \left\{ \left( x_{i} \right)_{i \in \varLambda_{3}} \in \mathbb{R}^{3} \middle| x_{j} = 0 \right\}
+\end{align*}
+\end{dfn}
+%\hypertarget{ux884cux5217}{%
+\subsubsection{行列}%\label{ux884cux5217}}
+\begin{dfn}
+1つの体を$K$と、2つの空集合でない集合たちを$I$、$J$とおくとき、その2つの集合たち$I$、$J$の直積$I \times J$から体$K$への写像$a:I \times J \rightarrow K;(i,j) \mapsto a_{ij}$によって得られる体$K$の元$a_{ij}$全体の順序付けられた組を体$K$における$(I,J)$型の行列といい、$\left( a_{ij} \right)_{(i,j) \in I \times J}$、または単に、$\left( a_{ij} \right)$と表される。その2つの集合たち$I$、$J$がそれぞれ${\#}I$つ、${\#}J$つの元からなる有限集合であるとき、$(I,J)$型の行列を$\left( {\#}I,{\#}J \right)$型の行列、${\#}I \times {\#}J$型の行列などという。これに対比して体$K$の元をscalar、無向量などという。特に、その2つの集合たち$I$、$J$は、写像$f$を適切に定めれば、体$K$の元$a_{ij}$を定めるのに任意性があるので、自然数$m$、$n$を用いてその2つの集合たち$I$、$J$を次式のようにおいても一般性が失われることはない。
+\begin{align*}
+\left\{ \begin{matrix}
+\varLambda_{m} = \left\{ i \in \mathbb{N} \middle| 1 \leq i \leq m \right\} = I \\
+\varLambda_{n} = \left\{ j \in \mathbb{N} \middle| 1 \leq j \leq m \right\} = J \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\left( \varLambda_{m},\varLambda_{n} \right)$型の行列は$(m,n)$型の行列、$m \times n$型の行列にあたり、$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$を次式のようにも書き、その元$a_{ij}$が明示的に書かれているものを成分表示された行列などといい、その元$a_{ij}$は集合$K$に属し、これを$(i,j)$成分という。また、これが属する集合を$M_{mn}(K)$、$K^{m \times n}$と書き、特に$m = n$ならば単に$M_{n}(K)$、$K^{n^{2}}$とも書く。
+\begin{align*}
+\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn} = \left( a_{ij} \right)_{1 \leq i \leq m,1 \leq j \leq n} = \begin{pmatrix}
+\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix} & \begin{matrix}
+\cdots & a_{1n} \\
+\cdots & a_{2n} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots & \vdots \\
+a_{m1} & a_{m2} \\
+\end{matrix} & \begin{matrix}
+ \ddots & \vdots \\
+\cdots & a_{mn} \\
+\end{matrix} \\
+\end{pmatrix}
+\end{align*}\par
+以下、行列たち$A_{mn}$、$B_{mn}$、$C_{mn}$がそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と成分表示されるとする。
+\end{dfn}
+\begin{dfn}
+$\forall\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}},\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(K)\forall k,l \in K$に対し、次式のように定義する。
+\begin{align*}
+k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = \left( ka_{ij} + lb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}
+\end{align*}
+このとき、行列はvectorとなり、$\exists\varLambda \in \left\{ \varLambda_{m},\varLambda_{n} \right\}$に対し、${\#}\varLambda = 1$となれば、即ち、その2つの集合たち$\varLambda_{m}$、$\varLambda_{n}$どちらかまたは両方とも元の個数が$1$になっても行列$\begin{pmatrix}
+\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix} & \begin{matrix}
+\cdots & a_{1n} \\
+\cdots & a_{2n} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots & \vdots \\
+a_{m1} & a_{m2} \\
+\end{matrix} & \begin{matrix}
+ \ddots & \vdots \\
+\cdots & a_{mn} \\
+\end{matrix} \\
+\end{pmatrix}$はvectorであり、$\left( \varLambda_{1},\varLambda_{n} \right)$型の行列$\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+\end{pmatrix}$、$\left( \varLambda_{m},\varLambda_{1} \right)$型の行列$\begin{pmatrix}
+\begin{matrix}
+a_{11} \\
+a_{21} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots \\
+a_{m1} \\
+\end{matrix} \\
+\end{pmatrix}$をそれぞれ$n$-行vector、$m$-列vectorという。また、行列$\begin{pmatrix}
+\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix} & \begin{matrix}
+\cdots & a_{1n} \\
+\cdots & a_{2n} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots & \vdots \\
+a_{m1} & a_{m2} \\
+\end{matrix} & \begin{matrix}
+ \ddots & \vdots \\
+\cdots & a_{mn} \\
+\end{matrix} \\
+\end{pmatrix}$から取り出されたvector$\begin{pmatrix}
+a_{i1} & a_{i2} & \cdots & a_{in} \\
+\end{pmatrix}$、vector$\begin{pmatrix}
+\begin{matrix}
+a_{1j} \\
+a_{2j} \\
+\end{matrix} \\
+\begin{matrix}
+ \vdots \\
+a_{mj} \\
+\end{matrix} \\
+\end{pmatrix}$をそれぞれその行列$A_{mn}$の第$i$行、第$j$列という。
+\end{dfn}
+\begin{dfn}
+次式のように定義される行列$O_{mn}$を$\left( \varLambda_{m},\varLambda_{n} \right)$型の零行列、$(m,n)$型の零行列、$m \times n$型の零行列といい、特に$m = n$ならば$n$次零行列といい、単に$O_{n}$とも表す。
+\begin{align*}
+O_{mn} = (0)_{(i,j) \in \varLambda_{n} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.2.7}
+$\forall k,l \in K\forall A_{mn},B_{mn},C_{mn} \in M_{mn}(K)$に対し、体$K$上の行列について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\exists 1 \in K\forall A_{mn} \in M_{mn}(K)$に対し、$1A_{mn} = A_{mn}$が成り立つ。
+\item
+  $\exists 0 \in K\exists O_{mn} \in M_{mn}(K)\forall A_{mn} \in M_{mn}(K)$に対し、$0A_{mn} = O_{mn}$が成り立つ。
+\item
+  $\forall k,l \in K\forall A_{mn} \in M_{mn}(K)$に対し、$(k + l)A_{mn} = kA_{mn} + lA_{mn}$が成り立つ。
+\item
+  $\forall k \in K\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、$k\left( A_{mn} + B_{mn} \right) = kA_{mn} + kB_{mn}$が成り立つ。
+\item
+  $\forall k,l \in K\forall A_{mn} \in M_{mn}(K)$に対し、$k\left( lA_{mn} \right) = (kl)A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、$A_{mn} + B_{mn} = B_{mn} + A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn},B_{mn},C_{mn} \in M_{mn}(K)$に対し、$\left( A_{mn} + B_{mn} \right) + C_{mn} = A_{mn} + \left( B_{mn} + C_{mn} \right)$が成り立つ。
+\item
+  $\exists O_{mn} \in M_{mn}(K)\forall A_{mn} \in M_{mn}(K)$に対し、$A_{mn} + O_{mn} = A_{mn}$が成り立つ。
+\item
+  $\forall A_{mn} \in M_{mn}(K)\exists - A_{mn} \in M_{mn}(K)$に対し、$A_{mn} - A_{mn} = O_{mn}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+行列たち$A_{mn}$、$B_{mn}$、$C_{mn}$がそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と成分表示されることができるとすると、$\exists 1 \in K\forall A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+1A_{mn} &= 1\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( 1a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}
+\end{align*}
+$\exists 0 \in K\exists O_{mn} \in M_{mn}(K)\forall A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+0A_{mn} &= 0\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( 0a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= (0)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = O_{mn}
+\end{align*}
+$\forall k,l \in K\forall A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+(k + l)A_{mn} &= (k + l)\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( (k + l)a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} + la_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( la_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= {k\left( a_{ij} \right)}_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + l\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= kA_{mn} + lA_{mn}
+\end{align*}
+$\forall k \in K\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+k\left( A_{mn} + B_{mn} \right) &= k\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= k\left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( a_{ij} + b_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} + kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= k\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= kA_{mn} + kB_{mn}
+\end{align*}
+$\forall k,l \in K\forall A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+k\left( lA_{mn} \right) &= k\left( l\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= k\left( la_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( la_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( (kl)a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= (kl)\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = (kl)A_{mn}
+\end{align*}
+$\forall A_{mn},B_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+A_{mn} + B_{mn} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( b_{ij} + a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= B_{mn} + A_{mn}
+\end{align*}
+$\forall A_{mn},B_{mn},C_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+\left( A_{mn} + B_{mn} \right) + C_{mn} &= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right) + \left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \left( a_{ij} + b_{ij} \right) + c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + \left( b_{ij} + c_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( b_{ij} + c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= A_{mn} + \left( B_{mn} + C_{mn} \right)
+\end{align*}
+$\exists O_{mn} \in M_{mn}(K)\forall A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+A_{mn} + O_{mn} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + (0)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + 0 \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = A_{mn}
+\end{align*}
+$\forall A_{mn} \in M_{mn}(K)\exists - A_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+A_{mn} - A_{mn} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( - \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( - a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + \left( - a_{ij} \right) \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} - a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= (0)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} = O_{mn}
+\end{align*}
+\end{proof}
+\begin{dfn}
+2つの行列$A_{lm}$、$B_{mn}$に対して次式のように行列の積を定義する。
+\begin{align*}
+A_{lm}B_{mn} = \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.2.8} 行列の積について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall A_{lm} \in M_{lm}(K)\forall B_{mn} \in M_{mn}(K)\forall C_{no} \in M_{no}(K)$に対し、$A_{lm}\left( B_{mn}C_{no} \right) = \left( A_{lm}B_{mn} \right)C_{no}$が成り立つ。
+\item
+  $\forall A_{lm} \in M_{lm}(K)\forall B_{mn},C_{mn} \in M_{mn}(K)$に対し、$A_{lm}\left( B_{mn} + C_{mn} \right) = A_{lm}B_{mn} + A_{lm}C_{mn}$が成り立つ。
+\item
+  $\forall A_{lm},B_{lm} \in M_{lm}(K)\forall C_{mn} \in M_{mn}(K)$に対し、$\left( A_{lm} + B_{lm} \right)C_{mn} = A_{lm}C_{mn} + B_{lm}C_{mn}$が成り立つ。
+\item
+  $\forall k \in K\forall A_{lm} \in M_{lm}(K)\forall B_{mn} \in M_{mn}(K)$に対し、$A_{lm}\left( kB_{mn} \right) = \left( kA_{lm} \right)B_{mn} = k\left( A_{lm}B_{mn} \right)$が成り立つ。
+\end{itemize}
+\end{thm}\par
+以上より、3つの行列同士の積、2つの行列同士の積の$k$倍は結合的であり、行列同士では積が和に対して右からも左からも分配的であるが、2つの行列同士の積は必ずしも可換的であるとは限らない。
+\begin{proof}
+行列たち$A_{mn}$、$B_{mn}$、$C_{mn}$がそれぞれ$\left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$、$\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$と成分表示されることができるとすると、$\forall A_{lm} \in M_{lm}(K)\forall B_{mn} \in M_{mn}(K)\forall C_{no} \in M_{no}(K)$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( B_{mn}C_{no} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \sum_{h \in \varLambda_{n}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} a_{ig}\sum_{h \in \varLambda_{n}} {b_{gh}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} {\sum_{h \in \varLambda_{n}} {a_{ig}b_{gh}c_{hj}}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{h \in \varLambda_{n}} {\sum_{g \in \varLambda_{m}} {a_{ig}b_{gh}c_{hj}}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{o}}\\
+&= \left( \sum_{g \in \varLambda_{m}} {a_{ig}b_{gj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}\\
+&= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\left( c_{ij} \right)_{(i,j) \in \varLambda_{n} \times \varLambda_{o}}\\
+&= \left( A_{lm}B_{mn} \right)C_{no}
+\end{align*}
+$\forall A_{lm} \in M_{lm}(K)\forall B_{mn},C_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( B_{mn} + C_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( \left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} + c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}\left( b_{hj} + c_{hj} \right)} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} \left( a_{ih}b_{hj} + a_{ih}c_{hj} \right) \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} + \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}} + \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= A_{lm}B_{mn} + A_{lm}C_{mn}
+\end{align*}
+$\forall A_{lm},B_{lm} \in M_{lm}(K)\forall C_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+\left( A_{lm} + B_{lm} \right)C_{mn} &= \left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} + \left( b_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} \right)\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( a_{ij} + b_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {\left( a_{ih} + b_{ih} \right)c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} \left( a_{ih}c_{hj} + b_{ih}c_{hj} \right) \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} + \sum_{h \in \varLambda_{m}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}} + \left( \sum_{h \in \varLambda_{m}} {b_{ih}c_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} + \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( c_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= A_{lm}C_{mn} + A_{lm}C_{mn}
+\end{align*}
+$\forall k \in K\forall A_{lm} \in M_{lm}(K)\forall B_{mn} \in M_{mn}(K)$に対し、次のようになる。
+\begin{align*}
+A_{lm}\left( kB_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}kb_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {ka_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( ka_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( k\left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}} \right)\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( kA_{lm} \right)B_{mn}\\
+A_{lm}\left( kB_{mn} \right) &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( k\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( kb_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {a_{ih}kb_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= \left( \sum_{h \in \varLambda_{m}} {ka_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= k\left( \sum_{h \in \varLambda_{m}} {a_{ih}b_{hj}} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{n}}\\
+&= k\left( \left( a_{ij} \right)_{(i,j) \in \varLambda_{l} \times \varLambda_{m}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \right)\\
+&= k\left( A_{lm}B_{mn} \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux8907ux7d20ux6570}{%
+\subsubsection{複素数}%\label{ux8907ux7d20ux6570}}
+\begin{dfn}
+集合$\mathbb{R}^{2}$の元々$\left( a_{1},a_{2} \right)$、$\left( b_{1},b_{2} \right)$を考え次式のように乗法$\cdot$を定義する。
+\begin{align*}
+\cdot :\mathbb{R}^{2} \times \mathbb{R}^{2} \rightarrow \mathbb{R}^{2};\left( \left( a_{1},a_{2} \right),\left( b_{1},b_{2} \right) \right) \mapsto \left( a_{1},a_{2} \right)\left( b_{1},b_{2} \right) = \left( a_{1}b_{1} - a_{2}b_{2},a_{1}b_{2} + a_{2}b_{1} \right)
+\end{align*}
+この乗法$\cdot$が定義されているかつ、$(1,0) = 1 \in \mathbb{R}、(0,1) = i$としたその集合$\mathbb{R}^{2}$を$\mathbb{C}$と書きこれの元$(a,b)$を複素数といい$a + bi$と書くことにする。また、複素数$z$の射影たち$\mathrm{pr}_{1}z$、$\mathrm{pr}_{2}z$、即ち、$z = a + bi$としたときの$a$、$b$をそれぞれその複素数$z$の実部、虚部といいそれぞれ$\mathrm{Re}z$、$\mathrm{Im}z$などと書く。これにより、$z = \mathrm{Re}z + \mathrm{Im}zi$が成り立つ。
+\end{dfn}
+\begin{dfn}
+次のような写像$c$を考え$z \in \mathbb{C}$なる$c(z)$を$\overline{z}$などと書きその複素数$z$の共役複素数という。
+\begin{align*}
+c:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \mathrm{Re}z - \mathrm{Im}zi
+\end{align*}
+\end{dfn}
+\begin{dfn}
+次のような写像$a$を考え$z \in \mathbb{C}$なる$a(z)$を$|z|$などと書く。
+\begin{align*}
+a:\mathbb{C} \rightarrow \mathbb{R};z \mapsto \sqrt{{\mathrm{Re}z}^{2} + {\mathrm{Im}z}^{2}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.2.9}
+この集合$\mathbb{C}$は体であり複素数$z$の加法、乗法の逆元はそれぞれ$- z$、$\frac{\overline{z}}{|z|^{2}}$となる。
+\end{thm}
+\begin{proof}
+この集合$\mathbb{C}$について考えよう。このとき、$\forall z,v,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+(z + v) + w &= \left( \mathrm{Re}z + \mathrm{Im}zi + \mathrm{Re}v + \mathrm{Im}vi \right) + \mathrm{Re}w + \mathrm{Im}wi\\
+&= \left( \mathrm{Re}z + \mathrm{Re}v \right) + \left( \mathrm{Im}z + \mathrm{Im}v \right)i + \mathrm{Re}w + \mathrm{Im}wi\\
+&= \left( \mathrm{Re}z + \mathrm{Re}v + \mathrm{Re}w \right) + \left( \mathrm{Im}z + \mathrm{Im}v + \mathrm{Im}w \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi + \left( \mathrm{Re}v + \mathrm{Re}w \right) + \left( \mathrm{Im}v + \mathrm{Im}w \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi + \left( \mathrm{Re}v + \mathrm{Im}vi + \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= z + (v + w)
+\end{align*}
+$\exists 0 \in \mathbb{C}\forall z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+z + 0 &= \mathrm{Re}z + \mathrm{Im}zi + 0 + 0i\\
+&= \left( \mathrm{Re}z + 0 \right) + \left( \mathrm{Im}z + 0 \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi = z\\
+0 + z &= 0 + 0i + \mathrm{Re}z + \mathrm{Im}zi\\
+&= \left( 0 + \mathrm{Re}z \right) + \left( 0 + \mathrm{Im}z \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi = z
+\end{align*}
+$\forall z \in \mathbb{C}\exists - z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+z - z &= \mathrm{Re}z + \mathrm{Im}zi - \mathrm{Re}z - \mathrm{Im}zi\\
+&= \left( \mathrm{Re}z - \mathrm{Re}z \right) + \left( \mathrm{Im}z - \mathrm{Im}z \right)i = 0\\
+&- z + z = - \mathrm{Re}z - \mathrm{Im}zi + \mathrm{Re}z + \mathrm{Im}zi\\
+&= \left( - \mathrm{Re}z + \mathrm{Re}z \right) + \left( - \mathrm{Im}z + \mathrm{Im}z \right)i = 0
+\end{align*}
+$\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+z + w &= \mathrm{Re}z + \mathrm{Im}zi + \mathrm{Re}w + \mathrm{Im}wi\\
+&= \left( \mathrm{Re}z + \mathrm{Re}w \right) + \left( \mathrm{Im}z + \mathrm{Im}w \right)i\\
+&= \left( \mathrm{Re}w + \mathrm{Re}z \right) + \left( \mathrm{Im}w + \mathrm{Im}z \right)i\\
+&= \mathrm{Re}w + \mathrm{Im}wi + \mathrm{Re}z + \mathrm{Im}zi\\
+&= w + z
+\end{align*}
+$\forall z,v,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+(zv)w &= \left( \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}v + \mathrm{Im}vi \right) \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \left( \mathrm{Re}z\mathrm{Re}v - \mathrm{Im}z\mathrm{Im}v \right) + \left( \mathrm{Re}z\mathrm{Im}v + \mathrm{Re}v\mathrm{Im}z \right)i \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \left( \mathrm{Re}z\mathrm{Re}v - \mathrm{Im}z\mathrm{Im}v \right)\mathrm{Re}w - \left( \mathrm{Re}z\mathrm{Im}v + \mathrm{Re}v\mathrm{Im}z \right)\mathrm{Im}w \right) \\
+&\quad + \left( \left( \mathrm{Re}z\mathrm{Re}v - \mathrm{Im}z\mathrm{Im}v \right)\mathrm{Im}w + \mathrm{Re}w\left( \mathrm{Re}z\mathrm{Im}v + \mathrm{Re}v\mathrm{Im}z \right) \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}v\mathrm{Re}w - \mathrm{Re}w\mathrm{Im}z\mathrm{Im}v - \mathrm{Re}z\mathrm{Im}v\mathrm{Im}w - \mathrm{Re}v\mathrm{Im}z\mathrm{Im}w \right) \\
+&\quad + \left( \mathrm{Re}z\mathrm{Re}v\mathrm{Im}w - \mathrm{Im}z\mathrm{Im}v\mathrm{Im}w + \mathrm{Re}z\mathrm{Re}w\mathrm{Im}v + \mathrm{Re}v\mathrm{Re}w\mathrm{Im}z \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}v\mathrm{Re}w - \mathrm{Re}z\mathrm{Im}v\mathrm{Im}w - \mathrm{Re}v\mathrm{Im}z\mathrm{Im}w - \mathrm{Re}w\mathrm{Im}z\mathrm{Im}v \right) \\
+&\quad + \left( \mathrm{Re}z\mathrm{Re}v\mathrm{Im}w + \mathrm{Re}z\mathrm{Re}w\mathrm{Im}v + \mathrm{Re}v\mathrm{Re}w\mathrm{Im}z - \mathrm{Im}z\mathrm{Im}v\mathrm{Im}w \right)i\\
+&= \left( \mathrm{Re}z\left( \mathrm{Re}v\mathrm{Re}w - \mathrm{Im}v\mathrm{Im}w \right) - \mathrm{Im}z\left( \mathrm{Re}v\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}v \right) \right) \\
+&\quad + \left( \mathrm{Re}z\left( \mathrm{Re}v\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}v \right) + \mathrm{Im}z\left( \mathrm{Re}v\mathrm{Re}w - \mathrm{Im}v\mathrm{Im}w \right) \right)i\\
+&= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \left( \mathrm{Re}v\mathrm{Re}w - \mathrm{Im}v\mathrm{Im}w \right) + \left( \mathrm{Re}v\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}v \right)i \right)\\
+&= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \left( \mathrm{Re}v + \mathrm{Im}vi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right) \right) = z(vw)
+\end{align*}
+$\exists 1 \in \mathbb{C}\forall z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+z1 &= \left( \mathrm{Re}z + \mathrm{Im}zi \right)(1 + 0i)\\
+&= \left( 1\mathrm{Re}z - 0\mathrm{Im}z \right) + \left( 0\mathrm{Re}z + 1\mathrm{Im}z \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi = z\\
+1z &= (1 + 0i)\left( \mathrm{Re}z + \mathrm{Im}zi \right)\\
+&= \left( 1\mathrm{Re}z - 0\mathrm{Im}z \right) + \left( 1\mathrm{Im}z + 0\mathrm{Re}z \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi = z
+\end{align*}
+$\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+zw &= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i\\
+&= \left( \mathrm{Re}wRez - \mathrm{Im}w\mathrm{Im}z \right) + \left( \mathrm{Re}w\mathrm{Im}z + \mathrm{Re}z\mathrm{Im}w \right)i\\
+&= \left( \mathrm{Re}w + \mathrm{Im}wi \right)\left( \mathrm{Re}z + \mathrm{Im}zi \right) = wz
+\end{align*}
+$\forall z,v,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+z(v + w) &= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}v + \mathrm{Im}vi + \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \left( \mathrm{Re}v + \mathrm{Re}w \right) + \left( \mathrm{Im}v + \mathrm{Im}w \right)i \right)\\
+&= \left( \mathrm{Re}z\left( \mathrm{Re}v + \mathrm{Re}w \right) - \mathrm{Im}z\left( \mathrm{Im}v + \mathrm{Im}w \right) \right) \\
+&\quad + \left( \mathrm{Re}z\left( \mathrm{Im}v + \mathrm{Im}w \right) + \mathrm{Im}z\left( \mathrm{Re}v + \mathrm{Re}w \right) \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}v + \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}v - \mathrm{Im}z\mathrm{Im}w \right) \\
+&\quad + \left( \mathrm{Re}z\mathrm{Im}v + \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}v\mathrm{Im}z + \mathrm{Re}w\mathrm{Im}z \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}v - \mathrm{Im}z\mathrm{Im}v \right) + \left( \mathrm{Re}z\mathrm{Im}v + \mathrm{Re}v\mathrm{Im}z \right)i \\
+&\quad + \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i\\
+&= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}v + \mathrm{Im}vi \right) + \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= zv + zw\\
+(z + v)w &= \left( \mathrm{Re}z + \mathrm{Im}zi + \mathrm{Re}v + \mathrm{Im}vi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \left( \mathrm{Re}z + \mathrm{Re}v \right) + \left( \mathrm{Im}z + \mathrm{Im}v \right)i \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= \left( \left( \mathrm{Re}z + \mathrm{Re}v \right)\mathrm{Re}w - \left( \mathrm{Im}z + \mathrm{Im}v \right)\mathrm{Im}w \right) \\
+&\quad + \left( \left( \mathrm{Re}z + \mathrm{Re}v \right)\mathrm{Im}w + \left( \mathrm{Im}z + \mathrm{Im}v \right)\mathrm{Re}w \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}w + \mathrm{Re}v\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w - \mathrm{Im}v\mathrm{Im}w \right) \\
+&\quad + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}v\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z + \mathrm{Re}w\mathrm{Im}v \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i \\
+&\quad+ \left( \mathrm{Re}v\mathrm{Re}w - \mathrm{Im}v\mathrm{Im}w \right) + \left( \mathrm{Re}v\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}v \right)i\\
+&= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right) + \left( \mathrm{Re}v + \mathrm{Im}vi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= zw + vw
+\end{align*}
+$\forall z \in \mathbb{C} \setminus \left\{ 0 \right\}\exists\frac{\overline{z}}{|z|^{2}} \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、次のようになる。
+\begin{align*}
+z\frac{\overline{z}}{|z|^{2}} &= \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \frac{\mathrm{Re}z - \mathrm{Im}zi}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}} \right)\\
+&= \frac{1}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}z - \mathrm{Im}zi \right)\\
+&= \frac{1}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right) + \left( - \mathrm{Re}z\mathrm{Im}z + \mathrm{Re}z\mathrm{Im}z \right)i \right)\\
+&= \frac{\left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right) + 0i}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\\
+&= \frac{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}} = 1\\
+\frac{\overline{z}}{|z|^{2}}z &= \left( \frac{\mathrm{Re}z - \mathrm{Im}zi}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}} \right)\left( \mathrm{Re}z + \mathrm{Im}zi \right)\\
+&= \frac{1}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\left( \mathrm{Re}z - \mathrm{Im}zi \right)\left( \mathrm{Re}z + \mathrm{Im}zi \right)\\
+&= \frac{1}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right) + \left( \mathrm{Re}z\mathrm{Im}z - \mathrm{Re}z\mathrm{Im}z \right)i \right)\\
+&= \frac{\left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right) + 0i}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}\\
+&= \frac{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}} = 1
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.2.10} これの系として次式が成り立つ。
+\begin{align*}
+z\overline{z} = \overline{z}z = |z|^{2}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、$\frac{1}{z} = \frac{\overline{z}}{|z|^{2}}$が成り立つのであったので、
+\begin{align*}
+1 &= z\frac{1}{z} = z\frac{\overline{z}}{|z|^{2}} = \frac{1}{|z|^{2}}z\overline{z} \Leftrightarrow z\overline{z} = |z|^{2}\\
+1 &= \frac{1}{z} = \frac{\overline{z}}{|z|^{2}}z = \frac{1}{|z|^{2}}\overline{z}z \Leftrightarrow \overline{z}z = |z|^{2}
+\end{align*}
+$z = 0$のときも明らかに成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.2.11}
+この写像$c$は$\mathbb{R}$-線形同型写像であるかつ、算法$+ 、 \cdot$どちらについても同型写像である、即ち、$\forall a,b \in \mathbb{R}\forall z,w \in \mathbb{C}$に対し次式が成り立つような全単射となり$c^{- 1} = c$が成り立つ。
+\begin{longtable}[c]{cc}
+\hspace{-0.5em}\begin{tabular}{c}
+  $c(z + w) = c(z) + c(w)$\\
+  $c(zw) = c(z)c(w)$\\
+  $c(az + bw) = ac(z) + bc(w)$\\
+\end{tabular} & \hspace{-0.5em}\begin{tabular}{c}
+  $\overline{z + w} = \overline{z} + \overline{w}$\\
+  $\overline{zw} = \overline{z}\ \overline{w}$\\
+  $\overline{az + bw} = a\overline{z} + b\overline{w}$\\
+\end{tabular} \\
+\end{longtable}
+当然ながら、次式も成り立つ。
+\begin{longtable}[c]{cc}
+\hspace{-0.5em}\begin{tabular}{c}
+  $c(z - w) = c(z) - c(w)$\\
+  $c\left( \frac{z}{w} \right) = \frac{c(z)}{c(w)}\ \mathrm{if}\ w \neq 0$\\
+\end{tabular} & \hspace{-0.5em}\begin{tabular}{c}
+  $\overline{z - w} = \overline{z} - \overline{w}$\\
+  $\overline{\frac{z}{w}} = \frac{\overline{z}}{\overline{w}}\ \mathrm{if}\ w \neq 0$\\
+\end{tabular} \\
+\end{longtable}
+\end{thm}
+\begin{proof} 次のような写像$c$を考えよう。
+\begin{align*}
+c:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \mathrm{Re}z - \mathrm{Im}zi
+\end{align*}\par
+このとき、$\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+c(z + w) &= c\left( \mathrm{Re}z + \mathrm{Im}zi + \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= c\left( \left( \mathrm{Re}z + \mathrm{Re}w \right) + \left( \mathrm{Im}z + \mathrm{Im}w \right)i \right)\\
+&= \left( \mathrm{Re}z + \mathrm{Re}w \right) - \left( \mathrm{Im}z + \mathrm{Im}w \right)i\\
+&= \mathrm{Re}z + \mathrm{Re}w - \mathrm{Im}zi - \mathrm{Im}wi\\
+&= \mathrm{Re}z - \mathrm{Im}zi + \mathrm{Re}w - \mathrm{Im}wi\\
+&= c\left( \mathrm{Re}z + \mathrm{Im}zi \right) + c\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= c(z) + c(w)\\
+c(zw) &= c\left( \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right) \right)\\
+&= c\left( \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i \right)\\
+&= \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) - \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i\\
+&= \left( \mathrm{Re}z\mathrm{Re}w - \left( - \mathrm{Im}z \right)\left( - \mathrm{Im}w \right) \right) + \left( \mathrm{Re}z\left( - \mathrm{Im}w \right) + \mathrm{Re}w\left( - \mathrm{Im}z \right) \right)i\\
+&= \left( \mathrm{Re}z - \mathrm{Im}zi \right)\left( \mathrm{Re}w - \mathrm{Im}wi \right)\\
+&= c\left( \mathrm{Re}z + \mathrm{Im}zi \right)c\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= c(z)c(w)
+\end{align*}
+以上より、$c(z + w) = c(z) + c(w)$と$c(zw) = c(z)c(w)$が成り立つことが示された。\par
+一方で、$\forall a,b \in \mathbb{R}$に対し、次のようになる。
+\begin{align*}
+c(az + bw) &= c\left( a\left( \mathrm{Re}z + \mathrm{Im}zi \right) + b\left( \mathrm{Re}w + \mathrm{Im}wi \right) \right)\\
+&= c\left( a\mathrm{Re}z + a\mathrm{Im}zi + b\mathrm{Re}w + b\mathrm{Im}wi \right)\\
+&= c\left( \left( a\mathrm{Re}z + b\mathrm{Re}w \right) + \left( a\mathrm{Im}z + b\mathrm{Im}w \right)i \right)\\
+&= \left( a\mathrm{Re}z + b\mathrm{Re}w \right) - \left( a\mathrm{Im}z + b\mathrm{Im}w \right)i\\
+&= a\mathrm{Re}z - a\mathrm{Im}zi + b\mathrm{Re}w - b\mathrm{Im}wi\\
+&= a\left( \mathrm{Re}z - \mathrm{Im}zi \right) + b\left( \mathrm{Re}w - \mathrm{Im}wi \right)\\
+&= ac\left( \mathrm{Re}z + \mathrm{Im}zi \right) + bc\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= ac(z) + bc(w)
+\end{align*}
+これにより、この写像$c$は$\mathbb{R}$-線形写像であり、このとき、次のようになるので、
+\begin{align*}
+c \circ c(z) &= c\left( c(z) \right)\\
+&= c\left( \mathrm{Re}z - \mathrm{Im}zi \right)\\
+&= Re\left( \mathrm{Re}z - \mathrm{Im}zi \right) - Im\left( \mathrm{Re}z - \mathrm{Im}zi \right)i\\
+&= \mathrm{Re}z - \left( - \mathrm{Im}z \right)i\\
+&= \mathrm{Re}z + \mathrm{Im}zi = z
+\end{align*}
+$c^{- 1} = c$が成り立つ。\par
+さらに、次のようになる。
+\begin{align*}
+c(z - w) = c\left( z + ( - 1)w \right) = c(z) + ( - 1)c(w) = c(z) - c(w)
+\end{align*}
+$w \neq 0$のとき、次のようになる。
+\begin{align*}
+c\left( \frac{z}{w} \right) &= c\left( z\frac{\overline{w}}{|w|^{2}} \right)\\
+&= c\left( \frac{1}{w\overline{w}}z\overline{w} \right)\\
+&= c\left( \frac{1}{wc(w)}zc(w) \right)\\
+&= \frac{1}{wc(w)}c(z)c\left( c(w) \right)\\
+&= \frac{1}{c(w)c\left( c(w) \right)}c(z)c\left( c(w) \right)\\
+&= c(z)\frac{c\left( c(w) \right)}{c(w)c\left( c(w) \right)}\\
+&= c(z)\frac{\overline{c(w)}}{c(w)\ \overline{c(w)}}\\
+&= c(z)\frac{\overline{c(w)}}{\left| c(w) \right|^{2}}\\
+&= c(z)\frac{1}{c(w)} = \frac{c(z)}{c(w)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.2.12}
+この写像$a$は算法$\cdot$について準同型写像である、即ち、$\forall z,w \in \mathbb{C}$に対し次式が成り立つ。
+\begin{longtable}[c]{cc}
+\hspace{-0.5em}\begin{tabular}{c}
+$a(zw) = a(z)a(w)$\\
+$a\left( \frac{z}{w} \right) = \frac{a(z)}{a(w)}\ \mathrm{if}\ w \neq 0$\\
+\end{tabular} & \begin{tabular}{c}
+$|zw| = |z||w|$\\
+$\left| \frac{z}{w} \right| = \frac{|z|}{|w|}\ \mathrm{if}\ w \neq 0$\\
+\end{tabular} \\
+\end{longtable}
+\end{thm}
+\begin{proof} 次のような写像$a$を考えよう。
+\begin{align*}
+a:\mathbb{C} \rightarrow \mathbb{R};z \mapsto \sqrt{\left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}}
+\end{align*}\par
+このとき、$\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+a(zw) &= a\left( \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w + \mathrm{Im}wi \right) \right)\\
+&= a\left( \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i \right)\\
+&= \left( \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right)^{2} + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} - 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}z\mathrm{Im}w + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} \right. \\
+&\quad \left.+ \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}w\mathrm{Im}z + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right) \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= a\left( \mathrm{Re}z + \mathrm{Im}zi \right)a\left( \mathrm{Re}w + \mathrm{Im}wi \right) = a(z)a(w)
+\end{align*}
+$w \neq 0$のとき、次のようになる。
+\begin{align*}
+a\left( \frac{z}{w} \right) &= a\left( z\frac{\overline{w}}{|w|^{2}} \right)\\
+&= a\left( \left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \frac{\mathrm{Re}w - \mathrm{Im}wi}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}} \right) \right)\\
+&= a\left( \frac{1}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}\left( \mathrm{Re}z + \mathrm{Im}zi \right)\left( \mathrm{Re}w - \mathrm{Im}wi \right) \right)\\
+&= a\left( \frac{1}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}\left( \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right) + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)i \right) \right)\\
+&= a\left( \left( \frac{\mathrm{Re}zRe\left( z_{2} \right) - \mathrm{Im}z\mathrm{Im}w}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}} + \frac{\mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}i \right) \right)\\
+&= \left( \left( \frac{\mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}} \right)^{2} + \left( \frac{\mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}} \right)^{2} \right)^{\frac{1}{2}}\\
+&= \frac{1}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}\left( \left( \mathrm{Re}z\mathrm{Re}w - \mathrm{Im}z\mathrm{Im}w \right)^{2} + \left( \mathrm{Re}z\mathrm{Im}w + \mathrm{Re}w\mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \frac{1}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}\left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} - 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}z\mathrm{Im}w \right. \\
+&\quad \left. + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}w\mathrm{Im}z + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \frac{1}{\left( \mathrm{Re}w \right)^{2} + {Im\left( z_{2} \right)}^{2}}\left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\\
+&= \frac{1}{\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2}}\left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right) \right)^{\frac{1}{2}}\\
+&= \frac{\left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}}{\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}}\\
+&= \frac{a\left( \mathrm{Re}z + \mathrm{Im}zi \right)}{a\left( \mathrm{Re}w + \mathrm{Im}wi \right)} = \frac{a(z)}{a(w)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.2.13}
+この写像$a$はnormをなす、即ち、$\forall b \in \mathbb{R}\forall z,w \in \mathbb{C}$に対し次式が成り立つ。
+\begin{longtable}[c]{cc}
+\begin{tabular}{c}
+$0 \leq a(z)$\\
+$a(z) = 0 \Leftrightarrow z = 0$\\
+$a(bz) = |b|a(z)$\\
+$a(z + w) \leq a(z) + a(w)$\\
+\end{tabular} & \begin{tabular}{c}
+$0 \leq |z|$\\
+$|z| = 0 \Leftrightarrow z = 0$\\
+$|bz| = |b||z|$\\
+$|z + w| \leq |z| + |w|$\\
+\end{tabular} \\
+\end{longtable}
+\end{thm}
+\begin{proof}
+$b \in \mathbb{R}\forall z,w \in \mathbb{C}$に対し、もちろん、$0 \leq a(z)$が成り立つ。また、$a(z) = 0$が成り立つかつ、$z \neq 0$が成り立つなら、$\mathrm{Re}z \neq 0$または$\mathrm{Im}z \neq 0$が成り立つので、$0 < \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}$が成り立ち、したがって、$0 < a(z)$が成り立つが、これは$a(z) = 0$が成り立つことに矛盾する。$z = 0$が成り立つなら、明らかに$a(z) = 0$が成り立つ。\par
+また、次のようになる。
+\begin{align*}
+a(bz) &= a\left( b\mathrm{Re}z + b\mathrm{Im}zi \right)\\
+&= \left( \left( b\mathrm{Re}w \right)^{2} + \left( b\mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( b^{2}\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right) \right)^{\frac{1}{2}}\\
+&= |b|\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= |b|a\left( \mathrm{Re}z + \mathrm{Im}zi \right) = |b|a(z)
+\end{align*}
+ここで、次式が成り立つことから、
+\begin{align*}
+0 &\leq \left| \mathrm{Re}z\mathrm{Im}w - \mathrm{Re}w\mathrm{Im}z \right|^{2}\\
+&= \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} - 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}w\mathrm{Im}z
+\end{align*}
+次のようになるので、
+\begin{align*}
+\mathrm{Re}z\mathrm{Re}w + \mathrm{Im}z\mathrm{Im}w &= \left( \left( \mathrm{Re}z\mathrm{Re}w + \mathrm{Im}z\mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} + 2\mathrm{Re}z\mathrm{Re}w\mathrm{Im}w\mathrm{Im}z + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&\leq \left( \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Re}z \right)^{2}\left( \mathrm{Im}w \right)^{2} + \left( \mathrm{Re}w \right)^{2}\left( \mathrm{Im}z \right)^{2} + \left( \mathrm{Im}z \right)^{2}\left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right) \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+a(z + w) &= a\left( \mathrm{Re}z + \mathrm{Im}zi + \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= a\left( \left( \mathrm{Re}z + \mathrm{Re}w \right) + \left( \mathrm{Im}z + \mathrm{Im}w \right)i \right)\\
+&= \left( \left( \mathrm{Re}z + \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z + \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + 2\mathrm{Re}z\mathrm{Re}w + \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z \right)^{2} + 2\mathrm{Im}z\mathrm{Im}w + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z \right)^{2} + \left( \mathrm{Im}w \right)^{2} + 2\left( \mathrm{Re}z\mathrm{Re}w + \mathrm{Im}z\mathrm{Im}w \right) \right)^{\frac{1}{2}}\\
+&\leq \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}z \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right. \\
+&\quad \left. + 2\left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}} \right)^{\frac{1}{2}}\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} + 2\left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}}\left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}} \right. \\
+&\quad \left. + \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left( \left( \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}} + \left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}} \right)^{2} \right)^{\frac{1}{2}}\\
+&= \left| \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}} + \left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}} \right|\\
+&= \left( \left( \mathrm{Re}z \right)^{2} + \left( \mathrm{Im}z \right)^{2} \right)^{\frac{1}{2}} + \left( \left( \mathrm{Re}w \right)^{2} + \left( \mathrm{Im}w \right)^{2} \right)^{\frac{1}{2}}\\
+&= a\left( \mathrm{Re}z + \mathrm{Im}zi \right) + a\left( \mathrm{Re}w + \mathrm{Im}wi \right)\\
+&= a(z) + a(w)
+\end{align*}
+\end{proof}\par
+最後に体に関する性質を述べよう。
+\begin{thm}\label{4.1.2.14}
+$K \subseteq \mathbb{C}$なる任意の体$K$は$\mathbb{Q} \subseteq K$を満たす。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる任意の体$K$が与えられたとき、体の定義より$0,1 \in K$が成り立つ。さらに、体の定義より$1 + 1 = 2 \in K$が成り立つので、自然数$n$に対し、$n = k$のとき、$k \in K$が成り立つと仮定すれば、$n = k + 1$のとき、$1 \in K$より$k + 1 \in K$が成り立つので、数学的帰納法により$\forall n \in \mathbb{N}$に対し、$n \in K$が成り立つ。さらに、$\forall n \in \mathbb{N}$に対し、$- n \in K$が成り立つので、$0 \in K$も併せて$\mathbb{Z} = - \mathbb{N} \sqcup \left\{ 0 \right\} \sqcup \mathbb{N}$が成り立つことにより、$\forall n \in \mathbb{Z}$に対し、$n \in K$が成り立つ。さらに、$\forall m \in \mathbb{Z} \setminus \left\{ 0 \right\}$に対し、$\frac{1}{m} \in K$が成り立つので、$\forall m \in \mathbb{Z}\forall n \in \mathbb{Z} \setminus \left\{ 0 \right\}$に対し、$\frac{m}{n} \in K$が成り立つ、即ち、$\forall q \in \mathbb{Q}$に対し、$q \in K$が成り立つ。以上より、$\mathbb{Q} \subseteq K$が得られる。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p1-73 ISBN978-4-00-029873-8
+  \bibitem{2}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p39-51,65-71,107-116,170-182 ISBN978-4-00-029873-5
+  \bibitem{3}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p33-38 ISBN978-4-13-062005-5
+  \bibitem{4}
+  対馬龍司. "第9章 標準形の応用 第10章 体と多項式". 明治大学. \url{http://www.isc.meiji.ac.jp/~tsushima/senkei/furoku.pdf} (2021-12-31 0:55 取得)
+\end{thebibliography}
+\end{document}

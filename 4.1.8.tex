@@ -1,0 +1,910 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{7}
+\usepackage{xr}
+\externaldocument{4.1.4}
+\externaldocument{4.1.6}
+\input{macro}
+\begin{document}
+%\hypertarget{ux7d1aux6570}{%
+\subsection{級数}%\label{ux7d1aux6570}}
+%\hypertarget{ux7d1aux6570-1}{%
+\subsubsection{級数}%\label{ux7d1aux6570-1}}
+\begin{dfn}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から新しい元の列$\left( s_{m} \right)_{m \in \mathbb{N}}$を次式のように定義する。
+\begin{align*}
+\left( s_{m} \right)_{m \in \mathbb{N}} = \left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}
+\end{align*}
+この元の列$\left( s_{m} \right)_{m \in \mathbb{N}}$をその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数、その$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}_{m}$を第$m$項とする級数といい、その第$m$項$s_{m}$は定義より明らかにその$n$次元数空間$\mathbb{R}^{n}$の点$\sum_{k \in \varLambda_{m}} \mathbf{a}_{k}$に等しく、これをこの級数$\left( s_{m} \right)_{m \in \mathbb{N}}$の第$m$部分和という。
+\end{dfn}
+\begin{dfn}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( s_{m} \right)_{m \in \mathbb{N}}$の極限値$\mathbf{s}$が存在すれば、この級数$\left( s_{m} \right)_{m \in \mathbb{N}}$は収束するといい、その極限値$\mathbf{s}$は$\lim_{m \rightarrow \infty}{\sum_{k \in \varLambda_{m}} \mathbf{a}_{k}}$、$\sum_{m \in \mathbb{N}} \mathbf{a}_{m}$、$\sum_{k = 1}^{\infty}\mathbf{a}_{k}$、$\sum_{k} \mathbf{a}_{k}$、$\sum_{} \mathbf{a}_{m}$、$\mathbf{a}_{1} + \mathbf{a}_{2} + \cdots$などと書く。逆に、その級数$\left( s_{m} \right)_{m \in \mathbb{N}}$が収束しないとき、この級数$\left( s_{m} \right)_{m \in \mathbb{N}}$は発散するという。
+\end{dfn}
+\begin{thm}\label{4.1.8.1}
+級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{s}$に収束するならそのときに限り、$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$、$\mathbf{s} = \left( s_{l} \right)_{l \in \varLambda_{n}}$として、$\forall l \in \varLambda_{n}$に対し、その級数$\left( \sum_{k \in \varLambda_{m}} a_{k,l} \right)_{m \in \mathbb{N}}$がその実数$s_{l}$に収束する。
+\end{thm}
+\begin{proof}
+級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$は$n$次元数空間$\mathbb{R}^{n}$の点列たちでもあることから定理\ref{4.1.4.6}より従う。
+\end{proof}
+\begin{thm}\label{4.1.8.2}
+2つの級数たち$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{m}} \mathbf{b}_{k} \right)_{m \in \mathbb{N}}$がそれぞれ$n$次元数空間$\mathbb{R}^{n}$の点々$\mathbf{s}$、$\mathbf{t}$に収束するなら、$\forall a,b \in \mathbb{R}$に対し、級数$\left( \sum_{k \in \varLambda_{m}} \left( a\mathbf{a}_{k} + b\mathbf{b}_{k} \right) \right)_{m \in \mathbb{N}}$もその$n$次元数空間$\mathbb{R}^{n}$の点$a\mathbf{s} + b\mathbf{t}$に収束する。
+\end{thm}
+\begin{proof}
+2つの級数たち$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{m}} \mathbf{b}_{k} \right)_{m \in \mathbb{N}}$は2つの$n$次元数空間$\mathbb{R}^{n}$の点列たちでもあり総和も線形的であることから従う。
+\end{proof}
+\begin{thm}\label{4.1.8.3}
+級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{s}$に収束するなら、級数$\left( \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{m_{k}} \setminus \varLambda_{m_{k - 1}}} \mathbf{a}_{l}} \right)_{m \in \mathbb{N}}$も$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{s}$に収束する。ただし、その写像$\left( m_{k} \right)_{k \in \mathbb{N}}$は狭義単調増加するその集合$\mathbb{N}$の元の列で$\varLambda_{m_{0}} = \emptyset$とする\footnote{つまり、$\mathbf{a}_{1} + \mathbf{a}_{2} + \cdots = \mathbf{s}$が成り立つなら、$\left( \mathbf{a}_{1} + \mathbf{a}_{2} + \cdots + \mathbf{a}_{m_{1}} \right) + \left( \mathbf{a}_{m_{1} + 1} + \mathbf{a}_{m_{1} + 2} + \cdots + \mathbf{a}_{m_{2}} \right) + \cdots = \mathbf{s}$も成り立つ。}。
+\end{thm}
+\begin{proof}
+級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$は$n$次元数空間$\mathbb{R}^{n}$の点列でもあり、$\varLambda_{m_{0}} = \emptyset$なる狭義単調増加するその集合$\mathbb{N}$の元の列$\left( m_{k} \right)_{k \in \mathbb{N}}$が与えられたとき、級数$\left( \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{m_{k}} \setminus \varLambda_{m_{k - 1}}} \mathbf{a}_{l}} \right)_{m \in \mathbb{N}}$がその級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$の部分列でもあることから従う。
+\end{proof}
+%\hypertarget{ux7d1aux6570ux306bux95a2ux3059ux308bcauchyux306eux53ceux675fux6761ux4ef6}{%
+\subsubsection{級数に関するCauchyの収束条件}%\label{ux7d1aux6570ux306bux95a2ux3059ux308bcauchyux306eux53ceux675fux6761ux4ef6}}
+\begin{thm}[級数に関するCauchyの収束条件]\label{4.1.8.4}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l < m$が成り立つなら、$\left\| \sum_{k \in \varLambda_{m} \setminus \varLambda_{l}} \mathbf{a}_{k} \right\| < \varepsilon$が成り立つ。この定理を級数に関するCauchyの収束条件という。
+\end{thm}
+\begin{proof}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、Cauchyの収束条件より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l$かつ$N \leq m$が成り立つなら、$\left\| \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} - \sum_{k \in \varLambda_{l}} \mathbf{a}_{k} \right\| < \varepsilon$が成り立つ。ここで、$l < m$が成り立つとしても一般性は失われず、次のようになる。
+\begin{align*}
+\left\| \sum_{k \in \varLambda_{m} \setminus \varLambda_{l}} \mathbf{a}_{k} \right\| = \left\| \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} - \sum_{k \in \varLambda_{l}} \mathbf{a}_{k} \right\| < \varepsilon
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.8.5}
+級数に関するCauchyの収束条件の系として、$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するなら、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は$\mathbf{0}$に収束する。
+\end{thm}
+\begin{proof}
+級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、級数に関するCauchyの収束条件より、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l < m$が成り立つなら、$\left\| \sum_{k \in \varLambda_{m} \setminus \varLambda_{l}} \mathbf{a}_{k} \right\| < \varepsilon$が成り立つ。特に、$m = l + 1$とすれば、次のようになる。
+\begin{align*}
+\left\| \sum_{k \in \varLambda_{l + 1} \setminus \varLambda_{l}} \mathbf{a}_{k} \right\| = \left\| \mathbf{a}_{m + 1} \right\| < \varepsilon
+\end{align*}
+よって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は$\mathbf{0}$に収束する。
+\end{proof}
+%\hypertarget{ux6b63ux9805ux7d1aux6570}{%
+\subsubsection{正項級数}%\label{ux6b63ux9805ux7d1aux6570}}
+\begin{dfn}
+集合$\mathbb{R}^{+} \cup \left\{ 0 \right\}$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、即ち、$0 \leq \left( a_{n} \right)_{n \in \mathbb{N}}$なる実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$を正項級数という。
+\end{dfn}
+\begin{thm}\label{4.1.8.6}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束するか正の無限大に発散する。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$を誘導する実数列$\left( a_{k} \right)_{n \in \mathbb{N}}$の各項$a_{k}$が$0$以上でその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は単調増加するので、定理\ref{4.1.4.12}と定理\ref{4.1.4.18}よりこれの広い意味での極限値$\sum_{n \in \mathbb{N}} a_{n}$が補完数直線${}^{*}\mathbb{R}$に存在する、即ち、その正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束するか正の無限大に発散する。
+\end{proof}
+\begin{thm}\label{4.1.8.7}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するならそのときに限り、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が有界である。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は実数列でもあり定理\ref{4.1.4.7}より収束する実数列は有界であったので、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は有界である。\par
+逆に、正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が有界であるなら、実数列$\left( a_{k} \right)_{n \in \mathbb{N}}$の各項$a_{k}$が$0$以上で、明らかに、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は単調増加し、定理\ref{4.1.4.16}より上に有界な単調増加の実数列は収束するのであったので、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。
+\end{proof}
+%\hypertarget{ux6b63ux9805ux7d1aux6570ux306eux53ceux675fux6761ux4ef6}{%
+\subsubsection{正項級数の収束条件}%\label{ux6b63ux9805ux7d1aux6570ux306eux53ceux675fux6761ux4ef6}}
+\begin{thm}[比較定理]\label{4.1.8.8}
+2つの正項級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つ。この定理を比較定理という。
+\begin{itemize}
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束するかつ、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束しないかつ、$\left( b_{n} \right)_{n \in \mathbb{N}} \leq \left( a_{n} \right)_{n \in \mathbb{N}}$が成り立つなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束しない。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束し、$\forall n \in \mathbb{N}$に対し、$\frac{a_{n + 1}}{a_{n}} \leq \frac{b_{n + 1}}{b_{n}}$が成り立つなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束せず、$\forall n \in \mathbb{N}$に対し、$\frac{b_{n + 1}}{b_{n}} \leq \frac{a_{n + 1}}{a_{n}}$が成り立つなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束しない。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの正項級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が与えられたとする。その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束するかつ、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ、即ち、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つなら、定理\ref{4.1.4.7}よりその級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$は上に有界であり、したがって、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も上に有界であり、正項級数が収束するならそのときに限り、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が有界であったので、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。\par
+その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束しないかつ、$\left( b_{n} \right)_{n \in \mathbb{N}} \leq \left( a_{n} \right)_{n \in \mathbb{N}}$、即ち、$\forall n \in \mathbb{N}$に対し、$b_{n} \leq a_{n}$が成り立つかつ、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束すると仮定すれば、上記の議論によりその級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$も収束し仮定に矛盾する。よって、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束しない。\par
+その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束し、$\forall n \in \mathbb{N}$に対し、$\frac{a_{n + 1}}{a_{n}} \leq \frac{b_{n + 1}}{b_{n}}$が成り立つなら、次のようになることにより、
+\begin{align*}
+\frac{a_{n + 1}}{a_{n}} \leq \frac{b_{n + 1}}{b_{n}} \Leftrightarrow \frac{a_{n + 1}}{b_{n + 1}} \leq \frac{a_{n}}{b_{n}} \leq \frac{a_{1}}{b_{1}} \Leftrightarrow a_{n} \leq \frac{a_{1}}{b_{1}}b_{n}
+\end{align*}
+ここで、定理\ref{4.1.8.2}よりその級数$\left( \sum_{k \in \varLambda_{n}} {\frac{a_{1}}{b_{1}}b_{k}} \right)_{n \in \mathbb{N}}$が収束し、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq \frac{a_{1}}{b_{1}}b_{n}$が成り立つので、上記の議論によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。\par
+その級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$が収束せず、$\forall n \in \mathbb{N}$に対し、$\frac{b_{n + 1}}{b_{n}} \leq \frac{a_{n + 1}}{a_{n}}$が成り立つなら、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束すると仮定すれば、上記の議論によりその級数$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$も収束し仮定に矛盾する。よって、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束しない。
+\end{proof}
+\begin{thm}[根判定法と比判定法]\label{4.1.8.9}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\exists l \in [ 0,1)\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$\sqrt[n]{a_{n}} \leq l$が成り立つとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\item
+  $\exists l \in [ 0,1)\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$\frac{a_{n + 1}}{a_{n}} \leq l$が成り立つとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\item
+  $\exists l \in (1,\infty]\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$l \leq \sqrt[n]{a_{n}}$が成り立つとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\item
+  $\exists l \in (1,\infty]\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$l \leq \frac{a_{n + 1}}{a_{n}}$が成り立つとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{itemize}
+この定理のうち1つ目、3つ目の主張を根判定法、root test、2つ目、4つ目の主張を比判定法、ratio testという。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、まず、$\forall l \in \left( \mathbb{R}^{+} \cup \left\{ 0 \right\} \right) \setminus \left\{ 1 \right\}$に対し、級数$\left( \sum_{k \in \varLambda_{n}} l^{k} \right)_{n \in \mathbb{N}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} l^{k}} = \left\{ \begin{matrix}
+\lim_{n \rightarrow \infty}\frac{l\left( 1 - l^{n} \right)}{1 - l} & \mathrm{if} & l \in [ 0,1) \\
+\lim_{n \rightarrow \infty}\frac{l\left( 1 - l^{n} \right)}{1 - l} & \mathrm{if} & l \in (1,\infty) \\
+\end{matrix} \right.\  = \left\{ \begin{matrix}
+\frac{l}{1 - l} & \mathrm{if} & l \in [ 0,1) \\
+\infty & \mathrm{if} & l \in (1,\infty) \\
+\end{matrix} \right.\ 
+\end{align*}
+ここで、級数の収束、発散は、最初の有限項が除かれたとしても、部分列を考えることにより、影響されないのであった。\par
+$\exists l \in [ 0,1)\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$\sqrt[n]{a_{n}} \leq l$が成り立つとき、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq l^{n}$が成り立つので、比較定理よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。\par
+$\exists l \in [ 0,1)\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$\frac{a_{n + 1}}{a_{n}} \leq l$が成り立つとき、$l = 0$のときは明らかであるので、$0 < l$のとき、$\forall n \in \mathbb{N}$に対し、$\frac{a_{n + 1}}{a_{n}} \leq \frac{l^{n + 1}}{l^{n}}$が成り立つので、比較定理よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。\par
+$\exists l \in (1,\infty]\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$l \leq \sqrt[n]{a_{n}}$が成り立つとき、$\forall n \in \mathbb{N}$に対し、$l^{n} \leq a_{n}$が成り立つので、比較定理よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。\par
+$\exists l \in (1,\infty]\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N < n$が成り立つなら、$l \leq \frac{a_{n + 1}}{a_{n}}$が成り立つとき、$\forall n \in \mathbb{N}$に対し、$\frac{l^{n + 1}}{l^{n}} \leq \frac{a_{n + 1}}{a_{n}}$が成り立つので、比較定理よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{proof}
+\begin{thm}[d'Alembertの収束判定法]\label{4.1.8.10}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、$\lim_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} \in \mathbb{R} \cup \left\{ \infty \right\}$が成り立つとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\lim_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} < 1$のときその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\item
+  $1 < \lim_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}}$のときその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{itemize}
+この定理をd'Alembertの収束判定法といい、比判定法、ratio testともいう。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、$\lim_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} = a \in \mathbb{R} \cup \left\{ \infty \right\}$が成り立つとき、$\forall n \in \mathbb{N}$に対し、$0 \leq \frac{a_{n + 1}}{a_{n}}$が成り立つので、定理\ref{4.1.4.12}より$0 \leq \lim_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} = a$が成り立つ。\par
+$a < 1$のとき$0 \leq a < l < 1$なる実数$l$をとると、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\frac{a_{n + 1}}{a_{n}} < l$が成り立ち、定理\ref{4.1.8.9}の根判定法によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。\par
+$1 < a$のとき$1 < l < a$なる実数$l$をとると、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$l < \frac{a_{n + 1}}{a_{n}}$が成り立ち、定理\ref{4.1.8.9}の根判定法によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{proof}
+\begin{thm}[比判定法]\label{4.1.8.11}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\limsup_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} < 1$のとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\item
+  $1 < \liminf_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}}$のとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{itemize}
+この定理も比判定法、ratio testという。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、$r = \limsup_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}} < 1$のとき、$\forall a \in \mathbb{R}$に対し、$r < a < 1$が成り立つなら、定理\ref{4.1.6.4}より、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\frac{a_{n + 1}}{a_{n}} < a$が成り立つので、定理\ref{4.1.8.9}の比判定法によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。\par
+$1 < r = \liminf_{n \rightarrow \infty}\frac{a_{n + 1}}{a_{n}}$のとき、$\forall a \in \mathbb{R}$に対し、$1 < a < r$が成り立つなら、定理\ref{4.1.6.4}より、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$a < \frac{a_{n + 1}}{a_{n}}$が成り立つので、定理\ref{4.1.8.9}の比判定法によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{proof}
+\begin{thm}[Cauchyの根判定法]\label{4.1.8.12}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\limsup_{n \rightarrow \infty}\sqrt[n]{a_{n}} < 1$のとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\item
+  $1 < \limsup_{n \rightarrow \infty}\sqrt[n]{a_{n}}$のとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{itemize}
+この定理をCauchyの根判定法、Cauchyのroot testという。
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$において、$r = \limsup_{n \rightarrow \infty}\sqrt[n]{a_{n}} < 1$のとき、$\forall a \in \mathbb{R}$に対し、$r < a < 1$が成り立つなら、定理\ref{4.1.6.4}より、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\frac{a_{n + 1}}{a_{n}} < a$が成り立つので、定理\ref{4.1.8.9}の根判定法によりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。\par
+$1 < r = \limsup_{n \rightarrow \infty}\sqrt[n]{a_{n}}$のとき、定理\ref{4.1.6.4}より$1 < \sqrt[n]{a_{n}}$、即ち、$1 < a_{n}$が成り立つような自然数$n$が無限に存在する。そこで、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が$0$に収束すると仮定すると、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$a_{n} < 1$が成り立つので、$1 \leq a_{n}$が成り立つなら、$n < N$が成り立つことになり、そのような自然数の個数は多くても$N - 1$つのみとなり仮定に矛盾する。ゆえに、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が$0$に収束しないので、定理\ref{4.1.8.2}よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束しない。その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は単調増加しているので、定理\ref{4.1.4.18}よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散する。
+\end{proof}
+%\hypertarget{ux7d76ux5bfeux53ceux675fux3068ux6761ux4ef6ux53ceux675f}{%
+\subsubsection{絶対収束と条件収束}%\label{ux7d76ux5bfeux53ceux675fux3068ux6761ux4ef6ux53ceux675f}}
+\begin{thm}\label{4.1.8.13}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するなら、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$も収束する。
+\end{thm}
+\begin{dfn}
+上の級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するとき、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$は絶対収束するといい、このような級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$を絶対収束級数という。この定理\ref{4.1.8.13}の逆は成り立たなく\footnote{例えば、実数列$\left( -\frac{\left(-1\right)^{n}}{n} \right)_{n\in \mathbb{N}}$から誘導される級数は収束しますが、実数列$\left( \frac{1}{n} \right)_{n\in \mathbb{N}}$から誘導される級数$\left( s_n \right)_{n\in \mathbb{N}}$は差$s_{2n}-s_n$を考えれば分かるように上の級数に関するCauchyの収束条件が満たされなくなってしまうので収束しないことになります。なお、実数列$\left( -\frac{\left(-1\right)^{n}}{n} \right)_{n\in \mathbb{N}}$から誘導される級数の和は$\ln 2$になることが知られていますが、その収束性も含め証明は今の段階では厳しいので割愛させていただきます。}、級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するが、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束しないとき、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$は条件収束するといい、このような級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$を条件収束級数という。
+\end{dfn}
+\begin{proof}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、級数に関するCauchyの収束条件と三角不等式より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$N \leq l < m$が成り立つなら、次のようになる。
+\begin{align*}
+\left\| \sum_{k \in \varLambda_{l} \setminus \varLambda_{m}} \mathbf{a}_{k} \right\| \leq \left| \sum_{k \in \varLambda_{l} \setminus \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right| < \varepsilon
+\end{align*}
+よって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$も収束する。
+\end{proof}
+\begin{thm}\label{4.1.8.14}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$として、$\forall l \in \varLambda_{n}$に対し、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$が収束する。
+\end{thm}
+\begin{proof}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するなら、$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$として、定理\ref{4.1.4.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は有界であるので、$\exists M \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\| = \left| \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\| \right| < M
+\end{align*}
+$\forall l \in \varLambda_{n}$に対し、次のようになるので、
+\begin{align*}
+\left| a_{k,l} \right|^{2} \leq \sum_{l \in \varLambda_{n}} \left| a_{k,l} \right|^{2} = \left\| \mathbf{a}_{m} \right\|^{2}
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \leq \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\| = \left| \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\| \right| < M
+\end{align*}
+ゆえに、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$は有界である。そこで、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$は正項級数でもあるので、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$も収束する。\par
+逆に、$\forall l \in \varLambda_{n}$に対し、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$が収束するなら、定理\ref{4.1.4.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$は有界であるので、$\exists M_{l} \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| = \left| \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right| < M_{l}
+\end{align*}
+このとき、$\forall m \in \mathbb{N}$に対し、三角不等式より次のようになるので、
+\begin{align*}
+\left\| \mathbf{a}_{m} \right\| = \left\| \left( a_{m,l} \right)_{l \in \varLambda_{n}} \right\| = \left\| \sum_{l \in \varLambda_{n}} {a_{m,l}\left( \delta_{kl} \right)_{k \in \varLambda_{n}}} \right\| \leq \sum_{l \in \varLambda_{n}} \left\| a_{m,l}\left( \delta_{kl} \right)_{k \in \varLambda_{n}} \right\| = \sum_{l \in \varLambda_{n}} \left| a_{m,l} \right|
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \leq \sum_{k \in \varLambda_{m}} {\sum_{l \in \varLambda_{n}} \left| a_{m,l} \right|} = \sum_{l \in \varLambda_{m}} {\sum_{k \in \varLambda_{n}} \left| a_{m,l} \right|} < \sum_{l \in \varLambda_{m}} M_{l}
+\end{align*}
+ゆえに、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は有界である。そこで、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は正項級数でもあるので、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$も収束する。
+\end{proof}
+\begin{thm}\label{4.1.8.15}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するならそのときに限り、$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$、$\left\| \mathbf{a}_{m} \right\|_{C} = \max\left\{ \left| a_{k,l} \right| \right\}_{l \in \varLambda_{n}}$として、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$が収束する\footnote{実は、その写像$\left\| \bullet \right\|_{C}:\mathbb{R}^{n} \rightarrow \mathbb{R} \cup \left\{ 0 \right\}$はChebychev距離を誘導するnormで、normを変えても収束性が保たれるという主張に近いですね。この辺りの話は結構難しいので、あとで述べることにします。}。
+\end{thm}
+\begin{proof}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、実数列$\left( \left\| \mathbf{a}_{m} \right\| \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$が収束するなら、定理\ref{4.1.4.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は有界であるので、$\exists M \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| = \left| \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right| < M
+\end{align*}
+ここで、$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$、$\left\| \mathbf{a}_{m} \right\|_{C} = \max\left\{ \left| a_{k,l} \right| \right\}_{l \in \varLambda_{n}}$として、$\left\| \mathbf{a}_{m} \right\|_{C} = \max\left\{ \left| a_{k,l} \right| \right\}_{l \in \varLambda_{n}} \leq \left\| \mathbf{a}_{k} \right\|$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\|_{C} \leq \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| = \left| \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right| < M
+\end{align*}
+ゆえに、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$は有界である。そこで、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$は正項級数でもあるので、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$も収束する。\par
+逆に、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$が収束するなら、定理\ref{4.1.4.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\|_{C} \right)_{m \in \mathbb{N}}$は有界であるので、$\exists M \in \mathbb{R}^{+}\forall m \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\|_{C} = \left| \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\|_{C} \right| < M
+\end{align*}
+このとき、$\forall m \in \mathbb{N}$に対し、次のようになるので、
+\begin{align*}
+\left\| \mathbf{a}_{k} \right\|^{2} = \sum_{l \in \varLambda_{n}} \left| a_{k,l} \right|^{2} \leq \sum_{l \in \varLambda_{n}} \left\| \mathbf{a}_{m} \right\|_{C}^{2} = n\left\| \mathbf{a}_{m} \right\|_{C}^{2}
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \leq \sum_{k \in \varLambda_{m}} {\sqrt{n}\left\| \mathbf{a}_{m} \right\|_{C}} = \sqrt{n}\sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{m} \right\|_{C} < \sqrt{n}M
+\end{align*}
+ゆえに、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は有界である。そこで、その級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$は正項級数でもあるので、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{m}} \left\| \mathbf{a}_{k} \right\| \right)_{m \in \mathbb{N}}$も収束する。
+\end{proof}
+\begin{dfn}
+次のような写像たち$( \bullet )_{+}$、$( \bullet )_{-}$が定義されよう。
+\begin{align*}
+( \bullet )_{+}&:{}^{*}\mathbb{R} \rightarrow \mathrm{cl}\mathbb{R}^{+};a \mapsto (a)_{+} = \max\left\{ a,0 \right\}\\
+( \bullet )_{-}&:{}^{*}\mathbb{R} \rightarrow \mathrm{cl}\mathbb{R}^{+};a \mapsto (a)_{-} = \max\left\{ - a,0 \right\}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.8.16}
+上の写像たち$( \bullet )_{+}$、$( \bullet )_{-}$について、$\forall a \in{}^{*}\mathbb{R}$に対し、次のことが成り立つ。
+\begin{align*}
+a = (a)_{+} - (a)_{-},\ \ |a| = (a)_{+} + (a)_{-}
+\end{align*}
+\end{thm}
+\begin{proof}
+$a < 0$の場合と$a = 0$の場合と$0 < a$の場合で場合分けすると示される。
+\end{proof}
+\begin{thm}\label{4.1.8.17}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$について、次のことは同値である。
+\begin{itemize}
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は絶対収束する。
+\item
+  それらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)_{n \in \mathbb{N}}$はどちらも収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$について、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が絶対収束するなら、その級数$\left( \sum_{k \in \varLambda_{n}} \left| a_{k} \right| \right)_{n \in \mathbb{N}}$、それらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)_{n \in \mathbb{N}}$どれも正項級数なので、定理\ref{4.1.8.16}より$\forall n \in \mathbb{N}$に対し、$\left( a_{n} \right)_{+} \leq \left| a_{n} \right|$かつ$\left( a_{n} \right)_{-} \leq \left| a_{n} \right|$が成り立つ。定理\ref{4.1.8.8}、即ち、比較定理よりそれらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)_{n \in \mathbb{N}}$はどちらも収束する。\par
+逆に、それらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)_{n \in \mathbb{N}}$がどちらも収束するなら、定理\ref{4.1.8.16}より$\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| = \left( a_{n} \right)_{+} + \left( a_{n} \right)_{-}$が成り立つので、定理\ref{4.1.8.2}よりその級数$\left( \sum_{k \in \varLambda_{n}} \left| a_{k} \right| \right)_{n \in \mathbb{N}}$も収束する。
+\end{proof}
+%\hypertarget{mertensux306eux5b9aux7406}{%
+\subsubsection{Mertensの定理}%\label{mertensux306eux5b9aux7406}}
+\begin{thm}[Mertensの定理]\label{4.1.8.18}
+2つの級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$がどちらもそれぞれ実数$s$、$t$に絶対収束するなら、級数$\left( \sum_{k \in \varLambda_{n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} \right)_{n \in \mathbb{N}}$は実数$st$に絶対収束する。この定理をMertensの定理という。
+\end{thm}
+\begin{proof}
+2つの級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$がどちらもそれぞれ実数$s$、$t$に絶対収束するとき、三角不等式より次式が成り立つ。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} \left| \sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}} \right| &\leq \sum_{k \in \varLambda_{n}} {\sum_{l \in \varLambda_{k}} \left| a_{l}b_{k - l + 1} \right|}\\
+&= \sum_{k \in \varLambda_{n}} {\sum_{\begin{matrix}
+p,q \in \varLambda_{k} \\
+p + q = k + 1 \\
+\end{matrix}} \left| a_{p}b_{q} \right|}\\
+&= \begin{matrix}
+\  & \left| a_{1}b_{1} \right| & + & \left| a_{1}b_{2} \right| & + & \cdots & + & \left| a_{1}b_{n - 1} \right| & + & \left| a_{1}b_{n} \right| \\
+ + & \left| a_{2}b_{1} \right| & + & \left| a_{2}b_{2} \right| & + & \cdots & + & \left| a_{2}b_{n - 1} \right| & \  & \  \\
+\  & \  & \  & \  & + & \cdots & \  & \  & \  & \  \\
+ + & \left| a_{n - 1}b_{1} \right| & + & \left| a_{n - 1}b_{2} \right| & \  & \  & \  & \  & \  & \  \\
+ + & \left| a_{n}b_{1} \right| & \  & \  & \  & \  & \  & \  & \  & \  \\
+\end{matrix}\\
+&\leq \begin{matrix}
+\  & \left| a_{1}b_{1} \right| & + & \left| a_{1}b_{2} \right| & + & \cdots & + & \left| a_{1}b_{n - 1} \right| & + & \left| a_{1}b_{n} \right| \\
+ + & \left| a_{2}b_{1} \right| & + & \left| a_{2}b_{2} \right| & + & \cdots & + & \left| a_{2}b_{n - 1} \right| & + & \left| a_{2}b_{n} \right| \\
+\  & \  & \  & \  & + & \cdots & \  & \  & \  & \  \\
+ + & \left| a_{n - 1}b_{1} \right| & + & \left| a_{n - 1}b_{2} \right| & + & \cdots & + & \left| a_{n - 1}b_{n - 1} \right| & + & \left| a_{n - 1}b_{n} \right| \\
+ + & \left| a_{n}b_{1} \right| & + & \left| a_{n}b_{2} \right| & + & \cdots & + & \left| a_{n}b_{n - 1} \right| & + & \left| a_{n}b_{n} \right| \\
+\end{matrix}\\
+&= \sum_{p,q \in \varLambda_{n}} \left| a_{p}b_{q} \right|\\
+&= \sum_{p \in \varLambda_{n}} \left| a_{p} \right|\sum_{q \in \varLambda_{n}} \left| b_{q} \right|
+\end{align*}
+ここで、仮定より2つの級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$がどちらも絶対収束するのであったので、定理\ref{4.1.8.7}より実数たち$M$、$N$が存在して、$\sum_{p \in \varLambda_{n}} \left| a_{p} \right| \leq M$かつ$\sum_{q \in \varLambda_{n}} \left| b_{q} \right| \leq N$が成り立つ。したがって、次式が成り立つ。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} \left| \sum_{l \in \varLambda_{k}} {a_{l}b_{k - l}} \right| \leq \left( \sum_{p \in \varLambda_{n}} \left| a_{p} \right| \right)\left( \sum_{q \in \varLambda_{n}} \left| b_{q} \right| \right) \leq MN
+\end{align*}
+これにより、その正項級数$\left( \sum_{k \in \varLambda_{n}} \left| \sum_{l \in \varLambda_{k}} {a_{l}b_{k - l}} \right| \right)_{n \in \mathbb{N}}$は有界で収束することになるので、その級数$\left( \sum_{k \in \varLambda_{n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l}}} \right)_{n \in \mathbb{N}}$は絶対収束する。\par
+ここで、次のようになることから、
+\begin{align*}
+&\quad \left| \sum_{k \in \varLambda_{2n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} - \sum_{p \in \varLambda_{n}} a_{p}\sum_{\begin{matrix}
+q \in \varLambda_{n} \\
+\end{matrix}} b_{q} \right|\\
+&= \left| \begin{matrix}
+\  & a_{1}b_{1} & + & a_{1}b_{2} & + & \cdots & + & a_{1}b_{n} & + & a_{1}b_{n + 1} & + & \cdots & + & a_{1}b_{2n - 1} & + & a_{1}b_{2n} \\
+ + & a_{2}b_{1} & + & a_{2}b_{2} & + & \cdots & + & a_{2}b_{n} & + & a_{2}b_{n + 1} & + & \cdots & + & a_{2}b_{2n - 1} & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{n}b_{1} & + & a_{n}b_{2} & + & \cdots & + & a_{n}b_{n} & + & a_{n}b_{n + 1} & \  & \  & \  & \  & \  & \  \\
+ + & a_{n + 1}b_{1} & + & a_{n + 1}b_{2} & + & \cdots & + & a_{n + 1}b_{n} & \  & \  & \  & \  & \  & \  & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{2n - 1}b_{1} & + & a_{2n - 1}b_{2} & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{2n}b_{1} & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+\end{matrix} \right. \\
+&\quad \left. - \begin{matrix}
+\  & a_{1}b_{1} & + & a_{1}b_{2} & + & \cdots & + & a_{1}b_{n} \\
+ + & a_{2}b_{1} & + & a_{2}b_{2} & + & \cdots & + & a_{2}b_{n} \\
+\  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{n}b_{1} & + & a_{n}b_{2} & + & \cdots & + & a_{n}b_{n} \\
+\end{matrix} \right|\\
+&= \left| \begin{matrix}
+\  & \  & \  & \  & \  & \  & \  & \  & \  & a_{1}b_{n + 1} & + & \cdots & + & a_{1}b_{2n - 1} & + & a_{1}b_{2n} \\
+\  & \  & \  & \  & \  & \  & \  & \  & + & a_{2}b_{n + 1} & + & \cdots & + & a_{2}b_{2n - 1} & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  & + & a_{n}b_{n + 1} & \  & \  & \  & \  & \  & \  \\
+ + & a_{n + 1}b_{1} & + & a_{n + 1}b_{2} & + & \cdots & + & a_{n + 1}b_{n} & \  & \  & \  & \  & \  & \  & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{2n - 1}b_{1} & + & a_{2n - 1}b_{2} & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{2n}b_{1} & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  & \  \\
+\end{matrix} \right|\\
+&\leq \left| \begin{matrix}
+\  & a_{1}b_{n + 1} & + & \cdots & + & a_{1}b_{2n - 1} & + & a_{1}b_{2n} \\
+ + & a_{2}b_{n + 1} & + & \cdots & + & a_{2}b_{2n - 1} & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{n}b_{n + 1} & \  & \  & \  & \  & \  & \  \\
+\end{matrix} \right| + \left| \begin{matrix}
+\  & a_{n + 1}b_{1} & + & a_{n + 1}b_{2} & + & \cdots & + & a_{n + 1}b_{n} \\
+\  & \  & \  & \  & \  & \  & \  & \  \\
+ + & a_{2n - 1}b_{1} & + & a_{2n - 1}b_{2} & \  & \  & \  & \  \\
+ + & a_{2n}b_{1} & \  & \  & \  & \  & \  & \  \\
+\end{matrix} \right|\\
+&= \left| \sum_{q \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{p \in \varLambda_{2n - q + 1}} {a_{p}b_{q}}} \right| + \left| \sum_{p \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{q \in \varLambda_{2n - p + 1}} {a_{p}b_{q}}} \right|\\
+&\leq \sum_{q \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{p \in \varLambda_{2n - q + 1}} \left| a_{p}b_{q} \right|} + \sum_{p \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{q \in \varLambda_{2n - p + 1}} \left| a_{p}b_{q} \right|}\\
+&\leq \sum_{q \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{p \in \varLambda_{2n + 1}} \left| a_{p}b_{q} \right|} + \sum_{p \in \varLambda_{2n} \setminus \varLambda_{n}} {\sum_{q \in \varLambda_{2n + 1}} \left| a_{p}b_{q} \right|}\\
+&= \sum_{p \in \varLambda_{2n + 1}} \left| a_{p} \right|\left( \sum_{q \in \varLambda_{2n}} \left| b_{q} \right| - \sum_{q \in \varLambda_{n}} \left| b_{q} \right| \right) + \left( \sum_{p \in \varLambda_{2n}} \left| a_{p} \right| - \sum_{p \in \varLambda_{n}} \left| a_{p} \right| \right)\sum_{q \in \varLambda_{2n + 1}} \left| b_{q} \right|\\
+&\leq \sum_{p \in \mathbb{N}} \left| a_{p} \right|\left( \sum_{q \in \mathbb{N}} \left| b_{q} \right| - \sum_{q \in \varLambda_{n}} \left| b_{q} \right| \right) + \left( \sum_{p \in \mathbb{N}} \left| a_{p} \right| - \sum_{p \in \varLambda_{n}} \left| a_{p} \right| \right)\sum_{q \in \mathbb{N}} \left| b_{q} \right|
+\end{align*}
+$n \rightarrow \infty$とすれば、2つの級数たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} b_{k} \right)_{n \in \mathbb{N}}$がどちらもそれぞれ実数$s$、$t$に絶対収束するので、次のようになる。
+\begin{align*}
+0 &\leq \lim_{n \rightarrow \infty}\left| \sum_{k \in \varLambda_{2n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} - \sum_{p \in \varLambda_{n}} a_{p}\sum_{q \in \varLambda_{n} } b_{q} \right|\\
+&\leq \lim_{n \rightarrow \infty}\left( \sum_{p \in \mathbb{N}} \left| a_{p} \right|\left( \sum_{q \in \mathbb{N}} \left| b_{q} \right| - \sum_{q \in \varLambda_{n}} \left| b_{q} \right| \right) + \left( \sum_{p \in \mathbb{N}} \left| a_{p} \right| - \sum_{p \in \varLambda_{n}} \left| a_{p} \right| \right)\sum_{q \in \mathbb{N}} \left| b_{q} \right| \right)\\
+&= \sum_{p \in \mathbb{N}} \left| a_{p} \right|\left( \sum_{q \in \mathbb{N}} \left| b_{q} \right| - \lim_{n \rightarrow \infty}{\sum_{q \in \varLambda_{n}} \left| b_{q} \right|} \right) + \left( \sum_{p \in \mathbb{N}} \left| a_{p} \right| - \lim_{n \rightarrow \infty}{\sum_{p \in \varLambda_{n}} \left| a_{p} \right|} \right)\sum_{q \in \mathbb{N}} \left| b_{q} \right|\\
+&= \sum_{p \in \mathbb{N}} \left| a_{p} \right|\left( \sum_{q \in \mathbb{N}} \left| b_{q} \right| - \sum_{q \in \mathbb{N}} \left| b_{q} \right| \right) + \left( \sum_{p \in \mathbb{N}} \left| a_{p} \right| - \sum_{p \in \mathbb{N}} \left| a_{p} \right| \right)\sum_{q \in \mathbb{N}} \left| b_{q} \right|\\
+&= 0
+\end{align*}
+したがって、次のようになることから、
+\begin{align*}
+\sum_{k \in \mathbb{N}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} &= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{2n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}}}\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{k \in \varLambda_{2n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} - \sum_{p \in \varLambda_{n}} a_{p}\sum_{q \in \varLambda_{n} } b_{q} + \sum_{p \in \varLambda_{n}} a_{p}\sum_{q \in \varLambda_{n} } b_{q} \right)\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{k \in \varLambda_{2n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} - \sum_{p \in \varLambda_{n}} a_{p}\sum_{q \in \varLambda_{n} } b_{q} \right) + \lim_{n \rightarrow \infty}{\sum_{p \in \varLambda_{n}} a_{p}}\lim_{n \rightarrow \infty}{\sum_{q \in \varLambda_{n} } b_{q}}\\
+&= st
+\end{align*}
+よって、級数$\left( \sum_{k \in \varLambda_{n}} {\sum_{l \in \varLambda_{k}} {a_{l}b_{k - l + 1}}} \right)_{n \in \mathbb{N}}$は実数$st$に絶対収束する。
+\end{proof}
+%\hypertarget{ux9805ux306eux9806ux5e8fux3092ux5909ux3048ux305fux7d1aux6570}{%
+\subsubsection{項の順序を変えた級数}%\label{ux9805ux306eux9806ux5e8fux3092ux5909ux3048ux305fux7d1aux6570}}
+\begin{dfn}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が与えられたとき、全単射な写像$p:\mathbb{N} \rightarrow \mathbb{N}$を用いた級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{p(k)} \right)_{m \in \mathbb{N}}$をその級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$の項の順序を変えた級数という。
+\end{dfn}
+\begin{thm}\label{4.1.8.19}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$の広い意味での極限値は必ずもつのであった。このとき、その集合$\mathbb{N}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれれば、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}
+\end{align*}
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が与えられたとき、その集合$\mathbb{N}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれれば、$\forall n \in \mathbb{N}$に対し、$\varLambda_{n} = \left\{ 1,2,\cdots,n \right\}\in \mathcal{F}$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} a_{k} \leq \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}
+\end{align*}
+したがって、定理\ref{4.1.4.12}より次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} a_{k} \leq \sum_{n \in \mathbb{N}} a_{n} = \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} a_{k}} \leq \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}
+\end{align*}
+一方で、$\forall F\in \mathcal{F}$に対し、これの最大値$\max F$が存在するので、これが$N$とおかれれば、$F \subseteq \varLambda_{N}$より次式が成り立つ。
+\begin{align*}
+\sum_{n \in F} a_{n} \leq \sum_{k \in \varLambda_{N}} a_{k} \leq \sum_{n \in \mathbb{N}} a_{n}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}} \leq \sum_{k \in \varLambda_{N}} a_{k} \leq \sum_{n \in \mathbb{N}} a_{n}
+\end{align*}
+以上の議論により、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.8.20}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$の項の順序を変えた級数$\left( \sum_{k \in \varLambda_{n}} a_{p(k)} \right)_{n \in \mathbb{N}}$について、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sum_{n \in \mathbb{N}} a_{p(n)}
+\end{align*}
+\end{thm}
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$の項の順序を変えた級数$\left( \sum_{k \in \varLambda_{n}} a_{p(k)} \right)_{n \in \mathbb{N}}$について、定理\ref{4.1.8.19}より次のようになることから従う。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}} = \sup\left\{ \sum_{n \in F} a_{p(n)} \right\}_{F\in \mathcal{F}} = \sum_{n \in \mathbb{N}} a_{p(n)}
+\end{align*}
+\end{proof}\par
+別の証明も載せておこう。
+\begin{proof}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$の項の順序を変えた級数$\left( \sum_{k \in \varLambda_{n}} a_{p(k)} \right)_{n \in \mathbb{N}}$について、その値域$V\left( p|\varLambda_{n} \right)$もその集合$\mathbb{N}$の有限集合な部分集合でもあるので、最大値$\max{V\left( p|\varLambda_{n} \right)}$が存在する。これが$N$とおかれれば、$\varLambda_{n} \subseteq V\left( p|\varLambda_{n} \right) \subseteq \varLambda_{N}$より次のようになることから従う。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} a_{k} \leq \sum_{k \in \varLambda_{n}} a_{p(k)} \leq \sum_{k \in \varLambda_{N}} a_{k} \leq \sum_{n \in \mathbb{N}} a_{n}
+\end{align*}
+したがって、$n \rightarrow \infty$とすれば、はさみうちの原理より次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sum_{n \in \mathbb{N}} a_{p(n)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.8.21}
+正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が与えられたとき、その集合$\mathbb{N}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれれば、その正項級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するならそのときに限り、その集合$\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}$の上限が有限である。
+\end{thm}
+\begin{proof} 定理\ref{4.1.8.19}より次式が成り立つことから直ちにわかる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} = \sup\left\{ \sum_{n \in F} a_{n} \right\}_{F\in \mathcal{F}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.8.22}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が条件収束する、即ち、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束しその級数$\left( \sum_{k \in \varLambda_{n}} \left| a_{k} \right| \right)_{n \in \mathbb{N}}$が正の無限大に発散するとき、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} = \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-} = \infty
+\end{align*}
+\end{thm}
+\begin{proof}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が条件収束するとき、定理\ref{4.1.8.16}より次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} \left| a_{k} \right| &= \sum_{k \in \varLambda_{n}} \left( \left( a_{k} \right)_{+} + \left( a_{k} \right)_{-} \right)\\
+&= \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} + \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-}
+\end{align*}
+そこで$n \rightarrow \infty$とすれば、仮定より次式が成り立つことから、
+\begin{align*}
+\infty &= \sum_{n \in \mathbb{N}} \left| a_{n} \right| = \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} \left| a_{k} \right|}\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} + \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)\\
+&= \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} + \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} = \infty \vee \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-} = \infty
+\end{align*}
+$\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} \in \mathbb{R}$が成り立つと仮定すると、定理\ref{4.1.8.16}より次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} a_{k} &= \sum_{k \in \varLambda_{n}} \left( \left( a_{k} \right)_{+} - \left( a_{k} \right)_{-} \right)\\
+&= \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} - \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-}
+\end{align*}
+そこで$n \rightarrow \infty$とすれば、仮定より次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n} &= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} a_{k}}\\
+&= \lim_{n \rightarrow \infty}\left( \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+} - \sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{-} \right)\\
+&= \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} - \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-} = - \infty
+\end{align*}
+しかしながら、これは仮定に矛盾している。ゆえに、$\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} = \infty$が成り立つ。同様にして、$\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-} = \infty$が成り立つことが示される。
+\end{proof}
+\begin{thm}[Dirichlet -Riemannの再配列定理]\label{4.1.8.23}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が条件収束するとき、$\forall V \in{}^{*}\mathbb{R}$に対し、ある全単射な写像$p:\mathbb{N} \rightarrow \mathbb{N}$が存在して、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{p(n)} = V
+\end{align*}
+この定理をDirichlet -Riemannの再配列定理という。
+\end{thm}
+\begin{proof}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が条件収束するとき、定理\ref{4.1.8.22}より次式が成り立つので、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} = \sum_{n \in \mathbb{N}} \left( a_{n} \right)_{-} = \infty
+\end{align*}
+次のように定義される集合たち$D_{\geq 0}$、$D_{< 0}$はいずれも無限集合である。
+\begin{align*}
+D_{\geq 0} = \left\{ n \in \mathbb{N} \middle| a_{n} \geq 0 \right\},\ \ D_{< 0} = \left\{ n \in \mathbb{N} \middle| a_{n} < 0 \right\}
+\end{align*}
+実際、その集合$D_{\geq 0}$が有限集合であるなら、次のようになるが、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left( a_{n} \right)_{+} &= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} \left( a_{k} \right)_{+}}\\
+&= \lim_{n \rightarrow \infty}{\sum_{k \in D_{\geq 0}} \left( a_{k} \right)_{+}}\\
+&= \sum_{n \in D_{\geq 0}} \left( a_{n} \right)_{+} < \infty
+\end{align*}
+これは矛盾している。その集合$D_{< 0}$についても同様にして示される。\par
+そこで、$\forall n \in \mathbb{N}$に対し、それらの集合たち$D_{\geq 0} \setminus \varLambda_{n}$、$D_{< 0} \setminus \varLambda_{n}$はいずれも自然数全体の集合$\mathbb{N}$の部分集合であるから、これらの最小値$\min\left( D_{\geq 0} \setminus \varLambda_{n} \right)$、$\min\left( D_{< 0} \setminus \varLambda_{n} \right)$が存在する。このことから、$m_{1} = \min D_{\geq 0}$、$n_{1} = \min D_{< 0}$として、$\forall k \in \mathbb{N}$に対し、次のように元の列たち$\left( m_{k} \right)_{k \in \mathbb{N}}$、$\left( n_{k} \right)_{k \in \mathbb{N}}$が定義されよう。
+\begin{align*}
+m_{k + 1} = \min\left( D_{\geq 0} \setminus \varLambda_{m_{k}} \right),\ \ n_{k + 1} = \min\left( D_{< 0} \setminus \varLambda_{n_{k}} \right)
+\end{align*}
+このとき、これらの元の列たち$\left( m_{k} \right)_{k \in \mathbb{N}}$、$\left( n_{k} \right)_{k \in \mathbb{N}}$が狭義単調増加しているので、実数列たち$\left( \left( a_{n} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \left( a_{n} \right)_{-} \right)_{n \in \mathbb{N}}$の部分列たち$\left( \left( a_{m_{k}} \right)_{+} \right)_{k \in \mathbb{N}}$、$\left( \left( a_{n_{k}} \right)_{-} \right)_{k \in \mathbb{N}}$が定義されることができる。もちろん、次式が成り立つ。
+\begin{align*}
+\sum_{k \in \mathbb{N}} \left( a_{m_{k}} \right)_{+} = \sum_{k \in \mathbb{N}} \left( a_{n_{k}} \right)_{-} = \infty
+\end{align*}\par
+さらに、$\forall n \in \mathbb{N}$に対し、$n \in D_{\geq 0}$が成り立つなら、$n = \min D_{\geq 0}$のとき、$n = m_{1}$が成り立つ。$n > \min D_{\geq 0}$のとき、次のように自然数$k$がおかれれば、
+\begin{align*}
+k = \#\left\{ \max\left( D_{\geq 0} \cap \varLambda_{n - l} \right) \right\}_{l \in \varLambda_{n - \min D_{\geq 0}}}
+\end{align*}
+$n = m_{k + 1}$が成り立つ\footnote{これは次のように考えると分かりやすいかもしれない。$N_{l} = \max\left( D_{\geq 0} \cap \varLambda_{n - l} \right)$とおくと、次のようになり、
+\begin{align*}
+N_{1} &= \max\left( D_{\geq 0} \cap \varLambda_{n - 1} \right)\\
+&\vdots \\
+N_{j_{1}} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{1}} \right)\\
+N_{j_{1} + 1} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{1} - 1} \right)\\
+&\vdots \\
+N_{j_{2}} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{2}} \right)\\
+&\vdots \\
+N_{j_{k - 2} + 1} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 2} - 1} \right)\\
+&\vdots \\
+N_{j_{k - 1}} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 1}} \right)\\
+N_{j_{k - 1} + 1} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 1} - 1} \right)\\
+&\vdots \\
+N_{j_{k}} &= \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k}} \right) = m_{1}
+\end{align*}
+$j_{k} = n - \min D_{\geq 0}$が得られる。ここで、等しいもので班分けすれば、次のようになる。
+\begin{align*}
+\left. \ \begin{matrix}
+N_{1} = \max\left( D_{\geq 0} \cap \varLambda_{n - 1} \right) \\
+\vdots \\
+N_{j_{1}} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{1}} \right) \\
+\end{matrix} \right\} &= m_{k}\\
+\left. \begin{matrix}
+N_{j_{1} + 1} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{1} - 1} \right) \\
+ \vdots \\
+N_{j_{2}} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{2}} \right) \\
+\end{matrix} \right\} &= m_{k - 1}\\
+&\vdots \\
+\left. \ \begin{matrix}
+N_{j_{k - 2} + 1} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 2} - 1} \right) \\
+ \vdots \\
+N_{j_{k - 1}} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 1}} \right) \\
+\end{matrix} \right\} &= m_{2}\\
+\left. \ \begin{matrix}
+N_{j_{k - 1} + 1} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k - 1} - 1} \right) \\
+ \vdots \\
+N_{j_{k}} = \max\left( D_{\geq 0} \cap \varLambda_{n - j_{k}} \right) \\
+\end{matrix} \right\} &= m_{1}\\
+\end{align*}}。ゆえに、$D_{\geq 0} \subseteq \left\{ m_{k} \right\}_{k \in \mathbb{N}}$が成り立つので、$D_{\geq 0} = \left\{ m_{k} \right\}_{k \in \mathbb{N}}$が得られる。同様にして$D_{< 0} = \left\{ n_{k} \right\}_{k \in \mathbb{N}}$が成り立つことが示される。さらに、$\mathbb{N} = D_{\geq 0} \sqcup D_{< 0}$に注意すれば、$\exists N \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$N \neq m_{k}$かつ$N \neq n_{k}$が成り立つと仮定すると、$N \notin \left\{ m_{k} \right\}_{k \in \mathbb{N}}$かつ$N \notin \left\{ n_{k} \right\}_{k \in \mathbb{N}}$が得られ、$\left\{ m_{k} \right\}_{k \in \mathbb{N}} = D_{\geq 0}$かつ$\left\{ n_{k} \right\}_{k \in \mathbb{N}} = D_{< 0}$が成り立つので、$N \notin D_{\geq 0} \sqcup D_{< 0} = \mathbb{N}$が得られるが、これは矛盾している。ゆえに、$\forall n \in \mathbb{N}\exists k \in \mathbb{N}$に対し、$N = m_{k}$または$N = n_{k}$が成り立つ。\par
+$\forall V \in \mathbb{R}$に対し、$\sum_{k \in \varLambda_{0}} a_{p(k)} = 0$と約束して次のように写像$p:\mathbb{N} \rightarrow \mathbb{N}$が再帰的に定義されよう。
+\begin{align*}
+p(n + 1) = \left\{ \begin{matrix}
+\min D_{\geq 0} \setminus V\left( p|\varLambda_{n} \right) & \mathrm{if} & \sum_{k \in \varLambda_{n}} a_{p(k)} \leq V \\
+\min D_{< 0} \setminus V\left( p|\varLambda_{n} \right) & \mathrm{if} & \sum_{k \in \varLambda_{n}} a_{p(k)} > V \\
+\end{matrix} \right.\ 
+\end{align*}
+このとき、$\exists m,n \in \mathbb{N}$に対し、$p(m) = p(n)$が成り立つと仮定すると、$m < n$としても一般性は失われないので、そうすれば、$p(m) \in V\left( p|\varLambda_{n - 1} \right)$が成り立ち、その写像$p$の定義より次式が成り立つので、
+\begin{align*}
+p(m) = p(n) = \left\{ \begin{matrix}
+\min{D_{\geq 0} \setminus V\left( p|\varLambda_{n - 1} \right)} \in D_{\geq 0} \setminus V\left( p|\varLambda_{n - 1} \right) & \mathrm{if} & \sum_{k \in \varLambda_{n - 1}} a_{p(k)} \leq V \\
+\min{D_{< 0} \setminus V\left( p|\varLambda_{n - 1} \right)} \in D_{< 0} \setminus V\left( p|\varLambda_{n - 1} \right) & \mathrm{if} & \sum_{k \in \varLambda_{n - 1}} a_{p(k)} > V \\
+\end{matrix} \right.\ 
+\end{align*}
+$p(m) \notin V\left( p|\varLambda_{n - 1} \right)$が得られるが、これは矛盾している。ゆえに、その写像$p$は単射である。次に、$\mathbb{N} = D_{\geq 0} \sqcup D_{<0}$に注意すれば、$\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \neq p(m)$が成り立つと仮定すると、$N \in D_{\geq 0}$のとき、$\exists K \in \mathbb{N}$に対し、$N = m_{K}$が成り立つので、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{K - 1}} \left( a_{m_{k}} \right)_{+} - \sum_{k \in \varLambda_{n}} \left( a_{n_{k}} \right)_{-} > V
+\end{align*}
+ここで、$n \rightarrow \infty$とすれば、定理\ref{4.1.8.22}より次のようになるが、
+\begin{align*}
+- \infty = \sum_{k \in \varLambda_{K - 1}} \left( a_{m_{k}} \right)_{+} - \infty > V
+\end{align*}
+これは矛盾している。ゆえに、その写像$p$は全射である。以上の議論により、その写像$p$は全単射となる。\par
+仮定よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束するので、定理\ref{4.1.8.5}よりその実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は$0$に収束する。したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| a_{n} \right| < \varepsilon$が成り立つ。ここで、$M = \max\left\{ p^{- 1}(k) \right\}_{k \in \varLambda_{N}}$とおかれれば、$\varLambda_{N} \subseteq \left\{ p(k) \right\}_{k \in \varLambda_{M}}$が成り立つので、$M \leq n$が成り立つなら、次のようになる\footnote{次のように考えると分かりやすいかもしれない。例えば、$0 < V$が成り立つとき、次のようにしていけば、
+\begin{align*}
+\sum_{k \in \varLambda_{n_{1} - 1}} a_{p(k)} &\leq V < \sum_{k \in \varLambda_{n_{1}}} a_{p(k)},\\
+0 &\leq a_{p(1)},a_{p(2)},\cdots,a_{p\left( n_{1} \right)}\\
+\sum_{k \in \varLambda_{n_{2} - 1}} a_{p(k)} &\geq V > \sum_{k \in \varLambda_{n_{2}}} a_{p(k)},\\
+0 &\leq a_{p(1)},a_{p(2)},\cdots,a_{p\left( n_{1} \right)},\ \ 0 > a_{p\left( n_{1} + 1 \right)},a_{p\left( n_{1} + 2 \right)},\cdots,a_{p\left( n_{2} \right)}\\
+\sum_{k \in \varLambda_{n_{3} - 1}} a_{p(k)} &\leq V < \sum_{k \in \varLambda_{n_{3}}} a_{p(k)},\\
+0 &\leq a_{p(1)},a_{p(2)},\cdots,a_{p\left( n_{1} \right)},\ \ 0 > a_{p\left( n_{1} + 1 \right)},a_{p\left( n_{1} + 2 \right)},\cdots,a_{p\left( n_{2} \right)},\ \ 0 \leq a_{p\left( n_{2} + 1 \right)},a_{p\left( n_{2} + 2 \right)},\cdots,a_{p\left( n_{3} \right)}\\
+&\vdots \\
+\sum_{k \in \varLambda_{n_{N} - 1}} a_{p(k)} &\lesseqgtr V \lessgtr \sum_{k \in \varLambda_{n_{N}}} a_{p(k)},\\
+0 &\leq a_{p(1)},a_{p(2)},\cdots,a_{p\left( n_{1} \right)},\ \ 0 > a_{p\left( n_{1} + 1 \right)},a_{p\left( n_{1} + 2 \right)},\cdots,a_{p\left( n_{2} \right)},\ \ 0 \leq a_{p\left( n_{2} + 1 \right)},a_{p\left( n_{2} + 2 \right)},\cdots,a_{p\left( n_{3} \right)},\ \ \cdots
+\end{align*}
+次式が成り立つので、
+\begin{align*}
+\sum_{k \in \varLambda_{n - 1}} a_{p(k)} = \sum_{k \in \varLambda_{n}} a_{p(k)} - a_{p(n)} \lesseqgtr V \lessgtr \sum_{k \in \varLambda_{n}} a_{p(k)}
+\end{align*}
+次式が得られる。
+\begin{align*}
+0 \lessgtr \sum_{k \in \varLambda_{n}} a_{p(k)} - V \lesseqgtr a_{p(n)}
+\end{align*}}。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{p(k)} - V \right| \leq \left| a_{p(n)} \right| < \varepsilon
+\end{align*}
+よって、次式が得られる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{p(n)} = V
+\end{align*}\par
+$V = \infty$のとき、$\sum_{k \in \mathbb{N}} \left( a_{m_{k}} \right)_{+} = \infty$なので、和$\sum_{k \in \varLambda_{l}} \left( a_{m_{k}} \right)_{+}$がはじめて自然数$j$より大きくなる自然数$l$を$k_{j}$とし項$\left( a_{m_{k_{j}}} \right)_{+}$の次に加える項を$\left( a_{n_{j}} \right)_{-}$としその次に加える項を$\left( a_{m_{k_{j} + 1}} \right)_{+}$とすればよい。$V = - \infty$についても同様にして示される。
+\end{proof}
+\begin{thm}\label{4.1.8.24}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するとき、次のことは同値である。
+\begin{itemize}
+\item
+  その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$は絶対収束する。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$はどのように項の順序を変えてもその極限値は変わらない。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$から誘導される級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が収束するとき、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が絶対収束するなら、定理\ref{4.1.8.14}より$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$として、$\forall l \in \varLambda_{n}$に対し、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$が収束する、即ち、その級数$\left( \sum_{k \in \varLambda_{m}} a_{k,l} \right)_{m \in \mathbb{N}}$が絶対収束する。そこで、定理\ref{4.1.8.17}よりこれが成り立つならそのときに限り、それらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k,l} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k,l} \right)_{-} \right)_{n \in \mathbb{N}}$はどちらも収束する。これらの級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{k,l} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{k,l} \right)_{-} \right)_{n \in \mathbb{N}}$はどちらも正項級数なので、これらの項の順序を変えた級数たち$\left( \sum_{k \in \varLambda_{n}} \left( a_{p(k),l} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n}} \left( a_{p(k),l} \right)_{-} \right)_{n \in \mathbb{N}}$はどちらも収束し次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} \left( a_{n,l} \right)_{+} = \sum_{n \in \mathbb{N}} \left( a_{p(n),l} \right)_{+},\ \ \sum_{n \in \mathbb{N}} \left( a_{n,l} \right)_{-} = \sum_{n \in \mathbb{N}} \left( a_{p(n),l} \right)_{-}
+\end{align*}
+以上の議論により、次のようになる。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{n,l} &= \sum_{n \in \mathbb{N}} \left( \left( a_{n,l} \right)_{+} - \left( a_{n,l} \right)_{-} \right)\\
+&= \sum_{n \in \mathbb{N}} \left( a_{n,l} \right)_{+} - \sum_{n \in \mathbb{N}} \left( a_{n,l} \right)_{-}\\
+&= \sum_{n \in \mathbb{N}} \left( a_{p(n),l} \right)_{+} - \sum_{n \in \mathbb{N}} \left( a_{p(n),l} \right)_{-}\\
+&= \sum_{n \in \mathbb{N}} \left( \left( a_{p(n),l} \right)_{+} - \left( a_{p(n),l} \right)_{-} \right)\\
+&= \sum_{n \in \mathbb{N}} a_{p(n),l}
+\end{align*}
+定理\ref{4.1.8.1}よりよって、次式が成り立つことから、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \mathbf{a}_{n} = \sum_{n \in \mathbb{N}} \mathbf{a}_{p(n)}
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$はどのように項の順序を変えてもその極限値は変わらない。\par
+逆に、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が絶対収束しないなら、定理\ref{4.1.8.14}より$\mathbf{a}_{m} = \left( a_{m,l} \right)_{l \in \varLambda_{n}}$として、$\exists l \in \varLambda_{n}$に対し、その級数$\left( \sum_{k \in \varLambda_{m}} \left| a_{k,l} \right| \right)_{m \in \mathbb{N}}$が収束しない、即ち、その級数$\left( \sum_{k \in \varLambda_{m}} a_{k,l} \right)_{m \in \mathbb{N}}$が条件収束する。定理\ref{4.1.8.23}、即ち、Riemannの再配列定理より$V \neq \sum_{n \in \mathbb{N}} a_{n,l}$なる任意の実数$V$に対し、ある全単射な写像$p:\mathbb{N} \rightarrow \mathbb{N}$が存在して、次式が成り立つ。
+\begin{align*}
+\sum_{n \in \mathbb{N}} a_{p(n),l} = V \neq \sum_{n \in \mathbb{N}} a_{n,l}
+\end{align*}
+定理\ref{4.1.8.1}よりよって、次式が成り立つことから、
+\begin{align*}
+\sum_{n \in \mathbb{N}} \mathbf{a}_{n} \neq \sum_{n \in \mathbb{N}} \mathbf{a}_{p(n)}
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$はその極限値が変わるような項の順序の変え方が存在する。対偶律により、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$がどのように項の順序を変えてもその極限値は変わらないなら、その級数$\left( \sum_{k \in \varLambda_{m}} \mathbf{a}_{k} \right)_{m \in \mathbb{N}}$が絶対収束することも示された。
+\end{proof}
+%\hypertarget{abelux306eux5909ux5f62}{%
+\subsubsection{Abelの変形}%\label{abelux306eux5909ux5f62}}
+\begin{thm}[Leibnizの交代級数定理]\label{4.1.8.25}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$0 < \left( a_{n} \right)_{n \in \mathbb{N}}$が満たされ単調減少しその極限値が$0$であるなら、その級数$\left( \sum_{k \in \varLambda_{n}} {( - 1)^{k}a_{k}} \right)_{n \in \mathbb{N}}$は収束する。この定理をLeibnizの交代級数定理という。
+\end{thm}
+\begin{proof}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$0 < \left( a_{n} \right)_{n \in \mathbb{N}}$が満たされ単調減少しその極限値が$0$であるなら、次のように実数列たち$\left( s_{2n} \right)_{n \in \mathbb{N}}$、$\left( s_{2n - 1} \right)_{n \in \mathbb{N}}$が定義されると、
+\begin{align*}
+\left( s_{2n} \right)_{n \in \mathbb{N}}&:\mathbb{N} \rightarrow \mathbb{R};n \mapsto - \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right)\\
+\left( s_{2n - 1} \right)_{n \in \mathbb{N}}&:\mathbb{N} \rightarrow \mathbb{R};n \mapsto - a_{1} + \sum_{k \in \varLambda_{n - 1}} \left( a_{2k} - a_{2k + 1} \right)
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、次のようになることから、
+\begin{align*}
+s_{2(n + 1)} - s_{2n} &= - \sum_{k \in \varLambda_{n + 1}} \left( a_{2k - 1} - a_{2k} \right) + \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right)\\
+&= - \left( a_{2n + 1} - a_{2n + 2} \right) - \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right) + \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right)\\
+&= - \left( a_{2n + 1} - a_{2n + 2} \right)\\
+&= a_{2n + 2} - a_{2n + 1} \leq 0\\
+s_{2(n + 1) - 1} - s_{2n - 1} &= - a_{1} + \sum_{k \in \varLambda_{n}} \left( a_{2k} - a_{2k + 1} \right) + a_{1} - \sum_{k \in \varLambda_{n - 1}} \left( a_{2k} - a_{2k + 1} \right)\\
+&= a_{2n} - a_{2n + 1} + \sum_{k \in \varLambda_{n - 1}} \left( a_{2k} - a_{2k + 1} \right) - \sum_{k \in \varLambda_{n - 1}} \left( a_{2k} - a_{2k + 1} \right)\\
+&= a_{2n} - a_{2n + 1} \geq 0
+\end{align*}
+これらの実数列たち$\left( s_{2n} \right)_{n \in \mathbb{N}}$、$\left( s_{2n - 1} \right)_{n \in \mathbb{N}}$はそれぞれ単調減少、単調増加している。さらに、$\forall n \in \mathbb{N}$に対し、次のようになることから、
+\begin{align*}
+s_{2n + 1} - s_{2n} &= - a_{1} + \sum_{k \in \varLambda_{n}} \left( a_{2k} - a_{2k + 1} \right) + \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right)\\
+&= - a_{1} + \sum_{k \in \varLambda_{n}} a_{2k} - \sum_{k \in \varLambda_{n}} a_{2k + 1} + \sum_{k \in \varLambda_{n}} a_{2k - 1} - \sum_{k \in \varLambda_{n}} a_{2k}\\
+&= - a_{1} + \sum_{k \in \varLambda_{n}} a_{2k - 1} - \sum_{k \in \varLambda_{n}} a_{2k + 1}\\
+&= \sum_{k \in \varLambda_{n}} a_{2k - 1} - \sum_{k \in \varLambda_{n}} a_{2k - 1} - a_{2n + 1}\\
+&= - a_{2n + 1} \leq 0
+\end{align*}
+$s_{2n + 1} \leq s_{2n}$が得られる。これにより、これらの実数列たち$\left( s_{2n} \right)_{n \in \mathbb{N}}$、$\left( s_{2n - 1} \right)_{n \in \mathbb{N}}$の下界、上界としてそれぞれ$s_{1}$、$s_{2}$があげられるので、これらの実数列たち$\left( s_{2n} \right)_{n \in \mathbb{N}}$、$\left( s_{2n - 1} \right)_{n \in \mathbb{N}}$は収束する。さらに、次のようになることから、
+\begin{align*}
+\lim_{n \rightarrow \infty}s_{2n - 1} - \lim_{n \rightarrow \infty}s_{2n} &= \lim_{n \rightarrow \infty}\left( s_{2n + 1} - s_{2n} \right)\\
+&= \lim_{n \rightarrow \infty}\left( - a_{2n + 1} \right) = - \lim_{n \rightarrow \infty}a_{n} = 0
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}s_{2n} = \lim_{n \rightarrow \infty}s_{2n - 1}
+\end{align*}
+さらに、$\forall n \in \mathbb{N}$に対し、次のようになることから、
+\begin{align*}
+s_{2n} &= - \sum_{k \in \varLambda_{n}} \left( a_{2k - 1} - a_{2k} \right)\\
+&= \sum_{k \in \varLambda_{n}} \left( \left( - a_{2k - 1} \right) + a_{2k} \right)\\
+&= \sum_{k \in \varLambda_{n}} \left( ( - 1)^{2k - 1}a_{2k - 1} + ( - 1)^{2k}a_{2k} \right)\\
+&= \sum_{k \in \varLambda_{2n}} {( - 1)^{k}a_{k}}\\
+s_{2n - 1} &= - a_{1} + \sum_{k \in \varLambda_{n - 1}} \left( a_{2k} - a_{2k + 1} \right)\\
+&= ( - 1)^{1}a_{1} + \sum_{k \in \varLambda_{n - 1}} \left( ( - 1)^{2k}a_{2k} + ( - 1)^{2k + 1}a_{2k + 1} \right)\\
+&= \sum_{k \in \varLambda_{2n - 1}} {( - 1)^{k}a_{k}}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、$n \in 2\mathbb{N}$のとき、次のようになるかつ、
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {( - 1)^{k}a_{k}}} = \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{2n}} {( - 1)^{k}a_{k}}} = \lim_{n \rightarrow \infty}s_{2n}
+\end{align*}
+$n \in 2\mathbb{N} - 1$のとき、次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}} {( - 1)^{k}a_{k}}} = \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{2n - 1}} {( - 1)^{k}a_{k}}} = \lim_{n \rightarrow \infty}s_{2n - 1}
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{n}} {( - 1)^{k}a_{k}} \right)_{n \in \mathbb{N}}$は収束する。
+\end{proof}
+\begin{thm}[Abelの変形]\label{4.1.8.26}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\end{itemize}
+$\forall m,n \in \mathbb{N}$に対し、$m \leq n$が成り立つなら、次式が成り立つかつ、
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {a_{k}b_{k}} \right| \leq 2Cb_{m}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right| \leq Cb_{1}
+\end{align*}
+この定理をAbelの変形という。
+\end{thm}
+\begin{proof}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つとする。
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\end{itemize}
+$\forall m,n \in \mathbb{N}$に対し、$m \leq n$が成り立つなら、次のように実数列$\left( s_{n} \right)_{n \in \mathbb{N}}$が定義されると、
+\begin{align*}
+\left( s_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R};n \mapsto \sum_{k \in \varLambda_{n}} a_{k}
+\end{align*}
+次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {a_{k}b_{k}} &= \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {\left( \sum_{l \in \varLambda_{k}} a_{l} - \sum_{l \in \varLambda_{k - 1}} a_{l} \right)b_{k}}\\
+&= \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {\left( s_{k} - s_{k - 1} \right)b_{k}}\\
+&= \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {s_{k}b_{k}} - \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {s_{k - 1}b_{k}}\\
+&= \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {s_{k}b_{k}} + s_{n}b_{n} - s_{m - 1}b_{m} - \sum_{k \in \varLambda_{n} \setminus \varLambda_{m}} {s_{k - 1}b_{k}}\\
+&= \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {s_{k}\left( b_{k} - b_{k + 1} \right)} - s_{m - 1}b_{m} + s_{n}b_{n}
+\end{align*}
+したがって、三角不等式より次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {a_{k}b_{k}} \right| &= \left| \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {s_{k}\left( b_{k} - b_{k + 1} \right)} - s_{m - 1}b_{m} + s_{n}b_{n} \right|\\
+&\leq \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {\left| s_{k} \right|\left| b_{k} - b_{k + 1} \right|} + \left| s_{m - 1} \right|\left| b_{m} \right| + \left| s_{n} \right|\left| b_{n} \right|\\
+&= \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {\left| \sum_{l \in \varLambda_{k}} a_{l} \right|\left( b_{k} - b_{k + 1} \right)} + \left| \sum_{k \in \varLambda_{m - 1}} a_{k} \right|b_{m} + \left| \sum_{k \in \varLambda_{n}} a_{k} \right|b_{n}\\
+&\leq \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} {C\left( b_{k} - b_{k + 1} \right)} + Cb_{m} + Cb_{n}\\
+&= C\left( \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} \left( b_{k} - b_{k + 1} \right) + b_{m} + b_{n} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} b_{k} - \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} b_{k + 1} + b_{m} + b_{n} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n} \setminus \varLambda_{m}} b_{k} - \sum_{k \in \varLambda_{n - 1} \setminus \varLambda_{m - 1}} b_{k + 1} + 2b_{m} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n} \setminus \varLambda_{m}} b_{k} - \sum_{k \in \varLambda_{n} \setminus \varLambda_{m}} b_{k} + 2b_{m} \right)\\
+&= 2Cb_{m}
+\end{align*}\par
+また、$\forall n \in \mathbb{N}$に対し、次のようになり、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{k}b_{k}} &= \sum_{k \in \varLambda_{n}} {\left( \sum_{l \in \varLambda_{k}} a_{l} - \sum_{l \in \varLambda_{k - 1}} a_{l} \right)b_{k}}\\
+&= \sum_{k \in \varLambda_{n}} {\left( s_{k} - s_{k - 1} \right)b_{k}}\\
+&= \sum_{k \in \varLambda_{n}} {s_{k}b_{k}} - \sum_{k \in \varLambda_{n}} {s_{k - 1}b_{k}}\\
+&= \sum_{k \in \varLambda_{n - 1}} {s_{k}b_{k}} + s_{n}b_{n} - \sum_{k \in \varLambda_{n}} {s_{k - 1}b_{k}}\\
+&= \sum_{k \in \varLambda_{n - 1}} {s_{k}\left( b_{k} - b_{k + 1} \right)} + s_{n}b_{n}
+\end{align*}
+したがって、三角不等式より次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right| &= \left| \sum_{k \in \varLambda_{n - 1}} {s_{k}\left( b_{k} - b_{k + 1} \right)} + s_{n}b_{n} \right|\\
+&\leq \sum_{k \in \varLambda_{n - 1}} {\left| s_{k} \right|\left| b_{k} - b_{k + 1} \right|} + \left| s_{n} \right|\left| b_{n} \right|\\
+&= \sum_{k \in \varLambda_{n - 1}} {\left| \sum_{l \in \varLambda_{k}} a_{l} \right|\left( b_{k} - b_{k + 1} \right)} + \left| \sum_{k \in \varLambda_{n}} a_{k} \right|b_{n}\\
+&\leq \sum_{k \in \varLambda_{n - 1}} {C\left( b_{k} - b_{k + 1} \right)} + Cb_{n}\\
+&= C\left( \sum_{k \in \varLambda_{n - 1}} \left( b_{k} - b_{k + 1} \right) + b_{n} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n - 1}} b_{k} - \sum_{k \in \varLambda_{n - 1}} b_{k + 1} + b_{n} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n} \setminus \left\{ 1 \right\}} b_{k} - \sum_{k \in \varLambda_{n - 1}} b_{k + 1} + b_{1} \right)\\
+&= C\left( \sum_{k \in \varLambda_{n - 1}} b_{k + 1} - \sum_{k \in \varLambda_{n - 1}} b_{k + 1} + b_{1} \right)\\
+&= Cb_{1}
+\end{align*}
+\end{proof}
+\begin{thm}[級数に関するDirichletの収束判定法]\label{4.1.8.27}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は$0$に収束する。
+\end{itemize}
+その級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$は収束し次式が成り立つ。
+\begin{align*}
+\left| \sum_{n \in \mathbb{N}} {a_{n}b_{n}} \right| \leq Cb_{1}
+\end{align*}
+この定理を級数に関するDirichletの収束判定法という。
+\end{thm}
+\begin{proof}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つとする。
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は$0$に収束する。
+\end{itemize}
+$\forall m,n \in \mathbb{N}$に対し、$m \leq n$が成り立つなら、Ableの変形より次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {a_{k}b_{k}} \right| \leq 2Cb_{m}
+\end{align*}
+ここで、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m \leq n$が成り立つなら、$b_{m} = \left| b_{m} \right| < \varepsilon$が成り立つので、次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n} \setminus \varLambda_{m - 1}} {a_{k}b_{k}} \right| \leq 2Cb_{m} < 2C\varepsilon
+\end{align*}
+$n \leq m$のときも同様にして示される。級数のCauchyの収束条件よりしたがって、その級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$は収束する。\par
+また、Ableの変形より$\forall n \in \mathbb{N}$に対し、次のようになり、
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right| \leq Cb_{1}
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$が収束するので、次式が成り立つ。
+\begin{align*}
+\left| \sum_{n \in \mathbb{N}} {a_{n}b_{n}} \right| \leq Cb_{1}
+\end{align*}
+\end{proof}
+\begin{thm}[級数に関するAbelの収束判定法]\label{4.1.8.28}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つなら、
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\end{itemize}
+その級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$は収束し次式が成り立つ。
+\begin{align*}
+\left| \sum_{n \in \mathbb{N}} {a_{n}b_{n}} \right| \leq Cb_{1}
+\end{align*}
+この定理を級数に関するAbelの収束判定法という。
+\end{thm}
+\begin{proof}
+実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つとする。
+\begin{itemize}
+\item
+  $\exists C \in \mathbb{R}^{+} \cup \left\{ 0 \right\}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} a_{k} \right| \leq C
+\end{align*}
+\item
+  $0 \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は単調減少している。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\end{itemize}
+その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$が下に有界であるので、その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$は収束する。これの極限値が$b$とおかれれば、$b = \inf\left\{ b_{n} \right\}_{n \in \mathbb{N}}$よりその実数列$\left( b_{n} - b \right)_{n \in \mathbb{N}}$は次のことを満たす。
+\begin{itemize}
+\item
+  $0 \leq \left( b_{n} - b \right)_{n \in \mathbb{N}}$が成り立つ。
+\item
+  その実数列$\left( b_{n} - b \right)_{n \in \mathbb{N}}$は単調減少している。
+\item
+  その実数列$\left( b_{n} - b \right)_{n \in \mathbb{N}}$は$0$に収束する。
+\end{itemize}
+したがって、次のようになり、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{k}b_{k}} = \sum_{k \in \varLambda_{n}} {a_{k}\left( b_{k} - b + b \right)} = \sum_{k \in \varLambda_{n}} {a_{k}\left( b_{k} - b \right)} + b\sum_{k \in \varLambda_{n}} a_{k}
+\end{align*}
+$n \rightarrow \infty$とすれば、Dirichletの収束判定法よりその級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}\left( b_{k} - b \right)} \right)_{n \in \mathbb{N}}$は収束し仮定よりその級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$も収束する。\par
+また、Ableの変形より$\forall n \in \mathbb{N}$に対し、次のようになり、
+\begin{align*}
+\left| \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right| \leq Cb_{1}
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{n}} {a_{k}b_{k}} \right)_{n \in \mathbb{N}}$が収束するので、次式が成り立つ。
+\begin{align*}
+\left| \sum_{n \in \mathbb{N}} {a_{n}b_{n}} \right| \leq Cb_{1}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p44-49,366-381 ISBN978-4-13-062005-5
+\bibitem{2}
+  野村隆昭. "正項級数でないと，たとえ収束しても，項の順序を入れ替えると，和がかわってしまう可能性がある．項の順序を入れ替えても和が変わらない級数は?". 九州大学. \url{https://www2.math.kyushu-u.ac.jp/~tnomura/EdAct/2010GRN/L05forprint.pdf} (2021-6-17 取得)
+\bibitem{3}
+  数学の景色. "絶対収束級数は和の順序によらず同じ値に収束することの証明". 数学の景色. \url{https://mathlandscape.com/abs-conv-rearrangement/} (2021-8-31 17:25 閲覧)
+\bibitem{4}
+  数学の景色. "条件収束級数は和の順序交換により任意の値に収束できることの証明". 数学の景色. \url{https://mathlandscape.com/cond-conv-rearrangement/} (2022-8-11 5:45 閲覧)
+\bibitem{5}
+  せきゅーん. "リーマンの再配列定理". INTEGERS. \url{https://integers.hatenablog.com/entry/2016/08/25/025342} (2022-8-11 15:39 閲覧)
+\bibitem{6}
+  数学の景色. "【級数の収束判定法】ディリクレの定理とその証明". 数学の景色. \url{https://mathlandscape.com/dirichlet-test/} (2022-8-11 18:15 閲覧)
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,501 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{4}
+\setcounter{subsection}{7}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.1.10}
+\externaldocument{2.4.5}
+\externaldocument{2.4.6}
+\externaldocument{2.4.7}
+\input{macro}
+\begin{document}
+%\hypertarget{ux53cdux5909tensorux7a7aux9593}{%
+\subsection{反変tensor空間}%\label{ux53cdux5909tensorux7a7aux9593}}
+%\hypertarget{pux968eux53cdux5909qux968eux5171ux5909tensorux7a7aux9593}{%
+\subsubsection{$p$階反変$q$階共変tensor空間}%\label{pux968eux53cdux5909qux968eux5171ux5909tensorux7a7aux9593}}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$V_{i} \in \left\{ V,V^{*} \right\}$なるvector空間たち$V_{i}$を用いたtensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$が考えられる。そこで、$V_{i} = V$なるvector空間$V_{i}$が$p$つ、$V_{i} = V^{*}$なるvector空間$V_{i}$が$q$つあって$p + q = r$となっているとき、そのtensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$を$p$階反変$q$階共変tensor空間という。特に、$q = 0$、$p = 0$のとき、それぞれ$p$階反変tensor空間、$q$階共変tensor空間といい、$p = q = 0$のとき、$\bigotimes_{i \in \varLambda_{r}} V_{i} = K$とする。また、$p$階反変$q$階共変tensor空間の元を以下単に$r$階tensorということにする。
+\end{dfn}
+\begin{thm}\label{2.4.8.1}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、これの双対基底$\left\langle \phi_{j} \right\rangle_{j \in \varLambda_{n}}$が与えられたとき、$p$階反変$q$階共変tensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$について、そのvector空間$V_{i}$の基底$\left\langle \mathbf{v}_{ij} \right\rangle_{j \in \varLambda_{n}}$が次式のようにおかれれば、
+\begin{align*}
+\left\langle \mathbf{v}_{ij} \right\rangle_{j \in \varLambda_{n}} = \left\{ \begin{matrix}
+\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}} & \mathrm{if} & V_{i} = V \\
+\left\langle \phi_{j} \right\rangle_{j \in \varLambda_{n}} & \mathrm{if} & V_{i} = V^{*} \\
+\end{matrix} \right.\ 
+\end{align*}
+その組$\left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}}$がその$p$階反変$q$階共変tensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$の基底となる。なお、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$とした。
+\end{thm}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、これの双対基底$\left\langle \phi_{j} \right\rangle_{j \in \varLambda_{n}}$が与えられたとき、$p$階反変$q$階共変tensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$について、そのような基底$\left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}}$を、ここでは、その基底$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$から誘導されるそのtensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$の自然な基底ということにする。なお、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$とした。
+\end{dfn}
+\begin{proof} 定理\ref{2.4.5.2}より明らかである。
+\end{proof}
+\begin{thm}\label{2.4.8.2}
+体$K$上の$n$次元vector空間$V$、これの基底たち$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$、これの双対基底たちそれぞれ$\left\langle \phi_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \chi_{j} \right\rangle_{j \in \varLambda_{n}}$が与えられたとき、それらの基底たち$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$から誘導される$p$階反変$q$階共変tensor空間$\bigotimes_{i \in \varLambda_{r}} V_{i}$の自然な基底たちそれぞれ$\left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}}$、$\left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}}$について、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$としてこれらの基底たちがそれぞれ次のようにおかれると、
+\begin{align*}
+\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}} = \alpha,\ \ \left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}} = \beta,\ \ \left\langle \phi_{j} \right\rangle_{j \in \varLambda_{n}} = \alpha^{*},\ \ \left\langle \chi_{j} \right\rangle_{j \in \varLambda_{n}} = \beta^{*},\\
+\left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}} = \bigotimes_{i \in \varLambda_{n}} \alpha_{i},\ \ \left\langle \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{ij_{i}} \right\rangle_{\mathbf{j} \in \varLambda_{n}^{r}} = \bigotimes_{i \in \varLambda_{n}} \beta_{i}
+\end{align*}
+行列たち$\left[ I_{V_{i}} \right]^{\beta_{i}}_{\alpha_{i}}$が次式のようにおかれれば、
+\begin{align*}
+\left[ I_{V_{i}} \right]^{\beta_{i}}_{\alpha_{i}} = \left\{ \begin{matrix}
+\left[ I_{V} \right]^{\beta}_{\alpha} & \mathrm{if} & V_{i} = V \\
+\left[ I_{V^{*}} \right]^{\beta^{*}}_{\alpha^{*}} & \mathrm{if} & V_{i} = V^{*} \\
+\end{matrix} \right.\ 
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left[ I_{\bigotimes_{i \in \varLambda_{n}} V_{i}} \right]^{\bigotimes_{i \in \varLambda_{n}} \beta_{i}}_{\bigotimes_{i \in \varLambda_{n}} \alpha_{i}} = \bigotimes_{i \in \varLambda_{n}} \left[ I_{V_{i}} \right]^{\beta_{i}}_{\alpha_{i}}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.7.3}と定理\ref{2.4.8.1}より明らかである。
+\end{proof}
+%\hypertarget{ux5bfeux79f0tensorux3068ux4ea4ux4ee3tensor}{%
+\subsubsection{対称tensorと交代tensor}%\label{ux5bfeux79f0tensorux3068ux4ea4ux4ee3tensor}}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$\bigotimes_{i \in \varLambda_{r}} V$を、以下、$T^{r}(V)$と書く。
+\end{dfn}
+\begin{dfn}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、置換群$\mathfrak{S}_{r}$の元$\sigma$を用いて、$\forall\mathbf{j} \in \varLambda_{n}^{r}$に対し、$P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}}$なる線形写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$が考えられよう。その線形写像$P_{\sigma}$をここではその置換$\sigma$による基底の添数の付け替えの線形自己同型写像ということにする。なお、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$とした。
+\end{dfn}
+\begin{thm}\label{2.4.8.3}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、その置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$の存在は、その置換$\sigma$が1つ与えられたらば、一意的である。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、その置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$について、その置換$\sigma$が1つ与えられたとき、その線形写像$P_{\sigma}$以外に$\forall\mathbf{j} \in \varLambda_{n}^{r}$に対し、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として、$P_{\sigma}'\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}}$なる線形写像$P_{\sigma}':T^{r}(V) \rightarrow T^{r}(V)$が存在したとしよう。$\forall\mathbf{T} \in T^{r}(V)$に対し、定理\ref{2.4.5.2}により次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}}
+\end{align*}
+次のようになることから、
+\begin{align*}
+P_{\sigma}\left( \mathbf{T} \right) &= P_{\sigma}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}}}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma}'\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= P_{\sigma}'\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right) = P_{\sigma}'\left( \mathbf{T} \right)
+\end{align*}
+$P_{\sigma} = P_{\sigma}'$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.4.8.4}
+体$K$上の$n$次元vector空間$V$、これの基底たち$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、$\forall\mathbf{j} \in \varLambda_{n}^{r}$に対し、$P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}}$が成り立つようなその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$は$P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{\sigma(i)}}$も満たす。なお、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$とした。これにより、その線形写像$P_{\sigma}$はそのvector空間$V$の基底に依らず定まることが分かる。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$、これの基底たち$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、$\forall\mathbf{j} \in \varLambda_{n}^{r}$に対し、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として$P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}}$が成り立つようなその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$について、$\forall i \in \varLambda_{n}$に対し、次式のようにおかれると、
+\begin{align*}
+\mathbf{w}_{i} = \sum_{j \in \varLambda_{n}} {v_{ij}\mathbf{v}_{j}}
+\end{align*}
+$\mathbf{h} =\left( h_{i} \right)_{i \in \varLambda_{r}}$として次のようになることから、
+\begin{align*}
+P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{i}} \right) &= P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} {\sum_{h_{i} \in \varLambda_{n}} {v_{j_{i}h_{i}}\mathbf{v}_{h_{i}}}} \right)\\
+&= P_{\sigma}\left( \sum_{\mathbf{h} \in \varLambda_{n}^{r}} {\prod_{i \in \varLambda_{r}} v_{j_{i}h_{i}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{h_{i}}} \right)\\
+&= \sum_{\mathbf{h} \in \varLambda_{n}^{r}} {\prod_{i \in \varLambda_{r}} v_{j_{i}h_{i}}P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{h_{i}} \right)}\\
+&= \sum_{\mathbf{h} \in \varLambda_{n}^{r}} {\prod_{i \in \varLambda_{r}} v_{j_{i}h_{i}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{h_{\sigma(i)}}}\\
+&= \sum_{\mathbf{h} \in \varLambda_{n}^{r}} {\prod_{i \in \varLambda_{r}} v_{j_{i}h_{i}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{h_{\sigma(i)}}}\\
+&= \sum_{\left( h_{\sigma(i)} \right)_{\sigma(i) \in \varLambda_{r}} \in \varLambda_{n}^{r}} {\prod_{\sigma(i) \in \varLambda_{r}} v_{j_{\sigma(i)}h_{\sigma(i)}}\bigotimes_{\sigma(i) \in \varLambda_{r}} \mathbf{v}_{h_{\sigma(i)}}}\\
+&= \sum_{\mathbf{h} \in \varLambda_{n}^{r}} {\prod_{i \in \varLambda_{r}} v_{j_{\sigma(i)}h_{i}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{h_{i}}}\\
+&= \bigotimes_{i \in \varLambda_{r}} {\sum_{h_{i} \in \varLambda_{n}} {v_{j_{\sigma(i)}h_{i}}\mathbf{v}_{h_{i}}}} = \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{\sigma(i)}}
+\end{align*}
+その線形写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$は$P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{i}} \right) = \bigotimes_{i \in \varLambda_{r}} \mathbf{w}_{j_{\sigma(i)}}$も満たす。
+\end{proof}
+\begin{thm}\label{2.4.8.5}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、その置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$は名称通り線形同型写像で$P_{\sigma}^{- 1} = P_{\sigma^{- 1}}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、その置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$について、置換群$\mathfrak{S}_{r}$の定義よりその置換$\sigma$の逆写像$\sigma^{- 1}$が存在して、その置換$\sigma^{- 1}$による基底の添数の付け替えの線形自己同型写像$P_{\sigma^{- 1}}:T^{r}(V) \rightarrow T^{r}(V)$が定義される。そこで、$\forall\mathbf{T} \in T^{r}(V)$に対し、定理\ref{2.4.5.2}により次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}}
+\end{align*}
+線形写像同士の合成写像も線形写像となることに注意して次のようになる。
+\begin{align*}
+P_{\sigma^{- 1}} \circ P_{\sigma}\left( \mathbf{T} \right) &= P_{\sigma^{- 1}} \circ P_{\sigma}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma^{- 1}} \circ P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma^{- 1}}\left( P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma^{- 1}}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma \circ \sigma^{- 1}(i)}}}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} = \mathbf{T}\\
+P_{\sigma} \circ P_{\sigma^{- 1}}\left( \mathbf{T} \right) &= P_{\sigma} \circ P_{\sigma^{- 1}}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma} \circ P_{\sigma^{- 1}}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma}\left( P_{\sigma^{- 1}}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma^{- 1}(i)}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma^{- 1} \circ \sigma(i)}}}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} = \mathbf{T}
+\end{align*}\par
+以上より、その線形写像$P_{\sigma}$の逆写像$P_{\sigma}^{- 1}$が構成されたので、その置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)$は名称通り線形同型写像で$P_{\sigma}^{- 1} = P_{\sigma^{- 1}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.4.8.6}
+体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma,\tau \in \mathfrak{S}_{r}$に対し、それらの置換たち$\sigma$、$\tau$による基底の添数の付け替えの線形自己同型写像たち$P_{\sigma}$、$P_{\tau}$の合成写像$P_{\tau} \circ P_{\sigma}$は$P_{\tau} \circ P_{\sigma} = P_{\sigma \circ \tau}$を満たす。
+\end{thm}
+\begin{proof}
+体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma,\tau \in \mathfrak{S}_{r}$に対し、それらの置換たち$\sigma$、$\tau$による基底の添数の付け替えの線形自己同型写像たち$P_{\sigma}$、$P_{\tau}$の合成写像$P_{\tau} \circ P_{\sigma}$について、$\forall\mathbf{T} \in T^{r}(V)$に対し、定理\ref{2.4.5.2}により$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}}
+\end{align*}
+線形写像同士の合成写像も線形写像となることに注意して次のようになる。
+\begin{align*}
+P_{\tau} \circ P_{\sigma}\left( \mathbf{T} \right) &= P_{\tau} \circ P_{\sigma}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\tau} \circ P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\tau}\left( P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\tau}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\tau}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma \circ \tau(i)}} \right)}\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}P_{\sigma \circ \tau}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= P_{\sigma \circ \tau}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= P_{\sigma \circ \tau}\left( \mathbf{T} \right)
+\end{align*}
+よって、その合成写像$P_{\tau} \circ P_{\sigma}$は$P_{\tau} \circ P_{\sigma} = P_{\sigma \circ \tau}$を満たす。
+\end{proof}
+\begin{dfn}
+体$K$が与えられたとする。$\forall n \in \mathbb{N}$に対し、$n1 = \overset{n}{\overbrace{1 + 1 + \cdots + 1}} \neq 0$が成り立つとき、その体$K$は標数$0$であるという。
+\end{dfn}
+\begin{dfn}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$の元$\mathbf{T}$が、$\mathbf{\forall}\sigma \in \mathfrak{S}_{r}$に対し、$P_{\sigma}\left( \mathbf{T} \right) = \mathbf{T}$を満たすとき、その元$\mathbf{T}$を対称tensorという。これ全体の集合を$S^{r}(V)$と書くことにする。
+\end{dfn}
+\begin{dfn}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$の元$\mathbf{T}$が、$\mathbf{\forall}\sigma \in \mathfrak{S}_{r}$に対し、$P_{\sigma}\left( \mathbf{T} \right) = \mathrm{sgn}\sigma\mathbf{T}$を満たすとき、その元$\mathbf{T}$を交代tensorという。これ全体の集合を$A^{r}(V)$と書くことにする。
+\end{dfn}\par
+もちろん、$r = 1$のとき、$T^{1}(V) = S^{1}(V) = A^{1}(V)$が成り立つことも注意しておこう。
+\begin{thm}\label{2.4.8.7}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、対称tensor全体$S^{r}(V)$は$r$階反変tensor空間$T^{r}(V)$の部分空間である。
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、対称tensor全体$S^{r}(V)$において、もちろん、$\mathbf{0} \in S^{r}(V)$が成り立つ。さらに、$\forall k,l \in K\forall\mathbf{T},\mathbf{U} \in S^{r}(V)$に対し、$\mathbf{\forall}\sigma \in \mathfrak{S}_{r}$に対し、$P_{\sigma}\left( \mathbf{T} \right) = \mathbf{T}$かつ$P_{\sigma}\left( \mathbf{U} \right) = \mathbf{U}$が成り立つので、次のようになることから、
+\begin{align*}
+P_{\sigma}\left( k\mathbf{T} + l\mathbf{U} \right) = kP_{\sigma}\left( \mathbf{T} \right) + lP_{\sigma}\left( \mathbf{U} \right) = k\mathbf{T} + l\mathbf{U}
+\end{align*}
+$k\mathbf{T} + l\mathbf{U} \in S^{r}(V)$が成り立つ。これにより、対称tensor全体$S^{r}(V)$は$r$階反変tensor空間$T^{r}(V)$の部分空間である。
+\end{proof}
+\begin{thm}\label{2.4.8.8}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、交代tensor全体$A^{r}(V)$は$r$階反変tensor空間$T^{r}(V)$の部分空間である。
+\end{thm}
+\begin{proof} 定理\ref{2.4.8.7}と同様にして示される。
+\end{proof}
+%\hypertarget{ux5bfeux79f0ux5316ux4f5cux7528ux7d20ux3068ux4ea4ux4ee3ux5316ux4f5cux7528ux7d20}{%
+\subsubsection{対称化作用素と交代化作用素}%\label{ux5bfeux79f0ux5316ux4f5cux7528ux7d20ux3068ux4ea4ux4ee3ux5316ux4f5cux7528ux7d20}}
+\begin{dfn}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、線形写像$\mathcal{S}$が次式のように定義されよう\footnote{線形写像の線形結合もまた線形写像であった。}。
+\begin{align*}
+\mathcal{S}=\frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma}:T^{r}(V) \rightarrow T^{r}(V)
+\end{align*}
+この線形写像$\mathcal{S}$をそれぞれその$r$階反変tensor空間$T^{r}(V)$における対称化作用素という。
+\end{dfn}
+\begin{dfn}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、線形写像$\mathcal{A}$が次式のように定義されよう。
+\begin{align*}
+\mathcal{A}=\frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\mathrm{sgn}\sigma P_{\sigma}}:T^{r}(V) \rightarrow T^{r}(V)
+\end{align*}
+この線形写像$\mathcal{A}$をその$r$階反変tensor空間$T^{r}(V)$における交代化作用素という。
+\end{dfn}
+\begin{thm}\label{2.4.8.9}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、次式が成り立つ。
+\begin{align*}
+P_{\sigma}\circ \mathcal{S} = \mathcal{S} \circ P_{\sigma} =\mathcal{S} \circ \mathcal{S} = \mathcal{S}
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、線形写像の乗法$\cdot$を線形写像の合成$\circ$とするとき、集合$L\left( T^{r}(V),T^{r}(V) \right)$は環をなすことに注意して定理\ref{2.4.8.6}より次のようになる。
+\begin{align*}
+P_{\sigma} \circ \mathcal{S} &= P_{\sigma} \circ \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} \left( P_{\sigma} \circ P_{\tau} \right)\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau \circ \sigma}
+\end{align*}
+そこで、$\tau \in \mathfrak{S}_{r} \Leftrightarrow \tau \circ \sigma \in \mathfrak{S}_{r}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+P_{\sigma}\mathcal{\circ S} &= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau \circ \sigma}\\
+&= \frac{1}{r!}\sum_{\tau \circ \sigma \in \mathfrak{S}_{r}} P_{\tau \circ \sigma}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau} = \mathcal{S}
+\end{align*}\par
+同様にして、$\forall\sigma \in \mathfrak{S}_{r}$に対し、定理\ref{2.4.8.6}より次のようになる。
+\begin{align*}
+\mathcal{S \circ}P_{\sigma} &= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau} \circ P_{\sigma}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} \left( P_{\tau} \circ P_{\sigma} \right)\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\sigma \circ \tau}\\
+&= \frac{1}{r!}\sum_{\sigma \circ \tau \in \mathfrak{S}_{r}} P_{\sigma \circ \tau}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} P_{\tau}=\mathcal{S}
+\end{align*}\par
+最後に、上記の議論、定理\ref{2.1.10.1}より${\#}\mathfrak{S}_{r} = r!$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{S \circ S} &= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma}\mathcal{\circ S}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \left( P_{\sigma}\mathcal{\circ S} \right)\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \mathcal{S}\\
+&= \frac{1}{r!}r!\mathcal{S} = \mathcal{S}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.8.10}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、次式が成り立つ。
+\begin{align*}
+\mathrm{sgn}\sigma P_{\sigma}\circ \mathcal{A}=\mathrm{sgn}\sigma\mathcal{A}\circ P_{\sigma}=\mathcal{A} \circ \mathcal{A} = \mathcal{A}
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、定理\ref{2.1.10.7}、定理\ref{2.1.10.8}、定理\ref{2.4.8.6}より次のようになる。
+\begin{align*}
+\mathrm{sgn}\sigma P_{\sigma}\mathcal{\circ A} &= \mathrm{sgn}\sigma P_{\sigma} \circ \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau P_{\tau}}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau\left( P_{\sigma} \circ P_{\tau} \right)}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\tau \circ \sigma \circ \sigma^{- 1}}P_{\tau \circ \sigma}}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\tau \circ \sigma}\mathrm{sgn}\sigma^{- 1}P_{\tau \circ \sigma}}\\
+&= \mathrm{sgn}\sigma\mathrm{sgn}\sigma^{- 1}\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\tau \circ \sigma}P_{\tau \circ \sigma}}\\
+&= \mathrm{sgn}\sigma\mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \circ \sigma \in \mathfrak{S}_{r}} {\mathrm{sgn}{\tau \circ \sigma}P_{\tau \circ \sigma}}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau P_{\tau}}=\mathcal{A}
+\end{align*}\par
+同様にして、$\forall\sigma \in \mathfrak{S}_{r}$に対し、定理\ref{2.1.10.7}、定理\ref{2.1.10.8}、定理\ref{2.4.8.6}より次のようになる。
+\begin{align*}
+\mathrm{sgn}\sigma\mathcal{A} \circ P_{\sigma} &= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau P_{\tau}} \circ P_{\sigma}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau\left( P_{\tau} \circ P_{\sigma} \right)}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\sigma^{- 1} \circ \sigma \circ \tau}P_{\sigma \circ \tau}}\\
+&= \mathrm{sgn}\sigma\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\sigma^{- 1}\mathrm{sgn}{\sigma \circ \tau}P_{\sigma \circ \tau}}\\
+&= \mathrm{sgn}\sigma\mathrm{sgn}\sigma^{- 1}\frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\sigma \circ \tau}P_{\sigma \circ \tau}}\\
+&= \mathrm{sgn}\sigma\mathrm{sgn}\sigma\frac{1}{r!}\sum_{\sigma \circ \tau \in \mathfrak{S}_{r}} {\mathrm{sgn}{\sigma \circ \tau}P_{\sigma \circ \tau}}\\
+&= \frac{1}{r!}\sum_{\tau \in \mathfrak{S}_{r}} {\mathrm{sgn}\tau P_{\tau}}=\mathcal{A}
+\end{align*}\par
+最後に、上記の議論、定理\ref{2.1.10.1}より${\#}\mathfrak{S}_{r} = r!$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{A \circ A} &= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\mathrm{sgn}\sigma P_{\sigma}}\mathcal{\circ A}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\mathrm{sgn}\sigma P_{\sigma}\mathcal{\circ A}}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \left( \mathrm{sgn}\sigma P_{\sigma}\mathcal{\circ A} \right)\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \mathcal{A} = \frac{1}{r!}r!\mathcal{A = A}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.8.11}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$2 \leq r$のとき、次式が成り立つ。
+\begin{align*}
+\mathcal{S} \circ \mathcal{A} = \mathcal{A \circ S} = 0
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$2 \leq r$のとき、定理\ref{2.4.8.10}より$P_{\sigma} \circ \mathcal{A} =\mathrm{sgn}\sigma\mathcal{A}$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{S \circ A} &= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma}\circ \mathcal{A}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \left( P_{\sigma}\circ \mathcal{A} \right)\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\mathrm{sgn}\sigma\mathcal{A}}
+\end{align*}
+そこで、定理\ref{2.1.10.6}より偶置換全体の集合、奇置換全体の集合がそれぞれ$\mathfrak{S}_{\mathrm{even}}$、$\mathfrak{S}_{\mathrm{odd}}$とおかれると、$\mathfrak{S}_{r} = \mathfrak{S}_{\mathrm{even}} \sqcup \mathfrak{S}_{\mathrm{odd}}$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{S \circ A} &= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{\mathrm{even}} \sqcup \mathfrak{S}_{\mathrm{odd}}} {\mathrm{sgn}\sigma\mathcal{A}}\\
+&= \frac{1}{r!}\left( \sum_{\sigma \in \mathfrak{S}_{\mathrm{even}}} {\mathrm{sgn}\sigma\mathcal{A}} + \sum_{\sigma \in \mathfrak{S}_{\mathrm{odd}}} {\mathrm{sgn}\sigma\mathcal{A}} \right)\\
+&= \frac{1}{r!}\left( \sum_{\sigma \in \mathfrak{S}_{\mathrm{even}}} \mathcal{A} - \sum_{\sigma \in \mathfrak{S}_{\mathrm{odd}}} \mathcal{A} \right)
+\end{align*}
+そこで、定理\ref{2.1.10.6}より${\#}\mathfrak{S}_{\mathrm{even}} = {\#}\mathfrak{S}_{\mathrm{odd}} = \frac{r!}{2}$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{S \circ A}=\frac{1}{r!}\left( \frac{r!}{2}\mathcal{A -}\frac{r!}{2}\mathcal{A} \right) = 0
+\end{align*}\par
+$\mathcal{A \circ S} = 0$が成り立つことも同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.8.12}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall\mathbf{T} \in T^{r}(V)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  $\mathbf{T} \in S^{r}(V)$が成り立つ、即ち、その$r$階tensor$\mathbf{T}$は対称tensorである。
+\item
+  対称化作用素$\mathcal{S}$が$\mathcal{S}\left( \mathbf{T} \right) = \mathbf{T}$を満たす。
+\end{itemize}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall\mathbf{T} \in T^{r}(V)$に対し、$\mathbf{T} \in S^{r}(V)$が成り立つ、即ち、その$r$階tensor$\mathbf{T}$が対称tensorであるなら、対称化作用素$\mathcal{S}$について、定理\ref{2.1.10.1}より${\#}\mathfrak{S}_{r} = r!$が成り立つので、次のようになる。
+\begin{align*}
+\mathcal{S}\left( \mathbf{T} \right) &= \left( \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma} \right)\left( \mathbf{T} \right)\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {P_{\sigma}\left( \mathbf{T} \right)}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} \mathbf{T}\\
+&= \frac{1}{r!}r!\mathbf{T} = \mathbf{T}
+\end{align*}
+これにより、$\mathcal{S}\left( \mathbf{T} \right) = \mathbf{T}$が成り立つ。\par
+逆に、$\mathcal{S}\left( \mathbf{T} \right) = \mathbf{T}$が成り立つなら、$\forall\sigma \in \mathfrak{S}_{r}$に対し、定理\ref{2.4.8.9}より$P_{\sigma}\circ \mathcal{S} = \mathcal{S}$が成り立つので、次のようになる。
+\begin{align*}
+P_{\sigma}\left( \mathbf{T} \right) &= P_{\sigma}\left( \mathcal{S}\left( \mathbf{T} \right) \right)\\
+&= P_{\sigma}\circ \mathcal{S}\left( \mathbf{T} \right)\\
+&= \mathcal{S}\left( \mathbf{T} \right) = \mathbf{T}
+\end{align*}
+これにより、$\mathbf{T} \in S^{r}(V)$が成り立つ、即ち、その$r$階tensor$\mathbf{T}$は対称tensorである。
+\end{proof}
+\begin{thm}\label{2.4.8.13}
+標数$0$の体$K$上の$n$次元vector空間$V$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall\mathbf{T} \in T^{r}(V)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  $\mathbf{T} \in A^{r}(V)$が成り立つ、即ち、その$r$階tensor$\mathbf{T}$は交代tensorである。
+\item
+  交代化作用素$\mathcal{A}$が$\mathcal{A}\left( \mathbf{T} \right) = \mathbf{T}$を満たす。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{2.4.8.12}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.8.14}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として$j_{k} \leq j_{l}$となるようにした組$\left\langle \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{m.i.} }$が対称tensor全体の集合$S^{r}(V)$の基底となる。さらに、$S^{r}(V) = V\left( \mathcal{S} \right)$が成り立ち、次元について、次式が成り立つ。
+\begin{align*}
+\dim{S^{r}(V)} = \frac{(n + r - 1)!}{r!(n - 1)!} = \begin{pmatrix}
+n + r - 1 \\
+r \\
+\end{pmatrix}
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として$j_{k} \leq j_{l}$となるようにした組$\left\langle \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{m.i.} }$について、$\forall\mathbf{T} \in T^{r}(V)$に対し、定理\ref{2.4.5.1}により次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}}
+\end{align*}
+定理\ref{2.4.8.12}より$\mathbf{T} \in S^{r}(V)$が成り立つならそのときに限り、$\mathcal{S}\left( \mathbf{T} \right) = \mathbf{T}$が成り立つので、次のようになり
+\begin{align*}
+\mathbf{T} &= \mathcal{S}\left( \mathbf{T} \right)\\
+&= \mathcal{S}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}
+\end{align*}
+定理\ref{2.1.1.11}より対称tensor$\mathbf{T}$はその族$\left\{ \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\}_{\mathbf{j} \in \varLambda_{n}^{r}}$によって生成されている。\par
+そこで、その族$\left\{\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\}_{\mathbf{j} \in \varLambda_{n}^{r}}$に属するvectorsのうち、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、定理\ref{2.1.10.9}よりある置換$\sigma$が存在して、$j_{\sigma(k)} \leq j_{\sigma(l)}$が成り立つようにすることができる。このとき、定理\ref{2.4.8.9}より次のようになることから、
+\begin{align*}
+\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) &= \mathcal{S}\circ P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)\\
+&= \mathcal{S}\left( P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)\\
+&= \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)
+\end{align*}
+適切に係数をおくことで次のようになる。
+\begin{align*}
+\mathbf{T} &= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j}:\mathrm{m.i.} } {\xi_{\mathbf{j}}'\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}
+\end{align*}\par
+$\sum_{\mathbf{j}:\mathrm{m.i.} } {c_{\mathbf{j}}\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)} = \mathbf{0}$が成り立つとき、$\forall\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}$に対し、$\mathbf{j}=\left( j_i \right)_{i\in \varLambda_r }$、$\mathbf{k}=\left( k_i \right)_{i\in \varLambda_r }$として、$\mathbf{j} \neq \mathbf{k}$かつ、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l \Rightarrow j_{k} \leq j_{l}$が成り立つなら、$\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)\mathcal{\neq S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{k_{i}} \right)$が成り立つので、$\mathcal{S}\left( \mathbf{0} \right) = \mathbf{0}$に注意すれば、対偶律により次式が得られる。
+\begin{align*}
+\sum_{\mathbf{j}:\mathrm{m.i.} } {c_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} = \mathbf{0}
+\end{align*}
+これにより、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l \Rightarrow j_{k} \leq j_{l}$が成り立つようなそれらのvectors$\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)$は線形独立である。\par
+よって、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、$j_{k} \leq j_{l}$となるようにした組$\left\langle \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{m.i.} }$が対称tensor全体の集合$S^{r}(V)$の基底となる。\par
+また、$\forall\mathbf{T} \in S^{r}(V)$に対し、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、$j_{k} \leq j_{l}$となるようにした組$\left\langle \mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{m.i.} }$が対称tensor全体の集合$S^{r}(V)$の基底となるので、その対称化作用素$\mathcal{S}$が線形写像となっていることに注意すれば、$\mathbf{T} \in V\left( \mathcal{S} \right)$が成り立つ。逆に、$\mathcal{\forall S}\left( \mathbf{T} \right) \in V\left( \mathcal{S} \right)$に対し、定理\ref{2.4.8.9}より$\mathcal{S \circ S = S}$が成り立つので、$\mathcal{S}\left( \mathcal{S}\left( \mathbf{T} \right) \right) = \mathcal{S \circ S}\left( \mathbf{T} \right) = \mathcal{S}\left( \mathbf{T} \right)$が成り立つ。これにより、$\mathcal{S}\left( \mathbf{T} \right) \in S^{r}(V)$が成り立つ。以上の議論により、$S^{r}(V) = V\left( \mathcal{S} \right)$が成り立つ。\par
+また、そのようなvectors$\mathcal{S}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)$の個数は$\forall k,l \in \varLambda_{r}$に対し、$k \leq l \Rightarrow j_{k} \leq j_{l}$が成り立つような$\mathbf{j} \in \varLambda_{n}^{r}$なる組$\mathbf{j}$の個数に等しいので、これが辞書式順序の議論になっていることに注意すれば、定理\ref{2.1.10.9}よりその個数は$\frac{(n + r - 1)!}{r!(n - 1)!}$つになる。したがって、次式が成り立つ。
+\begin{align*}
+\dim{S^{r}(V)} = \frac{(n + r - 1)!}{r!(n - 1)!} = \begin{pmatrix}
+n + r - 1 \\
+r \\
+\end{pmatrix}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.8.15}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$0 \leq r \leq n$のとき、$\forall k,l \in \varLambda_{r}$に対し、$k < l$が成り立つなら、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として$j_{k} < j_{l}$となるようにした組$\left\langle \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{n.m.i.} }$が交代tensor全体の集合$A^{r}(V)$の基底となる。さらに、$A^{r}(V) = V\left( \mathcal{A} \right)$が成り立ち、次元について、次式が成り立つ。
+\begin{align*}
+\dim{A^{r}(V)} = \left\{ \begin{matrix}
+\frac{n!}{r!(n - r)!} = \begin{pmatrix}
+n \\
+r \\
+\end{pmatrix} & \mathrm{if} & 0 \leq r \leq n \\
+0 & \mathrm{if} & n < r \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$について、$\forall i,i' \in \varLambda_{r}$に対し、$i \leq i'$が成り立つなら、$\mathbf{j}=\left( j_{i} \right)_{i \in \varLambda_{r}}$として$j_{i} \leq j_{i'}$となるようにした組$\left\langle \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{m.i.} }$について、$0 \leq r \leq n$のとき、$\forall\mathbf{T} \in T^{r}(V)$に対し、定理\ref{2.4.5.1}により次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}}
+\end{align*}
+定理\ref{2.4.8.13}より$\mathbf{T} \in A^{r}(V)$が成り立つならそのときに限り、$\mathcal{A}\left( \mathbf{T} \right) = \mathbf{T}$が成り立つので、次のようになり
+\begin{align*}
+\mathbf{T} &= \mathcal{A}\left( \mathbf{T} \right)\\
+&= \mathcal{A}\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}
+\end{align*}
+定理\ref{2.1.1.11}より交代tensor$\mathbf{T}$はその族$\left\{ \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\}_{\mathbf{j} \in \varLambda_{n}^{r}}$によって生成されている。\par
+そこで、その族$\left\{ \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\}_{\mathbf{j} \in \varLambda_{n}^{r}}$に属するvectorsのうち、$\forall k,l \in \varLambda_{r}$に対し、$k \leq l$が成り立つなら、定理\ref{2.1.10.9}よりある置換$\sigma$が存在して、$j_{\sigma(k)} \leq j_{\sigma(l)}$が成り立つようにすることができる。このとき、定理\ref{2.4.8.9}より次のようになる。
+\begin{align*}
+\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) &= \mathrm{sgn}\sigma\mathcal{A \circ}P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)\\
+&= \mathrm{sgn}\sigma\mathcal{A}\left( P_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)\\
+&= \mathrm{sgn}\sigma\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)
+\end{align*}
+そこで、$k < l$が成り立つなら、$j_{\sigma(k)} < j_{\sigma(l)}$または$j_{\sigma(k)} = j_{\sigma(l)}$が成り立つことになるので、$j_{\sigma(k)} = j_{\sigma(l)}$が成り立つとき、このような$k$と$l$を入れ替える互換$\tau$を用いて考えられれば、次のようになる。
+\begin{align*}
+\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) &= \mathrm{sgn}{\sigma \circ \tau}\mathcal{A \circ}P_{\sigma \circ \tau}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)\\
+&= \mathrm{sgn}{\sigma \circ \tau}\mathcal{A}\left( P_{\sigma \circ \tau}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right)\\
+&= \mathrm{sgn}{\sigma \circ \tau}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma \circ \tau(i)}} \right)\\
+&= \mathrm{sgn}{\sigma \circ \tau}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)
+\end{align*}
+これにより、次式が得られ、
+\begin{align*}
+\mathrm{sgn}\sigma\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right) = \mathrm{sgn}{\sigma \circ \tau}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)
+\end{align*}
+定理\ref{2.1.10.7}より$\mathrm{sgn}{\sigma \circ \tau} = \mathrm{sgn}\sigma\mathrm{sgn}\tau = - \mathrm{sgn}\sigma$が成り立つので、次式が成り立つ。
+\begin{align*}
+\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right) = \mathcal{- A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right)
+\end{align*}
+これにより、$\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma(i)}} \right) = \mathbf{0}$が得られる。したがって、適切に係数をおくことで次のようになる。
+\begin{align*}
+\mathbf{T} &= \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j}:\mathrm{n.m.i.} } {\xi_{\mathbf{j}}'\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}
+\end{align*}\par
+$\sum_{\mathbf{j}:\mathrm{n.m.i.} } {c_{\mathbf{j}}\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)} = \mathbf{0}$が成り立つとき、$\forall\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}$に対し、$\mathbf{j}=\left( j_i \right)_{i\in \varLambda_r }$、$\mathbf{k}=\left( k_i \right)_{i\in \varLambda_r }$として、$\mathbf{j} \neq \mathbf{k}$かつ、$\forall k,l \in \varLambda_{r}$に対し、$k < l \Rightarrow j_{k} < j_{l}$が成り立つなら、$\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)\mathcal{\neq A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{k_{i}} \right)$が成り立つので、$\mathcal{A}\left( \mathbf{0} \right) = \mathbf{0}$に注意すれば、対偶律により次式が得られる。
+\begin{align*}
+\sum_{\mathbf{j}:\mathrm{n.m.i.} } {c_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} = \mathbf{0}
+\end{align*}
+これにより、$\forall k,l \in \varLambda_{r}$に対し、$k < l \Rightarrow j_{k} < j_{l}$が成り立つようなそれらのvectors$\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)$は線形独立である。\par
+よって、$\forall k,l \in \varLambda_{r}$に対し、$k < l$が成り立つなら、$j_{k} < j_{l}$となるようにした組$\left\langle \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{n.m.i.} }$が対称tensor全体の集合$A^{r}(V)$の基底となる。\par
+また、$\forall\mathbf{T} \in A^{r}(V)$に対し、$\forall k,l \in \varLambda_{r}$に対し、$k < l$が成り立つなら、$j_{k} < j_{l}$となるようにした組$\left\langle \mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) \right\rangle_{\mathbf{j}:\mathrm{n.m.i.} }$が交代tensor全体の集合$A^{r}(V)$の基底となるので、その交代化作用素$\mathcal{A}$が線形写像となっていることに注意すれば、$\mathbf{T} \in V\left( \mathcal{A} \right)$が成り立つ。逆に、$\mathcal{\forall A}\left( \mathbf{T} \right) \in V\left( \mathcal{A} \right)$に対し、定理\ref{2.4.8.9}より$\mathcal{A \circ A = A}$が成り立つので、$\mathcal{A}\left( \mathcal{A}\left( \mathbf{T} \right) \right) = \mathcal{A \circ A}\left( \mathbf{T} \right) = \mathcal{A}\left( \mathbf{T} \right)$が成り立つ。これにより、$\mathcal{A}\left( \mathbf{T} \right) \in A^{r}(V)$が成り立つ。以上の議論により、$A^{r}(V) = V\left( \mathcal{A} \right)$が成り立つ。\par
+また、そのようなvectors$\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)$の個数は$\forall k,l \in \varLambda_{r}$に対し、$k < l \Rightarrow j_{k} < j_{l}$が成り立つような$\mathbf{j} \in \varLambda_{n}^{r}$なる組$\mathbf{j}$の個数に等しいので、これが辞書式順序の議論になっていることに注意すれば、定理\ref{2.1.10.12}よりその個数は$\frac{n!}{r!(n - r)!}$つになる。したがって、次式が成り立つ。
+\begin{align*}
+\dim{A^{r}(V)} = \frac{n!}{r!(n - r)!} = \begin{pmatrix}
+n \\
+r \\
+\end{pmatrix}
+\end{align*}\par
+また、$n < r$のとき、$\mathbf{j} \in \varLambda_{n}^{r}$なる組$\mathbf{j}$を写像$\mathbf{j}:\varLambda_{r} \rightarrow \varLambda_{n}$とみなせば、これは単射でありえない。したがって、$\exists k,l \in \varLambda_{r}$に対し、$j_{k} = j_{l}$が成り立つことになるので、上記の議論により$\mathcal{A}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right) = \mathbf{0}$が得られる。したがって、次式が成り立つ。
+\begin{align*}
+\dim{A^{r}(V)} = 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.8.16}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、$r$階反変tensor空間$T^{r}(V)$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$Q_{\sigma}$について、定理\ref{2.4.6.5}における、$\forall i \in \varLambda_{n}\forall\varphi_{i} \in V_{i}^{*}\forall j_{i} \in \varLambda_{m_{i}}$に対し、$\varSigma\left( \bigotimes_{i \in \varLambda_{n}} \varphi_{i} \right)\left( \bigotimes_{i \in \varLambda_{n}} \mathbf{v}_{j_{i}} \right) = \prod_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{ij_{i}} \right)}$が成り立つような線形同型写像$\varSigma:\bigotimes_{i \in \varLambda_{n}} V_{i}^{*}\overset{\sim}{\rightarrow}\left( \bigotimes_{i \in \varLambda_{n}} V_{i} \right)^{*}$を用いれば、次式が成り立つ。
+\begin{align*}
+Q_{\sigma} = \varSigma^{- 1} \circ \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$、これの双対空間$V^{*}$の基底$\left\langle \lambda_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$\forall\sigma \in \mathfrak{S}_{r}$に対し、$r$階反変tensor空間$T^{r}(V)$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$Q_{\sigma}$について、$\forall\mathbf{T} \in T^{r}(V)\forall f \in T^{r}\left( V^{*} \right)$に対し、定理\ref{2.4.5.2}により次式のようにおかれると、
+\begin{align*}
+\mathbf{T} = \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}},\ \ f = \sum_{\mathbf{k} \in \varLambda_{n}^{r}} {o_{\mathbf{k}}\bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}}}
+\end{align*}
+定理\ref{2.4.6.5}における、$\forall i \in \varLambda_{n}\forall\varphi_{i} \in V_{i}^{*}\forall j_{i} \in \varLambda_{m_{i}}$に対し、$\varSigma\left( \bigotimes_{i \in \varLambda_{n}} \varphi_{i} \right)\left( \bigotimes_{i \in \varLambda_{n}} \mathbf{v}_{j_{i}} \right) = \prod_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{ij_{i}} \right)}$が成り立つような線形同型写像$\varSigma:\bigotimes_{i \in \varLambda_{n}} V_{i}^{*}\overset{\sim}{\rightarrow}\left( \bigotimes_{i \in \varLambda_{n}} V_{i} \right)^{*}$を用いれば、次のようになる。
+\begin{align*}
+\left( \varSigma \circ Q_{\sigma} \right)(f)\left( \mathbf{T} \right) &= \left( \varSigma \circ Q_{\sigma} \right)\left( \sum_{\mathbf{k} \in \varLambda_{n}^{r}} {o_{\mathbf{k}}\bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}}} \right)\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\left( \varSigma \circ Q_{\sigma} \right)\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}} \right)\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\varSigma\left( Q_{\sigma}\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}} \right) \right)\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\varSigma\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{\sigma(i)}} \right)\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\prod_{i \in \varLambda_{n}} {\lambda_{k_{\sigma(i)}}\left( \mathbf{v}_{j_{i}} \right)}}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\prod_{\sigma^{- 1}(i) \in \varLambda_{n}} {\lambda_{k_{\sigma \circ \sigma^{- 1}(i)}}\left( \mathbf{v}_{j_{\sigma^{- 1}(i)}} \right)}}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\prod_{i \in \varLambda_{n}} {\lambda_{k_{i}}\left( \mathbf{v}_{j_{\sigma^{- 1}(i)}} \right)}}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\varSigma\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}} \right)\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{\sigma^{- 1}(i)}} \right)}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\varSigma\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}} \right) \circ P_{\sigma^{- 1}}\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \sum_{\mathbf{j},\mathbf{k} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}o_{\mathbf{k}}\left( \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma \right)\left( \bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}} \right)\left( \bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}} \right)}\\
+&= \left( \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma \right)\left( \sum_{\mathbf{k} \in \varLambda_{n}^{r}} {o_{\mathbf{k}}\bigotimes_{i \in \varLambda_{r}} \lambda_{k_{i}}} \right)\left( \sum_{\mathbf{j} \in \varLambda_{n}^{r}} {\xi_{\mathbf{j}}\bigotimes_{i \in \varLambda_{r}} \mathbf{v}_{j_{i}}} \right)\\
+&= \left( \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma \right)(f)\left( \mathbf{T} \right)
+\end{align*}
+以上より、$\varSigma \circ Q_{\sigma} = \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma$が得られるので、$Q_{\sigma} = \varSigma^{- 1} \circ \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.4.8.17}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$における対称化作用素$\mathcal{S}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$における対称化作用素$\mathcal{T}$について、定理\ref{2.4.6.5}における、$\forall i \in \varLambda_{n}\forall\varphi_{i} \in V_{i}^{*}\forall j_{i} \in \varLambda_{m_{i}}$に対し、$\varSigma\left( \bigotimes_{i \in \varLambda_{n}} \varphi_{i} \right)\left( \bigotimes_{i \in \varLambda_{n}} \mathbf{v}_{j_{i}} \right) = \prod_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{ij_{i}} \right)}$が成り立つような線形同型写像$\varSigma:\bigotimes_{i \in \varLambda_{n}} V_{i}^{*}\overset{\sim}{\rightarrow}\left( \bigotimes_{i \in \varLambda_{n}} V_{i} \right)^{*}$を用いれば、次式が成り立つ。
+\begin{align*}
+\mathcal{T} =\varSigma^{- 1} \circ \mathcal{S}^{*} \circ \varSigma
+\end{align*}
+\end{thm}
+\begin{proof}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$における対称化作用素$\mathcal{S}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$における対称化作用素$\mathcal{T}$について、定義より$\sigma \in \mathfrak{S}_{r}$なる$r$階反変tensor空間$T^{r}(V)$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$P_{\sigma}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$におけるその置換$\sigma$による基底の添数の付け替えの線形自己同型写像$Q_{\sigma}$を用いれば、次のようになる。
+\begin{align*}
+\mathcal{S}=\frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma},\ \ \mathcal{T}=\frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} Q_{\sigma}
+\end{align*}
+したがって、定理\ref{2.4.6.5}における、$\forall i \in \varLambda_{n}\forall\varphi_{i} \in V_{i}^{*}\forall j_{i} \in \varLambda_{m_{i}}$に対し、$\varSigma\left( \bigotimes_{i \in \varLambda_{n}} \varphi_{i} \right)\left( \bigotimes_{i \in \varLambda_{n}} \mathbf{v}_{j_{i}} \right) = \prod_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{ij_{i}} \right)}$が成り立つような線形同型写像$\varSigma:\bigotimes_{i \in \varLambda_{n}} V_{i}^{*} \rightarrow \left( \bigotimes_{i \in \varLambda_{n}} V_{i} \right)^{*}$を用いて、定理\ref{2.4.8.5}、定理\ref{2.4.8.16}より、$\forall\mathbf{U} \in T^{r}\left( V^{*} \right)$に対し、その写像$\varSigma\left( \mathbf{U} \right)$が線形写像となっていることに注意すれば、次のようになる。
+\begin{align*}
+\mathcal{T}\left( \mathbf{U} \right) &= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} Q_{\sigma}\left( \mathbf{U} \right)\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\varSigma^{- 1} \circ \left( P_{\sigma}^{- 1} \right)^{*} \circ \varSigma\left( \mathbf{U} \right)}\\
+&= \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\varSigma^{- 1}\left( \left( P_{\sigma}^{- 1} \right)^{*}\left( \varSigma\left( \mathbf{U} \right) \right) \right)}\\
+&= \varSigma^{- 1}\left( \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} {\varSigma\left( \mathbf{U} \right) \circ P_{\sigma}^{- 1}} \right)\\
+&= \varSigma^{- 1}\left( \varSigma\left( \mathbf{U} \right) \circ \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma}^{- 1} \right)\\
+&= \varSigma^{- 1}\left( \varSigma\left( \mathbf{U} \right) \circ \frac{1}{r!}\sum_{\sigma^{- 1} \in \mathfrak{S}_{r}} P_{\sigma^{- 1}} \right)\\
+&= \varSigma^{- 1}\left( \varSigma\left( \mathbf{U} \right) \circ \frac{1}{r!}\sum_{\sigma \in \mathfrak{S}_{r}} P_{\sigma} \right)\\
+&= \varSigma^{- 1}\left( \varSigma\left( \mathbf{U} \right)\mathcal{\circ S} \right)\\
+&= \varSigma^{- 1}\left( \mathcal{S}^{*}\left( \varSigma\left( \mathbf{U} \right) \right) \right)\\
+&= \left( \varSigma^{- 1} \circ \mathcal{S}^{*} \circ \varSigma \right)\left( \mathbf{U} \right)
+\end{align*}
+よって、$\mathcal{T} =\varSigma^{- 1} \circ \mathcal{S}^{*} \circ \varSigma$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.4.8.18}
+標数$0$の体$K$上の$n$次元vector空間$V$、これの基底$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$が与えられたとき、$r$階反変tensor空間$T^{r}(V)$における交代化作用素$\mathcal{A}$、その双対空間$V^{*}$での$r$階反変tensor空間$T^{r}(V^{*})$における交代化作用素$\mathcal{B}$について、定理\ref{2.4.6.5}における、$\forall i \in \varLambda_{n}\forall\varphi_{i} \in V_{i}^{*}\forall j_{i} \in \varLambda_{m_{i}}$に対し、$\varSigma\left( \bigotimes_{i \in \varLambda_{n}} \varphi_{i} \right)\left( \bigotimes_{i \in \varLambda_{n}} \mathbf{v}_{j_{i}} \right) = \prod_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{ij_{i}} \right)}$が成り立つような線形同型写像$\varSigma:\bigotimes_{i \in \varLambda_{n}} V_{i}^{*} \rightarrow \left( \bigotimes_{i \in \varLambda_{n}} V_{i} \right)^{*}$を用いれば、次式が成り立つ。
+\begin{align*}
+\mathcal{B}=\varSigma^{- 1} \circ \mathcal{A}^{*} \circ \varSigma
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.8.17}と同様にして示される。
+\end{proof}\begin{thebibliography}{50}
+  \bibitem{1}
+  佐武一郎, 線型代数学, 裳華房, 1958. 第53版 p213-219 ISBN4-7853-1301-3
+\end{thebibliography}
+\end{document}

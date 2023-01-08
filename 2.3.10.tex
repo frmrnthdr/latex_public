@@ -1,0 +1,709 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{9}
+\usepackage{xr}
+\externaldocument{2.1.5}
+\externaldocument{2.1.8}
+\externaldocument{2.1.11}
+\externaldocument{2.2.1}
+\externaldocument{2.2.2}
+\externaldocument{2.2.3}
+\externaldocument{2.3.4}
+\externaldocument{2.3.5}
+\externaldocument{2.3.6}
+\externaldocument{2.3.8}
+\externaldocument{2.3.9}
+\input{macro}
+\begin{document}
+%\hypertarget{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux6a19ux6e96ux5f62}{%
+\subsection{Hermite双線形形式の標準形}%\label{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux6a19ux6e96ux5f62}}
+%\hypertarget{ux5171ux5f79ux53ccux7ddaux5f62ux5f62ux5f0fux304bux3089ux8a98ux5c0eux3055ux308cux308bux7ddaux5f62ux5199ux50cf}{%
+\subsubsection{共役双線形形式から誘導される線形写像}%\label{ux5171ux5f79ux53ccux7ddaux5f62ux5f62ux5f0fux304bux3089ux8a98ux5c0eux3055ux308cux308bux7ddaux5f62ux5199ux50cf}}
+\begin{thm}\label{2.3.10.1}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元内積空間$(V,\varPhi)$、これの正規直交基底$\mathcal{B}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall f \in L(V,V)$に対し、次のように写像$B_{f}$が定義されれば、
+\begin{align*}
+B_{f}:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)
+\end{align*}
+その写像$B_{f}$はそのvector空間$V$上の共役双線形形式である。また、その基底$\mathcal{B}$に関するその線形写像$f$の表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$、その共役双線形形式$B_{f}$の表現行列$\left[ B_{f} \right]_{\mathcal{B}}$について、次式が成り立つ。
+\begin{align*}
+[ f]_{\mathcal{B}}^{\mathcal{B}} = \left[ B_{f} \right]_{\mathcal{B}}
+\end{align*}
+\item
+  そのvector空間$V$上の任意の共役双線形形式$B$が与えられたとき、ある線形写像$f_{B}:V \rightarrow V$が一意的に存在して、次式が成り立つ。
+\begin{align*}
+B:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f_{B}\left( \mathbf{w} \right) \right)
+\end{align*}
+また、その基底$\mathcal{B}$に関するその共役双線形形式$B$の表現行列$[ B]_{\mathcal{B}}$、その線形写像$f_{B}$の表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$について、次式が成り立つ。
+\begin{align*}
+[ B]_{\mathcal{B}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、次のような共役双線形形式$B_{f}$をその線形写像$f$から誘導される共役双線形形式といい、
+\begin{align*}
+B_{f}:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)
+\end{align*}
+そのvector空間$V$上の任意の共役双線形形式$B$が与えられたとき、次式が成り立つような線形写像$f_{B}:V \rightarrow V$をその共役双線形形式$B$から誘導される線形写像、線形変換などという。
+\begin{align*}
+B:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f_{B}\left( \mathbf{w} \right) \right)
+\end{align*}
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元内積空間$(V,\varPhi)$、これの正規直交基底$\mathcal{B}$が与えられたとき、$\forall f \in L(V,V)$に対し、次のように写像$B_{f}$が定義されれば、
+\begin{align*}
+B_{f}:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)
+\end{align*}
+$\forall a,b \in \mathbb{C}\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、次のようになるかつ、
+\begin{align*}
+B_{f}\left( a\mathbf{u} + b\mathbf{v},\mathbf{w} \right) &= \varPhi\left( a\mathbf{u} + b\mathbf{v},f\left( \mathbf{w} \right) \right)\\
+&= \overline{a}\varPhi\left( \mathbf{u},f\left( \mathbf{w} \right) \right) + \overline{b}\varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)\\
+&= \overline{a}B_{f}\left( \mathbf{u},\mathbf{w} \right) + \overline{b}B_{f}\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+$\forall a,b \in \mathbb{C}\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、次のようになるので、
+\begin{align*}
+B_{f}\left( \mathbf{u},a\mathbf{v} + b\mathbf{w} \right) &= \varPhi\left( \mathbf{u},f\left( a\mathbf{v} + b\mathbf{w} \right) \right)\\
+&= \varPhi\left( \mathbf{u},af\left( \mathbf{v} \right) + bf\left( \mathbf{w} \right) \right)\\
+&= a\varPhi\left( \mathbf{u},f\left( \mathbf{v} \right) \right) + b\varPhi\left( \mathbf{u},f\left( \mathbf{w} \right) \right)\\
+&= aB_{f}\left( \mathbf{u},\mathbf{v} \right) + bB_{f}\left( \mathbf{u},\mathbf{w} \right)
+\end{align*}
+その写像$B_{f}$はそのvector空間$V$上の共役双線形形式である。\par
+また、その基底$\mathcal{B}$に関するその線形写像$f$の表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$、その共役双線形形式$B_{f}$の表現行列$\left[ B_{f} \right]_{\mathcal{B}}$について、そのvector空間$K^{n}$の標準直交基底$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$、その基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$、$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$を用いて、$\mathcal{B} =\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれれば、定理\ref{2.3.4.8}、定理\ref{2.3.6.18}より次のようになるので、
+\begin{align*}
+[ f]_{\mathcal{B}}^{\mathcal{B}} &= \begin{pmatrix}
+L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}\left( \mathbf{e}_{1} \right) & L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}\left( \mathbf{e}_{2} \right) & \cdots & L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}\left( \mathbf{e}_{n} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\left( \mathbf{e}_{1} \right) & \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\left( \mathbf{e}_{2} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\left( \mathbf{e}_{n} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{1} \right) & \varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{2} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{n} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+{}^{t}\mathbf{e}_{1}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{1} \right) &{}^{t}\mathbf{e}_{1}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{2} \right) & \cdots &{}^{t}\mathbf{e}_{1}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{n} \right) \\
+{}^{t}\mathbf{e}_{2}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{1} \right) &{}^{t}\mathbf{e}_{2}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{2} \right) & \cdots &{}^{t}\mathbf{e}_{2}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{n} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+{}^{t}\mathbf{e}_{n}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{1} \right) &{}^{t}\mathbf{e}_{n}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{2} \right) & \cdots &{}^{t}\mathbf{e}_{n}\varphi_{\mathcal{B}}^{- 1} \circ f\left( \mathbf{o}_{n} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{1} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{1} \right) \right) &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{1} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{2} \right) \right) & \cdots &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{1} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{n} \right) \right) \\
+{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{2} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{1} \right) \right) &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{2} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{2} \right) \right) & \cdots &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{2} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{n} \right) \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{n} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{1} \right) \right) &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{n} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{2} \right) \right) & \cdots &{}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{n} \right)\varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{o}_{n} \right) \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\varPhi\left( \mathbf{o}_{1},f\left( \mathbf{o}_{1} \right) \right) & \varPhi\left( \mathbf{o}_{1},f\left( \mathbf{o}_{2} \right) \right) & \cdots & \varPhi\left( \mathbf{o}_{1},f\left( \mathbf{o}_{n} \right) \right) \\
+\varPhi\left( \mathbf{o}_{2},f\left( \mathbf{o}_{1} \right) \right) & \varPhi\left( \mathbf{o}_{2},f\left( \mathbf{o}_{2} \right) \right) & \cdots & \varPhi\left( \mathbf{o}_{2},f\left( \mathbf{o}_{n} \right) \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\varPhi\left( \mathbf{o}_{n},f\left( \mathbf{o}_{1} \right) \right) & \varPhi\left( \mathbf{o}_{n},f\left( \mathbf{o}_{2} \right) \right) & \cdots & \varPhi\left( \mathbf{o}_{n},f\left( \mathbf{o}_{n} \right) \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+B_{f}\left( \mathbf{o}_{1},\mathbf{o}_{1} \right) & B_{f}\left( \mathbf{o}_{1},\mathbf{o}_{2} \right) & \cdots & B_{f}\left( \mathbf{o}_{1},\mathbf{o}_{n} \right) \\
+B_{f}\left( \mathbf{o}_{2},\mathbf{o}_{1} \right) & B_{f}\left( \mathbf{o}_{2},\mathbf{o}_{2} \right) & \cdots & B_{f}\left( \mathbf{o}_{2},\mathbf{o}_{n} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+B_{f}\left( \mathbf{o}_{n},\mathbf{o}_{1} \right) & B_{f}\left( \mathbf{o}_{n},\mathbf{o}_{2} \right) & \cdots & B_{f}\left( \mathbf{o}_{n},\mathbf{o}_{n} \right) \\
+\end{pmatrix} = \left[ B_{f} \right]_{\mathcal{B}}
+\end{align*}
+$[ f]_{\mathcal{B}}^{\mathcal{B}} = \left[ B_{f} \right]_{\mathcal{B}}$が成り立つ。\par
+また、その正規直交基底$\mathcal{B}$に関するその共役双線形形式$B$の表現行列$[ B]_{\mathcal{B}}$、線形写像$\varphi_{\mathcal{B}} \circ L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}$について、$\forall\mathbf{v},\mathbf{w} \in V$に対し、定理\ref{2.3.4.8}、定理\ref{2.3.6.18}より次のようになる。
+\begin{align*}
+B\left( \mathbf{v},\mathbf{w} \right) &={}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)\\
+&={}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)L_{[ B]_{\mathcal{B}}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right)\\
+&={}^{t}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)\varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\mathcal{B}} \circ L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)\\
+&= \varPhi\left( \mathbf{v},\varphi_{\mathcal{B}} \circ L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right)
+\end{align*}
+よって、ある線形写像$f_{B}:V \rightarrow V$が存在して、次式が成り立つ。
+\begin{align*}
+B:V \times V \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto \varPhi\left( \mathbf{v},f_{B}\left( \mathbf{w} \right) \right)
+\end{align*}\par
+このような線形写像が$f$、$g$と2つ与えられたらば、$\forall\mathbf{v},\mathbf{w} \in V$に対し、次のようになるので、
+\begin{align*}
+\varPhi\left( \mathbf{v},(f - g)\left( \mathbf{w} \right) \right) &= \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) - g\left( \mathbf{w} \right) \right)\\
+&= \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right) - \varPhi\left( \mathbf{v},g\left( \mathbf{w} \right) \right)\\
+&= B\left( \mathbf{v},\mathbf{w} \right) - B\left( \mathbf{v},\mathbf{w} \right) = 0
+\end{align*}
+定理\ref{2.3.6.5}より$(f - g)\left( \mathbf{w} \right) = \mathbf{0}$が成り立つ。これにより、$f = g$が得られ、そのような線形写像たち$f$、$g$が一意的に存在することが示された。\par
+そこで、先ほどの線形写像$\varphi_{\mathcal{B}} \circ L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}$について、$f_{B} = \varphi_{\mathcal{B}} \circ L_{[ B]_{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}$が成り立つので、$[ B]_{\mathcal{B}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.3.10.2}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、共役双線形形式$B$がHermite双線形形式であるならそのときに限り、その共役双線形形式$B$から誘導される線形写像$f_{B}:V \rightarrow V$がHermite変換である。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、共役双線形形式$B$がHermite双線形形式であるならそのときに限り、定理\ref{2.3.4.13}よりそのvector空間$V$の正規直交基底$\mathcal{B}$に関する表現行列$[ B]_{\mathcal{B}}$がHermite行列となる。これが成り立つならそのときに限り、定理\ref{2.3.10.1}よりその共役双線形形式$B$から誘導される線形写像$f_{B}:V \rightarrow V$のその基底$\mathcal{B}$に関する表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$について、$[ B]_{\mathcal{B}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が成り立つので、その行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$もHermite行列となる。これが成り立つならそのときに限り、定理\ref{2.3.8.9}よりその共役双線形形式$B$から誘導される線形写像$f_{B}:V \rightarrow V$がHermite変換である。
+\end{proof}
+\begin{thm}[Euclid幾何学の立場で標準的な正規直交基底の存在性]\label{2.3.10.3}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$に対し、次のことが成り立つようなそのvector空間$V$の基底$\mathcal{B}$が存在する。
+\begin{itemize}
+\item
+  その基底$\mathcal{B}$はその内積空間$(V,\varPhi)$の正規直交基底である。
+\item
+  その基底$\mathcal{B}$に関するそのHermite双線形形式$B$から誘導される線形写像$f_{B}$の表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が対角行列となる。
+\item
+  その基底$\mathcal{B}$はそのHermite双線形形式に関する直交基底をなす。
+\end{itemize}
+\end{thm}
+\begin{dfn}
+このような基底$\mathcal{B}$を、ここでは、そのHermite双線形形式$B$から誘導されるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底ということにする。
+\end{dfn}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$に対し、定理\ref{2.3.8.13}、定理\ref{2.3.10.2}よりそのHermite双線形形式$B$から誘導される線形写像$f_{B}$は正規変換である。したがって、定理\ref{2.3.9.4}、即ち、Toeplitzの定理よりその内積空間$(V,\varPhi)$のある正規直交基底$\mathcal{B}$が存在して、これに関するその線形写像$f_{B}$の表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が対角行列となる。これにより、その表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$の対角成分以外の成分はすべて$0$となる。その正規直交基底が$\mathcal{B} =\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$と与えられたらば、定理\ref{2.3.10.1}より$[ B]_{\mathcal{B}} = \left( B\left( \mathbf{o}_{i},\mathbf{o}_{j} \right) \right)_{(i,j) \in \varLambda_{n}^{2}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が成り立つので、$\forall i,j \in \varLambda_{n}$に対し、$i \neq j$が成り立つなら、$B\left( \mathbf{o}_{i},\mathbf{o}_{j} \right) = 0$が成り立つ。よって、その基底$\mathcal{B}$はそのHermite双線形形式に関する直交基底をなす。
+\end{proof}
+%\hypertarget{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux6a19ux6e96ux5f62-1}{%
+\subsubsection{Hermite双線形形式の標準形}%\label{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux6a19ux6e96ux5f62-1}}
+\begin{thm}[Euclid幾何学の立場での標準形]\label{2.3.10.4}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$とおくと、そのHermite双線形形式$B$から誘導されるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いて、$\forall\mathbf{v} \in V$に対し、$\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) = \left( x_{i} \right)_{i \in \varLambda_{n}}$とおかれると、そのHermite双線形形式から定まるHermite形式$q$は次式を満たす。
+\begin{align*}
+q\left( \mathbf{v} \right) = \sum_{i \in \varLambda_{n}} {\lambda_{i}\left| x_{i} \right|^{2}} = \lambda_{1}\left| x_{1} \right|^{2} + \lambda_{2}\left| x_{2} \right|^{2} + \cdots + \lambda_{n}\left| x_{n} \right|^{2}
+\end{align*}\
+\end{thm}
+\begin{dfn}
+上の式の形をそのHermite双線形形式$B$のEuclid幾何学の立場での標準形という。
+\end{dfn}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$とおくと、そのHermite双線形形式$B$から誘導されるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いて、$\forall\mathbf{v} \in V$に対し、$\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) = \left( x_{i} \right)_{i \in \varLambda_{n}}$とおかれると、定理\ref{2.3.10.3}よりその基底$\mathcal{B}$に関するそのHermite双線形形式$B$から誘導される線形写像$f_{B}$の表現行列$\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が対角行列となり定理\ref{2.2.2.12}より次式のように与えられるかつ、
+\begin{align*}
+\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix}
+\lambda_{1} & \  & \  & O \\
+\  & \lambda_{2} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda_{n} \\
+\end{pmatrix}
+\end{align*}
+定理\ref{2.3.10.1}よりその基底$\mathcal{B}$に関するそのHermite双線形形式$B$の表現行列$[ B]_{\mathcal{B}}$について、$[ B]_{\mathcal{B}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が成り立つので、定理\ref{2.3.4.9}より次のようになる。
+\begin{align*}
+q\left( \mathbf{v} \right) = B\left( \mathbf{v},\mathbf{v} \right) &={}^{t}\overline{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)}[ B]_{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)\\
+&={}^{t}\overline{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)}\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)\\
+&= \begin{pmatrix}
+\overline{x_{1}} & \overline{x_{2}} & \cdots & \overline{x_{n}} \\
+\end{pmatrix}\begin{pmatrix}
+\lambda_{1} & \  & \  & O \\
+\  & \lambda_{2} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda_{n} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\overline{x_{1}} & \overline{x_{2}} & \cdots & \overline{x_{n}} \\
+\end{pmatrix}\begin{pmatrix}
+\lambda_{1}x_{1} \\
+\lambda_{2}x_{2} \\
+ \vdots \\
+\lambda_{n}x_{n} \\
+\end{pmatrix}\\
+&= \overline{x_{1}}\lambda_{1}x_{1} + \overline{x_{2}}\lambda_{2}x_{2} + \cdots + \overline{x_{n}}\lambda_{n}x_{n}\\
+&= \lambda_{1}\left| x_{1} \right|^{2} + \lambda_{2}\left| x_{2} \right|^{2} + \cdots + \lambda_{n}\left| x_{n} \right|^{2}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.3.10.4s}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$とおき、さらに、そのHermite双線形形式$B$の符号を$(\pi,\nu)$とおくと、これらの自然数たち$\pi$、$n - \pi - \nu$、$\nu$はそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しい、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$が半正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \leq \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 < \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が半負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \geq \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 > \lambda_{i}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、任意のHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$とおき、さらに、そのHermite双線形形式$B$の符号を$(\pi,\nu)$とおくと、そのHermite双線形形式$B$から誘導されるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれれば、定義より$B\left( \mathbf{o}_{i},\mathbf{o}_{i} \right) > 0$、$B\left( \mathbf{o}_{i},\mathbf{o}_{i} \right) = 0$、$B\left( \mathbf{o}_{i},\mathbf{o}_{i} \right) < 0$となるようなvectors$\mathbf{o}_{i}$の個数がそれぞれ$\pi$、$n - \pi - \nu$、$\nu$と与えられる。そこで、定理\ref{2.2.2.12}、定理\ref{2.3.10.1}、定理\ref{2.3.10.4}より次式が成り立つので、
+\begin{align*}
+[ B]_{\mathcal{B}} = \begin{pmatrix}
+\lambda_{1} & \  & \  & O \\
+\  & \lambda_{2} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda_{n} \\
+\end{pmatrix}
+\end{align*}
+$B\left( \mathbf{o}_{i},\mathbf{o}_{i} \right) = \lambda_{i}$が成り立つ。よって、これらの自然数たち$\pi$、$n - \pi - \nu$、$\nu$はそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しい、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$が半正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \leq \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 < \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が半負値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 \geq \lambda_{i}$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall i \in \varLambda_{n}$に対し、$0 > \lambda_{i}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}[affine幾何学の立場での標準形]\label{2.3.10.5}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$について、任意のHermite双線形形式$B$の符号が$(\pi,\nu)$と与えられたとき、ある直交基底$\mathcal{C}$が存在して、その基底$\mathcal{C}$に関する基底変換における線形同型写像$\varphi_{\mathcal{C}}$を用いて、$\forall\mathbf{v} \in V$に対し、$\varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right) = \left( x_{i} \right)_{i \in \varLambda_{n}}$とおかれると、そのHermite双線形形式から定まるHermite形式$q$は次式を満たす。
+\begin{align*}
+q\left( \mathbf{v} \right) = \sum_{i \in \varLambda_{\pi}} \left| x_{i} \right|^{2} - \sum_{i \in \varLambda_{\nu}} \left| x_{i} \right|^{2} = \left| x_{1} \right|^{2} + \left| x_{2} \right|^{2} + \cdots + \left| x_{\pi} \right|^{2} - \left| x_{\pi + 1} \right|^{2} - \left| x_{\pi + 2} \right|^{2} - \cdots - \left| x_{\pi + \nu} \right|^{2}
+\end{align*}
+\end{thm}
+\begin{dfn}
+上の式の形をそのHermite双線形形式$B$のaffine幾何学の立場での標準形という。
+\end{dfn}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$について、任意のHermite双線形形式$B$の符号が$(\pi,\nu)$と与えられたとき、定理\ref{2.3.10.4}よりそのHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$とおくと、そのHermite双線形形式$B$から誘導されるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いて、$\forall\mathbf{v} \in V$に対し、$\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) = \left( y_{i} \right)_{i \in \varLambda_{n}}$とおかれると、そのHermite双線形形式から定まるHermite形式$q$は次式を満たす。
+\begin{align*}
+q\left( \mathbf{v} \right) = \sum_{i \in \varLambda_{n}} {\lambda_{i}\left| y_{i} \right|^{2}} = \lambda_{1}\left| y_{1} \right|^{2} + \lambda_{2}\left| y_{2} \right|^{2} + \cdots + \lambda_{n}\left| y_{n} \right|^{2}
+\end{align*}\par
+また、これらの自然数たち$\pi$、$n - \pi - \nu$、$\nu$はそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しい。そこで、必要があれば、$\forall i \in \varLambda_{n}$に対し、$1 \leq i \leq \pi$のとき、$\lambda_{i} > 0$、$\pi + 1 \leq i \leq \pi + \nu$のとき、$\lambda_{i} < 0$、$\pi + \nu + 1 \leq i \leq n$のとき、$\lambda_{i} = 0$と添数をつけかえてもよい。そこで、$\mathcal{B} =\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、次のようにして組$\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}}$が定義されれば、
+\begin{align*}
+\mathbf{v}_{i} = \left\{ \begin{matrix}
+\frac{\mathbf{o}_{i}}{\sqrt{\lambda_{i}}} & \mathrm{if} & 1 \leq i \leq \pi \\
+\frac{\mathbf{o}_{i}}{\sqrt{- \lambda_{i}}} & \mathrm{if} & \pi + 1 \leq i \leq \pi + \nu \\
+\mathbf{o}_{i} & \mathrm{if} & \pi + \nu + 1 \leq i \leq n \\
+\end{matrix} \right.\ 
+\end{align*}
+これらは直交基底をなす。したがって、$\mathcal{C}=\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれ、$\forall\mathbf{v} \in V$に対し、$\varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right) = \left( x_{i} \right)_{i \in \varLambda_{n}}$とおかれると、その基底$\mathcal{C}$に関する基底変換における線形同型写像$\varphi_{\mathcal{C}}$、その基底$\mathcal{C}$からその基底$\mathcal{B}$への基底変換行列$\left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}$を用いて、次のようになり、
+\begin{align*}
+\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) &= \varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\mathcal{C}} \circ \varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right)\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}} \circ \varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right)\\
+&= \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right)
+\end{align*}
+そのvector空間$\mathbb{C}^{n}$の標準直交基底$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$を用いれば、次のようになるので、
+\begin{align*}
+\left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}} &= \begin{pmatrix}
+\left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{1} & \cdots & \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{\pi} & \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{\pi + 1} & \cdots & \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{\pi + \nu} & \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{\pi + \nu + 1} & \cdots & \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\mathbf{e}_{n} \\
+\end{pmatrix}\\
+&= \left( \begin{matrix}
+\varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi} \right) \\
+\end{matrix} \right.\\
+&\quad \begin{matrix}
+\varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + \nu} \right) \\
+\end{matrix} \\
+&\quad \left. \begin{matrix}
+\varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + \nu + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\mathcal{C}}\left( \mathbf{e}_{n} \right) \\
+\end{matrix} \right) \\
+&= \left( \begin{matrix}
+\varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{1} \right) \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi} \right) \right) & \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + 1} \right) \right) \\
+\end{matrix} \right.\\
+&\quad \left. \begin{matrix}
+\cdots & \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + \nu} \right) \right) & \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{\pi + \nu + 1} \right) \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \varphi_{\mathcal{C}}\left( \mathbf{e}_{n} \right) \right) \\
+\end{matrix} \right)\\
+&= \begin{pmatrix}
+\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{\pi} \right) & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{\pi + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{\pi + \nu} \right) & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{\pi + \nu + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v}_{n} \right) \\
+\end{pmatrix}\\
+&= \left( \begin{matrix}
+\varphi_{\mathcal{B}}^{- 1}\left( \frac{\mathbf{o}_{1}}{\sqrt{\lambda_{1}}} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \frac{\mathbf{o}_{\pi}}{\sqrt{\lambda_{\pi}}} \right) & \varphi_{\mathcal{B}}^{- 1}\left( \frac{\mathbf{o}_{\pi + 1}}{\sqrt{- \lambda_{\pi + 1}}} \right) \\
+\end{matrix} \right.\\
+&\quad \left. \begin{matrix}
+\cdots & \varphi_{\mathcal{B}}^{- 1}\left( \frac{\mathbf{o}_{\pi + \nu}}{\sqrt{- \lambda_{\pi + \nu}}} \right) & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{\pi + \nu + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{n} \right) \\
+\end{matrix} \right)\\
+&= \begin{pmatrix}
+\frac{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{1} \right)}{\sqrt{\lambda_{1}}} & \cdots & \frac{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{\pi} \right)}{\sqrt{\lambda_{\pi}}} & \frac{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{\pi + 1} \right)}{\sqrt{- \lambda_{\pi + 1}}} & \cdots & \frac{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{\pi + \nu} \right)}{\sqrt{- \lambda_{\pi + \nu}}} & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{\pi + \nu + 1} \right) & \cdots & \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{n} \right) \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\frac{\mathbf{e}_{1}}{\sqrt{\lambda_{1}}} & \cdots & \frac{\mathbf{e}_{\pi}}{\sqrt{\lambda_{\pi}}} & \frac{\mathbf{e}_{\pi + 1}}{\sqrt{- \lambda_{\pi + 1}}} & \cdots & \frac{\mathbf{e}_{\pi + \nu}}{\sqrt{- \lambda_{\pi + \nu}}} & \mathbf{e}_{\pi + \nu + 1} & \cdots & \mathbf{e}_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\frac{1}{\sqrt{\lambda_{1}}} & \  & \  & \  & \  & \  & \  & \  & O \\
+\  & \ddots & \  & \  & \  & \  & \  & \  & \  \\
+\  & \  & \frac{1}{\sqrt{\lambda_{\pi}}} & \  & \  & \  & \  & \  & \  \\
+\  & \  & \  & \frac{1}{\sqrt{- \lambda_{\pi + 1}}} & \  & \  & \  & \  & \  \\
+\  & \  & \  & \  & \ddots & \  & \  & \  & \  \\
+\  & \  & \  & \  & \  & \frac{1}{\sqrt{- \lambda_{\pi + \nu}}} & \  & \  & \  \\
+\  & \  & \  & \  & \  & \  & 1 & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \ddots & \  \\
+O & \  & \  & \  & \  & \  & \  & \  & 1 \\
+\end{pmatrix}
+\end{align*}
+次のようになる。
+\begin{align*}
+\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) &= \left[ I_{V} \right]_{\mathcal{B}}^{\mathcal{C}}\varphi_{\mathcal{C}}^{- 1}\left( \mathbf{v} \right)\\
+&= \begin{pmatrix}
+\frac{1}{\sqrt{\lambda_{1}}} & \  & \  & \  & \  & \  & \  & \  & O \\
+\  & \ddots & \  & \  & \  & \  & \  & \  & \  \\
+\  & \  & \frac{1}{\sqrt{\lambda_{\pi}}} & \  & \  & \  & \  & \  & \  \\
+\  & \  & \  & \frac{1}{\sqrt{- \lambda_{\pi + 1}}} & \  & \  & \  & \  & \  \\
+\  & \  & \  & \  & \ddots & \  & \  & \  & \  \\
+\  & \  & \  & \  & \  & \frac{1}{\sqrt{- \lambda_{\pi + \nu}}} & \  & \  & \  \\
+\  & \  & \  & \  & \  & \  & 1 & \  & \  \\
+\  & \  & \  & \  & \  & \  & \  & \ddots & \  \\
+O & \  & \  & \  & \  & \  & \  & \  & 1 \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+ \vdots \\
+x_{\pi} \\
+x_{\pi + 1} \\
+ \vdots \\
+x_{\pi + \nu} \\
+x_{\pi + \nu + 1} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\frac{x_{1}}{\sqrt{\lambda_{1}}} \\
+ \vdots \\
+\frac{x_{\pi}}{\sqrt{\lambda_{\pi}}} \\
+\frac{x_{\pi + 1}}{\sqrt{- \lambda_{\pi + 1}}} \\
+ \vdots \\
+\frac{x_{\pi + \nu}}{\sqrt{- \lambda_{\pi + \nu}}} \\
+x_{\pi + \nu + 1} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix}
+\end{align*}\par
+したがって、そのHermite双線形形式から定まるHermite形式$q$は次のようになる。
+\begin{align*}
+q\left( \mathbf{v} \right) &= \sum_{i \in \varLambda_{n}} {\lambda_{i}\left| y_{i} \right|^{2}}\\
+&= \lambda_{1}\left| y_{1} \right|^{2} + \cdots + \lambda_{\pi}\left| y_{\pi} \right|^{2} + \lambda_{\pi + 1}\left| y_{\pi + 1} \right|^{2} + \cdots \\
+&\quad + \lambda_{\pi + \nu}\left| y_{\pi + \nu + 1} \right|^{2} + \lambda_{\pi + \nu + 1}\left| x_{\pi + \nu + 1} \right|^{2} + \cdots + \lambda_{n}\left| x_{n} \right|^{2}\\
+&= \lambda_{1}\left| \frac{x_{1}}{\sqrt{\lambda_{1}}} \right|^{2} + \cdots + \lambda_{\pi}\left| \frac{x_{\pi}}{\sqrt{\lambda_{\pi}}} \right|^{2} + \lambda_{\pi + 1}\left| \frac{x_{\pi + 1}}{\sqrt{- \lambda_{\pi + 1}}} \right|^{2} + \cdots \\
+&\quad + \lambda_{\pi + \nu}\left| \frac{x_{\pi + \nu}}{\sqrt{- \lambda_{\pi + \nu}}} \right|^{2} + \lambda_{\pi + \nu + 1}\left| x_{\pi + \nu + 1} \right|^{2} + \cdots + \lambda_{n}\left| x_{n} \right|^{2}\\
+&= \frac{\lambda_{1}}{\lambda_{1}}\left| x_{1} \right|^{2} + \cdots + \frac{\lambda_{\pi}}{\lambda_{\pi}}\left| x_{\pi} \right|^{2} + \frac{\lambda_{\pi + 1}}{- \lambda_{\pi + 1}}\left| x_{\pi + 1} \right|^{2} + \cdots \\
+&\quad + \frac{\lambda_{\pi + \nu}}{- \lambda_{\pi + \nu}}\left| x_{\pi + \nu} \right|^{2} + 0\left| x_{\pi + \nu + 1} \right|^{2} + \cdots + 0\left| x_{n} \right|^{2}\\
+&= \left| x_{1} \right|^{2} + \cdots + \left| x_{\pi} \right|^{2} - \left| x_{\pi + 1} \right|^{2} - \cdots - \left| x_{\pi + \nu} \right|^{2}
+\end{align*}
+\end{proof}
+%\hypertarget{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux3068ux884cux5217ux5f0f}{%
+\subsubsection{Hermite双線形形式と行列式}%\label{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux3068ux884cux5217ux5f0f}}
+\begin{dfn}
+体$\mathbb{C}$上の行列$B$が$B = \left( B_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と与えられたとき、$\forall k \in \varLambda_{n}$に対し、次のような写像$P_{k}$によるその行列$B$の像を$k$次首座小行列という。
+\begin{align*}
+P_{k}:M_{nn}\left( \mathbb{C} \right) \rightarrow M_{kk}\left( \mathbb{C} \right);B \mapsto \left( B_{ij} \right)_{(i,j) \in \varLambda_{k}^{2}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{2.3.10.6}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$のそのvector空間$V$の基底$\alpha$に関する表現行列$[ B]_{\alpha}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$が半正値であるならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+\item
+  そのHermite双線形形式$B$が正値であるならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。
+\item
+  そのHermite双線形形式$B$が半負値であるならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$( - 1)^{k}\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+\item
+  そのHermite双線形形式$B$が負値であるならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$( - 1)^{k}\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$の$\alpha = \left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$なるそのvector空間$V$の基底$\alpha$に関する表現行列$[ B]_{\alpha}$が$[ B]_{\alpha} = \left( B_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$とおかれると、そのHermite双線形形式$B$が正値であるなら、$\forall k \in \varLambda_{n}$に対し、次のようにおかれれば、
+\begin{align*}
+V_{k} = \mathrm{span}\left\{ \mathbf{v}_{i} \right\}_{i \in \varLambda_{k}},\ \ \alpha_{k} = \left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{k}}
+\end{align*}
+次のようになる。
+\begin{align*}
+\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}} = \left( B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right) \right)_{(i,j) \in \varLambda_{k}^{2}} = P_{k}\left( [ B]_{\alpha} \right)
+\end{align*}
+もちろん、そのHermite双線形形式$B|V_{k} \times V_{k}$も正値であるから、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数がそれぞれ$\pi$、$\xi$、$\nu$と$\pi + \xi + \nu = k$が成り立つようにおかれれば、定理\ref{2.3.5.22}よりそのHermite双線形形式$B|V_{k} \times V_{k}$の符号が$(k,0)$である。そのHermite双線形形式$B|V_{k} \times V_{k}$から誘導されるHermite変換$f_{B|V_{k} \times V_{k}}$の固有値たちからなる族を$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{k}}$とおくと、定理\ref{2.3.10.4}よりこれらの自然数たち$\pi$、$\xi$、$\nu$がそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しい。定理\ref{2.3.10.1}より$\mathcal{B} =\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$なるその内積空間$(V,\varPhi)$のEuclid幾何学の立場で標準的な正規直交基底$\mathcal{B}$を用いれば、これに関するそれらのHermite双線形形式、Hermite形式の表現行列たちについて、$\forall k \in \varLambda_{n}$に対し、次のようにおかれれると、
+\begin{align*}
+\mathcal{B}_{k} = \left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left[ B|V_{k} \times V_{k} \right]_{\mathcal{B}_{k}} = \left[ f_{B|V_{k} \times V_{k}} \right]_{\mathcal{B}_{k}}^{\mathcal{B}_{k}}
+\end{align*}
+したがって、定理\ref{2.1.5.7}、定理\ref{2.1.5.9}、定理\ref{2.2.2.12}、定理\ref{2.3.4.15}、定理\ref{2.3.10.3}より次のようになるので、
+\begin{align*}
+0 &< \prod_{i \in \varLambda_{k}} \lambda_{i}\\
+&= \det\left[ f_{B|V_{k} \times V_{k}} \right]_{\mathcal{B}_{k}}^{\mathcal{B}_{k}}\\
+&= \det\left[ B|V_{k} \times V_{k} \right]_{\mathcal{B}_{k}}\\
+&= \det{{\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}}^{*}\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}}\\
+&= \det{\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}}^{*}\det\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}\det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}\\
+&= \det{{}^{t}\overline{\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}}}\det\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}\det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}\\
+&= \det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}\overline{\det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}}}\det\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}\\
+&= \left| \det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}} \right|^{2}\det\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}
+\end{align*}
+$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。\par
+逆に、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つなら、$n = 1$のときでは明らかに$\det{P_{1}\left( [ B]_{\alpha} \right)} = \det[ B]_{\alpha} = B\left( \mathbf{v}_{1},\mathbf{v}_{1} \right)$が成り立つので、そのHermite双線形形式$B$が正値である。$n = l$のとき、そのHermite双線形形式$B$が正値であると仮定しよう。$n = l + 1$のとき、$\det[ B]_{\alpha} > 0$が成り立つので、定理\ref{2.3.10.1}より$[ B]_{\mathcal{B}} = \left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}$が成り立つことから、定理\ref{2.1.5.7}、定理\ref{2.1.5.9}、定理\ref{2.3.4.15}より次のようになる。
+\begin{align*}
+0 &< \det[ B]_{\alpha}\\
+&= \det{{\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}}^{*}[ B]_{\mathcal{B}}\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}}\\
+&= \det{\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}}^{*}\det[ B]_{\mathcal{B}}\det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}\\
+&= \det{{}^{t}\overline{\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}}}\det[ B]_{\mathcal{B}}\det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}\\
+&= \overline{\det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}}\det[ B]_{\mathcal{B}}\det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}}\\
+&= \left| \det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}} \right|^{2}\det[ B]_{\mathcal{B}}\\
+&= \left| \det\left[ I_{V} \right]_{\alpha}^{\mathcal{B}} \right|^{2}\det\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}}
+\end{align*}
+したがって、$\det\left[ f_{B} \right]_{\mathcal{B}}^{\mathcal{B}} \neq 0$が成り立つので、その線形写像$f_{B}$は線形同型写像でもある。また、$V = V_{l} \oplus V_{l}^{\bot}$が成り立つので、次のようになり、
+\begin{align*}
+\dim V_{l}^{\bot} &= \dim V_{l} + \dim V_{l}^{\bot} - \dim V_{l}\\
+&= \dim{V_{l} \oplus V_{l}^{\bot}} - \dim V_{l}\\
+&= \dim V - \dim V_{l}\\
+&= l + 1 - l = 1
+\end{align*}
+したがって、$\exists\mathbf{v}_{l + 1}' \in V$に対し、$\mathbf{v}_{l + 1}' \neq \mathbf{0}$かつ$V_{l}^{\bot} = \mathrm{span}\left\{ \mathbf{v}_{l + 1}' \right\}$が成り立つ。さらに、その線形写像$f_{B}$が全単射なので、$\exists f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \in V$に対し、$f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \neq \mathbf{0}$かつ$f_{B}\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right) = \mathbf{v}_{l + 1}'$が成り立つ。したがって、$\forall\mathbf{v} \in V_{l}$に対し、定理\ref{2.3.10.1}より次のようになる。
+\begin{align*}
+B\left( \mathbf{v},f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right) = \varPhi\left( \mathbf{v},f_{B}\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right) \right) = \varPhi\left( \mathbf{v},\mathbf{v}_{l + 1}' \right) = 0
+\end{align*}
+これにより、$0 < B\left( \mathbf{v},f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)$が成り立たないので、対偶律により$f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \notin V_{l}$が成り立つ。したがって、$f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \in V_{l}^{\bot}$が成り立ちその組$\left\langle \begin{matrix}
+\alpha_{l} \\ f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) &
+\end{matrix} \right\rangle$もそのvector空間$V$の基底をなす。以下、これが$\beta$とおかれよう。\par
+そこで、$\forall i,j \in \varLambda_{l + 1}$に対し、$i,j \in \varLambda_{l}$が成り立つなら、$B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right) = B_{ij}$、$i \in \varLambda_{l}$かつ$j = l + 1$が成り立つ、または、$i = l + 1$かつ$j \in \varLambda_{l}$が成り立つなら、$B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right) = 0$が成り立つので、その基底$\beta$に関するそのHermite双線形形式$B$の表現行列$[ B]_{\beta}$は次のようになる。
+\begin{align*}
+[ B]_{\beta} = \begin{pmatrix}
+\begin{matrix}
+B_{11} & B_{12} & \cdots & B_{1l} \\
+B_{21} & B_{22} & \cdots & B_{2l} \\
+ \vdots & \vdots & \ddots & \vdots \\
+B_{l1} & B_{l2} & \cdots & B_{ll} \\
+\end{matrix} & O \\
+O & B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right) \\
+\end{pmatrix}
+\end{align*}
+したがって、定理\ref{2.1.5.7}、定理\ref{2.1.5.9}、定理\ref{2.3.4.15}より次のようになるので、
+\begin{align*}
+0 &< \det[ B]_{\alpha}\\
+&= \det{{\left[ I_{V} \right]_{\alpha}^{\beta}}^{*}[ B]_{\beta}\left[ I_{V} \right]_{\alpha}^{\beta}}\\
+&= \det{\left[ I_{V} \right]_{\alpha}^{\beta}}^{*}\det[ B]_{\beta}\det\left[ I_{V} \right]_{\alpha}^{\beta}\\
+&= \det{{}^{t}\overline{\left[ I_{V} \right]_{\alpha}^{\beta}}}\det[ B]_{\beta}\det\left[ I_{V} \right]_{\alpha}^{\beta}\\
+&= \overline{\det\left[ I_{V} \right]_{\alpha}^{\beta}}\det[ B]_{\beta}\det\left[ I_{V} \right]_{\alpha}^{\beta}\\
+&= \left| \det\left[ I_{V} \right]_{\alpha}^{\beta} \right|^{2}\det[ B]_{\beta}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+0 &< \left| \begin{matrix}
+\begin{matrix}
+B_{11} & B_{12} & \cdots & B_{1l} \\
+B_{21} & B_{22} & \cdots & B_{2l} \\
+ \vdots & \vdots & \ddots & \vdots \\
+B_{l1} & B_{l2} & \cdots & B_{ll} \\
+\end{matrix} & O \\
+O & B\left( \mathbf{v}_{l + 1},\mathbf{v}_{l + 1} \right) \\
+\end{matrix} \right|\\
+&= B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)\left| \begin{matrix}
+B_{11} & B_{12} & \cdots & B_{1l} \\
+B_{21} & B_{22} & \cdots & B_{2l} \\
+ \vdots & \vdots & \ddots & \vdots \\
+B_{l1} & B_{l2} & \cdots & B_{ll} \\
+\end{matrix} \right|
+\end{align*}
+$0 < \det\left( B_{ij} \right)_{(i,j) \in \varLambda_{l}}$が成り立つので、$0 < B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)$も成り立つ。\par
+さて、$\forall\mathbf{v} \in V$に対し、$V = V_{l} \oplus V_{l}^{\bot}$が成り立つので、$\mathbf{w} \in V_{l}$かつ$a \in C$なる元々$\mathbf{w}$、$a$を用いて$\mathbf{v} = \mathbf{w} + af_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right)$と一意的に表されることができる。そこで、次のようになる。
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) &= B\left( \mathbf{w} + af_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),\mathbf{w} + af_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)\\
+&= B\left( \mathbf{w},\mathbf{w} \right) + aB\left( \mathbf{w},f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right) + \overline{a}B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),\mathbf{w} \right) \\
+&\quad + |a|^{2}B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)\\
+&= B\left( \mathbf{w},\mathbf{w} \right) + a \cdot 0 + \overline{a} \cdot 0 + |a|^{2}B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)\\
+&= B\left( \mathbf{w},\mathbf{w} \right) + |a|^{2}B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)
+\end{align*}
+$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$\mathbf{w} \neq \mathbf{0}$または$a \neq 0$が成り立つので、$0 < B\left( \mathbf{w},\mathbf{w} \right)$または$0 < |a|^{2}$が成り立ち、$0 < B\left( f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right),f_{B}^{- 1}\left( \mathbf{v}_{l + 1}' \right) \right)$が成り立つことに注意されれば、$0 < B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。よって、数学的帰納法によりそのHermite双線形形式$B$が正値であることが示された。\par
+そのHermite双線形形式$B$が半正値であるなら、次のようになり、
+\begin{align*}
+\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}} = \left( B\left( \mathbf{v}_{i},\mathbf{v}_{j} \right) \right)_{(i,j) \in \varLambda_{k}^{2}} = P_{k}\left( [ B]_{\alpha} \right)
+\end{align*}
+もちろん、そのHermite双線形形式$B|V_{k} \times V_{k}$も半正値であるから、定理\ref{2.3.5.22}よりそのHermite双線形形式$B|V_{k} \times V_{k}$の符号が$(\pi,0)$である。定理\ref{2.3.10.4}よりこれらの自然数たち$\pi$、$\xi$、$\nu$がそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しい。定理\ref{2.3.10.1}よりこれに関するそれらのHermite双線形形式、Hermite形式の表現行列たちについて、次式が成り立つ。
+\begin{align*}
+\left[ B|V_{k} \times V_{k} \right]_{\mathcal{B}_{k}} = \left[ f_{B|V_{k} \times V_{k}} \right]_{\mathcal{B}_{k}}^{\mathcal{B}_{k}}
+\end{align*}
+したがって、上記の議論と同様にして、$0 \leq \prod_{i \in \varLambda_{k}} \lambda_{i} = \left| \det\left[ I_{V_{k}} \right]_{\mathcal{B}_{k}}^{\alpha_{k}} \right|^{2}\det\left[ B|V_{k} \times V_{k} \right]_{\alpha_{k}}$が成り立つので、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。\par
+逆に、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つなら、$n = 1$のときでは明らかに$\det{P_{1}\left( [ B]_{\alpha} \right)} = \det[ B]_{\alpha} = B\left( \mathbf{v}_{1},\mathbf{v}_{1} \right)$が成り立つので、そのHermite双線形形式$B$が半正値である。$n = l$のとき、そのHermite双線形形式$B$が正値であると仮定しよう。$n = l + 1$のとき、$\det[ B]_{\alpha} > 0$が成り立つなら、定理\ref{2.1.11.15}よりその行列$[ B]_{\alpha}$は正則行列なので、再び定理\ref{2.1.11.15}より$\mathrm{rank}[ B]_{\alpha} = l + 1$が成り立つ。定理\ref{2.1.11.19}より$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \neq 0$が成り立つので、$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。上記の議論によりそのHermite双線形形式$B$は正値なので、これは半正値でもある。\par
+$\det[ B]_{\alpha}= 0$が成り立つなら、$\mathrm{rank}{P_{k}\left( [ B]_{\alpha} \right)} < l + 1$が成り立つので、$r = \mathrm{rank}{P_{k}\left( [ B]_{\alpha} \right)}$とおかれると、$\forall k \in \varLambda_{r}$に対し、定理\ref{2.1.11.15}より$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立ち、上記の議論により、そのHermite双線形形式$B|V_{k} \times V_{k}$が正値である。さらに、$\forall k \in \varLambda_{l + 1} \setminus \varLambda_{r}$に対し、定理\ref{2.1.11.15}より$\det\left( B_{ij} \right)_{(i,j) \in \varLambda_{r} \cup \left\{ k \right\}} = 0$が成り立つ。$V = V_{r} \oplus V_{r}^{\bot}$が成り立ち、そこで、次のようになることから、
+\begin{align*}
+\dim V_{r}^{\bot} &= \dim V_{r} + \dim V_{r}^{\bot} - \dim V_{r}\\
+&= \dim{V_{r} \oplus V_{r}^{\bot}} - \dim V_{r}\\
+&= \dim V - \dim V_{r}\\
+&= l + 1 - r = l - r + 1
+\end{align*}
+その直交空間$V_{r}^{\bot}$の直交基底$\left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{l - r + 1}}$を用いて、$\beta = \left\langle \begin{matrix}
+\alpha_{r} & \left\langle \mathbf{w}_{i} \right\rangle_{i \in \varLambda_{l - r + 1}} \\
+\end{matrix} \right\rangle = \left\langle \mathbf{v}_{i}' \right\rangle_{i \in \varLambda_{l + 1}}$とおかれると、定理\ref{2.2.1.5}よりこれはそのvector空間$V$の基底で、$\forall i \in \varLambda_{r}\forall j \in \varLambda_{l + 1} \setminus \varLambda_{r}$に対し、$B\left( \mathbf{v}_{i}',\mathbf{v}_{j}' \right) = 0$が成り立ち、$\forall i \in \varLambda_{l + 1} \setminus \varLambda_{r}\forall j \in \varLambda_{r}$に対し、$B\left( \mathbf{v}_{i}',\mathbf{v}_{j}' \right) = 0$が成り立つので、$\forall k \in \varLambda_{l + 1} \setminus \varLambda_{r}$に対し、次のようにおかれれば、
+\begin{align*}
+[ B]_{\beta} = \left( B_{ij}' \right)_{(i,j) \in \varLambda_{l + 1}^{2}},\ \ V_{k}' = \mathrm{span}{\left\{ \mathbf{v}_{i}' \right\}_{i \in \varLambda_{r}} \cup \left\{ \mathbf{v}_{k}' \right\}},\ \ \alpha_{k}' = \left\langle \begin{matrix}
+\alpha_{r} & \mathbf{v}_{k}' \\
+\end{matrix} \right\rangle,\ \ \beta_{k}' = \left\langle \begin{matrix}
+\alpha_{r} & \mathbf{v}_{k}' \\
+\end{matrix} \right\rangle
+\end{align*}
+次のようになる。
+\begin{align*}
+0 &= \det\left( B_{ij} \right)_{(i,j) \in \varLambda_{r} \cup \left\{ k \right\}}\\
+&= \det[ B]_{\alpha_{k}'}\\
+&= \det{{\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}}^{*}[ B]_{\beta_{k}'}\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}}\\
+&= \det{\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}}^{*}\det[ B]_{\beta_{k}'}\det\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}\\
+&= \det{{}^{t}\overline{\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}}}\det[ B]_{\beta_{k}'}\det\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}\\
+&= \overline{\det\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}}\det[ B]_{\beta_{k}'}\det\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'}\\
+&= \left| \det\left[ I_{V_{k}'} \right]_{\alpha_{k}'}^{\beta_{k}'} \right|^{2}\det[ B]_{\beta_{k}'}
+\end{align*}
+そこで、次のようになるので、
+\begin{align*}
+\det[ B]_{\beta_{k}'} &= \left| \begin{matrix}
+B_{11}' & \cdots & B_{1r}' & B_{1k}' \\
+ \vdots & \ddots & \vdots & \vdots \\
+B_{r1}' & \cdots & B_{rr}' & B_{rk}' \\
+B_{k1}' & \cdots & B_{kr}' & B_{kk}' \\
+\end{matrix} \right|\\
+&= \left| \begin{matrix}
+B_{11} & \cdots & B_{1r} & 0 \\
+ \vdots & \ddots & \vdots & \vdots \\
+B_{r1} & \cdots & B_{rr} & 0 \\
+0 & \cdots & 0 & B_{kk}' \\
+\end{matrix} \right|\\
+&= \left| \begin{matrix}
+\begin{matrix}
+B_{11} & \cdots & B_{1r} \\
+ \vdots & \ddots & \vdots \\
+B_{r1} & \cdots & B_{rr} \\
+\end{matrix} & O \\
+O & B_{kk}' \\
+\end{matrix} \right|\\
+&= B_{kk}'\left| \begin{matrix}
+B_{11} & \cdots & B_{1r} \\
+ \vdots & \ddots & \vdots \\
+B_{r1} & \cdots & B_{rr} \\
+\end{matrix} \right|
+\end{align*}
+次式が成り立つことに注意すれば、
+\begin{align*}
+0 < \left| \det\left[ I_{V} \right]_{\alpha}^{\beta} \right|^{2},\ \ 0 < \left| \begin{matrix}
+B_{11} & \cdots & B_{1r} \\
+ \vdots & \ddots & \vdots \\
+B_{r1} & \cdots & B_{rr} \\
+\end{matrix} \right|
+\end{align*}
+$B_{kk}' = B\left( \mathbf{v}_{k}',\mathbf{v}_{k}' \right) = 0$が成り立つので、$\forall\mathbf{w} \in V_{r}^{\bot}$に対し、$\mathbf{w} = \sum_{i \in \varLambda_{l - r + 1}} {a_{i}\mathbf{w}_{i}}$とおかれれば、次のようになる。
+\begin{align*}
+B\left( \mathbf{w},\mathbf{w} \right) &= B\left( \sum_{i \in \varLambda_{l - r + 1}} {a_{i}\mathbf{w}_{i}},\sum_{i \in \varLambda_{l - r + 1}} {a_{i}\mathbf{w}_{i}} \right)\\
+&= \sum_{i,j \in \varLambda_{l - r + 1}} {\overline{a_{i}}a_{j}B\left( \mathbf{w}_{i},\mathbf{w}_{j} \right)}\\
+&= \sum_{\scriptsize \begin{matrix} i,j \in \varLambda_{l - r + 1} \\i = j \\\end{matrix}} {\overline{a_{i}}a_{j}B\left( \mathbf{w}_{i},\mathbf{w}_{j} \right)} + \sum_{\scriptsize \begin{matrix} i,j \in \varLambda_{l - r + 1} \\i \neq j \\\end{matrix}} {\overline{a_{i}}a_{j}B\left( \mathbf{w}_{i},\mathbf{w}_{j} \right)}\\
+&= \sum_{k \in \varLambda_{l + 1} \setminus \varLambda_{r}} {\left| a_{r + k} \right|^{2}B\left( \mathbf{v}_{k}',\mathbf{v}_{k}' \right)} + \sum_{\scriptsize \begin{matrix}i,j \in \varLambda_{l + 1} \setminus \varLambda_{r} \\
+i \neq j \\\end{matrix}} {\overline{a_{r + i}}a_{r + j}B\left( \mathbf{v}_{i}',\mathbf{v}_{j}' \right)}\\
+&= \sum_{k \in \varLambda_{l + 1} \setminus \varLambda_{r}} {\left| a_{r + k} \right|^{2} \cdot 0} + \sum_{\scriptsize \begin{matrix}i,j \in \varLambda_{l + 1} \setminus \varLambda_{r} \\
+i \neq j \\\end{matrix}} {\overline{a_{r + i}}a_{r + j} \cdot 0} = 0
+\end{align*}
+したがって、$\forall\mathbf{v} \in V$に対し、$V = V_{r} \oplus V_{r}^{\bot}$が成り立つので、$\mathbf{u} \in V_{r}$、$\mathbf{w} \in V_{r}^{\bot}$なるvectors$\mathbf{u}$、$\mathbf{w}$を用いて$\mathbf{v} = \mathbf{u} + \mathbf{w}$と一意的に表されることができて次のようになる。
+\begin{align*}
+B\left( \mathbf{v},\mathbf{v} \right) &= B\left( \mathbf{u} + \mathbf{w},\mathbf{u} + \mathbf{w} \right)\\
+&= B\left( \mathbf{u},\mathbf{u} \right) + B\left( \mathbf{u},\mathbf{w} \right) + B\left( \mathbf{w},\mathbf{u} \right) + B\left( \mathbf{w},\mathbf{w} \right)\\
+&= B\left( \mathbf{u},\mathbf{u} \right) + 0 + 0 + B\left( \mathbf{w},\mathbf{w} \right)\\
+&= B\left( \mathbf{u},\mathbf{u} \right) + B\left( \mathbf{w},\mathbf{w} \right)\\
+&= B\left( \mathbf{u},\mathbf{u} \right)
+\end{align*}
+$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$\mathbf{u} \neq \mathbf{0}$または$\mathbf{w} \neq \mathbf{0}$が成り立つので、$0 < B\left( \mathbf{u},\mathbf{u} \right)$または$0 = B\left( \mathbf{v},\mathbf{v} \right)$が成り立ち$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。よって、数学的帰納法によりそのHermite双線形形式$B$が半正値であることが示された。\par
+そのHermite双線形形式$B$が負値であるならそのときに限り、そのHermite双線形形式$- B$が正値である。これが成り立つならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( - [ B]_{\alpha} \right)} > 0$が成り立つ。これが成り立つならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$( - 1)^{k}\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。\par
+そのHermite双線形形式$B$が半負値であるならそのときに限り、そのHermite双線形形式$- B$が半正値である。これが成り立つならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( - [ B]_{\alpha} \right)} \geq 0$が成り立つ。これが成り立つならそのときに限り、$\forall k \in \varLambda_{n}$に対し、$( - 1)^{k}\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+\end{proof}
+%\hypertarget{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux7b26ux53f7ux306bux95a2ux3059ux308bux5b9aux7406}{%
+\subsubsection{Hermite双線形形式の符号に関する定理}%\label{hermiteux53ccux7ddaux5f62ux5f62ux5f0fux306eux7b26ux53f7ux306bux95a2ux3059ux308bux5b9aux7406}}\par
+ここで、体$\mathbb{C}$上の$n$次元内積空間$(V,\varPhi)$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$の符号に関する議論をまとめたものを定理として掲げておこう。
+\begin{thm}[Hermite双線形形式の符号に関する定理]\label{2.3.10.7}
+体$\mathbb{C}$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、定理\ref{2.3.4.3}より$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{v} \right) \in \mathbb{R}$が成り立つ。このことに注意すれば、そのHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B}=\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$と、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数が$\pi + \xi + \nu = n$が成り立つようにそれぞれ$\pi$、$\xi$、$\nu$とおかれ、そのHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族が$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$と、そのHermite双線形形式$B$のそのvector空間$V$の基底$\alpha$に関する表現行列が$[ B]_{\alpha}$とおかれれば、そのHermite双線形形式$B$の符号$(\pi,\nu)$について、これらの自然数たち$\pi$、$n - \pi - \nu$、$\nu$はそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しく、さらに、次のことが成り立つ。
+\begin{itemize}
+\item
+  次のことは同値である。
+  \begin{itemize}
+  \item
+    そのHermite双線形形式$B$は半正値である。
+  \item
+    $\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+  \item
+    そのHermite双線形形式$B$の符号が$(\pi,0)$である。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 \leq \lambda_{i}$が成り立つ。
+  \item
+    $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+  \end{itemize}
+\item
+  次のことは同値である。
+  \begin{itemize}
+  \item
+    そのHermite双線形形式$B$は正値である。
+  \item
+    $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 < B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+  \item
+    そのHermite双線形形式$B$の符号が$(n,0)$である。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 < \lambda_{i}$が成り立つ。
+  \item
+    $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。
+  \end{itemize}
+\item
+  次のことは同値である。
+  \begin{itemize}
+  \item
+    そのHermite双線形形式$B$は半負値である。
+  \item
+    $\forall\mathbf{v} \in V$に対し、$0 \geq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 \geq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+  \item
+    そのHermite双線形形式$B$の符号が$(0,\nu)$である。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 \geq \lambda_{i}$が成り立つ。
+  \item
+    $\forall k \in \varLambda_{n}$に対し、$(-1)^{k} \det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+  \end{itemize}
+\item
+  次のことは同値である。
+  \begin{itemize}
+  \item
+    そのHermite双線形形式$B$は負値である。
+  \item
+    $\forall\mathbf{v} \in V$に対し、$\mathbf{v} \neq \mathbf{0}$が成り立つなら、$0 > B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+  \item
+    そのHermite双線形形式$B$の符号が$(0,n)$である。
+  \item
+    $\forall i \in \varLambda_{n}$に対し、$0 > \lambda_{i}$が成り立つ。
+  \item
+    $\forall k \in \varLambda_{n}$に対し、$(-1)^{k} \det{P_{k}\left( [ B]_{\alpha} \right)} > 0$が成り立つ。
+  \end{itemize}
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$\mathbb{C}$上の$n$次元vector空間$V$が与えられたとき、そのvector空間$V$上の任意のHermite双線形形式$B$について、定理\ref{2.3.4.3}より$\forall\mathbf{v} \in V$に対し、$B\left( \mathbf{v},\mathbf{v} \right) \in \mathbb{R}$が成り立つ。このことに注意すれば、そのHermite双線形形式$B$に関する直交基底$\mathcal{B}$が$\mathcal{B} =\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$と、$0 < B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 = B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$、$0 > B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$なる添数$i$の個数が$\pi + \xi + \nu = n$が成り立つようにそれぞれ$\pi$、$\xi$、$\nu$とおかれ、そのHermite双線形形式$B$から誘導されるHermite変換$f_{B}$の固有値たちからなる族が$\left\{ \lambda_{i} \right\}_{i \in \varLambda_{n}}$と、そのHermite双線形形式$B$のそのvector空間$V$の基底$\alpha$に関する表現行列が$[ B]_{\alpha}$とおかれれば、定理\ref{2.3.10.4s}よりそのHermite双線形形式$B$の符号$(\pi,\nu)$について、これらの自然数たち$\pi$、$n - \pi - \nu$、$\nu$はそれぞれ$\lambda_{i} > 0$、$\lambda_{i} = 0$、$\lambda_{i} < 0$なる固有値たち$\lambda_{i}$の個数に等しく、さらに、定義より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+\end{itemize}
+さらに、定理\ref{2.3.5.18}より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  $\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\end{itemize}
+定理\ref{2.3.5.22}より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  そのHermite双線形形式$B$の符号が$(\pi,0)$である。
+\end{itemize}
+定理\ref{2.3.10.4s}より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  $\forall i \in \varLambda_{n}$に対し、$0 \leq \lambda_{i}$が成り立つ。
+\end{itemize}
+定理\ref{2.3.10.6}より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+\end{itemize}
+以上より次のことは同値である。
+\begin{itemize}
+\item
+  そのHermite双線形形式$B$は半正値である。
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \leq B\left( \mathbf{v},\mathbf{v} \right)$が成り立つ。
+\item
+  $\forall i \in \varLambda_{n}$に対し、$0 \leq B\left( \mathbf{v}_{i},\mathbf{v}_{i} \right)$が成り立つ。
+\item
+  そのHermite双線形形式$B$の符号が$(\pi,0)$である。
+\item
+  $\forall i \in \varLambda_{n}$に対し、$0 \leq \lambda_{i}$が成り立つ。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}\left( [ B]_{\alpha} \right)} \geq 0$が成り立つ。
+\end{itemize}
+他の場合も同様にして示される。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p376-387 ISBN978-4-00-029872-8
+\end{thebibliography}
+\end{document}

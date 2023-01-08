@@ -1,0 +1,260 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{1}
+\usepackage{xr}
+\externaldocument{2.3.1}
+\input{macro}
+\begin{document}
+%\hypertarget{nux6b21ux5143l_p-normux7a7aux9593}{%
+\subsection{$n$次元$l_{p}$-norm空間}%\label{nux6b21ux5143l_p-normux7a7aux9593}}
+%\hypertarget{nux6b21ux5143l_p-normux7a7aux9593-1}{%
+\subsubsection{$n$次元$l_{p}$-norm空間}%\label{nux6b21ux5143l_p-normux7a7aux9593-1}}
+\begin{thm}\label{2.3.2.1}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$のとき、次式のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:K^{n} \rightarrow \mathbb{R};\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( K^{n},\varphi_{p} \right)$はnorm空間をなす。
+\end{thm}
+\begin{dfn}
+上で定義されたnorm空間$\left( K^{n},\varphi_{p} \right)$をその体$K$上の$n$次元vector空間$K^{n}$から誘導される$n$次元$l_{p}$-norm空間という。
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$のとき、次式のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:K^{n} \rightarrow \mathbb{R};\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、$0 \leq \left| a_{i} \right|$が成り立つので、$1 \leq p$に注意すれば、次のようになる。
+\begin{align*}
+\forall i \in \varLambda_{n}\left[ 0 \leq \left| a_{i} \right| \right] &\Leftrightarrow \forall i \in \varLambda_{n}\left[ 0 \leq \left| a_{i} \right|^{p} \right]\\
+&\Rightarrow 0 \leq \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}\\
+&\Leftrightarrow 0 \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+よって、$0 \leq \varphi_{p}\left( \mathbf{a} \right)$が成り立つ。\par
+$\forall\mathbf{a} \in K^{n}$に対し、定理\ref{2.3.1.7}より$\varphi_{p}\left( \mathbf{a} \right) = 0$が成り立つならそのときに限り、$\mathbf{a} = \mathbf{0}$が成り立つ。\par
+$\forall k \in K\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\varphi_{p}\left( k\mathbf{a} \right) &= \left( \sum_{i \in \varLambda_{n}} \left| ka_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&= \left( |k|^{p}\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&= |k|\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&= |k|\varphi_{p}\left( \mathbf{a} \right)
+\end{align*}
+したがって、$\varphi_{p}\left( k\mathbf{a} \right) = |k|\varphi_{p}\left( \mathbf{a} \right)$が成り立つ。\par
+$\forall\mathbf{a},\mathbf{b} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{b} = \left( b_{i} \right)_{i \in \varLambda_{n}}$とおくと、定理\ref{2.3.1.9}、即ち、Minkowskiの不等式より次のようになる。
+\begin{align*}
+\varphi_{p}\left( \mathbf{a} + \mathbf{b} \right) &= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} + b_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \mathbf{a} \right) + \varphi_{p}\left( \mathbf{b} \right)
+\end{align*}
+したがって、$\varphi_{p}\left( \mathbf{a} + \mathbf{b} \right) \leq \varphi_{p}\left( \mathbf{a} \right) + \varphi_{p}\left( \mathbf{b} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.3.2.2}
+$n$次元数空間$\mathbb{R}^{n}$における$n$次元$l_{2}$-norm空間から誘導される距離空間$\left( \mathbb{R}^{n},d_{\varphi_{2}} \right)$は$n$次元Euclid空間$E^{n}$となる。
+\end{thm}
+\begin{proof}
+定理\ref{2.3.2.1}のnormの定め方により直ちにわかる。
+\end{proof}
+\begin{thm}\label{2.3.2.3}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、$\forall p,q \in \mathbb{R}$に対し、$1 \leq p \leq q$のとき、$\varphi_{q} \leq \varphi_{p}$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、$\forall p,q \in \mathbb{R}$に対し、$1 \leq p \leq q$が成り立つとすると、$\forall a \in \mathbb{R}$に対し、$0 \leq a \leq 1$が成り立つなら、$a^{q} \leq a^{p}$が成り立つので、$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つことに注意すれば、
+\begin{align*}
+\left| a_{i} \right| = \left( \left| a_{i} \right|^{p} \right)^{\frac{1}{p}} \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}
+\end{align*}
+次のようになる。
+\begin{align*}
+\left( \frac{\left| a_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}} \right)^{q} \leq \left( \frac{\left| a_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}} \right)^{p} &\Leftrightarrow \frac{\left| a_{i} \right|^{q}}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{q}{p}}} \leq \frac{\left| a_{i} \right|^{p}}{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}}\\
+&\Rightarrow \frac{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{q}}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{q}{p}}} \leq \frac{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}}{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}} = 1\\
+&\Leftrightarrow \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{q} \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{q}{p}}\\
+&\Leftrightarrow \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{q} \right)^{\frac{1}{q}} \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&\Leftrightarrow \varphi_{q}\left( \mathbf{a} \right) \leq \varphi_{p}\left( \mathbf{a} \right)
+\end{align*}
+よって、$\varphi_{q} \leq \varphi_{p}$が成り立つ。
+\end{proof}
+\subsubsection{一様norm空間}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、次式のような写像$\varphi_{C}$をここではその$n$次元vector空間$K^{n}$における一様normということにする。
+\end{dfn}
+\begin{align*}
+\varphi_{C}:K^{n} \rightarrow \mathbb{R};\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}} \mapsto \max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}}
+\end{align*}
+\begin{thm}\label{2.3.2.4}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、これにおける一様norm$\varphi_{C}$を用いた組$\left( K^{n},\varphi_{C} \right)$はnorm空間をなす。
+\end{thm}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、norm空間$\left( K^{n},\varphi_{D_{C}} \right)$が構成されることができる。このようにして得られたnorm空間$\left( K^{n},\varphi_{C} \right)$をここではその$n$次元vector空間$K^{n}$における一様norm空間ということにする。
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、これにおける一様norm$\varphi_{C}$を用いた組$\left( K^{n},\varphi_{C} \right)$において、$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、定義より直ちに$0 \leq \varphi_{C}\left( \mathbf{a} \right)$が成り立つことがわかる。\par
+$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、$\varphi_{C}\left( \mathbf{a} \right) = 0$が成り立つなら、$\forall i \in \varLambda_{n}$に対し、$\left| a_{i} \right| = 0$が成り立つ、即ち、$a_{i} = 0$が成り立つので、$\mathbf{a} = \mathbf{0}$が成り立つ。逆は明らかである。\par
+$\forall\mathbf{a} \in K^{n}\forall k \in K$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\varphi_{C}\left( k\mathbf{a} \right) &= \max\left\{ \left| ka_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&= |k|\max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&= |k|\varphi_{C}\left( \mathbf{a} \right)
+\end{align*}\par
+$\forall\mathbf{a},\mathbf{b} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{b} = \left( b_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになり、
+\begin{align*}
+\varphi_{C}\left( \mathbf{a} + \mathbf{b} \right) = \max\left\{ \left| a_{i} + b_{i} \right| \right\}_{i \in \varLambda_{n}}
+\end{align*}
+ここで、$\forall i \in \varLambda_{n}$に対し、次式が成り立つので、
+\begin{align*}
+\left| a_{i} + b_{i} \right| \leq \left| a_{i} \right| + \left| b_{i} \right|
+\end{align*}
+次のようになる。
+\begin{align*}
+\varphi_{C}\left( \mathbf{a} + \mathbf{b} \right) &= \max\left\{ \left| a_{i} + b_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&\leq \max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}} + \max\left\{ \left| b_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&= \varphi_{C}\left( \mathbf{a} \right) + \varphi_{C}\left( \mathbf{b} \right)
+\end{align*}\par
+よって、その組$\left( K^{n},\varphi_{C} \right)$はnorm空間をなす。
+\end{proof}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、これにおける一様norm空間$\left( K^{n},\varphi_{C} \right)$から誘導される距離空間$\left( K^{n},d_{\varphi_{C}} \right)$をその$n$次元vector空間$K^{n}$におけるChebyshev距離空間という。また、その距離関数$d_{\varphi_{C}}$をその$n$次元vector空間$K^{n}$におけるChebyshev距離関数という。
+\end{dfn}
+\begin{thm}\label{2.3.2.5}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いた一様norm空間$\left( K^{n},\varphi_{C} \right)$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$において、$\varphi_{C} \leq \varphi_{p}$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いた一様norm空間$\left( K^{n},\varphi_{C} \right)$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$において、$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、次のようになる。
+\begin{align*}
+\varphi_{C}\left( \mathbf{a} \right) &= \max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&= \left( \max\left\{ \left| a_{i} \right|^{p} \right\}_{i \in \varLambda_{n}} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \mathbf{a} \right)
+\end{align*}
+よって、$\varphi_{C} \leq \varphi_{p}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.3.2.6}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いた一様norm空間$\left( K^{n},\varphi_{C} \right)$が与えられたとき、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$において、$\lim_{p \rightarrow \infty}\varphi_{p} = \varphi_{C}$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いた一様norm空間$\left( K^{n},\varphi_{C} \right)$が与えられたとき、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$において、$\forall\mathbf{a} \in K^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、定理\ref{2.3.2.5}より次のようになる。
+\begin{align*}
+\varphi_{C}\left( \mathbf{a} \right) &\leq \varphi_{p}\left( \mathbf{a} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} \left( \max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}} \right)^{p} \right)^{\frac{1}{p}}\\
+&= \left( {n\left( \max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= n^{\frac{1}{p}}\max\left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n}}\\
+&= n^{\frac{1}{p}}\varphi_{C}\left( \mathbf{a} \right)
+\end{align*}
+ここで、はさみうちの原理より$p \rightarrow \infty$のとき、$n^{\frac{1}{p}} \rightarrow 1$となるので、$\varphi_{C}\left( \mathbf{a} \right) = \varphi_{p}\left( \mathbf{a} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.3.2.7}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いたChebyshev距離空間$\left( K^{n},d_{\varphi_{C}} \right)$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$から誘導される距離空間$\left( K^{n},d_{\varphi_{p}} \right)$において、そのvector空間$K^{n}$の任意の元の列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、$\lim_{m \rightarrow \infty}{d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つならそのときに限り、$\lim_{m \rightarrow \infty}{d_{\varphi_{C}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$を用いたChebyshev距離空間$\left( K^{n},d_{\varphi_{C}} \right)$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$から誘導される距離空間$\left( K^{n},d_{\varphi_{p}} \right)$において、そのvector空間$K^{n}$の任意の元の列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、$\lim_{m \rightarrow \infty}{d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$m_{0} \leq m$が成り立つなら、$d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right) < \varepsilon$が成り立つ。ここで、定理\ref{2.3.2.5}より次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right) < \varepsilon &\Leftrightarrow \varphi_{p}\left( \mathbf{a} - \mathbf{a}_{m} \right) < \varepsilon\\
+&\Leftrightarrow \varphi_{C}\left( \mathbf{a} - \mathbf{a}_{m} \right) \leq \varphi_{p}\left( \mathbf{a} - \mathbf{a}_{m} \right) < \varepsilon\\
+&\Rightarrow \varphi_{C}\left( \mathbf{a} - \mathbf{a}_{m} \right) < \varepsilon\\
+&\Leftrightarrow d_{\varphi_{C}}\left( \mathbf{a}_{m},\mathbf{a} \right) < \varepsilon
+\end{align*}
+よって、$\lim_{m \rightarrow \infty}{d_{\varphi_{C}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つ。\par
+逆に、$\lim_{m \rightarrow \infty}{d_{\varphi_{C}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$m_{0} \leq m$が成り立つなら、$d_{\varphi_{C}}\left( \mathbf{a}_{m},\mathbf{a} \right) < \varepsilon$が成り立つ。$\mathbf{a}_{m} = \left( a_{im} \right)_{i \in \varLambda_{n}}$、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、したがって、次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right) &= \varphi_{p}\left( \mathbf{a} - \mathbf{a}_{m} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} - a_{im} \right|^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} \left( \max\left\{ \left| a_{i} - a_{im} \right| \right\}_{i \in \varLambda_{n}} \right)^{p} \right)^{\frac{1}{p}}\\
+&= \left( n\left( \max\left\{ \left| a_{i} - a_{im} \right| \right\}_{i \in \varLambda_{n}} \right)^{p} \right)^{\frac{1}{p}}\\
+&= n^{\frac{1}{p}}\max\left\{ \left| a_{i} - a_{im} \right| \right\}_{i \in \varLambda_{n}} < n^{\frac{1}{p}}\varepsilon
+\end{align*}
+よって、$\lim_{m \rightarrow \infty}{d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.3.2.8}
+$K \subseteq \mathbb{C}$なる体$K$上の$n$次元vector空間$K^{n}$が与えられたとき、$\forall p,q \in \mathbb{R}$に対し、$1 \leq p$かつ$1 \leq q$が成り立つなら、その体$K$上の$n$次元vector空間$K^{n}$における$n$次元$l_{p}$-norm空間$\left( K^{n},\varphi_{p} \right)$から誘導される距離空間$\left( K^{n},d_{\varphi_{p}} \right)$、$n$次元$l_{q}$-norm空間$\left( K^{n},\varphi_{q} \right)$から誘導される距離空間$\left( K^{n},d_{\varphi_{q}} \right)$において、そのvector空間$K^{n}$の任意の元の列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、$\lim_{m \rightarrow \infty}{d_{\varphi_{p}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つならそのときに限り、$\lim_{m \rightarrow \infty}{d_{\varphi_{q}}\left( \mathbf{a}_{m},\mathbf{a} \right)} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+定理\ref{2.3.2.7}より直ちにわかる。
+\end{proof}
+%\hypertarget{nux6b21ux5143l_p-normux7a7aux9593ux3068banachux7a7aux9593}{%
+\subsubsection{$n$次元$l_{p}$-norm空間とBanach空間}%\label{nux6b21ux5143l_p-normux7a7aux9593ux3068banachux7a7aux9593}}\par
+これから述べる$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$n$次元数空間$\mathbb{R}^{n}$における$n$次元$l_{p}$-norm空間$\left( \mathbb{R}^{n},\varphi_{p} \right)$はBanach空間であることを示すのに必要な概念たちや定理たちをまず挙げておこう。
+\begin{dfn}[一様連続写像]
+2つの距離空間たち$(S,d)$、$(T,e)$とこれらの間の写像$f:S \rightarrow T$が与えられたとする。$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}\forall a,b \in S$に対し、$d(a,b) < \delta$が成り立つなら、$e\left( f(a),f(b) \right) < \varepsilon$が成り立つとき、その写像$f$はその距離空間$(S,d)$からその距離空間$(T,e)$へ一様連続であるといいこのような写像を一様連続写像という。
+\end{dfn}
+\begin{dfn}[一様同相写像]
+2つの距離空間たち$(S,d)$、$(T,e)$とこれらの間の写像$f:S \rightarrow T$が与えられたとする。この写像$f$が全単射であるかつ、それらの写像たち$f$、$f^{- 1}$がどちらも一様連続であるとき、その写像$f$をその距離空間$(S,d)$からその距離空間$(T,e)$への一様同相写像、一様位相写像などという。
+\end{dfn}
+\begin{dfn}[一様同相]
+2つの距離空間たち$(S,d)$、$(T,e)$が与えられたとき、これらの間に一様同相写像が存在するとき、これらの距離空間たち$(S,d)$、$(T,e)$は一様同相である、一様同位相であるなどといい、ここでは、$(S,d) \approx_{U}(T,e)$と書くことにする。
+\end{dfn}
+\begin{thm}
+その関係$\approx_{U}$は同値関係である、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  その関係$\approx_{U}$は反射的である、即ち、$(S,d) \approx_{U}(S,d)$が成り立つ。
+\item
+  その関係$\approx_{U}$は対称的である、即ち、$(S,d) \approx_{U}(T,e)$が成り立つなら、$(T,e) \approx_{U}(S,d)$が成り立つ。
+\item
+  その関係$\approx_{U}$は推移的である、即ち、$(R,c) \approx_{U}(S,d)$が成り立つかつ、$(S,d) \approx_{U}(T,e)$が成り立つなら、$(R,c) \approx_{U}(T,e)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{thm}
+完備距離空間$\left( S^{*},d^{*} \right)$に一様同相な距離空間$(S,d)$は完備である。
+\end{thm}\par
+ここで、同相であるのみの場合では、成り立たない場合があることに注意されたい。
+\begin{thm}\label{8.2.5.9}
+$n$次元Euclid空間$E^{n}$は完備である。
+\end{thm}\par
+さて、下準備が終わったので、本題を述べよう。
+\begin{thm}\label{2.3.2.9}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$n$次元数空間$\mathbb{R}^{n}$における$n$次元$l_{p}$-norm空間$\left( \mathbb{R}^{n},\varphi_{p} \right)$から誘導される距離空間$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$とその$n$次元数空間$\mathbb{R}^{n}$を用いたChebyshev距離空間$\left( K^{n},d_{\varphi_{C}} \right)$は一様同相である。
+\end{thm}
+\begin{proof}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$n$次元数空間$\mathbb{R}^{n}$における$n$次元$l_{p}$-norm空間$\left( \mathbb{R}^{n},\varphi_{p} \right)$から誘導される距離空間$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$とその$n$次元数空間$\mathbb{R}^{n}$を用いたChebyshev距離空間$\left( \mathbb{R}^{n},d_{\varphi_{C}} \right)$において、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\delta = \varepsilon$とおけば、たしかに、正の実数$\delta$が存在して、$\forall\mathbf{a},\mathbf{b} \in \mathbb{R}^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{b} = \left( b_{i} \right)_{i \in \varLambda_{n}}$とおくと、$d_{\varphi_{p}}\left( \mathbf{a},\mathbf{b} \right) < \delta$が成り立つなら、次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \mathbf{a},\mathbf{b} \right) < \delta &\Leftrightarrow \left( \sum_{i \in \varLambda_{n}} \left| b_{i} - a_{i} \right|^{p} \right)^{\frac{1}{p}} < \delta\\
+&\Leftrightarrow {\max\left\{ \left| b_{i} - a_{i} \right| \right\}}^{p} \leq \sum_{i \in \varLambda_{n}} \left| b_{i} - a_{i} \right|^{p} < \delta^{p}\\
+&\Rightarrow \max\left\{ \left| b_{i} - a_{i} \right| \right\} < \delta\\
+&\Leftrightarrow d_{\varphi_{C}}\left( \mathbf{a},\mathbf{b} \right) < \delta = \varepsilon
+\end{align*}
+以上より、その恒等写像$I_{\mathbb{R}^{n}}$はその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$からその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{C}} \right)$へ一様連続である。\par
+逆に、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\delta = n^{- \frac{1}{p}}\varepsilon$とおけば、たしかに、正の実数$\delta$が存在して、$\forall\mathbf{a},\mathbf{b} \in \mathbb{R}^{n}$に対し、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{b} = \left( b_{i} \right)_{i \in \varLambda_{n}}$とおくと、$d_{\varphi_{C}}\left( \mathbf{a},\mathbf{b} \right) < \delta$が成り立つなら、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+d_{\varphi_{C}}\left( \mathbf{a},\mathbf{b} \right) < \delta &\Leftrightarrow \left| b_{i} - a_{i} \right| \leq \max\left\{ \left| b_{i} - a_{i} \right| \right\} < \delta\\
+&\Rightarrow \left| b_{i} - a_{i} \right|^{p} < \delta^{p}\\
+&\Rightarrow \sum_{i \in \varLambda_{n}} \left| b_{i} - a_{i} \right|^{p} < \sum_{i \in \varLambda_{n}} \delta^{p} = n\delta^{p}\\
+&\Leftrightarrow \left( \sum_{i \in \varLambda_{n}} \left| b_{i} - a_{i} \right|^{p} \right)^{\frac{1}{p}} < n^{\frac{1}{p}}\delta\\
+&\Leftrightarrow d_{\varphi_{p}}\left( \mathbf{a},\mathbf{b} \right) < n^{\frac{1}{p}}\delta = \varepsilon
+\end{align*}
+以上より、その恒等写像$I_{\mathbb{R}^{n}}$はその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{C}} \right)$からその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$へ一様連続である。\par
+これにより、その恒等写像$I_{\mathbb{R}^{n}}$はその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$からその距離空間$\left( \mathbb{R}^{n},d_{\varphi_{C}} \right)$への一様同相写像なので、これらの距離空間たち$\left( \mathbb{R}^{n},d_{\varphi_{p}} \right)$、$\left( \mathbb{R}^{n},d_{\varphi_{C}} \right)$は一様同相である。
+\end{proof}
+\begin{thm}\label{2.3.2.10}
+$n$次元Euclid空間$E^{n}$とその$n$次元数空間$\mathbb{R}^{n}$を用いたChebyshev距離空間$\left( K^{n},d_{\varphi_{C}} \right)$は一様同相である。
+\end{thm}
+\begin{proof}
+定理\ref{2.3.2.2}と定理\ref{2.3.2.9}より明らかである。
+\end{proof}
+\begin{thm}\label{2.3.2.11}
+$n$次元数空間$\mathbb{R}^{n}$における一様norm空間$\left( \mathbb{R}^{n},\varphi_{C} \right)$はBanach空間である。
+\end{thm}
+\begin{proof}
+$n$次元Euclid空間$E^{n}$は完備であるので、完備距離空間$\left( S^{*},d^{*} \right)$に一様同相な距離空間$(S,d)$は完備であることにより、その$n$次元Euclid空間$E^{n}$に一様同相な距離空間は完備となる。したがって、定理\ref{2.3.2.10}よりその$n$次元数空間$\mathbb{R}^{n}$における一様norm空間$\left( \mathbb{R}^{n},\varphi_{C} \right)$はBanach空間である。
+\end{proof}
+\begin{thm}\label{2.3.2.12}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$n$次元数空間$\mathbb{R}^{n}$における$n$次元$l_{p}$-norm空間$\left( \mathbb{R}^{n},\varphi_{p} \right)$はBanach空間である。
+\end{thm}
+\begin{proof}
+完備距離空間$\left( S^{*},d^{*} \right)$に一様同相な距離空間$(S,d)$は完備であることにより、そのその$n$次元数空間$\mathbb{R}^{n}$を用いたChebyshev距離空間$\left( K^{n},d_{\varphi_{C}} \right)$に一様同相な距離空間は完備となる。あとは、定理\ref{2.3.2.9}による。
+\end{proof}
+\begin{thm}\label{2.3.2.13}
+集合$\mathbb{C}^{n}$における一様norm空間$\left( \mathbb{C}^{n},\varphi_{C} \right)$はBanach空間である。
+\end{thm}
+\begin{proof}
+$\mathbb{C} = \mathbb{R}^{2}$とみればよい。
+\end{proof}
+\begin{thm}\label{2.3.2.14}
+$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、集合$\mathbb{C}^{n}$における$n$次元$l_{p}$-norm空間$\left( \mathbb{C}^{n},\varphi_{p} \right)$はBanach空間である。
+\end{thm}
+\begin{proof}
+$\mathbb{C} = \mathbb{R}^{2}$とみればよい。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p111,275-285 ISBN978-4-00-029871-1
+\end{thebibliography}
+\end{document}

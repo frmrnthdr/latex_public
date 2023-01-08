@@ -1,0 +1,459 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{4}
+\setcounter{subsection}{8}
+\usepackage{xr}
+\externaldocument{2.2.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux76f4ux7a4dvectorux7a7aux9593}{%
+\subsection{直積vector空間}%\label{ux76f4ux7a4dvectorux7a7aux9593}}
+%\hypertarget{ux76f4ux7a4dvectorux7a7aux9593-1}{%
+\subsubsection{直積vector空間}%\label{ux76f4ux7a4dvectorux7a7aux9593-1}}
+\begin{dfn}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、その直積$V \times W$の元で次のように和とscalar倍を定義する。
+\begin{itemize}
+\item
+  $\forall\left( \mathbf{t},\mathbf{u} \right),\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、$\left( \mathbf{t},\mathbf{u} \right) + \left( \mathbf{v},\mathbf{w} \right) = \left( \mathbf{t} + \mathbf{v},\mathbf{u} + \mathbf{w} \right)$が成り立つとする。
+\item
+  $\forall k \in K\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、$k\left( \mathbf{v},\mathbf{w} \right) = \left( k\mathbf{v},k\mathbf{w} \right)$が成り立つとする。
+\end{itemize}
+このような集合$V \times W$をそれらのvector空間たち$V$、$W$の直和というが、ここでは、前述した直和との差異点を明確にしておきたいので、直積vector空間ということにする。
+\end{dfn}
+\begin{thm}\label{2.4.9.1}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、これらの直積vector空間$V \times W$は体$K$上のvector空間となる。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、これらの直積vector空間$V \times W$について、二項演算$+ :(V \times W) \times (V \times W) \rightarrow V \times W$が定義されており、$\forall\left( \mathbf{r},\mathbf{s} \right),\left( \mathbf{t},\mathbf{u} \right),\ \ \left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+\left( \left( \mathbf{r},\mathbf{s} \right) + \left( \mathbf{t},\mathbf{u} \right) \right) + \left( \mathbf{v},\mathbf{w} \right) &= \left( \mathbf{r} + \mathbf{t},\mathbf{s} + \mathbf{u} \right) + \left( \mathbf{v},\mathbf{w} \right)\\
+&= \left( \left( \mathbf{r} + \mathbf{t} \right) + \mathbf{v},\left( \mathbf{s} + \mathbf{u} \right) + \mathbf{w} \right)\\
+&= \left( \mathbf{r} + \left( \mathbf{t} + \mathbf{v} \right),\mathbf{s} + \left( \mathbf{u} + \mathbf{w} \right) \right)\\
+&= \left( \mathbf{r},\mathbf{s} \right) + \left( \mathbf{t} + \mathbf{v},\mathbf{u} + \mathbf{w} \right)\\
+&= \left( \mathbf{r},\mathbf{s} \right) + \left( \left( \mathbf{t},\mathbf{u} \right) + \left( \mathbf{v},\mathbf{w} \right) \right)
+\end{align*}
+$\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+\left( \mathbf{v},\mathbf{w} \right) + \left( \mathbf{0},\mathbf{0} \right) &= \left( \mathbf{v} + \mathbf{0},\mathbf{w} + \mathbf{0} \right) = \left( \mathbf{v},\mathbf{w} \right)\\
+\left( \mathbf{0},\mathbf{0} \right) + \left( \mathbf{v},\mathbf{w} \right) &= \left( \mathbf{0} + \mathbf{v},\mathbf{0} + \mathbf{w} \right) = \left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+$\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+\left( \mathbf{v},\mathbf{w} \right) - \left( \mathbf{v},\mathbf{w} \right) &= \left( \mathbf{v} - \mathbf{v},\mathbf{w} - \mathbf{w} \right) = \left( \mathbf{0},\mathbf{0} \right)\\
+- \left( \mathbf{v},\mathbf{w} \right) + \left( \mathbf{v},\mathbf{w} \right) &= \left( - \mathbf{v} + \mathbf{v}, - \mathbf{w} + \mathbf{w} \right) = \left( \mathbf{0},\mathbf{0} \right)
+\end{align*}
+$\forall\left( \mathbf{t},\mathbf{u} \right),\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+\left( \mathbf{t},\mathbf{u} \right) + \left( \mathbf{v},\mathbf{w} \right) = \left( \mathbf{t} + \mathbf{v},\mathbf{u} + \mathbf{w} \right) = \left( \mathbf{v} + \mathbf{t},\mathbf{w} + \mathbf{u} \right) = \left( \mathbf{v},\mathbf{w} \right) + \left( \mathbf{t},\mathbf{u} \right)
+\end{align*}
+その組$(V \times W, + )$は可換群をなす。\par
+さらに、$\forall k \in K\forall\left( \mathbf{t},\mathbf{u} \right),\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+k\left( \left( \mathbf{t},\mathbf{u} \right) + \left( \mathbf{v},\mathbf{w} \right) \right)&=k\left( \mathbf{t} + \mathbf{v},\mathbf{u} + \mathbf{w} \right)\\
+&= \left( k\left( \mathbf{t} + \mathbf{v} \right),k\left( \mathbf{u} + \mathbf{w} \right) \right)\\
+&= \left( k\mathbf{t} + k\mathbf{v},k\mathbf{u} + k\mathbf{w} \right)\\
+&= \left( k\mathbf{t},k\mathbf{u} \right) + \left( k\mathbf{v},k\mathbf{w} \right)\\
+&= k\left( \mathbf{t},\mathbf{u} \right) + k\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+$\forall k,l \in K\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+(k + l)\left( \mathbf{v},\mathbf{w} \right) &= \left( (k + l)\mathbf{v},(k + l)\mathbf{w} \right)\\
+&= \left( k\mathbf{v} + l\mathbf{v},k\mathbf{w} + l\mathbf{w} \right)\\
+&= \left( k\mathbf{v},k\mathbf{w} \right) + \left( l\mathbf{v},l\mathbf{w} \right)\\
+&= k\left( \mathbf{v},\mathbf{w} \right) + l\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+$\forall k,l \in K\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになるかつ、
+\begin{align*}
+(kl)\left( \mathbf{v},\mathbf{w} \right) &= \left( (kl)\mathbf{v},(kl)\mathbf{w} \right)\\
+&= \left( k\left( l\mathbf{v} \right),k\left( l\mathbf{w} \right) \right)\\
+&= k\left( l\mathbf{v},l\mathbf{w} \right)\\
+&= k\left( l\left( \mathbf{v},\mathbf{w} \right) \right)
+\end{align*}
+$\exists 1 \in K\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになる。
+\begin{align*}
+1\left( \mathbf{v},\mathbf{w} \right) = \left( 1\mathbf{v},1\mathbf{w} \right) = \left( \mathbf{v},\mathbf{w} \right)
+\end{align*}\par
+以上より、その直積$U \times V$は体$K$上のvector空間をなす。
+\end{proof}
+\begin{thm}\label{2.4.9.2}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、集合たち$V \times \left\{ \mathbf{0} \right\}$、$\left\{ \mathbf{0} \right\} \times W$はいづれもその直積vector空間$V \times W$の部分空間をなし、さらに、次式が成り立つ。
+\begin{align*}
+V \times W = \left( V \times \left\{ \mathbf{0} \right\} \right) \oplus \left( \left\{ \mathbf{0} \right\} \times W \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、集合$V \times \left\{ \mathbf{0} \right\}$について、もちろん、$\left( \mathbf{0},\mathbf{0} \right) \in V \times \left\{ \mathbf{0} \right\}$が成り立つ。さらに、$\forall k,l \in K\forall\left( \mathbf{v},\mathbf{0} \right),\left( \mathbf{w},\mathbf{0} \right) \in V \times \left\{ \mathbf{0} \right\}$に対し、$k\mathbf{v} + l\mathbf{w} \in V$が成り立つことにより、次のようになるので、
+\begin{align*}
+k\left( \mathbf{v},\mathbf{0} \right) + l\left( \mathbf{w},\mathbf{0} \right) &= \left( k\mathbf{v},k\mathbf{0} \right) + \left( l\mathbf{w},l\mathbf{0} \right)\\
+&= \left( k\mathbf{v},\mathbf{0} \right) + \left( l\mathbf{w},\mathbf{0} \right)\\
+&= \left( k\mathbf{v} + l\mathbf{w},\mathbf{0} \right) \in V \times \left\{ \mathbf{0} \right\}
+\end{align*}
+$k\left( \mathbf{v},\mathbf{0} \right) + l\left( \mathbf{w},\mathbf{0} \right) \in V \times \left\{ \mathbf{0} \right\}$が成り立つ。以上より、その集合$V \times \left\{ \mathbf{0} \right\}$はその直積vector空間$V \times W$の部分空間をなす。同様にして、その集合$\left\{ \mathbf{0} \right\} \times W$がその直積vector空間$V \times W$の部分空間をなすことも示される。\par
+さらに、$\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、$\left( \mathbf{v},\mathbf{w} \right) = \left( \mathbf{v},\mathbf{0} \right) + \left( \mathbf{0},\mathbf{w} \right)$が成り立つので、次式が成り立つ。
+\begin{align*}
+V \times W = \left( V \times \left\{ \mathbf{0} \right\} \right) + \left( \left\{ \mathbf{0} \right\} \times W \right)
+\end{align*}
+そこで、$\left( \mathbf{r},\mathbf{0} \right),\left( \mathbf{t},\mathbf{0} \right) \in V \times \left\{ \mathbf{0} \right\}$、$\left( \mathbf{0},\mathbf{s} \right),\left( \mathbf{0},\mathbf{u} \right) \in \left\{ \mathbf{0} \right\} \times W$なるvectors$\left( \mathbf{r},\mathbf{0} \right)$、$\left( \mathbf{t},\mathbf{0} \right)$、$\left( \mathbf{0},\mathbf{s} \right)$、$\left( \mathbf{0},\mathbf{u} \right)$を用いて次式のようにあらわされたとき、
+\begin{align*}
+\left( \mathbf{v},\mathbf{w} \right) = \left( \mathbf{r},\mathbf{0} \right) + \left( \mathbf{0},\mathbf{s} \right) = \left( \mathbf{t},\mathbf{0} \right) + \left( \mathbf{0},\mathbf{u} \right)
+\end{align*}
+次のようになることから、
+\begin{align*}
+\left( \mathbf{r},\mathbf{0} \right) + \left( \mathbf{0},\mathbf{s} \right) = \left( \mathbf{t},\mathbf{0} \right) + \left( \mathbf{0},\mathbf{u} \right) &\Leftrightarrow \left( \mathbf{r},\mathbf{s} \right) = \left( \mathbf{t},\mathbf{u} \right)\\
+&\Leftrightarrow \left\{ \begin{matrix}
+\mathbf{r} = \mathbf{t} \\
+\mathbf{s} = \mathbf{u} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left( \mathbf{r},\mathbf{0} \right) = \left( \mathbf{t},\mathbf{0} \right) \\
+\left( \mathbf{0},\mathbf{s} \right) = \left( \mathbf{0},\mathbf{u} \right) \\
+\end{matrix} \right.\ 
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+V \times W = \left( V \times \left\{ \mathbf{0} \right\} \right) \oplus \left( \left\{ \mathbf{0} \right\} \times W \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.9.3}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi_{l,V}&:V\overset{\sim}{\rightarrow}V \times \left\{ \mathbf{0} \right\};\mathbf{v} \mapsto \left( \mathbf{v},\mathbf{0} \right)\\
+\varphi_{r,W}&:W\overset{\sim}{\rightarrow}\left\{ \mathbf{0} \right\} \times W;\mathbf{w} \mapsto \left( \mathbf{0},\mathbf{w} \right)
+\end{align*}
+$V \cong V \times \left\{ \mathbf{0} \right\}$かつ$W \cong \left\{ \mathbf{0} \right\} \times W$が成り立つ\footnote{こういった議論のため、$V \times W = V \oplus W$とみなすこともしばしばあります。}。特に、それらのvector空間たち$V$、$W$がそれぞれ$m$次元vector空間、$n$次元vector空間であるとき、次式が成り立つ。
+\begin{align*}
+\dim{V \times W} = \dim V + \dim W = m + n
+\end{align*}
+\end{thm}
+\begin{proof}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、次式のような写像が考えられれば、
+\begin{align*}
+\varphi_{l,V}&:V \rightarrow V \times \left\{ \mathbf{0} \right\};\mathbf{v} \mapsto \left( \mathbf{v},\mathbf{0} \right)\\
+\varphi_{r,W}&:W \rightarrow \left\{ \mathbf{0} \right\} \times W;\mathbf{w} \mapsto \left( \mathbf{0},\mathbf{w} \right)
+\end{align*}
+これらが線形同型写像であることは直ちにわかる。したがって、$V \cong V \times \left\{ \mathbf{0} \right\}$かつ$W \cong \left\{ \mathbf{0} \right\} \times W$が成り立つ。\par
+それらのvector空間たち$V$、$W$がそれぞれ$m$次元vector空間、$n$次元vector空間であるとき、定理\ref{2.4.9.2}より$V \times W = \left( V \times \left\{ \mathbf{0} \right\} \right) \oplus \left( \left\{ \mathbf{0} \right\} \times W \right)$が成り立ち、定理\ref{2.2.1.3}より$\dim{\left( V \times \left\{ \mathbf{0} \right\} \right) \oplus \left( \left\{ \mathbf{0} \right\} \times W \right)} = \dim{V \times \left\{ \mathbf{0} \right\}} + \dim{\left\{ \mathbf{0} \right\} \times W}$が成り立つので、次のようになる。
+\begin{align*}
+\dim{V \times W} &= \dim{\left( V \times \left\{ \mathbf{0} \right\} \right) \oplus \left( \left\{ \mathbf{0} \right\} \times W \right)}\\
+&= \dim{V \times \left\{ \mathbf{0} \right\}} + \dim{\left\{ \mathbf{0} \right\} \times W}\\
+&= \dim V + \dim W\\
+&= m + n
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.4.9.4}
+体$K$上の$m$次元vector空間$V$、$n$次元vector空間$W$が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$とおかれると、組$\left\langle \begin{matrix}
+\left( \mathbf{v}_{i},\mathbf{0} \right)_{i \in \varLambda_{m}} & \left( \mathbf{0},\mathbf{w}_{j} \right)_{j \in \varLambda_{n}} \\
+\end{matrix} \right\rangle$がその直積vector空間$V \times W$の基底をなす。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$V$、$n$次元vector空間$W$が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$とおかれると、$\forall\mathbf{v} \in V\forall\mathbf{w} \in W$に対し、次式のようにおかれることができるので、
+\begin{align*}
+\mathbf{v} = \sum_{i \in \varLambda_{m}} {k_{i}\mathbf{v}_{i}},\ \ \mathbf{w} = \sum_{j \in \varLambda_{n}} {l_{j}\mathbf{w}_{j}}
+\end{align*}
+次のようになる。
+\begin{align*}
+\left( \mathbf{v},\mathbf{w} \right) &= \left( \sum_{i \in \varLambda_{m}} {k_{i}\mathbf{v}_{i}},\sum_{j \in \varLambda_{n}} {l_{j}\mathbf{w}_{j}} \right)\\
+&= \left( \sum_{i \in \varLambda_{m}} {k_{i}\mathbf{v}_{i}},\mathbf{0} \right) + \left( \mathbf{0},\sum_{j \in \varLambda_{n}} {l_{j}\mathbf{w}_{j}} \right)\\
+&= \sum_{i \in \varLambda_{m}} {k_{i}\left( \mathbf{v}_{i},\mathbf{0} \right)} + \sum_{j \in \varLambda_{n}} {l_{j}\left( \mathbf{0},\mathbf{w}_{j} \right)}
+\end{align*}
+ゆえに、その組$\left\langle \begin{matrix}
+\left( \mathbf{v}_{i},\mathbf{0} \right)_{i \in \varLambda_{m}} & \left( \mathbf{0},\mathbf{w}_{j} \right)_{j \in \varLambda_{n}} \\
+\end{matrix} \right\rangle$がその直積vector空間$V \times W$を生成することが分かる。\par
+一方で、次式がとすれば、
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {c_{i}\left( \mathbf{v}_{i},\mathbf{0} \right)} + \sum_{j \in \varLambda_{n}} {d_{j}\left( \mathbf{0},\mathbf{w}_{j} \right)} = \left( \mathbf{0},\mathbf{0} \right)
+\end{align*}
+次のようになることから、
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {c_{i}\left( \mathbf{v}_{i},\mathbf{0} \right)} + \sum_{j \in \varLambda_{n}} {d_{j}\left( \mathbf{0},\mathbf{w}_{j} \right)} &= \left( \sum_{i \in \varLambda_{m}} {c_{i}\mathbf{v}_{i}},\mathbf{0} \right) + \left( \mathbf{0},\sum_{j \in \varLambda_{n}} {d_{j}\mathbf{w}_{j}} \right)\\
+&= \left( \sum_{i \in \varLambda_{m}} {c_{i}\mathbf{v}_{i}},\sum_{j \in \varLambda_{n}} {d_{j}\mathbf{w}_{j}} \right) = \left( \mathbf{0},\mathbf{0} \right)
+\end{align*}
+次式が得られ、
+\begin{align*}
+\sum_{i \in \varLambda_{m}} {c_{i}\mathbf{v}_{i}} = \mathbf{0},\ \ \sum_{j \in \varLambda_{n}} {d_{j}\mathbf{w}_{j}} = \mathbf{0}
+\end{align*}
+それらの組たち$\left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{n}}$をなすvectorsは線形独立であるので、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$c_{i} = d_{j} = 0$が成り立つ。これにより、その組$\left\langle \begin{matrix}
+\left( \mathbf{v}_{i},\mathbf{0} \right)_{i \in \varLambda_{m}} & \left( \mathbf{0},\mathbf{w}_{j} \right)_{j \in \varLambda_{n}} \\
+\end{matrix} \right\rangle$をなすvectorsは線形独立である。\par
+以上の議論により、それらの組$\left\langle \begin{matrix}
+\left( \mathbf{v}_{i},\mathbf{0} \right)_{i \in \varLambda_{m}} & \left( \mathbf{0},\mathbf{w}_{j} \right)_{j \in \varLambda_{n}} \\
+\end{matrix} \right\rangle$がその直積vector空間$V \times W$の基底をなす。
+\end{proof}
+\begin{thm}\label{2.4.9.5}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:V \times W\overset{\sim}{\rightarrow}W \times V;\left( \mathbf{v},\mathbf{w} \right) \mapsto \left( \mathbf{w},\mathbf{v} \right)
+\end{align*}
+$V \times W \cong W \times V$が成り立つ。
+\end{thm}
+\begin{proof} 明らかである。
+\end{proof}
+\begin{thm}\label{2.4.9.6}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:(V \times W)^{*}\overset{\sim}{\rightarrow}V^{*} \times W^{*};h \mapsto \left( V \rightarrow K;\mathbf{v} \mapsto h\left( \mathbf{v},\mathbf{0} \right),W \rightarrow K;\mathbf{w} \mapsto h\left( \mathbf{0},\mathbf{w} \right) \right)
+\end{align*}
+$(V \times W)^{*} \cong V^{*} \times W^{*}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上のvector空間たち$V$、$W$が与えられたとき、次式のような写像たちが考えられれば、
+\begin{align*}
+\varphi:(V \times W)^{*} \rightarrow V^{*} \times W^{*};f \mapsto \left( V \rightarrow K;\mathbf{v} \mapsto h\left( \mathbf{v},\mathbf{0} \right),W \rightarrow K;\mathbf{w} \mapsto h\left( \mathbf{0},\mathbf{w} \right) \right),\\
+\varphi':V^{*} \times W^{*} \rightarrow (V \times W)^{*};(f,g) \mapsto \left( V \times W \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto f\left( \mathbf{v} \right) + g\left( \mathbf{w} \right) \right)
+\end{align*}
+$\forall k,l \in K\forall f,g \in (V \times W)^{*}\forall\left( \mathbf{v},\mathbf{w} \right) \in V \times W$に対し、次のようになる。
+\begin{align*}
+\varphi(kf + lg)\left( \mathbf{v},\mathbf{w} \right) &= \left( (kf + lg)\left( \mathbf{v},\mathbf{0} \right),(kf + lg)\left( \mathbf{0},\mathbf{w} \right) \right)\\
+&= \left( kf\left( \mathbf{v},\mathbf{0} \right) + lg\left( \mathbf{v},\mathbf{0} \right),kf\left( \mathbf{0},\mathbf{w} \right) + lg\left( \mathbf{0},\mathbf{w} \right) \right)\\
+&= k\left( f\left( \mathbf{v},\mathbf{0} \right),f\left( \mathbf{0},\mathbf{w} \right) \right) + l\left( g\left( \mathbf{v},\mathbf{0} \right),g\left( \mathbf{0},\mathbf{w} \right) \right)\\
+&= k\varphi(f)\left( \mathbf{v},\mathbf{w} \right) + l\varphi(g)\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+以上より、その写像$\varphi$は線形写像である。\par
+さらに、$\forall h \in (V \times W)^{*}$に対し、次のようになるかつ、
+\begin{align*}
+\varphi' \circ \varphi(h) &= \varphi'\left( \varphi(h:V \times W \rightarrow K) \right)\\
+&= \varphi'\left( V \rightarrow K;\mathbf{v} \mapsto h\left( \mathbf{v},\mathbf{0} \right),W \rightarrow K;\mathbf{w} \mapsto h\left( \mathbf{0},\mathbf{w} \right) \right)\\
+&= \left( V \times W \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto h\left( \mathbf{v},\mathbf{0} \right) + h\left( \mathbf{0},\mathbf{w} \right) \right)\\
+&= \left( V \times W \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto h\left( \mathbf{v},\mathbf{w} \right) \right) = h
+\end{align*}
+$\forall(f,g) \in V^{*} \times W^{*}$に対し、次のようになることから、
+\begin{align*}
+\varphi \circ \varphi'(f,g) &= \varphi\left( \varphi'(f:V \rightarrow K,g:W \rightarrow K) \right)\\
+&= \varphi\left( V \times W \rightarrow K;\left( \mathbf{v},\mathbf{w} \right) \mapsto f\left( \mathbf{v} \right) + g\left( \mathbf{w} \right) \right)\\
+&= \left( V \rightarrow K;\mathbf{v} \mapsto f\left( \mathbf{v} \right) + g\left( \mathbf{0} \right),W \rightarrow K;\mathbf{w} \mapsto f\left( \mathbf{0} \right) + g\left( \mathbf{w} \right) \right)\\
+&= \left( V \rightarrow K;\mathbf{v} \mapsto f\left( \mathbf{v} \right) + 0,W \rightarrow K;\mathbf{w} \mapsto 0 + g\left( \mathbf{w} \right) \right)\\
+&= \left( V \rightarrow K;\mathbf{v} \mapsto f\left( \mathbf{v} \right),W \rightarrow K;\mathbf{w} \mapsto g\left( \mathbf{w} \right) \right) = (f,g)
+\end{align*}
+$\varphi' = \varphi^{- 1}$が成り立つ。\par
+以上の議論により、その写像$\varphi$は線形同型写像であるので、$(V \times W)^{*} \cong V^{*} \times W^{*}$が成り立つ。
+\end{proof}
+\begin{thm}[tensor積の直積に関する分配法則]\label{2.4.9.7}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$、これらの基底たちそれぞれ$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{k} \right\rangle_{k \in \varLambda_{o}}$が与えられたとき、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right) \right) = \left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{u}_{i} \otimes \mathbf{0} \right)$、$\forall(i,k) \in \varLambda_{m} \times \varLambda_{o}$に対し、$\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right) \right) = \left( \mathbf{u}_{i} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)$が成り立つような線形同型写像$\varphi:U \otimes (V \times W)\overset{\sim}{\rightarrow}(U \otimes V) \times (U \otimes W)$が考えられることで、$U \otimes (V \times W) \cong (U \otimes V) \times (U \otimes W)$が成り立つ。\par
+同様に、$\forall(i,k) \in \varLambda_{m} \times \varLambda_{o}$に対し、$\varphi\left( \left( \mathbf{u}_{i},\mathbf{0} \right) \otimes \mathbf{w}_{k} \right) = \left( \mathbf{u}_{i} \otimes \mathbf{w}_{k},\mathbf{0} \otimes \mathbf{w}_{k} \right)$、$\forall(j,k) \in \varLambda_{n} \times \varLambda_{o}$に対し、$\varphi\left( \left( \mathbf{0},\mathbf{v}_{j} \right) \otimes \mathbf{w}_{k} \right) = \left( \mathbf{0} \otimes \mathbf{w}_{k},\mathbf{v}_{j} \otimes \mathbf{w}_{k} \right)$が成り立つような線形同型写像$\varphi:(U \times V) \otimes W\overset{\sim}{\rightarrow}(U \otimes W) \times (V \otimes W)$が考えられることで、$(U \times V) \otimes W \cong (U \otimes W) \times (V \otimes W)$が成り立つ。\par
+この定理をtensor積の直積に関する分配法則という。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$、これらの基底たちそれぞれ$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{m}}$、$\left\langle \mathbf{v}_{j} \right\rangle_{j \in \varLambda_{n}}$、$\left\langle \mathbf{w}_{k} \right\rangle_{k \in \varLambda_{o}}$が与えられたとき、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right) \right) = \left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{u}_{i} \otimes \mathbf{0} \right)$、$\forall(i,k) \in \varLambda_{m} \times \varLambda_{o}$に対し、$\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right) \right) = \left( \mathbf{u}_{i} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)$が成り立つような線形写像$\varphi:U \otimes (V \times W) \rightarrow (U \otimes V) \times (U \otimes W)$、$\forall(i,j) \in \varLambda_{m} \times \varLambda_{n}$に対し、$\varphi'\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{0} \otimes \mathbf{0} \right) = \mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right)$、$\forall(i,k) \in \varLambda_{m} \times \varLambda_{o}$に対し、$\varphi'\left( \mathbf{0} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right) = \mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right)$が成り立つような線形写像$\varphi':U \otimes (V \times W) \rightarrow (U \otimes V) \times (U \otimes W)$が考えられれば、$\forall\mathbf{t} \in U \otimes (V \times W)$に対し、次のようにおかれれば、
+\begin{align*}
+\mathbf{t} = \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right)}
+\end{align*}
+次のようになり、
+\begin{align*}
+\varphi' \circ \varphi\left( \mathbf{t} \right) &= \varphi'\left( \varphi\left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right)} \right) \right)\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\varphi'\left( \varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right) \right) \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\varphi'\left( \varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right) \right) \right)}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\varphi'\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{u}_{i} \otimes \mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\varphi'\left( \mathbf{u}_{i} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)}
+\end{align*}
+そこで、次のようになることから、
+\begin{align*}
+\mathbf{u}_{i} \otimes \mathbf{0} &= \mathbf{u}_{i} \otimes \mathbf{0} + \mathbf{u}_{i} \otimes \mathbf{0} - \mathbf{u}_{i} \otimes \mathbf{0}\\
+&= \mathbf{u}_{i} \otimes \left( \mathbf{0} + \mathbf{0} \right) - \mathbf{u}_{i} \otimes \mathbf{0}\\
+&= \mathbf{u}_{i} \otimes \mathbf{0} - \mathbf{u}_{i} \otimes \mathbf{0}\\
+&= \left( \mathbf{u}_{i} - \mathbf{u}_{i} \right) \otimes \mathbf{0}\\
+&= \mathbf{0} \otimes \mathbf{0}
+\end{align*}
+次のようになるかつ、
+\begin{align*}
+\varphi' \circ \varphi\left( \mathbf{t} \right) &= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\varphi'\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{0} \otimes \mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\varphi'\left( \mathbf{0} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right)} = \mathbf{t}
+\end{align*}
+$\forall\left( \mathbf{r},\mathbf{s} \right) \in (U \otimes V) \times (U \otimes W)$に対し、次のようにおかれれば、
+\begin{align*}
+\mathbf{r} = \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \mathbf{v}_{j}},\ \ \mathbf{s} = \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \mathbf{w}_{k}}
+\end{align*}
+次のようになるので、
+\begin{align*}
+\varphi \circ \varphi'\left( \mathbf{r},\mathbf{s} \right) &= \varphi\left( \varphi'\left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \mathbf{v}_{j}},\sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \mathbf{w}_{k}} \right) \right)\\
+&= \varphi\left( \varphi'\left( \left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \mathbf{v}_{j}},\mathbf{0} \otimes \mathbf{0} \right) + \left( \mathbf{0} \otimes \mathbf{0},\sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \mathbf{w}_{k}} \right) \right) \right)\\
+&= \varphi\left( \varphi'\left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{0} \otimes \mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\left( \mathbf{0} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)} \right) \right)\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\varphi\left( \varphi'\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{0} \otimes \mathbf{0} \right) \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\varphi\left( \varphi'\left( \mathbf{0} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right) \right)}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{v}_{j},\mathbf{0} \right) \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\varphi\left( \mathbf{u}_{i} \otimes \left( \mathbf{0},\mathbf{w}_{k} \right) \right)}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{u}_{i} \otimes \mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\left( \mathbf{u}_{i} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\left( \mathbf{u}_{i} \otimes \mathbf{v}_{j},\mathbf{0} \otimes \mathbf{0} \right)} + \sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\left( \mathbf{0} \otimes \mathbf{0},\mathbf{u}_{i} \otimes \mathbf{w}_{k} \right)}\\
+&= \left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \mathbf{v}_{j}},\mathbf{0} \otimes \mathbf{0} \right) + \left( \mathbf{0} \otimes \mathbf{0},\sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \mathbf{w}_{k}} \right)\\
+&= \left( \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\xi_{ij}\mathbf{u}_{i} \otimes \mathbf{v}_{j}},\sum_{(i,k) \in \varLambda_{m} \times \varLambda_{o}} {o_{ik}\mathbf{u}_{i} \otimes \mathbf{w}_{k}} \right) = \left( \mathbf{r},\mathbf{s} \right)
+\end{align*}
+$\varphi' = \varphi^{- 1}$が得られる。以上の議論により、その写像$\varphi$は線形同型写像であるので、$U \otimes (V \times W) \cong (U \otimes V) \times (U \otimes W)$が成り立つ。\par
+同様にして、$\forall(i,k) \in \varLambda_{m} \times \varLambda_{o}$に対し、$\varphi\left( \left( \mathbf{u}_{i},\mathbf{0} \right) \otimes \mathbf{w}_{k} \right) = \left( \mathbf{u}_{i} \otimes \mathbf{w}_{k},\mathbf{0} \otimes \mathbf{w}_{k} \right)$、$\forall(j,k) \in \varLambda_{n} \times \varLambda_{o}$に対し、$\varphi\left( \left( \mathbf{0},\mathbf{v}_{j} \right) \otimes \mathbf{w}_{k} \right) = \left( \mathbf{0} \otimes \mathbf{w}_{k},\mathbf{v}_{j} \otimes \mathbf{w}_{k} \right)$が成り立つような線形同型写像$\varphi:(U \times V) \otimes W\overset{\sim}{\rightarrow}(U \otimes W) \times (V \otimes W)$が考えられることで、$(U \times V) \otimes W \cong (U \otimes W) \times (V \otimes W)$が成り立つことが示される。
+\end{proof}
+\begin{thm}\label{2.4.9.8}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$が与えられたとき、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:L(U \times V,W)\overset{\sim}{\rightarrow}L(U,W) \times L(V,W);h \mapsto \left( U \rightarrow W;\mathbf{u} \mapsto h\left( \mathbf{u},\mathbf{0} \right),V \rightarrow W;\mathbf{v} \mapsto h\left( \mathbf{0},\mathbf{v} \right) \right)
+\end{align*}
+$L(U \times V,W) \cong L(U,W) \times L(V,W)$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$が与えられたとき、次式のような写像たちが考えられれば、
+\begin{align*}
+\varphi:L(U \times V,W) \rightarrow L(U,W) \times L(V,W);h \mapsto \left( U \rightarrow W;\mathbf{u} \mapsto h\left( \mathbf{u},\mathbf{0} \right),V \rightarrow W;\mathbf{v} \mapsto h\left( \mathbf{0},\mathbf{v} \right) \right)
+\end{align*}
+\begin{align*}
+\varphi':L(U,W) \times L(V,W) \rightarrow L(U \times V,W);(f,g) \mapsto \left( V \times W \rightarrow K;\left( \mathbf{u},\mathbf{v} \right) \mapsto f\left( \mathbf{u} \right) + g\left( \mathbf{v} \right) \right)
+\end{align*}
+$\forall k,l \in K\forall f,g \in L(U \times V,W)\forall\left( \mathbf{u},\mathbf{v} \right) \in U \times V$に対し、次のようになる。
+\begin{align*}
+\varphi(kf + lg)\left( \mathbf{u},\mathbf{v} \right) &= \left( (kf + lg)\left( \mathbf{u},\mathbf{0} \right),(kf + lg)\left( \mathbf{0},\mathbf{v} \right) \right)\\
+&= \left( kf\left( \mathbf{u},\mathbf{0} \right) + lg\left( \mathbf{u},\mathbf{0} \right),kf\left( \mathbf{0},\mathbf{v} \right) + lg\left( \mathbf{0},\mathbf{v} \right) \right)\\
+&= k\left( f\left( \mathbf{u},\mathbf{0} \right),f\left( \mathbf{0},\mathbf{v} \right) \right) + l\left( g\left( \mathbf{u},\mathbf{0} \right),g\left( \mathbf{0},\mathbf{v} \right) \right)\\
+&= k\varphi(f)\left( \mathbf{u},\mathbf{v} \right) + l\varphi(g)\left( \mathbf{u},\mathbf{v} \right)
+\end{align*}
+以上より、その写像$\varphi$は線形写像である。\par
+さらに、$\forall h \in L(U \times V,W)$に対し、次のようになるかつ、
+\begin{align*}
+\varphi' \circ \varphi(h) &= \varphi'\left( \varphi(h:U \times V \rightarrow W) \right)\\
+&= \varphi'\left( U \rightarrow W;\mathbf{u} \mapsto h\left( \mathbf{u},\mathbf{0} \right),V \rightarrow W;\mathbf{v} \mapsto h\left( \mathbf{0},\mathbf{v} \right) \right)\\
+&= \left( U \times V \rightarrow W;\left( \mathbf{u},\mathbf{v} \right) \mapsto h\left( \mathbf{u},\mathbf{0} \right) + h\left( \mathbf{0},\mathbf{v} \right) \right)\\
+&= \left( U \times V \rightarrow W;\left( \mathbf{u},\mathbf{v} \right) \mapsto h\left( \mathbf{u},\mathbf{v} \right) \right) = h
+\end{align*}
+$\forall(f,g) \in L(U,W) \times L(V,W)$に対し、次のようになることから、
+\begin{align*}
+\varphi \circ \varphi'(f,g) &= \varphi\left( \varphi'(f:U \rightarrow W,g:V \rightarrow W) \right)\\
+&= \varphi\left( U \times V \rightarrow W;\left( \mathbf{u},\mathbf{v} \right) \mapsto f\left( \mathbf{u} \right) + g\left( \mathbf{v} \right) \right)\\
+&= \left( U \rightarrow W;\mathbf{u} \mapsto f\left( \mathbf{u} \right) + g\left( \mathbf{0} \right),V \rightarrow W;\mathbf{v} \mapsto f\left( \mathbf{0} \right) + g\left( \mathbf{v} \right) \right)\\
+&= \left( U \rightarrow W;\mathbf{u} \mapsto f\left( \mathbf{u} \right) + \mathbf{0},V \rightarrow W;\mathbf{v} \mapsto \mathbf{0} + g\left( \mathbf{v} \right) \right)\\
+&= \left( U \rightarrow W;\mathbf{u} \mapsto f\left( \mathbf{u} \right),V \rightarrow W;\mathbf{v} \mapsto g\left( \mathbf{v} \right) \right) = (f,g)
+\end{align*}
+$\varphi' = \varphi^{- 1}$が成り立つ。\par
+以上の議論により、その写像$\varphi$は線形同型写像であるので、$L(U \times V,W) \cong L(U,W) \times L(V,W)$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.4.9.9}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$が与えられたとき、第1成分、第2成分をそれぞれ第$l$成分、第$r$成分ということにして、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:L(U,V \times W)\overset{\sim}{\rightarrow}L(U,V) \times L(U,W);h \mapsto \left( U \rightarrow V;\mathbf{u} \mapsto \mathrm{pr}_{l}{h\left( \mathbf{u} \right)},U \rightarrow W;\mathbf{u} \mapsto \mathrm{pr}_{r}{h\left( \mathbf{u} \right)} \right)
+\end{align*}
+$L(U,V \times W) \cong L(U,V) \times L(U,W)$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の$m$次元vector空間$U$、$n$次元vector空間$V$、$o$次元vector空間$W$が与えられたとき、第1成分、第2成分をそれぞれ第$l$成分、第$r$成分ということにして、次式のような写像たちが考えられれば、
+\begin{align*}
+\varphi:L(U,V \times W)\overset{\sim}{\rightarrow}L(U,V) \times L(U,W);h \mapsto \left( U \rightarrow V;\mathbf{u} \mapsto \mathrm{pr}_{l}{h\left( \mathbf{u} \right)},U \rightarrow W;\mathbf{u} \mapsto \mathrm{pr}_{r}{h\left( \mathbf{u} \right)} \right)
+\end{align*}
+\begin{align*}
+\varphi':L(U,V) \times L(U,W) \rightarrow L(U,V \times W);(f,g) \mapsto \left( U \rightarrow V \times W;\mathbf{u} \mapsto \left( f\left( \mathbf{u} \right),g\left( \mathbf{u} \right) \right) \right)
+\end{align*}
+$\forall k,l \in K\forall f,g \in L(U,V \times W)\forall\mathbf{u} \in U$に対し、次のようになる。
+\begin{align*}
+\varphi(kf + lg)\left( \mathbf{u} \right) &= \left( \mathrm{pr}_{l}{(kf + lg)\left( \mathbf{u} \right)},\mathrm{pr}_{r}{(kf + lg)\left( \mathbf{u} \right)} \right)\\
+&= \left( k\mathrm{pr}_{l}{f\left( \mathbf{u} \right)} + l\mathrm{pr}_{l}{g\left( \mathbf{u} \right)},k\mathrm{pr}_{r}{f\left( \mathbf{u} \right)} + l\mathrm{pr}_{r}{g\left( \mathbf{u} \right)} \right)\\
+&= k\left( \mathrm{pr}_{l}{f\left( \mathbf{u} \right)},\mathrm{pr}_{r}{f\left( \mathbf{u} \right)} \right) + l\left( \mathrm{pr}_{l}{g\left( \mathbf{u} \right)},\mathrm{pr}_{r}{g\left( \mathbf{u} \right)} \right)\\
+&= k\varphi(f)\left( \mathbf{u} \right) + l\varphi(g)\left( \mathbf{u} \right)
+\end{align*}
+以上より、その写像$\varphi$は線形写像である。\par
+さらに、$\forall h \in L(U,V \times W)$に対し、次のようになるかつ、
+\begin{align*}
+\varphi' \circ \varphi(h) &= \varphi'\left( \varphi(h:U \rightarrow V \times W) \right)\\
+&= \varphi'\left( U \rightarrow V;\mathbf{u} \mapsto \mathrm{pr}_{l}{h\left( \mathbf{u} \right)},U \rightarrow W;\mathbf{u} \mapsto \mathrm{pr}_{r}{h\left( \mathbf{u} \right)} \right)\\
+&= \left( U \rightarrow V \times W;\mathbf{u} \mapsto \left( \mathrm{pr}_{l}{h\left( \mathbf{u} \right)},\mathrm{pr}_{r}{h\left( \mathbf{u} \right)} \right) \right)\\
+&= \left( U \rightarrow V \times W;\mathbf{u} \mapsto h\left( \mathbf{u} \right) \right) = h
+\end{align*}
+$\forall(f,g) \in L(U,V) \times L(U,W)$に対し、次のようになることから、
+\begin{align*}
+\varphi \circ \varphi'(f,g) &= \varphi\left( \varphi'(f:U \rightarrow V,g:U \rightarrow W) \right)\\
+&= \varphi\left( U \rightarrow V \times W;\mathbf{u} \mapsto \left( f\left( \mathbf{u} \right),g\left( \mathbf{u} \right) \right) \right)\\
+&= \left( U \rightarrow V;\mathbf{u} \mapsto \mathrm{pr}_{l}\left( f\left( \mathbf{u} \right),g\left( \mathbf{u} \right) \right),U \rightarrow W;\mathbf{u} \mapsto \mathrm{pr}_{r}\left( f\left( \mathbf{u} \right),g\left( \mathbf{u} \right) \right) \right)\\
+&= \left( U \rightarrow V;\mathbf{u} \mapsto f\left( \mathbf{u} \right),U \rightarrow W;\mathbf{u} \mapsto g\left( \mathbf{u} \right) \right) = (f,g)
+\end{align*}
+$\varphi' = \varphi^{- 1}$が成り立つ。\par
+以上の議論により、その写像$\varphi$は線形同型写像であるので、$L(U,V \times W) \cong L(U,V) \times L(U,W)$が成り立つ。
+\end{proof}
+%\hypertarget{ux4e00ux822cux5316ux3055ux308cux305fux76f4ux7a4dvectorux7a7aux9593}{%
+\subsubsection{一般化された直積vector空間}%\label{ux4e00ux822cux5316ux3055ux308cux305fux76f4ux7a4dvectorux7a7aux9593}}
+\begin{dfn}
+$n$つの体$K$上のvector空間たち$V_{i}$が与えられたとき、その直積$\prod_{i \in \varLambda_{n}} V_{i}$の元で次のように和とscalar倍を定義する。
+\begin{itemize}
+\item
+  $\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}},\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、$\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} + \left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}} = \left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)_{i \in \varLambda_{n}}$が成り立つとする。
+\item
+  $\forall k \in K\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、$k\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} = \left( k\mathbf{v}_{i} \right)_{i \in \varLambda_{n}}$が成り立つとする。
+\end{itemize}
+このような集合$\prod_{i \in \varLambda_{n}} V_{i}$を、ここでは、それらのvector空間たち$V_{i}$の一般化された直積vector空間、または単に、直積vector空間ということにする。
+\end{dfn}
+\begin{thm}\label{2.4.9.10}
+$n$つの体$K$上のvector空間たち$V_{i}$が与えられたとき、これらの直積vector空間$\prod_{i \in \varLambda_{n}} V_{i}$は体$K$上のvector空間となる。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.1}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.11}
+$n$つの体$K$上のvector空間たち$V_{i}$が与えられたとき、$\forall i \in \varLambda_{n}$なる集合たち$\left\{ \mathbf{0} \right\}^{i - 1} \times V_{i} \times \left\{ \mathbf{0} \right\}^{n - i}$はいづれもその直積vector空間$\prod_{i \in \varLambda_{n}} V_{i}$の部分空間をなし、さらに、次式が成り立つ。
+\begin{align*}
+\prod_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} \left( \left\{ \mathbf{0} \right\}^{i - 1} \times V_{i} \times \left\{ \mathbf{0} \right\}^{n - i} \right)
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.2}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.12}
+$n$つの体$K$上のvector空間たち$V_{i}$が与えられたとき、$\forall i \in \varLambda_{n}$なる次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi_{i}:V_{i}\overset{\sim}{\rightarrow}\left\{ \mathbf{0} \right\}^{i - 1} \times V_{i} \times \left\{ \mathbf{0} \right\}^{n - i}&;\mathbf{v} \mapsto \begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix},\\
+\dim{\prod_{i \in \varLambda_{n}} V_{i}} &= \sum_{i \in \varLambda_{n}} {\dim V_{i}} = \sum_{i \in \varLambda_{n}} m_{i}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.3}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.13}
+$n$つの体$K$上の$m_{i}$次元vector空間たち$V_{i}$が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$とおかれると、組$\left\langle \begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v}_{ij_{i}} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix}_{j_{i} \in \varLambda_{m_{i}}} \right\rangle_{i \in \varLambda_{n}}$がその直積vector空間$\prod_{i \in \varLambda_{n}} V_{i}$の基底をなす。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.4}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.14}
+$n$つの体$K$上のvector空間たち$V_{i}$が与えられたとき、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:\left( \prod_{i \in \varLambda_{n}} V_{i} \right)^{*}\overset{\sim}{\rightarrow}\prod_{i \in \varLambda_{n}} V_{i}^{*};h \mapsto \left( V_{i} \rightarrow K;\mathbf{v} \mapsto h\begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix} \right)_{i \in \varLambda_{n}}
+\end{align*}
+$\left( \prod_{i \in \varLambda_{n}} V_{i} \right)^{*} \cong \prod_{i \in \varLambda_{n}} V_{i}^{*}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.6}と同様にして示される。
+\end{proof}
+\begin{thm}[tensor積の直積に関する分配法則]\label{2.4.9.15}
+$n$つの体$K$上の$m_{i}$次元vector空間たち$V_{i}$、が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$とおかれると、$m$次元vector空間$W$、これの基底$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{m}}$を用いて、$\forall i \in \varLambda_{n}\forall j_{i} \in \varLambda_{m_{i}}\forall j \in \varLambda_{m}$に対し、次式が成り立つような
+\begin{align*}
+\varphi\left( \mathbf{w}_{j} \otimes \begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v}_{ij_{i}} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix} \right) = \begin{pmatrix}
+\left( \mathbf{w}_{j} \otimes \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{w}_{j} \otimes \mathbf{v}_{ij_{i}} & \left( \mathbf{w}_{j} \otimes \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix}
+\end{align*}
+線形同型写像$\varphi:W \otimes \prod_{i \in \varLambda_{n}} V_{i}\overset{\sim}{\rightarrow}\prod_{i \in \varLambda_{n}} \left( W \otimes V_{i} \right)$が考えられることで、$W \otimes \prod_{i \in \varLambda_{n}} V_{i} \cong \prod_{i \in \varLambda_{n}} \left( W \otimes V_{i} \right)$が成り立つ。\par
+同様に、$\forall i \in \varLambda_{n}\forall j_{i} \in \varLambda_{m_{i}}\forall j \in \varLambda_{m}$に対し、次式が成り立つような
+\begin{align*}
+\varphi\left( \begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v}_{ij_{i}} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix} \otimes \mathbf{w}_{j} \right) = \begin{pmatrix}
+\left( \mathbf{0} \otimes \mathbf{w}_{j} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v}_{ij_{i}} \otimes \mathbf{w}_{j} & \left( \mathbf{0} \otimes \mathbf{w}_{j} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix}
+\end{align*}
+線形同型写像$\varphi:\prod_{i \in \varLambda_{n}} V_{i} \otimes W\overset{\sim}{\rightarrow}\prod_{i \in \varLambda_{n}} \left( V_{i} \otimes W \right)$が考えられることで、$\prod_{i \in \varLambda_{n}} V_{i} \otimes W \cong \prod_{i \in \varLambda_{n}} \left( V_{i} \otimes W \right)$が成り立つ。\par
+この定理をtensor積の直積に関する分配法則という。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.7}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.16}
+$n$つの体$K$上の$m_{i}$次元vector空間たち$V_{i}$、が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$とおかれると、$m$次元vector空間$W$、これの基底$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{m}}$を用いて、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:L\left( \prod_{i \in \varLambda_{n}} V_{i},W \right)\overset{\sim}{\rightarrow}\prod_{i \in \varLambda_{n}} {L\left( V_{i},W \right)};h \mapsto \left( V_{i} \rightarrow W;\mathbf{v}_{i} \mapsto h\begin{pmatrix}
+\left( \mathbf{0} \right)_{j \in \varLambda_{i - 1}} & \mathbf{v}_{i} & \left( \mathbf{0} \right)_{j \in \varLambda_{n} \setminus \varLambda_{i}} \\
+\end{pmatrix} \right)_{i \in \varLambda_{n}}
+\end{align*}
+$L\left( \prod_{i \in \varLambda_{n}} V_{i},W \right) \cong \prod_{i \in \varLambda_{n}} {L\left( V_{i},W \right)}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.8}と同様にして示される。
+\end{proof}
+\begin{thm}\label{2.4.9.17}
+$n$つの体$K$上の$m_{i}$次元vector空間たち$V_{i}$、が与えられたとき、これらの基底たちがそれぞれ$\left\langle \mathbf{v}_{ij_{i}} \right\rangle_{j_{i} \in \varLambda_{m_{i}}}$とおかれると、$m$次元vector空間$W$、これの基底$\left\langle \mathbf{w}_{j} \right\rangle_{j \in \varLambda_{m}}$を用いて、次式のような線形同型写像が考えられることで、
+\begin{align*}
+\varphi:L\left( W,\prod_{i \in \varLambda_{n}} V_{i} \right)\overset{\sim}{\rightarrow}\prod_{i \in \varLambda_{n}} {L\left( W,V_{i} \right)};h \mapsto \left( W \rightarrow V:\mathbf{w} \mapsto \mathrm{pr}_{i}{h\left( \mathbf{w} \right)} \right)_{i \in \varLambda_{n}}
+\end{align*}
+$L\left( W,\prod_{i \in \varLambda_{n}} V_{i} \right) \cong \prod_{i \in \varLambda_{n}} {L\left( W,V_{i} \right)}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{2.4.9.9}と同様にして示される。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  佐武一郎, 線型代数学, 裳華房, 1958. 第53版 p211-212 ISBN4-7853-1301-3
+\end{thebibliography}
+\end{document}

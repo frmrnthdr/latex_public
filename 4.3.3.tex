@@ -1,0 +1,674 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{4.1.12}
+\externaldocument{4.2.1}
+\externaldocument{4.2.8}
+\externaldocument{4.3.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6307ux6570ux95a2ux6570}{%
+\subsection{指数関数}%\label{ux6307ux6570ux95a2ux6570}}
+%\hypertarget{ux4e3bux5024ux3067ux306eux5bfeux6570ux95a2ux6570}{%
+\subsubsection{主値での対数関数}%\label{ux4e3bux5024ux3067ux306eux5bfeux6570ux95a2ux6570}}\par
+主値での対数関数を定義する前に、自然な指数関数$\exp:\mathbb{C} \rightarrow \mathbb{C}$の逆像について述べよう。
+\begin{thm}\label{4.3.3.1}
+$\forall\exp z \in V\left( \exp \right)$に対し、$z + 2\mathbb{Z}\pi i = V\left( \exp^{- 1}|\left\{ \exp z \right\} \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall\exp z \in V\left( \exp \right)\forall z + 2n\pi i \in z + 2\mathbb{Z}\pi i$に対し、次のようになることから、
+\begin{align*}
+\exp(z + 2n\pi i) &= \exp z\exp{2n\pi i}\\
+&= \exp z\left( \cos{2n\pi} + i\sin{2n\pi} \right)\\
+&= \exp z(1 + i \cdot 0) = \exp z
+\end{align*}
+$z + 2\mathbb{Z}\pi i \subseteq V\left( \exp^{- 1}|\left\{ \exp z \right\} \right)$が成り立つ。逆に、$\forall w \in V\left( \exp^{- 1}|\left\{ \exp z \right\} \right)$に対し、$\exp w = \exp z$が成り立つので、定理\ref{4.3.2.2}より$\exists n \in \mathbb{Z}$に対し、$w = z + 2n\pi i$が成り立つので、$w \in z + 2\mathbb{Z}\pi i$が成り立ち、したがって、$z + 2\mathbb{Z}\pi i \supseteq V\left( \exp^{- 1}|\left\{ \exp z \right\} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.3.2}
+$D = \mathbb{C} \setminus \left\{ z \in \mathbb{R} \middle| z \leq 0 \right\}$とおかれれば、$\forall z \in D$に対し、$z = |z|\exp{i\theta}$なる実数$\theta$が開区間$( - \pi,\pi)$で一意的に存在する。
+\end{thm}
+\begin{proof}
+$D = \mathbb{C} \setminus \left\{ z \in \mathbb{R} \middle| z \leq 0 \right\}$とおかれれば、$\forall z \in D$に対し、$z \neq 0$が成り立つので、定理\ref{4.3.2.3}より$\exists!\theta' \in [ 0,2\pi)$に対し、次式が成り立つ。
+\begin{align*}
+z = |z|\mathrm{cis}\theta' = |z|\exp{i\theta'}
+\end{align*}
+そこで、$0 \leq \theta' < \pi$のときは、$\theta = \theta'$、$\pi < \theta' < 2\pi$のときは、$\theta = \theta' - 2\pi$とおく。さらに、$\theta = \pi$のとき、$z = |z|\exp{i\pi} = \text{-}|z| \notin D$となるので、$\theta = \pi$となりえない。
+\end{proof}\par
+そこで、次のような関数が定義される。
+\begin{dfn}
+$\forall z \in D$に対し、$z = |z|\exp{i\theta}$なる実数$\theta$を用いて次のような関数$\mathrm{Arg}$が定義される。
+\begin{align*}
+\mathrm{Arg}:D \rightarrow ( - \pi,\pi);z \mapsto \theta
+\end{align*}
+\end{dfn}\par
+さて、本題を述べよう。
+\begin{dfn} 次式のように関数$\mathrm{Log}$が定義される。
+\begin{align*}
+\mathrm{Log}:D \rightarrow V(\mathrm{Log});z \mapsto \ln|z| + i\mathrm{Arg}z
+\end{align*}
+その関数$\mathrm{Log}$を主値での対数関数、自然な対数関数という。
+\end{dfn}
+\begin{thm}\label{4.3.3.3}
+主値での対数関数$\mathrm{Log}$において、$V(\mathrm{Log}) = \mathbb{R} + ( - \pi,\pi)i$が成り立つ。
+\end{thm}
+\begin{proof}
+主値での対数関数$\mathrm{Log}$において、定義より明らかに$V(\mathrm{Log}) \subseteq \mathbb{R} + ( - \pi,\pi)i$が成り立つ。逆に、$u,v \in \mathbb{R}$として$\forall u + vi \in \mathbb{R} + ( - \pi,\pi)i$に対し、$z = \exp(u + vi)$とおかれれば、$\exp u \in \mathbb{R}^{+}$かつ$\exp{vi} \neq - 1$が成り立つので、$z \in D$が成り立つ。さらに、次のようになることから、
+\begin{align*}
+\mathrm{Log}z &= \ln|z| + i\mathrm{Arg}z\\
+&= \ln\left| \exp(u + vi) \right| + i\mathrm{Arg}{\exp(u + vi)}\\
+&= \ln{\exp u} + i\mathrm{Arg}\left( \left| \exp u \right|\exp{vi} \right)\\
+&= u + vi
+\end{align*}
+$u + vi \in V(\mathrm{Log})$が成り立つので、$V(\mathrm{Log}) \supseteq \mathbb{R} + ( - \pi,\pi)i$が成り立つ。よって、$V(\mathrm{Log}) = \mathbb{R} + ( - \pi,\pi)i$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.3.4}
+主値での対数関数$\mathrm{Log}$は全単射でありその逆写像$\mathrm{Log}^{- 1}$が次式のように与えられる。
+\begin{align*}
+\mathrm{Log}^{- 1}:\mathbb{R} + ( - \pi,\pi)i \rightarrow D;z \mapsto \exp z
+\end{align*}
+\end{thm}
+\begin{proof}
+主値での対数関数$\mathrm{Log}$は定義より全射である。さらに、$\forall z,w \in D$に対し、$z \neq w$が成り立つとき、$|z| \neq |w|$が成り立つなら、定義より直ちに$\mathrm{Log}z \neq \mathrm{Log}w$が成り立つ。一方で、$|z| = |w|$が成り立つかつ、$\mathrm{Arg}z = \mathrm{Arg}w$が成り立つと仮定すると、定理\ref{4.3.3.2}に注意して、次式が成り立つ。
+\begin{align*}
+z = |z|\exp{i\mathrm{Arg}z} = |w|\exp{i\mathrm{Arg}w} = w
+\end{align*}
+しかしながら、これは仮定の$z \neq w$が成り立つことに矛盾する。したがって、$|z| = |w|$が成り立つなら、$\mathrm{Arg}z \neq \mathrm{Arg}w$が成り立つので、$\mathrm{Log}z \neq \mathrm{Log}w$が成り立つ。ゆえに、主値での対数関数$\mathrm{Log}$は全単射である。\par
+このとき、$\forall z \in D$に対し、次式のように関数$f$が定義されれば、
+\begin{align*}
+f:\mathbb{R} + ( - \pi,\pi)i \rightarrow D;z \mapsto \exp z
+\end{align*}
+次のようになる。
+\begin{align*}
+f \circ \mathrm{Log}(z) &= \exp{\mathrm{Log}z} = \exp\left( \ln|z| + i\mathrm{Arg}z \right)\\
+&= \exp{\ln|z|}\exp{i\mathrm{Arg}z}\\
+&= |z|\exp{i\mathrm{Arg}z} = z
+\end{align*}
+また、$u,v \in \mathbb{R}$として$\forall u + vi \in \mathbb{R} + ( - \pi,\pi)i$に対し、$\exp u \in \mathbb{R}^{+}$かつ$\exp{vi} \neq - 1$が成り立つので、次のようになる。
+\begin{align*}
+\mathrm{Log} \circ f(u + vi) &= \mathrm{Log}{\exp(u + vi)}\\
+&= \ln\left| \exp(u + vi) \right| + i\mathrm{Arg}(u + vi)\\
+&= \ln{\exp u} + i\mathrm{Arg}\left( \left| \exp u \right|\exp{vi} \right)\\
+&= u + vi
+\end{align*}
+よって、その逆写像$\mathrm{Log}^{- 1}$は次式のように与えられる。
+\begin{align*}
+\mathrm{Log}^{- 1}:\mathbb{R} + ( - \pi,\pi)i \rightarrow D;z \mapsto \exp z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.5}
+主値での対数関数$\mathrm{Log}$の集合$\mathbb{R}^{+}$による制限について、$\mathrm{Log}|\mathbb{R}^{+} = \ln$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+}$に対し、$\mathrm{Arg}a = 0$が成り立つことから、明らかである。
+\end{proof}
+\begin{dfn}
+$G \subseteq \mathbb{C}$なる連結な開集合$G$が与えられたとき、関数$\exp|G:G \rightarrow V\left( exp|G \right)$が単射となるとき、その開集合$V\left( \exp|G \right)$上で連続な逆関数が存在する。その逆関数$f$を対数関数のその開集合$V\left( \exp|G \right)$における1つの分枝、枝などという。主値での対数関数$\mathrm{Log}$は対数関数のその開集合$D$における1つの分枝である。
+\end{dfn}\par
+また、これ以外の注意として$\forall z,w \in D$に対し、常に$\mathrm{Log}{zw} = \mathrm{Log}z + \mathrm{Log}w$が成り立つとはいえないことがあげられる。例えば、次のようなものがある。
+\begin{align*}
+\mathrm{Log}\left( - \frac{\sqrt{3}}{2} + \frac{i}{2} \right)^{2} &= \mathrm{Log}\left( \frac{1}{2} - \frac{\sqrt{3}}{2}i \right)\\
+&= \ln\left| \frac{1}{2} - \frac{\sqrt{3}}{2}i \right| + i\mathrm{Arg}\left( \frac{1}{2} - \frac{\sqrt{3}}{2}i \right)\\
+&= \ln 1 - i \cdot \frac{\pi}{3} = - \frac{\pi i}{3},\\
+\mathrm{Log}\left( - \frac{\sqrt{3}}{2} + \frac{i}{2} \right) + \mathrm{Log}\left( - \frac{\sqrt{3}}{2} + \frac{i}{2} \right) &= \ln\left| - \frac{\sqrt{3}}{2} + \frac{i}{2} \right| + i\mathrm{Arg}\left( - \frac{\sqrt{3}}{2} + \frac{i}{2} \right) \\
+&\quad + \ln\left| - \frac{\sqrt{3}}{2} + \frac{i}{2} \right| + i\mathrm{Arg}\left( - \frac{\sqrt{3}}{2} + \frac{i}{2} \right)\\
+&= \ln 1 + i \cdot \frac{5\pi}{6} + \ln 1 + i \cdot \frac{5\pi}{6} = \frac{5\pi i}{3}
+\end{align*}
+\begin{thm}\label{4.3.3.6}
+主値での対数関数$\mathrm{Log}$はその定義域$D$で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\mathrm{Log}z = \frac{1}{z}
+\end{align*}
+\end{thm}
+\begin{proof}
+主値での指数関数$exp:\mathbb{R} + ( - \pi,\pi)i \rightarrow D;z \mapsto \exp z$は連続で定理\ref{4.3.1.6}より正則なので、$\mathrm{Log}(z + k) - \mathrm{Log}z = l$とおかれれば、$w = \mathrm{Log}z$として、$\exp(w + l) = z + k$、即ち、$\exp(w + l) - \exp w = k$が成り立つので、自然な指数関数、主値での対数関数いずれも全単射であることに注意すれば、$h \neq 0 \Leftrightarrow k \neq 0$が成り立つ。さらに、自然な指数関数、主値での対数関数いずれも連続であることに注意すれば、$h \rightarrow 0 \Leftrightarrow k \rightarrow 0$が成り立つ。以上、次のようになる。
+\begin{align*}
+\frac{d}{dz}\mathrm{Log}z &= \lim_{k \rightarrow 0}\frac{\mathrm{Log}(z + k) - \mathrm{Log}z}{k}\\
+&= \lim_{k \rightarrow 0}\frac{l}{\exp(w + l) - \exp w}\\
+&= \frac{1}{\lim_{l \rightarrow 0}\frac{\exp(w + l) - \exp w}{l}}\\
+&= \frac{1}{\frac{d}{dw}\exp w} = \frac{1}{\exp w} = \frac{1}{z}
+\end{align*}
+よって、主値での対数関数$\mathrm{Log}$はその定義域$D$で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\mathrm{Log}z = \frac{1}{z}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.7}
+$\forall z \in \mathbb{C}$に対し、$|z| < 1$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\mathrm{Log}(z + 1) = \sum_{n \in \mathbb{N}} {\frac{( - 1)^{n - 1}}{n}z^{n}}
+\end{align*}
+\end{thm}
+\begin{proof}
+冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{( - 1)^{k - 1}}{k}z^{k}} \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{\frac{( - 1)^{n - 1}}{n}}{\frac{( - 1)^{(n + 1) - 1}}{n + 1}} \right| = \lim_{n \rightarrow \infty}\left| \frac{- ( - 1)^{n}(n + 1)}{( - 1)^{n}n} \right| = \lim_{n \rightarrow \infty}\left| \frac{n + 1}{n} \right| = \lim_{n \rightarrow \infty}\left( 1 + \frac{1}{n} \right) = 1
+\end{align*}
+よって、これの収束半径は$1$であるので、$0$を中心とする半径$1$の円板$D(0,1)$を用いて次式のように関数$f$がおかれると、
+\begin{align*}
+f:D(0,1) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N}} {\frac{( - 1)^{n - 1}}{n}z^{n}}
+\end{align*}
+定理\ref{4.2.8.7}の項別微分により次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}f:D(0,1) \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N}} {( - 1)^{n - 1}z^{n - 1}} = \frac{1}{z + 1}
+\end{align*}
+ここで、$\forall z \in D(0,1)$に対し、$|z| < 1$が成り立つので、$0 \leq |z + 1| \leq |z| + 1 < 2$が成り立つことにより、$z + 1 \in D$が成り立つ。したがって、次式が成り立つ。
+\begin{align*}
+\partial_{\mathrm{hol}}f(z) = \frac{1}{z + 1} = \frac{d}{dz}\mathrm{Log}(z + 1)
+\end{align*}
+即ち、次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\left( f(z) - \mathrm{Log}(z + 1) \right) = \partial_{\mathrm{hol}}f(z) - \frac{d}{dz}\mathrm{Log}(z + 1) = 0
+\end{align*}
+定理\ref{4.2.8.8}より定数$C$を用いて$f(z) = \mathrm{Log}(z + 1) + C$が成り立つ。$z = 0$のとき、$f(0) = 0$かつ$\mathrm{Log}1 = 0$が成り立つので、$C = 0$が得られる。よって、次式が成り立つ。
+\begin{align*}
+\mathrm{Log}(z + 1) = f(z) = \sum_{n \in \mathbb{N}} {\frac{( - 1)^{n - 1}}{n}z^{n}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.8}
+$\forall z \in \mathbb{C}$に対し、$|z| < 1$が成り立つなら、次式が成り立つ。
+\begin{align*}
+- \mathrm{Log}(1 - z) = \sum_{n \in \mathbb{N}} \frac{z^{n}}{n}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.3.7}より直ちに分かる。
+\end{proof}
+%\hypertarget{ux6307ux6570ux95a2ux6570-1}{%
+\subsubsection{指数関数}%\label{ux6307ux6570ux95a2ux6570-1}}
+\begin{dfn}
+$\forall a \in D$に対し、次式のように関数$\exp_{a}$が定義される。
+\begin{align*}
+\exp_{a}:\mathbb{C} \rightarrow V\left( \exp_{a} \right);z \mapsto \exp\left( z\mathrm{Log}a \right)
+\end{align*}
+この関数$\exp_{a}$を底$a$の指数関数といい、その値$\exp_{a}z$を$a$の$z$乗という。さらに、その値$\exp_{a}z$を$a^{z}$と書くこともある。
+\end{dfn}
+\begin{thm}\label{4.3.3.9}
+底$e$の指数関数$\exp_{e}$は自然な指数関数$\exp$に等しい、即ち、$\exp_{e} = \exp$が成り立つ。また、底$1$の指数関数$\exp_{1}$は常に$1$をうつす。
+\end{thm}
+\begin{proof}
+定義から考えれば、$\mathrm{Log}e = 1$かつ$\mathrm{Log}1 = 0$より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.3.10}
+$\forall a \in D\forall z,w \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+  \exp_{a}z\exp_{a}w &= \exp_{a}(z + w)\\
+  \exp_{a}( - z) &= \frac{1}{\exp_{a}z}\\
+  \exp z &\neq 0
+\end{align*}
+別の書き方でいえば、次のようになる。
+\begin{align*}
+  a^{z}a^{w} &= a^{z + w}\\
+  a^{- z} &= \frac{1}{a^{z}}\\
+  a^{z} &\neq 0
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in D\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\exp_{a}z\exp_{a}w &= \exp\left( z\mathrm{Log}a \right)\exp\left( w\mathrm{Log}a \right)\\
+&= \exp\left( z\mathrm{Log}a + w\mathrm{Log}a \right)\\
+&= \exp\left( (z + w)\mathrm{Log}a \right)\\
+&= \exp_{a}(z + w)
+\end{align*}
+あとは定理\ref{4.3.1.5}と同様にして示せばよかろう。
+\end{proof}
+\begin{thm}\label{4.3.3.11} 指数関数について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall a \in \mathbb{R}^{+}$に対し、$a \neq 1$が成り立つなら、$V\left( \exp_{a}|\mathbb{R} \right) = \mathbb{R}^{+}$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{+}\forall x \in \mathbb{R}$に対し、$\mathrm{Log}{\exp_{a}x} = x\mathrm{Log}a$が成り立つ。
+\item
+  $\forall a \in \mathbb{R}^{+}\forall x,y \in \mathbb{R}$に対し、$\exp_{\exp_{a}x}y = \exp_{a}{xy}$が成り立つ。
+\item
+  $\forall a,b \in \mathbb{R}^{+}\forall x \in \mathbb{R}$に対し、$\exp_{ab}x = \exp_{a}x\exp_{b}x$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+}$に対し、$a \neq 0$が成り立つなら、定義と定理\ref{4.3.1.7}より直ちに$V\left( \exp_{a}|\mathbb{R} \right) \subseteq \mathbb{R}^{+}$が成り立つことがわかる。一方で、$\forall b \in \mathbb{R}^{+}$に対し、$a \neq 1$が成り立つので、定理\ref{4.3.1.51}より$\ln a \neq 1$が成り立つ。したがって、$\frac{\ln b}{\ln a} \in \mathbb{R}$が成り立って次のようになる。
+\begin{align*}
+\exp_{a}\frac{\ln b}{\ln a} &= \exp\left( \frac{\ln b}{\ln a}\mathrm{Log}a \right)\\
+&= \exp\left( \frac{\ln b}{\ln a}\ln a \right)\\
+&= \exp{\ln b} = b
+\end{align*}
+ゆえに、$\mathbb{R}^{+} \subseteq V\left( \exp_{a}|\mathbb{R} \right)$が成り立つ。\par
+$\forall a \in \mathbb{R}^{+}\forall x \in \mathbb{R}$に対し、$a = 1$でも$\exp_{a}x \in \mathbb{R}^{+}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\mathrm{Log}{\exp_{a}x} &= \ln{\exp_{a}x}\\
+&= \ln{\exp\left( x\mathrm{Log}a \right)}\\
+&= x\mathrm{Log}a
+\end{align*}\par
+$\forall a \in \mathbb{R}^{+}\forall x,y \in \mathbb{R}$に対し、$a = 1$でも$\exp_{a}x \in \mathbb{R}^{+}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\exp_{\exp_{a}x}y &= \exp\left( y\mathrm{Log}{\exp_{a}x} \right)\\
+&= \exp\left( y \cdot x\mathrm{Log}a \right)\\
+&= \exp\left( xy\mathrm{Log}a \right) = \exp_{a}{xy}
+\end{align*}\par
+$\forall a,b \in \mathbb{R}^{+}\forall x \in \mathbb{R}$に対し、次のようになる。
+\begin{align*}
+\exp_{ab}x &= \exp\left( x\mathrm{Log}{ab} \right)\\
+&= \exp\left( x\ln{ab} \right)\\
+&= \exp\left( x\left( \ln a + \ln b \right) \right)\\
+&= \exp\left( x\ln a + x\ln b \right)\\
+&= \exp\left( x\ln a \right)\exp\left( x\ln b \right)\\
+&= \exp\left( x\mathrm{Log}a \right)\exp\left( x\mathrm{Log}b \right)\\
+&= \exp_{a}x\exp_{b}x
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.12}
+$\forall c \in \mathbb{C}$に対し、次式のように定義される関数$P$について、
+\begin{align*}
+P:D \rightarrow \mathbb{C};z \mapsto \exp_{z}c
+\end{align*}
+その集合$D$上正則で次式が成り立つ。
+\begin{align*}
+  \partial_{\mathrm{hol}}P(z) = \frac{dz^{c}}{dz} = c\exp_{z}(c - 1) = cz^{c - 1}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall c \in \mathbb{C}$に対し、次式のように定義される関数$P$について、
+\begin{align*}
+P:D \rightarrow \mathbb{C};z \mapsto \exp_{z}c
+\end{align*}
+$\exp_{z}c = \exp\left( c\mathrm{Log}z \right)$が成り立つので、その集合$D$上で正則である。したがって、次のようになる。
+\begin{align*}
+\partial_{\mathrm{hol}}P(z) &= \frac{d}{dz}\exp\left( c\mathrm{Log}z \right)\\
+&= \frac{d}{d\left( c\mathrm{Log}z \right)}\exp\left( c\mathrm{Log}z \right)\frac{d}{d\mathrm{Log}z}\left( c\mathrm{Log}z \right)\frac{d}{dz}\mathrm{Log}z\\
+&= \exp\left( c\mathrm{Log}z \right) \cdot c \cdot \frac{1}{z}\\
+&= \frac{c\exp\left( c\mathrm{Log}z \right)}{\exp{\mathrm{Log}z}}\\
+&= c\exp\left( c\mathrm{Log}z \right)\exp\left( - \mathrm{Log}z \right)\\
+&= c\exp\left( (c - 1)\mathrm{Log}z \right)\\
+&= c\exp_{z}(c - 1)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.13}
+$\forall a \in D$に対し、底$a$の指数関数$\exp_{a}$はその集合$\mathbb{C}$で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\exp_{a}z = \mathrm{Log}a\exp_{a}z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in D$に対し、底$a$の指数関数$\exp_{a}$はその集合$\mathbb{C}$で正則であることは定義より明らかである。このとき、次のようになる。
+\begin{align*}
+\frac{d}{dz}\exp_{a}z &= \frac{d}{dz}\exp\left( z\mathrm{Log}a \right)\\
+&= \frac{d}{d\left( z\mathrm{Log}a \right)}\exp\left( z\mathrm{Log}a \right)\frac{d}{dz}\left( z\mathrm{Log}a \right)\\
+&= \exp\left( z\mathrm{Log}a \right) \cdot \mathrm{Log}a\\
+&= \mathrm{Log}a\exp_{a}z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.14}
+$\forall a \in \mathbb{R}^{+}$に対し、底$a$の指数関数の大小関係について、$\forall x,y \in \mathbb{R}$に対し、次のようになる。
+\begin{itemize}
+\item
+  $0 < a < 1$のとき、$x < y \Rightarrow \exp_{a}y < \exp_{a}x$が成り立つ。
+\item
+  $a = 1$のとき、$x < y \Rightarrow \exp_{a}x = \exp_{a}y = 1$が成り立つ。
+\item
+  $1 < a$のとき、$x < y \Rightarrow \exp_{a}x < \exp_{a}y$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+}$に対し、底$a$の指数関数の大小関係について、$\forall x,y \in \mathbb{R}$に対し、$0 < a < 1$のとき、$x < y$が成り立つなら、次のようになる。
+\begin{align*}
+\exp_{a}y - \exp_{a}x &= \exp_{a}(x + y - x) - \exp_{a}x = \exp_{a}x\exp_{a}(y - x) - \exp_{a}x\\
+&= \exp_{a}x\left( \exp_{a}(y - x) - 1 \right)
+\end{align*}
+ここで、$(y - x)\ln a < 0$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\exp_{a}(y - x) = \exp\left( (y - x)\mathrm{Log}a \right) = \exp\left( (y - x)\ln a \right) < 1
+\end{align*}
+したがって、$\exp_{a}(y - x) - 1 < 0$が得られ$\exp_{a}x > 0$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\exp_{a}y - \exp_{a}x = \exp_{a}x\left( \exp_{a}(y - x) - 1 \right) < 0
+\end{align*}
+よって、$\exp_{a}y < \exp_{a}x$が成り立つ。\par
+$a = 1$のときでは定理\ref{4.3.3.9}による。$1 < a$のときでは$0 < a < 1$のときと同様にして示される。
+\end{proof}
+\begin{thm}\label{4.3.3.15}
+$\forall a \in \mathbb{R}^{+}$に対し、底$a$の指数関数の極限について$\forall n \in \mathbb{N}$に対し、次式たちが成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}{\exp_{a}x} &= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}{\exp_{a}x} &= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow \infty}\frac{\exp_{a}x}{|x|^{n}} &= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a \leq 1 \\
+\infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}\frac{\exp_{a}x}{|x|^{n}} &= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & 1 \leq a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow \infty}{|x|^{n}\exp_{a}x} &= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & 1 \leq a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}{|x|^{n}\exp_{a}x} &= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a \leq 1 \\
+0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+}$に対し、底$a$の指数関数の極限について$\forall n \in \mathbb{N}$に対し、定理\ref{4.3.1.9}より次のようになる。
+\begin{align*}
+\lim_{x \rightarrow \infty}{\exp_{a}x} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow \infty}{\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow \infty}1 & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow \infty}{\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\lim_{x \rightarrow \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\lim_{x\ln a \rightarrow - \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\lim_{x\ln a \rightarrow \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}{\exp_{a}x} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow - \infty}{\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow \infty}1 & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow - \infty}{\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\lim_{x \rightarrow - \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow - \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\lim_{x\ln a \rightarrow \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+\lim_{x\ln a \rightarrow - \infty}{\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+1 & \mathrm{if} & a = 1 \\
+0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow \infty}\frac{\exp_{a}x}{|x|^{n}} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow \infty}{\left| \ln a \right|^{n} \cdot \frac{\exp\left( x\mathrm{Log}a \right)}{|x|^{n}\left| \ln a \right|^{n}}} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow \infty}\frac{1}{|x|^{n}} & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow \infty}{\left| \ln a \right|^{n} \cdot \frac{\exp\left( x\mathrm{Log}a \right)}{|x|^{n}\left| \ln a \right|^{n}}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n}\lim_{x \rightarrow \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n}\lim_{x \rightarrow \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n}\lim_{x\ln a \rightarrow - \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n}\lim_{x\ln a \rightarrow \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n} \cdot 0 & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n} \cdot \infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a \leq 1 \\
+\infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}\frac{\exp_{a}x}{|x|^{n}} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow - \infty}{\left| \ln a \right|^{n} \cdot \frac{\exp\left( x\mathrm{Log}a \right)}{|x|^{n}\left| \ln a \right|^{n}}} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow - \infty}\frac{1}{|x|^{n}} & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow - \infty}{\left| \ln a \right|^{n} \cdot \frac{\exp\left( x\mathrm{Log}a \right)}{|x|^{n}\left| \ln a \right|^{n}}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n}\lim_{x \rightarrow - \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n}\lim_{x \rightarrow - \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n}\lim_{x\ln a \rightarrow \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n}\lim_{x\ln a \rightarrow - \infty}\frac{\exp\left( x\ln a \right)}{\left| x\ln a \right|^{n}} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\left| \ln a \right|^{n} \cdot \infty & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & a = 1 \\
+\left| \ln a \right|^{n} \cdot 0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+0 & \mathrm{if} & 1 \leq a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow \infty}{|x|^{n}\exp_{a}x} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow \infty}{\frac{1}{\left| \ln a \right|^{n}} \cdot |x|^{n}\left| \ln a \right|^{n}\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow \infty}|x|^{n} & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow \infty}{\frac{1}{\left| \ln a \right|^{n}} \cdot |x|^{n}\left| \ln a \right|^{n}\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x \rightarrow \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x \rightarrow \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x\ln a \rightarrow - \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x\ln a \rightarrow \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}} \cdot 0 & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}} \cdot \infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+0 & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & 1 \leq a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow - \infty}{|x|^{n}\exp_{a}x} &= \left\{ \begin{matrix}
+\lim_{x \rightarrow - \infty}{\frac{1}{\left| \ln a \right|^{n}} \cdot |x|^{n}\left| \ln a \right|^{n}\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 0 < a < 1 \\
+\lim_{x \rightarrow - \infty}|x|^{n} & \mathrm{if} & a = 1 \\
+\lim_{x \rightarrow - \infty}{\frac{1}{\left| \ln a \right|^{n}} \cdot |x|^{n}\left| \ln a \right|^{n}\exp\left( x\mathrm{Log}a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x \rightarrow - \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x \rightarrow - \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x\ln a \rightarrow \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}}\lim_{x\ln a \rightarrow - \infty}{\left| x\ln a \right|^{n}\exp\left( x\ln a \right)} & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\frac{1}{\left| \ln a \right|^{n}} \cdot \infty & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & a = 1 \\
+\frac{1}{\left| \ln a \right|^{n}} \cdot 0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+&= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a \leq 1 \\
+0 & \mathrm{if} & 1 < a \\
+\end{matrix} \right.
+\end{align*}
+\end{proof}
+%\hypertarget{ux5bfeux6570ux95a2ux6570}{%
+\subsubsection{対数関数}%\label{ux5bfeux6570ux95a2ux6570}}
+\begin{dfn}
+$\forall a \in D \setminus \left\{ 1 \right\}$に対し、次式のように関数$\mathrm{Log}_{a}$が定義される。
+\begin{align*}
+\mathrm{Log}_{a}:D \rightarrow V\left( \mathrm{Log}_{a} \right);z \mapsto \frac{\mathrm{Log}z}{\mathrm{Log}a}
+\end{align*}
+その関数$\mathrm{Log}_{a}$を底$a$の対数関数という。特に、$a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$が成り立つとき、その関数$\mathrm{Log}_{a}|\mathbb{R}^{+}$を$\log_{a}$とも書く。
+\end{dfn}
+\begin{thm}\label{4.3.3.16}
+底$e$の対数関数$\mathrm{Log}_{e}$は主値での対数関数$\mathrm{Log}$に等しい。
+\end{thm}
+\begin{proof} $\mathrm{Log}e = \ln e = 1$が成り立つことから、明らかである。
+\end{proof}
+\begin{thm}\label{4.3.3.17}
+$\forall a \in D \setminus \left\{ 1 \right\}$に対し、底$a$の対数関数$\mathrm{Log}_{a}$において、$V\left( \mathrm{Log}_{a} \right) = \frac{1}{\mathrm{Log}a}\left( \mathbb{R} + ( - \pi,\pi)i \right)$が成り立つ。特に、$a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$が成り立つとき、$V\left( \log_{a} \right) = \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.3.3.3}よりすぐ分かる。特に、$a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$が成り立つとき、$\mathrm{Log}a = \ln a$が成り立つかつ、定理\ref{4.3.1.47}より$V\left( \log_{a} \right) = \mathbb{R}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.3.18}
+$\forall a \in D \setminus \left\{ 1 \right\}$に対し、底$a$の対数関数$\mathrm{Log}_{a}$は全単射でありその逆写像$\mathrm{Log}_{a}^{- 1}$が次式のように与えられる。
+\begin{align*}
+\mathrm{Log}_{a}^{- 1}:\frac{1}{\mathrm{Log}a}\left( \mathbb{R} + ( - \pi,\pi)i \right) \rightarrow D;z \mapsto \exp_{a}z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in D \setminus \left\{ 1 \right\}$に対し、底$a$の対数関数$\mathrm{Log}_{a}$は全単射であることは定理\ref{4.3.3.4}より明らかである。そこで、次式のように写像$f$が定義されれば、
+\begin{align*}
+f:\frac{1}{\mathrm{Log}a}\left( \mathbb{R} + ( - \pi,\pi)i \right) \rightarrow D;z \mapsto \exp_{a}z
+\end{align*}
+$\forall z \in D$に対し、定理\ref{4.3.3.4}より次のようになる。
+\begin{align*}
+f \circ \mathrm{Log}_{a}(z) = \exp_{a}{\mathrm{Log}_{a}z} = \exp\left( \frac{\mathrm{Log}z}{\mathrm{Log}a}\mathrm{Log}a \right) = \exp{\mathrm{Log}z} = z
+\end{align*}
+一方で、$\forall z \in V\left( \mathrm{Log}_{a} \right)$に対し、定理\ref{4.3.3.15}に注意すれば、定理\ref{4.3.3.4}より次のようになる。
+\begin{align*}
+\mathrm{Log}_{a} \circ f(z) = \mathrm{Log}_{a}{\exp_{a}z} = \frac{\mathrm{Log}{\exp\left( z\mathrm{Log}a \right)}}{\mathrm{Log}a} = \frac{z\mathrm{Log}a}{\mathrm{Log}a} = z
+\end{align*}
+よって、その逆写像$\mathrm{Log}_{a}^{- 1}$が次式のように与えられる。
+\begin{align*}
+\mathrm{Log}_{a}^{- 1}:\frac{1}{\mathrm{Log}a}\left( \mathbb{R} + ( - \pi,\pi)i \right) \rightarrow D;z \mapsto \exp_{a}z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.3.19}
+$\forall a \in D \setminus \left\{ 1 \right\}$に対し、底$a$の対数関数$\mathrm{Log}_{a}$はその定義域$D$で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\mathrm{Log}_{a}z = \frac{1}{z\mathrm{Log}a}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.3.6}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.3.20}
+$\forall a \in D \setminus \left\{ 1 \right\}\forall x,y \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\mathrm{Log}_{a}{xy} &= \mathrm{Log}_{a}x + \mathrm{Log}_{a}y\\
+\mathrm{Log}_{a}\frac{1}{x} &= - \mathrm{Log}_{a}x
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in D \setminus \left\{ 1 \right\}\forall x \in \mathbb{R}^{+}$に対し、$\mathrm{Log}_{a}x = \frac{\ln x}{\mathrm{Log}a}$が成り立つことから、定理\ref{4.3.1.49}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.3.21}
+$\forall a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$に対し、底$a$の指数関数の大小関係について、$\forall x,y \in \mathbb{R}^{+}$に対し、次のようになる。
+\begin{itemize}
+\item
+  $0 < a < 1$のとき、$x < y \Rightarrow \log_{a}y < \log_{a}x$が成り立つ。
+\item
+  $1 < a$のとき、$x < y \Rightarrow \log_{a}x < \log_{a}y$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$に対し、底$a$の指数関数の大小関係について、次のようになることから、
+\begin{align*}
+\frac{d}{dx}\log_{a}x = \frac{d}{dx}\frac{\mathrm{Log}x}{\mathrm{Log}a} = \frac{1}{\ln a}\frac{d}{dx}\ln x = \frac{1}{x\ln a}
+\end{align*}
+$0 < a < 1$のとき、定理\ref{4.3.1.51}より$\ln a < 0$が成り立つので、$\frac{d}{dx}\log_{a}x < 0$が成り立つことになり、したがって、$x < y \Rightarrow \log_{a}y < \log_{a}x$が成り立つ。$1 < a$のとき、定理\ref{4.3.1.51}より$\ln a > 0$が成り立つので、$\frac{d}{dx}\log_{a}x > 0$が成り立つことになり、したがって、$x < y \Rightarrow \log_{a}x < \log_{a}y$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.3.22}
+$\forall a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}{\log_{a}x} &= \left\{ \begin{matrix}
+ - \infty & \mathrm{if} & 0 < a < 1 \\
+\infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow + 0}{\log_{a}x} &= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+ - \infty & \mathrm{if} & 1 < a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow \infty}\frac{\log_{a}x}{x^{n}} &= 0\\
+\lim_{x \rightarrow + 0}\frac{\log_{a}x}{x^{n}} &= \left\{ \begin{matrix}
+\infty & \mathrm{if} & 0 < a < 1 \\
+ - \infty & \mathrm{if} & 1 \leq a \\
+\end{matrix} \right.\ \\
+\lim_{x \rightarrow + 0}{x^{n}\log_{a}x} &= 0
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}^{+} \setminus \left\{ 1 \right\}\forall x \in \mathbb{R}^{+}$に対し、$\log_{a}x = \frac{\ln x}{\ln a}$が成り立つので、$0 < a < 1$のとき、$\ln a < 0$、$1 < a$のとき、$0 < \ln a$が成り立つことに注意すれば、定理\ref{4.3.1.52}よりすぐ分かる。
+\end{proof}
+%\hypertarget{ux5e95ux306eux5909ux63dbux516cux5f0f}{%
+\subsubsection{底の変換公式}%\label{ux5e95ux306eux5909ux63dbux516cux5f0f}}
+\begin{thm}[底の変換公式]\label{4.3.3.23} $\forall a,b \in D$に対し、底について次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall z \in \mathbb{C}$に対し、$a \neq 0$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\exp_{b}z = \exp_{a}\left( z\mathrm{Log}_{a}b \right)
+\end{align*}
+\item
+  $\forall z \in \mathbb{C}$に対し、$a \neq 0$かつ$b \neq 0$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\mathrm{Log}_{b}z = \frac{\mathrm{Log}_{a}z}{\mathrm{Log}_{a}b}
+\end{align*}
+\end{itemize}
+この式を底の変換公式という。
+\end{thm}
+\begin{proof}
+$\forall a,b \in D$に対し、底について、$\forall z \in \mathbb{C}$に対し、$a \neq 0$が成り立つなら、次のようになる。
+\begin{align*}
+\exp_{b}z &= \exp\left( z\mathrm{Log}b \right)\\
+&= \exp\left( z\frac{\mathrm{Log}b}{\mathrm{Log}a}\mathrm{Log}a \right)\\
+&= \exp\left( z\mathrm{Log}_{a}b\mathrm{Log}a \right)\\
+&= \exp_{a}\left( z\mathrm{Log}_{a}b \right)
+\end{align*}
+一方で、$\forall z \in \mathbb{C}$に対し、$a \neq 0$かつ$b \neq 0$が成り立つなら、次のようになる。
+\begin{align*}
+\mathrm{Log}_{b}z = \frac{\mathrm{Log}z}{\mathrm{Log}b} = \frac{\frac{\mathrm{Log}z}{\mathrm{Log}a}}{\frac{\mathrm{Log}b}{\mathrm{Log}a}} = \frac{\mathrm{Log}_{a}z}{\mathrm{Log}_{a}b}
+\end{align*}
+\end{proof}
+%\hypertarget{napierux6570ux306eux6975ux9650}{%
+\subsubsection{Napier数の極限}%\label{napierux6570ux306eux6975ux9650}}
+\begin{thm}\label{4.3.3.24} Napier数の極限について、次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}\left( 1 + \frac{1}{x} \right)^{x} &= e\\
+\lim_{x \rightarrow - \infty}\left( 1 + \frac{1}{x} \right)^{x} &= e\\
+\lim_{x \rightarrow 0}(1 + x)^{\frac{1}{x}} &= e\\
+\lim_{x \rightarrow 0}\frac{x}{\ln(1 + x)} &= 1\\
+\lim_{x \rightarrow 0}\frac{\exp x - 1}{x} &= 1
+\end{align*}
+\end{thm}
+\begin{proof}
+自然な指数関数と自然な対数関数の極限について、実数列$(n)_{n \in \mathbb{N}}$が考えられれば、$\lim_{n \rightarrow \infty}n = \infty$が成り立つので、定理\ref{4.1.10.2}と定理\ref{4.3.1.3}より$\lim_{x \rightarrow \infty}\left( 1 + \frac{1}{x} \right)^{x} = e$が成り立つ。\par
+また、以下、$y = - x$とおくと、次のようになる。
+\begin{align*}
+\lim_{x \rightarrow - \infty}\left( 1 + \frac{1}{x} \right)^{x} &= \lim_{y \rightarrow \infty}\left( 1 - \frac{1}{y} \right)^{- y}\\
+&= \lim_{y \rightarrow \infty}\frac{1}{\left( 1 - \frac{1}{y} \right)^{y}}\\
+&= \lim_{y \rightarrow \infty}\left( \frac{1}{1 - \frac{1}{y}} \right)^{y}\\
+&= \lim_{y \rightarrow \infty}\left( \frac{y}{y - 1} \right)^{y}\\
+&= \lim_{y \rightarrow \infty}\left( \frac{y - 1 + 1}{y - 1} \right)^{y - 1 + 1}\\
+&= \lim_{y \rightarrow \infty}{\left( 1 + \frac{1}{y - 1} \right)^{y - 1}\frac{y}{y - 1}}\\
+&= \lim_{y \rightarrow \infty}\left( 1 + \frac{1}{y - 1} \right)^{y - 1}\lim_{y \rightarrow \infty}\frac{y}{y - 1}\\
+&= \lim_{y - 1 \rightarrow \infty}\left( 1 + \frac{1}{y - 1} \right)^{y - 1}\lim_{y \rightarrow \infty}\frac{1}{1 - \frac{1}{y}}\\
+&= e \cdot 1 = e
+\end{align*}\par
+さらに、上記の議論により次のようになるので、
+\begin{align*}
+\lim_{x \rightarrow - 0}(1 + x)^{\frac{1}{x}} &= \lim_{\frac{1}{x} \rightarrow - \infty}\left( 1 + \frac{1}{\frac{1}{x}} \right)^{\frac{1}{x}} = e\\
+\lim_{x \rightarrow + 0}(1 + x)^{\frac{1}{x}} &= \lim_{\frac{1}{x} \rightarrow \infty}\left( 1 + \frac{1}{\frac{1}{x}} \right)^{\frac{1}{x}} = e
+\end{align*}
+$\lim_{x \rightarrow 0}(1 + x)^{\frac{1}{x}} = e$が得られる。\par
+最後に次のようになる。
+\begin{align*}
+\lim_{x \rightarrow 0}\frac{x}{\ln(1 + x)} &= \lim_{x \rightarrow 0}\frac{1}{\frac{\ln(1 + x)}{x}}\\
+&= \lim_{x \rightarrow 0}\frac{1}{\ln(1 + x)^{\frac{1}{x}}}\\
+&= \frac{1}{\ln{\lim_{x \rightarrow 0}(1 + x)^{\frac{1}{x}}}}\\
+&= \frac{1}{\ln e} = 1\\
+\lim_{x \rightarrow 0}\frac{\exp x - 1}{x} &= \lim_{x \rightarrow 0}\frac{\exp x - 1}{\ln{\exp x}}\\
+&= \lim_{x \rightarrow 0}\frac{\exp x - 1}{\ln\left( 1 + \exp x - 1 \right)}\\
+&= \lim_{\exp x - 1 \rightarrow 0}\frac{\exp x - 1}{\ln\left( 1 + \exp x - 1 \right)} = 1
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1980. 第34刷 p182-204 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

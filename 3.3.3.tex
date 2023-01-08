@@ -1,0 +1,447 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{3.3.1}
+\externaldocument{3.3.2}
+\input{macro}
+\begin{document}
+%\hypertarget{ux591aux9805ux5f0fux74b0}{%
+\subsection{多項式環}%%\label{ux591aux9805ux5f0fux74b0}}
+%\hypertarget{ux975eux8ca0ux6574ux6570ux5168ux4f53ux306eux96c6ux5408ux304bux3089ux96f6ux74b0ux3067ux306aux3044ux53efux63dbux74b0ux3078ux306eux5199ux50cf}{%
+\subsubsection{非負整数全体の集合から零環でない可換環への写像}%%\label{ux975eux8ca0ux6574ux6570ux5168ux4f53ux306eux96c6ux5408ux304bux3089ux96f6ux74b0ux3067ux306aux3044ux53efux63dbux74b0ux3078ux306eux5199ux50cf}}
+\begin{dfn}
+非負整数、即ち、負でない整数全体の集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、元の列の定義と同じようにして、$\forall f \in \widetilde{P}$に対し、次式のように書かれる。
+\begin{align*}
+f = \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = \left( f(0),f(1),f(2),\cdots \right)
+\end{align*}
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$\forall f,g \in \widetilde{P}$に対し、次式のように定義される。
+\begin{align*}
+f + g = \left( f(n) + g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}},\ \ fg = \left( \sum_{i + j = n} {f(i)g(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+次式のように定義される写像をKroneckerの$\delta $という。
+\begin{align*}
+\mathbb{Z}\times \mathbb{Z} \rightarrow \mathbb{Z} ; \begin{pmatrix}
+  i\\
+  j\\
+\end{pmatrix} \mapsto \delta_{i}^{j} =\left\{ \begin{matrix}
+  1 & \mathrm{if} & i = j \\
+  0 & \mathrm{otherwise} & \\
+\end{matrix} \right. 
+\end{align*}
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$\forall a \in R$に対し、次式のようにその集合$\widetilde{P}$の元$\overline{a}$が定義される。
+\begin{align*}
+\overline{a} = \left( a\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{3.3.3.1}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$は可換環をなす。このとき、零元、単位元はそれぞれ$\overline{0}$、$\overline{1}$と、その元$f$に対する元$- f$は次式のように与えられる。
+\begin{align*}
+- f = \left( - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$\forall f,g,h \in \widetilde{P}$に対し、その元$f$に対する元$- f$は次式のようにおかれると、
+\begin{align*}
+- f = \left( - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+次のようになる。
+\begin{align*}
+(f + g) + h &= \left( \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right) + \left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \left( f(n) + g(n) \right) + h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + \left( g(n) + h(n) \right) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) + h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\\
+&= f + (g + h)\\
+f + \overline{0} &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + (0)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = f\\
+\overline{0} + f &= (0)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( 0 + f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = f\\
+f - f &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= (0)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = \overline{0}\\
+- f + f &= \left( - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( - f(n) + f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= (0)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = \overline{0}\\
+f + g &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( g(n) + f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= g + f
+\end{align*}
+以上より、その組$\left( \widetilde{P}, + \right)$は可換群をなす。\par
+さらに、$\forall f,g,h \in \widetilde{P}$に対し、次のようになる。
+\begin{align*}
+(fg)h &= \left( \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)g(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{k\text{+}l = n} {\sum_{i + j = k} {f(i)g(j)}h(l)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = k \\k + l = n \end{matrix}} {f(i)g(j)h(l)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j + k = n } {f(i)g(j)h(k)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = k \\k + l = n \end{matrix}} {f(l)g(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{k\text{+}l = n} {f(l)\sum_{i + j = k} {g(i)h(j)}} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \sum_{i + j = n} {g(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right) = f(gh)\\
+f\overline{1} &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n}  f(i)\delta_{j}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\ j = 0 \end{matrix}} {f(i)\delta_{j}^{0}} + \sum_{\scriptsize \begin{matrix} i + j = n \\j \neq 0 \end{matrix}} f(i)\delta_{j}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\ j = 0 \end{matrix}} {f(i)} + \sum_{\scriptsize \begin{matrix} i + j = n \\j \neq 0 \end{matrix}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i = n \\j = 0 \end{matrix}} {f(i)} + 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i = n } {f(i)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = f\\
+\overline{1}f &= \left( f(i)\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n}  \delta_{j}^{0} f(i) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\j = 0 \end{matrix}} {\delta_{j}^{0}f(i)} + \sum_{\scriptsize \begin{matrix} i + j = n \\j \neq 0 \end{matrix}} \delta_{j}^{0}f(i) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\j = 0 \end{matrix}} {f(i)} + \sum_{\scriptsize \begin{matrix} i + j = n \\j \neq 0 \end{matrix}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i = n \\j = 0\\ \end{matrix}} {f(i)} + 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i = n } {f(i)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = f\\
+(f + g)h &= \left( \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {\left( f(i) + g(i) \right)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)h(j)} + \sum_{i + j = n} {g(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( \sum_{i + j = n} {g(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= fh + gh\\
+f(g + h) &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( g(n) + h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)\left( g(j) + h(j) \right)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)g(j)} + \sum_{i + j = n} {f(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)g(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( \sum_{i + j = n} {f(i)h(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( h(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= fg + fh\\
+fg &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {f(i)g(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n} {g(i)f(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} = gf
+\end{align*}
+よって、集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$は可換環をなす。このとき、零元、単位元はそれぞれ$\overline{0}$、$\overline{1}$と、その元$f$に対する元$- f$は次式のように与えられる。
+\begin{align*}
+- f = \left( - f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{proof}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、次式のようにその集合$\widetilde{P}$の元$X$が定義される。
+\begin{align*}
+X = \left( \delta_{n}^{1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{3.3.3.2}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$X^{0} = \overline{1}$とおかれれば、$\forall i \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+X^{i} = \left( \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$X^{0} = \overline{1}$とおかれれば、次式が成り立つ。
+\begin{align*}
+X^{0} = \left( \delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}},\ \ X^{1} = \left( \delta_{n}^{1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+ここで、$i = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+X^{k} = \left( \delta_{n}^{k} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+$i = k + 1$のとき、次のようになる。
+\begin{align*}
+X^{k + 1} &= X^{k}X\\
+&= \left( \delta_{n}^{k} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \delta_{n}^{1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n}  \delta_{i}^{k} \delta_{j}^{1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\ i = k \land j = 1 \end{matrix}} \delta_{i}^{k} \delta_{j}^{1} + \sum_{\scriptsize \begin{matrix} i + j = n \\ \neg(i = k \land j = 1) \end{matrix}}  \delta_{i}^{k} \delta_{j}^{1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\ i = k \land j = 1 \end{matrix}} 1 + \sum_{\scriptsize \begin{matrix} i + j = n \\ \neg(i = k \land j = 1) \end{matrix}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \delta_{n}^{k+1} + 0\right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \delta_{n}^{k+1} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+以上、数学的帰納法により$\forall i \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+X^{i} = \left( \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{3.3.3.3}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$\forall a \in R\forall i \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+\overline{a}X^{i} = \left( a\delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、$\forall a \in R\forall i \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、定理\ref{3.3.3.2}より次のようになる。
+\begin{align*}
+\overline{a}X^{i} &= \left( a\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{k + j = n}  a\delta_{k}^{0}\delta_{j}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} k + j = n \\k = 0 \land j = i \end{matrix}}  a\delta_{k}^{0}\delta_{j}^{i} + \sum_{\scriptsize \begin{matrix} k + j = n \\ \neg(k = 0 \land j = i) \end{matrix}}  a\delta_{k}^{0}\delta_{j}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} k + j = n \\k = 0 \land j = i \end{matrix}} a + \sum_{\scriptsize \begin{matrix} k + j = n \\ \neg(k = 0 \land j = i) \end{matrix}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( a\sum_{\scriptsize \begin{matrix} k + j = n \\k = 0 \land j = i \end{matrix}}  1 + \sum_{\scriptsize \begin{matrix} k + j = n \\ \neg(k = 0 \land j = i) \end{matrix}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( a\delta_{n}^{i} + 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( a\delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux591aux9805ux5f0fux74b0-1}{%
+\subsubsection{多項式環}%%\label{ux591aux9805ux5f0fux74b0-1}}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合は$R[ X]$と書かれるとする。
+\end{dfn}
+\begin{thm}\label{3.3.3.4}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合$R[ X]$はその集合$\widetilde{P}$の部分環で乗法について可換的である。
+\end{thm}
+\begin{proof}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合$R[ X]$について、$\forall f,g \in R[ X]$に対し、ある非負整数$M$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$M < n$が成り立つなら、$f(n) = 0$が成り立つかつ、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$g(n) = 0$が成り立つとする。このとき、$M \leq N$が成り立つと仮定しても一般性は失われない。\par
+もちろん、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$M < n$が成り立つなら、$- f(n) = 0$が成り立つので、$- f \in R[ X]$が成り立つ。さらに、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$M \leq N < n$が成り立つなら、$f(n) = 0$かつ$g(n) = 0$が成り立つので、$f(n) + g(n) = 0$が成り立ち、したがって、$f + g \in R[ X]$が成り立つ。最後に、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$M + N + 1 < n$が成り立つなら、$i + j = n$が成り立つとき、$i,j \in \mathbb{N} \cup \left\{ 0 \right\}$が成り立つことから、$0 \leq i$かつ$0 \leq j$が成り立ち、したがって、$0 \leq i \leq n - j \leq n$かつ$0 \leq j \leq n - i \leq n$が成り立つ。ここで、$i \leq M$かつ$j \leq N$が成り立つと仮定すると、$i + j \leq M + N$が成り立ち、したがって、$M + N + 1 < n = i + j \leq M + N$が成り立つことになり、$1 < 0$が得られるが、これは矛盾している。したがって、$M < i$または$N < j$が成り立つことになる。このとき、次のようになる。
+\begin{align*}
+\sum_{i + j = n} {f(i)g(j)} &= \sum_{\scriptsize \begin{matrix} i + j = n \\M < i \land j \leq N \end{matrix}} {f(i)g(j)} + \sum_{\scriptsize \begin{matrix} i + j = n \\M < i \land N < j \end{matrix}} {f(i)g(j)} + \sum_{\scriptsize \begin{matrix} i + j = n \\i \leq M \land N < j \end{matrix}} {f(i)g(j)}\\
+&= \sum_{\scriptsize \begin{matrix} i + j = n \\M < i \land j \leq N \end{matrix}} {0g(j)} + \sum_{\scriptsize \begin{matrix} i + j = n \\M < i \land N < j \end{matrix}} 0 + \sum_{\scriptsize \begin{matrix} i + j = n \\i \leq M \land N < j \end{matrix}} {f(i)0} = 0
+\end{align*}
+したがって、$fg \in R[ X]$が成り立つ。さらに、もちろん、$\overline{1} \in R[ X]$が成り立つので、定理\ref{3.3.1.14}よりその集合$R[ X]$はその集合$\widetilde{P}$の部分環である。\par
+ここで、その集合$\widetilde{P}$は可換環であるかつ、その集合$R[ X]$はその集合$\widetilde{P}$の部分集合であるから、その集合$R[ X]$は乗法について可換的である。
+\end{proof}
+\begin{thm}\label{3.3.3.5}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合$R[ X]$の元$f$が与えられたとき、次式が成り立つ。
+\begin{align*}
+f = \sum_{n \in \varLambda_{N} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}}
+\end{align*}
+\end{thm}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合$R[ X]$をその可換環$R$上の多項式環といい、このとき、その可換環$R$をその多項式環$R[ X]$の係数環、写像$X$を変数、不定元、その多項式環$R[ X]$の元をその可換環$R$上の変数$X$の多項式という。
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、上記の議論に倣って、$\forall f \in \widetilde{P}$に対し、その写像$f$は次式のように書かれる。
+\begin{align*}
+f = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}}
+\end{align*}
+このとき、冪級数のようにみえることから、この集合$\widetilde{P}$の元を形式的冪級数という。
+\end{dfn}
+\begin{proof}
+集合$\mathbb{N} \cup \left\{ 0 \right\}$から零環でない可換環$R$への写像全体の集合$\widetilde{P}$が与えられたとき、ある非負整数$N$が存在して、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$N < n$が成り立つなら、$f(n) = 0$が成り立つようなその集合$\widetilde{P}$の元$f$全体の集合$R[ X]$の元$f$が与えられたとき、定理\ref{3.3.3.3}より次のようになる。
+\begin{align*}
+f &= \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( f(n) + \sum_{i \in \varLambda_{N} \cup \left\{ 0 \right\} \setminus \left\{ n \right\}} 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i \in \varLambda_{N} \cup \left\{ 0 \right\}}  f(n) \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \sum_{i \in \varLambda_{N} \cup \left\{ 0 \right\}} \left( f(n) \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \sum_{i \in \varLambda_{N} \cup \left\{ 0 \right\}} \left( f(i) \delta_{n}^{i} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \sum_{i \in \varLambda_{N} \cup \left\{ 0 \right\}} {\overline{f(i)}X^{i}}\\
+&= \sum_{n \in \varLambda_{N} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{3.3.3.6}
+零環でない可換環$R$上の多項式環$R[ X]$が与えられたとき、次式のような写像$\varphi$はその可換環$R$からその多項式環$R[ X]$への埋め込みである。
+\begin{align*}
+\varphi:R \rightarrow R[ X];a \mapsto \overline{a}
+\end{align*}
+\end{thm}
+\begin{proof}
+零環でない可換環$R$上の多項式環$R[ X]$が与えられたとき、次式のような写像$\varphi$が定義されるとする。
+\begin{align*}
+\varphi:R \rightarrow R[ X];a \mapsto \overline{a}
+\end{align*}\par
+このとき、$\overline{a} = \overline{b}$が成り立つなら、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$n = 1$のとき、$a = b$、それ以外のとき、$0 = 0$が成り立つことになる。したがって、$a = b$が得られるので、その写像$\varphi$は単射である。\par
+さらに、$\forall a,b \in R$に対し、次のようになる。
+\begin{align*}
+\varphi(a + b) &= \overline{a + b}\\
+&= \left( (a + b) \delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( a\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( b\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \overline{a} + \overline{b}\\
+&= \varphi(a) + \varphi(b)\\
+\varphi(ab) &= \overline{ab}\\
+&= \left( ab \delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( ab \sum_{\scriptsize \begin{matrix} i + j = n \\i = j = 0 \end{matrix}} 1 + 0 \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{\scriptsize \begin{matrix} i + j = n \\i = j = 0 \end{matrix}} {ab\delta_{i}^{0} \delta_{j}^{0}} + \sum_{\scriptsize \begin{matrix} i + j = n \\\neg(i = j = 0) \end{matrix}} {ab\delta_{i}^{0} \delta_{j}^{0}} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( \sum_{i + j = n } {a\delta_{i}^{0} b\delta_{j}^{0}} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \left( a\delta_{n}^{0} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( b\delta_{n}^{0}\right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \overline{a}\overline{b}\\
+&= \varphi(a)\varphi(b)
+\end{align*}
+もちろん、$\varphi(1) = \overline{1}$が成り立つので、その写像$\varphi$は環準同型写像である。\par
+よって、その写像$\varphi$はその可換環$R$からその多項式環$R[ X]$への埋め込みである。
+\end{proof}
+%\hypertarget{ux6b21ux6570}{%
+\subsubsection{次数}%%\label{ux6b21ux6570}}
+\begin{dfn}
+可換環$R$上の多項式環$R[ X]$の元$f$が次式のように与えられたとき、
+\begin{align*}
+f = \sum_{n \in \varLambda_{N} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}}
+\end{align*}
+$\overline{f(N)} \neq \overline{0}$かつ$N \neq 0$が成り立つなら、その非負整数$N$をその多項式$f$の次数といい$\deg f$と書く。このときの多項式$f$を$N$次多項式という。さらに、多項式$\overline{0}$の次数$\deg\overline{0}$は$- \infty$と定義される。その次数$\deg f$が$0$または$- \infty$に等しいとき、その多項式$f$を定数という。その$N$次多項式$f$において、その多項式環$R[ X]$の各元$\overline{f(n)}X^{n}$、$\overline{f(n)}$をそれぞれその多項式$f$の項、係数といい、特に、項$\overline{f(N)}X^{N}$、係数$\overline{f(N)}$をそれぞれその多項式$f$の主項、主係数といい、ここでは、${f}_{\mathrm{l.c.}} $と書くことにする。特に、主係数が$\overline{1}$であるような多項式をmonicという。
+\end{dfn}
+\begin{thm}\label{3.3.3.7}
+可換環$R$上の多項式環$R[ X]$が与えられたとき、$\forall f,g \in R[ X]$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\deg(f + g) \leq \deg f + \deg g$が成り立つ。特に、$\deg f < \deg g$が成り立つなら、$\deg(f + g) = \deg g$が成り立つ。
+\item
+  $0 \leq \deg f$かつ$0 \leq \deg g$が成り立つなら、$\deg{fg} \leq \deg f + \deg g$が成り立つ。
+\item
+  特に、その可換環$R$が整域であるとき、$0 \leq \deg f$かつ$0 \leq \deg g$が成り立つなら、$\deg{fg} = \deg f + \deg g$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+可換環$R$上の多項式環$R[ X]$が与えられたとき、$\forall f,g \in R[ X]$に対し$\deg f < \deg g$が成り立つなら、次のようになるので、
+\begin{align*}
+f + g &= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}} + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{g(n)}X^{n}}\\
+&= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}} + \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\overline{g(n)}X^{n}} + \sum_{n \in \varLambda_{\deg g} \setminus \varLambda_{\deg f}} {\overline{g(n)}X^{n}}\\
+&= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\left( \overline{f(n)} + \overline{g(n)} \right)X^{n}} + \sum_{n \in \varLambda_{\deg g} \setminus \varLambda_{\deg f}} {\overline{g(n)}X^{n}}
+\end{align*}
+${g}_{\mathrm{l.c.}} \neq \overline{0}$より$\deg(f + g) = \deg g$が成り立つ。\par
+$\deg f = \deg g$が成り立つなら、これが$k$とおかれると、次のようになるので、
+\begin{align*}
+f + g &= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}} + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{g(n)}X^{n}}\\
+&= \sum_{n \in \varLambda_{k} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}} + \sum_{n \in \varLambda_{k} \cup \left\{ 0 \right\}} {\overline{g(n)}X^{n}}\\
+&= \sum_{n \in \varLambda_{k} \cup \left\{ 0 \right\}} {\left( \overline{f(n)} + \overline{g(n)} \right)X^{n}}
+\end{align*}
+$\deg(f + g) \leq \deg f + \deg g$が成り立つ。\par
+$0 \leq \deg f$かつ$0 \leq \deg g$が成り立つなら、定理\ref{3.3.1.8}、定理\ref{3.3.3.5}より次のようになる。
+\begin{align*}
+fg &= \left( \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {\overline{f(n)}X^{n}} \right)\left( \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{g(n)}X^{n}} \right)\\
+&= \sum_{(m,n) \in \varLambda_{\deg f} \cup \left\{ 0 \right\} \times \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{f(m)}X^{m}\overline{g(n)}X^{n}}\\
+&= \sum_{(m,n) \in \varLambda_{\deg f} \cup \left\{ 0 \right\} \times \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{f(m)}\ \overline{g(n)}X^{m + n}}
+\end{align*}
+よって、$\deg{fg} \leq \deg f + \deg g$が成り立つ。\par
+特に、その可換環$R$が整域であるとき、${f}_{\mathrm{l.c.}} \neq 0$かつ${g}_{\mathrm{l.c.}} \neq 0$が成り立つので、${f}_{\mathrm{l.c.}}\ {g}_{\mathrm{l.c.}} \neq 0$が成り立つ。したがって、$\deg{fg} = \deg f + \deg g$が成り立つ。
+\end{proof}
+\begin{thm}\label{3.3.3.8} 整域$R$上の多項式環$R[ X]$は整域である。
+\end{thm}
+\begin{proof} 定理\ref{3.3.3.7}より整域$R$上の多項式環$R[ X]$が与えられたとき、$\forall f,g \in R[ X]$に対し、$f \neq \overline{0}$かつ$g \neq \overline{0}$が成り立つなら、$0 \leq \deg f$かつ$0 \leq \deg g$が成り立つことになり、$0 \leq \deg{fg} = \deg f + \deg g$が成り立つ。ゆえに、$fg \neq \overline{0}$が成り立つので、その多項式環$R[ X]$は整域である。
+\end{proof}
+%\hypertarget{ux591aux9805ux5f0fux5199ux50cf}{%
+\subsubsection{多項式写像}%%\label{ux591aux9805ux5f0fux5199ux50cf}}
+\begin{dfn}
+可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、その可換環$R$の元$c$を用いた次式のようなその可換環$R$の元$s_{c}(f)$をその多項式$f$の変数$X$にその元$c$を代入した元という。
+\begin{align*}
+s_{c}(f) = \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+\end{dfn}
+\begin{dfn}
+可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、次式のように定義される写像$P_{f}$をその多項式$f$から定まるその可換環$R$からその可換環$R$への多項式写像という。
+\begin{align*}
+P_{f}:R \rightarrow R;c \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{3.3.3.9}
+可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、$\forall c \in R$に対し、次式のように定義される写像$s_{c}$は環準同型写像である\footnote{なお、その写像$s_{c}$は単射であるとは限りません。}。
+\begin{align*}
+s_{c}:R'[ X] \rightarrow R;f \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+これにより、可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、これから明らかにその多項式$f$から定まるその可換環$R$からその可換環$R$への多項式写像へ移す写像も環準同型写像である。
+\end{thm}
+\begin{proof}
+可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、$\forall c \in R$に対し、次式のように定義される写像$s_{c}$について、
+\begin{align*}
+s_{c}:R'[ X] \rightarrow R;f \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+$\forall f,g \in R'[ X]$に対し、$\deg f \leq \deg g$が成り立つとしても一般性は失われなく次のようになる。
+\begin{align*}
+s_{c}(f + g) &= s_{c}\left( \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} + \left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\\
+&= s_{c}\left( f(n) + g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\left( f(n) + g(n) \right)c^{n}}\\
+&= \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {f(n)c^{n}} + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {g(n)c^{n}}\\
+&= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}} + \sum_{n \in \varLambda_{\deg g} \setminus \varLambda_{\deg f}} {f(n)c^{n}} + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {g(n)c^{n}}\\
+&= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}} + \sum_{n \in \varLambda_{\deg g} \setminus \varLambda_{\deg f}} 0 + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {g(n)c^{n}}\\
+&= \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}} + \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {g(n)c^{n}} = s_{c}(f) + s_{c}(g)\\
+s_{c}(fg) &= s_{c}\left( \left( f(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\left( g(n) \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \right)\\
+&= s_{c}\left( \sum_{i + j = n} {f(i)g(j)} \right)_{n \in \mathbb{N} \cup \left\{ 0 \right\}}\\
+&= \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\sum_{i + j = n} {f(i)g(j)}c^{n}}\\
+&= \sum_{m + n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {f(m)g(n)c^{m + n}}\\
+&= \sum_{m + n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {f(m)g(n)c^{m + n}} + \sum_{m + n \in \varLambda_{\deg f + \deg g} \setminus \varLambda_{\deg g}} 0\\
+&= \sum_{m + n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {f(m)g(n)c^{m + n}} + \sum_{m + n \in \varLambda_{\deg f + \deg g} \setminus \varLambda_{\deg g}} {f(m)g(n)c^{m + n}}\\
+&= \sum_{m + n \in \varLambda_{\deg f + \deg g} \cup \left\{ 0 \right\}} {f(m)g(n)c^{m + n}}\\
+&= \sum_{(m,n) \in \varLambda_{\deg f} \cup \left\{ 0 \right\} \times \varLambda_{\deg g} \cup \left\{ 0 \right\}} {f(m)c^{m}g(n)c^{n}}\\
+&= \left( \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}} \right)\left( \sum_{n \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {g(n)c^{n}} \right) = s_{c}(f)s_{c}(g)
+\end{align*}
+さらに、もちろん、$s_{c}\left( \overline{1} \right) = 1$が成り立つので、よって、その写像$s_{c}$は環準同型写像である。
+\end{proof}
+\begin{thm}\label{3.3.3.10}
+定理\ref{3.3.3.9}、定理\ref{3.3.2.17}より可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、$\forall c \in R$に対し、次式のように定義される環準同型写像$s_{c}$の値域$V\left( s_{c} \right)$はその環$R$の部分環であるのであった。
+\begin{align*}
+s_{c}:R'[ X] \rightarrow R;f \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+このとき、その値域$V\left( s_{c} \right)$はその環$R'$の全ての元とその元$c$に属されるその環$R$の部分環のうち、順序関係$\subseteq$の意味で最小なものである。
+\end{thm}
+\begin{proof} 
+定理\ref{3.3.3.9}、定理\ref{3.3.2.17}より可換環$R$の部分環$R'$上の多項式環$R'[ X]$の元$f$が与えられたとき、$\forall c \in R$に対し、次式のように定義される環準同型写像$s_{c}$の値域$V\left( s_{c} \right)$はその環$R$の部分環であるのであった。
+\begin{align*}
+s_{c}:R'[ X] \rightarrow R;f \mapsto \sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}}
+\end{align*}
+もちろん、$\forall a \in R'$に対し、次のようになるので、
+\begin{align*}
+s_{c}\left( \overline{a} \right) = a,\ \ s_{c}(X) = c
+\end{align*}
+その値域$V\left( s_{c} \right)$はその環$R'$の全ての元とその元$c$に属されるその環$R$の部分環である。このとき、その環$R'$の全ての元とその元$c$に属されるその環$R$の部分環$R''$が与えられたとき、$\forall f \in R'[ X]$に対し、$f(n) \in R'$が成り立つので、$f(n),c \in R''$が成り立つかつ、定理\ref{3.3.1.14}より$f(n)c^{n}$が成り立ち、したがって、$\sum_{n \in \varLambda_{\deg f} \cup \left\{ 0 \right\}} {f(n)c^{n}} \in R''$が成り立つ。ゆえに、$V\left( s_{c} \right) \subseteq R''$が成り立つことになり、したがって、その値域$V\left( s_{c} \right)$はその環$R'$の全ての元とその元$c$に属されるその環$R$の部分環のうち、順序関係$\subseteq$の意味で最小なものである。
+\end{proof}
+%\hypertarget{ux9664ux6cd5ux306eux5b9aux7406}{%
+\subsubsection{除法の定理}%%\label{ux9664ux6cd5ux306eux5b9aux7406}}
+\begin{thm}\label{3.3.3.11}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、元$f$がその多項式環$K[ X]$の可逆元であるならそのときに限り、$\deg f = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f \in K[ X]$に対し、元$f$がその多項式環$K[ X]$の可逆元であるなら、定理\ref{3.3.3.8}より$fg = \overline{1}$なる多項式$g$がその多項式環$K[ X]$に存在するが、定理\ref{3.3.3.7}より$\deg f = \deg g = 0$が成り立つことになる。\par
+逆に、$\deg f = 0$が成り立つなら、$f = \overline{f(0)} \neq \overline{0}$が成り立つことになる。ここで、定理\ref{3.3.3.6}より$\overline{f(0)}\overline{f(0)}^{-1} = \overline{f(0)\frac{1}{f(0)}} = \overline{1}$が成り立つので、その元$f$がその多項式環$K[ X]$の可逆元である。
+\end{proof}
+\begin{thm}[除法の定理]\label{3.3.3.12}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f,g \in K[ X]$に対し、$1 \leq \deg g$が成り立つなら、次式が成り立つような$\deg r < \deg g$なる多項式たち$q$、$r$がその多項式環$K[ X]$に一意的に存在する。
+\begin{align*}
+f = gq + r
+\end{align*}\par
+この定理を除法の定理という。
+\end{thm}
+\begin{proof}
+体$K$上の多項式環$K[ X]$が与えられたとき、$\forall f,g \in K[ X]$に対し、$1 \leq \deg g$が成り立つとする。$\deg f < \deg g$のとき、$q = \overline{0}$、$r = f$とおかれればよくて、$\deg g \leq \deg f$が成り立つなら、${g}_{\mathrm{l.c.}} \neq \overline{0}$で$0 \leq \deg f - \deg g$が成り立ち、$h = \frac{{f}_{\mathrm{l.c.}}}{{g}_{\mathrm{l.c.}}}X^{\deg f - \deg g}$とおかれると、次のようになるので、
+\begin{align*}
+gh &= \sum_{i \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\overline{g(i)}X^{i}}\frac{{f}_{\mathrm{l.c.}}}{{g}_{\mathrm{l.c.}}}X^{\deg f - \deg g}\\
+&= \sum_{i \in \varLambda_{\deg g} \cup \left\{ 0 \right\}} {\frac{\overline{g(i)}\ {f}_{\mathrm{l.c.}}}{{g}_{\mathrm{l.c.}}}X^{\deg f - \deg g + i}}\\
+&= \sum_{i \in \left( \varLambda_{\deg f} \cup \left\{ 0 \right\} \right) \setminus \varLambda_{\deg f - \deg g - 1}} {\frac{\overline{g(i)}\ {f}_{\mathrm{l.c.}}}{{g}_{\mathrm{l.c.}}}X^{i}}
+\end{align*}
+多項式$gh$の主項は${f}_{\mathrm{l.c.}}X^{\deg f}$である。\par
+ここで、$\deg f = 1$のとき、次のようになるので、明らかである。
+\begin{align*}
+f &= \overline{f(0)} + \overline{f(1)}X\\
+&= \overline{f(0)} + \frac{\overline{f(1)}}{\overline{g(1)}}\left( \overline{g(0)} + \overline{g(1)}X - \overline{g(0)} \right)\\
+&= \overline{f(0)} - \frac{\overline{f(1)}\ \overline{g(0)}}{\overline{g(1)}} + \frac{\overline{f(1)}}{\overline{g(1)}}\left( \overline{g(0)} + \overline{g(1)}X \right)
+\end{align*}\par
+$\deg f = k$のとき、$f = gq + r$が成り立つような$\deg r < \deg g$なる多項式たち$q$、$r$がその多項式環$K[ X]$に存在すると仮定しよう。$\deg f = k + 1$のとき、次のようになる。
+\begin{align*}
+f - gh &= \sum_{i \in \varLambda_{k + 1} \cup \left\{ 0 \right\}} {\overline{f(i)}X^{i}} - \sum_{i \in \left( \varLambda_{k + 1} \cup \left\{ 0 \right\} \right) \setminus \varLambda_{k + 1 - \deg g - 1}} {\frac{\overline{g(i)}\ \overline{f(k + 1)}}{{g}_{\mathrm{l.c.}}}X^{i}}\\
+&= \sum_{i \in \left( \varLambda_{k + 1} \cup \left\{ 0 \right\} \right) \setminus \left\{ k + 1 \right\}} {\overline{f(i)}X^{i}} + \overline{f(k + 1)}X^{k + 1} \\
+&\quad - \sum_{i \in \left( \varLambda_{k + 1} \cup \left\{ 0 \right\} \right) \setminus \left( \varLambda_{k - \deg g} \cup \left\{ k + 1 \right\} \right)} {\frac{\overline{g(i)}\ \overline{f(k + 1)}}{{g}_{\mathrm{l.c.}}}X^{i}} - \overline{f(k + 1)}X^{k + 1}\\
+&= \sum_{i \in \left( \varLambda_{k + 1} \cup \left\{ 0 \right\} \right) \setminus \left\{ k + 1 \right\}} {\overline{f(i)}X^{i}} - \sum_{i \in \left( \varLambda_{k + 1} \cup \left\{ 0 \right\} \right) \setminus \left( \varLambda_{k - \deg g} \cup \left\{ k + 1 \right\} \right)} {\frac{\overline{g(i)}\ \overline{f(k + 1)}}{{g}_{\mathrm{l.c.}}}X^{i}}\\
+&= \sum_{i \in \varLambda_{k} \cup \left\{ 0 \right\}} {\overline{f(i)}X^{i}} - \sum_{i \in \left( \varLambda_{k} \cup \left\{ 0 \right\} \right) \setminus \varLambda_{k - \deg g}} {\frac{\overline{g(i)}\ \overline{f(k + 1)}}{{g}_{\mathrm{l.c.}}}X^{i}}
+\end{align*}
+これにより、$\deg(f - gh) < k$が成り立つので、$f - gh = gq' + r'$が成り立つような$\deg r' < \deg g$なる多項式たち$q'$、$r'$がその多項式環$K[ X]$に存在することになる。したがって、次のようになる。
+\begin{align*}
+f &= f - gh + gh\\
+&= gq' + r' + gh\\
+&= g\left( q' + h \right) + r'
+\end{align*}
+よって、$f = gq + r$が成り立つような$\deg r < \deg g$なる多項式たち$q$、$r$がその多項式環$K[ X]$に存在する。\par
+次にそのような多項式たち$q$、$r$の一意性について、議論しよう。$f = gq + r = gq' + r'$かつ$\deg r < \deg g$かつ$\deg r < \deg g$なる多項式たち$q$、$q'$、$r$、$r'$がその多項式環$K[ X]$に存在するとする。このとき、次のようになる。
+\begin{align*}
+\deg\left( r - r' \right) &= \deg\left( f - gq - f + gq' \right)\\
+&= \deg\left( gq' - gq \right)\\
+&= \deg{g\left( q' - q \right)}\\
+&= \deg g + \deg\left( q' - q \right)
+\end{align*}
+ここで、$\deg r < \deg g$かつ$\deg r' < \deg g$が成り立つので、$\deg\left( r - r' \right) = \deg g + \deg\left( q' - q \right) < \deg g$が成り立つことになる。したがって、$\deg\left( q' - q \right) < 0$、即ち、$q' - q = \overline{0}$が成り立つので、$q' = q$が得られる。このとき、次のようになるので、
+\begin{align*}
+r &= f - gq\\
+&= f - gq' = r'
+\end{align*}
+$q = q'$かつ$r = r'$が得られる。よって、$f = gq + r$が成り立つような$\deg r < \deg g$なる多項式たち$q$、$r$がその多項式環$K[ X]$に一意的に存在する。
+\end{proof}
+\begin{thm}\label{3.3.3.13}
+体$K$上の多項式環$K[ X]$は単項ideal整域である。
+\end{thm}
+\begin{proof}
+体$K$上の多項式環$K[ X]$のideal$J$が与えられたとき、これが零idealなら単項idealである。ここで、そのideal$J$が$\overline{0}$以外の体$K$の元$a$に属されるなら、その環$K$は体なので、$\frac{1}{a} \in K$なる元$\frac{1}{a}$が存在して$\overline{\frac{1}{a}a} = \overline{1} \in J$が成り立つことになり、したがって、定数全てがそのideal$J$に属する。ゆえに、$J = K\overline{1}$が成り立ちそのideal$J$は単項idealである。ここで、そのideal$J$は零idealではなく$\overline{0}$以外の定数に属されないものとする。そのideal$J$のうち$\overline{0}$でない多項式たちのうち最も次数が低いものを$g$とすると$1 \leq \deg g$が成り立ち、したがって、$\forall f \in J$に対し、除法の定理より$f = gq + r$かつ$\deg r < \deg g$なる多項式たち$q$、$r$がその多項式環$K[ X]$に存在する。ここで、$- q \in K[ X]$より$f - gq \in J$が成り立つので、$r \in J$が成り立つ。ここで、$r \neq \overline{0}$が成り立つと仮定すると、その多項式$r$は定数でなく$\deg r < \deg g$が成り立つことになるが、その多項式$g$のおき方に矛盾する。したがって、$r = \overline{0}$が成り立つ。これにより、$\forall f \in J\exists q \in K[ X]$に対し、$f = gq$が成り立つので、そのideal$J$は単項idealである。
+\end{proof}
+\begin{dfn}
+体$K$上の多項式環$K[ X]$の商の体をその体$K$上の有理式体といい、これの元をその体$K$上の変数$X$の有理式、分数式という。
+\end{dfn}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p135-142,150 ISBN978-4-00-029873-5
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,372 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{8}
+\usepackage{xr}
+\externaldocument{4.1.1}
+\externaldocument{4.1.3}
+\externaldocument{4.1.4}
+\externaldocument{4.1.5}
+\input{macro}
+\begin{document}
+%\hypertarget{ux4e8cux91cdux7d1aux6570}{%
+\subsection{二重級数}%\label{ux4e8cux91cdux7d1aux6570}}
+%\hypertarget{ux4e8cux91cdux7d1aux6570-1}{%
+\subsubsection{二重級数}%\label{ux4e8cux91cdux7d1aux6570-1}}
+\begin{dfn}
+写像$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}:\mathbb{N}^{2} \rightarrow \mathbb{R};(m,n) \mapsto a_{mn}$を二重数列という。
+\end{dfn}
+\begin{dfn}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとする。集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、$F \in \mathcal{F}$なる集合$F$に対する実数$\sum_{(m,n) \in F}a_{mn}$をその集合$F$に対するその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数の部分和という。
+\end{dfn}
+%\hypertarget{ux975eux8ca0ux9805ux4e8cux91cdux6570ux5217ux304bux3089ux8a98ux5c0eux3055ux308cux308bux4e8cux91cdux7d1aux6570ux306eux548c}{%
+\subsubsection{非負項二重数列から誘導される二重級数の和}%\label{ux975eux8ca0ux9805ux4e8cux91cdux6570ux5217ux304bux3089ux8a98ux5c0eux3055ux308cux308bux4e8cux91cdux7d1aux6570ux306eux548c}}
+\begin{dfn}
+$0 \leq \left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$なる二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$を非負項二重数列という。
+\end{dfn}
+\begin{dfn}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられ、さらに、集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、拡大実数$\sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}}$をその非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数の和といい$\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}$などと書く。特に、これが実数であるとき、その非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数は収束するという。
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、その集合$\mathcal{F}$の元の列$\left( F_{n} \right)_{n \in \mathbb{N}}$で次のことを満たすとき、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}$に対し、$F_{n} \subseteq F_{n + 1}$が成り立つ。
+\item
+  $\forall F \in \mathcal{F}\exists N \in \mathbb{N}$に対し、$F \subseteq F_{N}$が成り立つ。
+\end{itemize}
+その元の列$\left( F_{n} \right)_{n \in \mathbb{N}}$を集合$\mathbb{N}^{2}$の$F$近似列という。
+\end{dfn}
+\begin{thm}\label{4.1.9.1}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$と集合$\mathbb{N}^{2}$の$F$近似列$\left( F_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\item
+  その実数列$\left( \sum_{(k,l) \in F_{n}}a_{kl} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+これらが成り立つとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}}
+\end{align*}
+\end{thm}
+\begin{proof}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$と集合$\mathbb{N}^{2}$の$F$近似列$\left( F_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束するなら、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{(k,l) \in F_{n}}a_{kl} \leq \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}
+\end{align*}
+その実数列$\left( \sum_{(k,l) \in F_{n}}a_{kl} \right)_{n \in \mathbb{N}}$が単調増加していて上に有界であることに注意すれば、その実数列$\left( \sum_{(k,l) \in F_{n}}a_{kl} \right)_{n \in \mathbb{N}}$は収束し次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}} \leq \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}
+\end{align*}\par
+逆に、その実数列$\left( \sum_{(k,l) \in F_{n}}a_{kl} \right)_{n \in \mathbb{N}}$が収束するなら、$\forall F \in \mathcal{F\exists}N \in \mathbb{N}$に対し、$F \subseteq F_{N}$が成り立つので、その実数列$\left( \sum_{(k,l) \in F_{n}}a_{kl} \right)_{n \in \mathbb{N}}$が単調増加していることに注意すれば、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in F}a_{mn} \leq \sum_{(k,l) \in F_{N}}a_{kl} \leq \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}}
+\end{align*}
+これにより、その集合$\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}}$は上に有界であるので、その上限が実数でその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。このとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} \leq \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}}
+\end{align*}\par
+以上の議論により、その非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束するなら、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F\in \mathcal{F}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.9.2}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} = \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}}
+\end{align*}
+\end{thm}
+\begin{proof}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとする。集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、次式が成り立つことに注意すれば、
+\begin{align*}
+\sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}},\ \ \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}},\ \ \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}} \in{}^{*}\mathbb{R}
+\end{align*}
+あとは上の拡大実数たちが等しいことが示されればよい。\par
+$\forall m,n \in \mathbb{N}$に対し、$\varLambda_{m} \times \varLambda_{n} \subseteq \mathcal{F}$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}} \leq \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} \leq \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}
+\end{align*}
+一方で、$\forall F \in \mathcal{F\exists}m,n \in \mathbb{N}$に対し、$F \subseteq \varLambda_{m} \times \varLambda_{n}$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{(m,n) \in F}a_{mn} \leq \sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}} \leq \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}} \leq \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} \leq \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}}
+\end{align*}
+これにより、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}}
+\end{align*}\par
+同様にして次式が成り立つことも示される。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} = \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.9.3}
+非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その非負項二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} \in \mathbb{R}
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}} \in \mathbb{R}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.1.9.2}より明らかである。
+\end{proof}
+%\hypertarget{ux4e8cux91cdux6570ux5217ux304bux3089ux8a98ux5c0eux3055ux308cux308bux4e8cux91cdux7d1aux6570ux306eux548c}{%
+\subsubsection{二重数列から誘導される二重級数の和}%\label{ux4e8cux91cdux6570ux5217ux304bux3089ux8a98ux5c0eux3055ux308cux308bux4e8cux91cdux7d1aux6570ux306eux548c}}
+\begin{dfn}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられ、さらに、その非負項二重数列$\left( \left| a_{mn} \right| \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束するとき、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数は絶対収束するという。
+\end{dfn}
+\begin{thm}\label{4.1.9.4}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束する。
+\item
+  その非負項二重数列$\left( \left| a_{mn} \right| \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\item
+  その非負項二重数列たち$\left( \left( a_{mn} \right)_{+} \right)_{(m,n) \in \mathbb{N}^{2}}$、$\left( \left( a_{mn} \right)_{-} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数がどちらも収束する。
+\item
+  その集合$\left\{ \sum_{(m,n) \in F}\left| a_{mn} \right| \right\}_{F \in \mathcal{F}}$が上に有界である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、定義より明らかに次のことが同値である。
+\begin{itemize}
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束する。
+\item
+  その非負項二重数列$\left( \left| a_{mn} \right| \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\end{itemize}
+さらに、$\left| a_{mn} \right| = \left( a_{mn} \right)_{+} + \left( a_{mn} \right)_{-}$が成り立つので、定理\ref{4.1.9.3}より次のことが同値である。
+\begin{itemize}
+\item
+  その非負項二重数列$\left( \left| a_{mn} \right| \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\item
+  その非負項二重数列たち$\left( \left( a_{mn} \right)_{+} \right)_{(m,n) \in \mathbb{N}^{2}}$、$\left( \left( a_{mn} \right)_{-} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数がどちらも収束する。
+\end{itemize}
+また、定理\ref{4.1.9.2}より次のことが同値である。
+\begin{itemize}
+\item
+  その非負項二重数列$\left( \left| a_{mn} \right| \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が収束する。
+\item
+  その集合$\left\{ \sum_{(m,n) \in F}\left| a_{mn} \right| \right\}_{F\in \mathcal{F}}$が上に有界である。
+\end{itemize}
+\end{proof}
+\begin{dfn}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられ、さらに、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束するとき、次のように定義される実数$S$をその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数の和といい$\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn}$などと書く。
+\begin{align*}
+S = \sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{+} - \sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{-}
+\end{align*}
+特に、これ$S$が実数であるとき、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数は収束するという。
+\end{dfn}
+\begin{thm}\label{4.1.9.5}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束するなら、集合$\mathbb{N}^{2}$の任意の$F$近似列$\left( F_{n} \right)_{n \in \mathbb{N}}$に対し、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}}
+\end{align*}
+\end{thm}
+\begin{proof}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束するなら、定理\ref{4.1.9.4}よりその非負項二重数列たち$\left( \left( a_{mn} \right)_{+} \right)_{(m,n) \in \mathbb{N}^{2}}$、$\left( \left( a_{mn} \right)_{-} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数がどちらも収束するので、これが成り立つならそのときに限り、集合$\mathbb{N}^{2}$の任意の$F$近似列$\left( F_{n} \right)_{n \in \mathbb{N}}$に対し、定理\ref{4.1.9.1}よりそれらの実数列たち$\left( \sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{+} \right)_{n \in \mathbb{N}}$、$\left( \sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{-} \right)_{n \in \mathbb{N}}$が収束し、このとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{+} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{+}},\ \ \sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{-} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{-}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} &= \sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{+} - \sum_{(m,n) \in \mathbb{N}^{2}}\left( a_{mn} \right)_{-}\\
+&= \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{+}} - \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}\left( a_{kl} \right)_{-}}\\
+&= \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}\left( \left( a_{kl} \right)_{+} - \left( a_{kl} \right)_{-} \right)}\\
+&= \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.9.6}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束する。
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}\left| a_{kl} \right|}}} \in \mathbb{R}
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}\left| a_{kl} \right|}}} \in \mathbb{R}
+\end{align*}
+\end{itemize}
+このとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} = \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}}
+\end{align*}
+\end{thm}
+\begin{proof}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次のことは同値であることは定理\ref{4.1.9.3}より明らかである。
+\begin{itemize}
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束する。
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}\left| a_{kl} \right|}}} \in \mathbb{R}
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}\left| a_{kl} \right|}}} \in \mathbb{R}
+\end{align*}
+\end{itemize}\par
+このとき、$\forall m,n \in \mathbb{N}$に対し、$m < N$かつ$n < N$が成り立つような自然数$N$が存在するので、集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、次のようになる。
+\begin{align*}
+\left| \sum_{(k,l) \in \varLambda_{N}^{2}}a_{kl} - \sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}} \right| &= \left| \sum_{(k,l) \in \varLambda_{N}^{2}}a_{kl} - \sum_{(k,l) \in \varLambda_{m} \times \varLambda_{n}}a_{kl} \right|\\
+&= \left| \sum_{(k,l) \in \varLambda_{N}^{2} \setminus \left( \varLambda_{m} \times \varLambda_{n} \right)}a_{kl} \right|\\
+&\leq \sum_{(k,l) \in \varLambda_{N}^{2} \setminus \left( \varLambda_{m} \times \varLambda_{n} \right)}\left| a_{kl} \right|\\
+&= \sum_{(k,l) \in \varLambda_{N}^{2}}\left| a_{kl} \right| - \sum_{(k,l) \in \varLambda_{m} \times \varLambda_{n}}\left| a_{kl} \right|\\
+&\leq \sup\left\{ \sum_{(m,n) \in F}a_{mn} \right\}_{F \in \mathcal{F}} - \sum_{(k,l) \in \varLambda_{m} \times \varLambda_{n}}\left| a_{kl} \right|\\
+&= \sum_{(k,l) \in \mathbb{N}^{2}}\left| a_{kl} \right| - \sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}\left| a_{kl} \right|}
+\end{align*}
+ここで、$N \rightarrow \infty$とすれば、集合$\mathbb{N}^{2}$の元の列$\left( \varLambda_{n}^{2} \right)_{n \in \mathbb{N}}$が集合$\mathbb{N}^{2}$の$F$近似列となっているので、定理\ref{4.1.9.5}より次式が成り立つ。
+\begin{align*}
+\sum_{(k,l) \in \mathbb{N}^{2}}a_{kl} = \lim_{N \rightarrow \infty}{\sum_{(k,l) \in \varLambda_{N}^{2}}a_{kl}}
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\left| \sum_{(k,l) \in \mathbb{N}^{2}}a_{kl} - \sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}} \right| \leq \sum_{(k,l) \in \mathbb{N}^{2}}\left| a_{kl} \right| - \sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}\left| a_{kl} \right|}
+\end{align*}
+ここで、$n \rightarrow \infty$、$m \rightarrow \infty$の順で極限がとられれば、定理\ref{4.1.9.2}より次式が成り立つ。
+\begin{align*}
+\left| \sum_{(k,l) \in \mathbb{N}^{2}}a_{kl} - \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} \right| &\leq \sum_{(k,l) \in \mathbb{N}^{2}}\left| a_{kl} \right| - \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}\left| a_{kl} \right|}}}\\
+&= \sum_{(k,l) \in \mathbb{N}^{2}}\left| a_{kl} \right| - \sum_{(k,l) \in \mathbb{N}^{2}}\left| a_{kl} \right| = 0
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\sum_{(k,l) \in \mathbb{N}^{2}}a_{kl} = \lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}}
+\end{align*}
+同様にして次式が成り立つことも示される。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux4e00ux5217ux5316}{%
+\subsubsection{一列化}%\label{ux4e00ux5217ux5316}}
+\begin{dfn}
+全単射な写像$\varphi:\mathbb{N} \rightarrow \mathbb{N}^{2}$と二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、その実数列$\left( a_{\varphi(n)} \right)_{n \in \mathbb{N}}$をその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$のその写像$\varphi$による一列化という。
+\end{dfn}
+\begin{dfn}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$の写像$\varphi$による一列化$\left( a_{\varphi(n)} \right)_{n \in \mathbb{N}}$から誘導される級数をその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導されるその写像$\varphi$による二重級数の一列化という。
+\end{dfn}
+\begin{thm}\label{4.1.9.7}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束する。
+\item
+  その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される任意の写像$\varphi$による二重級数の一列化が絶対収束する。
+\end{itemize}
+このとき、次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \sum_{n \in \mathbb{N}}a_{\varphi(n)}
+\end{align*}
+\end{thm}
+\begin{proof}
+二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束するなら、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$の任意の写像$\varphi$による一列化$\left( a_{\varphi(n)} \right)_{n \in \mathbb{N}}$について、集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合が$\mathcal{F}$とおかれるとき、次のようにとおかれれば、
+\begin{align*}
+\left( F_{n} \right)_{n \in \mathbb{N}}:\mathbb{N}\mathcal{\rightarrow F;}n \mapsto V\left( \varphi|\varLambda_{n} \right)
+\end{align*}
+その元の列$\left( F_{n} \right)_{n \in \mathbb{N}}$は集合$\mathbb{N}^{2}$の$F$近似列となっており次式が成り立つ。
+\begin{align*}
+\sum_{(k,l) \in F_{n}}a_{kl} = \sum_{k \in \varLambda_{n}}a_{\varphi(k)}
+\end{align*}
+そこで、定理\ref{4.1.9.5}より次式が成り立つ。
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}a_{mn} = \lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}} = \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}}a_{\varphi(k)}} = \sum_{n \in \mathbb{N}}a_{\varphi(n)}
+\end{align*}
+同様にして考えれば、次式が成り立つので、
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}\left| a_{mn} \right| = \sum_{n \in \mathbb{N}}\left| a_{\varphi(n)} \right|
+\end{align*}
+よって、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される任意の写像$\varphi$による二重級数の一列化は絶対収束する。\par
+その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される任意の写像$\varphi$による二重級数の一列化が絶対収束するとする。上で定義された集合$\mathbb{N}^{2}$の$F$近似列$\left( F_{n} \right)_{n \in \mathbb{N}}$を用いれば、$\forall F \in \mathcal{F\exists}N \in \mathbb{N}$に対し、$F \subseteq F_{N}$が成り立つので、次のようになる。
+\begin{align*}
+\sum_{(k,l) \in F}\left| a_{kl} \right| &\leq \sum_{(k,l) \in F_{n}}\left| a_{kl} \right|\\
+&= \sum_{k \in \varLambda_{n}}\left| a_{\varphi(k)} \right|\\
+&\leq \sup\left\{ \sum_{k \in \varLambda_{n}}\left| a_{\varphi(k)} \right| \right\}_{n \in \mathbb{N}}\\
+&= \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n}}\left| a_{\varphi(k)} \right|}\\
+&= \sum_{n \in \mathbb{N}}\left| a_{\varphi(n)} \right| < \infty
+\end{align*}
+したがって、次のようになるので、
+\begin{align*}
+\sum_{(m,n) \in \mathbb{N}^{2}}\left| a_{mn} \right| = \sup\left\{ \sum_{(k,l) \in F}\left| a_{kl} \right| \right\}_{F \in \mathcal{F}} \leq \sum_{n \in \mathbb{N}}\left| a_{\varphi(n)} \right| < \infty
+\end{align*}
+定理\ref{4.1.9.4}よりその二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数は絶対収束する。
+\end{proof}\par
+最後に、二重数列から誘導される二重級数が絶対収束しないときの例を考えよう。次のように二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$が与えられたとき、
+\begin{align*}
+\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}:\mathbb{N}^{2} \rightarrow \mathbb{R};(m,n) \mapsto \left\{ \begin{matrix}
+1 & \mathrm{if} & n = m + 1 \\
+ - 1 & \mathrm{if} & m = n + 1 \\
+0 & \mathrm{otherwise} & \  
+\end{matrix} \right.\ 
+\end{align*}
+次の表のようになっている。
+\begin{longtable}[c]{|c||c|c|c|c|c|c|c|c|}
+\hline
+$a_{mn}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $\cdots$ & $n - 1$ & $n$ \\
+\hline\hline
+$1$ & $0$ & $1$ & $0$ & $0$ & $0$ & & $0$ & $0$ \\
+\hline
+$2$ & $- 1$ & $0$ & $1$ & $0$ & $0$ & & $0$ & $0$ \\
+\hline
+$3$ & $0$ & $- 1$ & $0$ & $1$ & $0$ & & $0$ & $0$ \\
+\hline
+$4$ & $0$ & $0$ & $- 1$ & $0$ & $1$ & & $0$ & $0$ \\
+\hline
+$5$ & $0$ & $0$ & $0$ & $- 1$ & $0$ & & $0$ & $0$ \\
+\hline
+$\vdots$ & & & & & & $\ddots$ & $\vdots$ & $\vdots$ \\
+\hline
+$m - 1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\cdots$ & $0$ & $1$ \\
+\hline
+$m$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\cdots$ & $- 1$ & $0$ \\
+\hline
+\end{longtable}
+このことから、その二重数列$\left( a_{mn} \right)_{(m,n) \in \mathbb{N}^{2}}$から誘導される二重級数が絶対収束しないことも分かる。ここで、次のように集合$\mathbb{N}^{2}$の有限集合である部分集合全体の集合$\mathcal{F}$の元の列たち$\left( F_{n} \right)_{n \in \mathbb{N}}$、$\left( G_{n} \right)_{n \in \mathbb{N}}$、$\left( H_{n} \right)_{n \in \mathbb{N}}$が与えられたらば、
+\begin{align*}
+\left( F_{n} \right)_{n \in \mathbb{N}}&:\mathbb{N}^{2}\mathcal{\rightarrow F;}(m,n) \mapsto \varLambda_{n}^{2}\\
+\left( G_{n} \right)_{n \in \mathbb{N}}&:\mathbb{N}^{2}\mathcal{\rightarrow F;}(m,n) \mapsto \varLambda_{n} \times \varLambda_{n + 1}\\
+\left( H_{n} \right)_{n \in \mathbb{N}}&:\mathbb{N}^{2}\mathcal{\rightarrow F;}(m,n) \mapsto \varLambda_{n + 1} \times \varLambda_{n}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\sum_{(k,l) \in F_{n}}a_{kl} = 0,\ \ \sum_{(k,l) \in G_{n}}a_{kl} = 1,\ \ \sum_{(k,l) \in H_{n}}a_{kl} = - 1
+\end{align*}
+ゆえに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{\sum_{(k,l) \in F_{n}}a_{kl}} = 0,\ \ \lim_{n \rightarrow \infty}{\sum_{(k,l) \in G_{n}}a_{kl}} = 1,\ \ \lim_{n \rightarrow \infty}{\sum_{(k,l) \in H_{n}}a_{kl}} = - 1
+\end{align*}
+また、次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}{\lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{m}}{\sum_{l \in \varLambda_{n}}a_{kl}}}} = 1,\ \ \lim_{n \rightarrow \infty}{\lim_{m \rightarrow \infty}{\sum_{l \in \varLambda_{n}}{\sum_{k \in \varLambda_{m}}a_{kl}}}} = - 1
+\end{align*}\par
+このように二重数列から誘導される二重級数が絶対収束しないとき、和のとり方に指定しておく必要がある。このことはDirichlet
+-Riemannの再配列定理に似ている。
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p382-388 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,499 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\input{macro}
+\begin{document}
+%\hypertarget{normux7a7aux9593}{%
+\subsection{norm空間}%\label{normux7a7aux9593}}\par
+%\hypertarget{normux7a7aux9593-1}{%
+\subsubsection{norm空間}%\label{normux7a7aux9593-1}}
+\begin{axs}[norm空間の公理]
+$K \subseteq \mathbb{C}$なる体$K$上のvector空間$V$が与えられたとき、次のことを満たすような写像$\varphi:V \rightarrow \mathbb{R}$をそのvector空間$V$上のnormといい、その組$(V,\varphi)$をnorm空間という。
+\begin{itemize}
+\item
+  $\forall\mathbf{v} \in V$に対し、$0 \leq \varphi\left( \mathbf{v} \right)$が成り立つ。
+\item
+  $\forall\mathbf{v} \in V$に対し、$\varphi\left( \mathbf{v} \right) = 0$が成り立つならそのときに限り、$\mathbf{v} = \mathbf{0}$が成り立つ。
+\item
+  $\forall k \in K\forall\mathbf{v} \in V$に対し、$\varphi\left( k\mathbf{v} \right) = |k|\varphi\left( \mathbf{v} \right)$が成り立つ。
+\item
+  $\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varphi\left( \mathbf{v} + \mathbf{w} \right) \leq \varphi\left( \mathbf{v} \right) + \varphi\left( \mathbf{w} \right)$が成り立つ。
+\end{itemize}
+\end{axs}\par
+norm空間の例として、$\left( \mathbb{C},| \bullet | \right)$、$\left( \mathbb{R},| \bullet | \right)$、$\left( \mathbb{Q},| \bullet | \right)$などがあげられる。
+\begin{thm}\label{2.3.1.1}
+norm空間$(V,\varphi)$が与えられたとき、次式のように写像$d_{\varphi}$が定義されれば、
+\begin{align*}
+d_{\varphi}:V \times V \rightarrow \mathbb{R};\left( \mathbf{v},\mathbf{w} \right) \mapsto \varphi\left( \mathbf{v} - \mathbf{w} \right)
+\end{align*}
+その組$\left( V,d_{\varphi} \right)$は距離空間をなす。
+\end{thm}
+\begin{dfn}
+norm空間$(V,\varphi)$が与えられたとき、その距離空間$\left( V,d_{\varphi} \right)$をそのnorm空間$(V,\varphi)$から誘導される距離空間という。
+\end{dfn}
+\begin{proof}
+norm空間$(V,\varphi)$が与えられたとき、次式のように写像$d_{\varphi}$が定義されれば、
+\begin{align*}
+d_{\varphi}:V \times V \rightarrow \mathbb{R};\left( \mathbf{v},\mathbf{w} \right) \mapsto \varphi\left( \mathbf{v} - \mathbf{w} \right)
+\end{align*}
+$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\mathbf{v} - \mathbf{w} \in V$が成り立つので、normの定義より$0 \leq \varphi\left( \mathbf{v} - \mathbf{w} \right) = d_{\varphi}\left( \mathbf{v},\mathbf{w} \right)$が成り立つ。\par
+$\forall\mathbf{v},\mathbf{w} \in V$に対し、その写像$d_{\varphi}$の定義より$d_{\varphi}\left( \mathbf{v},\mathbf{w} \right) = 0$が成り立つならそのときに限り、$\varphi\left( \mathbf{v} - \mathbf{w} \right) = 0$が成り立つ。normの定義よりこれが成り立つならそのときに限り、$\mathbf{v} - \mathbf{w} = \mathbf{0}$が成り立つ。したがって、これが成り立つならそのときに限り、$\mathbf{v} = \mathbf{w}$が成り立つ。\par
+$\forall\mathbf{v},\mathbf{w} \in V$に対し、その写像$d_{\varphi}$とnorm$\varphi$の定義より次のようになる。
+\begin{align*}
+d_{\varphi}\left( \mathbf{v},\mathbf{w} \right) &= \varphi\left( \mathbf{v} - \mathbf{w} \right)\\
+&= \varphi\left( - \left( \mathbf{w} - \mathbf{v} \right) \right)\\
+&= | - 1|\varphi\left( \mathbf{w} - \mathbf{v} \right)\\
+&= \varphi\left( \mathbf{w} - \mathbf{v} \right)\\
+&= d_{\varphi}\left( \mathbf{w},\mathbf{v} \right)
+\end{align*}
+したがって、$d_{\varphi}\left( \mathbf{v},\mathbf{w} \right) = d_{\varphi}\left( \mathbf{w},\mathbf{v} \right)$が成り立つ。\par
+$\forall\mathbf{u,v},\mathbf{w} \in V$に対し、その写像$d_{\varphi}$とnorm$\varphi$の定義より次のようになる。
+\begin{align*}
+d_{\varphi}\left( \mathbf{u},\mathbf{w} \right) &= \varphi\left( \mathbf{u - w} \right)\\
+&= \varphi\left( \mathbf{u - v + v - w} \right)\\
+&\leq \varphi\left( \mathbf{u} - \mathbf{v} \right) + \varphi\left( \mathbf{v} - \mathbf{w} \right)\\
+&= d_{\varphi}\left( \mathbf{u,v} \right) + d_{\varphi}\left( \mathbf{v,w} \right)
+\end{align*}
+したがって、$d_{\varphi}\left( \mathbf{u},\mathbf{w} \right) \leq d_{\varphi}\left( \mathbf{u,v} \right) + d_{\varphi}\left( \mathbf{v,w} \right)$が成り立つ。\par
+以上より、その組$\left( V,d_{\varphi} \right)$は距離空間をなす。
+\end{proof}
+\begin{thm}\label{2.3.1.2}
+norm空間$(V,\varphi)$が与えられたとき、そのnorm空間$(V,\varphi)$から誘導される距離空間$\left( V,d_{\varphi} \right)$において、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、$d_{\varphi}\left( \mathbf{v + u,w + u} \right) = d_{\varphi}\left( \mathbf{v,w} \right)$が成り立つ。
+\item
+  $\forall\mathbf{v,w} \in V\forall k \in K$に対し、$d_{\varphi}\left( k\mathbf{v},k\mathbf{w} \right) = |k|d_{\varphi}\left( \mathbf{v,w} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+norm空間$(V,\varphi)$が与えられたとき、そのnorm空間$(V,\varphi)$から誘導される距離空間$\left( V,d_{\varphi} \right)$において、$\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、次のようになる。
+\begin{align*}
+d_{\varphi}\left( \mathbf{v + u,}\mathbf{w +}\mathbf{u} \right) &= \varphi\left( \left( \mathbf{w + u} \right) - \left( \mathbf{v + u} \right) \right)\\
+&= \varphi\left( \mathbf{w + u} - \mathbf{v - u} \right)\\
+&= \varphi\left( \mathbf{w} - \mathbf{v} \right)\\
+&= d_{\varphi}\left( \mathbf{v,w} \right)
+\end{align*}\par
+$\forall\mathbf{v,w} \in V\forall k \in K$に対し、次のようになる。
+\begin{align*}
+d_{\varphi}\left( k\mathbf{v},k\mathbf{w} \right) &= \varphi\left( k\mathbf{w} - k\mathbf{v} \right)\\
+&= \varphi\left( k\left( \mathbf{w} - \mathbf{v} \right) \right)\\
+&= |k|\varphi\left( \mathbf{w} - \mathbf{v} \right)\\
+&= |k|d_{\varphi}\left( \mathbf{v,w} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.3.1.3}
+$K \subseteq \mathbb{C}$なる体$K$上のvector空間$V$を用いた次のことを満たすような距離空間$(V,d)$が与えられたとき、
+\begin{itemize}
+\item
+  $\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、$d\left( \mathbf{v + u,w + u} \right) = d\left( \mathbf{v,w} \right)$が成り立つ。
+\item
+  $\forall\mathbf{v,w} \in V\forall k \in K$に対し、$d\left( k\mathbf{v},k\mathbf{w} \right) = |k|d\left( \mathbf{v,w} \right)$が成り立つ。
+\end{itemize}
+次式のように写像$\varphi_{d}$が定義されれば、
+\begin{align*}
+\varphi_{d}:V \rightarrow \mathbb{R};\mathbf{v} \mapsto d\left( 0,\mathbf{v} \right)
+\end{align*}
+その組$\left( V,\varphi_{d} \right)$はnorm空間をなす。さらに、そのnorm空間$\left( V,\varphi_{d} \right)$から誘導される距離空間はその距離空間$(V,d)$である。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上のvector空間$V$を用いた次のことを満たすような距離空間$(V,d)$が与えられたとき、
+\begin{itemize}
+\item
+  $\forall\mathbf{u},\mathbf{v},\mathbf{w} \in V$に対し、$d\left( \mathbf{v + u,w + u} \right) = d\left( \mathbf{v,w} \right)$が成り立つ。
+\item
+  $\forall\mathbf{v,w} \in V\forall k \in K$に対し、$d\left( k\mathbf{v},k\mathbf{w} \right) = |k|d\left( \mathbf{v,w} \right)$が成り立つ。
+\end{itemize}
+次式のように写像$\varphi_{d}$が定義されれば、
+\begin{align*}
+\varphi_{d}:V \rightarrow \mathbb{R};\mathbf{v} \mapsto d\left( \mathbf{0},\mathbf{v} \right)
+\end{align*}
+距離空間の定義より$\forall\mathbf{v} \in V$に対し、$0 \leq \varphi_{d}\left( \mathbf{v} \right)$が成り立つ。また、$\forall\mathbf{v} \in V$に対し、$\varphi_{d}\left( \mathbf{v} \right) = 0$が成り立つならそのときに限り、$\varphi_{d}\left( \mathbf{v} \right) = d\left( \mathbf{0},\mathbf{v} \right)$かつ距離空間の定義より$\mathbf{v} = \mathbf{0}$が成り立つ。さらに、$\forall k \in K\forall\mathbf{v} \in V$に対し、次のようになる。
+\begin{align*}
+\varphi_{d}\left( k\mathbf{v} \right) &= d\left( 0,k\mathbf{v} \right)\\
+&= d\left( k\mathbf{0},k\mathbf{v} \right)\\
+&= |k|d\left( \mathbf{0},\mathbf{v} \right)\\
+&= |k|\varphi_{d}\left( \mathbf{v} \right)
+\end{align*}
+最後に、$\forall\mathbf{v},\mathbf{w} \in V$に対し、次のようになる。
+\begin{align*}
+\varphi_{d}\left( \mathbf{v} + \mathbf{w} \right) &= d\left( \mathbf{0},\mathbf{v} + \mathbf{w} \right)\\
+&= d\left( - \mathbf{v},\mathbf{v} + \mathbf{w} - \mathbf{v} \right)\\
+&= d\left( - \mathbf{v},\mathbf{w} \right)\\
+&\leq d\left( - \mathbf{v},\mathbf{0} \right) + d\left( \mathbf{0},\mathbf{w} \right)\\
+&= d\left( \mathbf{- 0}, - \mathbf{v} \right) + d\left( \mathbf{0},\mathbf{w} \right)\\
+&= d\left( \mathbf{0},\mathbf{v} \right) + d\left( \mathbf{0},\mathbf{w} \right)\\
+&= \varphi_{d}\left( \mathbf{v} \right) + \varphi_{d}\left( \mathbf{w} \right)
+\end{align*}\par
+さらに、そのnorm空間$\left( V,\varphi_{d} \right)$から誘導される距離空間$\left( V,d_{\varphi_{d}} \right)$において、$\forall\mathbf{v},\mathbf{w} \in V$に対し、次のようになる。
+\begin{align*}
+d_{\varphi_{d}}\left( \mathbf{v},\mathbf{w} \right) &= \varphi_{d}\left( \mathbf{w} - \mathbf{v} \right)\\
+&= d\left( 0,\mathbf{w} - \mathbf{v} \right)\\
+&= d\left( \mathbf{v},\mathbf{w} - \mathbf{v} + \mathbf{v} \right)\\
+&= d\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+よって、$d_{\varphi_{d}} = d$が成り立つので、そのnorm空間$\left( V,\varphi_{d} \right)$から誘導される距離空間はその距離空間$(V,d)$である。
+\end{proof}
+%\hypertarget{minkowskiux306eux4e0dux7b49ux5f0f}{%
+\subsubsection{Minkowskiの不等式}%\label{minkowskiux306eux4e0dux7b49ux5f0f}}
+\begin{thm}[相加相乗平均の不等式]\label{2.3.1.4}
+$\forall n \in \mathbb{N}$に対し、$n$つの非負実数たち$a_{i}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{n}} a_{i} \right)^{\frac{1}{n}} \leq \frac{1}{n}\sum_{i \in \varLambda_{n}} a_{i}
+\end{align*}
+また、$\forall i,j \in \varLambda_{n}$に対し、$a_{i} = a_{j}$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{n}} a_{i} \right)^{\frac{1}{n}} = \frac{1}{n}\sum_{i \in \varLambda_{n}} a_{i}
+\end{align*}
+この不等式を相加相乗平均の不等式という。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$n$つの非負実数たち$a_{i}$が与えられたとき、$n = 1$のときは明らかである。$n = 2$のとき、当然ながら$0 \leq \left( \sqrt{a_{1}} - \sqrt{a_{2}} \right)^{2}$が成り立つので、次のようになる。
+\begin{align*}
+0 \leq \left( \sqrt{a_{1}} - \sqrt{a_{2}} \right)^{2} = a_{1} - 2\sqrt{a_{1}a_{2}} + a_{2} \Leftrightarrow 2\sqrt{a_{1}a_{2}} \leq a_{1} + a_{2} \Leftrightarrow \left( a_{1}a_{2} \right)^{\frac{1}{2}} \leq \frac{1}{2}\left( a_{1} + a_{2} \right)
+\end{align*}\par
+$n = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} \leq \frac{1}{k}\sum_{i \in \varLambda_{k}} a_{i}
+\end{align*}
+$n = 2k$のとき、次のようになる。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{2k}} a_{i} \right)^{\frac{1}{2k}} &= \left( \left( \prod_{i \in \varLambda_{2k}} a_{i} \right)^{\frac{1}{k}} \right)^{\frac{1}{2}}\\
+&= \left( \left( \prod_{i \in \varLambda_{k}} a_{i} \right)^{\frac{1}{k}}\left( \prod_{i \in \varLambda_{2k} \setminus \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} \right)^{\frac{1}{2}}\\
+&\leq \frac{1}{2}\left( \left( \prod_{i \in \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} + \left( \prod_{i \in \varLambda_{2k} \setminus \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} \right)\\
+&= \frac{1}{2}\left( \prod_{i \in \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} + \frac{1}{2}\left( \prod_{i \in \varLambda_{2k} \setminus \varLambda_{k}} a_{i} \right)^{\frac{1}{k}}\\
+&\leq \frac{1}{2}\frac{1}{k}\sum_{i \in \varLambda_{k}} a_{i} + \frac{1}{2}\frac{1}{k}\sum_{i \in \varLambda_{2k} \setminus \varLambda_{k}} a_{i}\\
+&= \frac{1}{2k}\left( \sum_{i \in \varLambda_{k}} a_{i} + \sum_{i \in \varLambda_{2k} \setminus \varLambda_{k}} a_{i} \right) = \frac{1}{2k}\sum_{i \in \varLambda_{2k}} a_{i}
+\end{align*}\par
+$2 \leq k$として$n = k - 1$のとき、$a_{k} = \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i}$とおくと、次のようになる。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{k}} a_{i} \right)^{\frac{1}{k}} \leq \frac{1}{k}\sum_{i \in \varLambda_{k}} a_{i} &\Leftrightarrow \left( \left( \prod_{i \in \varLambda_{k - 1}} a_{i} \right)\frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \right)^{\frac{1}{k}} \leq \frac{1}{k}\left( \sum_{i \in \varLambda_{k - 1}} a_{i} + \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \right)\\
+&\Leftrightarrow \left( \left( \prod_{i \in \varLambda_{k - 1}} a_{i} \right)\frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \right)^{\frac{1}{k}} \leq \frac{1}{k}\sum_{i \in \varLambda_{k - 1}} a_{i} + \frac{1}{k}\frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \\
+&\quad \leq \frac{1}{k}\frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \leq \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i}\\
+&\Leftrightarrow \left( \prod_{i \in \varLambda_{k - 1}} a_{i} \right)\frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \leq \left( \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \right)^{k}\\
+&\Leftrightarrow \prod_{i \in \varLambda_{k - 1}} a_{i} \leq \left( \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i} \right)^{k - 1}\\
+&\Leftrightarrow \left( \prod_{i \in \varLambda_{k - 1}} a_{i} \right)^{\frac{1}{k - 1}} \leq \frac{1}{k - 1}\sum_{i \in \varLambda_{k - 1}} a_{i}
+\end{align*}
+以上より、$\forall n \in \mathbb{N}$に対し、$n$つの非負実数たち$a_{i}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{n}} a_{i} \right)^{\frac{1}{n}} \leq \frac{1}{n}\sum_{i \in \varLambda_{n}} a_{i}
+\end{align*}\par
+また、$\forall i,j \in \varLambda_{n}$に対し、$a_{i} = a_{j}$が成り立つなら、$a_{i} = a$とおけば、次のようになる。
+\begin{align*}
+\left( \prod_{i \in \varLambda_{n}} a_{i} \right)^{\frac{1}{n}} = \left( a^{n} \right)^{\frac{1}{n}} = a = \frac{na}{n} = \frac{1}{n}\sum_{i \in \varLambda_{n}} a_{i}
+\end{align*}
+\end{proof}
+\begin{thm}[重み付き相加相乗平均の不等式]\label{2.3.1.5}
+$\forall n \in \mathbb{N}$に対し、$n$つの非負実数たち$a_{i}$と次式を満たす$n$つの正の非負実数たち$w_{i}$が与えられたとき、
+\begin{align*}
+\sum_{i \in \varLambda_{n}} w_{i} = 1
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\prod_{i \in \varLambda_{n}} a_{i}^{w_{i}} \leq \sum_{i \in \varLambda_{n}} {w_{i}a_{i}}
+\end{align*}
+この不等式を重み付き相加相乗平均の不等式という。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$n$つの非負実数たち$a_{i}$と次式を満たす$n$つの正の非負実数たち$w_{i}$が与えられたとき、
+\begin{align*}
+\sum_{i \in \varLambda_{n}} w_{i} = 1
+\end{align*}
+$w_{i} \in \mathbb{Q}$のとき、$\exists p_{i},q \in \mathbb{N}$に対し、$w_{i} = \frac{p_{i}}{q}$とおくことができるので、そうすると、次式が成り立つ。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} p_{i} = q\sum_{i \in \varLambda_{n}} \frac{p_{i}}{q} = q\sum_{i \in \varLambda_{n}} w_{i} = q
+\end{align*}
+これに注意すれば、定理\ref{2.3.1.4}、即ち、相加相乗平均の不等式より次のようになる。
+\begin{align*}
+\prod_{i \in \varLambda_{n}} a_{i}^{w_{i}} &= \prod_{i \in \varLambda_{n}} a_{i}^{\frac{p_{i}}{q}}\\
+&= \left( \prod_{i \in \varLambda_{n}} a_{i}^{p_{i}} \right)^{\frac{1}{q}}\\
+&\leq \frac{1}{q}\sum_{i \in \varLambda_{n}} {p_{i}a_{i}}\\
+&= \sum_{i \in \varLambda_{n}} {\frac{p_{i}}{q}a_{i}}\\
+&= \sum_{i \in \varLambda_{n}} {w_{i}a_{i}}
+\end{align*}\par
+$w_{i} \in \mathbb{R}$のとき、ある有理数列$\left( q_{in} \right)_{n \in \mathbb{N}}$が存在して、$\lim_{n \rightarrow \infty}q_{in} = w_{i}$が成り立つので、$\forall n \in \mathbb{N}$に対し、上記の議論により次式が成り立つ。
+\begin{align*}
+\prod_{i \in \varLambda_{n}} a_{i}^{q_{in}} \leq \sum_{i \in \varLambda_{n}} {q_{in}a_{i}}
+\end{align*}
+したがって、$n \rightarrow \infty$とすれば、次式が成り立つ。
+\begin{align*}
+\prod_{i \in \varLambda_{n}} a_{i}^{w_{i}} \leq \sum_{i \in \varLambda_{n}} {w_{i}a_{i}}
+\end{align*}
+\end{proof}
+\begin{thm}[積の抑え込みに関するYoungの不等式]\label{2.3.1.6}
+$\forall a,b,p,q \in \mathbb{R}$に対し、$1 < p$かつ$1 < q$かつ$0 \leq a$かつ$0 \leq b$が成り立つかつ、次式が成り立つとき、
+\begin{align*}
+\frac{1}{p} + \frac{1}{q} = 1
+\end{align*}
+次の不等式が成り立つ。
+\begin{align*}
+ab \leq \frac{a^{p}}{p} + \frac{b^{q}}{q}
+\end{align*}
+この不等式を積の抑え込みに関するYoungの不等式という。
+\end{thm}
+\begin{proof}
+$\forall a,b,p,q \in \mathbb{R}$に対し、$1 < p$かつ$1 < q$かつ$0 \leq a$かつ$0 \leq b$が成り立つかつ、次式が成り立つとき、
+\begin{align*}
+\frac{1}{p} + \frac{1}{q} = 1
+\end{align*}
+\ref{2.3.1.5}、即ち、重み付きの相加相乗平均の不等式より次のようになる。
+\begin{align*}
+ab = \left( a^{p} \right)^{\frac{1}{p}}\left( b^{q} \right)^{\frac{1}{q}} \leq \frac{a^{p}}{p} + \frac{b^{q}}{q}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.3.1.7}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall\mathbf{v}_{i} \in V_{i}\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つとする。このとき、$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} = \mathbf{0}$が成り立つならそのときに限り、$\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall\mathbf{v}_{i} \in V_{i}\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つとする。このとき、$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} = \mathbf{0}$が成り立つなら、次のようになる。
+\begin{align*}
+\forall i \in \varLambda_{n}\left[ \mathbf{v}_{i} = \mathbf{0} \right] &\Leftrightarrow \forall i \in \varLambda_{n}\left[ \varphi_{i}\left( \mathbf{v}_{i} \right) = {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0 \right]\\
+&\Rightarrow \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0\\
+&\Leftrightarrow \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = 0
+\end{align*}\par
+逆に、$\forall\mathbf{v}_{i} \in V_{i}$に対し、$\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = 0$が成り立つなら、次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = 0 &\Leftrightarrow \forall i \in \varLambda_{n}\left[ 0 \leq {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \leq \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0 \right]\\
+&\Rightarrow \forall i \in \varLambda_{n}\left[ 0 \leq \varphi_{i}\left( \mathbf{v}_{i} \right) \leq 0 \right]\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ \varphi_{i}\left( \mathbf{v}_{i} \right) = 0 \right]\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ \mathbf{v}_{i} = \mathbf{0} \right]
+\end{align*}\par
+以上より、$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} = \mathbf{0}$が成り立つならそのときに限り、$\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = 0$が成り立つ。
+\end{proof}
+\begin{thm}[Hölderの不等式]\label{2.3.1.8}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall n \in \mathbb{N}\forall\left( a_{i} \right)_{i \in \varLambda_{n}},\left( b_{i} \right)_{i \in \varLambda_{n}} \in K^{n}\forall p,q \in \mathbb{R}$に対し、$1 < p$かつ$1 < q$が成り立つかつ、次式が成り立つとき、
+\begin{align*}
+\frac{1}{p} + \frac{1}{q} = 1
+\end{align*}
+次の不等式が成り立つ。この不等式をHölderの不等式という。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} \left| a_{i}b_{i} \right| \leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}
+\end{align*}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$が与えられたとき、$\forall n \in \mathbb{N}\forall\left( a_{i} \right)_{i \in \varLambda_{n}},\left( b_{i} \right)_{i \in \varLambda_{n}} \in K^{n}\forall p,q \in \mathbb{R}$に対し、$1 < p$かつ$1 < q$が成り立つかつ、次式が成り立つとき、
+\begin{align*}
+\frac{1}{p} + \frac{1}{q} = 1
+\end{align*}
+$\left( a_{i} \right)_{i \in \varLambda_{n}} = (0)_{i \in \varLambda_{n}}$または$\left( b_{i} \right)_{i \in \varLambda_{n}} = (0)_{i \in \varLambda_{n}}$のときは定理\ref{2.3.1.7}より明らかである。そうでないとき、定理\ref{2.3.1.6}、即ち、積の抑え込みに関するYoungの不等式と定理\ref{2.3.1.7}より$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+\left| a_{i}b_{i} \right| &= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\frac{\left| a_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}}\frac{\left| b_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\\ 
+&\quad \left( \frac{1}{p}\left( \frac{\left| a_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}} \right)^{p} + \frac{1}{q}\left( \frac{\left| b_{i} \right|}{\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}} \right)^{q} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\left( \frac{1}{p}\frac{\left| a_{i} \right|^{p}}{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}} + \frac{1}{q}\frac{\left| b_{i} \right|^{q}}{\sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q}} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} \left| a_{i}b_{i} \right| &\leq \sum_{i \in \varLambda_{n}} \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\\
+&\quad \left( \frac{1}{p}\frac{\left| a_{i} \right|^{p}}{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}} + \frac{1}{q}\frac{\left| b_{i} \right|^{q}}{\sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q}} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\\
+&\quad \left( \frac{1}{p}\frac{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}}{\sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p}} + \frac{1}{q}\frac{\sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q}}{\sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q}} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}\left( \frac{1}{p} + \frac{1}{q} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} \left| a_{i} \right|^{p} \right)^{\frac{1}{p}}\left( \sum_{i \in \varLambda_{n}} \left| b_{i} \right|^{q} \right)^{\frac{1}{q}}
+\end{align*}
+\end{proof}
+\begin{thm}[Minkowskiの不等式]\label{2.3.1.9}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall\mathbf{v}_{i},\mathbf{w}_{i} \in V_{i}\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つとき、次の不等式が成り立つ。この不等式をMinkowskiの不等式という。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}} \leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+\end{thm}
+\begin{proof}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall\mathbf{v}_{i},\mathbf{w}_{i} \in V_{i}\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つとき、$p = 1$のときはnormの定義より明らかである。$\forall i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} = \mathbf{0}$が成り立つ、または、$\forall i \in \varLambda_{n}$に対し、$\mathbf{w}_{i} = \mathbf{0}$が成り立つときは定理\ref{2.3.1.7}より明らかである。以下、$1 < p$が成り立つかつ、$\exists i \in \varLambda_{n}$に対し、$\mathbf{v}_{i} \neq \mathbf{0}$が成り立つかつ、$\exists i \in \varLambda_{n}$に対し、$\mathbf{w}_{i} \neq \mathbf{0}$が成り立つときで議論する。したがって、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+{\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} = {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right) \leq {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{v}_{i} \right) + {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{w}_{i} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \leq \sum_{i \in \varLambda_{n}} {{\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{v}_{i} \right)} + \sum_{i \in \varLambda_{n}} {{\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{w}_{i} \right)}
+\end{align*}
+そこで、定理\ref{2.3.1.8}、即ち、Hölderの不等式より次のようになる。
+\begin{align*}
+\sum_{i \in \varLambda_{n}} {{\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{v}_{i} \right)} &\leq \left( \sum_{i \in \varLambda_{n}} \left( {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1} \right)^{\frac{p}{p - 1}} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+\sum_{i \in \varLambda_{n}} {{\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1}\varphi_{i}\left( \mathbf{w}_{i} \right)} &\leq \left( \sum_{i \in \varLambda_{n}} \left( {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p - 1} \right)^{\frac{p}{p - 1}} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}} \\
+\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}} &= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{- \frac{p - 1}{p}}\sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{- \frac{p - 1}{p}} \left( \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} \right. \\
+&\quad \left.+ \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{p - 1}{p}}\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}} \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+\end{proof}
+%\hypertarget{normux7a7aux9593ux306eux751fux6210}{%
+\subsubsection{norm空間の生成}%\label{normux7a7aux9593ux306eux751fux6210}}
+\begin{thm}\label{2.3.1.10}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\sum_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} V_{i}$が成り立つなら、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\bigoplus_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はnorm空間をなす。
+\end{thm}
+\begin{proof}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\sum_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} V_{i}$が成り立つなら、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\bigoplus_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+定義より直ちに$\forall\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \in \bigoplus_{i \in \varLambda_{n}} V_{i}$に対し、$0 \leq \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right)$が成り立つ。\par
+$\forall\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \in \bigoplus_{i \in \varLambda_{n}} V_{i}$に対し、$\mathbf{v}_{i} \in V_{i}$として$\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right) = 0$が成り立つなら、次のようになる。
+\begin{align*}
+\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right) = 0 &\Leftrightarrow \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ 0 \leq {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \leq \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0 \right]\\
+&\Rightarrow \forall i \in \varLambda_{n}\left[ 0 \leq \varphi_{i}\left( \mathbf{v}_{i} \right) \leq 0 \right]\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ \varphi_{i}\left( \mathbf{v}_{i} \right) = 0 \right]
+\end{align*}
+ここで、normの定義より$\mathbf{v}_{i} = \mathbf{0}$が成り立つので、$\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} = \mathbf{0}$が成り立つ。逆に、$\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} = \mathbf{0}$が成り立つなら、$\sum_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} V_{i}$より$\mathbf{v}_{i} = \mathbf{0}$が成り立つことになるので、あとは明らかであろう。\par
+$\forall k \in K\forall\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \in \bigoplus_{i \in \varLambda_{n}} V_{i}$に対し、$\mathbf{v}_{i} \in V_{i}$として次のようになる。
+\begin{align*}
+\varphi_{p}\left( k\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right) &= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} {k\mathbf{v}_{i}} \right) = \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( k\mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = \left( \sum_{i \in \varLambda_{n}} \left( |k|\varphi_{i}\left( \mathbf{v}_{i} \right) \right)^{p} \right)^{\frac{1}{p}}\\
+&= \left( |k|^{p}\sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = |k|\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} = |k|\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right)
+\end{align*}\par
+$\forall\sum_{i \in \varLambda_{n}} \mathbf{v}_{i},\sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \in \bigoplus_{i \in \varLambda_{n}} V_{i}$に対し、$\mathbf{v}_{i},\mathbf{w}_{i} \in V_{i}$として次のようになる。
+\begin{align*}
+\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} + \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \right) = \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \left( \mathbf{v}_{i} + \mathbf{w}_{i} \right) \right) = \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+ここで、定理\ref{2.3.1.9}、即ち、Mikowskiの不等式より次のようになる。
+\begin{align*}
+\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} + \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \right) &\leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \right) + \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \right)
+\end{align*}\par
+以上より、その組$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はnorm空間をなす。
+\end{proof}
+\begin{thm}\label{2.3.1.11}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\prod_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はnorm空間をなす。
+\end{thm}
+\begin{proof}
+norm空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\prod_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+定義より直ちに$\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、$0 \leq \varphi_{p}\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}}$が成り立つ。\par
+$\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、$\varphi_{p}\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} = 0$が成り立つなら、次のようになる。
+\begin{align*}
+\varphi_{p}\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} = 0 &\Leftrightarrow \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ 0 \leq {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \leq \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} = 0 \right]\\
+&\Rightarrow \forall i \in \varLambda_{n}\left[ 0 \leq {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \leq 0 \right]\\
+&\Leftrightarrow \forall i \in \varLambda_{n}\left[ \varphi_{i}\left( \mathbf{v}_{i} \right) = 0 \right]
+\end{align*}
+ここで、normの定義より$\mathbf{v}_{i} = \mathbf{0}$が成り立つので、$\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} = \left( \mathbf{0} \right)_{i \in \varLambda_{n}}$が成り立つ。逆に、$\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} = \left( \mathbf{0} \right)_{i \in \varLambda_{n}}$が成り立つなら、$\mathbf{v}_{i} = \mathbf{0}$が成り立つことになるので、あとは明らかであろう。\par
+$\forall k \in K\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、次のようになる。
+\begin{align*}
+\varphi_{p}\left( k\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \right) &= \varphi_{p}\left( k\mathbf{v}_{i} \right)_{i \in \varLambda_{n}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( k\mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{i \in \varLambda_{n}} \left( |k|\varphi_{i}\left( \mathbf{v}_{i} \right) \right)^{p} \right)^{\frac{1}{p}}\\
+&= \left( |k|^{p}\sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= |k|\left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= |k|\varphi_{p}\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}}
+\end{align*}\par
+$\forall\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}},\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}} \in \prod_{i \in \varLambda_{n}} V_{i}$に対し、次のようになる。
+\begin{align*}
+\varphi_{p}\left( \left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} + \left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}} \right) = \varphi_{p}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)_{i \in \varLambda_{n}} = \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} + \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+ここで、定理\ref{2.3.1.9}、即ち、Mikowskiの不等式より次のようになる。
+\begin{align*}
+\varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{i} + \sum_{i \in \varLambda_{n}} \mathbf{w}_{i} \right) &\leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}} + \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{w}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} + \varphi_{p}\left( \mathbf{w}_{i} \right)_{i \in \varLambda_{n}}
+\end{align*}\par
+以上より、その組$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はnorm空間をなす。
+\end{proof}
+%\hypertarget{banachux7a7aux9593}{%
+\subsubsection{Banach空間}%\label{banachux7a7aux9593}}\par
+この節を述べる前に幾何学の距離空間論に関する概念をいくつか述べておこう。
+\begin{dfn}[Cauchy列]
+距離空間$(S,d)$とその集合$S$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$n_{0} < m$かつ$n_{0} < n$が成り立つなら、$d\left( a_{m},a_{n} \right) < \varepsilon$が成り立つようなその元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$をその距離空間$(S,d)$におけるCauchy列、基本点列などという。
+\end{dfn}
+\begin{thm}[収束列はCauchy列である]
+距離空間$(S,d)$におけるその集合$S$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するとき、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$はCauchy列である。
+\end{thm}\par
+ここで、任意のCauchy列は収束するとは限らないことに注意されたい。
+\begin{dfn}[完備距離空間]
+距離空間$(S,d)$において任意のCauchy列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するとき、その距離空間$(S,d)$は完備であるといい、そのような距離空間$(S,d)$を完備距離空間という。
+\end{dfn}\par
+さて、下準備が終わったので、本題を述べよう。
+\begin{dfn}[Banach空間]
+norm空間$(V,\varphi)$が与えられたとき、そのnorm空間$(V,\varphi)$から誘導される距離空間$\left( V,d_{\varphi} \right)$が完備であるとき、そのnorm空間$(V,\varphi)$をBanach空間という。
+\end{dfn}
+\begin{thm}\label{2.3.1.12}
+Banach空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\sum_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} V_{i}$が成り立つなら、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\bigoplus_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はBanach空間をなす。
+\end{thm}
+\begin{proof}
+Banach空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\sum_{i \in \varLambda_{n}} V_{i} = \bigoplus_{i \in \varLambda_{n}} V_{i}$が成り立つなら、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\bigoplus_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\sum_{i \in \varLambda_{n}} \mathbf{v}_{i} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$がnorm空間をなすことはすでに定理\ref{2.3.1.10}
+でみた。\par
+直和空間$\bigoplus_{i \in \varLambda_{n}} V_{i}$の任意のCauchy列$\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$が$\mathbf{v}_{im} \in V_{i}$として与えられたとき、仮定よりそのnorm空間$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$から誘導される距離空間$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$が考えられれば、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$m_{0} \leq l$かつ$m_{0} \leq m$が成り立つなら、$d_{\varphi_{p}}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{il},\sum_{i \in \varLambda_{n}} \mathbf{v}_{im} \right) < \varepsilon$が成り立つ。したがって、そのBanach空間$\left( V_{i},\varphi_{i} \right)$から誘導される距離空間$\left( V_{i},d_{\varphi_{i}} \right)$が考えられれば、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+d_{\varphi_{i}}\left( \mathbf{v}_{il},\mathbf{v}_{im} \right) &= \varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)\\
+&= \left( {\varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)}^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \left( \mathbf{v}_{im} - \mathbf{v}_{il} \right) \right)\\
+&= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{im} - \sum_{i \in \varLambda_{n}} \mathbf{v}_{il} \right)\\
+&= d_{\varphi_{p}}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{il},\sum_{i \in \varLambda_{n}} \mathbf{v}_{im} \right) < \varepsilon
+\end{align*}
+ゆえに、$\forall i \in \varLambda_{n}$に対し、そのvector空間$V_{i}$の元の列$\left( \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$もCauchy列である。\par
+ここで、仮定より$\forall i \in \varLambda_{n}$に対し、その元の列$\left( \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$はその距離空間$\left( V_{i},d_{\varphi_{i}} \right)$の意味で収束することになりその極限を$\mathbf{a}_{i}$とおく。このとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$m_{0} \leq m$が成り立つなら、$d_{\varphi_{i}}\left( \mathbf{v}_{im},\mathbf{a}_{i} \right) < \varepsilon$が成り立つ。したがって、次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{im},\sum_{i \in \varLambda_{n}} \mathbf{a}_{i} \right) &= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \mathbf{a}_{i} - \sum_{i \in \varLambda_{n}} \mathbf{v}_{im} \right)\\
+&= \varphi_{p}\left( \sum_{i \in \varLambda_{n}} \left( \mathbf{a}_{i} - \mathbf{v}_{im} \right) \right)\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{a}_{i} - \mathbf{v}_{im} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {d_{\varphi_{i}}\left( \mathbf{v}_{im},\mathbf{a}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&< \left( \sum_{i \in \varLambda_{n}} \varepsilon^{p} \right)^{\frac{1}{p}} = \left( n\varepsilon^{p} \right)^{\frac{1}{p}} = n^{\frac{1}{p}}\varepsilon
+\end{align*}
+以上より、その元の列$\left( \sum_{i \in \varLambda_{n}} \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$はその距離空間$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$の意味でvector
+$\sum_{i \in \varLambda_{n}} \mathbf{a}_{i}$に収束することになる。これはその距離空間$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$が完備であることになる。よって、その組$\left( \bigoplus_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はBanach空間をなす。
+\end{proof}
+\begin{thm}\label{2.3.1.13}
+Banach空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\prod_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はBanach空間をなす。
+\end{thm}
+\begin{proof}
+Banach空間の族$\left\{ \left( V_{i},\varphi_{i} \right) \right\}_{i \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathbb{R}$に対し、$1 \leq p$が成り立つなら、$\mathbf{v}_{i} \in V_{i}$として次のように写像$\varphi_{p}$が定義されれば、
+\begin{align*}
+\varphi_{p}:\prod_{i \in \varLambda_{n}} V_{i} \rightarrow \mathbb{R};\left( \mathbf{v}_{i} \right)_{i \in \varLambda_{n}} \mapsto \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{i} \right)}^{p} \right)^{\frac{1}{p}}
+\end{align*}
+その組$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$がnorm空間をなすことはすでに定理\ref{2.3.1.11}でみた。\par
+直積$\prod_{i \in \varLambda_{n}} V_{i}$の任意のCauchy列$\left( \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} \right)_{m \in \mathbb{N}}$が与えられたとき、仮定よりそのnorm空間$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$から誘導される距離空間$\left( \prod_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$が考えられれば、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall l,m \in \mathbb{N}$に対し、$m_{0} \leq l$かつ$m_{0} \leq m$が成り立つなら、$d_{\varphi_{p}}\left( \left( \mathbf{v}_{il} \right)_{i \in \varLambda_{n}},\ \ \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} \right) < \varepsilon$が成り立つ。したがって、そのBanach空間$\left( V_{i},\varphi_{i} \right)$から誘導される距離空間$\left( V_{i},d_{\varphi_{i}} \right)$が考えられれば、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+d_{\varphi_{i}}\left( \mathbf{v}_{il},\mathbf{v}_{im} \right) &= \varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)\\
+&= \left( {\varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)}^{p} \right)^{\frac{1}{p}}\\
+&\leq \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \varphi_{p}\left( \mathbf{v}_{im} - \mathbf{v}_{il} \right)_{i \in \varLambda_{n}}\\
+&= \varphi_{p}\left( \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} - \left( \mathbf{v}_{il} \right)_{i \in \varLambda_{n}} \right)\\
+&= d_{\varphi_{p}}\left( \left( \mathbf{v}_{il} \right)_{i \in \varLambda_{n}},\left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} \right) < \varepsilon
+\end{align*}
+ゆえに、$\forall i \in \varLambda_{n}$に対し、そのvector空間$V_{i}$の元の列$\left( \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$もCauchy列である。\par
+ここで、仮定より$\forall i \in \varLambda_{n}$に対し、その元の列$\left( \mathbf{v}_{im} \right)_{m \in \mathbb{N}}$はその距離空間$\left( V_{i},d_{\varphi_{i}} \right)$の意味で収束することになりその極限を$\mathbf{a}_{i}$とおく。このとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists m_{0} \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$m_{0} \leq m$が成り立つなら、$d_{\varphi_{i}}\left( \mathbf{v}_{im},\mathbf{a}_{i} \right) < \varepsilon$が成り立つ。したがって、次のようになる。
+\begin{align*}
+d_{\varphi_{p}}\left( \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}},\left( \mathbf{a}_{i} \right)_{i \in \varLambda_{n}} \right) &= \varphi_{p}\left( \left( \mathbf{a}_{i} \right)_{i \in \varLambda_{n}} - \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} \right)\\
+&= \varphi_{p}\left( \mathbf{a}_{i} - \mathbf{v}_{im} \right)_{i \in \varLambda_{n}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {\varphi_{i}\left( \mathbf{a}_{i} - \mathbf{v}_{im} \right)}^{p} \right)^{\frac{1}{p}}\\
+&= \left( \sum_{i \in \varLambda_{n}} {d_{\varphi_{i}}\left( \mathbf{v}_{im},\mathbf{a}_{i} \right)}^{p} \right)^{\frac{1}{p}}\\
+&< \left( \sum_{i \in \varLambda_{n}} \varepsilon^{p} \right)^{\frac{1}{p}} = \left( n\varepsilon^{p} \right)^{\frac{1}{p}} = n^{\frac{1}{p}}\varepsilon
+\end{align*}
+以上より、その元の列$\left( \left( \mathbf{v}_{im} \right)_{i \in \varLambda_{n}} \right)_{m \in \mathbb{N}}$はその距離空間$\left( \prod_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$の意味でvector$\left( \mathbf{a}_{i} \right)_{i \in \varLambda_{n}}$に収束することになる。これはその距離空間$\left( \prod_{i \in \varLambda_{n}} V_{i},d_{\varphi_{p}} \right)$が完備であることになる。よって、その組$\left( \prod_{i \in \varLambda_{n}} V_{i},\varphi_{p} \right)$はBanach空間をなす。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p111,275-285 ISBN978-4-00-029871-1
+  \bibitem{2}
+  受験の月. "n変数の相加平均と相乗平均の関係の証明（特殊な数学的帰納法）". 受験の月. \url{https://examist.jp/mathematics/expression-proof/n-soukasoujyou-syoumei/} (2021-12-28 18:34 閲覧)
+  \bibitem{3}
+  らっこ. "重みつき相加相乗平均の不等式 - 思考力を鍛える数学". 思考力を鍛える数学. \url{http://www.mathlion.jp/article/ar127.html} (2021-12-28 18:32 閲覧)
+  \bibitem{4}
+  難波博之. "ヤングの不等式の3通りの証明 - 高校数学の美しい物語". 高校数学の美しい物語. \url{https://manabitimes.jp/math/715} (2021-12-28 18:35 閲覧)
+  \bibitem{5}
+  伊藤健一. "関数解析学 講義スライド 担当教員：伊藤健一". 東京大学. \url{https://www.ms.u-tokyo.ac.jp/~ito/notes\_functional\_analysis\_20180511.pdf} (2021-12-29 15:39 取得)
+\end{thebibliography}
+\end{document}

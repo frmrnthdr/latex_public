@@ -1,0 +1,933 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{4}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{4.1.12}
+\externaldocument{4.2.2}
+\externaldocument{4.2.5}
+\externaldocument{4.2.7}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6975ux5024}{%
+\subsection{極値}%\label{ux6975ux5024}}
+%\hypertarget{ux6975ux5024ux3068ux505cux7559ux70b9}{%
+\subsubsection{極値と停留点}%\label{ux6975ux5024ux3068ux505cux7559ux70b9}}\par
+まず、前述した極値に関する定義、定理を挙げよう。
+\begin{dfn*}[定義\ref{極大値と極小値}の再掲]
+$D(f) \subseteq \mathbb{R}^{n}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、その集合$D(f)$の内点$\mathbf{a}$をとる、即ち、$\mathbf{a} \in \mathbb{R}^{n}$なる点$\mathbf{a}$のある$\varepsilon$近傍$U\left( \mathbf{a},\varepsilon \right)$がその集合$D(f)$の部分集合となるようにその点$\mathbf{a}$をとる。ここで、実数$f\left( \mathbf{a} \right)$が$\max{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)}$に等しい、即ち、その関数$fのその集合U\left( \mathbf{a},\varepsilon \right)$での最大値となるとき、その関数$f$はその点$\mathbf{a}$で極大であるといいその点$\mathbf{a}$をその関数$f$の極大値という、即ち、点$\mathbf{a}$がその関数$f$の極大値であることは次式が成り立つことである。
+\begin{align*}
+f\left( \mathbf{a} \right) = \max{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)}
+\end{align*}\par
+同様にして、$D(f) \subseteq \mathbb{R}^{n}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、実数$f\left( \mathbf{a} \right)$が$\min{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)}$に等しい、即ち、その関数$f$のその集合$U\left( \mathbf{a},\varepsilon \right)$での最小値となるとき、その関数$f$はその点$\mathbf{a}$で極小であるといいその点$\mathbf{a}$をその関数$f$の極小値という。
+\begin{align*}
+f\left( \mathbf{a} \right) = \min{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)}
+\end{align*}
+\end{dfn*}
+\begin{dfn*}[定義\ref{極値}の再掲]
+$D(f) \subseteq \mathbb{R}^{n}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、その関数$f$がその集合$D(f)$の内点$\mathbf{a}$で極大になる、または、極小になることをその関数$f$はその点$\mathbf{a}$で極値をとるといいその点$\mathbf{a}$をその関数$f$の極値点という。
+\end{dfn*}
+\begin{dfn*}[定義\ref{狭義の極大値と極小値}の再掲]
+$D(f) \subseteq \mathbb{R}^{n}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、その関数$f$はその点$\mathbf{a}$で極大であるかつ、$\forall\mathbf{x} \in U\left( \mathbf{a},\varepsilon \right)$に対し、$\mathbf{x} \neq \mathbf{a}$成り立つなら、$f\left( \mathbf{x} \right) < f\left( \mathbf{a} \right)$が成り立つとき、その関数$f$はその点$\mathbf{a}$で狭義の極大であるといいその点$\mathbf{a}$をその関数$f$の狭義の極大値という、即ち、点$\mathbf{a}$がその関数$f$の狭義の極大値であることは次式が成り立つことである。
+\begin{align*}
+f\left( \mathbf{a} \right) = \max{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)},\ \ \forall\mathbf{x} \in U\left( \mathbf{a},\varepsilon \right)\left[ \mathbf{x} \neq \mathbf{a} \Rightarrow f\left( \mathbf{x} \right) < f\left( \mathbf{a} \right) \right]
+\end{align*}\par
+同様に$D(f) \subseteq \mathbb{R}^{n}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、その関数$f$はその点$\mathbf{a}$で極小であるかつ、$\forall\mathbf{x} \in U\left( \mathbf{a},\varepsilon \right)$に対し、$\mathbf{x} \neq \mathbf{a}$成り立つなら、$f\left( \mathbf{x} \right) > f\left( \mathbf{a} \right)$が成り立つとき、その関数$f$はその点$\mathbf{a}$で狭義の極小であるといいその点$\mathbf{a}$をその関数$f$の狭義の極小値という、即ち、点$\mathbf{a}$がその関数$f$の狭義の極小値であることは次式が成り立つことである。
+\begin{align*}
+f\left( \mathbf{a} \right) = \min{V\left( f|U\left( \mathbf{a},\varepsilon \right) \right)},\ \ \forall\mathbf{x} \in U\left( \mathbf{a},\varepsilon \right)\left[ \mathbf{x} \neq \mathbf{a} \Rightarrow f\left( \mathbf{x} \right) > f\left( \mathbf{a} \right) \right]
+\end{align*}
+\end{dfn*}
+\begin{thm*}[定理\ref{4.2.2.1}の再掲]
+$D(f) \subseteq \mathbb{R}$なる集合$D(f)$を定義域とする関数$f:D(f) \rightarrow \mathbb{R}$について、その集合$D(f)$の内点$a$で極値をとりその関数$f$がその実数$a$で微分可能であるなら、$\partial f(a) = 0$が成り立つ。これにより、$n = 1$のとき、極値点が$\partial f(a) = 0$なる実数$a$のうちどれかになることがわかる。
+\end{thm*}
+\begin{thm*}[定理\ref{4.2.2.8}の再掲]
+$a \in D(f) \subseteq \mathbb{R}$なる実数$a$の$\varepsilon$近傍$U(a,\varepsilon)$で$C^{1}$級の関数$f:D(f) \rightarrow \mathbb{R}$が$\partial f(a) = 0$
+を満たすかつ、その導関数$\partial f$がその実数$a$で微分可能であるとする。このとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\partial^{2}f(a) > 0$が成り立つなら、その関数$f$はその実数$a$で狭義の極小となる。
+\item
+  $\partial^{2}f(a) < 0$が成り立つなら、その関数$f$はその実数$a$で狭義の極大となる。
+\end{itemize}
+\end{thm*}\par
+さて、本題を述べよう。
+\begin{dfn}
+$D(f) \subseteq \mathbb{R}^{n}$なる微分可能な関数$f:D(f) \rightarrow \mathbb{R}$が与えられたとき、$\mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0}$なる点$\mathbf{a}$をその関数$f$の停留点という。
+\end{dfn}
+\begin{thm}\label{4.4.3.1}
+$D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が与えられたとき、その集合$D(f)の内点\mathbf{a}$で極値をとりその関数$f$がその点$\mathbf{a}$で微分可能であるなら、$\forall i \in \varLambda_{n}$に対し、次式が成り立つ。
+\begin{align*}
+\partial_{i}f\left( \mathbf{a} \right) = 0
+\end{align*}\par
+これにより、その点$\mathbf{a}$はその関数$f$の停留点であり、さらに、$(df)_{\mathbf{a}} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が与えられたとき、その集合$D(f)$の内点$\mathbf{a}$で極値をとりその関数$f$がその点$\mathbf{a}$で微分可能であるとし、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおく。このとき、$\forall i \in \varLambda_{n}$に対し、次式のように関数$f_{i}$が定義されると、
+\begin{align*}
+f_{i}:\left\{ x_{i} \in \mathbb{R} \middle| \mathbf{x} \in D \right\} \rightarrow \mathbb{R};x_{i} \mapsto f\begin{pmatrix}
+a_{1} \\
+ \vdots \\
+a_{i - 1} \\
+x_{i} \\
+a_{i + 1} \\
+ \vdots \\
+a_{n} \\
+\end{pmatrix}
+\end{align*}
+これは$x_{i} = a_{i}$のときで極値をとるので、定理\ref{4.2.2.1}より次式が成り立つ。
+\begin{align*}
+\partial_{i}f\left( \mathbf{a} \right) = \partial_{i}f\begin{pmatrix}
+a_{1} \\
+ \vdots \\
+a_{i - 1} \\
+a_{i} \\
+a_{i + 1} \\
+ \vdots \\
+a_{n} \\
+\end{pmatrix} = \partial f_{i}\left( a_{i} \right) = 0
+\end{align*}\par
+あとは、定理\ref{4.2.5.3}より$\mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0}$が成り立つので、その点$\mathbf{a}$はその関数$f$の停留点であり、さらに、次のようになることから、
+\begin{align*}
+(df)_{\mathbf{a}}\left( h_{i} \right)_{i \in \varLambda_{n}} = \sum_{i \in \varLambda_{n}} {\partial_{i}f\left( \mathbf{a} \right)h_{i}} = 0
+\end{align*}
+$(df)_{\mathbf{a}} = 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.4.3.2}
+$D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が与えられたとき、その定義域$D(f)$がcompactでその定義域$D(f)$上でその関数$f$が連続であるなら、次のような点のうちいづれかが最大点あるいは最小点である。
+\begin{itemize}
+\item
+  その点$\mathbf{a}$が$\mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0}$なるその開核$\mathrm{int}{D(f)}$の点、即ち、停留点である。
+\item
+  その点$\mathbf{a}$がその関数$f$が微分可能でないその開核$\mathrm{int}{D(f)}$の点である。
+\item
+  その点$\mathbf{a}$がその定義域$D(f)$の境界点である、即ち、$\mathbf{a} \in \partial D(f) = \mathrm{cl}{D(f)} \setminus \mathrm{int}{D(f)}$なる点である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$D(f) \subseteq \mathbb{R}^{n}$なる関数$f:D(f) \rightarrow \mathbb{R}$が与えられたとき、その定義域$D(f)$がcompactでその定義域$D(f)$上でその関数$f$が連続であるなら、最大値最小値の定理よりその関数$f$の最大値、最小値がその定義域$D(f)$上で存在する。そこで、最大値について考えても一般性は失われないのでそうすると、$f\left( \mathbf{a} \right) = \max f$なる点$\mathbf{a}$がその定義域$D(f)$に存在することになる。したがって、その関数$f$がその点$\mathbf{a}$で微分可能であることを$D$とおくと、次のようになる。
+\begin{align*}
+f\left( \mathbf{a} \right) = \max f &\Leftrightarrow f\left( \mathbf{a} \right) = \max f \land \left( \mathbf{a} \in \mathrm{int}{D(f)} \vee \mathbf{a} \notin \mathrm{int}{D(f)} \right)\\
+&\Leftrightarrow f\left( \mathbf{a} \right) = \max f \land \left( \left( \mathbf{a} \in \mathrm{int}{D(f)} \land (D \vee \neg D) \right) \vee \mathbf{a} \notin \mathrm{int}{D(f)} \right)\\
+&\Leftrightarrow f\left( \mathbf{a} \right) = \max f \land \left( \left( \mathbf{a} \in \mathrm{int}{D(f)} \land D \right) \right. \\
+&\quad \left. \vee \left( \mathbf{a} \in \mathrm{int}{D(f)} \land \neg D \right) \vee \mathbf{a} \notin \mathrm{int}{D(f)} \right)\\
+&\Leftrightarrow \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land D \right) \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land \neg D \right) \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \notin \mathrm{int}{D(f)} \right)
+\end{align*}
+そこで、$\mathbf{a} \in \mathrm{int}{D(f)}$が成り立つかつ、その点$\mathbf{a}$でその関数$f$が微分可能であるなら、定理\ref{4.4.3.1}よりその点$\mathbf{a}$はその関数$f$の停留点であるので、次のようになる。
+\begin{align*}
+f\left( \mathbf{a} \right) = \max f &\Leftrightarrow \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land D \Rightarrow \mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0} \right) \\
+&\quad \land \left( \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land D \right) \right. \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land \neg D \right) \\
+&\quad \left. \vee \left( f\left( \mathbf{a} \right) = \max f \land a \notin \mathrm{int}{D(f)} \right) \right)\\
+&\Leftrightarrow \left( f\left( \mathbf{a} \right) \neq \max f \vee \mathbf{a} \notin \mathrm{int}{D(f)} \vee \neg D \vee \mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0} \right) \\
+&\quad \land \left( \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land D \right) \right. \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land \neg D \right) \\
+&\quad \left. \vee \left( f\left( \mathbf{a} \right) = \max f \land a \notin \mathrm{int}{D(f)} \right) \right)\\
+&\Leftrightarrow \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land D \land \mathrm{grad}f\left( \mathbf{a} \right) = \mathbf{0} \right) \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \in \mathrm{int}{D(f)} \land \neg D \right) \\
+&\quad \vee \left( f\left( \mathbf{a} \right) = \max f \land \mathbf{a} \notin \mathrm{int}{D(f)} \right)
+\end{align*}
+\end{proof}
+%\hypertarget{ux6b21ux5f62ux5f0f}{%
+\subsubsection{2次形式}%\label{ux6b21ux5f62ux5f0f}}
+\begin{dfn}
+$n$次元数空間$\mathbb{R}^{n}$と対称行列$B$を用いた次式のような関数$Q$を2次形式といいその行列$B$をその2次形式$Q_{B}$の係数行列という。
+\begin{align*}
+Q:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n};\mathbf{x} \mapsto {}^t \mathbf{x}B\mathbf{x} 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.4.3.3}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall\mathbf{x},\mathbf{y} \in \mathbb{R}^{n}$に対し、次式が成り立つ。
+\begin{align*}
+Q\left( \mathbf{x} + \mathbf{y} \right) = Q\left( \mathbf{x} \right) + Q\left( \mathbf{y} \right) + 2{}^t \mathbf{y}B\mathbf{x}
+\end{align*}
+\item
+  $\forall\mathbf{x} \in \mathbb{R}^{n}\forall c \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+Q\left( c\mathbf{x} \right) = c^{2}Q\left( \mathbf{x} \right)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、$\forall\mathbf{x},\mathbf{y} \in \mathbb{R}^{n}$に対し、次のようになる。
+\begin{align*}
+Q\left( \mathbf{x} + \mathbf{y} \right) &={}^t \left( \mathbf{x} + \mathbf{y} \right)B\left( \mathbf{x} + \mathbf{y} \right)\\
+&={}^t \mathbf{x}B\mathbf{x} +{}^t \mathbf{x}B\mathbf{y} +{}^t \mathbf{y}B\mathbf{x} +{}^t \mathbf{y}B\mathbf{y}\\
+&={}^t \mathbf{x}B\mathbf{x} +{}^t \mathbf{y}B\mathbf{y} +{}^t \mathbf{y}B\mathbf{x} +{}^t \mathbf{y}B\mathbf{x}\\
+&= Q\left( \mathbf{x} \right) + Q\left( \mathbf{y} \right) + 2{}^t \mathbf{y}B\mathbf{x}
+\end{align*}\par
+さらに、$\forall\mathbf{x} \in \mathbb{R}^{n}\forall c \in \mathbb{R}$に対し、次のようになる。
+\begin{align*}
+Q\left( c\mathbf{x} \right) ={}^t \left( c\mathbf{x} \right)B\left( c\mathbf{x} \right) = c^{2}\left({}^t \mathbf{x}B\mathbf{x} \right) = c^{2}Q\left( \mathbf{x} \right)
+\end{align*}
+\end{proof}
+\begin{dfn}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、次のように定義されよう。
+\begin{itemize}
+\item
+  $\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) > 0$が成り立つとき、その2次形式$Q$は正値であるという。
+\item
+  $\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) < 0$が成り立つとき、その2次形式$Q$は負値であるという。
+\item
+  $\exists\mathbf{x},\mathbf{y} \in \mathbb{R}^{n}$に対し、$Q\left( \mathbf{x} \right) < 0 < Q\left( \mathbf{y} \right)$が成り立つとき、その2次形式$Q$は不定符号であるという。
+\item
+  $\det B \neq 0$が成り立つ、即ち、その係数行列$Q$が正則行列であるとき、その2次形式$Q$は正則であるという。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{4.4.3.4}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\mathrm{grad}Q:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n};\mathbf{x} \mapsto 2B\mathbf{x} 
+\end{align*}
+\end{thm}
+\begin{proof}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、$B = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^2 }$、$I_{\mathbb{R}^n } = \left( 1_i \right)_{i\in \varLambda_{n}}$とおくと、次のようになる\footnote{ここで、Einstein縮約記法を用いれば、$\forall i\in \varLambda_n $に対し、$k,l\in \varLambda_n $として次のようになる。
+\begin{align*}
+\partial_i \left(1_kb_{kl}1_l\right) &= \partial\left(b_{kl}1_k1_l\right) \\
+&= b_{kl}\partial_i1_k1_l+b_{kl}1_k\partial_i1_l \\
+&= b_{kl}\delta_{ik}1_l+b_{kl}1_k\delta_{il} \\
+&= b_{il}1_l+b_{ki}1_k \\
+&= 2b_{ik}1_k
+\end{align*}}。
+\begin{align*}
+\mathrm{grad}Q &= \mathrm{grad} \left( {}^tI_{\mathbb{R}^n}BI_{\mathbb{R}^n}\right) \\
+&= {}^t J_{I_{\mathbb{R}^n}} BI_{\mathbb{R}^n} +{}^t J_{BI_{\mathbb{R}^n}} I_{\mathbb{R}^n} \\
+&= I_n BI_{\mathbb{R}^n} +{}^t BI_{\mathbb{R}^n} \\
+&= 2BI_{\mathbb{R}^n} 
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\mathrm{grad}Q:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n};\mathbf{x} \mapsto 2BI_{\mathbb{R}^n} \left(\mathbf{x}\right)=2B\mathbf{x} 
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.4.3.5}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$がその2次形式$Q$の停留点となるならそのときに限り、$B\mathbf{a} = \mathbf{0}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.4.3.4}よりすぐ分かる。
+\end{proof}
+\begin{thm}\label{4.4.3.6}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、その2次形式$Q$が不定符号であるなら、零vector$\mathbf{0}$はその2次形式$Q$の停留点であるが、その2次形式$Q$の極値ではない。
+\end{thm}
+\begin{proof}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、その2次形式$Q$が不定符号であるとき、零vector$\mathbf{0}$はその2次形式の停留点であることは定理\ref{4.4.3.5}より明らかである。一方で、その2次形式$Q$が不定符号であるかつ、零vector$\mathbf{0}$がその2次形式$Q$の極値であるとしよう。このとき、$\mathbf{0}$のある近傍$V$が存在して、$\min{Q|V\left( \mathbf{x} \right)} = Q\left( \mathbf{0} \right) = 0$が成り立つ。そこで、$\mathbf{0} \in \mathrm{int}(V)$が成り立つので、$\exists\varepsilon_{V} \in \mathbb{R}^{+}$に対し、$\mathbf{0} \in U\left( \mathbf{0},\varepsilon_{V} \right) \subseteq \mathrm{int}V$が成り立つ。仮定より、$\exists\mathbf{x},\mathbf{y} \in \mathbb{R}^{n}$に対し、$Q\left( \mathbf{x} \right) < 0 < Q\left( \mathbf{y} \right)$が成り立つので、$\mathbf{x} \neq \mathbf{0}$かつ$\mathbf{y} \neq \mathbf{0}$が得られ、したがって、$\left\| \mathbf{x} \right\| \neq \mathbf{0}$かつ$\left\| \mathbf{y} \right\| \neq \mathbf{0}$が成り立つことから、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$\varepsilon < \frac{\varepsilon_{V}}{\max\left\{ \left\| \mathbf{x} \right\|,\left\| \mathbf{y} \right\| \right\}}$が成り立ち、したがって、$\varepsilon\mathbf{x},\varepsilon\mathbf{y} \in B\left( \mathbf{0},\varepsilon_{V} \right) \subseteq \mathrm{int}V \subseteq V$が得られるかつ、$\varepsilon^{2}Q\left( \mathbf{x} \right) = Q\left( \varepsilon\mathbf{x} \right) < 0 = Q\left( \mathbf{0} \right) < \varepsilon^{2}Q\left( \mathbf{y} \right) = Q\left( \varepsilon\mathbf{y} \right)$が成り立つ。しかしながら、これは仮定の零vector$\mathbf{0}$がその2次形式$Q$の極値であることに矛盾する。
+\end{proof}
+\begin{thm}\label{4.4.3.7}
+係数行列が対称行列$B = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$の2次形式$Q$が与えられたとき、次のことをいずれも満たすような$n$次元数空間$\mathbb{R}^{n}$の正規直交基底$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{n}}$が存在する。
+\begin{itemize}
+\item
+  $F_{0} = \mathbb{R}^{n}$かつ、$\forall i \in \varLambda_{n}$に対し、$F_{i} = \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \forall j \in \varLambda_{i}\left[{}^t \mathbf{x}\mathbf{u}_{j} = 0 \right] \right\}$かつ$S = \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \left\| \mathbf{x} \right\| = 1 \right\}$とおかれれば、$\min{Q|S \cap F_{i - 1}} = Q\left( \mathbf{u}_{i} \right)$が成り立つ。
+\item
+  $U = \left( \mathbf{u}_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{x} = \left( x_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{y} = U^{- 1}\mathbf{x} = \left( y_{i} \right)_{i \in \varLambda_{n}}$とおかれれば、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、次式が成り立つ。
+\end{itemize}
+\begin{align*}
+Q\left( \mathbf{x} \right) = \sum_{i \in \varLambda_{n}} {Q\left( \mathbf{u}_{i} \right)y_{i}^{2}},\mathbf{\ \ x} = \sum_{i \in \varLambda_{n}} {y_{i}\mathbf{u}_{i}}
+\end{align*}
+\begin{itemize}
+\item
+  族$\left\{ Q\left( \mathbf{u}_{i} \right) \right\}_{i \in \varLambda_{n}}$はその係数行列$B$の固有値で次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+\mathbf{u}_{1} \\
+\mathbf{u}_{2} \\
+ \vdots \\
+\mathbf{u}_{n} \\
+\end{pmatrix}\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\
+b_{21} & b_{22} & \cdots & b_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+Q\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & Q\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & Q\left( \mathbf{u}_{n} \right) \\
+\end{pmatrix}
+\end{align*}
+特に、$\left\{ Q\left( \mathbf{u}_{i} \right) \right\}_{i \in \varLambda_{n}} \subseteq \mathbb{R}$が成り立つ。
+\item
+  $\forall i,j \in \varLambda_{n}$に対し、$i \leq j$が成り立つなら、$Q\left( \mathbf{u}_{i} \right) \leq Q\left( \mathbf{u}_{j} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+係数行列が対称行列$B = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$の2次形式$Q$が与えられたとき、$F_{0} = \mathbb{R}^{n}$かつ、$\forall i \in \varLambda_{n}$に対し、$F_{i} = \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \forall j \in \varLambda_{i}\left[{}^t \mathbf{x}\mathbf{u}_{j} = 0 \right] \right\}$かつ$S = \left\{ \mathbf{x} \in \mathbb{R}^{n} \middle| \left\| \mathbf{x} \right\| = 1 \right\}$とおかれれば、$\dim F_{i} = n - i$が成り立つので、$S \cap F_{i - 1} \neq \emptyset$が成り立つ。このことに注意すれば、その集合$S$は有界な閉集合なので、定理\ref{4.1.12.3}、即ち、最大値最小値の定理より$\exists\mathbf{u}_{1} \in S = S \cap F_{0}$に対し、$\min{Q|S} = \min{Q|S \cap F_{0}} = Q\left( \mathbf{u}_{1} \right)$が成り立つ。さらに、$i = k$のとき、$\exists\mathbf{u}_{k} \in S \cap F_{k - 1}$に対し、$\min{Q|S \cap F_{k - 1}} = Q\left( \mathbf{u}_{k} \right)$が成り立つと仮定すると、$i = k + 1$のとき、集合$F_{k}$も閉集合なので、積集合$S \cap F_{k}$は有界な閉集合となっており、定理\ref{4.1.12.3}、即ち、最大値最小値の定理より$\exists\mathbf{u}_{k + 1} \in S \cap F_{k}$に対し、$\min{Q|S \cap F_{k}} = Q\left( \mathbf{u}_{k + 1} \right)$が成り立つ。以上より、数学的帰納法により$\forall i \in \varLambda_{n}\exists\mathbf{u}_{i} \in S \cap F_{i - 1}$に対し、$\min{Q|S \cap F_{i - 1}} = Q\left( \mathbf{u}_{i} \right)$が成り立つ。もちろん、これらのvectors$\mathbf{u}_{i}$は零vectorでないかつ、線形独立なので、これらのvectorsの組$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{n}}$は$n$次元数空間$\mathbb{R}^{n}$の正規直交基底をなす。\par
+$U = \left( \mathbf{u}_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{x} = \left( x_{i} \right)_{i \in \varLambda_{n}}$、$\mathbf{y} = U^{- 1}\mathbf{x} = \left( y_{i} \right)_{i \in \varLambda_{n}}$とおかれれば、$U^{- 1}BU$を係数行列とする2次形式$R$について、その行列$U$は$U^{- 1} ={}^t U$を満たすことに注意すれば\footnote{線形代数学の内容を駆使して示されており証明が長くなると思われるので、ここでは省きます。}、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、次のようになる。
+\begin{align*}
+Q\left( \mathbf{x} \right) ={}^t \mathbf{x}B\mathbf{x} ={}^t \mathbf{x}UU^{- 1}BUU^{- 1}\mathbf{x} ={}^t \left({}^t U\mathbf{x} \right)U^{- 1}BUU^{- 1}\mathbf{x} = \mathbf{}{}^t \mathbf{y}\left( U^{- 1}BU \right)\mathbf{y} = R\left( \mathbf{y} \right)
+\end{align*}\par
+これを用いて、$\forall\mathbf{y} \in \mathbb{R}^{n}\forall i \in \varLambda_{n}$に対し、$\mathbf{x} = U\mathbf{y} \in F_{i - 1}$が成り立つとき、$\mathbf{y} = \mathbf{0}$が成り立つときは明らかに$Q\left( \mathbf{u}_{i} \right){}^t \mathbf{yy} = R\left( \mathbf{y} \right)$が成り立つ。$\mathbf{y} \neq \mathbf{0}$が成り立つなら、$\frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \in F_{i - 1}$が成り立つかつ、$\left\| \frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \right\| = \frac{\left\| U^{- 1}\mathbf{x} \right\|}{\left\| \mathbf{y} \right\|} = 1$が成り立つことから、$\frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \in S \cap F_{i - 1}$が成り立ち次のようになるので、
+\begin{align*}
+\min{Q|S \cap F_{i - 1}} = Q\left( \mathbf{u}_{i} \right) \leq Q\left( \frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \right)
+\end{align*}
+次のようになることから、
+\begin{align*}
+Q\left( \mathbf{u}_{i} \right){}^t \mathbf{yy} = \left\| \mathbf{y} \right\|^{2}Q\left( \mathbf{u}_{i} \right) \leq \left\| \mathbf{y} \right\|^{2}Q\left( \frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \right) = \left\| \mathbf{y} \right\|^{2}Q\left( \frac{\mathbf{x}}{\left\| \mathbf{y} \right\|} \right) = \left\| \mathbf{y} \right\|^{2}R\left( \frac{\mathbf{y}}{\left\| \mathbf{y} \right\|} \right) = R\left( \mathbf{y} \right)
+\end{align*}
+$\forall\mathbf{y} \in \mathbb{R}^{n}$に対し、$0 \leq R\left( \mathbf{y} \right) - Q\left( u_{i} \right){}^t \mathbf{yy}$が成り立つ。\par
+ここで、$U^{- 1}BU = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$とおかれると、$\forall j \in \varLambda_{n}$に対し、$j = 1$のとき、$n$次元数空間$\mathbb{R}^{n}$の標準直交基底が$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、次のようになるかつ、
+\begin{align*}
+a_{1j} &= a_{11} = \begin{pmatrix}
+1 & 0 & \cdots & 0 \\
+\end{pmatrix}\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+1 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix}\\
+&={}^t \mathbf{e}_{1}{}^t UBU\mathbf{e}_{1} ={}^t \left( U\mathbf{e}_{1} \right)B\left( U\mathbf{e}_{1} \right) = Q\left( U\mathbf{e}_{1} \right)\\
+&= Q\left( \begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{n} \\
+\end{pmatrix}\begin{pmatrix}
+1 \\
+0 \\
+ \vdots \\
+0 \\
+\end{pmatrix} \right) = Q\left( \mathbf{u}_{1} \right)
+\end{align*}
+$j \neq 1$のとき、$a_{1j} \neq 0$が成り立つと仮定すれば、実数$\varepsilon$を用いて$\mathbf{y} = \mathbf{e}_{1} + \varepsilon\mathbf{e}_{j}$とおくと、次のようになり、
+\begin{align*}
+R\left( \mathbf{y} \right) - Q\left( \mathbf{u}_{1} \right){}^t \mathbf{yy} &= R\left( \mathbf{e}_{1} + \varepsilon\mathbf{e}_{j} \right) - Q\left( \mathbf{u}_{1} \right){}^t \left( \mathbf{e}_{1} + \varepsilon\mathbf{e}_{j} \right)\left( \mathbf{e}_{1} + \varepsilon\mathbf{e}_{j} \right)\\
+&= R\left( \mathbf{e}_{1} \right) + \varepsilon^{2}R\left( \mathbf{e}_{j} \right) + 2\varepsilon{}^t \mathbf{e}_{j}U^{- 1}BU\mathbf{e}_{1} - Q\left( \mathbf{u}_{1} \right)\left( \left\| \mathbf{e}_{1} \right\|^{2} + \varepsilon^{2}\left\| \mathbf{e}_{j} \right\|^{2} + 2\varepsilon{}^t \mathbf{e}_{1}\mathbf{e}_{j} \right)\\
+&= Q\left( U\mathbf{e}_{1} \right) + \varepsilon^{2}Q\left( U\mathbf{e}_{j} \right) + 2\varepsilon{}^t \mathbf{e}_{j}U^{- 1}BU\mathbf{e}_{1} - Q\left( \mathbf{u}_{1} \right)\left( 1 + \varepsilon^{2} \right)\\
+&= a_{11} + \varepsilon^{2}a_{jj} + 2\varepsilon a_{1j} - a_{11} - \varepsilon^{2}a_{11}\\
+&= \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right)
+\end{align*}
+$a_{11} < a_{jj}$かつ$0 < a_{1j}$のとき、$\frac{2a_{1j}}{a_{11} - a_{jj}} < \varepsilon < 0$となるようにとられれば、次のようになるし、
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11} < a_{jj} \\
+0 < a_{1j} \\
+\frac{2a_{1j}}{a_{11} - a_{jj}} < \varepsilon < 0 \\
+\end{matrix} \right. &\Leftrightarrow \left\{ \begin{matrix}
+a_{11} - a_{jj} < 0 \\
+0 < 2a_{1j} \\
+\frac{2a_{1j}}{a_{11} - a_{jj}} < \varepsilon \\
+\varepsilon < 0 \\
+\end{matrix} \right. \\
+&\Leftrightarrow \left\{ \begin{matrix}
+a_{11} - a_{jj} < 0 \\
+0 < 2a_{1j} \\
+\varepsilon\left( a_{11} - a_{jj} \right) < 2a_{1j} \\
+\varepsilon < 0 \\
+\end{matrix} \right. \\
+&\Leftrightarrow \left\{ \begin{matrix}
+a_{11} - a_{jj} < 0 \\
+0 < 2a_{1j} \\
+0 < 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \\
+\varepsilon < 0 \\
+\end{matrix} \right.\ \\
+&\Rightarrow \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right) < 0
+\end{align*}
+$a_{jj} \leq a_{11}$かつ$0 < a_{1j}$のとき、$\varepsilon < 0$となるようにとられれば、次のようになるし、
+\begin{align*}
+\left\{ \begin{matrix}
+a_{jj} \leq a_{11} \\
+0 < a_{1j} \\
+\varepsilon < 0 \\
+\end{matrix} \right. &\Leftrightarrow \left\{ \begin{matrix}
+a_{jj} - a_{11} \leq 0 \\
+0 < 2a_{1j} \\
+\varepsilon < 0 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+0 \leq \varepsilon\left( a_{jj} - a_{11} \right) \\
+0 < 2a_{1j} \\
+\varepsilon < 0 \\
+\end{matrix} \right. \\
+&\Leftrightarrow \left\{ \begin{matrix}
+0 \leq \varepsilon\left( a_{jj} - a_{11} \right) \\
+0 < 2a_{ij} + \varepsilon\left( a_{jj} - a_{11} \right) \\
+\varepsilon < 0 \\
+\end{matrix} \right. \\
+&\Rightarrow \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right) < 0
+\end{align*}
+$a_{11} < a_{jj}$かつ$a_{1j} < 0$のとき、$0 < \varepsilon < \frac{2a_{1j}}{a_{11} - a_{jj}}$となるようにとられれば、次のようになるし、
+\begin{align*}
+\left\{ \begin{matrix}
+a_{11} < a_{jj} \\
+a_{1j} < 0 \\
+0 < \varepsilon < \frac{2a_{1j}}{a_{11} - a_{jj}} \\
+\end{matrix} \right. &\Leftrightarrow \left\{ \begin{matrix}
+a_{11} - a_{jj} < 0 \\
+2a_{1j} < 0 \\
+2a_{1j} < \varepsilon\left( a_{11} - a_{jj} \right) \\
+0 < \varepsilon \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+a_{11} - a_{jj} < 0 \\
+2a_{1j} < 0 \\
+2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) < 0 \\
+0 < \varepsilon \\
+\end{matrix} \right.\ \\
+&\Rightarrow \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right) < 0
+\end{align*}
+$a_{jj} \leq a_{11}$かつ$a_{1j} < 0$のとき、$0 < \varepsilon$となるようにとられれば、次のようになるので、
+\begin{align*}
+\left\{ \begin{matrix}
+a_{jj} \leq a_{11} \\
+a_{1j} < 0 \\
+0 < \varepsilon \\
+\end{matrix} \right. &\Leftrightarrow \left\{ \begin{matrix}
+a_{jj} - a_{11} \leq 0 \\
+2a_{1j} < 0 \\
+0 < \varepsilon \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+0 \leq \varepsilon\left( a_{jj} - a_{11} \right) \\
+0 < 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \\
+0 < \varepsilon \\
+\end{matrix} \right.\ \\
+&\Rightarrow \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right) < 0
+\end{align*}
+$\exists\varepsilon \in \mathbb{R}$に対し、$R\left( \mathbf{y} \right) - Q\left( \mathbf{u}_{1} \right){}^t \mathbf{yy} = \varepsilon\left( 2a_{1j} + \varepsilon\left( a_{jj} - a_{11} \right) \right) < 0$が成り立つが、このことは$\forall\mathbf{y} \in \mathbb{R}^{n}$に対し、$0 \leq R\left( \mathbf{y} \right) - Q\left( \mathbf{u}_{1} \right){}^t \mathbf{yy}$が成り立つことに矛盾しているので、$a_{1j} = 0$が成り立つ。\par
+また、$i = k$のとき、$a_{kk} = Q\left( \mathbf{u}_{k} \right)$が成り立つかつ、$\forall j \in \varLambda_{n}$に対し、$j \neq k$が成り立つなら、$a_{kj} = a_{jk} = 0$が成り立つと仮定すると、$i = k + 1$のときでも上記と全く同様にして、$a_{k + 1,k + 1} = Q\left( \mathbf{u}_{k + 1} \right)$が成り立つかつ、$\forall j \in \varLambda_{n}$に対し、$j \neq k + 1$が成り立つなら、$a_{k + 1,j} = a_{j,k + 1} = 0$が成り立つことが示される。\par
+以上より、数学的帰納法により$\forall i,j \in \varLambda_{n}$に対し、$i = j$が成り立つとき、$a_{ij} = a_{ii} = Q\left( \mathbf{u}_{i} \right)$が成り立つし、$i \neq j$が成り立つとき、$a_{ij} = 0$が成り立つので、次のようになる。
+\begin{align*}
+Q\left( \mathbf{x} \right) &= R\left( \mathbf{y} \right) ={}^t \mathbf{y}U^{- 1}BU\mathbf{y}\\
+&= \begin{pmatrix}
+y_{1} & y_{2} & \cdots & y_{n} \\
+\end{pmatrix}\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+y_{1} \\
+y_{2} \\
+ \vdots \\
+y_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+y_{1} & y_{2} & \cdots & y_{n} \\
+\end{pmatrix}\begin{pmatrix}
+Q\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & Q\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & Q\left( \mathbf{u}_{n} \right) \\
+\end{pmatrix}\begin{pmatrix}
+y_{1} \\
+y_{2} \\
+ \vdots \\
+y_{n} \\
+\end{pmatrix}\\
+&= \sum_{i \in \varLambda_{n}} {Q\left( \mathbf{u}_{i} \right)y_{i}^{2}}
+\end{align*}
+$\mathbf{x} = \sum_{i \in \varLambda_{n}} {y_{i}\mathbf{u}_{i}}$が成り立つことは明らかである。\par
+上記の議論によりその行列$U$は正則行列で次のようになることから、
+\begin{align*}
+\det(\lambda I - B) &= \frac{1}{\det U}\det U\det(\lambda I - B)\\
+&= \det U^{- 1}\det(\lambda I - B)\det U\\
+&= \det{U^{- 1}(\lambda I - B)U}\\
+&= \det\left( \lambda U^{- 1}IU - U^{- 1}BU \right)\\
+&= \det\left( \lambda I - U^{- 1}BU \right)\\
+&= \left| \begin{matrix}
+\lambda - Q\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & \lambda - Q\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda - Q\left( \mathbf{u}_{n} \right) \\
+\end{matrix} \right|\\
+&= \prod_{i \in \varLambda_{n}} \left( \lambda - Q\left( \mathbf{u}_{i} \right) \right)
+\end{align*}
+族$\left\{ Q\left( \mathbf{u}_{i} \right) \right\}_{i \in \varLambda_{n}}$はその係数行列$B$の固有値であることが分かり次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+\mathbf{u}_{1} \\
+\mathbf{u}_{2} \\
+ \vdots \\
+\mathbf{u}_{n} \\
+\end{pmatrix}\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\
+b_{21} & b_{22} & \cdots & b_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+Q\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & Q\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & Q\left( \mathbf{u}_{n} \right) \\
+\end{pmatrix}
+\end{align*}
+もちろん、$\left\{ Q\left( \mathbf{u}_{i} \right) \right\}_{i \in \varLambda_{n}} \subseteq \mathbb{R}$が成り立つ。\par
+ここで、$\exists i,j \in \varLambda_{n}$に対し、$i \leq j$が成り立つかつ、$Q\left( \mathbf{u}_{i} \right) > Q\left( \mathbf{u}_{j} \right)$が成り立つと仮定しよう。このとき、$\mathbf{u}_{j} \in S \cap F_{j - 1}$が成り立つので、$\forall k \in \varLambda_{j - 1}$に対し、${}^t \mathbf{u}_{j}\mathbf{u}_{k} = 0$が成り立つ。このとき、もちろん、$\forall k \in \varLambda_{i - 1}$に対し、${}^t \mathbf{u}_{j}\mathbf{u}_{k} = 0$が成り立つので、$\mathbf{u}_{j} \in S \cap F_{i - 1}$が成り立つことになり、次のようになる。
+\begin{align*}
+Q\left( \mathbf{u}_{j} \right) < Q\left( \mathbf{u}_{i} \right) = \min{Q|S \cap F_{i - 1}} \leq Q\left( \mathbf{u}_{j} \right)
+\end{align*}
+しかしながら、これは矛盾している。よって、$\forall i,j \in \varLambda_{n}$に対し、$i \leq j$が成り立つなら、$Q\left( \mathbf{u}_{i} \right) \leq Q\left( \mathbf{u}_{j} \right)$が成り立つ。
+\end{proof}
+\begin{dfn}\label{首座小行列}
+行列$B$が$B = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と与えられたとき、$\forall k \in \varLambda_{n}$に対し、次のような写像$P_{k}$によるその行列$B$の像を$k$次首座小行列という。
+\begin{align*}
+P_{k}:M_{nn}\left( \mathbb{R} \right) \rightarrow M_{kk}\left( \mathbb{R} \right);B \mapsto \left( b_{ij} \right)_{(i,j) \in \varLambda_{k}^{2}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.4.3.8}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の最小値をとる。
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の極小値をとる。
+\item
+  その2次形式$Q$は正値である。
+\item
+  その係数行列$B$の固有値はすべて$0$超過である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}(B)} > 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+その係数行列$B$が$B = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$と与えられたとき、$\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の最小値をとるなら、$\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の極小値をとることは極小値の定義からして自明である。\par
+$\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の極小値をとるなら、その零vector$\mathbf{0}$のある近傍$V$が存在して、$\min{Q|V} = Q\left( \mathbf{0} \right) = 0$が成り立つ。そこで、$\mathbf{0} \in \mathrm{int}V$が成り立つので、$\exists\varepsilon_{V} \in \mathbb{R}^{+}$に対し、$\mathbf{0} \in U\left( \mathbf{0},\varepsilon_{V} \right) \subseteq \mathrm{int}V$が成り立つことから、$\min{Q|U\left( \mathbf{0},\varepsilon_{V} \right)} = Q\left( \mathbf{0} \right) = 0$が成り立つ。さらに、狭義の極小値について議論していることに注意すれば、$\forall\mathbf{x} \in U\left( \mathbf{0},\varepsilon_{V} \right)$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$0 < Q\left( \mathbf{x} \right)$が成り立つ。ここで、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$0 < \varepsilon < \frac{\varepsilon_{V}}{\left\| x \right\|}$が成り立つので、$\varepsilon\mathbf{x} \in U\left( \mathbf{0},\varepsilon_{V} \right)$が成り立ち、したがって、$0 < Q\left( \varepsilon\mathbf{x} \right) = \varepsilon^{2}Q\left( \mathbf{x} \right)$が成り立つ。これにより、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$0 < Q\left( \mathbf{x} \right)$が成り立つので、その2次形式$Q$は正値である。\par
+その2次形式$Q$が正値であるとき、$\forall x \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) > 0$が成り立つかつ、$\mathbf{x} = \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) = 0$が成り立つので、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$0 \leq Q\left( \mathbf{x} \right)$が成り立つので、$\min Q = Q\left( \mathbf{0} \right) = 0$が成り立つかつ、上記の議論により直ちに$\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の最小値をとることも分かる。\par
+その2次形式$Q$が正値であるとき、定理\ref{4.4.3.8}よりその係数行列$B$の任意の固有値$\lambda$は実数で、$\exists\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$かつ$B\mathbf{x} = \lambda\mathbf{x}$が成り立つので、次のようになる。
+\begin{align*}
+\lambda = \frac{\lambda{}^t \mathbf{xx}}{\left\| \mathbf{x} \right\|^{2}} = \frac{{}^t \mathbf{x}\lambda\mathbf{x}}{\left\| \mathbf{x} \right\|^{2}} = \frac{{}^t \mathbf{x}B\mathbf{x}}{\left\| \mathbf{x} \right\|^{2}} = \frac{Q\left( \mathbf{x} \right)}{\left\| \mathbf{x} \right\|^{2}} > 0
+\end{align*}\par
+逆に、その係数行列$B$の固有値はすべて$0$超過であるなら、定理\ref{4.4.3.8}の$n$次元数空間$\mathbb{R}^{n}$の正規直交基底$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{n}}$がとられれば、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} = \sum_{i \in \varLambda_{n}} {k_{i}\mathbf{u}_{i}}$とおくことができて、さらに、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$\exists i \in \varLambda_{n}$に対し、$k_{i} \neq 0$が成り立つので、$\mathbf{k} = \begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix}$、$U = \begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{n} \\
+\end{pmatrix}$とおかれれば、$\mathbf{x} = U\mathbf{k}$となり、したがって、次のようになる。
+\begin{align*}
+Q\left( \mathbf{x} \right) ={}^t \mathbf{x}B\mathbf{x} ={}^t \mathbf{k}{}^t UBU\mathbf{k} = \begin{pmatrix}
+k_{1} & k_{2} & \cdots & k_{n} \\
+\end{pmatrix}\begin{pmatrix}
+\lambda_{1} & \  & \  & O \\
+\  & \lambda_{2} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda_{n} \\
+\end{pmatrix}\begin{pmatrix}
+k_{1} \\
+k_{2} \\
+ \vdots \\
+k_{n} \\
+\end{pmatrix} = \sum_{i \in \varLambda_{n}} {\lambda_{i}k_{i}^{2}} > 0
+\end{align*}
+ゆえに、その2次形式$Q$は正値である。\par
+その2次形式$Q$が正値であるとき、上記の議論によりその係数行列$B$の固有値はすべて$0$超過であることが分かる。したがって、$\forall k \in \varLambda_{n}$に対し、定理\ref{4.4.3.7}より次式が成り立つ。
+\begin{align*}
+\det{P_{k}(B)} &= \frac{1}{\left| \begin{matrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{k} \\
+\end{matrix} \right|}\left| \begin{matrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{k} \\
+\end{matrix} \right|\left| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1} \\
+b_{21} & b_{22} & \cdots & b_{2k} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{k1} & b_{k2} & \cdots & b_{kk} \\
+\end{matrix} \right|\\
+&= \left| \begin{pmatrix}
+\mathbf{u}_{1} \\
+\mathbf{u}_{2} \\
+ \vdots \\
+\mathbf{u}_{k} \\
+\end{pmatrix}\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1k} \\
+b_{21} & b_{22} & \cdots & b_{2k} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{k1} & b_{k2} & \cdots & b_{kk} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{k} \\
+\end{pmatrix} \right|\\
+&= \left| \begin{matrix}
+\lambda_{1} & \  & \  & O \\
+\  & \lambda_{2} & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \lambda_{k} \\
+\end{matrix} \right| = \prod_{i \in \varLambda_{k}} \lambda_{i} > 0
+\end{align*}\par
+$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}(B)} > 0$が成り立つなら、$n = 1$のとき、$b_{11} > 0$が成り立つことになり、$\forall\mathbf{x} = x_{1} \in \mathbb{R}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) = b_{11}x_{1}^{2} > 0$が成り立つ。そこで、$n = k$のとき、$\forall\mathbf{x} \in \mathbb{R}^{k}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) > 0$が成り立つと仮定すると、$n = k + 1$のとき、$\forall\mathbf{x} \in \mathbb{R}^{k + 1}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$B = \begin{pmatrix}
+b_{11} & \mathbf{b}_{12} \\
+\mathbf{b}_{21} & B' \\
+\end{pmatrix}$、$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+\mathbf{x}' \\
+\end{pmatrix}$とおかれれば、次のようになる。
+\begin{align*}
+b_{11}Q\left( \mathbf{x} \right) &= b_{11}{}^t \mathbf{x}B\mathbf{x} = b_{11}\begin{pmatrix}
+x_{1} &{}^t \mathbf{x}' \\
+\end{pmatrix}\begin{pmatrix}
+b_{11} & \mathbf{b}_{12} \\
+\mathbf{b}_{21} & B' \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+\mathbf{x}' \\
+\end{pmatrix}\\
+&= b_{11}\left( b_{11}x_{1}^{2} + x_{1}\mathbf{b}_{12}\mathbf{x}' +{}^t \mathbf{x}'\mathbf{b}_{21}x_{1} +{}^t \mathbf{x}'B'\mathbf{x}' \right)\\
+&= b_{11}^{2}x_{1}^{2} + 2b_{11}x_{1}\mathbf{b}_{12}\mathbf{x}' + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= b_{11}^{2}x_{1}^{2} + 2b_{11}x_{1}\sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {b_{1i}x_{i}} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= b_{11}^{2}x_{1}^{2} + \sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {b_{1i}^{2}x_{i}^{2}} + 2\sum_{\scriptsize \begin{matrix}
+j \in \varLambda_{k + 1} \\
+1 < j \\
+\end{matrix}} {b_{11}x_{1}b_{1j}x_{j}} + 2\sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i \neq 0,i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \\
+&\quad - \sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {b_{1i}^{2}x_{i}^{2}} - 2\sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i \neq 0,i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \sum_{i \in \varLambda_{k + 1}} {b_{1i}^{2}x_{i}^{2}} + 2\sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \\
+&\quad - \sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {b_{1i}^{2}x_{i}^{2}} - 2\sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \left( \sum_{i \in \varLambda_{k + 1}} {b_{1i}^{2}x_{i}^{2}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i > j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \right) \\
+&\quad - \left( \sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {b_{1i}^{2}x_{i}^{2}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i > j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \right) + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \left( \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i = j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+i > j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \right) \\
+&\quad - \left( \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i = j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i < j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+i > j \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} \right) + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} - \sum_{\scriptsize \begin{matrix}
+i,j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \sum_{i \in \varLambda_{k + 1}} {\sum_{\scriptsize \begin{matrix}
+j \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}}} - \sum_{i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\}} {\sum_{\scriptsize \begin{matrix}
+j \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+\end{matrix}} {b_{1i}x_{i}b_{1j}x_{j}}} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} - \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \setminus \left\{ 1 \right\} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} + b_{11}{}^t \mathbf{x}'B'\mathbf{x}'\\
+&= \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} -{}^t \mathbf{x}'\mathbf{b}_{21}\mathbf{b}_{12}\mathbf{x}' +{}^t \mathbf{x}'b_{11}B'\mathbf{x}'\\
+&= \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} +{}^t \mathbf{x}'\left( b_{11}B' - \mathbf{b}_{21}\mathbf{b}_{12} \right)\mathbf{x}'
+\end{align*}\par
+そこで、行列$b_{11}B' - \mathbf{b}_{21}\mathbf{b}_{12}$は対称行列であるので、これを$B'' = \left( b_{ij}' \right)_{(i,j) \in \left( \varLambda_{k + 1} \setminus \left\{ 1 \right\} \right)^{2}}$とおくと、$\forall(i,j) \in \left( \varLambda_{k + 1} \setminus \left\{ 1 \right\} \right)^{2}$に対し、$b_{ij}' = b_{11}b_{ij} - b_{1i}b_{1j}$が成り立つので、仮定より$0 < b_{11}$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\left| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1,k + 1} \\
+b_{21} & b_{22} & \cdots & b_{2,k + 1} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{k + 1,1} & b_{k + 1,2} & \cdots & b_{k + 1,k + 1} \\
+\end{matrix} \right| &= \frac{1}{b_{11}^{k}}b_{11}^{k}\left| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1,k + 1} \\
+b_{21} & b_{22} & \cdots & b_{2,k + 1} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{k + 1,1} & b_{k + 1,2} & \cdots & b_{k + 1,k + 1} \\
+\end{matrix} \right|\\
+&= \frac{1}{b_{11}^{k}}\left| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1,k + 1} \\
+b_{11}b_{21} & b_{11}b_{22} & \cdots & b_{11}b_{2,k + 1} \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{11}b_{k + 1,1} & b_{11}b_{k + 1,2} & \cdots & b_{11}b_{k + 1,k + 1} \\
+\end{matrix} \right|\\
+&= \frac{1}{b_{11}^{k}}\left| \begin{matrix}
+b_{11} & b_{12} \\
+b_{11}b_{21} - b_{12}b_{11} & b_{11}b_{22} - b_{12}b_{12} \\
+ \vdots & \vdots \\
+b_{11}b_{k + 1,1} - b_{1,k + 1}b_{11} & b_{11}b_{k + 1,2} - b_{1,k + 1}b_{12} \\
+\end{matrix} \right. \\
+&\quad \left. \begin{matrix}
+\cdots & b_{1,k + 1} \\
+\cdots & b_{11}b_{2,k + 1} - b_{12}b_{1,k + 1} \\
+ \ddots & \vdots \\
+\cdots & b_{11}b_{k + 1,k + 1} - b_{1,k + 1}b_{1,k + 1} \\
+\end{matrix} \right|\\
+&= \frac{1}{b_{11}^{k}}\left| \begin{matrix}
+b_{11} & b_{12} & \cdots & b_{1,k + 1} \\
+0 & b_{11}b_{22} - b_{12}b_{12} & \cdots & b_{11}b_{2,k + 1} - b_{12}b_{1,k + 1} \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & b_{11}b_{k + 1,2} - b_{1,k + 1}b_{12} & \cdots & b_{11}b_{k + 1,k + 1} - b_{1,k + 1}b_{1,k + 1} \\
+\end{matrix} \right|\\
+&= \frac{1}{b_{11}^{k}}\left| \begin{matrix}
+b_{11}b_{22} - b_{12}b_{12} & \cdots & b_{11}b_{2,k + 1} - b_{12}b_{1,k + 1} \\
+ \vdots & \ddots & \vdots \\
+b_{11}b_{k + 1,2} - b_{1,k + 1}b_{12} & \cdots & b_{11}b_{k + 1,k + 1} - b_{1,k + 1}b_{1,k + 1} \\
+\end{matrix} \right|\\
+&= \frac{1}{b_{11}^{k}}\left| \begin{matrix}
+b_{22}' & b_{23}' & \cdots & b_{2,k + 1}' \\
+b_{32}' & b_{33}' & \cdots & b_{3,k + 1}' \\
+ \vdots & \vdots & \ddots & \vdots \\
+b_{k + 1,2}' & b_{k + 1,3}' & \cdots & b_{k + 1,k + 1}' \\
+\end{matrix} \right| > 0
+\end{align*}
+ゆえに、係数行列$B'$の2次形式$Q'$は正値をとることになる。\par
+さて、上記の議論により$\forall\mathbf{x} \in \mathbb{R}^{k + 1}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、次式が成り立つのであった。
+\begin{align*}
+Q\left( \mathbf{x} \right) &= \frac{1}{b_{11}}\left( \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} +{}^t \mathbf{x}'\left( b_{11}B' - \mathbf{b}_{21}\mathbf{b}_{12} \right)\mathbf{x}' \right)\\
+&= \frac{1}{b_{11}}\left( \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} +{}^t \mathbf{x}'B''\mathbf{x}' \right)\\
+&= \frac{1}{b_{11}}\left( \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2} + Q'\left( \mathbf{x}' \right) \right)
+\end{align*}
+そこで、$0 < b_{11}$が成り立つかつ、$0 \leq \left( \sum_{\scriptsize \begin{matrix}
+i \in \varLambda_{k + 1} \\
+\end{matrix}} {b_{1i}x_{i}} \right)^{2}$が成り立つかつ、$0 < Q'\left( \mathbf{x}' \right)$が成り立つので、$0 < Q\left( \mathbf{x} \right)$が成り立つ。\par
+以上、数学的帰納法により$\forall k \in \varLambda_{n}$に対し、$\det{P_{k}(B)} > 0$が成り立つなら、$\forall\mathbf{x} \in \mathbb{R}^{n}$に対し、$\mathbf{x} \neq \mathbf{0}$が成り立つなら、$Q\left( \mathbf{x} \right) > 0$が成り立つ、即ち、その2次形式$Q$は正値である。
+\end{proof}
+\begin{thm}\label{4.4.3.9}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の最大値をとる。
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の極大値をとる。
+\item
+  その2次形式$Q$は負値である。
+\item
+  その係数行列$B$の固有値はすべて$0$未満である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$( - 1)^{k}\det{P_{k}(B)} > 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+係数行列が対称行列$B$の2次形式$Q$が与えられたとき、$\mathbf{x} = \mathbf{0}$でその2次形式$Q$は狭義の最大値をとるならそのときに限り、$\mathbf{x} = \mathbf{0}$でその2次形式$- Q$は狭義の最小値をとる。したがって、定理\ref{4.4.3.9}より次のことは同値である。
+\begin{itemize}
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$- Q$は狭義の最小値をとる。
+\item
+  $\mathbf{x} = \mathbf{0}$でその2次形式$- Q$は狭義の極小値をとる。
+\item
+  その2次形式$- Q$は正値である。
+\item
+  その係数行列$- B$の固有値はすべて$0$超過である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$\det{P_{k}( - B)}$が成り立つ。
+\end{itemize}
+そこで、その2次形式$- Q$は正値であることとその2次形式$Q$は負値であることが同値であることは明らかである。Frobeniusの定理よりその係数行列$- B$の固有値はすべて$0$超過であることとその係数行列$B$の固有値はすべて$0$未満であることとは同値であることが分かる。さらに、行列式の多重線形性より次式が成り立つ。
+\begin{align*}
+\det{P_{k}( - B)} = ( - 1)^{k}\det{P_{k}(B)}
+\end{align*}
+これで示すべきことが示された。
+\end{proof}
+%\hypertarget{ux6b21ux5f62ux5f0fux3068ux95a2ux6570ux306eux6975ux5024}{%
+\subsubsection{2次形式と関数の極値}%\label{ux6b21ux5f62ux5f0fux3068ux95a2ux6570ux306eux6975ux5024}}
+\begin{thm}\label{4.4.3.10}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$が与えられたとき、2次微分$\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{x} \right)$はHesse行列$H_{f}\left( \mathbf{a} \right)$を用いれば次式を満たし、
+\begin{align*}
+\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{x} \right) ={}^t \mathbf{x}H_{f}\left( \mathbf{a} \right)\mathbf{x}
+\end{align*}
+上記の議論での2次形式でもある。
+\end{thm}
+\begin{proof}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$が与えられたとき、$\mathbf{x} = \left( x_{i} \right)_{i \in \varLambda_{n}}$とおくと、定理\ref{4.2.7.9}より2次微分$\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{x} \right)$はHesse行列$H_{f}\left( \mathbf{a} \right)$を用いれば次式を満たし、
+\begin{align*}
+\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{x} \right) ={}^t \mathbf{x}H_{f}\left( \mathbf{a} \right)\mathbf{x}
+\end{align*}
+そこで、定理\ref{4.2.7.6}よりそのHesse行列$H_{f}\left( \mathbf{a} \right)$は対称行列となるので、上記の議論での2次形式でもある。
+\end{proof}
+\begin{thm}\label{4.4.3.11}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の停留点$\mathbf{a}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が正値であるなら、その点$\mathbf{a}$はその関数$f$の狭義の極小点である。
+\item
+  2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が負値であるなら、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。
+\item
+  2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が不定符号であるなら、その点$\mathbf{a}$はその関数$f$の極小点でも極大点でもない。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の停留点$\mathbf{a}$が与えられたとき、2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が正値であるなら、定理\ref{4.4.3.8}より$\forall k \in \varLambda_{n}$に対し、次式が成り立つ。
+\begin{align*}
+\det{\left( P_{k} \circ H_{f} \right)\left( \mathbf{a} \right)} > 0
+\end{align*}
+ここで、その関数$f$は$C^{2}$級の関数であるので、$\forall(i,j) \in \varLambda_{k}^{2}$に対し、偏導関数$\partial_{ji}f$はその点$\mathbf{a}$で連続であるので、関数$\det\left( P_{k} \circ H_{f} \right)$もその点$\mathbf{a}$で連続である。したがって、$D_{k} = \det\left( P_{k} \circ H_{f} \right)$とおくと、定理\ref{4.1.10.16}より$\forall\varepsilon' \in \mathbb{R}^{+}\exists\delta_{\varepsilon} \in \mathbb{R}^{+}$に対し、$V\left( D_{k}|U\left( \mathbf{a},\delta_{\varepsilon} \right) \cap U \right) \subseteq U\left( D_{k}\left( \mathbf{a} \right),\varepsilon' \right)$が成り立つ。さらにいえば、その集合$U$は開集合であることにより、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \subseteq U$が成り立つので、$\delta = \min\left\{ \delta_{\varepsilon},\varepsilon \right\}$とすれば、$V\left( D_{k}|U\left( \mathbf{a},\delta \right) \right) \subseteq V\left( D_{k}|U\left( \mathbf{a},\delta_{\varepsilon} \right) \cap U \right) \subseteq U\left( D_{k}\left( \mathbf{a} \right),\varepsilon' \right)$が成り立つ。ここで、$0 < \left\| \mathbf{h} \right\| < \delta$なるvector$\mathbf{h}$と$0 < c < 1$なる実数$c$を用いれば、$0 < c\left\| \mathbf{h} \right\| = \left\| \mathbf{a} + c\mathbf{h} - \mathbf{a} \right\| < \left\| \mathbf{h} \right\| < \delta$が成り立つので、$\mathbf{a} + c\mathbf{h} \in U\left( \mathbf{a},\delta \right)$が成り立つ。したがって、$D_{k}\left( \mathbf{a} + c\mathbf{h} \right) \in U\left( D_{k}\left( \mathbf{a} \right),\varepsilon' \right)$が成り立つので、$\left| D_{k}\left( \mathbf{a} + c\mathbf{h} \right) - D_{k}\left( \mathbf{a} \right) \right| < \varepsilon'$が成り立つ。そこで、$0 < \varepsilon' < D_{k}\left( \mathbf{a} \right)$となるようにすると、$\varepsilon' < D_{k}\left( \mathbf{a} \right) < D_{k}\left( \mathbf{a} + c\mathbf{h} \right) + \varepsilon'$が成り立つので、$0 < D_{k}\left( \mathbf{a} + c\mathbf{h} \right)$が得られる。そこで、定理\ref{4.4.3.8}より2次形式$\left( d^{2}f \right)_{\mathbf{a} + c\mathbf{h}}$が正値であることがわかるので、$\left\| \mathbf{h} \right\| < \varepsilon$が成り立つことに注意すれば、定理\ref{4.2.7.2}、即ち、Taylorの定理より次式が成り立つような実数$c$が開区間$(0,1)$に存在して、
+\begin{align*}
+f\left( \mathbf{a} + \mathbf{h} \right) &= f\left( \mathbf{a} \right) + (df)_{\mathbf{a}}\left( \mathbf{h} \right) + \frac{1}{2}\left( d^{2}f \right)_{\mathbf{a} + c\mathbf{h}}\left( \mathbf{h} \right)\\
+&= f\left( \mathbf{a} \right) +{}^t \mathrm{grad}f\left( \mathbf{a} \right)\mathbf{h} + \frac{1}{2}\left( d^{2}f \right)_{\mathbf{a} + c\mathbf{h}}\left( \mathbf{h} \right)\\
+&= f\left( \mathbf{a} \right) + \frac{1}{2}\left( d^{2}f \right)_{\mathbf{a} + c\mathbf{h}}\left( \mathbf{h} \right)
+\end{align*}
+$f\left( \mathbf{a} + \mathbf{h} \right) - f\left( \mathbf{a} \right) = \frac{1}{2}\left( d^{2}f \right)_{\mathbf{a} + c\mathbf{h}}\left( \mathbf{h} \right) > 0$が成り立つ。これにより、$\forall\mathbf{x} \in U\left( \mathbf{a},\delta \right)$に対し、$\mathbf{x} \neq \mathbf{a}$が成り立つなら、$f\left( \mathbf{a} \right) < f\left( \mathbf{x} \right)$が成り立つ。これにより、その点$\mathbf{a}$はその関数$f$の狭義の極小点であることが示された。\par
+2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が負値であるなら、2次形式$\left( d^{2}( - f) \right)_{\mathbf{a}}$は正値であることになり、上記の議論によりしたがって、その点$\mathbf{a}$はその関数$- f$の狭義の極小点である。ゆえに、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。\par
+2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が不定符号であるなら、$\exists\mathbf{x},\mathbf{y} \in \mathbb{R}^{n}$に対し、$\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{y} \right) < 0 < \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{x} \right)$が成り立つ。そこで、$\forall\varepsilon \in \mathbb{R}^{+}\exists c_{\mathbf{x}},c_{\mathbf{y}} \in \mathbb{R}^{+}$に対し、$\left\| \mathbf{x} \right\| < \frac{\varepsilon}{c_{\mathbf{x}}}$、$\left\| \mathbf{y} \right\| < \frac{\varepsilon}{c_{\mathbf{y}}}$が成り立つので、$c = \max\left\{ c_{\mathbf{x}},c_{\mathbf{y}} \right\}$とすれば、$\left\| c\mathbf{x} \right\| < \varepsilon$かつ$\left\| c\mathbf{y} \right\| < \varepsilon$が成り立ち、さらに、$\left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{y} \right) < 0 < \left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{x} \right)$も成り立つ。そこで、次のような関数たち$\varphi_{\mathbf{x}}$、$\varphi_{\mathbf{y}}$が考えられれば、
+\begin{align*}
+\varphi_{\mathbf{x}}:( - 1,1) \rightarrow \mathbb{R};t \mapsto f\left( \mathbf{a} + tc\mathbf{x} \right),\ \ \varphi_{\mathbf{y}}:( - 1,1) \rightarrow \mathbb{R};t \mapsto f\left( \mathbf{a} + tc\mathbf{y} \right)
+\end{align*}
+それらの関数たち$\varphi_{\mathbf{x}}$、$\varphi_{\mathbf{y}}$はどちらも$C^{2}$級であり定理\ref{4.2.7.1}より次式が成り立つ。
+\begin{align*}
+\partial\varphi_{\mathbf{x}}(0) = (df)_{\mathbf{a}}\left( c\mathbf{x} \right),\ \ \partial\varphi_{\mathbf{y}}(0) = (df)_{\mathbf{a}}\left( c\mathbf{y} \right),
+\end{align*}
+\begin{align*}
+\partial^{2}\varphi_{\mathbf{x}}(0) = \left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{x} \right),\ \ \partial^{2}\varphi_{\mathbf{y}}(0) = \left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{y} \right)
+\end{align*}
+ここで、仮定より$(df)_{\mathbf{a}}\left( c\mathbf{x} \right) = \mathrm{grad}f\left( \mathbf{a} \right)\left( c\mathbf{x} \right) = 0$、$(df)_{\mathbf{a}}\left( c\mathbf{y} \right) = \mathrm{grad}f\left( \mathbf{a} \right)\left( c\mathbf{y} \right) = 0$が成り立つので、$\partial\varphi_{\mathbf{x}}(0) = \partial\varphi_{\mathbf{y}}(0) = 0$が成り立つ。さらに、$\left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{y} \right) < 0 < \left( d^{2}f \right)_{\mathbf{a}}\left( c\mathbf{x} \right)$が成り立つことにより、$\partial^{2}\varphi_{\mathbf{x}}(0) < 0 < \partial^{2}\varphi_{\mathbf{y}}(0)$が成り立つので、定理\ref{4.2.2.8}より$t = 0$でその関数$\varphi_{\mathbf{x}}$は狭義の極小値をとりその関数$\varphi_{\mathbf{y}}$は狭義の極大値をとることになる。ゆえに、その点$\mathbf{a}$はその関数$f$の極小点でも極大点でもない。
+\end{proof}
+\begin{thm}\label{4.4.3.12}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の停留点$\mathbf{a}$が与えられたとき、$k \in \varLambda_{n}$として、次式のように関数$D_{k}$が定義されれば、
+\begin{align*}
+D_{k}:U \rightarrow \mathbb{R};\mathbf{x} \mapsto \det{\left( P_{k} \circ H_{f} \right)\left( \mathbf{x} \right)}
+\end{align*}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極小点である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。
+\item
+  $D_{n}\left( \mathbf{a} \right) \neq 0$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq D_{k}\left( \mathbf{a} \right)$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の極小点でも極大点でもない。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の停留点$\mathbf{a}$が与えられたとき、$k \in \varLambda_{n}$として、次式のように関数$D_{k}$が定義されれば\footnote{つまり、次のように定義されれば、
+\begin{align*}
+D_{k}\left( \mathbf{x} \right) = \left| \begin{matrix}
+  \partial_{11}f\left( \mathbf{x} \right) & \partial_{21}f\left( \mathbf{x} \right) & \cdots & \partial_{k1}f\left( \mathbf{x} \right) \\
+  \partial_{12}f\left( \mathbf{x} \right) & \partial_{22}f\left( \mathbf{x} \right) & \cdots & \partial_{k2}f\left( \mathbf{x} \right) \\
+   \vdots & \vdots & \ddots & \vdots \\
+  \partial_{1k}f\left( \mathbf{x} \right) & \partial_{2k}f\left( \mathbf{x} \right) & \cdots & \partial_{kk}f\left( \mathbf{x} \right) \\
+\end{matrix} \right|
+\end{align*}}、
+\begin{align*}
+D_{k}:U \rightarrow \mathbb{R};\mathbf{x} \mapsto \det{\left( P_{k} \circ H_{f} \right)\left( \mathbf{x} \right)} 
+\end{align*}
+定理\ref{4.4.3.11}より次のことが成り立つ。
+\begin{itemize}
+\item
+  2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が正値であるなら、その点$\mathbf{a}$はその関数$f$の狭義の極小点である。
+\item
+  2次形式$\left( d^{2}f \right)_{\mathbf{a}}$が負値であるなら、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。
+\end{itemize}
+そこで、定理\ref{4.4.3.8}、定理\ref{4.4.3.9}より次のようになる。
+\begin{itemize}
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極小点である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。
+\end{itemize}
+さて、$D_{n}\left( \mathbf{a} \right) \neq 0$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq D_{k}\left( \mathbf{a} \right)$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つとするとき、そのHesse行列$H_{f}\left( \mathbf{a} \right)$の固有値たちを$\lambda_{1}$、$\lambda_{2}$、$\cdots$、$\lambda_{n}$とおくと、その行列$H_{f}\left( \mathbf{a} \right)$の固有多項式写像を$\varPhi_{H_{f}\left( \mathbf{a} \right)}$とおいて次のようになることから、
+\begin{align*}
+D_{n}\left( \mathbf{a} \right) &= ( - 1)^{n}\det\left( - H_{f}\left( \mathbf{a} \right) \right)\\
+&= ( - 1)^{n}\left| - H_{f}\left( \mathbf{a} \right) \right|\\
+&= ( - 1)^{n}\left| 0I_{n} - H_{f}\left( \mathbf{a} \right) \right|\\
+&= ( - 1)^{n}\varPhi_{H_{f}\left( \mathbf{a} \right)}(0)\\
+&= ( - 1)^{n}\prod_{i \in \varLambda_{n}} \left( 0 - \lambda_{i} \right)\\
+&= \prod_{i \in \varLambda_{n}} \lambda_{i} \neq 0
+\end{align*}
+$\forall i \in \varLambda_{n}$に対し、$\lambda_{i} \neq 0$が成り立つ、即ち、$\lambda_{i} > 0$または$\lambda_{i} < 0$が成り立つ。定理\ref{4.4.3.7}の基底$\left\langle \mathbf{u}_{i} \right\rangle_{i \in \varLambda_{n}}$がとられると、$\forall i \in \varLambda_{n}$に対し、$\lambda_{i} = \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{i} \right)$が成り立つかつ、$\forall k \in \varLambda_{n}$に対し、次式が成り立つ。
+\begin{align*}
+\begin{pmatrix}
+\mathbf{u}_{1} \\
+\mathbf{u}_{2} \\
+ \vdots \\
+\mathbf{u}_{k} \\
+\end{pmatrix}\begin{pmatrix}
+\partial_{11}f\left( \mathbf{a} \right) & \partial_{21}f\left( \mathbf{a} \right) & \cdots & \partial_{k1}f\left( \mathbf{a} \right) \\
+\partial_{12}f\left( \mathbf{a} \right) & \partial_{22}f\left( \mathbf{a} \right) & \cdots & \partial_{k2}f\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{1k}f\left( \mathbf{a} \right) & \partial_{2k}f\left( \mathbf{a} \right) & \cdots & \partial_{kk}f\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{k} \\
+\end{pmatrix} \\
+= \begin{pmatrix}
+\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{k} \right) \\
+\end{pmatrix}
+\end{align*}\par
+ここで、$\forall i \in \varLambda_{n}$に対し、$\lambda_{i} > 0$が成り立つとすると、$\forall k \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+D_{k}\left( \mathbf{a} \right) &= \det\left( P_{k} \circ H_{f} \right)\left( \mathbf{a} \right)\\
+&= \left| \begin{matrix}
+\partial_{11}f\left( \mathbf{a} \right) & \partial_{21}f\left( \mathbf{a} \right) & \cdots & \partial_{k1}f\left( \mathbf{a} \right) \\
+\partial_{12}f\left( \mathbf{a} \right) & \partial_{22}f\left( \mathbf{a} \right) & \cdots & \partial_{k2}f\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{1k}f\left( \mathbf{a} \right) & \partial_{2k}f\left( \mathbf{a} \right) & \cdots & \partial_{kk}f\left( \mathbf{a} \right) \\
+\end{matrix} \right|\\
+&= \left| \begin{pmatrix}
+\mathbf{u}_{1} \\
+\mathbf{u}_{2} \\
+ \vdots \\
+\mathbf{u}_{k} \\
+\end{pmatrix}\begin{pmatrix}
+\partial_{11}f\left( \mathbf{a} \right) & \partial_{21}f\left( \mathbf{a} \right) & \cdots & \partial_{k1}f\left( \mathbf{a} \right) \\
+\partial_{12}f\left( \mathbf{a} \right) & \partial_{22}f\left( \mathbf{a} \right) & \cdots & \partial_{k2}f\left( \mathbf{a} \right) \\
+ \vdots & \vdots & \ddots & \vdots \\
+\partial_{1k}f\left( \mathbf{a} \right) & \partial_{2k}f\left( \mathbf{a} \right) & \cdots & \partial_{kk}f\left( \mathbf{a} \right) \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{u}_{1} & \mathbf{u}_{2} & \cdots & \mathbf{u}_{k} \\
+\end{pmatrix} \right|\\
+&= \left| \begin{matrix}
+\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{1} \right) & \  & \  & O \\
+\  & \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{2} \right) & \  & \  \\
+\  & \  & \ddots & \  \\
+O & \  & \  & \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{k} \right) \\
+\end{matrix} \right|\\
+&= \prod_{i \in \varLambda_{n}} {\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{i} \right)} = \prod_{i \in \varLambda_{n}} \lambda_{i} > 0
+\end{align*}
+これは仮定に矛盾している。$\forall i \in \varLambda_{n}$に対し、$\lambda_{i} < 0$が成り立つとしても同様に矛盾していることが示される。\par
+したがって、$\exists i,j \in \varLambda_{n}$に対し、$\lambda_{i} < 0 < \lambda_{j}$が成り立つ、即ち、$\exists\mathbf{u}_{i},\mathbf{u}_{j} \in \mathbb{R}^{n}$に対し、$\left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{i} \right) < 0 < \left( d^{2}f \right)_{\mathbf{a}}\left( \mathbf{u}_{i} \right)$が成り立つので、その2次形式$\left( d^{2}f \right)_{\mathbf{a}}$は不定符号である。あとは、定理\ref{4.4.3.11}より$D_{n}\left( \mathbf{a} \right) \neq 0$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq D_{k}\left( \mathbf{a} \right)$が成り立つかつ、$\exists k \in \varLambda_{n}$に対し、$0 \geq ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の極小点でも極大点でもないことが示された。
+\end{proof}
+\begin{dfn}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の停留点$\mathbf{a}$のうち2次形式$\left( d^{2}f \right)_{\mathbf{a}}$の係数行列が$0$でないものを正則停留点という。
+\end{dfn}
+\begin{thm}\label{4.4.3.13}
+$U \subseteq \mathbb{R}^{n}$なる開集合$U$を用いた$C^{2}$級の関数$f:U \rightarrow \mathbb{R}$の正則停留点$\mathbf{a}$が与えられたとき、$k \in \varLambda_{n}$として、次式のように関数$D_{k}$が定義されれば、
+\begin{align*}
+D_{k}:U \rightarrow \mathbb{R};\mathbf{x} \mapsto \det{\left( P_{k} \circ H_{f} \right)\left( \mathbf{x} \right)}
+\end{align*}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極小点である。
+\item
+  $\forall k \in \varLambda_{n}$に対し、$0 < ( - 1)^{k}D_{k}\left( \mathbf{a} \right)$が成り立つなら、その点$\mathbf{a}$はその関数$f$の狭義の極大点である。
+\item
+  上のこといずれも満たさないなら、その点$\mathbf{a}$はその関数$f$の極小点でも極大点でもない。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.4.3.12}より明らかである。実際、2次形式$\left( d^{2}f \right)_{\mathbf{a}}$の係数行列が$0$でないので、$D_{n}\left( \mathbf{a} \right) \neq 0$が成り立つ。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1980. 第34刷 p149-161 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,241 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{5}
+\setcounter{subsection}{1}
+\input{macro}
+\begin{document}
+%\hypertarget{sigma-ux52a0ux6cd5ux65cf}{%
+\subsection{$\sigma$-加法族}%\label{sigma-ux52a0ux6cd5ux65cf}}
+%\hypertarget{ux6709ux9650ux52a0ux6cd5ux65cf}{%
+\subsubsection{有限加法族}%\label{ux6709ux9650ux52a0ux6cd5ux65cf}}
+\begin{axs}[有限加法族の公理]
+集合$X$の部分集合系$\mathfrak{P}(X)$の部分集合$\mathfrak{F}$が次のことを満たすとき、その集合$\mathfrak{F}$をその集合$X$上の有限加法族という。
+\begin{itemize}
+\item
+  $\mathfrak{\emptyset \in F}$が成り立つ。
+\item
+  $\forall A \in \mathfrak{F}$に対し、$X \setminus A \in \mathfrak{F}$も成り立つ。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$A \cup B \in \mathfrak{F}$も成り立つ。
+\end{itemize}
+\end{axs}
+\begin{thm}\label{4.5.2.1}
+集合$X$上の有限加法族$\mathfrak{F}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $X \in \mathfrak{F}$が成り立つ。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$A \cap B \in \mathfrak{F}$も成り立つ。
+\item
+  $\forall A,B \in \mathfrak{F}$に対し、$B \setminus A \in \mathfrak{F}$も成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+集合$X$上の有限加法族$\mathfrak{F}$が与えられたとき、$\mathfrak{\emptyset \in F}$が成り立つかつ、$A \in \mathfrak{F}$が成り立つなら、$X \setminus A \in \mathfrak{F}$も成り立つのであったので、$X \setminus \emptyset = X \in \mathfrak{F}$も成り立つ。\par
+$\forall A,B \in \mathfrak{F}$に対し、$X \setminus A,X \setminus B\in \mathfrak{F}$も成り立ち、したがって、$X \setminus A \cup X \setminus B\in \mathfrak{F}$が成り立つ。これにより、$X \setminus (X \setminus A \cup X \setminus B)\in \mathfrak{F}$も成り立ち、したがって、次のようになる。
+\begin{align*}
+X \setminus (X \setminus A \cup X \setminus B) = X \setminus \left( X \setminus (A \cap B) \right) = A \cap B\in \mathfrak{F}
+\end{align*}\par
+$\forall A,B \in \mathfrak{F}$に対し、$A,B\in \mathfrak{P}(X)$が成り立つので、次のようになり、
+\begin{align*}
+B \setminus A = (B \cap X) \setminus A = B \cap (X \setminus A)
+\end{align*}
+ここで、$B\in \mathfrak{F}$が成り立つかつ、$X \setminus A\in \mathfrak{F}$も成り立つので、次のようになる。
+\begin{align*}
+B \setminus A = B \cap (X \setminus A)\in \mathfrak{F}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.2.2}
+集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$が与えられたとき、添数集合$\varLambda_{n}$を用いて、$\forall i \in \varLambda_{n}$に対し、$E_{i}\in \mathfrak{E}$、$F_{i}\in \mathfrak{F}$なる直積$E_{i} \times F_{i}$の直和$\bigsqcup_{i \in \varLambda_{n} } \left( E_{i} \times F_{i} \right)$全体の集合$\mathfrak{K}$もその集合$X \times Y$上の有限加法族である。
+\end{thm}\par
+一般に、有限な集合族$\left\{ X_{i} \right\}_{i \in \varLambda_{m} }$の各元$X_{i}$上の有限加法族$\mathfrak{F}_{i}$が与えられたとき、有限集合である添数集合$\varLambda_{n}$を用いて、$\forall i \in \varLambda_{m}\forall j \in \varLambda_{n}$に対し、$E_{ij} \in \mathfrak{F}_{i}$なる直積$\prod_{i \in \varLambda_{m} } E_{ij}$の直和$\bigsqcup_{j \in \varLambda_{n} } {\prod_{i \in \varLambda_{m} } E_{ij}}$全体の集合$\mathfrak{K}$もその集合$\prod_{i \in \varLambda_{m} } X_{i}$上の有限加法族であることも数学的帰納法によって容易に示される。
+\begin{proof}
+集合たち$X$、$Y$上の有限加法族それぞれ$\mathfrak{E}$、$\mathfrak{F}$が与えられたとき、有限集合である添数集合$\varLambda$によって添数づけられたそれらの集合たち$\mathfrak{E}$、$\mathfrak{F}$の元の族それぞれ$\left\{ E_{i} \right\}_{i \in \varLambda_{n}}$、$\left\{ F_{i} \right\}_{i \in \varLambda_{n}}$が与えられたときの集合$E_{i} \times F_{i}$の直和$\bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)$全体の集合$\mathfrak{K}$を考えよう。このとき、$\emptyset = \emptyset \times \emptyset$が成り立つので、$\emptyset \in \mathfrak{K}$が成り立つ。\par
+また、$\forall K \in \mathfrak{K}$に対し、定義より次式が成り立つことになり、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+(X \times Y) \setminus K &= (X \times Y) \setminus \bigsqcup_{i \in \varLambda_{n}} \left( E_{i} \times F_{i} \right)\\
+&= \bigcap_{i \in \varLambda_{n}} \left( (X \times Y) \setminus \left( E_{i} \times F_{i} \right) \right)
+\end{align*}
+ここで、次のことに注意すれば、
+\begin{align*}
+X \times Y &= \left( E_{i} \sqcup X \setminus E_{i} \right) \times \left( F_{i} \sqcup Y \setminus F_{i} \right)\\
+&= \left( E_{i} \times F_{i} \right) \sqcup \left( E_{i} \times \left( Y \setminus F_{i} \right) \right) \sqcup \left( \left( X \setminus E_{i} \right) \times F_{i} \right) \sqcup \left( \left( X \setminus E_{i} \right) \times \left( Y \setminus F_{i} \right) \right)
+\end{align*}
+次式が成り立つことになり、
+\begin{align*}
+(X \times Y) \setminus \left( E_{i} \times F_{i} \right) = \left( E_{i} \times \left( Y \setminus F_{i} \right) \right) \sqcup \left( \left( X \setminus E_{i} \right) \times F_{i} \right) \sqcup \left( \left( X \setminus E_{i} \right) \times \left( Y \setminus F_{i} \right) \right)
+\end{align*}
+ここで、$X \setminus E_{i}\in \mathfrak{E}$かつ$Y \setminus F_{i}\in \mathfrak{F}$が成り立つので、やはり$(X \times Y) \setminus \left( E_{i} \times F_{i} \right) \in \mathfrak{K}$が成り立つ。\par
+また、$\forall K,L \in \mathfrak{K}$に対し、添数集合たち$\varLambda_{m}$、$\varLambda_{n}$を用いて次式が成り立つことになり、
+\begin{align*}
+K = \bigsqcup_{i \in \varLambda_{m}} \left( E_{i}^{K} \times F_{i}^{K} \right),\ \ L = \bigsqcup_{j \in \varLambda_{n}} \left( E_{j}^{L} \times F_{j}^{L} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+K \cap L &= \bigsqcup_{i \in \varLambda_{m}} \left( E_{i}^{K} \times F_{i}^{K} \right) \cap \bigsqcup_{j \in \varLambda_{n}} \left( E_{j}^{L} \times F_{j}^{L} \right)\\
+&= \bigsqcup_{i \in \varLambda_{m},j \in \varLambda_{n}} {\left( E_{i}^{K} \times F_{i}^{K} \right) \cap \left( E_{j}^{L} \times F_{j}^{L} \right)}\\
+&= \bigsqcup_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {\left( E_{i}^{K} \cap E_{j}^{L} \right) \times \left( F_{i}^{K} \cap F_{j}^{L} \right)}
+\end{align*}
+ここで、$E_{i}^{K} \cap E_{j}^{L}\in \mathfrak{E}$かつ$F_{i}^{K} \cap F_{j}^{L}\in \mathfrak{F}$が成り立つので、$K \cap L \in \mathfrak{K}$が成り立つ。\par
+最後に、$\forall K,L \in \mathfrak{K}$に対し、$K \cup L = K \sqcup (L \setminus K)$が成り立ち、ここで、次式が成り立つことに注意すれば、
+\begin{align*}
+L \setminus K = \left( L \cap (X \times Y) \right) \setminus K = L \cap \left( (X \times Y) \setminus K \right) \in \mathfrak{K}
+\end{align*}
+明らかに$K \sqcup (L \setminus K) \in \mathfrak{K}$が成り立つことになり、したがって、$K \cup L \in \mathfrak{K}$が成り立つ。
+\end{proof}
+%\hypertarget{sigma-ux52a0ux6cd5ux65cf-1}{%
+\subsubsection{$\sigma$-加法族}%\label{sigma-ux52a0ux6cd5ux65cf-1}}
+\begin{axs}[$\sigma$-加法族の公理]
+集合$X$の部分集合系$\mathfrak{P}(X)$の部分集合$\varSigma$が次のことを満たすとき、その集合$\varSigma$をその集合$X$上の完全加法族、可算加法族、$\sigma$-加法族、または単に、加法族という。
+\begin{itemize}
+\item
+  $\emptyset \in \varSigma$が成り立つ。
+\item
+  $\forall A \in \varSigma$に対し、$X \setminus A \in \varSigma$も成り立つ。
+\item
+  その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$\bigcup_{n \in \mathbb{N}} A_{n} \in \varSigma$が成り立つ。
+\end{itemize}
+\end{axs}
+\begin{thm}\label{4.5.2.3}
+集合$X$上の$\sigma$-加法族はその集合$X$上の有限加法族である。
+\end{thm}
+\begin{proof}
+その元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$のおき方により明らかである。
+\end{proof}
+\begin{thm}\label{4.5.2.4}
+その集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$\bigcap_{n \in \mathbb{N}} A_{n} \in \varSigma$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+その集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとき、その集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$X \setminus A_{n} \in \varSigma$も成り立ち、したがって、$\bigcup_{n \in \mathbb{N}} \left( X \setminus A_{n} \right) \in \varSigma$が成り立つ。これにより、$X \setminus \bigcup_{n \in \mathbb{N}} \left( X \setminus A_{n} \right) \in \varSigma$も成り立ち、したがって、次のようになる。
+\begin{align*}
+X \setminus \bigcup_{n \in \mathbb{N}} \left( X \setminus A_{n} \right) = X \setminus \left( X \setminus \bigcap_{n \in \mathbb{N}} A_{n} \right) = \bigcap_{n \in \mathbb{N}} A_{n} \in \varSigma
+\end{align*}
+\end{proof}
+%\hypertarget{ux751fux6210ux3055ux308cux308bsigma-ux52a0ux6cd5ux65cf}{%
+\subsubsection{生成される$\sigma$-加法族}%\label{ux751fux6210ux3055ux308cux308bsigma-ux52a0ux6cd5ux65cf}}
+\begin{thm}\label{4.5.2.5}
+集合$X$の部分集合系$\mathfrak{P}(X)$の任意の部分集合$\mathcal{I}$に対し、$\mathcal{I \subseteq}\varSigma$となるような$\sigma$-加法族$\varSigma$全体の集合を$\mathfrak{S}\left( \mathcal{I} \right)$とおくと、順序集合$\left( \mathfrak{S}\left( \mathcal{I} \right), \subseteq \right)$において、最小元$\min{\mathfrak{S}\left( \mathcal{I} \right)}$が存在して$\min{\mathfrak{S}\left( \mathcal{I} \right)} = \bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つ。
+\end{thm}
+\begin{proof}
+集合$X$の部分集合系$\mathfrak{P}(X)$の任意の部分集合$\mathcal{I}$に対し、$\mathcal{I \subseteq}\varSigma$となるような$\sigma$-加法族$\varSigma$全体の集合を$\mathfrak{S}\left( \mathcal{I} \right)$とおくと、$\mathfrak{P}(X)\in \mathfrak{S}\left( \mathcal{I} \right)$が成り立つので、$\mathcal{I \subseteq}\varSigma$となるような$\sigma$-加法族は明らかに存在する。あとは、積集合$\bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$を考えれば、$\mathcal{I \subseteq}\bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つ。また、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{I} \right)$に対し、$\emptyset \in \varSigma$が成り立つので、$\emptyset \in \bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つかつ、$A \in \bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つなら、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{I} \right)$に対し、$A \in \varSigma$が成り立ち、したがって、$X \setminus A \in \varSigma$が成り立つことにより、$X \setminus A \in \bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つかつ、高々可算な無限集合である添数集合$\varLambda$によって添数づけられたその集合$\varSigma$の元の列$\left( A_{n} \right)_{n \in \mathbb{N}}$が与えられたなら、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{I} \right)\forall n \in \mathbb{N}$に対し、$A_{n} \in \varSigma$が成り立ち、したがって、$\bigcup_{n \in \mathbb{N}} A_{n} \in \varSigma$が成り立つので、$\bigcup_{n \in \mathbb{N}} A_{n} \in \bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が成り立つ。以上より、$\bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}\in \mathfrak{S}\left( \mathcal{I} \right)$が成り立つことになり、さらに、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{I} \right)$に対し、$\bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)} \subseteq \varSigma$が成り立つので、この集合$\bigcap_{} {\mathfrak{S}\left( \mathcal{I} \right)}$が、順序集合$\left( \mathfrak{S}\left( \mathcal{I} \right), \subseteq \right)$において、最小元$\min{\mathfrak{S}\left( \mathcal{I} \right)}$となる。
+\end{proof}
+\begin{dfn}
+この最小元$\min{\mathfrak{S}\left( \mathcal{I} \right)}$をその集合$\mathcal{I}$によって生成されるその集合$X$上の$\sigma$-加法族といい以下$\varSigma\left( \mathcal{I} \right)$と書く。
+\end{dfn}
+\begin{thm}\label{4.5.2.6}
+集合$X$の部分集合系$\mathfrak{P}(X)$の任意の部分集合たち$\mathcal{I}$、$\mathcal{J}$に対し、$\mathcal{I \subseteq J}$が成り立つなら、$\varSigma\left( \mathcal{I} \right) \subseteq \varSigma\left( \mathcal{J} \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+集合$X$の部分集合系$\mathfrak{P}(X)$の任意の部分集合たち$\mathcal{I}$、$\mathcal{J}$に対し、$\mathcal{I \subseteq J}$が成り立つなら、$\mathcal{I \subseteq}\varSigma$、$\mathcal{J \subseteq}\varSigma$となるような$\sigma$-加法族$\varSigma$全体の集合をそれぞれ$\mathfrak{S}\left( \mathcal{I} \right)$、$\mathfrak{S}\left( \mathcal{J} \right)$とおくと、$\mathfrak{S}\left( \mathcal{I} \right)\subseteq \mathfrak{S}\left( \mathcal{J} \right)$が成り立つ。ここで、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{I} \right)$に対し、$\min{\mathfrak{S}\left( \mathcal{I} \right)} \subseteq \varSigma$が成り立つので、$\forall\varSigma \in \mathfrak{S}\left( \mathcal{J} \right)$に対し、$\min{\mathfrak{S}\left( \mathcal{I} \right)} \subseteq \varSigma$が成り立つ。したがって、$\min{\mathfrak{S}\left( \mathcal{I} \right)} \subseteq \min{\mathfrak{S}\left( \mathcal{J} \right)}$が成り立ち、よって、$\varSigma\left( \mathcal{I} \right) \subseteq \varSigma\left( \mathcal{J} \right)$が成り立つ。
+\end{proof}
+%\hypertarget{ux76f8ux5bfesigma-ux52a0ux6cd5ux65cf}{%
+\subsubsection{相対$\sigma$-加法族}%\label{ux76f8ux5bfesigma-ux52a0ux6cd5ux65cf}}
+\begin{thm}\label{4.5.2.7}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとする。その集合$X$の空集合でない部分集合$A$に対し、次式のように定義される集合$\varSigma_{A}$はその集合$A$上の$\sigma$-加法族となる。
+\begin{align*}
+\varSigma_{A} = \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma \right\}
+\end{align*}
+\end{thm}
+\begin{dfn}
+このようにして定義された集合$\varSigma_{A}$をその$\sigma$-加法族$\varSigma$からその集合$A$によって誘導されるその集合$A$上の相対$\sigma$-加法族という。
+\end{dfn}
+\begin{proof}
+集合$X$上の$\sigma$-加法族$\varSigma$が与えられたとする。その集合$X$の空集合でない部分集合$A$に対し、次式のように定義される集合$\varSigma_{A}$について、
+\begin{align*}
+\varSigma_{A} = \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma \right\}
+\end{align*}
+$\emptyset = \emptyset \cap A$が成り立つかつ、$\emptyset \in \varSigma$が成り立つので、$\emptyset \in \varSigma_{A}$が成り立つ。\par
+また、$\forall E \cap A \in \varSigma_{A}$に対し、次のようになるかつ、
+\begin{align*}
+A \setminus (E \cap A) = A \setminus E \cup A \setminus A = A \setminus E = (X \cap A) \setminus E = (X \setminus E) \cap A
+\end{align*}
+$X \setminus E \in \varSigma$が成り立つので、$A \setminus (E \cap A) \in \varSigma_{A}$が成り立つ。\par
+最後に、その集合$\varSigma_{A}$の元の列$\left( E_{n} \cap A \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになるかつ、
+\begin{align*}
+\bigcup_{n \in \mathbb{N}} \left( E_{n} \cap A \right) = \bigcup_{n \in \mathbb{N}} E_{n} \cap A
+\end{align*}
+$\bigcup_{n \in \mathbb{N}} E_{n} \in \varSigma$が成り立つので、$\bigcup_{n \in \mathbb{N}} \left( E_{n} \cap A \right) \in \varSigma_{A}$が成り立つ。
+\end{proof}
+%\hypertarget{borelux96c6ux5408ux65cf}{%
+\subsubsection{Borel集合族}%\label{borelux96c6ux5408ux65cf}}
+\begin{dfn}
+位相空間$\left( S,\mathfrak{O} \right)$が与えられたとき、その位相$\mathfrak{O}$によって生成されるその集合$S$上の$\sigma$-加法族$\varSigma\left( \mathfrak{O} \right)$をその位相空間$\left( S,\mathfrak{O} \right)$のBorel集合族といい、これの元をその位相空間$\left( S,\mathfrak{O} \right)$のBorel集合という。以下、その位相空間$\left( S,\mathfrak{O} \right)$のBorel集合族を$\mathfrak{B}_{\left( S,\mathfrak{O} \right)}$とおく。
+\end{dfn}
+\begin{thm}\label{4.5.2.8}
+空集合でない集合$X$の空集合でない部分集合$A$とその集合$X$の部分集合系$\mathfrak{P}(X)$の部分集合$\mathcal{I}$に対し、$\left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\}$によって生成されるその集合$A$上の$\sigma$-加法族$\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$について、次式が成り立つ。
+\begin{align*}
+\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right) = \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}
+\end{align*}
+\end{thm}
+\begin{proof}
+空集合でない集合$X$の空集合でない部分集合$A$とその集合$X$の部分集合系$\mathfrak{P}(X)$の部分集合$\mathcal{I}$に対し、$\left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\}$によって生成されるその集合$A$上の$\sigma$-加法族$\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$について、その集合$\left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}$はまさしくその$\sigma$-加法族$\varSigma\left( \mathcal{I} \right)$から誘導されるその集合$A$上の相対$\sigma$-加法族であるので、次式が成り立つことに注意すれば、
+\begin{align*}
+\left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \subseteq \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right) \subseteq \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}
+\end{align*}\par
+ここで、集合$\left\{ F \in \mathfrak{P}(X) \middle| F \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right) \right\}$が考えられ、これを$\mathfrak{M}$とおくと、$\emptyset = \emptyset \cap A$が成り立つので、$\emptyset \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$より$\emptyset \in \mathfrak{M}$が成り立つ。$\forall F \in \mathfrak{M}$に対し、$F \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$が成り立つことになり、その集合$\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$はその集合$A$上の$\sigma$-加法族なので、$A \setminus (F \cap A) \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$が成り立つ。ここで、次式が成り立つことにより、
+\begin{align*}
+A \setminus (F \cap A) = A \setminus F \cup A \setminus A = A \setminus F = (X \cap A) \setminus F = (X \setminus F) \cap A
+\end{align*}
+$(X \setminus F) \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$も成り立つので、$X \setminus F\in \mathfrak{M}$が成り立つ。最後に、その集合$\mathfrak{M}$の元の列$\left( E_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$E_{n} \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$が成り立つことになり、その集合$\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$はその集合$A$上の$\sigma$-加法族なので、次のようになる。
+\begin{align*}
+\bigcup_{n \in \mathbb{N}} \left( E_{n} \cap A \right) = \bigcup_{n \in \mathbb{N}} E_{n} \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)
+\end{align*}
+これにより、$\bigcup_{n \in \mathbb{N}} E_{n}\in \mathfrak{M}$が成り立つ。以上より、その集合$\mathfrak{M}$はその集合$X$上の$\sigma$-加法族となる。ここで、$\forall E\in \mathcal{I}$に対し、$E \cap A \in \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\}$が成り立ち、したがって、$E \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$が成り立つので、$E \in \mathfrak{M}$が得られる。これにより、$\mathcal{I \subseteq}\mathfrak{M}$が成り立つので、定義より$\varSigma\left( \mathcal{I} \right)\subseteq \mathfrak{M}$が成り立つ。したがって、$\forall E \cap A \in \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}$に対し、$E \in \varSigma\left( \mathcal{I} \right)$が成り立つので、$\varSigma\left( \mathcal{I} \right)\subseteq \mathfrak{M}$より$E \in \mathfrak{M}$が成り立つ。これにより、$E \cap A \in \varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right)$が成り立つ。以上より、次式が成り立つことになる。
+\begin{align*}
+\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right) \supseteq \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}
+\end{align*}\par
+よって、次式が得られた。
+\begin{align*}
+\varSigma_{A}\left( \left\{ E \cap A \in \mathfrak{P}(A) \middle| E\in \mathcal{I} \right\} \right) = \left\{ E \cap A \in \mathfrak{P}(A) \middle| E \in \varSigma\left( \mathcal{I} \right) \right\}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.5.2.9}
+位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$のBorel集合族$\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)}$はその位相空間$\left( S,\mathfrak{O} \right)$のBorel集合族$\mathfrak{B}_{\left( S,\mathfrak{O} \right)}$から誘導されるその集合$M$上の相対$\sigma$-加法族に等しい、即ち、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)} = \left\{ E \cap M \in \mathfrak{P}(M) \middle| E \in \mathfrak{B}_{\left( S,\mathfrak{O} \right)} \right\}
+\end{align*}
+\end{thm}
+\begin{proof}
+位相空間$\left( S,\mathfrak{O} \right)$の部分位相空間$\left( M,\mathfrak{O}_{M} \right)$のBorel集合族$\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)}$について、定義より次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)} = \varSigma_{M}\left( \mathfrak{O}_{M} \right)
+\end{align*}
+ここで、部分位相空間の性質より次式が成り立つので、
+\begin{align*}
+\mathfrak{O}_{M} = \left\{ O \cap M \in \mathfrak{P}(M) \middle| O \in \mathfrak{O} \right\}
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)} = \varSigma_{M}\left( \left\{ O \cap M \in \mathfrak{P}(M) \middle| O \in \mathfrak{O} \right\} \right)
+\end{align*}
+ここで、定理\ref{4.5.2.8}より次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)} = \left\{ E \cap M \in \mathfrak{P}(M) \middle| E \in \varSigma\left( \mathfrak{O} \right) \right\}
+\end{align*}
+ここで、Borel集合族の定義より次式が成り立つ。
+\begin{align*}
+\mathfrak{B}_{\left( M,\mathfrak{O}_{M} \right)} = \left\{ E \cap M \in \mathfrak{P}(M) \middle| E \in \mathfrak{B}_{\left( S,\mathfrak{O} \right)} \right\}
+\end{align*}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  伊藤清三, ルベーグ積分入門, 裳華房, 1963. 新装第1版2刷 p17-30 ISBN978-4-7853-1318-0
+\bibitem{2}
+  岩田耕一郎, ルベーグ積分, 森北出版, 2015. 第1版第2刷 p79-80 ISBN978-4-627-05431-8
+\bibitem{3}
+  Mathpedia. "測度と積分". Mathpedia. \url{https://math.jp/wiki/%E6%B8%AC%E5%BA%A6%E3%81%A8%E7%A9%8D%E5%88%86} (2021-7-12 9:20 閲覧)
+\bibitem{4}
+  服部哲弥. "測度論". 慶応義塾大学. \url{https://web.econ.keio.ac.jp/staff/hattori/kaiseki1.pdf} (2021-8-14 12:45 取得)
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,393 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{2}
+\usepackage{xr}
+\externaldocument{8.1.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux9023ux7d9aux5199ux50cf}{%
+\subsection{連続写像}%\label{ux9023ux7d9aux5199ux50cf}}
+%\hypertarget{ux9023ux7d9aux5199ux50cf-1}{%
+\subsubsection{連続写像}%\label{ux9023ux7d9aux5199ux50cf-1}}
+\begin{thm}\label{8.1.3.1}
+2つの空集合でない集合$S$、$T$における2つのそれぞれの位相たち$\mathfrak{O}$、$\mathfrak{P}$とこれらの閉集合系それぞれ$\mathfrak{A}$、$\mathfrak{B}$、$a \in S$、$b \in T$における全近傍系それぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$において、写像$f:S \rightarrow T$を考える。このとき、次のことは同値である。
+\begin{itemize}
+\item
+  $\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right) \in \mathfrak{O}$が成り立つ。
+\item
+  $\forall B \in \mathfrak{B}$に対し、$V\left( f^{- 1}|B \right) \in \mathfrak{A}$が成り立つ。
+\item
+  $\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの空集合でない集合$S$、$T$における2つのそれぞれの位相たち$\mathfrak{O}$、$\mathfrak{P}$とこれらの閉集合系それぞれ$\mathfrak{A}$、$\mathfrak{B}$、$a \in S$、$b \in T$における全近傍系それぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$において、写像$f:S \rightarrow T$を考える。\par
+$\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right)\in \mathfrak{O}$が成り立つなら、$\forall B \in \mathfrak{B}$に対し、$T \setminus B = P$とおけば、定義より明らかに$P \in \mathfrak{P}$が成り立つので、$V\left( f^{- 1}|P \right) \in \mathfrak{P}$が成り立つことと閉集合の定義より次式が成り立つ。
+\begin{align*}
+V\left( f^{- 1}|B \right) &= V\left( f^{- 1}|T \setminus P \right)\\
+&= S \setminus V\left( f^{- 1}|P \right) \in \mathfrak{A}
+\end{align*}
+逆に、$\forall B \in \mathfrak{B}$に対し、$V\left( f^{- 1}|B \right)\in \mathfrak{A}$が成り立つなら、$\forall P \in \mathfrak{P}$に対し、$T \setminus P = B$とおけば$B \in \mathfrak{B}$が成り立つので、$V\left( f^{- 1}|B \right) \in \mathfrak{B}$より、次式が成り立つ。
+\begin{align*}
+V\left( f^{- 1}|P \right) &= f^{- 1}(T \setminus B)\\
+&= S \setminus V\left( f^{- 1}|B \right) \in \mathfrak{O}
+\end{align*}
+以上より、次のことは同値である。
+\begin{itemize}
+\item
+  $\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right)\in \mathfrak{O}$が成り立つ。
+\item
+  $\forall B \in \mathfrak{B}$に対し、$V\left( f^{- 1}|B \right)\in \mathfrak{A}$が成り立つ。
+\end{itemize}\par
+$\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right)\in \mathfrak{O}$が成り立つなら、$\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、定理\ref{8.1.1.22}より$\exists P \in \mathfrak{P}$に対し、$f(a) \in P \subseteq W$が成り立ち$a \in V\left( f^{- 1}|P \right) \subseteq V\left( f^{- 1}|W \right)$が成り立つ。仮定より$V\left( f^{- 1}|P \right) \in \mathfrak{O}$が成り立ち$a \in V\left( f^{- 1}|P \right) = {\mathrm{int}}{V\left( f^{- 1}|P \right)}$が成り立つので、$V\left( f^{- 1}|P \right) \in \mathbf{W}(a)$が成り立ち、したがって、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つ。逆に、$\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つなら、$\forall P\in \mathfrak{P}$に対し、$O = V\left( f^{- 1}|P \right)$とすれば、$\forall b \in O$に対し、$f(b) \in V\left( f|V\left( f^{- 1}|P \right) \right) = P$が成り立つかつ、$P \in \mathfrak{P}$より$f(b) \in P = {\mathrm{int}}P$が成り立つので、$P \in \mathbf{V}\left( f(b) \right)$が成り立つ。したがって、仮定より$V\left( f^{- 1}|P \right) = O \in \mathbf{V}(b)$が成り立つ、即ち、$b \in {\mathrm{int}}O$が成り立つので、$O \in \mathfrak{O}$が成り立つ。\par
+以上より、次のことは同値である。
+\begin{itemize}
+\item
+  $\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right)\in \mathfrak{O}$が成り立つ。
+\item
+  $\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{dfn}
+上記のことのいづれかを満たす写像$f:S \rightarrow T$はその定理によって上記の性質たち全て満たすことになり上記の性質たちを満たす写像$f$をその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へ連続であるなどといいこのような写像$f$をその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$への連続写像という。
+\end{dfn}\par
+例えば、始集合が離散位相$\mathfrak{P}(S)$の台集合である、または、密着位相$\left\{ \emptyset,S \right\}$の台集合であるときは任意の写像$f:S \rightarrow T$は位相的に連続になる。また、2つの空集合でない集合$S$、$T$における2つのそれぞれの位相たち$\mathfrak{O}$、$\mathfrak{P}$においての写像$f:S \rightarrow T$が定値写像であったり、$S = S$かつ$\mathfrak{P} \subseteq \mathfrak{O}$が成り立つときの恒等写像であったりするとき、それらの写像も位相的に連続である。
+\begin{thm}\label{8.1.3.2}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$が連続であるならそのときに限り、その位相空間$\left( T,\mathfrak{P} \right)$の準開基$\mathfrak{N}$が与えられたとき、$\forall N \in \mathfrak{N}$に対し、$V\left( f^{- 1}|N \right) \in \mathfrak{O}$が成り立つ。
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとしその位相空間$\left( T,\mathfrak{P} \right)$の準開基$\mathfrak{N}$が与えられたとき、$\mathfrak{N} \subseteq \mathfrak{P}$が成り立つので、$\forall N \in \mathfrak{N}$に対し、その集合$N$は開集合となる。したがって、写像$f:S \rightarrow T$が連続であるなら、$V\left( f^{- 1}|N \right)\in \mathfrak{O}$が成り立つ。\par
+逆に、写像$f:S \rightarrow T$が与えられ、$\forall N\in \mathfrak{N}$に対し、$V\left( f^{- 1}|N \right) \in \mathfrak{O}$が成り立つとき、次式のように集合$\mathfrak{S}$が考えられると、
+\begin{align*}
+\mathfrak{S} =\left\{ N\in \mathfrak{P}(T) \middle| V\left( f^{- 1}|N \right) \in \mathfrak{O} \right\}
+\end{align*}
+仮定より、$\forall N\in \mathfrak{N}$に対し、$N\in \mathfrak{S}$が成り立つので、$\mathfrak{N}\subseteq \mathfrak{S}$が成り立つ。また、$V\left( f^{- 1}|T \right) = S$かつ$V\left( f^{- 1}|\emptyset \right) = \emptyset$が明らかに成り立つので、$T,\mathfrak{\emptyset \in S}$が成り立つ。$\forall M,N \in \mathfrak{S}$に対し、次のようになる。
+\begin{align*}
+M,N \in \mathfrak{S} &\Leftrightarrow V\left( f^{- 1}|M \right),V\left( f^{- 1}|N \right)\in \mathfrak{O}\\
+&\Rightarrow V\left( f^{- 1}|M \right) \cap V\left( f^{- 1}|N \right) = V\left( f^{- 1}|M \cap N \right) \in \mathfrak{O}
+\end{align*}
+これにより、$M \cap N\in \mathfrak{S}$が成り立つ。任意の添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{S}$の元の族$\left\{ M_{\lambda} \right\}_{\scriptsize \begin{matrix}
+\lambda \in \varLambda \\
+\end{matrix}}$が与えられたとき、次のようになる。
+\begin{align*}
+\forall\lambda \in \varLambda\left[ M_{\lambda} \in \mathfrak{S} \right] &\Leftrightarrow \forall\lambda \in \varLambda\left[ V\left( f^{- 1} \middle| M_{\lambda} \right) \in \mathfrak{O} \right]\\
+&\Rightarrow \bigcup_{\scriptsize \begin{matrix}
+\lambda \in \varLambda \\
+\end{matrix}} {V\left( f^{- 1} \middle| M_{\lambda} \right)} = V\left( f^{- 1}|\bigcup_{\scriptsize \begin{matrix}
+\lambda \in \varLambda \\
+\end{matrix}} M_{\lambda} \right) \in \mathfrak{O}
+\end{align*}
+これにより、$\bigcap_{\scriptsize \begin{matrix}
+\lambda \in \varLambda \\
+\end{matrix}} M_{\lambda}\in \mathfrak{S}$が成り立つ。以上より、その集合$\mathfrak{S}$は位相である。\par
+ここで、その集合$\mathfrak{N}$はその位相空間$\left( T,\mathfrak{P} \right)$の準開基であるので、その集合$\mathfrak{N}$で生成される位相がその位相$\mathfrak{P}$である。したがって、$\mathfrak{N} \subseteq \mathfrak{P}\subseteq \mathfrak{S}$が成り立つので、$\forall P \in \mathfrak{P}$に対し、$V\left( f^{- 1}|P \right) \in \mathfrak{O}$が成り立ちその写像$f$は連続である。
+\end{proof}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$において、$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおく。$\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つとき、その写像$f$はその点$a$において連続であるという。
+\end{dfn}
+\begin{thm}\label{8.1.3.3}
+$\forall a \in S$に対し、写像$f:S \rightarrow T$がその点$a$において連続であるならそのときに限り、その写像$f$はその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へ連続である。
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。$\forall a \in S$に対し、写像$f:S \rightarrow T$がその点$a$において連続であるならそのときに限り、$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれ、$\forall a \in S\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つ。これが成り立つならそのときに限り、その写像$f$はその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$へ連続である。
+\end{proof}
+\begin{thm}\label{8.1.3.4}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$が$a \in S$なる点$a$において連続であるならそのときに限り、$\forall M \in \mathfrak{P}(S)$に対し、$a \in {\mathrm{cl}}M$が成り立つなら、$f(a) \in {\mathrm{cl}}{V\left( f|M \right)}$も成り立つ。
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$が$a \in S$なる点$a$において連続であるとき、$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれると、$\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つので、$a \in {\mathrm{int}}{V\left( f^{- 1}|W \right)} \subseteq V\left( f^{- 1}|W \right)$が成り立つ。$\forall M \in \mathfrak{P}(S)$に対し、$a \in {\mathrm{cl}}M$が成り立つなら、$V\left( f^{- 1}|W \right) \cap {\mathrm{cl}}M \neq \emptyset$が成り立つことになるので、$V\left( f^{- 1}|W \right) \cap M \neq \emptyset$も成り立つ。また、次のようになり
+\begin{align*}
+V\left( f|V\left( f^{- 1}|W \right) \cap M \right) &\subseteq V\left( f|V\left( f^{- 1}|W \right) \right) \cap V\left( f|M \right)\\
+&\subseteq W \cap V\left( f|M \right)
+\end{align*}
+その値域$V\left( f|V\left( f^{- 1}|W \right) \cap M \right)$が空集合ではないので、その集合$W \cap V\left( f|M \right)$も空集合ではない。ゆえに、定理\ref{8.1.1.26}より$f(a) \in {\mathrm{cl}}{V\left( f|M \right)}$が成り立つ。\par
+逆に、$\forall M \in \mathfrak{P}(S)$に対し、$a \in {\mathrm{cl}}M$が成り立つなら、$f(a) \in {\mathrm{cl}}{V\left( f|M \right)}$も成り立つとき、$\exists W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \notin \mathbf{V}(a)$が成り立つと仮定すると、$a \notin {\mathrm{int}}{V\left( f^{- 1}|W \right)}$が成り立つことになるので、次のようになる。
+\begin{align*}
+a \in S \setminus {\mathrm{int}}{V\left( f^{- 1}|W \right)} &= {\mathrm{cl}}\left( S \setminus V\left( f^{- 1}|W \right) \right)\\
+&= {\mathrm{cl}}\left( V\left( f^{- 1} \right) \setminus V\left( f^{- 1}|W \right) \right)\\
+&= {\mathrm{cl}}\left( V\left( f^{- 1}|T \right) \setminus V\left( f^{- 1}|W \right) \right)\\
+&= {\mathrm{cl}}{V\left( f^{- 1}|T \setminus W \right)}
+\end{align*}
+したがって、仮定より次のようになる。
+\begin{align*}
+f(a) \in {\mathrm{cl}}{V\left( f|V\left( f^{- 1}|T \setminus W \right) \right)} &\subseteq {\mathrm{cl}}(T \setminus W)\\
+&= T \setminus {\mathrm{int}}W
+\end{align*}
+これにより、$f(a) \notin {\mathrm{int}}W$が成り立ち、定義より$W \notin \mathbf{W}\left( f(a) \right)$が成り立つことになるが、これは仮定に矛盾する。したがって、$\forall W \in \mathbf{W}\left( f(a) \right)$に対し、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立ち、定義よりその写像$f$はその点$a$において連続である。
+\end{proof}
+%\hypertarget{ux958bux5199ux50cfux3068ux9589ux5199ux50cf}{%
+\subsubsection{開写像と閉写像}%\label{ux958bux5199ux50cfux3068ux9589ux5199ux50cf}}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$において、$\forall O \in \mathfrak{O}$に対し、$V\left( f|O \right) \in \mathfrak{P}$が成り立つ、即ち、その位相$\mathfrak{O}$に属する任意の開集合$O$に制限されたその写像$f$の値域もまたその位相$\mathfrak{P}$に属するとき、その写像$f$は開写像であるという。
+\end{dfn}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとし写像$f:S \rightarrow T$において、それらの位相たち$\mathfrak{O}$、$\mathfrak{P}$の閉集合系をそれぞれ$\mathfrak{A}$、$\mathfrak{B}$とおくとき、$\forall A \in \mathfrak{A}$に対し、$V\left( f|A \right) \in \mathfrak{B}$が成り立つ、即ち、その閉集合系$\mathfrak{A}$に属する任意の開集合$A$に制限されたその写像$f$の値域もまたその閉集合系$\mathfrak{B}$に属するとき、その写像$f$は閉写像であるという。
+\end{dfn}\par
+例えば、$\mathfrak{P} = \mathfrak{P}(T)$が成り立つなら、任意の写像$f:S \rightarrow T$は開写像であるかつ、閉写像でもある。$S = T$が成り立つとき、恒等写像$I_{S}:S \rightarrow S$が開写像であるならそのときに限り、$\mathfrak{O} \subseteq \mathfrak{P}$が成り立つ。また、同じくその恒等写像$I_{S}$が閉写像であるならそのときに限り、$\mathfrak{A} \subseteq \mathfrak{B}$が成り立つ。\par
+その写像$f$が連続写像であることと、開写像であることと、閉写像であることとは一般に同値ではないことに注意されたい。しかしながら、その写像$f$が全単射であるときでは、連続な写像であることと、開写像であることと、閉写像であることとの間に次に述べる関係がある。
+\begin{thm}\label{8.1.3.5}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。全単射な写像$f:S\overset{\sim}{\rightarrow}T$において、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  その写像$f$は閉写像である。
+\item
+  その逆写像$f^{- 1}$は連続写像である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。それらの位相たち$\mathfrak{O}$、$\mathfrak{P}$の閉集合系をそれぞれ$\mathfrak{A}$、$\mathfrak{B}$とおくとき、全単射な写像$f:S\overset{\sim}{\rightarrow}T$が開写像であるなら、定義より$\forall O \in \mathfrak{O}$に対し、$V\left( f|O \right) \in \mathfrak{P}$が成り立つ。ここで、その写像$f$が単射でもあるので、$V\left( f|S \setminus O \right) = V\left( f|S \right) \setminus V\left( f|O \right)$が成り立つかつ、その写像は全射でもあるので、$V\left( f|S \right) = T$が成り立つことに注意すれば、$\forall A \in \mathfrak{A}$に対し、$A = S \setminus O$なる開集合$O$がその位相$\mathfrak{O}$に存在して次式が成り立つので、
+\begin{align*}
+V\left( f|A \right) &= V\left( f|S \setminus O \right)\\
+&= V\left( f|S \right) \setminus V\left( f|O \right)\\
+&= T \setminus V\left( f|O \right) \in \mathfrak{B}
+\end{align*}
+その写像は閉写像でもある。同様に、その写像が閉写像であるなら、定義より$\forall A \in \mathfrak{A}$に対し、$V\left( f|A \right) \in \mathfrak{B}$が成り立つ。ここで、$\forall O \in \mathfrak{O}$に対し、集合$S \setminus O$が閉集合となり$V\left( f|S \setminus O \right) \in \mathfrak{B}$が成り立ち$V\left( f|S \setminus O \right) = T \setminus P$なる開集合$P$がその位相$\mathfrak{P}$に存在する。その写像$f$が単射でもあるので、$V\left( f|S \setminus (S \setminus O) \right) = V\left( f|S \right) \setminus V\left( f|S \setminus O \right)$が成り立つかつ、その写像は全射でもあるので、$V\left( f|S \right) = T$が成り立つことに注意すれば、次式が成り立つので、
+\begin{align*}
+V\left( f|O \right) &= V\left( f|S \setminus (S \setminus O) \right)\\
+&= V\left( f|S \right) \setminus V\left( f|S \setminus O \right)\\
+&= T \setminus V\left( f|S \setminus O \right)\\
+&= T \setminus (T \setminus P)\\
+&= P \in \mathfrak{P}
+\end{align*}
+その写像$f$は開写像でもある。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  その写像$f$は閉写像である。
+\end{itemize}\par
+さらに、その写像$f$が開写像であるなら、定義より$\forall O \in \mathfrak{O}$に対し、$V\left( f|O \right) \in \mathfrak{P}$が成り立つことになる。ここで、その写像$f$は全単射なので、これの逆写像$f^{- 1}$が存在し、$f = \left( f^{- 1} \right)^{- 1}$が成り立つので、$V\left( \left( f^{- 1} \right)^{- 1}|O \right) \in \mathfrak{P}$が成り立つ。これにより、その逆写像$f^{- 1}$は連続写像である。逆に、その逆写像$f^{- 1}$が連続写像であるなら、$\forall O \in \mathfrak{O}$に対し、$V\left( \left( f^{- 1} \right)^{- 1}|O \right) \in \mathfrak{P}$が成り立つことになり、$\left( f^{- 1} \right)^{- 1} = f$が成り立つので、$V\left( f|O \right) \in \mathfrak{P}$が成り立つ。これにより、その写像$f$は開写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  その逆写像$f^{- 1}$は連続写像である。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{8.1.3.6}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれるとき、写像$f:S \rightarrow T$について、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  $\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つ。
+\item
+  その位相空間$\left( S,\mathfrak{O} \right)$の1つの開基$\mathfrak{B}$について、$\forall W \in \mathfrak{B}$に対し、$V\left( f|W \right) \in \mathfrak{P}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれるとする。写像$f:S \rightarrow T$が開写像であるとき、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$a \in {\mathrm{int}}V$が成り立つことになり、したがって、$f(a) \in V\left( f|{\mathrm{int}}V \right)$が成り立つ。ここで、その写像$f$は開写像でその集合${\mathrm{int}}V$はその位相空間$\left( S,\mathfrak{O} \right)$における開集合であるから、その値域$V\left( f|{\mathrm{int}}V \right)$はその位相空間$\left( T,\mathfrak{P} \right)$における開集合となる。したがって、${\mathrm{int}}{V\left( f|{\mathrm{int}}V \right)} = V\left( f|{\mathrm{int}}V \right)$が成り立つ。また、${\mathrm{int}}V \subseteq V$が成り立つので、$V\left( f|{\mathrm{int}}V \right) \subseteq V\left( f|V \right)$が成り立ち、したがって、$V\left( f|{\mathrm{int}}V \right) \subseteq {\mathrm{int}}{V\left( f|V \right)}$が成り立つ。これにより、$f(a) \in {\mathrm{int}}{V\left( f|V \right)}$が成り立ち、定義より$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が得られる。逆に、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つなら、$\forall O \in \mathfrak{O}$に対し、$O = \emptyset$のときは明らかなので、空集合でないとすると、$\forall b \in V\left( f|O \right)$に対し、値域の定義より$\exists a \in O$に対し、$f(a) = b$が成り立つことになる。その集合$O$は${\mathrm{int}}O = O$を満たすので、$O \in \mathbf{V}(a)$が成り立ち、$a \in S$が成り立つので、仮定より$V\left( f|O \right) \in \mathbf{W}\left( f(a) \right)$が成り立ち、定義より明らかに、$f(a) = b \in {\mathrm{int}}{V\left( f|O \right)}$が成り立ち、したがって、$V\left( f|O \right) \subseteq {\mathrm{int}}{V\left( f|O \right)}$が成り立つ。${\mathrm{int}}{V\left( f|O \right)} \subseteq V\left( f|O \right)$が成り立つので、${\mathrm{int}}{V\left( f|O \right)} = V\left( f|O \right)$が成り立ちその値域$V\left( f|O \right)$はその位相空間$\left( T,\mathfrak{P} \right)$の開集合となる。これにより、その写像$f$は開写像となる。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  $\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つ。
+\end{itemize}\par
+写像$f:S \rightarrow T$が開写像であるなら、その位相空間$\left( S,\mathfrak{O} \right)$の1つの開基$\mathfrak{B}$について、$\forall W \in \mathfrak{B}$に対し、開基の定義よりその集合$W$はその位相空間$\left( S,\mathfrak{O} \right)$の開集合となりその写像$f$は開写像であるから、定義より明らかに$V\left( f|W \right) \in \mathfrak{P}$が成り立つ。逆に、$\forall W \in \mathfrak{B}$に対し、$V\left( f|W \right) \in \mathfrak{P}$が成り立つなら、開基の定義より$\forall O \in \mathfrak{O}$に対し、添数集合$\varLambda$によって添数づけられたその集合$\mathfrak{B}$の元の族$\left\{ W_{\lambda} \right\}_{\lambda \in \varLambda}$を用いて$O = \bigcup_{\lambda \in \varLambda} W_{\lambda}$が成り立つ。したがって、次のようになり
+\begin{align*}
+V\left( f|O \right) = V\left( f|\bigcup_{\lambda \in \varLambda} W_{\lambda} \right) = \bigcup_{\lambda \in \varLambda} {V\left( f|W_{\lambda} \right)}
+\end{align*}
+開基の定義より、$\forall\lambda \in \varLambda$に対し、それらの集合たち$W_{\lambda}$はその位相空間$\left( S,\mathfrak{O} \right)$における開集合たちであるので、仮定より$V\left( f|W_{\lambda} \right) \in \mathfrak{P}$が成り立ち、位相の定義より、$\bigcup_{\lambda \in \varLambda} {V\left( f|W_{\lambda} \right)} \in \mathfrak{P}$が成り立つ。したがって、$V\left( f|O \right) \in \mathfrak{P}$が成り立ちその写像$f$は開写像となる。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は開写像である。
+\item
+  $\forall W \in \mathfrak{B}$に対し、$V\left( f|W \right)\in \mathfrak{P}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{8.1.3.7}
+3つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$と写像たち$f:S \rightarrow T$、$g:T \rightarrow U$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも連続写像であるなら、その合成写像$g \circ f$も連続写像である。
+\item
+  それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも開写像であるなら、その合成写像$g \circ f$も開写像である。
+\item
+  それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも閉写像であるなら、その合成写像$g \circ f$も閉写像である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+3つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$と写像たち$f:S \rightarrow T$、$g:T \rightarrow U$が与えられたとする。それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも連続写像であるなら、定義より$\forall Q \in \mathfrak{Q}$に対し、$V\left( g^{- 1}|Q \right)\in \mathfrak{P}$が成り立ち、さらに、$V\left( f^{- 1}|V\left( g^{- 1}|Q \right) \right) \in \mathfrak{O}$が成り立つ。ここで、値域の定義より$a \in V\left( f^{- 1}|V\left( g^{- 1}|Q \right) \right)$が成り立つならそのときに限り、$\exists b \in V\left( g^{- 1}|Q \right)$に対し、$f(a) = b$が成り立ち、さらに、$\exists c \in Q$に対し、$g(b) = c$が成り立つことになるので、$g\left( f(a) \right) = g \circ f(a) = c$が成り立つ。ゆえに、次式が成り立つ。
+\begin{align*}
+V\left( f^{- 1}|V\left( g^{- 1}|Q \right) \right) = V\left( (g \circ f)^{- 1}|Q \right) \in \mathfrak{O}
+\end{align*}
+これにより、その合成写像$g \circ f$は連続写像である。\par
+それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも開写像であるなら、定義より$\forall O \in \mathfrak{O}$に対し、$V\left( f|O \right) \in \mathfrak{P}$が成り立ち、さらに、$V\left( g|V\left( f|O \right) \right) \in \mathfrak{Q}$が成り立つ。ここで、値域の定義より$c \in V\left( g|V\left( f|O \right) \right)$が成り立つならそのときに限り、$\exists b \in V\left( f|O \right)$に対し、$g(b) = c$が成り立ち、さらに、$\exists a \in O$に対し、$f(a) = b$が成り立つことになるので、次式が成り立つ。
+\begin{align*}
+V\left( g|V\left( f|O \right) \right) = V\left( g \circ f|O \right) \in \mathfrak{Q}
+\end{align*}
+これにより、その合成写像$g \circ f$は開写像である。\par
+それらの写像たち$f:S \rightarrow T$、$g:S \rightarrow T$がどちらも閉写像であるなら、それらの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$における閉集合系たちをそれぞれ$\mathfrak{A}$、$\mathfrak{B}$、$\mathfrak{C}$とおくと、定義より$\forall A \in \mathfrak{A}$に対し、$V\left( f|A \right) \in \mathfrak{B}$が成り立ち、さらに、$V\left( g|V\left( f|A \right) \right) \in \mathfrak{C}$が成り立つことになる。ここで、上記と同様にして、次式が成り立つことが示される。
+\begin{align*}
+V\left( g|V\left( f|A \right) \right) = V\left( g \circ f|A \right) \in \mathfrak{C}
+\end{align*}
+これにより、その合成写像$g \circ f$は閉写像である。
+\end{proof}
+%\hypertarget{ux540cux76f8ux5199ux50cf}{%
+\subsubsection{同相写像}%\label{ux540cux76f8ux5199ux50cf}}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。写像$f:S \rightarrow T$が全単射であるかつ、連続であるかつ、これの逆写像$f^{- 1}$も連続であるとき、その写像$f$をその位相空間$\left( S,\mathfrak{O} \right)$からその位相空間$\left( T,\mathfrak{P} \right)$への同相写像、位相写像、同位相写像、位相同型写像などという。
+\end{dfn}
+\begin{thm}\label{8.1.3.8}
+3つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$と写像たち$f:S \rightarrow T$、$g:T \rightarrow U$が与えられたとき、それらの写像たち$f$、$g$が同相写像であるなら、その合成写像$g \circ f$も同相写像である。
+\end{thm}
+\begin{proof}
+3つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$と写像たち$f:S \rightarrow T$、$g:T \rightarrow U$が与えられたとき、それらの写像たち$f$、$g$が同相写像であるなら、これらは全単射でもあるので、もちろん、その合成写像$g \circ f$は全単射である。さらに、それらの写像たち$f$、$g$は連続でもあり定理\ref{8.1.3.7}よりその合成写像$g \circ f$も連続である。ここで、定義よりそれらの逆写像たち$f^{- 1}$、$g^{- 1}$も連続であるので、定理\ref{8.1.3.7}よりその合成写像$f^{- 1} \circ g^{- 1}$も連続である。ここで、$f^{- 1} \circ g^{- 1} = (g \circ f)^{- 1}$が成り立つので、その逆写像$(g \circ f)^{- 1}$も連続である。以上の議論により、その合成写像$g \circ f$も全単射であるかつ、連続であるかつ、開写像であるので、その合成写像$g \circ f$も同相写像である。
+\end{proof}
+\begin{dfn}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。これらの間に同相写像が存在するとき、これらは同相である、同位相である、位相同型であるなどといいこのことを$\left( S,\mathfrak{O} \right) \approx \left( T,\mathfrak{P} \right)$などと書きこの関係$\approx$を同相関係という。
+\end{dfn}
+\begin{thm}\label{8.1.3.9}
+同相関係$\approx$は同値関係である、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  その関係$\approx$は反射的である、即ち、$\left( S,\mathfrak{O} \right) \approx \left( S,\mathfrak{O} \right)$が成り立つ。
+\item
+  その関係$\approx$は対称的である、即ち、$\left( S,\mathfrak{O} \right) \approx \left( T,\mathfrak{P} \right)$が成り立つなら、$\left( T,\mathfrak{P} \right) \approx \left( S,\mathfrak{O} \right)$が成り立つ。
+\item
+  その関係$\approx$は推移的である、即ち、$\left( S,\mathfrak{O} \right) \approx \left( T,\mathfrak{P} \right)$かつ$\left( T,\mathfrak{P} \right) \approx \left( U,\mathfrak{Q} \right)$が成り立つなら、$\left( S,\mathfrak{O} \right) \approx \left( U,\mathfrak{Q} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+1つの位相空間$\left( S,\mathfrak{O} \right)$が与えられたとする。このとき、恒等写像$I_{S}:S \rightarrow S$は明らかに同相写像であるので、$\left( S,\mathfrak{O} \right) \approx \left( S,\mathfrak{O} \right)$が成り立つ。\par
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとする。$\left( S,\mathfrak{O} \right) \approx \left( T,\mathfrak{P} \right)$が成り立つなら、これらの間に同相写像$f:S \rightarrow T$が存在することになる。ここで、定義よりその写像$f$の逆写像$f^{- 1}:T \rightarrow S$もまた同相写像となるのであったので、$\left( T,\mathfrak{P} \right) \approx \left( S,\mathfrak{O} \right)$が成り立つ。\par
+3つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$、$\left( U,\mathfrak{Q} \right)$が与えられたとする。$\left( S,\mathfrak{O} \right) \approx \left( T,\mathfrak{P} \right)$かつ$\left( T,\mathfrak{P} \right) \approx \left( U,\mathfrak{Q} \right)$が成り立つなら、同相写像たち$f:S \rightarrow T$、$g:T \rightarrow U$が存在することになる。ここで、定理\ref{8.1.3.8}よりその合成写像$g \circ f:S \rightarrow U$もまた同相写像となるのであったので、$\left( S,\mathfrak{O} \right) \approx \left( U,\mathfrak{Q} \right)$が成り立つ。
+\end{proof}
+\begin{thm}\label{8.1.3.10}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、それらの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$における閉集合系たちをそれぞれ$\mathfrak{A}$、$\mathfrak{B}$、$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれると、写像$f:S \rightarrow T$について、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、これの逆写像$f^{- 1}$も連続である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、開写像である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、閉写像である。
+\item
+  その逆写像$f^{- 1}$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall O \in \mathfrak{O}$に対し、$O \in \mathfrak{O \Leftrightarrow}V\left( f|O \right)\in \mathfrak{P}$が成り立つ。
+\item
+  その写像$f$は全単射で、$\forall A \in \mathfrak{A}$に対し、$A \in \mathfrak{A \Leftrightarrow}V\left( f|A \right)\in \mathfrak{B}$が成り立つ。
+\item
+  その写像$f$は全単射で、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V \in \mathbf{V}(a) \Leftrightarrow V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つ。
+\item
+  その写像$f$は全単射で、$\forall M \in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{int}}M \right) = {\mathrm{int}}{V\left( f|M \right)}$が成り立つ。
+\item
+  その写像$f$は全単射で、$\forall M \in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{cl}}M \right) = {\mathrm{cl}}{V\left( f|M \right)}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+2つの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$が与えられたとき、写像$f:S \rightarrow T$について、それらの位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$における閉集合系たちをそれぞれ$\mathfrak{A}$、$\mathfrak{B}$、$a \in S$かつ$b \in T$なる元々$a$、$b$のその位相空間たち$\left( S,\mathfrak{O} \right)$、$\left( T,\mathfrak{P} \right)$の全近傍系たちがそれぞれ$\mathbf{V}(a)$、$\mathbf{W}(b)$とおかれよう。定義より明らかに次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、これの逆写像$f^{- 1}$も連続である。
+\end{itemize}
+定理\ref{8.1.3.5}より明らかに次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、これの逆写像$f^{- 1}$も連続である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、開写像である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、閉写像である。
+\end{itemize}
+また、その逆写像$f^{- 1}$も全単射で、$\left( f^{- 1} \right)^{- 1} = f$が成り立つことから、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射であるかつ、連続であるかつ、これの逆写像$f^{- 1}$も連続である。
+\item
+  その逆写像$f^{- 1}$は同相写像である。
+\end{itemize}\par
+その写像$f$が同相写像であるなら、上記の議論により、その写像$f$は開写像でもあるので、$\forall O \in \mathfrak{O}$に対し、$V\left( f|O \right)\in \mathfrak{P}$が成り立つ。また、上記の議論により、その逆写像$f^{- 1}$も同相写像で開写像でもあり、$V\left( f|O \right)\in \mathfrak{P}$が成り立つなら、$V\left( f^{- 1}|V\left( f|O \right) \right) = O$より$O\in \mathfrak{O}$が成り立つ。これにより、その写像$f$は全単射で$O \in \mathfrak{O \Leftrightarrow}V\left( f|O \right)\in \mathfrak{P}$が成り立つことが示された。逆に、その写像$f$は全単射で、$\forall O \in \mathfrak{O}$に対し、$O \in \mathfrak{O \Leftrightarrow}V\left( f|O \right)\in \mathfrak{P}$が成り立つなら、$\forall P \in \mathfrak{P}$に対し、$O = V\left( f^{- 1}|P \right)$とすれば、その写像$f$は全単射であるので、$P = V\left( f|V\left( f^{- 1}|P \right) \right)$が成り立ち$V\left( f^{- 1}|P \right) \in \mathfrak{O}$が成り立つ。したがって、その写像$f$は連続である。また、その写像$f$は明らかに開写像でもあるので、上記の議論によりしたがって、その写像$f$は同相写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall O \in \mathfrak{O}$に対し、$O \in \mathfrak{O \Leftrightarrow}V\left( f|O \right)\in \mathfrak{P}$が成り立つ。
+\end{itemize}\par
+その写像$f$が同相写像であるなら、上記の議論により、その写像$f$は閉写像でもあるので、$\forall A \in \mathfrak{A}$に対し、$V\left( f|A \right) \in \mathfrak{B}$が成り立つ。また、上記の議論により、その逆写像$f^{- 1}$も同相写像で閉写像でもあり、$V\left( f|A \right)\in \mathfrak{B}$が成り立つなら、$V\left( f^{- 1}|V\left( f|A \right) \right) = A$より$A \in \mathfrak{A}$が成り立つ。これにより、その写像$f$は全単射で$A \in \mathfrak{A} \Leftrightarrow V\left( f|A \right) \in \mathfrak{B}$が成り立つことが示された。逆に、その写像$f$は全単射で、$\forall A \in \mathfrak{A}$に対し、$A \in \mathfrak{A} \Leftrightarrow V\left( f|A \right) \in \mathfrak{B}$が成り立つなら、$\forall P \in \mathfrak{P}$に対し、$A = V\left( f^{- 1}|T \setminus P \right)$とすれば、その写像$f$は全単射であるので、$T \setminus P = V\left( f|V\left( f^{- 1}|T \setminus P \right) \right)$が成り立ち$V\left( f^{- 1}|T \setminus P \right) = S \setminus V\left( f^{- 1}|P \right) \in \mathfrak{A}$が成り立つ。したがって、$V\left( f^{- 1}|P \right)\in \mathfrak{O}$が得られその写像$f$は連続である。また、その写像$f$は明らかに閉写像でもあるので、上記の議論によりしたがって、その写像$f$は同相写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall A \in \mathfrak{A}$に対し、$A \in \mathfrak{A \Leftrightarrow}V\left( f|A \right)\in \mathfrak{B}$が成り立つ。
+\end{itemize}\par
+写像$f:S \rightarrow T$が同相写像であるなら、定義より明らかにその写像$f$は全単射である。また、その写像$f$の逆写像$f^{- 1}$は連続であるので、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つ。また、その写像$f$は連続であるので、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つなら、$V\left( f^{- 1}|V\left( f|V \right) \right) \in \mathbf{V}\left( f^{- 1}\left( f(a) \right) \right)$が成り立つ。そこで、その写像$f$は全単射であるので、$V\left( f^{- 1}|V\left( f|V \right) \right) = V$が成り立つかつ、$f^{- 1}\left( f(a) \right) = a$も成り立つので、$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つなら、$V \in \mathbf{V}(a)$が成り立つ。これにより、その写像$f$は全単射で、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V \in \mathbf{V}(a) \Leftrightarrow V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つことが示された。逆に、その写像$f$は全単射で、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V \in \mathbf{V}(a) \Leftrightarrow V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つなら、$\forall W \in \mathbf{W}\left( f(a) \right)$に対し、その写像$f$が全単射なので、$W = V\left( f|V\left( f^{- 1}|W \right) \right)$が成り立つことにより$V\left( f|V\left( f^{- 1}|W \right) \right) \in \mathbf{W}\left( f(a) \right)$が成り立ち、したがって、$V\left( f^{- 1}|W \right) \in \mathbf{V}(a)$が成り立つ。したがって、その写像$f$は連続である。また、$\forall b \in T$に対し、その写像$f$は全単射なので、$\exists a \in S$に対し、$f(a) = b$が成り立つ。そこで、$\forall V \in \mathbf{V}\left( f^{- 1}(b) \right)$に対し、$V \in \mathbf{V}\left( f^{- 1}(b) \right)$が成り立つなら、$a = f^{- 1}(b)$より$V \in \mathbf{V}(a)$で$V\left( f|V \right) \in \mathbf{W}\left( f(a) \right) = \mathbf{W}(b)$が成り立つ。したがって、その写像$f^{- 1}$は連続である。定義よりしたがって、その写像$f$は同相写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall a \in S\forall V \in \mathbf{V}(a)$に対し、$V \in \mathbf{V}(a) \Leftrightarrow V\left( f|V \right) \in \mathbf{W}\left( f(a) \right)$が成り立つ。
+\end{itemize}\par
+その写像$f:S \rightarrow T$が同相写像であるなら、定義より明らかにその写像$f$は全単射である。また、その写像$f$の逆写像$f^{- 1}$が存在し連続であるので、$\forall M\in \mathfrak{P}(S)$に対し、その集合${\mathrm{int}}M$は開集合で$V\left( f|{\mathrm{int}}M \right) \in \mathfrak{P}$が成り立つ。これにより、${\mathrm{int}}M \subseteq M$が成り立つので、$V\left( f|{\mathrm{int}}M \right) \subseteq V\left( f|M \right)$が成り立ち、したがって、$V\left( f|{\mathrm{int}}M \right) \subseteq {\mathrm{int}}{V\left( f|M \right)}$が成り立つ。また、$\exists b \in {\mathrm{int}}{V\left( f|M \right)}$に対し、$b \in {\mathrm{int}}{V\left( f|M \right)}$かつ$b \notin V\left( f|{\mathrm{int}}M \right)$が成り立つと仮定すると、${\mathrm{int}}{V\left( f|M \right)} \subseteq V\left( f|M \right)$が成り立つので、$b \in V\left( f|M \right) \setminus V\left( f|{\mathrm{int}}M \right)$が成り立つ。その写像$f$は全単射なので、次のようになり、
+\begin{align*}
+b \in V\left( f|M \right) \setminus V\left( f|{\mathrm{int}}M \right) = V\left( f|M \setminus {\mathrm{int}}M \right)
+\end{align*}
+値域の定義より$\exists a \in M \setminus {\mathrm{int}}M$に対し、$f(a) = b$が成り立ち$a \notin {\mathrm{int}}M$が成り立つ。また、${\mathrm{int}}{V\left( f|M \right)} \in \mathfrak{P}$が成り立ちその写像$f$は連続であるので、$V\left( f^{- 1}|{\mathrm{int}}{V\left( f|M \right)} \right) \in \mathfrak{O}$が成り立つ。したがって、次のようになり
+\begin{align*}
+V\left( f^{- 1}|{\mathrm{int}}{V\left( f|M \right)} \right) &= {\mathrm{int}}{V\left( f^{- 1}|{\mathrm{int}}{V\left( f|M \right)} \right)}\\
+&\subseteq {\mathrm{int}}{V\left( f^{- 1}|V\left( f|M \right) \right)}\\
+&= {\mathrm{int}}M
+\end{align*}
+ここで、$a \notin {\mathrm{int}}M$が成り立つので、$a \notin V\left( f^{- 1}|{\mathrm{int}}{V\left( f|M \right)} \right)$となり、その写像$f$が全単射であることに注意すれば、値域の定義よりしたがって、$f(a) = b \notin {\mathrm{int}}{V\left( f|M \right)}$が成り立つことになるが、これは仮定の$b \in {\mathrm{int}}{V\left( f|M \right)}$が成り立つことに矛盾している。したがって、$\forall b \in {\mathrm{int}}{V\left( f|M \right)}$に対し、$b \in {\mathrm{int}}{V\left( f|M \right)}$が成り立つなら、$b \in V\left( f|{\mathrm{int}}M \right)$が成り立つことになり$V\left( f|{\mathrm{int}}M \right) \supseteq {\mathrm{int}}{V\left( f|M \right)}$が得られる。よって、その写像$f$は全単射で、$\forall M\in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{int}}M \right) = {\mathrm{int}}{V\left( f|M \right)}$が成り立つ。逆に、その写像$f:S \rightarrow T$が全単射で、$\forall M\in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{int}}M \right) = {\mathrm{int}}{V\left( f|M \right)}$が成り立つなら、$\forall O \in \mathfrak{O}$に対し、次のようになるので、
+\begin{align*}
+V\left( f|O \right) &= V\left( f|{\mathrm{int}}O \right)\\
+&= {\mathrm{int}}{V\left( f|O \right)} \in \mathfrak{P}
+\end{align*}
+その逆写像$f^{- 1}$は連続である。また、$\forall P \in \mathfrak{P}$に対し、その写像$f$は全単射で次のようになるので、
+\begin{align*}
+V\left( f^{- 1}|P \right) &= V\left( f^{- 1}|{\mathrm{int}}P \right)\\
+&= V\left( f^{- 1}|{\mathrm{int}}{V\left( f|V\left( f^{- 1}|P \right) \right)} \right)\\
+&= V\left( f^{- 1}|V\left( f|{\mathrm{int}}{V\left( f^{- 1}|P \right)} \right) \right)\\
+&= {\mathrm{int}}{V\left( f^{- 1}|P \right)} \in \mathfrak{O}
+\end{align*}
+その写像$f$は連続である。よって、その写像$f$は同相写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall M \in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{int}}M \right) = {\mathrm{int}}{V\left( f|M \right)}$が成り立つ。
+\end{itemize}\par
+その写像$f:S \rightarrow T$が同相写像であるなら、定義より明らかにその写像$f$は全単射である。また、その写像$f$は閉写像でもあるので、$\forall M\in \mathfrak{P}(S)$に対し、その集合${\mathrm{cl}}M$は閉集合で$V\left( f|{\mathrm{cl}}M \right) \in \mathfrak{B}$が成り立つ。これにより、$M \subseteq {\mathrm{cl}}M$が成り立つので、$V\left( f|M \right) \subseteq V\left( f|{\mathrm{cl}}M \right)$が成り立ち、したがって、${\mathrm{cl}}{V\left( f|M \right)} \subseteq V\left( f|{\mathrm{cl}}M \right)$が成り立つ。また、$\exists b \in V\left( f|{\mathrm{cl}}M \right)$に対し、$b \in V\left( f|{\mathrm{cl}}M \right)$かつ$b \notin {\mathrm{cl}}{V\left( f|M \right)}$が成り立つと仮定すると、$V\left( f|M \right) \subseteq {\mathrm{cl}}{V\left( f|M \right)}$が成り立つので、$b \in V\left( f|{\mathrm{cl}}M \right) \setminus V\left( f|M \right)$が成り立つ。その写像$f$は全単射なので、次のようになり、
+\begin{align*}
+b \in V\left( f|{\mathrm{cl}}M \right) \setminus V\left( f|M \right) = V\left( f|{\mathrm{cl}}M \setminus M \right)
+\end{align*}
+値域の定義より$\forall a \in {\mathrm{cl}}M \setminus M$に対し、$f(a) = b$が成り立ち$a \in {\mathrm{cl}}M$が成り立つ。また、${\mathrm{cl}}{V\left( f|M \right)} \in \mathfrak{B}$が成り立ちその写像$f$は連続であるので、$V\left( f^{- 1}|{\mathrm{cl}}{V\left( f|M \right)} \right) \in \mathfrak{A}$が成り立つ。したがって、次のようになり
+\begin{align*}
+{\mathrm{cl}}M &= {\mathrm{cl}}{V\left( f^{- 1}|V\left( f|M \right) \right)}\\
+&\subseteq {\mathrm{cl}}{V\left( f^{- 1}|{\mathrm{cl}}{V\left( f|M \right)} \right)}\\
+&= V\left( f^{- 1}|{\mathrm{cl}}{V\left( f|M \right)} \right)
+\end{align*}
+ここで、$a \in {\mathrm{cl}}M$が成り立つので、$a \in V\left( f^{- 1}|{\mathrm{cl}}{V\left( f|M \right)} \right)$となり、その写像$f$が全単射であることに注意すれば、値域の定義よりしたがって、$f(a) = b \in {\mathrm{cl}}{V\left( f|M \right)}$に属することになるが、これは仮定の$b \notin {\mathrm{cl}}{V\left( f|M \right)}$が成り立つことに矛盾している。したがって、$\forall b \in {\mathrm{int}}{V\left( f|M \right)}$に対し、$b \in V\left( f|{\mathrm{cl}}M \right)$が成り立つなら、$b \in {\mathrm{cl}}{V\left( f|M \right)}$が成り立つことになり${\mathrm{cl}}{V\left( f|M \right)} \supseteq V\left( f|{\mathrm{cl}}M \right)$が得られる。よって、その写像$f$は全単射で、$\forall M\in \mathfrak{P}(S)$に対し、${\mathrm{cl}}{V\left( f|M \right)} = V\left( f|{\mathrm{cl}}M \right)$が成り立つ。逆に、その写像$f:S \rightarrow T$が全単射で、$\forall M\in \mathfrak{P}(S)$に対し、${\mathrm{cl}}{V\left( f|M \right)} = V\left( f|{\mathrm{cl}}M \right)$が成り立つなら、$\forall A \in \mathfrak{A}$に対し、次のようになるので、
+\begin{align*}
+V\left( f|A \right) &= V\left( f|{\mathrm{cl}}A \right)\\
+&= {\mathrm{cl}}{V\left( f|A \right)} \in \mathfrak{B}
+\end{align*}
+その写像$f$は閉写像であり定理\ref{8.1.3.5}よりその逆写像$f^{- 1}$は連続である。また、$\forall B \in \mathfrak{B}$に対し、その写像$f$は全単射で次のようになるので、
+\begin{align*}
+V\left( f^{- 1}|B \right) &= V\left( f^{- 1}|{\mathrm{cl}}B \right)\\
+&= V\left( f^{- 1}|{\mathrm{cl}}{V\left( f|V\left( f^{- 1}|B \right) \right)} \right)\\
+&= V\left( f^{- 1}|V\left( f|{\mathrm{cl}}{V\left( f^{- 1}|B \right)} \right) \right)\\
+&= {\mathrm{cl}}{V\left( f^{- 1}|B \right)} \in \mathfrak{A}
+\end{align*}
+その写像$f$は連続である。よって、その写像$f$は同相写像である。以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$は同相写像である。
+\item
+  その写像$f$は全単射で、$\forall M \in \mathfrak{P}(S)$に対し、$V\left( f|{\mathrm{cl}}M \right) = {\mathrm{cl}}{V\left( f|M \right)}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p175-186 ISBN978-4-00-029871-1
+\end{thebibliography}
+\end{document}

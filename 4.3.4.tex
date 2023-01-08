@@ -1,0 +1,235 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{3}
+\usepackage{xr}
+\externaldocument{4.1.12}
+\externaldocument{4.2.1}
+\externaldocument{4.2.8}
+\externaldocument{4.3.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux7121ux9650ux7a4d}{%
+\subsection{無限積}%\label{ux7121ux9650ux7a4d}}
+%\hypertarget{ux7121ux9650ux7a4d-1}{%
+\subsubsection{無限積}%\label{ux7121ux9650ux7a4d-1}}
+\begin{dfn}
+複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から新しい元の列$\left( p_{n} \right)_{n \in \mathbb{N}}$を次式のように定義する。
+\begin{align*}
+\left( p_{n} \right)_{n \in \mathbb{N}} = \left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}
+\end{align*}
+この元の列$\left( p_{n} \right)_{n \in \mathbb{N}}$をその複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積、その複素数$a_{n}$を第$n$項とする無限積といい、その第$n$項$p_{n}$は定義より明らかにその複素数$\prod_{k \in \varLambda_{n}} a_{n}$に等しく、これをこの無限積$\left( p_{n} \right)_{n \in \mathbb{N}}$の第$m$部分積という。
+\end{dfn}
+\begin{dfn}
+複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$の$0$でない極限値$p$が存在すれば、この無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束するといい、その極限値$p$は$\lim_{n \rightarrow \infty}{\prod_{k \in \varLambda_{n}} a_{n}}$、$\prod_{n \in \mathbb{N}} a_{n}$、$\prod_{k = 1}^{\infty}a_{k}$、$\prod_{k} a_{k}$、$\prod_{} a_{m}$、$a_{1}a_{2}\cdots$などと書く。逆に、その無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束しないとき、この無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は発散するという。
+\end{dfn}
+%\hypertarget{ux7121ux9650ux7a4dux306bux95a2ux3059ux308bcauchyux306eux53ceux675fux6761ux4ef6}{%
+\subsubsection{無限積に関するCauchyの収束条件}%\label{ux7121ux9650ux7a4dux306bux95a2ux3059ux308bcauchyux306eux53ceux675fux6761ux4ef6}}
+\begin{thm}[無限積に関するCauchyの収束条件]\label{4.3.4.1}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq 0$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するならそのときに限り、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m < n$が成り立つなら、$\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| < \varepsilon$が成り立つ。この定理を無限積に関するCauchyの収束条件という。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq 0$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するとする。$\exists n \in \mathbb{N}\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\left| \prod_{k \in \varLambda_{n}} a_{k} \right| < \varepsilon$が成り立つなら、$\prod_{k \in \varLambda_{n}} a_{k} = 0$が成り立つので、$\prod_{n \in \mathbb{N}} a_{n} = 0$が成り立つことになるが、これは仮定に矛盾している。ゆえに、$\forall n \in \mathbb{N}\exists M \in \mathbb{R}^{+}$に対し、$M < 2M \leq \left| \prod_{k \in \varLambda_{n}} a_{k} \right|$が成り立つ。そこで、Cauchyの収束条件より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m$かつ$N \leq n$が成り立つなら、$\left| \prod_{k \in \varLambda_{n}} a_{k} - \prod_{k \in \varLambda_{m}} a_{k} \right| < \varepsilon M$が成り立つので、次のようになる。
+\begin{align*}
+\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| &= \left| \frac{\prod_{k \in \varLambda_{n}} a_{k}}{\prod_{k \in \varLambda_{m}} a_{k}} - 1 \right|\\
+&= \frac{\left| \prod_{k \in \varLambda_{n}} a_{k} - \prod_{k \in \varLambda_{m}} a_{k} \right|}{\left| \prod_{k \in \varLambda_{m}} a_{k} \right|}\\
+&< \frac{\varepsilon M}{\left| \prod_{k \in \varLambda_{m}} a_{k} \right|} < \varepsilon
+\end{align*}
+ここで、$m < n$が成り立つとしても一般性は失われず、次のようになる。
+\begin{align*}
+\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| < \varepsilon
+\end{align*}\par
+逆に、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m < n$が成り立つなら、$\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| < \varepsilon$が成り立つとすると、次のように複素数列$\left( q_{n} \right)_{n \in \mathbb{N}}$が定義されれば、
+\begin{align*}
+\left( q_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R};n \mapsto \prod_{k \in \varLambda_{n}} a_{M + k}
+\end{align*}
+$\exists M \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$\left| \prod_{k \in \varLambda_{n + M} \setminus \varLambda_{M}} a_{k} - 1 \right| < \frac{1}{2}$が成り立つので、次のようになる。
+\begin{align*}
+\left| \prod_{k \in \varLambda_{n + M} \setminus \varLambda_{M}} a_{k} - 1 \right| = \left| \prod_{k \in \varLambda_{n}} a_{M + k} - 1 \right| = \left| q_{n} - 1 \right| < \frac{1}{2}
+\end{align*}
+これにより、次式が成り立つので、
+\begin{align*}
+\frac{1}{2} < \left| q_{n} \right| < \frac{3}{2}
+\end{align*}
+その複素数列$\left( \left| q_{n} \right| \right)_{n \in \mathbb{N}}$は$0$に収束することはなく、したがって、その複素数列$\left( q_{n} \right)_{n \in \mathbb{N}}$も$0$に収束することはない。また、$\forall m,n \in \mathbb{N}$に対し、$\max\left\{ M,N \right\} \leq m < n$が成り立つなら、次のようになるので、
+\begin{align*}
+\left| q_{n - M} - q_{m - M} \right| &= \left| \frac{q_{n - M}}{q_{m - M}} - 1 \right|\left| q_{m - M} \right|\\
+&= \left| \frac{\prod_{k \in \varLambda_{n} \setminus \varLambda_{M}} a_{k}}{\prod_{k \in \varLambda_{m} \setminus \varLambda_{M}} a_{k}} - 1 \right|\left| q_{m - M} \right|\\
+&< \frac{3}{2}\left| \frac{\prod_{k \in \varLambda_{n}} a_{k}}{\prod_{k \in \varLambda_{m}} a_{k}} - 1 \right|\\
+&= \frac{3}{2}\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| < \frac{3}{2}\varepsilon
+\end{align*}
+その複素数列$\left( q_{n - M} \right)_{n \in \mathbb{N}}$はCauchy列でありCauchyの収束条件よりその複素数列$\left( q_{n - M} \right)_{n \in \mathbb{N}}$は収束する。ゆえに、その複素数列$\left( q_{n} \right)_{n \in \mathbb{N}}$も収束することになり、したがって、その無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$も収束する。
+\end{proof}
+\begin{thm}\label{4.3.4.2}
+無限積に関するCauchyの収束条件の系として、$\forall n \in \mathbb{N}$に対し、$a_{n} \neq 0$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するなら、その複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は$1$に収束する。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq 0$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するならそのときに限り、無限積に関するCauchyの収束条件より、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m < n$が成り立つなら、$\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} a_{k} - 1 \right| < \varepsilon$が成り立つ。特に、$n = m + 1$とすれば、次のようになる。
+\begin{align*}
+\left| \prod_{k \in \varLambda_{m + 1} \setminus \varLambda_{m}} a_{k} - 1 \right| = \left| a_{m + 1} - 1 \right| < \varepsilon
+\end{align*}
+よって、その複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は$1$に収束する。
+\end{proof}
+%\hypertarget{ux7d1aux6570ux3068ux7121ux9650ux7a4d}{%
+\subsubsection{級数と無限積}%\label{ux7d1aux6570ux3068ux7121ux9650ux7a4d}}
+\begin{thm}\label{4.3.4.3}
+$0 \leq \left( a_{n} \right)_{n \in \mathbb{N}}$なる実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束する。
+\item
+  無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$0 \leq \left( a_{n} \right)_{n \in \mathbb{N}}$なる実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$0 \leq a_{n}$、$1 \leq 1 + a_{n}$が成り立つので、これらの実数列たち$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$、$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は単調増加している。そこで、$\forall n \in \mathbb{N}$に対し、$1 \leq \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right)$が成り立つので、その実数列$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$が$0$に収束することはない。\par
+その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が収束するなら、定理\ref{4.1.8.7}よりこれは有界であるので、$\forall n \in \mathbb{N}\exists M \in \mathbb{R}^{+}$に対し、$\sum_{k \in \varLambda_{n}} a_{k} < M$が成り立つ。そこで、$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$1 + x \leq \exp x$が成り立つので\footnote{詳しくいえば、次の通りである。$f:\mathbb{R}^{+} \cup \left\{ 0 \right\} \rightarrow \mathbb{R};x \mapsto \exp x - x - 1$とおかれれば、$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようになる。
+\begin{align*}
+\partial f(x) = \frac{d}{dx}\left( \exp x - x - 1 \right) = \exp x - 1 \geq 0
+\end{align*}
+これにより、その関数$f$は単調増加しており$f(0) = 0$なので、$0 \leq f$が成り立つ。よって、$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$1 + x \leq \exp x$が成り立つ。}、自然な指数関数$\exp$が狭義単調増加していることに注意すれば、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \leq \prod_{k \in \varLambda_{n}} {\exp a_{k}} = \exp{\sum_{k \in \varLambda_{n}} a_{k}} < \exp M
+\end{align*}
+これにより、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は有界である。そこで、先ほどの議論により、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は単調増加しているので、定理\ref{4.1.4.16}よりその無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は収束する。\par
+逆に、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$が収束するなら、定理\ref{4.1.4.7}よりこれは有界であるので、$\forall n \in \mathbb{N}\exists M \in \mathbb{R}^{+}$に対し、$\prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) < M$が成り立つ。そこで、次式が成り立つので、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} a_{k} \leq \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) < M
+\end{align*}
+その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は有界である。そこで、先ほどの議論により、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は単調増加しているので、定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$は収束する。
+\end{proof}
+%\hypertarget{ux7121ux9650ux7a4dux306eux7d76ux5bfeux53ceux675f}{%
+\subsubsection{無限積の絶対収束}%\label{ux7121ux9650ux7a4dux306eux7d76ux5bfeux53ceux675f}}
+\begin{thm}\label{4.3.4.4}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq - 1$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + \left| a_{k} \right| \right) \right)_{n \in \mathbb{N}}$が収束するなら、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$も収束する。
+\end{thm}
+\begin{dfn}
+上の無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + \left| a_{k} \right| \right) \right)_{n \in \mathbb{N}}$が収束するとき、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は絶対収束するという。
+\end{dfn}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq - 1$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$が収束するなら、定理\ref{4.3.4.1}、即ち、無限積に関するCauchyの収束条件より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、$N \leq m < n$が成り立つなら、$\prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} \left( 1 + \left| a_{k} \right| \right) - 1 < \varepsilon$が成り立つ。ここで、数学的帰納法によってわかるように次式が成り立つので、
+\begin{align*}
+\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} \left( 1 + a_{k} \right) - 1 \right| \leq \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} \left( 1 + \left| a_{k} \right| \right) - 1
+\end{align*}
+$\left| \prod_{k \in \varLambda_{n} \setminus \varLambda_{m}} \left( 1 + a_{k} \right) - 1 \right| < \varepsilon$も成り立つ。定理\ref{4.3.4.1}、即ち、無限積に関するCauchyの収束条件よりその無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$も収束する。
+\end{proof}
+\begin{thm}\label{4.3.4.5}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq - 1$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が絶対収束する。
+\item
+  その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$が絶対収束する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$a_{n} \neq - 1$なる複素数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その級数$\left( \sum_{k \in \varLambda_{n}} a_{k} \right)_{n \in \mathbb{N}}$が絶対収束するならそのときに限り、その級数$\left( \sum_{k \in \varLambda_{n}} \left| a_{k} \right| \right)_{n \in \mathbb{N}}$が収束する。定理\ref{4.3.4.3}よりこれが成り立つならそのときに限り、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + \left| a_{k} \right| \right) \right)_{n \in \mathbb{N}}$も収束するので、これが成り立つならそのときに限り、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + a_{k} \right) \right)_{n \in \mathbb{N}}$は絶対収束する。
+\end{proof}
+%\hypertarget{ux7121ux9650ux7a4dux306bux95a2ux3059ux308bux512aux7d1aux6570ux5b9aux7406}{%
+\subsubsection{無限積に関する優級数定理}%\label{ux7121ux9650ux7a4dux306bux95a2ux3059ux308bux512aux7d1aux6570ux5b9aux7406}}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}^{m}$、$S \subseteq \mathbb{C}$なる関数空間$\mathfrak{F}(A,S)$の関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられ、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、$f_{n}\left( \mathbf{x} \right) \neq 0$が成り立つとする。$\forall\mathbf{x} \in A$に対し、無限積$\left( \prod_{k \in \varLambda_{n}} {f_{k}\left( \mathbf{x} \right)} \right)_{n \in \mathbb{N}}$が$0$でない値に収束するとき、$f\left( \mathbf{x} \right) = \prod_{n \in \mathbb{N}} {f_{n}\left( \mathbf{x} \right)}$とおくと、この無限積$\left( \prod_{k \in \varLambda_{n}} f_{k} \right)_{n \in \mathbb{N}}$はその集合$A$上でその極限関数$f:A \rightarrow S$に各点収束するといい、その極限関数$f$を$\prod_{n \in \mathbb{N}} f_{n}$と書くことにする。
+\end{dfn}
+\begin{dfn}
+$A \subseteq R \subseteq \mathbb{R}^{m}$、$S \subseteq \mathbb{C}$なる有界関数空間$\mathfrak{B}(A,S)$の関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられ、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、$f_{n}\left( \mathbf{x} \right) \neq 0$が成り立つとする。その関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$から誘導される無限積$\left( \prod_{k \in \varLambda_{n}} f_{k} \right)_{n \in \mathbb{N}}$について、ある$0$でない関数$f:A \rightarrow S$が存在して、$\lim_{n \rightarrow \infty}\left\| \prod_{k \in \varLambda_{n}} f_{k} - f \right\|_{A,\infty} = 0$が成り立つとき、この無限積$\left( \prod_{k \in \varLambda_{n}} f_{k} \right)_{n \in \mathbb{N}}$はその集合$A$上でその関数$f:A \rightarrow S$に一様収束するという。
+\end{dfn}
+\begin{thm}\label{4.3.4.6}
+$A \subseteq R \subseteq \mathbb{R}^{m}$、$S \subseteq \mathbb{C}$なる有界関数空間$\mathfrak{B}(A,S)$の関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられ、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、$f_{n}\left( \mathbf{x} \right) \neq - 1$が成り立つとする。その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$が次の条件たちいづれも満たすとき、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\exists M_{n} \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$\left| f_{n} \right| \leq M_{n}$が成り立つ\footnote{もちろん、$\forall\mathbf{x} \in A\forall k \in \mathbb{N}\exists M_{k} \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$\left\| f_{k}\left( \mathbf{x} \right) \right\| \leq M_{k}$が成り立つという意味である。}。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} M_{k} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$はその集合$A$上で一様収束する。\par
+この定理を無限積に関する優級数定理、無限積に関するWeierstrassの$M$判定法という。この定理におけるその級数$\left( \sum_{k \in \varLambda_{n}} M_{k} \right)_{n \in \mathbb{N}}$をその無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$の優級数という。
+\end{thm}
+\begin{proof}
+$A \subseteq R \subseteq \mathbb{R}^{m}$、$S \subseteq \mathbb{C}$なる有界関数空間$\mathfrak{B}(A,S)$の関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられ、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、$f_{n}\left( \mathbf{x} \right) \neq - 1$が成り立つとする。その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$が次の条件たちいづれも満たすとき、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\exists M_{n} \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$\left| f_{n} \right| \leq M_{n}$が成り立つ。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} M_{k} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+その級数$\left( \sum_{k \in \varLambda_{n}} M_{k} \right)_{n \in \mathbb{N}}$の極限値を$M$とすれば、$\forall\mathbf{x} \in A\forall n \in \mathbb{N}$に対し、次式が成り立つので、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} \left| f_{k}\left( \mathbf{x} \right) \right| \leq \sum_{k \in \varLambda_{n}} M_{k} \leq \sum_{n \in \mathbb{N}} M_{n} = M
+\end{align*}
+定理\ref{4.1.8.7}よりその級数$\left( \sum_{k \in \varLambda_{n}} \left| f_{k}\left( \mathbf{x} \right) \right| \right)_{n \in \mathbb{N}}$は収束するので、その級数$\left( \sum_{k \in \varLambda_{n}} {f_{k}\left( \mathbf{x} \right)} \right)_{n \in \mathbb{N}}$は絶対収束する。定理\ref{4.3.4.5}よりその無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k}\left( \mathbf{x} \right) \right) \right)_{n \in \mathbb{N}}$も絶対収束する。$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$1 + x \leq \exp x$が成り立つことに注意すれば\footnote{詳しくいえば、次の通りである。$f:\mathbb{R}^{+} \cup \left\{ 0 \right\} \rightarrow \mathbb{R};x \mapsto \exp x - x - 1$とおかれれば、$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、次のようになる。
+\begin{align*}
+\partial f(x) = \frac{d}{dx}\left( \exp x - x - 1 \right) = \exp x - 1 \geq 0
+\end{align*}
+これにより、その関数$f$は単調増加しており$f(0) = 0$なので、$0 \leq f$が成り立つ。よって、$\forall x \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$1 + x \leq \exp x$が成り立つ。}、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、次のようになるので、
+\begin{align*}
+\left| \prod_{k \in \varLambda_{n}} \left( 1 + f_{k}\left( \mathbf{x} \right) \right) \right| &\leq \prod_{k \in \varLambda_{n}} \left( 1 + \left| f_{k}\left( \mathbf{x} \right) \right| \right)\\
+&\leq \prod_{k \in \varLambda_{n}} \left( 1 + M_{k} \right)\\
+&\leq \prod_{k \in \varLambda_{n}} {\exp M_{k}}\\
+&= \exp{\sum_{k \in \varLambda_{n}} M_{k}}\\
+&\leq \exp{\sum_{n \in \mathbb{N}} M_{n}}\\
+&= \exp M
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\left\| \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right\|_{A,\infty} &= \left\| f_{n + 1}\prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right\|_{A,\infty}\\
+&= \sup_{\mathbf{x} \in A}\left| f_{n + 1}\left( \mathbf{x} \right)\prod_{k \in \varLambda_{n}} \left( 1 + f_{k}\left( \mathbf{x} \right) \right) \right|\\
+&\leq M_{n + 1}\sup_{\mathbf{x} \in A}\left| \prod_{k \in \varLambda_{n}} \left( 1 + f_{k}\left( \mathbf{x} \right) \right) \right|\\
+&\leq M_{n + 1}\exp M
+\end{align*}\par
+ここで、次のように実数列$\left( s_{n} \right)_{n \in \mathbb{N}}$が定義されれば、
+\begin{align*}
+\left( s_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R};n \mapsto s_{n} = \sum_{k \in \varLambda_{n}} \left\| \prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right) - \prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right) \right\|_{A,\infty}
+\end{align*}
+その実数列$\left( s_{n} \right)_{n \in \mathbb{N}}$は正項級数であり、次のようになるので、
+\begin{align*}
+s_{n} &= \sum_{k \in \varLambda_{n}} \left\| \prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right) - \prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right) \right\|_{A,\infty}\\
+&\leq \sum_{k \in \varLambda_{n}} {M_{k + 1}\exp M}\\
+&\leq \sum_{n \in \mathbb{N}} M_{n}\exp M\\
+&= M\exp M
+\end{align*}
+定理\ref{4.1.8.7}よりその実数列$\left( s_{n} \right)_{n \in \mathbb{N}}$は収束する。\par
+以上の議論により、次のようにおかれると、
+\begin{align*}
+N_{n} = \left\| \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right\|_{A,\infty}
+\end{align*}
+$s_{n} = \sum_{k \in \varLambda_{n}} N_{k}$が成り立つことに注意すれば、次のことが成り立つので、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}\exists N_{n} \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$\left\| \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right\|_{A,\infty} \leq N_{n}$が成り立つ。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} N_{k} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+定理\ref{4.1.11.17}、即ち、Weierstrassの$M$判定法よりその級数$\left( \sum_{k \in \varLambda_{n}} \left( \prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right) - \prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right) \right) \right)_{n \in \mathbb{N}}$はその集合$A$上で一様収束する。そこで、次のようになるので、
+\begin{align*}
+\sum_{k \in \varLambda_{n}} \left( \prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right) - \prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right) \right) &= \sum_{k \in \varLambda_{n}} {\prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right)} - \sum_{k \in \varLambda_{n}} {\prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right)}\\
+&= \sum_{k \in \varLambda_{n - 1}} {\prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right)} - \sum_{k \in \varLambda_{n} \setminus \left\{ 1 \right\}} {\prod_{l \in \varLambda_{k}} \left( 1 + f_{l} \right)} \\
+&\quad + \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right)\\
+&= \sum_{k \in \varLambda_{n - 1}} {\prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right)} - \sum_{k \in \varLambda_{n - 1}} {\prod_{l \in \varLambda_{k + 1}} \left( 1 + f_{l} \right)} \\
+&\quad + \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right)\\
+&= \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right)
+\end{align*}
+その関数列$\left( \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right) \right)_{n \in \mathbb{N}}$はその集合$A$上で一様収束する。これの極限関数が$f$とおかれれば、次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left\| \prod_{k \in \varLambda_{n + 1}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right) - f \right\|_{A,\infty} &= \lim_{n \rightarrow \infty}\left\| \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} \right) - f \right\|_{A,\infty}\\
+&= \lim_{n \rightarrow \infty}\left\| \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) - \left( 1 + f_{1} + f \right) \right\|_{A,\infty} = 0
+\end{align*}
+よって、その関数列$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$はその集合$A$上で一様収束する。
+\end{proof}
+\begin{thm}\label{4.3.4.7}
+$A \subseteq R \subseteq \mathbb{R}^{m}$、$S \subseteq \mathbb{C}$なる有界関数空間$\mathfrak{B}(A,S)$の関数列$\left( f_{n} \right)_{n \in \mathbb{N}}$が与えられ、$\forall n \in \mathbb{N}\forall\mathbf{x} \in A$に対し、$f_{n}\left( \mathbf{x} \right) \neq - 1$が成り立つとする。その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$が次の条件たちいづれも満たすとき、
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{N}$に対し、その関数$f_{n}$はその集合$A$で連続である。
+\item
+  $\forall n \in \mathbb{N}\exists M_{n} \in \mathbb{R}^{+} \cup \left\{ 0 \right\}$に対し、$\left| f_{n} \right| \leq M_{n}$が成り立つ。
+\item
+  その級数$\left( \sum_{k \in \varLambda_{n}} M_{k} \right)_{n \in \mathbb{N}}$が収束する。
+\end{itemize}
+その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$はその集合$A$上で一様収束しその極限関数は連続である。
+\end{thm}
+\begin{proof} 定理\ref{4.1.11.8}より$\forall n \in \mathbb{N}$に対し、その関数$\prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right)$がその集合$A$で連続であるかつ、その無限積$\left( \prod_{k \in \varLambda_{n}} \left( 1 + f_{k} \right) \right)_{n \in \mathbb{N}}$がその集合$A$上でその関数$f:A \rightarrow S$に一様収束するなら、その極限関数もその集合$A$で連続であることに注意すれば、定理\ref{4.3.4.6}より明らかである。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p388-391 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

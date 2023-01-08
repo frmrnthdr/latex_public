@@ -1,0 +1,1350 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{10}
+\usepackage{xr}
+\externaldocument{2.1.4}
+\input{macro}
+\begin{document}
+%\hypertarget{ux884cux5217ux5f0f}{%
+\subsection{行列式}%\label{ux884cux5217ux5f0f}}
+%\hypertarget{ux884cux5217ux5f0f-1}{%
+\subsubsection{行列式}%\label{ux884cux5217ux5f0f-1}}
+\begin{axs}[行列式写像の公理]
+可換環$R$上に次の性質を満たすような写像$\det:M_{nn}(R) \rightarrow R$を$n$次行列式写像といい、$A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$なる行列$A_{nn}$のその写像$\det$による像$\det\left( A_{nn} \right)$を$\det A_{nn}$、$\left| A_{nn} \right|$、$\left| a_{ij} \right|_{(i,j) \in \varLambda_{n}^{2}}$などと書きその行列$A_{nn}$の行列式という。
+\begin{itemize}
+\item
+  $\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$を考え$\forall j' \in \varLambda_{n}$に対し$k,l \in R$なる元々$k$、$l$を用いて$\mathbf{a}_{j'} = k\mathbf{b} + l\mathbf{c}$とおくとき、次式が成り立つ。
+\begin{align*}
+\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & k\mathbf{b} + l\mathbf{c} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} = k\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{b} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} + l\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{c} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+この性質を$n$重線形性という。
+\item
+  $n \geq 2$のとき、$\mathbf{a}_{j'} = \mathbf{a}_{j' + 1}$なる元々$j'$がその添数集合$\varLambda_{n - 1}$に存在するなら、即ち、その行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$の隣り合う2つの列々が等しいようなものがあれば、$\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = 0$が成り立つ。
+\item
+  $n$次単位行列について$\det I_{n} = 1$が成り立つ。
+\end{itemize}
+\end{axs}
+\begin{thm}[行列式写像の存在性]\label{2.1.11.1}
+このとき、その写像$\det$は存在する。
+\end{thm}
+\begin{proof}
+可換環$R$上で$n$次行列式写像$\det:M_{nn}(R) \rightarrow R$を考えよう。$n = 1$のとき、$\det:M_{11}(R) \rightarrow R;\left( a_{11} \right) \mapsto a_{11}$とすれば、明らかであろう。\par
+$n = 2$のとき、$\det:M_{22}(R) \rightarrow R;\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix} \mapsto a_{11}a_{22} - a_{12}a_{21}$とすれば、$k_{1},k_{2} \in R$なる元々$k_{1}$、$k_{2}$を用いて$\begin{pmatrix}
+a_{11} \\
+a_{21} \\
+\end{pmatrix} = k\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+\end{pmatrix} + l\begin{pmatrix}
+c_{1} \\
+c_{2} \\
+\end{pmatrix}$とすれば、第1列について、
+\begin{align*}
+\det\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix} &= \det\begin{pmatrix}
+kb_{1} + lc_{1} & a_{12} \\
+kb_{2} + lc_{2} & a_{22} \\
+\end{pmatrix}\\
+&= \left( kb_{1} + lc_{1} \right)a_{22} - a_{12}\left( kb_{2} + lc_{2} \right)\\
+&= kb_{1}a_{22} + lc_{1}a_{22} - ka_{12}b_{2} - la_{12}c_{2}\\
+&= k\left( b_{1}a_{22} - a_{12}b_{2} \right) + l\left( c_{1}a_{22} - a_{12}c_{2} \right)\\
+&= k\det\begin{pmatrix}
+b_{1} & a_{12} \\
+b_{2} & a_{22} \\
+\end{pmatrix} + l\det\begin{pmatrix}
+c_{1} & a_{12} \\
+c_{2} & a_{22} \\
+\end{pmatrix}
+\end{align*}
+第2列についても同様にして示される。$\begin{pmatrix}
+a_{11} \\
+a_{21} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{12} \\
+a_{22} \\
+\end{pmatrix}$とすれば、次のようになり、
+\begin{align*}
+\det\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{pmatrix} = \det\begin{pmatrix}
+a_{11} & a_{11} \\
+a_{21} & a_{21} \\
+\end{pmatrix} = a_{11}a_{21} - a_{11}a_{21} = 0
+\end{align*}
+また、次のようになる。
+\begin{align*}
+\det\begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix} = 1 \cdot 1 - 0 \cdot 0 = 1
+\end{align*}
+以上より、$n = 2$のときも行列式写像が存在する。\par
+$n = m$のときも行列式写像が存在するとしよう。$n = m + 1$のとき、$A_{m + 1,m + 1} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m + 1}^{2}} \in M_{m + 1,m + 1}(R)$なる行列$A_{m + 1,m + 1}$を考え、$\forall\left( i',j' \right) \in \varLambda_{m + 1}^{2}$に対し次のような写像$\mathfrak{s}_{\left( i',j' \right)}$を定義する。
+\begin{align*}
+\mathfrak{s}_{\left( i',j' \right)}&:M_{m + 1,m + 1}(R) \rightarrow M_{mm}(R);A_{m + 1,m + 1} \mapsto \left( a_{ij} \right)_{(i,j) \in \left( \varLambda_{m + 1} \setminus \left\{ i' \right\} \right) \times \left( \varLambda_{m + 1} \setminus \left\{ j' \right\} \right)} \\
+&= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1,m + 1} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & a_{i' - 1,m + 1} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & a_{i' + 1,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{m + 1,2} & a_{m + 1,2} & \cdots & a_{m + 1,j' - 1} & a_{m + 1,j' + 1} & \cdots & a_{m + 1,m + 1} \\
+\end{pmatrix}
+\end{align*}
+このとき、$\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right) \in M_{mm}(R)$が成り立つので、その写像$\det$が定義されている。\par
+さて、$\forall i' \in \varLambda_{m + 1}$に対し次式のように写像$D$を定める。
+\begin{align*}
+D:M_{m + 1,m + 1}(R) \rightarrow R;A \mapsto \sum_{j \in \varLambda_{m + 1}} {( - 1)^{i' + j}a_{i'j}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)}}
+\end{align*}
+このとき、$\forall j' \in \varLambda_{m + 1}$に対し次のようにおき、
+\begin{align*}
+\begin{pmatrix}
+a_{1j'} \\
+a_{2j'} \\
+ \vdots \\
+a_{m + 1,j'} \\
+\end{pmatrix} &= k\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{m + 1} \\
+\end{pmatrix} + l\begin{pmatrix}
+c_{1} \\
+c_{2} \\
+ \vdots \\
+c_{m + 1} \\
+\end{pmatrix},\\
+B_{\left( i',j' \right)} &= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & b_{1} & \cdots & a_{1,m + 1} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & b_{2} & \cdots & a_{2,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & b_{i' - 1} & \cdots & a_{i' - 1,m + 1} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & b_{i' + 1} & \cdots & a_{i' + 1,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{m + 1,2} & a_{m + 1,2} & \cdots & a_{m + 1,j' - 1} & a_{m + 1,j' + 1} & \cdots & b_{m + 1} & \cdots & a_{m + 1,m + 1} \\
+\end{pmatrix},\\
+C_{\left( i',j' \right)} &= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & c_{1} & \cdots & a_{1,m + 1} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & c_{2} & \cdots & a_{2,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & c_{i' - 1} & \cdots & a_{i' - 1,m + 1} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & c_{i' + 1} & \cdots & a_{i' + 1,m + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{m + 1,2} & a_{m + 1,2} & \cdots & a_{m + 1,j' - 1} & a_{m + 1,j' + 1} & \cdots & c_{m + 1} & \cdots & a_{m + 1,m + 1} \\
+\end{pmatrix}
+\end{align*}
+可換環$R$の元$D\left( A_{m + 1,m + 1} \right)$について、次のようになり、
+\begin{align*}
+D\left( A_{m + 1,m + 1} \right) &= \sum_{j \in \varLambda_{m + 1}} {( - 1)^{i' + j}a_{i'j}\det{\mathfrak{s}_{\left( i',j \right)}\left( A_{m + 1,m + 1} \right)}}\\
+&= \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\det{\mathfrak{s}_{\left( i',j \right)}\left( A_{m + 1,m + 1} \right)}} \\
+&\quad + ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)}\\
+&= \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\left( k\det B_{\left( i',j' \right)} + l\det C_{\left( i',j' \right)} \right)} \\
+&\quad + ( - 1)^{i' + j'}\left( kb_{i'} + lc_{i'} \right)\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)}\\
+&= k\sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\det B_{\left( i',j' \right)}} \\
+&\quad + l\sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\det C_{\left( i',j' \right)}} \\
+&\quad + k( - 1)^{i' + j'}b_{i'}\det B_{\left( i',j' \right)} + l( - 1)^{i' + j'}c_{i'}\det C_{\left( i',j' \right)}\\
+&= k\left( \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\det B_{\left( i',j' \right)}} + ( - 1)^{i' + j'}b_{i'}\det B_{\left( i',j' \right)} \right) \\
+&\quad + l\left( \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j' \right\}} {( - 1)^{i' + j}a_{i'j}\det C_{\left( i',j' \right)}} + ( - 1)^{i' + j'}c_{i'}\det C_{\left( i',j' \right)} \right)\\
+&= k\sum_{j \in \varLambda_{m + 1}}  ( - 1)^{i' + j} \left\{ \begin{matrix}
+b_{i'} & \mathrm{if} & j = j' \\
+a_{i'j} & \mathrm{if} & j \neq j' \\
+\end{matrix} \right. \det B_{\left( i',j' \right)} \\
+&\quad + l\sum_{j \in \varLambda_{m + 1}}  {( - 1)^{i' + j}\left\{ \begin{matrix}
+c_{i'} & \mathrm{if} & j = j' \\
+a_{i'j} & \mathrm{if} & j \neq j' \\
+\end{matrix} \right. \det C_{\left( i',j' \right)}}\\
+&= kD\left( B_{\left( i',j' \right)} \right) + lD\left( C_{\left( i',j' \right)} \right)
+\end{align*}
+また、$\forall j' \in \varLambda_{m}$に対し次のように定め、
+\begin{align*}
+\begin{pmatrix}
+a_{1j'} \\
+a_{2j'} \\
+ \vdots \\
+a_{m + 1,j'} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{1,j' + 1} \\
+a_{2,j' + 1} \\
+ \vdots \\
+a_{m + 1,j' + 1} \\
+\end{pmatrix}
+\end{align*}
+可換環$R$の元$D\left( A_{m + 1,m + 1} \right)$について、仮定より次のようになる。
+\begin{align*}
+D\left( A_{m + 1,m + 1} \right) &= \sum_{j \in \varLambda_{m + 1}} {( - 1)^{i' + j}a_{i'j}\det{\mathfrak{s}_{\left( i',j \right)}\left( A_{m + 1,m + 1} \right)}}\\
+&= \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j',j' + 1 \right\}} {( - 1)^{i' + j}a_{i'j}\det{\mathfrak{s}_{\left( i',j \right)}\left( A_{m + 1,m + 1} \right)}} \\
+&\quad + ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} \\
+&\quad + ( - 1)^{i' + j' + 1}a_{i',j' + 1}\det{\mathfrak{s}_{\left( i',j' + 1 \right)}\left( A_{m + 1,m + 1} \right)}\\
+&= \sum_{j \in \varLambda_{m + 1} \setminus \left\{ j',j' + 1 \right\}} {( - 1)^{i' + j}a_{i'j}0} \\
+&\quad + ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} \\
+&\quad + ( - 1)^{i' + j' + 1}a_{i',j' + 1}\det{\mathfrak{s}_{\left( i',j' + 1 \right)}\left( A_{m + 1,m + 1} \right)} \\
+&= ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} \\
+&\quad + ( - 1)^{i' + j' + 1} a_{i',j' + 1}\det{\mathfrak{s}_{\left( i',j' + 1 \right)}\left( A_{m + 1,m + 1} \right)}
+\end{align*}
+ここで、$\begin{pmatrix}
+a_{1j'} \\
+a_{2j'} \\
+ \vdots \\
+a_{m + 1,j'} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{1,j' + 1} \\
+a_{2,j' + 1} \\
+ \vdots \\
+a_{m + 1,j' + 1} \\
+\end{pmatrix}$が成り立つので、したがって、次のようになる。
+\begin{align*}
+D\left( A_{m + 1,m + 1} \right) &= ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} \\
+&\quad + ( - 1)^{i' + j' + 1}a_{i',j' + 1}\det{\mathfrak{s}_{\left( i',j' + 1 \right)}\left( A_{m + 1,m + 1} \right)}\\
+&= ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} \\
+&\quad - ( - 1)^{i' + j'}a_{i'j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{m + 1,m + 1} \right)} = 0
+\end{align*}
+可換環$R$の元$D\left( I_{m + 1} \right)$について、$\forall\left( i',j' \right) \in \varLambda_{m + 1}^{2}$に対し、$\mathfrak{s}_{\left( i',j' \right)}\left( I_{m + 1} \right) = I_{m}$が成り立つので、次のようになり、
+\begin{align*}
+D\left( I_{m + 1} \right) &= \sum_{j \in \varLambda_{m + 1}} {( - 1)^{i' + j}\delta_{i'j}\det{\mathfrak{s}_{\left( i',j' \right)}\left( I_{m + 1} \right)}}\\
+&= \sum_{j \in \varLambda_{m + 1} \setminus \left\{ i' \right\}} {( - 1)^{i' + j}0\det I_{m}} + ( - 1)^{i' + i'}1\det I_{m}\\
+&= \left( ( - 1)^{2} \right)^{i'} = 1^{i'} = 1
+\end{align*}
+以上より、$n = m + 1$のときでもその写像$\det $が存在する。\par
+数学的帰納法によってその写像$\det$が存在することが示された。
+\end{proof}
+\begin{thm}\label{2.1.11.2}
+$n \geq 2$のとき、可換環$R$上で$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$、添数集合$\varLambda_{n}の互換\tau = \begin{pmatrix}
+j' & k' \\
+\end{pmatrix}$を用いれば、$\det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つ。この性質を交代性などという。
+\end{thm}
+\begin{proof}
+可換環$R$上で$n$次行列式写像$\det:M_{nn}(R) \rightarrow R$を考えよう。$n \geq 2$のとき、$\forall j' \in \varLambda_{n - 1}$に対し$d \in \varLambda_{n - j' + 1}$なる自然数$d$について、$1 \leq j' \leq n - 1$かつ$1 \leq d \leq n - j'$が成り立つので、$2 \leq j' + d$と$n \leq 2n - j' - 1$より$2 \leq j' + d \leq n$が成り立つ。これにより、$j' \in \varLambda_{n - 1}$、$d \in \varLambda_{n - j'}$なる自然数たち$j'$、$j' + d$を用いて$\tau = \begin{pmatrix}
+j' & j' + d \\
+\end{pmatrix}$とおくことができる。$\forall j \in \varLambda_{n}$に対し、$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$、$\tau = \begin{pmatrix}
+j' & j' + d \\
+\end{pmatrix}$なる添数集合$\varLambda_{n}$の互換$\tau$を用いた行列$\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}}$について考えよう。\par
+$d = 1$のとき、行列$A_{nn}'$を次式のように定める。
+\begin{align*}
+A_{nn}' = \begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+このとき、その行列$A_{nn}'$に隣り合う2つの列々が等しいようなものがあるので、$\det A_{nn}' = 0$が成り立つ。一方で、次のようになり、
+\begin{align*}
+\det A_{nn}' &= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j' + 1} & \mathbf{a}_{j'} + \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j' + 1} & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j' + 1} & \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+ここで、隣り合う2つの列々が等しいようなものがある行列の行列式は0になるので、次のようになり、
+\begin{align*}
+\det A_{nn}' &= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j' + 1} & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} \\
+&\quad + \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{\tau\left( j' \right)} & \mathbf{a}_{\tau\left( j' + 1 \right)} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} + \det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}}
+\end{align*}
+以上より、次式が成り立つ。
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} + \det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} = \det A_{nn}' = 0
+\end{align*}
+したがって、$\det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つ。\par
+$d = k$のとき、$\det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つと仮定しよう。$d = k + 1$のとき、次のように互換を定める。
+\begin{align*}
+\tau = \begin{pmatrix}
+j' & j' + d \\
+\end{pmatrix} = \begin{pmatrix}
+j' & j' + k + 1 \\
+\end{pmatrix}
+\end{align*}
+このとき、互換たち$\begin{pmatrix}
+j' + k & j' + k + 1 \\
+\end{pmatrix}$、$\begin{pmatrix}
+j' & j' + k \\
+\end{pmatrix}$をそれぞれ$\upsilon$、$\sigma$とおくと、$\tau = \upsilon \circ \sigma \circ \upsilon$が成り立つ。したがって、次のようになり、
+\begin{align*}
+\det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} &= \det\left( \mathbf{a}_{\upsilon \circ \sigma \circ \upsilon(j)} \right)_{j \in \varLambda_{n}}\\
+&= \det\left( \mathbf{a}_{\upsilon\left( \sigma \circ \upsilon(j) \right)} \right)_{\sigma \circ \upsilon(j) \in \varLambda_{n}}\\
+&= - \det\left( \mathbf{a}_{\sigma \circ \upsilon(j)} \right)_{\sigma \circ \upsilon(j) \in \varLambda_{n}}\\
+&= - \det\left( \mathbf{a}_{\sigma\left( \upsilon(j) \right)} \right)_{\upsilon(j) \in \varLambda_{n}}\\
+&= - \left( - \det\left( \mathbf{a}_{\upsilon(j)} \right)_{\upsilon(j) \in \varLambda_{n}} \right)\\
+&= \det\left( \mathbf{a}_{\upsilon(j)} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}
+\end{align*}
+以上より、$d = k + 1$のときも成り立つ。\par
+よって、数学的帰納法によって示すべきことは示された。
+\end{proof}
+\begin{thm}\label{2.1.11.3}
+可換環$R$上で$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathfrak{S}_{n}$に対し、$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} = {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つ。
+\end{thm}
+\begin{proof}
+可換環$R$上で$n$次行列式写像$\det:M_{nn}(R) \rightarrow R$を考えよう。$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が与えられたとき、$\forall p \in \mathfrak{S}_{n}$に対し、その置換$p$を用いた行列$\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}}$について考えよう。$n = 1$のとき、$\forall p'\in \mathfrak{F}\left( \varLambda_{1},\varLambda_{1} \right)$に対しその写像$p'$は恒等写像となり置換であるので、明らかに$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{1}} = {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{1}}$が成り立つ。\par
+$n \geq 2$のとき、$\forall i \in \varLambda_{s}$、$\tau_{i} \in \mathfrak{T}_{k}$なる互換たち$\tau_{i}$を用いて次式のように表されることができるのであった。
+\begin{align*}
+p = \tau_{s} \circ \cdots \circ \tau_{2} \circ \tau_{1}
+\end{align*}
+したがって、$s = 1$のとき、その置換$p$は互換となり、その互換$p$を用いると、$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つのであった。ここで、${\mathrm{sgn} }p = \Delta(p) = ( - 1)^{1} = - 1$より$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} = {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つ。\par
+$s = k$のとき、$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} = {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つと仮定しよう。$s = k + 1$のとき、次のように置換$p'$を定める。
+\begin{align*}
+p' = \tau_{k} \circ \cdots \circ \tau_{2} \circ \tau_{1}
+\end{align*}
+このとき、仮定より次のようになり、
+\begin{align*}
+\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} &= \det\left( \mathbf{a}_{\tau_{k + 1} \circ p'(j)} \right)_{j \in \varLambda_{n}}\\
+&= \det\left( \mathbf{a}_{\tau_{k + 1} \circ p'(j)} \right)_{p'(j) \in \varLambda_{n}}\\
+&= - \det\left( \mathbf{a}_{p'(j)} \right)_{p'(j) \in \varLambda_{n}}\\
+&= - \det\left( \mathbf{a}_{p'(j)} \right)_{j \in \varLambda_{n}}\\
+&= - {\mathrm{sgn} }(p)\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\\
+&= ( - 1)\Delta(p)\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\\
+&= ( - 1)^{k + 1}\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\\
+&= \Delta(p)\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\\
+&= {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}
+\end{align*}
+$s = k + 1$のときも成り立つ。\par
+以上より、数学的帰納法によって示すべきことは示された。
+\end{proof}
+\begin{thm}\label{2.1.11.4}
+$n \geq 2$のとき、可換環$R$上で$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が与えられたとき、$\mathbf{a}_{j'} = \mathbf{a}_{k'}$なる互いに異なる元々$j'$、$k'$がその添数集合$\varLambda_{n}$に存在するなら、即ち、その行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$の2つの列々が等しいようなものがあれば、$\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$n \geq 2$のとき、可換環$R$上で$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$なる行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が与えられたとき、$\mathbf{a}_{j'} = \mathbf{a}_{k'}$なる元々$j'$、$k'$がその添数集合$\varLambda_{n}$に存在するなら、即ち、その行列$\left( \mathbf{v}_{j} \right)_{j \in \varLambda_{n}}$の2つの列々が等しいようなものがあれば、$j' \leq n - 1$のとき、$\tau = \begin{pmatrix}
+j' + 1 & k' \\
+\end{pmatrix} \in \mathfrak{T}_{n}$、$j' = n$のとき、$\tau = \begin{pmatrix}
+j' - 1 & k' \\
+\end{pmatrix} \in \mathfrak{T}_{n}$なる互換$\tau$を用いて$j \in \varLambda_{n}\mathfrak{\setminus A}$が成り立つときのその行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$を次のように書き換えれば、$\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}}$が成り立つ。$j' \leq n - 1$のとき、次のようになり、
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} &= - \det\begin{pmatrix}
+\mathbf{a}_{\tau(1)} & \cdots & \mathbf{a}_{\tau\left( j' \right)} & \mathbf{a}_{\tau\left( j' + 1 \right)} & \cdots & \mathbf{a}_{\tau(n)} \\
+\end{pmatrix}\\
+&= - \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= - \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j' + 1} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+$j' = n$のとき、次のようになり、
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} &= - \det\begin{pmatrix}
+\mathbf{a}_{\tau(1)} & \cdots & \mathbf{a}_{\tau(n - 1)} & \mathbf{a}_{\tau(n)} \\
+\end{pmatrix}\\
+&= - \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{k'} & \mathbf{a}_{j'} \\
+\end{pmatrix}\\
+&= - \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \mathbf{a}_{j'} \\
+\end{pmatrix}
+\end{align*}
+その行列$\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}}$に隣り合う2つの列々が等しいようなものがあるので、次式が成り立つ。
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = - \det\left( \mathbf{a}_{\tau(j)} \right)_{j \in \varLambda_{n}} = 0
+\end{align*}
+\end{proof}
+\begin{thm}[行列式写像の一意性]\label{2.1.11.5}
+可換環$R$上で行列式写像$\det$は一意的に存在し$\forall A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$に対し次式が成り立つ。
+\begin{align*}
+\det A_{nn} = \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} a_{p(j),j}}
+\end{align*}
+\end{thm}
+\begin{proof}
+可換環$R$上で$n$次行列式写像$\det:M_{nn}(R) \rightarrow R$を考えよう。$\mathbf{e}_{j} = \left( \delta_{ij} \right)_{i \in \varLambda_{n}} \in R^{n}$、$A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$なる行列たち$\mathbf{e}_{j}$、$A_{nn}$を考えると、次のようになり、
+\begin{align*}
+A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \left( \sum_{i \in \varLambda_{n}} {a_{ij}\mathbf{e}_{i}} \right)_{j \in \varLambda_{n}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\det A_{nn} = \det\left( \sum_{i \in \varLambda_{n}} {a_{ij}\mathbf{e}_{i}} \right)_{j \in \varLambda_{n}}
+\end{align*}
+ここで、$j = 1$のとき、次のようになる。
+\begin{align*}
+\det A_{nn} &= \det\left( \sum_{i_{j} \in \varLambda_{n}} {a_{i_{j}j}\mathbf{e}_{i_{j}}} \right)_{j \in \varLambda_{n}}\\
+&= \det\begin{pmatrix}
+\sum_{i_{1} \in \varLambda_{n}} {a_{i_{1}1}\mathbf{e}_{i_{1}}} & \sum_{i_{2} \in \varLambda_{n}} {a_{i_{2}2}\mathbf{e}_{i_{2}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}\\
+&= \sum_{i_{1} \in \varLambda_{n}} {a_{i_{1}1}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \sum_{i_{2} \in \varLambda_{n}} {a_{i_{2}2}\mathbf{e}_{i_{2}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}\\
+&= \sum_{\forall j \in \varLambda_{1}\left[ i_{1} \in \varLambda_{n} \right]} {a_{i_{1}1}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \sum_{i_{2} \in \varLambda_{n}} {a_{i_{2}2}\mathbf{e}_{i_{2}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}\par
+$n = 1$のとき、$\det:M_{11}(R) \rightarrow R;\left( a_{11} \right) \mapsto a_{11}$とすれば、明らかに成り立つので、$n \geq 2$のときを考えよう。$j = k \leq n - 1$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+\det A_{nn} = \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} a_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{k}} & \sum_{i_{k + 1} \in \varLambda_{n}} {a_{i_{k + 1},k + 1}\mathbf{e}_{i_{k + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}
+$j = k + 1 \leq n$のとき、次のようになり、
+\begin{align*}
+\det A_{nn} &= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} a_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{k}} & \sum_{i_{k + 1} \in \varLambda_{n}} {a_{i_{k + 1},k + 1}\mathbf{e}_{i_{k + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}\\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} a_{i_{i'}i'}\sum_{i_{k + 1} \in \varLambda_{n}} {a_{i_{k + 1},k + 1}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{k}} & \mathbf{e}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}}\\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\sum_{i_{k + 1} \in \varLambda_{n}} {\prod_{i' \in \varLambda_{k}} a_{i_{i'}i'}a_{i_{k + 1},k + 1}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{k}} & \mathbf{e}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}}\\
+&= \sum_{\forall j \in \varLambda_{k + 1}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k + 1}} a_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{k}} & \mathbf{e}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}
+以上より、$n = k + 1$のときも成り立つので、数学的帰納法によって、$\forall j' \in \varLambda_{n}$に対し次式が成り立つことが示された。
+\begin{align*}
+\det A_{nn} = \sum_{\forall j \in \varLambda_{j'}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{j'}} a_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{j'}} & \sum_{i_{j' + 1} \in \varLambda_{n}} {a_{i_{j' + 1},j' + 1}\mathbf{e}_{i_{j' + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {a_{i_{n}n}\mathbf{e}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}\par
+$j' = n$とすれば、
+\begin{align*}
+\det A_{nn} &= \sum_{\forall j \in \varLambda_{n}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{e}_{i_{1}} & \cdots & \mathbf{e}_{i_{n}} \\
+\end{pmatrix}}\\
+&= \sum_{\forall j \in \varLambda_{n}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、次式のように集合$\mathfrak{A}$を定めると、
+\begin{align*}
+\mathfrak{A} =\left\{ j \in \varLambda_{n} \middle| \exists p \in \mathfrak{S}_{n}\left[ p(j) = i_{j} \right] \right\}
+\end{align*}
+次のようになる。
+\begin{align*}
+\det A_{nn} &= \sum_{\forall j \in \left( \varLambda_{n}\mathfrak{\setminus A} \right)\mathfrak{\sqcup A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\forall j \in \varLambda_{n}\mathfrak{\setminus A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}} + \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、$n = 1$のとき、写像$p:\varLambda_{1} \rightarrow \varLambda_{1};j \mapsto i_{j}$は集合$\mathfrak{F}\left( \varLambda_{1},\varLambda_{1} \right)$に属し、$\forall p'\in \mathfrak{F}\left( \varLambda_{1},\varLambda_{1} \right)$に対し、その写像$p'$は恒等写像となり置換であるので、
+\begin{align*}
+\varLambda_{1} \setminus \mathfrak{A} &= \left\{ j \in \varLambda_{1} \middle| \neg\left( \exists p \in \mathfrak{S}_{1}\left[ p(j) = i_{j} \right] \right) \right\}\\
+&= \left\{ j \in \varLambda_{1} \middle| \forall p \in \mathfrak{S}_{1}\left[ p(j) \neq i_{j} \right] \right\}\\
+&= \left\{ j \in \varLambda_{1} \middle| \bot \right\} = \emptyset
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\det A_{11} = \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{1} \right]} {\prod_{i' \in \varLambda_{1}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{1}}}
+\end{align*}\par
+$n \geq 2$が成り立つとき、$j \in \mathfrak{A}$が成り立つなら、$i_{j} = p(j)$なる置換$p$が存在しその置換$p$は単射であったので、$\forall j,k \in \varLambda_{n}$に対し、$j \neq k$が成り立つなら、$p(j) \neq p(k)$が成り立ち、したがって、$i_{j} \neq i_{k}$が成り立つ。逆に、$j \notin \mathfrak{A}$が成り立つなら、置換の定義より写像$p':\varLambda_{n} \rightarrow \varLambda_{n};j \mapsto i_{j}$は全射でないか単射でないことになり、その写像$p'$が単射であると仮定すると、その写像$p'$は全射でないことになる。\par
+ここで、$n = 2$のとき、その写像$p'$は次の通りが考えられる。
+\begin{align*}
+1 \mapsto 1,2 \mapsto 2 \\
+1 \mapsto 1,2 \mapsto 1 \\
+1 \mapsto 2,2 \mapsto 2 \\
+1 \mapsto 2,2 \mapsto 1
+\end{align*}
+その写像$p'$は全射でないので、次のようになる。
+\begin{align*}
+1 \mapsto 1,2 \mapsto 1 \\
+1 \mapsto 2,2 \mapsto 2
+\end{align*}
+このとき、その写像$p'$は単射でない。\par
+$n = k$のとき、その写像$p'$が全射でないなら、その写像$p'$は単射でないと仮定しよう。$n = k + 1$のとき、写像$p'|\varLambda_{k}$が全射であるなら、$\forall i' \in \varLambda_{k}$に対し$i' = p'|\varLambda_{k}\left( j' \right)$なる自然数$j'$がその集合$\varLambda_{k} = D\left( p'|\varLambda_{k} \right)$に存在する。$p'(k + 1) = k + 1$が成り立つなら、$\forall i' \in \varLambda_{k + 1}$に対し、$i' \in \varLambda_{k}$が成り立つなら、上記の議論より$i' = p'|\varLambda_{k}\left( j' \right) = p'\left( j' \right)$なる自然数$j'$がその集合$\varLambda_{k + 1} = D\left( p' \right)$に存在し、$i' = k + 1$が成り立つなら、$k + 1 = p'\left( j' \right)$なる自然数$j'$が$k + 1$でその集合$\varLambda_{k + 1} = D\left( p' \right)$に存在するので、その写像$p'$が全射となり仮定よりその写像$p'$が全射でないことに矛盾する。$p'(k + 1) \neq k + 1$が成り立つなら、$p'(k + 1) \in \varLambda_{k}$が成り立つことになり、その写像$p'|\varLambda_{k}$が全射であったので、$\varLambda_{k} = V\left( p'|\varLambda_{k} \right)$となり$p'\left( j' \right) = p'|\varLambda_{k}\left( j' \right) = p'(k + 1)$なる自然数$j'$がその集合$\varLambda_{k} = D\left( p'|\varLambda_{k} \right)$に存在する。これにより、$j' \neq k + 1$が成り立つかつ、$p'\left( j' \right) = p'(k + 1)$が成り立つので、その写像$p'$は単射でない。写像$p'|\varLambda_{k}$が全射でないなら、仮定よりその写像$p'|\varLambda_{k}$は単射でないことになり、$j' \neq k'$が成り立つかつ、$p'|\varLambda_{k}\left( j' \right) = p'|\varLambda_{k}\left( k' \right)$が成り立つような自然数$j'$、$k'$が添数集合$\varLambda_{k}$に存在する。これは、$j' \neq k'$が成り立つかつ、$p'\left( j' \right) = p'\left( k' \right)$が成り立つような自然数$j'$、$k'$が集合$\varLambda_{k + 1}$に存在するともいえ、したがって、$j' \neq k'$が成り立つかつ、$p'\left( j' \right) = p'\left( k' \right)$が成り立つような自然数$j'$、$k'$が集合$\varLambda_{k + 1}$に存在する。\par
+以上より数学的帰納法によって、その写像$p'$が全射でないなら、その写像$p'$は単射でないことが示された。しかしながら、このことは仮定のその写像$p'$が単射であるという仮定に矛盾する。したがって、その写像$p'$は単射でないことになり、$j' = k'$が成り立つかつ、$i_{j'} = i_{k'}$が成り立つ。\par
+これにより、$n \geq 2$が成り立つとき、$j \in \mathfrak{A}$が成り立つならそのときに限り、$\forall j,k \in \varLambda_{n}$に対し$j \neq k$が成り立つなら、$i_{j} \neq i_{k}$が成り立つ。したがって、$j \in \varLambda_{n}\mathfrak{\setminus A}$が成り立つならそのときに限り、$j \neq k$が成り立つかつ、$i_{j} = i_{k}$が成り立つような自然数たち$j$、$k$が存在することになり、$j \in \varLambda_{n}\mathfrak{\setminus A}$が成り立つときのその行列$\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}$に2つの列々が等しいようなものがあるので、$\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}} = 0$が成り立つ。したがって、次式のようになり
+\begin{align*}
+\sum_{\forall j \in \varLambda_{n}\mathfrak{\setminus A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}} = 0
+\end{align*}
+次式のようになる。
+\begin{align*}
+\det A_{nn} = \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}\par
+ここで、その集合$\mathfrak{A}$の定義より$p(j) = i_{j}$なる置換$p$が存在するので、次のように書き換えられることができる。
+\begin{align*}
+\det A_{nn} &= \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \land \exists p \in \mathfrak{S}_{n}\left[ p(j) = i_{j} \right] \right]} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\forall j \in \mathfrak{A}\left[ p(j) = i_{j} \in \varLambda_{n} \right] \land p \in \mathfrak{S}_{n}} {\prod_{i' \in \varLambda_{n}} a_{i_{i'}i'}\det\left( \mathbf{e}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\scriptsize \begin{matrix}
+p \in \mathfrak{S}_{n} \\
+\forall j \in \varLambda_{n}\left[ p(j) \in \varLambda_{n} \right] \\
+\end{matrix}} {\prod_{j \in \varLambda_{n}} a_{p(j),j}\det\left( \mathbf{e}_{p(j)} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{p \in \mathfrak{S}_{n}} {\prod_{j \in \varLambda_{n}} a_{p(j),j}\det\left( \mathbf{e}_{p(j)} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、$\det\left( \mathbf{e}_{p(j)} \right)_{j \in \varLambda_{n}} = {\mathrm{sgn} }p\det\left( \mathbf{e}_{j} \right)_{j \in \varLambda_{n}}$が成り立つので、次のようになり、
+\begin{align*}
+\det A_{nn} &= \sum_{p \in \mathfrak{S}_{n}} {\prod_{j \in \varLambda_{n}} a_{p(j),j}{\mathrm{sgn} }p\det\left( \mathbf{e}_{j} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} a_{p(j),j}\det I_{n}}
+\end{align*}
+ここで、$\det I_{n} = 1$が成り立つので、次式が成り立つ。
+\begin{align*}
+\det A_{nn} = \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} a_{p(j),j}}
+\end{align*}
+これにより、その写像$\det$は一意的に存在する。
+\end{proof}
+\begin{thm}\label{2.1.11.6}
+$n \geq 2$のとき、$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$のようにその列vectorたちが$\mathbf{a}_{j}$となるような行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$を考え$\forall j',k' \in \varLambda_{n}$に対し、$j' \neq k'$が成り立つなら、$\forall k \in R$に対し次式が成り立つ、即ち、その行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$の1つの列の各成分に対応する他の列の$k$倍を加えた各成分を加えた行列の行列式はもとの行列の行列式に等しい。
+\begin{align*}
+\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} + k\mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} = \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+\end{thm}
+\begin{proof}
+$n \geq 2$のとき、$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(R)$のようにその列vectorたちが$\mathbf{a}_{j}$となるような行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$を考え$\forall j',k' \in \varLambda_{n}$に対し、$j' \neq k'$が成り立つなら、次のようになり、
+\begin{align*}
+&\quad \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} + k\mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} + k\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} + k\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{k'} & \cdots & \mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+ここで、その行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$の2つの列々が等しいようなものがあるので、次式が成り立つ。
+\begin{align*}
+\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} + k\mathbf{a}_{k'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} = \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.7}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、その行列$A_{nn}$が正則行列でないなら、$\det A_{nn} = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上で、$\forall\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} \in M_{nn}(K)$に対し、その行列$\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が正則行列でないなら、次式が成り立つので、次のようになり、
+\begin{align*}
+{\mathrm{rank}}\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \dim{{\mathrm{span}}\left\{ \mathbf{a}_{j} \right\}_{j \in \varLambda_{n}}} \neq n
+\end{align*}
+これらのvectors$\left\{ \mathbf{a}_{j} \right\}_{j\in \varLambda_n } $は線形従属であることになり$\sum_{j \in \varLambda_{n}} {c_{j}\mathbf{a}_{j}} = \mathbf{0}$かつ、$\exists j \in \varLambda_{n}$に対し、$c_{j} \neq 0$が成り立つ。ここで、$c_{j} \neq 0$となるような自然数$j$を$j'$とおくと、次のようになり、
+\begin{align*}
+\sum_{j \in \varLambda_{n}} {c_{j}\mathbf{a}_{j}} = \mathbf{0} &\Leftrightarrow \sum_{j \in \varLambda_{n} \setminus \left\{ j' \right\}} {c_{j}\mathbf{a}_{j}} + c_{j'}\mathbf{a}_{j'} = \mathbf{0}\\
+&\Leftrightarrow c_{j'}\mathbf{a}_{j'} = - \sum_{j \in \varLambda_{n} \setminus \left\{ j' \right\}} {c_{j}\mathbf{a}_{j}} = \sum_{j \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - c_{j} \right)\mathbf{a}_{j}}\\
+&\Leftrightarrow \mathbf{a}_{j'} = \frac{1}{c_{j'}}\sum_{j \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - c_{j} \right)\mathbf{a}_{j}} = \sum_{j \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - \frac{c_{j}}{c_{j'}} \right)\mathbf{a}_{j}}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} &= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j'} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - \frac{c_{i}}{c_{j'}} \right)\mathbf{a}_{i}} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - \frac{c_{i}}{c_{j'}} \right)\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}\\
+&= \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - \frac{c_{i}}{c_{j'}} \right)\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}
+\end{align*}
+ここで、$\forall i \in \varLambda_{n} \setminus \left\{ j' \right\}$に対し、その行列$\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}$の2つの列々が等しいようなものがあるので、次式が成り立ち、
+\begin{align*}
+\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} = 0
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}} = \sum_{i \in \varLambda_{n} \setminus \left\{ j' \right\}} {\left( - \frac{c_{i}}{c_{j'}} \right)0} = 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.8}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、$\det A_{nn} \neq 0$が成り立つなら、その行列$A_{nn}$は正則行列である\footnote{後述しますが、一般に、可換環$R$での行列式を用いた行列の正則性の判定法があります!}。
+\end{thm}
+\begin{proof} 定理\ref{2.1.11.7}に対偶律をとっただけにすぎない。
+\end{proof}
+\begin{thm}\label{2.1.11.9}
+可換環$R$上で、$\forall A_{nn} \in M_{nn}(R)$に対し、その行列$A_{nn}$の行列式とこれの転置行列$^{t}A_{nn}$の行列式は等しい、即ち、$\det A_{nn} = \det{^{t}A_{nn}}$が成り立つ。
+\end{thm}
+\begin{proof}
+可換環$R$上で、$\forall A_{nn} \in M_{nn}(R)$に対し、$A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}$とおくと、$^{t}A_{nn} = \left( a_{ji} \right)_{(i,j) \in \varLambda_{n}^{2}}$が成り立つので、添数集合$\varLambda_{n}$の置換全体の集合を$\mathfrak{S}_{n}$とおくと、次のようになる。
+\begin{align*}
+\det A_{nn} &= \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} a_{p(j),j}}\\
+&= \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{p(j) \in \varLambda_{n}} a_{p(j),p^{- 1} \circ p(j)}}\\
+&= \sum_{p^{- 1} \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p^{- 1}\prod_{p(j) \in \varLambda_{n}} a_{p(j),p^{- 1} \circ p(j)}}\\
+&= \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} a_{j,p(j)}} = \det{^{t}A_{nn}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.10}
+可換環$R$上で、$\forall A_{mm} \in M_{mm}(R)\forall B_{nn} \in M_{nn}(R)$に対し、次式が成り立つ。
+\begin{align*}
+\det\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} = \det A_{mm}\det B_{nn}
+\end{align*}
+\end{thm}
+\begin{proof}
+可換環$R$上で、$\forall A_{mm} \in M_{mm}(R)\forall B_{nn} \in M_{nn}(R)$に対し、それらの行列たちが次のように成分表示され、
+\begin{align*}
+A_{mm} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m}^{2}},\ \ B_{nn} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}
+\end{align*}
+$\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} \in M_{m + n,m + n}(R)$なる行列$\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix}$を$\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} = \left( a_{ij}' \right)_{(i,j) \in \varLambda_{m + n}^{2}}$とおくと、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} = \begin{pmatrix}
+a_{11} & \cdots & a_{1m} & 0 & \cdots & 0 \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mm} & 0 & \cdots & 0 \\
+a_{m + 1,1}' & \cdots & a_{m + 1,m}' & b_{11} & \cdots & b_{1n} \\
+ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{m + n,1}' & \cdots & a_{m + n,m}' & b_{n1} & \cdots & b_{nn} \\
+\end{pmatrix}
+\end{align*}
+したがって、次のようになり、
+\begin{align*}
+\det\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} &= \sum_{p \in \mathfrak{S}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m + n}} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{S}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} a_{p(j),j}'}
+\end{align*}
+ここで、次のような集合$\mathfrak{s}_{m + n}$を考えよう。
+\begin{align*}
+\mathfrak{s}_{m + n} = \left\{ p \in \mathfrak{S}_{m + n} \middle| V\left( \left. \ p \right|_{\varLambda_{m}} \right) = \varLambda_{m} \right\}
+\end{align*}
+このとき、$\forall p \in \mathfrak{s}_{m + n}\forall j \in \varLambda_{m}$に対し、$p(j) \in \varLambda_{m}$が成り立ち、$\forall p \in \mathfrak{s}_{m + n}$に対し、$p\left( j' \right) \in \varLambda_{m}$なる自然数$j'$が集合$\varLambda_{m + n} \setminus \varLambda_{m}$に存在するなら、$p\left( j' \right) = p\left( k' \right)$なる自然数がその添数集合$\varLambda_{m}$に存在し、$j' \neq k'$が成り立つが、これはその写像$p$が単射であることに矛盾する。したがって、$\forall p \in \mathfrak{s}_{m + n}\forall j \in \varLambda_{m + n} \setminus \varLambda_{m}$に対し、$p(j) \notin \varLambda_{m}$が成り立つ、即ち、$p(j) \in \varLambda_{m + n} \setminus \varLambda_{m}$が成り立つ。\par
+一方で、$\forall p \in \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}$に対し、$p\left( j' \right) \notin \varLambda_{m + n} \setminus \varLambda_{m}$なる自然数$j'$がその添数集合$\varLambda_{m + n} \setminus \varLambda_{m}$に存在することになりこのような自然数$j'$全体の集合を$O$とおくと、したがって、次のようになり、
+\begin{align*}
+\det\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} &= \sum_{p \in \mathfrak{s}_{m + n} \sqcup \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} a_{p(j),j}'} \\
+&\quad + \sum_{p \in \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in O \sqcup \left( \varLambda_{m + n} \setminus \varLambda_{m} \right) \setminus O} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} a_{p(j),j}'} \\
+&\quad + \sum_{p \in \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in O} a_{p(j),j}'\prod_{j \in \left( \varLambda_{m + n} \setminus \varLambda_{m} \right) \setminus O} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} b_{- m + p(j), - m + j}} \\
+&\quad + \sum_{p \in \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}'\prod_{j \in O} a_{p(j),j}'\prod_{j \in \left( \varLambda_{m + n} \setminus \varLambda_{m} \right) \setminus O} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}\prod_{j \in \varLambda_{n}} b_{p(j),j}} \\
+&\quad + \sum_{p \in \mathfrak{S}_{m + n} \setminus \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} 0\prod_{j \in \varLambda_{m + n} \setminus \varLambda_{m}} a_{p(j),j}'}\\
+&= \sum_{p \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}\prod_{j \in \varLambda_{n}} b_{p(j),j}}
+\end{align*}
+ここで、$\forall p \in \mathfrak{s}_{m + n}$に対し次のような置換たち$\sigma$、$\tau$を考えると、次のようになり、
+\begin{align*}
+\sigma&:\varLambda_{m + n} \rightarrow \varLambda_{m + n};j \mapsto \left\{ \begin{matrix}
+p(j) & \mathrm{if} & j \in \varLambda_{m} \\
+j & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\ \\
+\tau&:\varLambda_{m + n} \rightarrow \varLambda_{m + n};j \mapsto \left\{ \begin{matrix}
+j & \mathrm{if} & j \in \varLambda_{m} \\
+p(j) & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\ 
+\end{align*}
+$\forall p \in \mathfrak{s}_{m + n}$に対し、次式が成り立つので、
+\begin{align*}
+\forall j \in \varLambda_{m}\left[ p(j) \in \varLambda_{m} \right] \land \forall j \in \varLambda_{m + n} \setminus \varLambda_{m}\left[ p(j) \in \varLambda_{m + n} \setminus \varLambda_{m} \right]
+\end{align*}
+$\sigma,\tau \in \mathfrak{s}_{m + n}$が成り立つ。また、$\forall j \in \varLambda_{m + n}$に対し、次のようになる。
+\begin{align*}
+\sigma \circ \tau(j) &= \sigma\left( \tau(j) \right)\\
+&= \sigma\left( \left\{ \begin{matrix}
+j & \mathrm{if} & j \in \varLambda_{m} \\
+p(j) & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\  \right)\\
+&= \left\{ \begin{matrix}
+p(j) & \mathrm{if} & j \in \varLambda_{m} \\
+p(j) & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\  = p(j)
+\end{align*}
+これにより、$p = \sigma \circ \tau$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\det\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} &= \sum_{\sigma,\tau \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }{\sigma \circ \tau}\prod_{j \in \varLambda_{m}} a_{\sigma(j),j}\prod_{j \in \varLambda_{n}} b_{\tau(j),j}}\\
+&= \sum_{\sigma \in \mathfrak{s}_{m + n}} {\sum_{\tau \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }\sigma{\mathrm{sgn} }\tau\prod_{j \in \varLambda_{m}} a_{\sigma(j),j}\prod_{j \in \varLambda_{n}} b_{\tau(j),j}}}\\
+&= \left( \sum_{\sigma \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }\sigma\prod_{j \in \varLambda_{m}} a_{\sigma(j),j}} \right)\left( \sum_{\tau \in \mathfrak{s}_{m + n}} {{\mathrm{sgn} }\tau\prod_{j \in \varLambda_{n}} b_{\tau(j),j}} \right)
+\end{align*}
+ここで、$\forall p \in \mathfrak{S}_{m + n}$に対し、$\forall i \in \varLambda_{s}$、$\tau_{i} \in \mathfrak{T}_{m + n}$なる互換たち$\tau_{i}$を用いて次式のように表されることができるのであった。
+\begin{align*}
+p = \tau_{s} \circ \cdots \circ \tau_{2} \circ \tau_{1}
+\end{align*}
+したがって、写像$\sigma|\varLambda_{m}$について、次式が成り立つので、
+\begin{align*}
+\sigma|\varLambda_{m} = p|\varLambda_{m} = \tau_{s}|\varLambda_{m} \circ \cdots \circ \tau_{2}|\varLambda_{m} \circ \tau_{1}|\varLambda_{m}
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+{\mathrm{sgn} }\left( \sigma|\varLambda_{m} \right) = \Delta\left( \sigma|\varLambda_{m} \right) = s = \Delta(\sigma) = {\mathrm{sgn} }\sigma
+\end{align*}
+また、$\forall p \in \mathfrak{s}_{m + n}$に対し、$\forall j \in \varLambda_{m}$に対し、$p(j) \in \varLambda_{m}$が成り立つかつ、次式のように逆写像$\left( p|\varLambda_{m} \right)^{- 1}$が定義されることができるので、
+\begin{align*}
+\left( p|\varLambda_{m} \right)^{- 1}:\varLambda_{m} \rightarrow \varLambda_{m};i \mapsto p^{- 1}(i)
+\end{align*}
+その写像$p|\varLambda_{m}$は全単射となり$p|\varLambda_{m} \in \mathfrak{s}_{m}$が成り立つ。\par
+これにより、次のように集合$\mathfrak{s}'$を定め
+\begin{align*}
+\mathfrak{s}' = \left\{ p \in \mathfrak{s}_{m + n} \middle| \forall j \in \varLambda_{m + n} \setminus \varLambda_{m}\left[ p(j) = j \right] \right\}
+\end{align*}
+次のような写像$\mathfrak{r}$を考えると、
+\begin{align*}
+\mathfrak{r:}\mathfrak{s}' \rightarrow \mathfrak{S}_{m};p \mapsto p|\varLambda_{m}
+\end{align*}
+定義より明らかに$\sigma \in \mathfrak{s}'$が成り立ち明らかにその写像$\mathfrak{r}$は単射で$\sigma' \in \mathfrak{S}_{m} \setminus V\left( \mathfrak{r} \right)$なる写像$\sigma'$が存在すると仮定し、次のような写像$\sigma''$を考えると、
+\begin{align*}
+\sigma'':\varLambda_{m + n} \rightarrow \varLambda_{m + n};j \mapsto \left\{ \begin{matrix}
+\sigma'(j) & \mathrm{if} & j \in \varLambda_{m} \\
+j & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\ 
+\end{align*}
+次のように逆写像${\sigma''}^{- 1}$が定められることができるので、
+\begin{align*}
+{\sigma''}^{- 1}:\varLambda_{m + n} \rightarrow \varLambda_{m + n};i \mapsto \left\{ \begin{matrix}
+{\sigma'}^{- 1}(j) & \mathrm{if} & j \in \varLambda_{m} \\
+j & \mathrm{if} & j \in \varLambda_{m + n} \setminus \varLambda_{m} \\
+\end{matrix} \right.\ 
+\end{align*}
+明らかに$\sigma'' \in \mathfrak{s}'$が成り立ち、したがって、次式が成り立つが、
+\begin{align*}
+\mathfrak{r}\left( \sigma'' \right):\varLambda_{m + n} \rightarrow \varLambda_{m + n};j \mapsto \sigma'(j)
+\end{align*}
+これは仮定$\sigma' \in \mathfrak{S}_{m} \setminus V\left( \mathfrak{r} \right)$に矛盾するので、その写像$\mathfrak{r}$は全単射となる。\par
+これにより、次式が成り立つ。
+\begin{align*}
+\sigma \in \mathfrak{s}_{m + n} \Leftrightarrow \sigma \in \mathfrak{s}'\mathfrak{\Leftrightarrow r}(\sigma) = \sigma|\varLambda_{m} \in \mathfrak{S}_{m}
+\end{align*}
+同様にして、次式たちも成り立つ。
+\begin{align*}
+{\mathrm{sgn} }{\tau|\varLambda_{n}} = {\mathrm{sgn} }\tau,\ \ \tau \in \mathfrak{s}_{m + n} \Leftrightarrow \tau|\varLambda_{n} \in \mathfrak{S}_{n}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\det\begin{pmatrix}
+A_{mm} & O \\
+* & B_{nn} \\
+\end{pmatrix} &= \left( \sum_{\sigma|\varLambda_{m} \in \mathfrak{S}_{m}} {{\mathrm{sgn} }{\sigma|\varLambda_{m}}\prod_{j \in \varLambda_{m}} a_{\sigma(j),j}} \right)\left( \sum_{\tau|\varLambda_{n} \in \mathfrak{S}_{n}} {{\mathrm{sgn} }{\tau|\varLambda_{n}}\prod_{j \in \varLambda_{n}} b_{\tau(j),j}} \right)\\
+&= \left( \sum_{p \in \mathfrak{S}_{m}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{m}} a_{p(j),j}} \right)\left( \sum_{p \in \mathfrak{S}_{n}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} b_{p(j),j}} \right)\\
+&= \det A_{mm}\det B_{nn}
+\end{align*}
+\end{proof}
+\begin{thm}[行列式の展開]\label{2.1.11.11}
+可換環$R$上で、$\forall A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$なる行列$A_{nn}$について$n \geq 2$のとき、$\forall j' \in \varLambda_{n}$に対し、次式が成り立つ。
+\begin{align*}
+\det A_{nn} = \sum_{i \in \varLambda_{n}} {( - 1)^{i + j'}a_{ij'}\det{\mathfrak{s}_{\left( i,j' \right)}\left( A_{nn} \right)}}
+\end{align*}
+なお、$\mathfrak{s}_{\left( i',j' \right)}$は、$\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次式のように定義される写像である。
+\begin{align*}
+\mathfrak{s}_{\left( i',j' \right)}&:M_{nn}(R) \rightarrow M_{n - 1,n - 1}(R);A_{nn} \mapsto \left( a_{ij} \right)_{(i,j) \in \left( \varLambda_{n} \setminus \left\{ i' \right\} \right) \times \left( \varLambda_{n} \setminus \left\{ j' \right\} \right)} \\ 
+&= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & a_{i' - 1,n} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & a_{i' + 1,n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+この式をその行列式$\det A_{nn}$の第$j'$列に関する展開という。
+\end{thm}
+\begin{proof}
+可換環$R$上で$A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} \in M_{nn}(R)$なる行列$A_{nn}$について$n \geq 2$のとき、$\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次式のように写像$\mathfrak{s}_{\left( i',j' \right)}$を定めると、
+\begin{align*}
+\mathfrak{s}_{\left( i',j' \right)}&:M_{nn}(R) \rightarrow M_{n - 1,n - 1}(R);A_{nn} \mapsto \left( a_{ij} \right)_{(i,j) \in \left( \varLambda_{n} \setminus \left\{ i' \right\} \right) \times \left( \varLambda_{n} \setminus \left\{ j' \right\} \right)} \\
+&= \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & a_{i' - 1,n} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & a_{i' + 1,n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+$\forall j' \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+\det A_{nn} &= \left| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1,j - 1} & a_{1j'} & a_{1,j + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2,j - 1} & a_{2j'} & a_{2,j + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{n,j - 1} & a_{nj'} & a_{n,j + 1} & \cdots & a_{nn} \\
+\end{matrix} \right|\\
+&= \sum_{i \in \varLambda_{n}} {a_{ij'}\left| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & 0 & a_{1,j' + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & 0 & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{i - 1,1} & a_{i - 1,2} & \cdots & a_{i - 1,j' - 1} & 0 & a_{i - 1,j' + 1} & \cdots & a_{i - 1,n} \\
+a_{i1} & a_{i2} & \cdots & a_{i,j' - 1} & 1 & a_{i,j' + 1} & \cdots & a_{in} \\
+a_{i + 1,1} & a_{i + 1,2} & \cdots & a_{i + 1,j' - 1} & 0 & a_{i + 1,j' + 1} & \cdots & a_{i + 1,n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & 0 & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{matrix} \right|}
+\end{align*}
+数学的帰納法によって明らかに、次のようになる。
+\begin{align*}
+\det A_{nn} &= \sum_{i \in \varLambda_{n}} {a_{ij'}( - 1)^{j' - 1}\left| \begin{matrix}
+0 & a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+0 & a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_{i - 1,1} & a_{i - 1,2} & \cdots & a_{i - 1,j' - 1} & a_{i - 1,j' + 1} & \cdots & a_{i - 1,n} \\
+1 & a_{i1} & a_{i2} & \cdots & a_{i,j' - 1} & a_{i,j' + 1} & \cdots & a_{in} \\
+0 & a_{i + 1,1} & a_{i + 1,2} & \cdots & a_{i + 1,j' - 1} & a_{i + 1,j' + 1} & \cdots & a_{i + 1,n} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{matrix} \right|}\\
+&= \sum_{i \in \varLambda_{n}} {a_{ij'}( - 1)^{j' - 1}\left| \begin{matrix}
+0 & 0 & \cdots & 0 & 1 & 0 & \cdots & 0 \\
+a_{11} & a_{21} & \cdots & a_{i - 1,1} & a_{i1} & a_{i + 1,1} & \cdots & a_{n1} \\
+a_{12} & a_{22} & \cdots & a_{i - 1,1} & a_{i2} & a_{i + 1,2} & \cdots & a_{n2} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{1,j' - 1} & a_{2,j' - 1} & \cdots & a_{i - 1,j' - 1} & a_{i,j' - 1} & a_{i + 1,j' - 1} & \cdots & a_{n,j' - 1} \\
+a_{1,j' + 1} & a_{2,j' + 1} & \cdots & a_{i - 1,j' + 1} & a_{i,j' + 1} & a_{i + 1,j' + 1} & \cdots & a_{n,j' + 1} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{i - 1,n} & a_{in} & a_{i + 1,n} & \cdots & a_{nn} \\
+\end{matrix} \right|}\\
+&= \sum_{i \in \varLambda_{n}} {a_{ij'}( - 1)^{j' - 1}( - 1)^{i - 1} \cdot \left| \begin{matrix}
+1 & 0 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+a_{i1} & a_{11} & a_{21} & \cdots & a_{i - 1,1} & a_{i + 1,1} & \cdots & a_{n1} \\
+a_{i2} & a_{12} & a_{22} & \cdots & a_{i - 1,1} & a_{i + 1,2} & \cdots & a_{n2} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i,j' - 1} & a_{1,j' - 1} & a_{2,j' - 1} & \cdots & a_{i - 1,j' - 1} & a_{i + 1,j' - 1} & \cdots & a_{n,j' - 1} \\
+a_{i,j' + 1} & a_{1,j' + 1} & a_{2,j' + 1} & \cdots & a_{i - 1,j' + 1} & a_{i + 1,j' + 1} & \cdots & a_{n,j' + 1} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{in} & a_{1n} & a_{2n} & \cdots & a_{i - 1,n} & a_{i + 1,n} & \cdots & a_{nn} \\
+\end{matrix} \right|}\\
+&= \sum_{i \in \varLambda_{n}} {a_{ij'}( - 1)^{j' - 1}( - 1)^{i - 1}\left| \begin{matrix}
+1 & a_{i1} & a_{i2} & \cdots & a_{i,j' - 1} & a_{i,j' + 1} & \cdots & a_{in} \\
+0 & a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+0 & a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_{i - 1,1} & a_{i - 1,2} & \cdots & a_{i - 1,j' - 1} & a_{i - 1,j' + 1} & \cdots & a_{i - 1,n} \\
+0 & a_{i + 1,1} & a_{i + 1,2} & \cdots & a_{i + 1,j' - 1} & a_{i + 1,j' + 1} & \cdots & a_{i + 1,n} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{matrix} \right|}\\
+&= \sum_{i \in \varLambda_{n}} {a_{ij'}\frac{( - 1)^{i + j'}}{( - 1)^{2}}\det\left| \begin{matrix}
+a_{i1} & a_{i2} & a_{i,j' - 1} & a_{i,j' + 1} & \cdots & a_{in} \\
+a_{11} & a_{12} & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{i - 1,1} & a_{i - 1,2} & a_{i - 1,j' - 1} & a_{i - 1,j' + 1} & \cdots & a_{i - 1,n} \\
+a_{i + 1,1} & a_{i + 1,2} & a_{i + 1,j' - 1} & a_{i + 1,j' + 1} & \cdots & a_{i + 1,n} \\
+ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{matrix} \right|}\\
+&= \sum_{i \in \varLambda_{n}} {( - 1)^{i + j'}a_{ij'}\det{\mathfrak{s}_{\left( i,j' \right)}\left( A_{nn} \right)}}\\
+&= \sum_{i \in \varLambda_{n}} {( - 1)^{i + j'}a_{ij'}\det{\mathfrak{s}_{\left( i,j' \right)}\left( A_{nn} \right)}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.12}
+可換環$R$上で、$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、$\det\left( A_{nn}B_{nn} \right) = \det A_{nn}\det B_{nn}$が成り立つ。\end{thm}\par
+これにより、行列式写像$\det$は積との順序の交換ができる。
+\begin{proof}
+可換環$R$上で、$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、その行列$A_{nn}$の第$j$列vectorを$\mathbf{a}_{j}$とおき、これらが次のように成分表示されたとする。
+\begin{align*}
+A_{nn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}},\ \ B_{nn} = \left( b_{ij} \right)_{(i,j) \in \varLambda_{n}}
+\end{align*}
+このとき、次のようになる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) = \det\left( \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}} \right) = \det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}}
+\end{align*}\par
+ここで、$j = 1$のとき、明らかに、次式が成り立つ。
+\begin{align*}
+\det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}} &= \det\begin{pmatrix}
+\sum_{i_{1} \in \varLambda_{n}} {b_{i_{1}1}\mathbf{a}_{i_{1}}} & \sum_{i_{2} \in \varLambda_{n}} {b_{i_{2}2}\mathbf{a}_{i_{2}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}\\
+&= \sum_{i_{1} \in \varLambda_{n}} b_{i_{1}1}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \sum_{i_{2} \in \varLambda_{n}} {b_{i_{2}2}\mathbf{a}_{i_{2}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}
+\end{align*}\par
+$j = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+&\quad \det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}} \\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} b_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{k}} & \sum_{i_{k + 1} \in \varLambda_{n}} {b_{i_{k + 1},k + 1}\mathbf{a}_{i_{k + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}
+$j = k + 1$のとき、次のようになる。
+\begin{align*}
+&\quad \det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}}\\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} b_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{k}} & \sum_{i_{k + 1} \in \varLambda_{n}} {b_{i_{k + 1},k + 1}\mathbf{a}_{i_{k + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}\\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k}} b_{i_{i'}i'}\sum_{i_{k + 1} \in \varLambda_{n}} {b_{i_{k + 1},k + 1}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{k}} & \mathbf{a}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}}\\
+&= \sum_{\forall j \in \varLambda_{k}\left[ i_{j} \in \varLambda_{n} \right]} {\sum_{i_{k + 1} \in \varLambda_{n}} {\prod_{i' \in \varLambda_{k}} b_{i_{i'}i'}b_{i_{k + 1},k + 1}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{k}} & \mathbf{a}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}}\\
+&= \sum_{\forall j \in \varLambda_{k + 1}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{k + 1}} b_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{k}} & \mathbf{a}_{i_{k + 1}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}
+ゆえに、$j = k + 1$のときも成り立つ。\par
+以上より数学的帰納法によって、次式が成り立つ。
+\begin{align*}
+&\quad \det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}} \\
+&= \sum_{\forall j \in \varLambda_{j'}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{j'}} b_{i_{i'}i'}\det\begin{pmatrix}
+\mathbf{a}_{i_{1}} & \cdots & \mathbf{a}_{i_{j'}} & \sum_{i_{j' + 1} \in \varLambda_{n}} {b_{i_{j' + 1},j' + 1}\mathbf{a}_{i_{j' + 1}}} & \cdots & \sum_{i_{n} \in \varLambda_{n}} {b_{i_{n}n}\mathbf{a}_{i_{n}}} \\
+\end{pmatrix}}
+\end{align*}
+ここで、$j' = n$とおくと、次のようになる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) = \det\left( \sum_{i_{j} \in \varLambda_{n}} {b_{i_{j}j}\mathbf{a}_{i_{j}}} \right)_{j \in \varLambda_{n}} = \sum_{\forall j \in \varLambda_{n}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、次のように集合$\mathfrak{A}$を定めると、
+\begin{align*}
+\mathfrak{A} =\left\{ j \in \varLambda_{n} \middle| \exists p \in \mathfrak{S}_{n}\left[ p(j) = i_{j} \right] \right\}
+\end{align*}
+次のようになる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) &= \sum_{\forall j \in \left( \varLambda_{n}\mathfrak{\setminus A} \right)\mathfrak{\sqcup A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\forall j \in \varLambda_{n}\mathfrak{\setminus A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}} + \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、$n = 1$のとき、写像$p:\varLambda_{1} \rightarrow \varLambda_{1};j \mapsto i_{j}$は集合$\mathfrak{F}\left( \varLambda_{1},\varLambda_{1} \right)$に属し、$\forall p'\in \mathfrak{F}\left( \varLambda_{1},\varLambda_{1} \right)$に対し、その写像$p'$は恒等写像となり置換であるので、次のようになる。
+\begin{align*}
+\varLambda_{n}\mathfrak{\setminus A} &= \left\{ j \in \varLambda_{n} \middle| \neg\left( \exists p \in \mathfrak{S}_{n}\left[ p(j) = i_{j} \right] \right) \right\}\\
+&= \left\{ j \in \varLambda_{n} \middle| \forall p \in \mathfrak{S}_{n}\left[ p(j) \neq i_{j} \right] \right\}\\
+&= \left\{ j \in \varLambda_{n} \middle| \bot \right\} = \emptyset
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) = \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}\par
+$n \geq 2$が成り立つとき、$j \in \mathfrak{A}$が成り立つなら、$i_{j} = p(j)$なる置換$p$が存在しその置換$p$は単射であったので、$\forall j,k \in \varLambda_{n}$に対し、$j \neq k$が成り立つなら、$p(j) \neq p(k)$が成り立ち、したがって、$i_{j} \neq i_{k}$が成り立つ。\par
+逆に、$j \notin \mathfrak{A}$が成り立つなら、置換の定義より写像$p':\varLambda_{n} \rightarrow \varLambda_{n};j \mapsto i_{j}$は全射でないか単射でないことになり、その写像$p'$が単射であると仮定すると、その写像$p'$は全射でないことになる。\par
+ここで、$n = 2$のとき、その写像$p'$は次の通りが考えられる。
+\begin{align*}
+1 \mapsto 1,2 \mapsto 2 \\
+1 \mapsto 1,2 \mapsto 1 \\
+1 \mapsto 2,2 \mapsto 2 \\
+1 \mapsto 2,2 \mapsto 1 \\
+\end{align*}
+その写像$p'$は全射でないので、次のようになる。
+\begin{align*}
+1 \mapsto 1,2 \mapsto 1 \\
+1 \mapsto 2,2 \mapsto 2 \\
+\end{align*}
+このとき、その写像$p'$は単射でない。\par
+$n = k$のとき、その写像$p'$が全射でないなら、その写像$p'$は単射でないと仮定しよう。$n = k + 1$のとき、写像$p'|\varLambda_{k}$が全射であるなら、$\forall i' \in \varLambda_{k}$に対し$i' = p'|\varLambda_{k}\left( j' \right)$なる自然数$j'$がその集合$\varLambda_{k} = D\left( p'|\varLambda_{k} \right)$に存在する。$p'(k + 1) = k + 1$が成り立つなら、$\forall i' \in \varLambda_{k + 1}$に対し$i' \in \varLambda_{k}$が成り立つなら、上記の議論より$i' = p'|\varLambda_{k}\left( j' \right) = p'\left( j' \right)$なる自然数$j'$がその集合$\varLambda_{k + 1} = D\left( p' \right)$に存在し、$i' = k + 1$が成り立つなら、$k + 1 = p'\left( j' \right)$なる自然数$j'$が$k + 1$でその集合$\varLambda_{k + 1} = D\left( p' \right)$に存在するので、その写像$p'$が全射となり仮定よりその写像$p'$が全射でないことに矛盾する。$p'(k + 1) \neq k + 1$が成り立つなら、$p'(k + 1) \in \varLambda_{k}$が成り立つことになり、その写像$\left. \ p' \right|_{\varLambda_{k}}$が全射であったので、$\varLambda_{k} = V\left( p'|\varLambda_{k} \right)$となり$p'\left( j' \right) = p'|\varLambda_{k}\left( j' \right) = p'(k + 1)$なる自然数$j'$がその集合$\varLambda_{k} = D\left( p'|\varLambda_{k} \right)$に存在する。これにより、$j' \neq k + 1$が成り立つかつ、$p'\left( j' \right) = p'(k + 1)$が成り立つので、その写像$p'$は単射でない。写像$p'|\varLambda_{k}$が全射でないなら、仮定よりその写像$p'|\varLambda_{k}$は単射でないことになり、$j' \neq k'$が成り立つなら、$p'|\varLambda_{k}\left( j' \right) = p'|\varLambda_{k}\left( k' \right)$が成り立つような自然数$j'$、$k'$が添数集合$\varLambda_{k}$に存在する。これは、$j' \neq k'$が成り立つなら、$p'\left( j' \right) = p'\left( k' \right)$が成り立つような自然数$j'$、$k'$が集合$\varLambda_{k + 1}$に存在するともいえ、したがって、$j' \neq k'$が成り立つなら、$p'\left( j' \right) = p'\left( k' \right)$が成り立つような自然数$j'$、$k'$が集合$\varLambda_{k + 1}$に存在する。\par
+以上より数学的帰納法によって、その写像$p'$が全射でないなら、その写像$p'$は単射でないことが示された。しかしながら、このことは仮定のその写像$p'$が単射であるという仮定に矛盾する。したがって、その写像$p'$は単射でないことになり、$j' = k'$が成り立つかつ、$i_{j'} = i_{k'}$が成り立つ。\par
+これにより、$n \geq 2$が成り立つとき、$j \in \mathfrak{A}$が成り立つならそのときに限り、$\forall j,k \in \varLambda_{n}$に対し、$j \neq k$が成り立つなら、$i_{j} \neq i_{k}$が成り立つ。したがって、$j \in \varLambda_{n}\mathfrak{\setminus A}$が成り立つならそのときに限り、$j \neq k$が成り立つかつ、$i_{j} = i_{k}$が成り立つような自然数たち$j$、$k$が存在することになり、$j \in \varLambda_{n}\mathfrak{\setminus A}$が成り立つときのその行列$\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}$に2つの列々が等しいようなものがあるので、次式が成り立つ。
+\begin{align*}
+\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}} = 0
+\end{align*}
+したがって、次式のようになり
+\begin{align*}
+\sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}} = 0
+\end{align*}
+次式のようになる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) = \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、その集合$\mathfrak{A}$の定義より$p(j) = i_{j}$なる置換$p$が存在するので、次のように書き換えられることができる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) &= \sum_{\forall j \in \mathfrak{A}\left[ i_{j} \in \varLambda_{n} \land \exists p \in \mathfrak{S}_{n}\left[ p(j) = i_{j} \right] \right]} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\forall j \in \mathfrak{A}\left[ p(j) = i_{j} \in \varLambda_{n} \right] \land p \in \mathfrak{S}_{n}} {\prod_{i' \in \varLambda_{n}} b_{i_{i'}i'}\det\left( \mathbf{a}_{i_{j}} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\scriptsize \begin{matrix}
+p \in \mathfrak{S}_{n} \\
+\forall j \in \mathfrak{A}\left[ p(j) = i_{j} \in \varLambda_{n} \right] \\
+\end{matrix}} {\prod_{j \in \varLambda_{n}} b_{p(j),j}\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}}}\\
+&= \sum_{\scriptsize \begin{matrix}
+p \in \mathfrak{S}_{n} \\
+\end{matrix}} {\prod_{j \in \varLambda_{n}} b_{p(j),j}\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}}}
+\end{align*}
+ここで、$\det\left( \mathbf{a}_{p(j)} \right)_{j \in \varLambda_{n}} = {\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$が成り立つので、次のようになる。
+\begin{align*}
+\det\left( A_{nn}B_{nn} \right) &= \sum_{\scriptsize \begin{matrix}
+p \in \mathfrak{S}_{n} \\
+\end{matrix}} {\prod_{j \in \varLambda_{n}} b_{p(j),j}{\mathrm{sgn} }p\det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}}\\
+&= \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\sum_{\scriptsize \begin{matrix}
+p \in \mathfrak{S}_{n} \\
+\end{matrix}} {{\mathrm{sgn} }p\prod_{j \in \varLambda_{n}} b_{p(j),j}}\\
+&= \det\left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}\det\left( b_{ij} \right)_{(i,j) \in \varLambda_{n}}\\
+&= \det A_{nn}\det B_{nn}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.13}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、その行列$A_{nn}$が正則行列であるならそのときに限り、$\det A_{nn} \neq 0$が成り立つ。さらに、このとき、$\det A_{nn}^{- 1} = \frac{1}{\det A_{nn}}$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、$\det A_{nn} \neq 0$が成り立つなら、その行列$A_{nn}$は正則行列であることはすでに示されているのであった。逆に、その行列$A_{nn}$が正則行列であるならそのときに限り、その行列$A_{nn}$の逆行列$A_{nn}^{- 1}$が存在するのであった。したがって、次のようになる。
+\begin{align*}
+1 = \det I_{nn} = \det{A_{nn}A_{nn}^{- 1}} = \det A_{nn}\det A_{nn}^{- 1}
+\end{align*}
+これにより、$\det A_{nn} \neq 0$かつ$\det A_{nn}^{- 1} \neq 0$が成り立つ。以上より、その行列$A_{nn}$が正則行列であるなら、$\det A_{nn} \neq 0$が成り立つことが示された。\par
+また、次式たちが成り立つことにより、
+\begin{align*}
+\det A_{nn}\det A_{nn}^{- 1} = 1,\ \ \det A_{nn} \neq 0,\ \ \det A_{nn}^{- 1} \neq 0
+\end{align*}
+したがって、$\det A_{nn}^{- 1} = \frac{1}{\det A_{nn}}$が成り立つ。
+\end{proof}
+\begin{thm}\label{2.1.11.14}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、連立1次方程式$A_{nn}\mathbf{x} = \mathbf{0}$が自明な解$\mathbf{x} = \mathbf{0}$のみもつならそのときに限り、$\det A_{nn} \neq 0$が成り立つ。
+\end{thm}
+\begin{proof}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、連立1次方程式$A_{nn}\mathbf{x} = \mathbf{0}$が自明な解$\mathbf{x} = \mathbf{0}$のみもつならそのときに限り、その解空間の次元が$0$になるので、線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$について、次元公式より${\mathrm{rank}}A_{nn} = \dim{V\left( L_{A_{nn}} \right)} = n$となりその行列$A_{nn}$は正則行列となる。ここで、その行列$A_{nn}$が正則行列であるならそのときに限り、$\det A_{nn} \neq 0$が成り立つので、示すべきことは示された。
+\end{proof}
+\begin{thm}\label{2.1.11.15}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  その行列$A_{nn}$は正則行列である、即ち、$A_{nn} \in \mathrm{GL}_{n}(K)$が成り立つ。
+\item
+  線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$が全単射である。
+\item
+  ${\mathrm{rank}}A_{nn} = n$が成り立つ。
+\item
+  $A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$とおくと、族$\left\{ \mathbf{a}_j \right\}_{j \in \varLambda_{n} } $が線形独立である。
+\item
+  $A_{nn} = \left(^{t}\mathbf{b}_{i} \right)_{i \in \varLambda_{n}}$とおくと、族$\left\{ \mathbf{b}_i \right\}_{j \in \varLambda_{n} } $が線形独立である。
+\item
+  $\exists X_{nn} \in M_{nn}(K)$に対し、$A_{nn}X_{nn} = X_{nn}A_{nn} = I_{n}$が成り立つ。
+\item
+  $\ker L_{A_{mn}} = \left\{ \mathbf{0} \right\}$が成り立つ。
+\item
+  $\forall\mathbf{v} \in K^{n}$に対し、$A_{nn}\mathbf{v} = \mathbf{0}$が成り立つならそのときに限り、$\mathbf{v} = \mathbf{0}$が成り立つ。
+\item
+  連立1次方程式$A_{nn}\mathbf{x} = \mathbf{0}$が自明な解$\mathbf{x} = \mathbf{0}$のみもつ。
+\item
+  $\det A_{nn} \neq 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+体$K$上で、$\forall A_{nn} \in M_{nn}(K)$に対し、定理\ref{2.1.4.14}より次のことは同値である。
+\begin{itemize}
+\item
+  その行列$A_{nn}$は正則行列である、即ち、$A_{nn} \in \mathrm{GL}_{n}(K)$が成り立つ。
+\item
+  線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$が全単射である。
+\item
+  ${\mathrm{rank}}A_{nn} = n$が成り立つ。
+\item
+  $A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$とおくと、族$\left\{ \mathbf{a}_j \right\}_{j \in \varLambda_{n} } $が線形独立である。
+\item
+  $A_{nn} = \left(^{t}\mathbf{b}_{i} \right)_{i \in \varLambda_{n}}$とおくと、族$\left\{ \mathbf{b}_i \right\}_{i \in \varLambda_{n} } $が線形独立である。
+\item
+  $\exists A_{nn}^{- 1} \in M_{nn}(K)$に対し、$A_{nn}A_{nn}^{- 1} = A_{nn}^{- 1}A_{nn} = I_{n}$が成り立つ。
+\item
+  $\ker L_{A_{mn}} = \left\{ \mathbf{0} \right\}$が成り立つ。
+\item
+  $\forall\mathbf{v} \in K^{n}$に対し、$A_{nn}\mathbf{v} = \mathbf{0}$が成り立つならそのときに限り、$\mathbf{v} = \mathbf{0}$が成り立つ。
+\end{itemize}
+また、定理\ref{2.1.11.13}より次のことは同値である。
+\begin{itemize}
+\item
+  その行列$A_{nn}$は正則行列である、即ち、$A_{nn} \in \mathrm{GL}_{n}(K)$が成り立つ。
+\item
+  $\det A_{nn} \neq 0$が成り立つ。
+\end{itemize}
+定理\ref{2.1.11.14}より次のことは同値である。
+\begin{itemize}
+\item
+  連立1次方程式$A_{nn}\mathbf{x} = \mathbf{0}$が自明な解$\mathbf{x} = \mathbf{0}$のみもつ。
+\item
+  $\det A_{nn} \neq 0$が成り立つ。
+\end{itemize}
+以上より示すべきことが示された。
+\end{proof}
+%\hypertarget{cramerux306eux516cux5f0f}{%
+\subsubsection{Cramerの公式}%\label{cramerux306eux516cux5f0f}}
+\begin{thm}[Cramerの公式]\label{2.1.11.16}
+体$K$上で$\forall A_{nn} \in M_{nn}(K)\forall\mathbf{b} \in K^{n}$に対し、$A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$とおき$\det A_{nn} \neq 0$とする。このとき、$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} \in K^{n}$とした連立1次方程式$A_{nn}\mathbf{x} = \mathbf{b}$の解は、$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+x_{i} = \frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{b} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}
+\end{align*}
+この式をCramerの公式という。
+\end{thm}\par
+実際、連立1次方程式が解かれるとき、$\det A_{nn} \neq 0$となる条件を確かめ公式をあてはめるのにその計算量が多くなりやすいので、あまり実用的ではなかろう。
+\begin{proof}
+体$K$上で$\forall A_{nn} \in M_{nn}(K)\forall\mathbf{b} \in K^{n}$に対し、$A_{nn} = \left( \mathbf{a}_{j} \right)_{j \in \varLambda_{n}}$とおき$\det A_{nn} \neq 0$とする。このとき、$\mathbf{x} = \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} \in K^{n}$とした連立1次方程式$A_{nn}\mathbf{x} = \mathbf{b}$は次のように変形できる。
+\begin{align*}
+\sum_{j \in \varLambda_{n}} {x_{j}\mathbf{a}_{j}} = \mathbf{b}
+\end{align*}
+したがって、$\det A_{nn} \neq 0$より$\forall i \in \varLambda_{n}$に対し、次のようになる。
+\begin{align*}
+&\quad \frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{b} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}} \\
+&= \frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \sum_{j \in \varLambda_{n}} {x_{j}\mathbf{a}_{j}} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}\\
+&= \sum_{j \in \varLambda_{n}} {x_{j}\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}}\\
+&= \sum_{j \in \varLambda_{n} \setminus \left\{ i \right\}} {x_{j}\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}} \\
+&\quad + x_{i}\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}\\
+&= \sum_{j \in \varLambda_{n} \setminus \left\{ i \right\}} {x_{j}\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}} \\
+&\quad + x_{i}\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}
+\end{align*}
+ここで、$\forall i \in \varLambda_{n}$に対し、その行列$\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}$の2つの列々が等しいようなものがあるので、次式が成り立ち、
+\begin{align*}
+\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{j} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix} = 0
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\frac{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{b} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}} = \sum_{j \in \varLambda_{n} \setminus \left\{ i \right\}} {x_{j}\frac{0}{\det\begin{pmatrix}
+\mathbf{a}_{1} & \cdots & \mathbf{a}_{i} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}}} + x_{i} = x_{i}
+\end{align*}
+\end{proof}
+%\hypertarget{ux4f59ux56e0ux5b50ux884cux5217}{%
+\subsubsection{2.1.11.3 余因子行列}%\label{ux4f59ux56e0ux5b50ux884cux5217}}
+\begin{dfn}
+可換環$R$上で、$n \geq 2$のとき、$\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次式のように写像$\mathfrak{s}_{\left( i',j' \right)}$が定義されたとき、
+\begin{align*}
+\mathfrak{s}_{\left( i',j' \right)}&:M_{nn}(R) \rightarrow M_{n - 1,n - 1}(R);\\
+&A_{nn} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{pmatrix} \\
+&\mapsto \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1,j' - 1} & a_{1,j' + 1} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2,j' - 1} & a_{2,j' + 1} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i' - 1,1} & a_{i' - 1,2} & \cdots & a_{i' - 1,j' - 1} & a_{i' - 1,j' + 1} & \cdots & a_{i' - 1,n} \\
+a_{i' + 1,1} & a_{i' + 1,2} & \cdots & a_{i' + 1,j' - 1} & a_{i' + 1,j' + 1} & \cdots & a_{i' + 1,n} \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{n,j' - 1} & a_{n,j' + 1} & \cdots & a_{nn} \\
+\end{pmatrix}
+\end{align*}
+この像$\mathfrak{s}_{\left( i',j' \right)}\left( A_{nn} \right)$をその行列$A_{nn}$の$\left( i',j' \right)$小行列などという。
+\end{dfn}
+\begin{dfn}
+可換環$R$上で、$n \geq 2$のとき、$\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次のような写像$\mathfrak{c}_{\left( i',j' \right)}$が定義されたとき、
+\begin{align*}
+\mathfrak{c}_{\left( i',j' \right)}:M_{nn}(R) \rightarrow R;A_{nn} \mapsto ( - 1)^{i' + j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{nn} \right)}
+\end{align*}
+この像$\mathfrak{c}_{\left( i',j' \right)}\left( A_{nn} \right)$をその行列$A_{nn}$の$\left( i',j' \right)$余因子、$a_{i'j'}$の余因子などという。
+\end{dfn}
+\begin{thm}\label{2.1.11.17}
+可換環$R$上で、$n \geq 2$のとき、$\forall A_{nn} \in M_{nn}(R)\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{i'k}\mathfrak{c}_{\left( j',k \right)}\left( A_{nn} \right)} = \sum_{k \in \varLambda_{n}} {a_{kj'}\mathfrak{c}_{\left( k,i' \right)}\left( A_{nn} \right)} = \delta_{i'j'}\det A_{nn}
+\end{align*}
+\end{thm}
+\begin{proof}
+可換環$R$上で、$n \geq 2$のとき、$\forall A_{nn} \in M_{nn}(R)\forall\left( i',j' \right) \in \varLambda_{n}^{2}$に対し、次のような写像$\mathfrak{c}_{\left( i',j' \right)}$が定義されたとする。
+\begin{align*}
+\mathfrak{c}_{\left( i',j' \right)}:M_{nn}(R) \rightarrow R;A_{nn} \mapsto ( - 1)^{i' + j'}\det{\mathfrak{s}_{\left( i',j' \right)}\left( A_{nn} \right)}
+\end{align*}\par
+$i' = j'$のとき、次のようになる。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{i'k}\mathfrak{c}_{\left( j',k \right)}\left( A_{nn} \right)} &= \sum_{k \in \varLambda_{n}} {a_{i'k}( - 1)^{k + j'}\det{\mathfrak{s}_{\left( j',k \right)}\left( A_{nn} \right)}}\\
+&= \sum_{k \in \varLambda_{n}} {( - 1)^{i' + k}a_{i'k}\det{\mathfrak{s}_{\left( i',k \right)}\left( A_{nn} \right)}}
+\end{align*}
+この式はその行列式$\det A_{nn}$の第$i'$行に関する展開であるので、次式が成り立つ。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{i'k}\mathfrak{c}_{\left( j',k \right)}\left( A_{nn} \right)} = \det A_{nn}
+\end{align*}\par
+一方で、$i' \neq j'$のとき、次式のように定義される行列$A_{nn}'$を考えると、
+\begin{align*}
+A_{nn}' = \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}},\ \ a_{ij}' = \left\{ \begin{matrix}
+a_{i'j} & \mathrm{if} & i = j' \\
+a_{ij} & otherwise & \  \\
+\end{matrix} \right.\ 
+\end{align*}
+その行列$A_{nn}'$に2つの列々が等しいようなものがあるので、$\det A_{nn}' = 0$が成り立つ。\par
+一方で、その行列式$\det A_{nn}'$を第$j'$行に関して展開すれば、次のようになる。
+\begin{align*}
+\det A_{nn}' &= \sum_{k \in \varLambda_{n}} {( - 1)^{j' + k}a_{j'k}' \cdot \det{\mathfrak{s}_{\left( j',k \right)}\left( A_{nn}' \right)}}\\
+&= \sum_{k \in \varLambda_{n}} {( - 1)^{j' + k}a_{i'k}\det{\mathfrak{s}_{\left( j',k \right)}\left( A_{nn} \right)}}\\
+&= \sum_{k \in \varLambda_{n}} {a_{i'k}( - 1)^{k + j'}\det{\mathfrak{s}_{\left( j',k \right)}\left( A_{nn} \right)}}\\
+&= \sum_{k \in \varLambda_{n}} {a_{i'k}\mathfrak{c}_{\left( j',k \right)}\left( A_{nn} \right)}
+\end{align*}\par
+よって、次式が成り立つ。
+\begin{align*}
+\sum_{k \in \varLambda_{n}} {a_{i'k}\mathfrak{c}_{\left( j',k \right)}\left( A_{nn} \right)} = \delta_{i'j'}\det A_{nn}
+\end{align*}
+あとは同様にして示される。
+\end{proof}
+\begin{dfn}
+可換環$R$上で、$n \geq 2$のとき、写像$\mathfrak{a}$が次のように定義されたとき、
+\begin{align*}
+\mathfrak{a:}M_{nn}(R) \rightarrow M_{nn}(R);A_{nn} \mapsto \left( \mathfrak{c}_{(j,i)}\left( A_{nn} \right) \right)_{(i,j) \in \varLambda_{n}^{2}}
+\end{align*}
+この写像$\mathfrak{a}$によるその行列$A_{nn}$の像$\mathfrak{a}\left( A_{nn} \right)$をその行列$A_{nn}$の余因子行列などといい$\widetilde{A_{nn}}$と書くことが多い。
+\end{dfn}
+\begin{thm}\label{2.1.11.18}
+可換環$R$上で、$n \geq 2$のとき、$\forall A_{nn} \in M_{nn}(R)$に対し、次式が成り立つ。
+\begin{align*}
+A_{nn}\widetilde{A_{nn}} = \widetilde{A_{nn}}A_{nn} = \left( \det A_{nn} \right)I_{n}
+\end{align*}
+\end{thm}
+\begin{proof}
+可換環$R$上で、$n \geq 2$のとき、$\forall A_{nn} \in M_{nn}(R)$に対し、その行列$A_{nn}$の余因子行列$\widetilde{A_{nn}}$は次のように成分表示される。
+\begin{align*}
+\widetilde{A_{nn}} = \left( \mathfrak{c}_{(j,i)}\left( A_{nn} \right) \right)_{(i,j) \in \varLambda_{n}^{2}}
+\end{align*}
+このとき、定理\ref{2.1.11.17}より次のようになる。
+\begin{align*}
+A_{nn}\widetilde{A_{nn}} &= \left( a_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}}\left( \mathfrak{c}_{(j,i)}\left( A_{nn} \right) \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \left( \sum_{k \in \varLambda_{n}} {a_{ik}\mathfrak{c}_{(j,k)}\left( A_{nn} \right)} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \left( \delta_{ij}\det A_{nn} \right)_{(i,j) \in \varLambda_{n}^{2}}\\
+&= \left( \det A_{nn} \right)\left( \delta_{ij} \right)_{(i,j) \in \varLambda_{n}^{2}} = \left( \det A_{nn} \right)I_{n}
+\end{align*}\par
+また、同様にして、次式が得られる。
+\begin{align*}
+\widetilde{A_{nn}}A_{nn} = \left( \det A_{nn} \right)I_{n}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.19}
+可換環$R$上で、$\forall A_{nn} \in M_{nn}(R)$に対し、その行列$A_{nn}$が可逆行列であるならそのときに限り、その行列式$\det A_{nn}$は可逆元である。\par
+さらに、$n \geq 2$のとき、その行列$A_{nn}$が可逆行列であるとき、次式が成り立ち、
+\begin{align*}
+A_{nn}^{- 1} = \frac{{\widetilde{A}}_{nn}}{\det A_{nn}}
+\end{align*}
+$\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\det A_{nn}^{- 1} = \frac{1}{\det A_{nn}}
+\end{align*}
+\end{thm}
+\begin{proof}
+可換環$R$上で、$\forall A_{nn} \in M_{nn}(R)$に対し、その行列$A_{nn}$が可逆行列であるなら、$n = 1$のときは明らかであるから、$n \geq 2$のとき、逆行列$A_{nn}^{- 1}$が存在して、次のようになる。
+\begin{align*}
+\det A_{nn}\det A_{nn}^{- 1} = \det\left( A_{nn}A_{nn}^{- 1} \right) = \det I_{n} = 1
+\end{align*}
+これにより、その行列式$\det A_{nn}$は可逆元である。\par
+逆に、その行列式$\det A_{nn}$が可逆元であるなら、定理\ref{2.1.11.19}より次式が成り立つ。
+\begin{align*}
+A_{nn}\widetilde{A_{nn}} = \widetilde{A_{nn}}A_{nn} = \left( \det A_{nn} \right)I_{n}
+\end{align*}
+したがって、次式のようになり、
+\begin{align*}
+A_{nn}\frac{\widetilde{A_{nn}}}{\det A_{nn}} = \frac{\widetilde{A_{nn}}}{\det A_{nn}}A_{nn} = I_{n}
+\end{align*}
+ここで、逆行列の定義とこれが一意的に存在することより次式が成り立つ。
+\begin{align*}
+A_{nn}^{- 1} = \frac{\widetilde{A_{nn}}}{\det A_{nn}}
+\end{align*}
+よって、その行列$A_{nn}$は可逆行列である。\par
+また、次式たちが成り立つことにより、
+\begin{align*}
+\det A_{nn}\det A_{nn}^{- 1} = \det\left( A_{nn}A_{nn}^{- 1} \right) = \det I_{n} = 1
+\end{align*}
+その行列式$\det A_{nn}$が可逆元であることに注意すれば、したがって、次式が成り立つ。
+\begin{align*}
+\det A_{nn}^{- 1} = \frac{1}{\det A_{nn}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.1.11.20}
+可換環$R$上で、$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、これらの行列たち$A_{nn}$、$B_{nn}$が相似であるなら、$\det A_{nn} = \det B_{nn}$が成り立つ。
+\end{thm}
+\begin{proof}
+可換環$R$上で、$\forall A_{nn},B_{nn} \in M_{nn}(R)$に対し、これらの行列たち$A_{nn}$、$B_{nn}$が相似であるなら、$P_{nn}A_{nn} = B_{nn}P_{nn}$が成り立つような行列$P_{nn}$が集合$\mathrm{GL}_{n}(R)$に存在することになり、したがって、$A_{nn} = P_{nn}^{- 1}B_{nn}P_{nn}$が成り立つことになり、したがって、次のようになる。
+\begin{align*}
+\det A_{nn} &= \det\left( P_{nn}^{- 1}B_{nn}P_{nn} \right)\\
+&= \det P_{nn}^{- 1}\det B_{nn}\det P_{nn}\\
+&= \frac{1}{\det P_{nn}}\det B_{nn}\det P_{nn}\\
+&= \det B_{nn}
+\end{align*}
+\end{proof}
+%\hypertarget{ux5c0fux884cux5217ux5f0f}{%
+\subsubsection{小行列式}%\label{ux5c0fux884cux5217ux5f0f}}
+\begin{dfn}
+可換環$R$上の$A_{mn} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} \in M_{mn}(R)$なる行列$A_{nn}$と$p \in \varLambda_{m} \cap \varLambda_{n}$なる自然数$p$について、$\varLambda \subseteq \varLambda_{m}$かつ$M \subseteq A_{n}$かつ${\#}\varLambda = {\#}M = p$なる集合たち$\varLambda$、$M$を用いた行列、即ち、その行列$A_{mn}$のうち$p$つの行々と列々だけ順序を変えずに取り出して得られる行列の行列式$\det\left( a_{ij} \right)_{(i,j) \in \varLambda \times M}$をその行列$A_{mn}$の$p$次小行列式などという。
+\end{dfn}
+\begin{thm}\label{2.1.11.21}
+体$K$上で、$\forall A_{mn} \in M_{mn}(K)$に対し、その行列$A_{mn}$の階数はその行列$A_{mn}$の$0$でない$p$次小行列式の正の整数$p$のうち最大なものに等しい、即ち、$r = {\mathrm{rank}}A_{mn}$としてその行列$A_{mn}$の$r$次小行列式のうち$0$でないものが存在し、$r < p$なる$p$次小行列式が存在すれば、これは$0$となる。
+\end{thm}
+\begin{proof}
+体$K$上で、$\forall A_{mn} \in M_{mn}(K)$に対し、$r = {\mathrm{rank}}A_{mn}$、$A_{mn} = \left(^{t}\mathbf{b}_{i} \right)_{i \in \varLambda_{m}} = \left( a_{ij} \right)_{(i,j) \in \varLambda_{m} \times \varLambda_{n}}$とおくとき、その行列$A_{mn}$の$r$次小行列式のうち$0$でないものが存在することを示そう。階数の定義より行vectors$\mathbf{b}_{i}$のうち線形独立なものが$r$つだけあることになる。このような行vectorをもつような行全体の集合を$\varLambda$とおき、$\forall k \in \varLambda_{r}$に対し、$i_{k} \in \varLambda$かつ、$\forall k \in \varLambda_{r - 1}$に対し、$i_{k} < i_{k + 1}$とすると、次のような行列$A_{rn}'$の階数も$r$となる。
+\begin{align*}
+A_{rn}' = \left( a_{i_{k}j} \right)_{(k,j) \in \varLambda_{r} \times \varLambda_{n}} = \left( \mathbf{a}_{j}' \right)_{j \in \varLambda_{n}} \in M_{rn}(K)
+\end{align*}
+このとき、階数の定義よりその行列$A_{rn}'$の$n$つの列vector$\mathbf{a}_{j}'$のうち線形独立なものが$r$つだけあることになる。このような列vectorをもつような列全体の集合を$M$とおき、$\forall l \in \varLambda_{r}$に対し、$j_{l} \in M$かつ、$\forall l \in \varLambda_{r - 1}$に対し、$j_{l} < j_{l + 1}$とすると、次のような行列$A_{rr}''$の階数も$r$となる。
+\begin{align*}
+A_{rr}'' = \left( a_{i_{k}j_{l}} \right)_{(k,l) \in \varLambda_{r}^{2}} \in M_{rr}(K)
+\end{align*}
+このとき、${\mathrm{rank}}A_{rr}'' = {\mathrm{rank}}A_{mn} = r$が成り立つので、定理\ref{2.1.11.15}より$\det A_{rr}'' \neq 0$が成り立つ。これにより、その行列$A_{mn}$の$r$次小行列式のうち$0$でないものが存在することが示された。\par
+次に、$r < p$なる$p$次小行列式が存在すれば、これは$0$となることを示そう。$\varLambda \subseteq \varLambda_{m}$かつ$M \subseteq A_{n}$なる集合たち$\varLambda$、$M$を用いた行列$\left( a_{ij} \right)_{(i,j) \in \varLambda \times M}$の階数は階数に定義より$r$以下となる。ここで、$\forall k \in \left( \varLambda_{m} \cap \varLambda_{n} \right) \setminus \varLambda_{r}$に対し、その行列$A_{mn}$のうち$k$つの行々と列々だけ順序を変えずに取り出して得られる行列を$A_{kk}'''$とすると、これは$k$次正方行列であり上の議論より${\mathrm{rank}}A_{kk}''' \leq r < k$が成り立つことになるので、定理\ref{2.1.11.15}よりその行列$A_{kk}'''$は正則行列でない。したがって、$\det A_{kk}''' = 0$が成り立つ。よって、$r < p$なる$p$次小行列式が存在すれば、これは$0$となることが示された。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+    松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p157-167,171-189 ISBN978-4-00-029872-8
+  \bibitem{2}
+    対馬龍司, 線形代数学講義, 共立出版, 2007. 改訂版8刷 p69-87 ISBN978-4-320-11097-7
+  \bibitem{3}
+    佐武一郎, 線型代数学, 裳華房, 1958. 第53刷 p68 ISBN4-7853-1301-3
+  \bibitem{4}
+    理系のための備忘録. "零行列を含むブロック行列の行列式を簡単に求める方法". 理系のための備忘録. \url{https://science-log.com/%E6%95%B0%E5%AD%A6/%E9%9B%B6%E8%A1%8C%E5%88%97%E3%82%92%E5%90%AB%E3%82%80%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E8%A1%8C%E5%88%97%E3%81%AE%E8%A1%8C%E5%88%97%E5%BC%8F%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E6%B1%82%E3%82%81/} (2021-2-13 5:00 閲覧)
+  \bibitem{5}
+    対馬龍司. "3.3 行列式の積". 明治大学. \url{https://www.isc.meiji.ac.jp/~tsushima/senkei/%E7%AC%AC%EF%BC%91%EF%BC%93%E5%9B%9E.pdf} (2021-2-13 20:00 閲覧)
+  \end{thebibliography}
+\end{document}

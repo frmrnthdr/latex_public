@@ -1,0 +1,470 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{1}
+\usepackage{xr}
+\externaldocument{4.1.12}
+\externaldocument{4.2.1}
+\externaldocument{4.2.8}
+\externaldocument{4.3.1}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6975ux5f62ux5f0f}{%
+\subsection{極形式}%\label{ux6975ux5f62ux5f0f}}
+%\hypertarget{ux7d14ux865aux6307ux6570ux51fdux6570}{%
+\subsubsection{純虚指数函数}%\label{ux7d14ux865aux6307ux6570ux51fdux6570}}\par
+極形式を述べる際に自然な指数関数と三角関数との関係を述べた定理たちをまず列挙しておこう。
+\begin{thm*}[Eulerの公式\ref{4.3.1.12}の再掲]
+$\forall z \in \mathbb{C}$に対し、次式が成り立つ。これをEulerの公式という。
+\begin{align*}
+\exp{iz} = \cos z + i\sin z
+\end{align*}
+\end{thm*}
+\begin{thm*}[de Moivreの公式\ref{4.3.1.13}の再掲]
+$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、次式が成り立つ。これをde Moivreの公式という。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{n} = \cos{nz} + i\sin{nz}
+\end{align*}
+\end{thm*}
+\begin{thm*}[定理\ref{4.3.1.14}の再掲] $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cos z &= \frac{\exp{iz} + \exp( - iz)}{2}\\
+\sin z &= \frac{\exp{iz} - \exp( - iz)}{2i}
+\end{align*}
+\end{thm*}\par
+さて、本題を述べよう。
+\begin{dfn}
+関数$f:D(f) \rightarrow \mathbb{C}$が与えられたとき、$\forall x \in D(f)$に対し、ある複素数$a$が存在して$f(x + a) = f(x)$が成り立つとき、その関数$f$は周期$a$の周期関数であるという。文献によっては、その複素数$a$が実数のとき、このような実数たちのうち最も小さいものを周期とするものもある。例えば、定理\ref{4.3.1.21}や定理\ref{4.3.1.32}で掲げたように余弦関数$\cos$、正弦関数$\sin$、正接関数$\tan$、余接関数$\cot$はそれぞれ周期$2\pi$、$2\pi$、$\pi$、$\pi$の周期関数である。
+\end{dfn}
+\begin{dfn} 関数$\mathrm{cis}$が次式のように定義される。
+\begin{align*}
+\mathrm{cis}:[ 0,2\pi) \rightarrow \left\{ z \in \mathbb{C} \middle| |z| = 1 \right\};x \mapsto \exp{ix}
+\end{align*}
+その関数を純虚指数函数という。
+\end{dfn}
+\begin{thm}\label{4.3.2.1} 純虚指数函数$\mathrm{cis}$は連続で全単射である。
+\end{thm}
+\begin{proof}
+自然な指数関数$\exp$について、$\forall x \in \mathbb{R}$に対し、定理\ref{4.2.8.8}より次式のようになるので、
+\begin{align*}
+\exp{ix} &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(ix)^{n}}{n!}\\
+&= \frac{d}{dx}\left( \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{i^{n}x^{n + 1}}{(n + 1)n!} + \frac{1}{i} \right)\\
+&= \frac{d}{dx}\left( \sum_{n \in \mathbb{N}} \frac{(ix)^{n}}{in!} + \frac{x^{0}}{i0!} \right)\\
+&= \frac{1}{i}\frac{d}{dx}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{x^{n}}{n!}\\
+&= \frac{1}{i}\frac{d}{dx}\exp{ix}
+\end{align*}
+定理\ref{4.2.1.3}よりしたがって、純虚指数函数$\mathrm{cis}$は連続である。\par
+ここで、$\forall x \in [ 0,2\pi)$に対し、Eulerの公式と定理\ref{4.3.1.15}より次式が成り立つので、
+\begin{align*}
+\left| {\mathrm{cis}}x \right|^{2} = \left( \cos x + i\sin x \right)\left( \cos x - i\sin x \right) = \cos^{2}x + \sin^{2}x = 1
+\end{align*}
+$V(\mathrm{cis}) \subseteq \left\{ z \in \mathbb{C} \middle| |z| = 1 \right\}$が成り立つ。さらに、Eulerの公式より$\forall x \in [ 0,\pi]$に対し、$\sin x \geq 0$が成り立つので、$V\left( \mathrm{cis}|[ 0,\pi] \right) \subseteq \left\{ z \in \mathbb{C} \middle| |z| = 1,\mathrm{Im}z \geq 0 \right\}$が成り立つ。さらに、余弦関数が単調減少していることにより、その関数$\mathrm{cis}|[ 0,\pi]$は単射である。ここで、$\forall z \in \left\{ z \in \mathbb{C} \middle| |z| = 1,\mathrm{Im}z \geq 0 \right\}$に対し、$- 1 \leq \mathrm{Re}z \leq 1$が成り立つので、中間値の定理より$\mathrm{Re}z = \cos x$なる実数$x$が区間$[ 0,\pi]$に存在し$\mathrm{Im}z = \sin x$とおかれれば、$0 \leq \sin x$が成り立ち、したがって、${\mathrm{cis}}x = \mathrm{Re}z + i\mathrm{Im}z = z$が成り立つ。これにより、$z \in V\left( \mathrm{cis}|[ 0,\pi] \right)$が成り立つので、$V\left( \mathrm{cis}|[ 0,\pi] \right) = \left\{ z \in \mathbb{C} \middle| |z| = 1,\mathrm{Im}z \geq 0 \right\}$が成り立つ。同様にして、その関数$\mathrm{cis}|[\pi,2\pi]$もまた単射で$V\left( \mathrm{cis}|[\pi,2\pi] \right) = \left\{ z \in \mathbb{C} \middle| |z| = 1,\mathrm{Im}z \leq 0 \right\}$が成り立つ。ここで、${\mathrm{cis}}0 = {\mathrm{cis}}{2\pi} = 1$が成り立つので、純虚指数函数$\mathrm{cis}$は全単射である。
+\end{proof}
+\begin{thm}\label{4.3.2.2} $\forall z,w \in \mathbb{C}$に対し、次のことが成り立つ。
+\begin{align*}
+\exp z = \exp w \Leftrightarrow \exists n \in \mathbb{Z}[ z = w + 2n\pi i]
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z,w \in \mathbb{C}$に対し、ある整数$n$が存在して$z = w + 2n\pi i$が成り立つなら、次のようになる。
+\begin{align*}
+\exp z &= \exp(w + 2n\pi i)\\
+&= \exp\left( \mathrm{Re}(w) + \left( \mathrm{Im}(w) + 2n\pi \right)i \right)\\
+&= \exp{\mathrm{Re}(w)}\exp{\left( \mathrm{Im}(w) + 2n\pi \right)i}\\
+&= \exp{\mathrm{Re}(w)}\left( \cos{\left( \mathrm{Im}(w) + 2n\pi \right) + i\sin\left( \mathrm{Im}(w) + 2n\pi \right)} \right)\\
+&= \exp{\mathrm{Re}(w)}\left( \cos{\mathrm{Im}(w) + i\sin{\mathrm{Im}(w)}} \right)\\
+&= \exp{\mathrm{Re}(w)}\exp{\mathrm{Im}(w)i}\\
+&= \exp\left( \mathrm{Re}(w) + \mathrm{Im}(w)i \right) = \exp w
+\end{align*}\par
+逆に、$\exp z = \exp w$が成り立つなら、定理\ref{4.3.1.4}と定理\ref{4.3.1.5}より$1 = \exp(z - w)$が成り立つことになり、したがって、Eulerの公式と定理\ref{4.3.1.15}より$1 = \left| \exp(z - w) \right| = \exp{\mathrm{Re}(z - w)}$が成り立つ。定理\ref{4.3.1.18}よりその関数$\exp$が集合$\mathbb{R}$に制限されたとき、その関数$\exp$は単射であるから、$\mathrm{Re}(z - w) = 0$が成り立つ。したがって、$1 = \exp(z - w) = \exp{\mathrm{Im}(z - w)i}$が成り立つことになり、$\exists n \in \mathbb{Z}$に対し、$\mathrm{Im}(z - w) \in \left[ 2n\pi,2(n + 1)\pi \right)$が成り立つ。このとき、$\mathrm{Im}(z - w) - 2n\pi \in [ 0,2\pi)$が成り立ち、したがって、次のようになる。
+\begin{align*}
+{\mathrm{cis}}\left( \mathrm{Im}(z - w) - 2n\pi \right) &= \exp{\left( \mathrm{Im}(z - w) - 2n\pi \right)i}\\
+&= \cos\left( \mathrm{Im}(z - w) - 2n\pi \right) + i\sin\left( \mathrm{Im}(z - w) - 2n\pi \right)\\
+&= \cos{\mathrm{Im}(z - w)} + i\sin{\mathrm{Im}(z - w)}\\
+&= \exp{\mathrm{Im}(z - w)i} = 1
+\end{align*}
+定理\ref{4.3.2.1}より$\mathrm{Im}(z - w) = 2n\pi$が成り立つので、$\mathrm{Re}(z - w) = 0$が成り立つことと合わせて$z - w = 2n\pi i$が成り立つ。
+\end{proof}
+%\hypertarget{ux6975ux5f62ux5f0f-1}{%
+\subsubsection{極形式}%\label{ux6975ux5f62ux5f0f-1}}
+\begin{thm}\label{4.3.2.3}
+$\forall z \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、$\exists!\theta \in [ 0,2\pi)$に対し、次式が成り立つ。
+\begin{align*}
+z = |z|{\mathrm{cis}}\theta
+\end{align*}
+さらにいえば、$\theta = {\mathrm{cis}}^{- 1}\frac{z}{|z|}$が成り立つ。
+\end{thm}
+\begin{dfn}
+このようにして複素数$z$を表すことを極表示、極形式という。また、このときの実数${\mathrm{cis}}^{- 1}\frac{z}{|z|}$をその複素数$z$の偏角といい、$\arg z$と書く、即ち、次式のように定義される。
+\begin{align*}
+\arg:\mathbb{C} \setminus \left\{ 0 \right\} \rightarrow [ 0,2\pi);z \mapsto {\mathrm{cis}}^{- 1}\frac{z}{|z|}
+\end{align*}
+\end{dfn}\par
+文献によっては、$\theta' - {\mathrm{cis}}^{- 1}\frac{z}{|z|} \in 2\mathbb{Z}\pi$なる実数たち$\theta'$全体の集合$C_{\equiv \ \mathrm{mod}{2\mathbb{Z}\pi}}\left( {\mathrm{cis}}^{- 1}\frac{z}{|z|} \right)$、即ち、集合${\mathrm{cis}}^{- 1}\frac{z}{|z|} + 2\mathbb{Z}\pi$の元のことを指すときがある。
+\begin{proof}
+$\forall z \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、$\exists!\theta \in [ 0,2\pi)$に対し、$\frac{z}{|z|} \in \left\{ z \in \mathbb{C} \middle| |z| = 1 \right\}$が成り立つので、定理\ref{4.3.2.1}より実数${\mathrm{cis}}^{- 1}\frac{z}{|z|}$が区間$[ 0,2\pi)$に一意的に存在し、したがって、次式が成り立つ。
+\begin{align*}
+z = |z|\frac{z}{|z|} = |z|{\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{z}{|z|}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.4} 次式のような写像$p$は全単射であり、
+\begin{align*}
+p:\mathbb{C} \setminus \left\{ 0 \right\} \rightarrow \mathbb{R}^{+} \times [ 0,2\pi);z \mapsto \left( |z|,\arg z \right)
+\end{align*}
+その逆写像$p^{- 1}$が次式のように与えられる。
+\begin{align*}
+p^{- 1}:\mathbb{R}^{+} \times [ 0,2\pi) \rightarrow \mathbb{C} \setminus \left\{ 0 \right\};(r,\theta) \rightarrow r{\mathrm{cis}}\theta
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.2.3}より次式のように写像$p$が定義されることができる。
+\begin{align*}
+p:\mathbb{C} \setminus \left\{ 0 \right\} \rightarrow \mathbb{R}^{+} \times [ 0,2\pi);z \mapsto \left( |z|,\arg z \right)
+\end{align*}
+$\forall z,w \in \mathbb{C} \setminus \left\{ 0 \right\}$に対し、$z \neq w$が成り立つとする。$|z| \neq |w|$が成り立つなら、明らかに$\left( |z|,\arg z \right) \neq \left( |w|,\arg w \right)$が成り立つ。一方で、$|z| = |w|$が成り立つかつ、$\arg z = \arg w$が成り立つと仮定すると、定義より${\mathrm{cis}}^{- 1}\frac{z}{|z|} = {\mathrm{cis}}^{- 1}\frac{w}{|w|}$が成り立つ。定理\ref{4.3.2.1}より$\frac{z}{|z|} = \frac{w}{|w|}$が成り立つことがわかり、$|z| = |w|$よりしたがって、$z = w$が得られるが、これは仮定の$z \neq w$が成り立つことに矛盾する。したがって、$|z| = |w|$が成り立つなら、$\arg z \neq \arg w$が成り立つことになる。以上いかなる場合でも、$\left( |z|,\arg z \right) \neq \left( |w|,\arg w \right)$が成り立つ。これでその写像$p$が単射であることが示された。また、$\forall(r,\theta) \in \mathbb{R}^{+} \times [ 0,2\pi)$に対し、$z = r{\mathrm{cis}}\theta$とおかれれば、$z \in \mathbb{C} \setminus \left\{ 0 \right\}$が成り立ち、さらに、次のようになるので、
+\begin{align*}
+|z| &= \left| r{\mathrm{cis}}\theta \right| = r\left| {\mathrm{cis}}\theta \right| = r\left| \exp{i\theta} \right| = r\left| \cos\theta + i\sin\theta \right| = r\sqrt{\cos^{2}\theta + \sin^{2}\theta} = r\\
+\arg z &= {\mathrm{cis}}^{- 1}\frac{z}{|z|} = {\mathrm{cis}}^{- 1}\frac{r{\mathrm{cis}}\theta}{r} = {\mathrm{cis}}^{- 1}{{\mathrm{cis}}\theta} = \theta
+\end{align*}
+$\mathbb{R}^{+} \times [ 0,2\pi) \subseteq V(p)$が成り立つことになる。これでその写像$p$が全射であることが示された。\par
+さらに、上記の議論によりその写像$p$の逆写像$p^{- 1}$は次のように与えられる。
+\begin{align*}
+p^{- 1}:\mathbb{R}^{+} \times [ 0,2\pi) \rightarrow \mathbb{C} \setminus \left\{ 0 \right\};(r,\theta) \rightarrow r\arg\theta
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.5}
+$\forall a \in \mathbb{R}\exists!n \in \mathbb{Z}$に対し、$a + 2n\pi \in [ 0,2\pi)$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}$に対し、もちろん、$\frac{a}{2\pi} \in \mathbb{R}$が成り立つので、床関数を用いて$- n = \left\lfloor \frac{a}{2\pi} \right\rfloor$とおかれると、$\exists!n \in \mathbb{Z}$に対し、$- n \leq \frac{a}{2\pi} < - n + 1$が成り立つ。したがって、次のようになる。
+\begin{align*}
+- n \leq \frac{a}{2\pi} < - n + 1 &\Leftrightarrow - 2n\pi \leq a < - 2n\pi + 2\pi\\
+&\Leftrightarrow 0 \leq a + 2n\pi < 2\pi \Leftrightarrow a + 2n\pi \in [ 0,2\pi)
+\end{align*}
+\end{proof}
+\begin{dfn} 定理\ref{4.3.2.5}より$\forall a \in \mathbb{R}\exists!n \in \mathbb{Z}$に対し、$a + 2n\pi \in [ 0,2\pi)$が成り立つのであった。このような整数$n$を用いて次式のような関数$a_{\mathrm{pv}}$が定義される。
+\begin{align*}
+a_{\mathrm{pv}}:\mathbb{R} \rightarrow [ 0,2\pi);a \mapsto a + 2n\pi
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.2.6} $\forall x,y \in [ 0,2\pi)$に対し、次式が成り立つ。
+\begin{align*}
+{\mathrm{cis}}{a_{\mathrm{pv}}(x + y)} = {\mathrm{cis}}x{\mathrm{cis}}y = {\mathrm{cis}}{a_{\mathrm{pv}}(x)}{\mathrm{cis}}{a_{\mathrm{pv}}(y)}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall x,y \in [ 0,2\pi)$に対し、その関数$a_{\mathrm{pv}}$の定義より$\exists!n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+{\mathrm{cis}}{a_{\mathrm{pv}}(x + y)} &= \exp{a_{\mathrm{pv}}(x + y)i}\\
+&= \exp{(x + y + 2n\pi)i}\\
+&= \exp{xi}\exp{yi}\exp{2n\pi i}\\
+&= {\mathrm{cis}}x{\mathrm{cis}}y\left( \cos{2n\pi} + i\sin{2n\pi} \right)\\
+&= {\mathrm{cis}}x{\mathrm{cis}}y
+\end{align*}
+ここで、$x,y \in [ 0,2\pi)$が成り立つので、$a_{\mathrm{pv}}(x) = x$、$a_{\mathrm{pv}}(y) = y$が成り立つ。したがって、次のようになる。
+\begin{align*}
+{\mathrm{cis}}{a_{\mathrm{pv}}(x + y)} &= {\mathrm{cis}}x{\mathrm{cis}}y\\
+&= {\mathrm{cis}}{a_{\mathrm{pv}}(x)}{\mathrm{cis}}{a_{\mathrm{pv}}(y)}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.7}
+$\forall z,w \in \left\{ z \in \mathbb{C} \middle| |z| = 1 \right\}$に対し、次式が成り立つ。
+\begin{align*}
+a_{\mathrm{pv}}\left( {\mathrm{cis}}^{- 1}{zw} \right) = {\mathrm{cis}}^{- 1}{zw} = a_{\mathrm{pv}}\left( {\mathrm{cis}}^{- 1}z + {\mathrm{cis}}^{- 1}w \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z,w \in \left\{ z \in \mathbb{C} \middle| |z| = 1 \right\}$に対し、定理\ref{4.3.2.6}より次のようになる。
+\begin{align*}
+a_{\mathrm{pv}}\left( {\mathrm{cis}}^{- 1}{zw} \right) &= {\mathrm{cis}}^{- 1}{zw}\\
+&= {\mathrm{cis}}^{- 1}\left( {\mathrm{cis}}{{\mathrm{cis}}^{- 1}z}{\mathrm{cis}}{{\mathrm{cis}}^{- 1}z} \right)\\
+&= {\mathrm{cis}}^{- 1}{{\mathrm{cis}}{a_{\mathrm{pv}}\left( {\mathrm{cis}}^{- 1}z + {\mathrm{cis}}^{- 1}w \right)}}\\
+&= a_{\mathrm{pv}}\left( {\mathrm{cis}}^{- 1}z + {\mathrm{cis}}^{- 1}w \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.8}
+$\forall z,w \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、次のことが成り立つ。
+\begin{align*}
+\arg{zw} - \arg z - \arg w &\in 2\mathbb{Z}\pi\\
+\arg\frac{1}{z} + \arg z &\in 2\mathbb{Z}\pi
+\end{align*}
+上の式々が成り立つことはそれぞれ、$\forall z,w \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、次式が成り立つことと同値である。
+\begin{align*}
+\arg{zw} + 2\mathbb{Z}\pi &= \arg z + \arg w + 2\mathbb{Z}\pi\\
+\arg\frac{1}{z} + 2\mathbb{Z}\pi &= - \arg z + 2\mathbb{Z}\pi
+\end{align*}
+さらにいえば、上で定義された関数$a_{\mathrm{pv}}$を用いて、上の式々が成り立つことはそれぞれ、$\forall z,w \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、次式が成り立つことと同値である。
+\begin{align*}
+a_{\mathrm{pv}}\left( \arg{zw} \right) &= \arg{zw} = a_{\mathrm{pv}}\left( \arg z + \arg w \right)\\
+a_{\mathrm{pv}}\left( \arg\frac{1}{z} \right) &= \arg\frac{1}{z} = a_{\mathrm{pv}}\left( - \arg z \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z,w \in \mathbb{C}$に対し、$z \neq 0$が成り立つなら、次のようになる。
+\begin{align*}
+\exp{i\arg{zw}} &= {\mathrm{cis}}{\arg{zw}}\\
+&= {\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{zw}{|zw|}}\\
+&= \frac{zw}{|zw|} = \frac{z}{|z|}\frac{w}{|w|}\\
+&= {\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{z}{|z|}}{\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{w}{|w|}}\\
+&= {\mathrm{cis}}{\arg z}{\mathrm{cis}}{\arg w}\\
+&= {\mathrm{cis}}\left( \arg z + \arg w \right)\\
+&= \exp{i\left( \arg z + \arg w \right)}
+\end{align*}
+ここで、定理\ref{4.3.2.2}よりある整数$n$を用いて次式が成り立つ。
+\begin{align*}
+i\arg{zw} = i\left( \arg z + \arg w \right) + 2n\pi i
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\arg{zw} - \arg z - \arg w = 2n\pi \in 2\mathbb{Z}\pi
+\end{align*}\par
+同様にして、次のようになる。
+\begin{align*}
+\exp{i\arg\frac{1}{z}} &= {\mathrm{cis}}{\arg\frac{1}{z}}\\
+&= {\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{|z|}{z}}\\
+&= \frac{|z|}{z} = \frac{1}{\frac{z}{|z|}}\\
+&= \frac{1}{{\mathrm{cis}}{{\mathrm{cis}}^{- 1}\frac{z}{|z|}}}\\
+&= \frac{1}{{\mathrm{cis}}{\arg z}}\\
+&= \frac{1}{\exp{i\arg z}}\\
+&= \exp\left( - i\arg z \right)
+\end{align*}
+ここで、定理\ref{4.3.2.2}よりある整数$n$を用いて次式が成り立つ。
+\begin{align*}
+i\arg\frac{1}{z} = - i\arg z + 2n\pi i
+\end{align*}
+したがって、次式が成り立つ。
+\begin{align*}
+\arg\frac{1}{z} + \arg z = 2n\pi \in 2\mathbb{Z}\pi
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.9} $\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+z^{n} = 1 \Leftrightarrow \exists k \in \varLambda_{n - 1} \cup \left\{ 0 \right\}\left[ z = {\mathrm{cis}}\frac{2k\pi}{n} \right]
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}$に対し、$z^{n} = 1$が成り立つなら、これを極形式にすることで、定理\ref{4.3.2.9}より次のようになる。
+\begin{align*}
+z^{n} = \left( |z|{\mathrm{cis}}\theta \right)^{n} = |z|^{n}{\mathrm{cis}}^{n}\theta = 1
+\end{align*}
+ここで、$\left| z^{n} \right| = |z|^{n} = 1$より$|z| = 1$が成り立つかつ、定理\ref{4.3.2.2}より次のようになるならそのときに限り、
+\begin{align*}
+{\mathrm{cis}}^{n}\theta = \exp^{n}{i\theta} = \exp{in\theta} = 1 = \exp 0
+\end{align*}
+$\exists k \in \mathbb{Z}$に対し、$in\theta = 0 + 2k\pi i$が成り立つ、即ち、$n\theta = 2k\pi$が成り立つので、次のようになる。
+\begin{align*}
+z = \exp{\frac{2k\pi}{n}i}
+\end{align*}
+ここで、$k \in \mathbb{Z} \setminus \left( \varLambda_{n - 1} \cup \left\{ 0 \right\} \right)$のとき、$\exists l \in \mathbb{Z}$に対し、$k' = k + ln$なる整数$k'$がその集合$\varLambda_{n - 1} \cup \left\{ 0 \right\}$に存在するので、次のようになる。
+\begin{align*}
+z &= \exp{\frac{2k\pi}{n}i} = \exp{\frac{2\left( k' + ln \right)\pi}{n}i}\\
+&= \exp\left( \frac{2k'\pi}{n}i + \frac{2ln\pi}{n}i \right)\\
+&= \exp\left( \frac{2k'\pi}{n}i + 2l\pi i \right)\\
+&= \exp{\frac{2k'\pi}{n}i} = {\mathrm{cis}}\frac{2k'\pi}{n}
+\end{align*}
+したがって、$\exists k \in \varLambda_{n - 1} \cup \left\{ 0 \right\}$に対し、$z = {\mathrm{cis}}\frac{2k\pi}{n}$が成り立つ。\par
+逆に、$\exists k \in \varLambda_{n - 1} \cup \left\{ 0 \right\}$に対し、$z = {\mathrm{cis}}\frac{2k\pi}{n}$が成り立つなら、定理\ref{4.3.1.13}、定理\ref{4.3.1.21}より次のようになる。
+\begin{align*}
+z^{n} &= {\mathrm{cis}}^{n}\frac{2k\pi}{n} = \left( \cos\frac{2k\pi}{n} + i\sin\frac{2k\pi}{n} \right)^{n}\\
+&= \cos{2k\pi} + i\sin{2k\pi} = 1
+\end{align*}
+\end{proof}
+%\hypertarget{ux4ee3ux6570ux5b66ux306eux57faux672cux5b9aux7406}{%
+\subsubsection{代数学の基本定理}%\label{ux4ee3ux6570ux5b66ux306eux57faux672cux5b9aux7406}}
+\begin{thm}[代数学の基本定理]\label{4.3.2.10}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{C}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$\exists c \in \mathbb{C}$に対し、$P(c) = 0$が成り立つ。この定理を代数学の基本定理という\footnote{思いっきり解析学っぽい手法を使っててあんまり代数学って感じがしませんが…汗}。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{C}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$a_{0} = 0$が成り立つなら、$c = 0$とおかれればよいので、以下、$a_{0} \neq 0$が成り立つとする。このとき、$\forall z \in \mathbb{C}\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\delta = \varepsilon^{- 1}$とおかれれば、$\exists\delta \in \mathbb{R}^{+}$に対し、$\delta < |z|$が成り立つなら、次のようになる。
+\begin{align*}
+0 < \delta < |z| \Leftrightarrow 0 < \frac{1}{|z|} < \frac{1}{\delta} \Leftrightarrow 0 < \left| \frac{1}{z} - 0 \right| < \varepsilon
+\end{align*}
+したがって、$\lim_{|z| \rightarrow \infty}\frac{1}{z} = 0$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\lim_{|z| \rightarrow \infty}{\sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}}} &= \lim_{|z| \rightarrow \infty}{\sum_{i \in \varLambda_{n - 1} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}}} + a_{n}\\
+&= \sum_{i \in \varLambda_{n - 1} \cup \left\{ 0 \right\}} {a_{i}\lim_{|z| \rightarrow \infty}z^{i - n}} + a_{n}\\
+&= \sum_{i \in \varLambda_{n - 1} \cup \left\{ 0 \right\}} {a_{i} \cdot 0} + a_{n} = a_{n}
+\end{align*}
+このことは、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\delta < |z|$が成り立つなら、$\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} - a_{n} \right| < \varepsilon$が成り立つということを意味している。したがって、次のようになる。
+\begin{align*}
+\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right| - \left| a_{n} \right| \leq \left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} - a_{n} \right| < \varepsilon
+\end{align*}
+両辺に絶対値がとられれば、次式が成り立つ。
+\begin{align*}
+\left| \left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right| - \left| a_{n} \right| \right| < \varepsilon
+\end{align*}
+この式は$\lim_{|z| \rightarrow \infty}\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right| = \left| a_{n} \right|$が成り立つということを意味しており、$a_{n} \neq 0$より$\lim_{|z| \rightarrow \infty}\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right| = \left| a_{n} \right| \neq 0$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\lim_{|z| \rightarrow \infty}\left| P(z) \right| &= \lim_{|z| \rightarrow \infty}\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} \right|\\
+&= \lim_{|z| \rightarrow \infty}\left| z^{n}\sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right|\\
+&= \lim_{|z| \rightarrow \infty}|z|^{n}\lim_{|z| \rightarrow \infty}\left| \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i - n}} \right|\\
+&= \infty^{n} \cdot \left| a_{n} \right| = \infty
+\end{align*}
+これにより、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\delta < |z|$が成り立つなら、$\varepsilon < \left| P(z) \right|$が成り立つ。\par
+特に、$\forall\left| P(0) \right| \in \mathbb{R}^{+}\exists\delta_{0} \in \mathbb{R}^{+}$に対し、$\delta_{0} < |z|$が成り立つなら、$\left| P(0) \right| < \left| P(z) \right|$が成り立つ。このとき、次式のように集合$K$が定義されれば、
+\begin{align*}
+K = \left\{ z \in \mathbb{C} \middle| |z| \leq \delta_{0} \right\}
+\end{align*}
+その集合$K$は有界な閉集合であり、さらに、定理\ref{4.1.12.3}、即ち、最大値最小値の定理より$\exists c \in K$に対し、その関数$|P||K$の最小値$\min_{z \in K}\left| P(z) \right|$が存在して、$\left| P(c) \right| = \min_{x \in K}\left| P(z) \right|$が成り立つ。さらに、明らかに$0 \in K$が成り立つので、$\left| P(c) \right| = \min_{x \in K}\left| P(z) \right| \leq \left| P(0) \right|$が成り立つ。以上より、$\forall z \in \mathbb{C}$に対し、$z \in K$が成り立つなら、$\min_{z \in K}\left| P(z) \right| \leq \left| P(z) \right|$が成り立つし、$z \notin K$が成り立つ、即ち、$\delta_{0} < |z|$が成り立つなら、$\min_{z \in K}\left| P(z) \right| \leq \left| P(0) \right| < \left| P(z) \right|$が成り立つので、$\min_{z \in K}\left| P(z) \right| \leq P(z)$が成り立つ。ゆえに、$\left| P(c) \right| = \min_{z \in K}\left| P(z) \right| = \min\left| P(z) \right|$が成り立つ。\par
+そこで、$0 < \left| P(c) \right| = \min\left| P(z) \right|$が成り立つと仮定すると、Taylorの定理より次式が成り立つ。
+\begin{align*}
+P(z) = \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)(z - c)^{i}}
+\end{align*}
+ここで、$\forall i \in \varLambda_{n}$に対し、$\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c) = 0$が成り立つなら、$\forall z \in \mathbb{C}$に対し、次のようになり、
+\begin{align*}
+P(z) &= \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)(z - c)^{i}}\\
+&= \frac{1}{0!}\frac{d^{0}P}{{dz}^{0}}(c)(z - c)^{0} + \sum_{i \in \varLambda_{n}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)(z - c)^{i}}\\
+&= 1 \cdot P(c) \cdot 1 + \sum_{i \in \varLambda_{n}} {0 \cdot (z - c)^{i}} = P(c)
+\end{align*}
+これは仮定の$1 \leq n$が成り立つことに矛盾している。ゆえに、$\exists i \in \varLambda_{n}$に対し、$\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c) \neq 0$が成り立つ。このような自然数$i$のうち最小なものを$l$とおかれると、$\forall z \in \mathbb{C}\exists h \in \mathbb{C}$に対し、$z = c + h$とおかれことができるので、そうすると、次のようになる。
+\begin{align*}
+P(c + h) &= \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)(c + h - c)^{i}}\\
+&= \frac{1}{0!}\frac{d^{0}P}{{dz}^{0}}(c)h^{0} + \sum_{i \in \varLambda_{l - 1}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)h^{i}} + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l - 1}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)h^{i}}\\
+&= 1 \cdot P(c) \cdot 1 + \sum_{i \in \varLambda_{l - 1}} {0 \cdot h^{i}} + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l - 1}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)h^{i}}\\
+&= P(c) + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l - 1}} {\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c)h^{i}}
+\end{align*}
+以下、$\forall i \in \varLambda_{n} \setminus \varLambda_{l - 1}$に対し、$\frac{1}{i!}\frac{d^{i}P}{{dz}^{i}}(c) = A_{i}$とおかれれば、$A_{l} = \frac{1}{l!}\frac{d^{l}P}{{dz}^{l}}(c) \neq 0$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+P(c + h) &= P(c) + A_{l}h^{l}\sum_{i \in \varLambda_{n} \setminus \varLambda_{l - 1}} {\frac{A_{i}}{A_{l}}h^{i - l}}\\
+&= P(c) + A_{l}h^{l}\left( \frac{A_{l}}{A_{l}}h^{l - l} + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right)\\
+&= P(c) + A_{l}h^{l}\left( 1 + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right)
+\end{align*}
+ここで、次式が成り立つことから、
+\begin{align*}
+\lim_{h \rightarrow 0}{\sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}}} = 0,\ \ \lim_{h \rightarrow 0}{A_{l}h^{l}} = 0
+\end{align*}
+$\exists\delta \in \mathbb{R}^{+}$に対し、$|h| < \delta$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\left| \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right| < 1,\ \ \left| A_{l}h^{l} \right| < \left| P(c) \right|
+\end{align*}
+$A_{l} = \frac{1}{l!}\frac{d^{l}P}{{dz}^{l}}(c) \neq 0$が成り立つことに注意すれば、定理\ref{4.3.2.3}より$r \in \mathbb{R}^{+}$、$\theta \in [ 0,2\pi)$なる実数たち$r$、$\theta$を用いて次のようにおかれることができ、
+\begin{align*}
+\frac{P(c)}{A_{l}} = r{\mathrm{cis}}\theta = r\exp{\theta i}
+\end{align*}
+$0 < \rho \leq \rho^{\frac{1}{l}} < \delta$なる正の実数$\rho$を用いて$h = \rho^{\frac{1}{l}}\exp\frac{(\theta + \pi)i}{l}$とおかれれば、次のようになる。
+\begin{align*}
+\left| P(c + h) \right| &= \left| P(c) + A_{l}h^{l}\left( 1 + \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right) \right|\\
+&= \left| P(c) + A_{l}h^{l} + A_{l}h^{l}\sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right|\\
+&\leq \left| P(c) + A_{l}h^{l} \right| + \left| A_{l}h^{l}\sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right|\\
+&= \left| A_{l} \right|\left| \frac{P(c)}{A_{l}} + h^{l} \right| + \left| A_{l}h^{l} \right|\left| \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right|
+\end{align*}
+ここで、次のようになるので、
+\begin{align*}
+\left| \frac{P(c)}{A_{l}} + h^{l} \right| &= \left| r\exp{\theta i} + \left( \rho^{\frac{1}{l}}\exp\frac{(\theta + \pi)i}{l} \right)^{l} \right|\\
+&= \left| r\exp{\theta i} + \rho\exp{(\theta + \pi)i} \right|\\
+&= \left| r\exp{\theta i} + \rho\exp{\theta i}\exp{\pi i} \right|\\
+&= \left| r\exp{\theta i} + \rho\exp{\theta i}\left( \cos\pi + i\sin\pi \right) \right|\\
+&= \left| r\exp{\theta i} - \rho\exp{\theta i} \right|\\
+&= |r - \rho|\left| \exp{\theta i} \right| = |r - \rho|
+\end{align*}
+次のようになる。
+\begin{align*}
+\left| P(c + h) \right| = \left| A_{l} \right||r - \rho| + \left| A_{l}h^{l} \right|\left| \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right|
+\end{align*}
+さらに、$\left| \sum_{i \in \varLambda_{n} \setminus \varLambda_{l}} {\frac{A_{i}}{A_{l}}h^{i - l}} \right| < 1$が成り立つかつ、$\left| A_{l}h^{l} \right| < \left| P(c) \right|$が成り立つので、次のようになることから、
+\begin{align*}
+\rho = \left| \rho\exp{(\theta + \pi)i} \right| = \left| \left( \rho^{\frac{1}{l}}\exp\frac{(\theta + \pi)i}{l} \right)^{l} \right| = \left| h^{l} \right| < \frac{\left| P(c) \right|}{\left| A_{l} \right|} = \left| \frac{P(c)}{A_{l}} \right| = \left| r\exp{\theta i} \right| = r
+\end{align*}
+$|r - \rho| = r - \rho$が成り立つので、次のようになる。
+\begin{align*}
+\left| P(c + h) \right| &< \left| A_{l} \right|(r - \rho) + \left| A_{l}h^{l} \right|\\
+&= \left| A_{l} \right|r - \left| A_{l} \right|\rho + \left| A_{l}h^{l} \right|\\
+&= \left| A_{l} \right|\frac{\left| P(c) \right|}{\left| A_{l} \right|} - \left| A_{l} \right|\left| h^{l} \right| + \left| A_{l}h^{l} \right|\\
+&= \left| P(c) \right| - \left| A_{l}h^{l} \right| + \left| A_{l}h^{l} \right| = \left| P(c) \right|
+\end{align*}
+ここで、もちろん、$c + h \in \mathbb{C}$が成り立つので、$\exists c + h \in \mathbb{C}$に対し、$\left| P(c + h) \right| < \left| P(c) \right| = \min\left| P(z) \right|$が成り立つことになるが、これは最小値の定義に矛盾する。よって、$0 = \left| P(c) \right| = \min\left| P(z) \right|$が成り立つ、即ち、$\exists c \in \mathbb{C}$に対し、$P(c) = 0$が成り立つことになる。
+\end{proof}
+\begin{thm}\label{4.3.2.11}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{C}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+複素数の族$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}}$が存在して、次式が成り立つ。
+\begin{align*}
+P(z) = a_{n}\prod_{i \in \varLambda_{n}} \left( z - \alpha_{i} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+精密にされるなら、代数学の多項式環の内容が必要となるので、ここでは、その証明の簡単な概要を述べることにしよう。$n = 1$のときは、$c_{1} = - \frac{a_{0}}{a_{1}}$とすればよい。$n = k$のとき、示すことが成り立つと仮定すると、$n = k + 1$のとき、代数学の基本定理より$P\left( \alpha_{k + 1} \right) = 0$なる複素数$\alpha_{k + 1}$が存在するので、複素数$P(z)$を多項式とみて$z - \alpha_{k + 1}$で割れば、ある$k$次多項式$q(z)$と定数$r$が存在して、$P(z) = \left( z - \alpha_{k + 1} \right)q(z) + r$が成り立つことになる。そこで、$z = \alpha_{k + 1}$とすれば、$r = 0$と分かる。以上、数学的帰納法により示すべきことが示された。
+\end{proof}
+\begin{thm}\label{4.3.2.12}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{R}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$\exists c \in \mathbb{C}$に対し、$P(c) = 0$が成り立つなら、$P\left( \overline{c} \right) = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{C}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$\exists c \in \mathbb{C}$に対し、$P(c) = 0$が成り立つなら、次式が成り立つ。
+\begin{align*}
+P(c) = \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}c^{i}} = 0
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\overline{P(c)} = \overline{\sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}c^{i}}} = \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} \overline{a_{i}c^{i}} = \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {\overline{a_{i}}{\overline{c}}^{i}} = \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}{\overline{c}}^{i}} = P\left( \overline{c} \right) = 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.13}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{R}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$l,m \in \mathbb{N} \cup \left\{ 0 \right\}$かつ$n = 2l + m$なる実数の族々$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{l}}$、$\left\{ \beta_{i} \right\}_{i \in \varLambda_{l}}$、$\left\{ \gamma_{i} \right\}_{i \in \varLambda_{m}}$が存在して、次式が成り立つ。
+\begin{align*}
+P(z) = a_{n}\prod_{i \in \varLambda_{l}} \left( z^{2} + \alpha_{i}z + \beta_{i} \right)\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{R}$に対し、$a_{n} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{n} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{n}z^{n} + \cdots + a_{1}z + a_{0}
+\end{align*}
+定理\ref{4.3.2.11}より複素数の族$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}}$が存在して、次式が成り立つ。
+\begin{align*}
+P(z) = a_{n}\prod_{i \in \varLambda_{n}} \left( z - \alpha_{i} \right)
+\end{align*}
+ここで、$\left\{ \gamma_{i} \right\}_{i \in \varLambda_{m}} = \left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}} \cap \mathbb{R}$とおかれれば、$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}} \setminus \mathbb{R}$の任意の元$c$に対し、定理\ref{4.3.2.12}より$c \neq \overline{c}$かつ$\overline{c} \in \left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}} \setminus \mathbb{R}$が成り立つので、$\exists l \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、$\#{\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}} \setminus \mathbb{R}} = 2l$が成り立つことになる。以下、$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{n}} \setminus \mathbb{R} = \left\{ c_{i},\overline{c_{i}} \right\}_{i \in \varLambda_{l}}$とおかれれば、次のようになる。
+\begin{align*}
+P(z) &= a_{n}\prod_{i \in \varLambda_{n}} \left( z - \alpha_{i} \right)\\
+&= a_{n}\prod_{i \in \varLambda_{l}} \left( z - c_{i} \right)\prod_{i \in \varLambda_{l}} \left( z - \overline{c_{i}} \right)\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)\\
+&= a_{n}\prod_{i \in \varLambda_{l}} {\left( z - c_{i} \right)\left( z - \overline{c_{i}} \right)}\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)\\
+&= a_{n}\prod_{i \in \varLambda_{l}} \left( z^{2} - \left( c_{i} + \overline{c_{i}} \right)z + c_{i}\overline{c_{i}} \right)\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)
+\end{align*}
+このとき、$\alpha_{i} = - \left( c_{i} + \overline{c_{i}} \right)$、$\beta_{i} = c_{i}\overline{c_{i}}$とおかれれば、$\alpha_{i},\beta_{i} \in \mathbb{R}$が成り立って、次のようになる。
+\begin{align*}
+P(z) = a_{n}\prod_{i \in \varLambda_{l}} \left( z^{2} + \alpha_{i}z + \beta_{i} \right)\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.2.14}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{R}$に対し、$a_{2n - 1} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{2n - 1} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{2n - 1}z^{2n - 1} + \cdots + a_{1}z + a_{0}
+\end{align*}
+$\exists c \in \mathbb{R}$に対し、$P(c) = 0$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall n \in \mathbb{N}\forall a_{i} \in \mathbb{R}$に対し、$a_{2n - 1} \neq 0$が成り立つかつ、次式のような多項式関数$P$が与えられたとき、
+\begin{align*}
+P:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{i \in \varLambda_{2n - 1} \cup \left\{ 0 \right\}} {a_{i}z^{i}} = a_{2n - 1}z^{2n - 1} + \cdots + a_{1}z + a_{0}
+\end{align*}
+定理\ref{4.3.2.13}より$l,m \in \mathbb{N} \cup \left\{ 0 \right\}$かつ$2n - 1 = 2l + m$なる実数の族々$\left\{ \alpha_{i} \right\}_{i \in \varLambda_{l}}$、$\left\{ \beta_{i} \right\}_{i \in \varLambda_{l}}$、$\left\{ \gamma_{i} \right\}_{i \in \varLambda_{m}}$が存在して、次式が成り立つ。
+\begin{align*}
+P(z) = a_{2n - 1}\prod_{i \in \varLambda_{l}} \left( z^{2} + \alpha_{i}z + \beta_{i} \right)\prod_{i \in \varLambda_{m}} \left( z - \gamma_{i} \right)
+\end{align*}
+ここで、$m = 0$と仮定すると、$\mathbb{N} = 2\mathbb{N} \sqcup 2\mathbb{N} - 1$が成り立つことに矛盾する。ゆえに、$m \neq 0$が成り立つことになる。このとき、$\left\{ \gamma_{i} \right\}_{i \in \varLambda_{m}} \neq \emptyset$となるので、$\exists c \in \left\{ \gamma_{i} \right\}_{i \in \varLambda_{m}} \subseteq \mathbb{R}$に対し、$P(c) = 0$が成り立つ。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1980. 第34刷 p182-190 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

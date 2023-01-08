@@ -1,0 +1,291 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{4}
+\usepackage{xr}
+\externaldocument{8.1.4}
+\externaldocument{8.1.6}
+\externaldocument{8.2.1}
+\externaldocument{8.2.2}
+\externaldocument{8.2.3}
+\externaldocument{8.2.4}
+\input{macro}
+\begin{document}
+%\hypertarget{compactux8dddux96e2ux7a7aux9593}{%
+\subsection{compact距離空間}%\label{compactux8dddux96e2ux7a7aux9593}}
+%\hypertarget{euclidux7a7aux9593ux306bux304aux3051ux308bcompactux7a7aux9593}{%
+\subsubsection{Euclid空間におけるcompact空間}%\label{euclidux7a7aux9593ux306bux304aux3051ux308bcompactux7a7aux9593}}
+\begin{thm}\label{8.2.5.1}
+1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、$\forall a,b \in \mathbb{R}$に対し、その部分位相空間$\left( [ a,b],\left( \mathfrak{O}_{d_{E}} \right)_{[ a,b]} \right)$はcompact空間である。
+\end{thm}
+\begin{proof}
+1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、$\forall a,b \in \mathbb{R}$に対し、その部分位相空間$\left( [ a,b],\left( \mathfrak{O}_{d_{E}} \right)_{[ a,b]} \right)$の台集合$[ a,b]$のその位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$における任意の開被覆$\mathfrak{U}$は、$\forall c \in [ a,b]$に対し、もちろん閉区間$[ a,c]$の開被覆でもある。ここで、その開被覆$\mathfrak{U}$がその閉区間$[ a,c]$の有限な被覆を含むようなその実数$c$全体を$I$とすると、明らかに$a \in I$が成り立つので、その集合$I$は空集合でない。また、その実数$b$はその集合$I$の上界であるから、実数$\sup I$が存在して、$\sup I \leq b$が成り立つ。\par
+そこで、$\sup I \in [ a,b]$が成り立つので、$\exists U \in \mathfrak{U}$に対し、$\sup I \in U$が成り立つかつ、その集合$U$は開集合である。したがって、$\exists\varepsilon \in \mathbb{R}^{+}$に対し、$\left[ \sup I - \varepsilon,\sup I + \varepsilon \right] \subseteq U$が成り立つ。ここで、$\sup I - \varepsilon \in I$が成り立たないとすれば、上限の定義に矛盾するので、$\sup I - \varepsilon \in I$が成り立つ。これにより、閉区間$\left[ a,\sup I - \varepsilon \right]$はその集合$\mathfrak{U}$の有限な部分集合$\mathfrak{U}'$が存在して、これがその閉区間$\left[ a,\sup I - \varepsilon \right]$の開被覆となる。ここで、次式が成り立つことにより、
+\begin{align*}
+\left[ a,\sup I \right] \subseteq \left[ a,\sup I + \varepsilon \right] = \left[ a,\sup I - \varepsilon \right] \cup \left[ \sup I - \varepsilon,\sup I + \varepsilon \right] \subseteq \bigcup_{} \mathfrak{U}' \cup U
+\end{align*}
+$\sup I \in I$が成り立つ。なお、この時点では、$\sup I + \varepsilon \in [ a,b]$が成り立つと述べられていないので、上限の定義に矛盾しているわけではないことに注意されたい。\par
+ここで、$\sup I < b$が成り立つなら、$\sup I + \varepsilon < b$なる正の実数$\varepsilon$が存在するが、上記の議論と同様にしてその集合$\mathfrak{U}$の有限な部分集合$\mathfrak{U}''$が存在して、次式が成り立つことが示されるので、
+\begin{align*}
+\left[ a,\sup I + \varepsilon \right] \subseteq \bigcup_{} \mathfrak{U}''
+\end{align*}
+$\sup I + \varepsilon \in I$が成り立つ。ここで、この仮定$\sup I < b$のもとでは、$\sup I + \varepsilon \in [ a,b]$が成り立つことになり、上限の定義に矛盾している。したがって、$\sup I = b$が成り立つ。よって、$b \in I$が成り立つので、その閉区間$[ a,b]$について、その集合$\mathfrak{U}$の有限な部分集合$\mathfrak{U}'''$が存在して、次式が成り立つ、
+\begin{align*}
+[ a,b] \subseteq \bigcup_{} \mathfrak{U}'''
+\end{align*}
+即ち、その部分位相空間$\left( [ a,b],\left( \mathfrak{O}_{d_{E}} \right)_{[ a,b]} \right)$はcompact空間である。
+\end{proof}
+\begin{thm}\label{8.2.5.2}
+$n$次元Euclid空間$E^{n}$における位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$が与えられたとき、これの部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{M} \right)$がcompact空間であるならそのときに限り、その集合$M$がその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$における有界な閉集合である。
+\end{thm}
+\begin{proof}
+$n$次元Euclid空間$E^{n}$における位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$が与えられたとき、これの部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{M} \right)$がcompact空間であるなら、定理\ref{8.2.3.12}よりその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$は$\mathrm{T}_{4}$-空間であるから、もちろんHausdorff空間でもある。定理\ref{8.1.6.10}よりその集合$M$がその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$における閉集合となる。\par
+また、その集合$\mathbb{R}^{n}$の1つの元$\mathbf{a}$に対し、これを中心とするあらゆる半径の開球体全体$\left\{ B\left( \mathbf{a},\varepsilon \right) \right\}_{\varepsilon \in \mathbb{R}^{+}}$が考えられれば、この和集合は明らかにその集合$\mathbb{R}^{n}$の部分集合であり、さらに、$\forall\mathbf{b} \in \mathbb{R}^{n}$に対し、正の実数$\varepsilon'$を用いれば、$d\left( \mathbf{a},\mathbf{b} \right) + \varepsilon' \in \mathbb{R}^{+}$が成り立つので、これを$\varepsilon''$とすれば、$\mathbf{b} \in B\left( \mathbf{a},\varepsilon'' \right)$が成り立つので、その集合$\left\{ B\left( \mathbf{a},\varepsilon \right) \right\}_{\varepsilon \in \mathbb{R}^{+}}$の和集合はその集合$\mathbb{R}^{n}$に一致するので、その集合$\left\{ B\left( \mathbf{a},\varepsilon \right) \right\}_{\varepsilon \in \mathbb{R}^{+}}$はその部分集合$M$の開被覆である。そこで、その部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{M} \right)$がcompact空間であるので、その集合$\mathbb{R}^{+}$のある有限な部分集合$\left\{ \rho_{i} \right\}_{i \in \varLambda_{m}}$が存在して、$M \subseteq \bigcup_{j \in \varLambda_{m}} {B\left( \mathbf{a},\rho_{j} \right)}$が成り立つ。ここで、$\rho = \max\left\{ \rho_{i} \right\}_{i \in \varLambda_{m}}$とおかれると、$B\left( \mathbf{a},\rho_{j} \right) \subseteq B\left( \mathbf{a},\rho \right)$が成り立つので、次式が成り立つ。
+\begin{align*}
+M \subseteq \bigcup_{j \in \varLambda_{m}} {B\left( \mathbf{a},\rho_{j} \right)} \subseteq B\left( \mathbf{a},\rho \right)
+\end{align*}
+ゆえに、その集合$M$は有界である。\par
+逆に、その集合$M$がその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$における有界な閉集合であるなら、定理\ref{8.2.1.22}、定理\ref{8.2.3.3}よりある開球体$B\left( \mathbf{a},\varepsilon \right)$が存在して、$\mathbf{a} = \left( a_{i} \right)_{i \in \varLambda_{n}}$とおくと、次式が成り立つ。
+\begin{align*}
+M &\subseteq B\left( \mathbf{a},\varepsilon \right)\\
+&\subseteq \prod_{i \in \varLambda_{n}} {B\left( a_{i},\varepsilon \right)}\\
+&= \prod_{i \in \varLambda_{n}} \left( a_{i} - \varepsilon,a_{i} + \varepsilon \right)\\
+&\subseteq \prod_{i \in \varLambda_{n}} \left[ a_{i} - \varepsilon,a_{i} + \varepsilon \right]
+\end{align*}
+Tikhonovの定理と定理\ref{8.2.5.1}よりその集合$\prod_{i \in \varLambda_{n}} \left[ a_{i} - \varepsilon,a_{i} + \varepsilon \right]$を台集合とするその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$の部分位相空間はcompact空間となるので、定理これの部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E^{n}}} \right)_{M} \right)$もcompact空間である。
+\end{proof}
+\begin{thm}\label{8.2.5.3}
+1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、これの部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E}} \right)_{M} \right)$がcompact空間であるなら、それらの最大値$\max M$、最小値$\min M$が存在する。
+\end{thm}
+\begin{proof} 定理\ref{8.2.5.2}より1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$が与えられたとき、これの部分位相空間$\left( M,\left( \mathfrak{O}_{d_{E}} \right)_{M} \right)$がcompact空間であるなら、その集合$M$がその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$における有界な閉集合であるので、それらの上限$\sup M$と下限$\inf M$が存在する。ここで、ある正の実数$\varepsilon$が存在して、$\sup M - \varepsilon \in M$が成り立つので、任意の正の実数$\varepsilon$に対し、$\left( \sup M - \varepsilon,\sup M + \varepsilon \right) \subseteq \mathbb{R} \setminus M$が成り立たないかつ、$\forall a \in \mathbb{R} \setminus M$に対し、ある正の実数$\varepsilon$が存在して、$(a - \varepsilon,a + \varepsilon) \subseteq M$が成り立つので、$\sup M \notin \mathbb{R} \setminus M$が成り立つ。下限$\inf M$についても同様にして示される。よって、それらの最大値$\max M$、最小値$\min M$が存在する。
+\end{proof}
+\begin{thm}[最大値最小値の定理の拡張]\label{8.2.5.4}
+compact空間$\left( S,\mathfrak{O} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像$f:S \rightarrow \mathbb{R}$が与えられたとき、その値域$V(f)$の最大値と最小値が存在する。これを最大値最小値の定理の拡張という。
+\end{thm}
+\begin{proof} 定理\ref{8.1.6.5}と定理\ref{8.2.5.3}より明らかである。
+\end{proof}
+\begin{thm}\label{8.2.5.5}
+$n$次元Euclid空間$E^{n}$における位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E}} \right)$は局所compact空間である。
+\end{thm}
+\begin{proof}
+$n$次元Euclid空間$E^{n}$における位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E}} \right)$において、その$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$を中心とする開球体全体の集合$\mathfrak{U}_{\mathbf{a}}$の任意の元$B\left( \mathbf{a},\varepsilon \right)$に対し、定理\ref{8.2.1.6}、定理\ref{8.2.3.9}よりその集合${\mathrm{cl}}{B\left( \mathbf{a},\varepsilon \right)}$は有界な閉集合であるので、これを$B$とおくと、Heine-Borelの被覆定理よりその部分位相空間$\left( B,{\mathfrak{O}_{d_{E}}}_{B} \right)$はcompact空間である\footnote{Heine-Borelの被覆定理とは$K \in \mathfrak{P}\left( \mathbb{R}^{n} \right)$なる集合$K$がcompactであるならそのときに限り、その集合$K$は点列compactであるということを主張する定理で、これに併せて$A \in \mathfrak{P}\left( \mathbb{R}^{n} \right)$なる集合$A$を考えるとき、次のことが成り立つということを主張する定理も用いました。これらの定理たちは解析学でお馴染みであり証明が長くなるので、ここでは、解析学に譲ることにします。
+\begin{itemize}
+\item 
+  その集合$A$が全有界であるならそのときに限り、その集合$A$は有界である。
+\item 
+  その集合$A$が点列compactであるならそのときに限り、その集合$A$は有界な閉集合である。
+\end{itemize}}。よって、その位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E}} \right)$は局所compact空間である。
+\end{proof}
+%\hypertarget{compactux8dddux96e2ux7a7aux9593-1}{%
+\subsubsection{compact距離空間}%\label{compactux8dddux96e2ux7a7aux9593-1}}
+\begin{dfn}
+距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O} \right)$がcompact空間であるとき、その距離空間$(S,d)$はcompact距離空間という。
+\end{dfn}
+\begin{thm}\label{8.2.5.6}
+距離空間$(S,d)$が与えられたとき、これにおける位相空間$\left( S,\mathfrak{O}_{d} \right)$のcompact空間である部分位相空間$\left( A,\left( \mathfrak{O}_{d} \right)_{A} \right)$において、その台集合$A$は有界で、$\exists a,b \in A$に対し、$\delta(A) = d(a,b)$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、これにおける位相空間$\left( S,\mathfrak{O}_{d} \right)$のcompact空間である部分位相空間$\left( A,\left( \mathfrak{O}_{d} \right)_{A} \right)$において、その部分距離空間$\left( A \times A,d_{A \times A}' \right)$はTikhonovの定理よりcompact距離空間である。定理\ref{8.2.2.9}よりその距離関数$d$はその直積距離空間$\left( S \times S,d' \right)$における位相空間$\left( S \times S,\mathfrak{O}_{d'} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像であるので、定理\ref{8.1.4.14}、定理\ref{8.2.1.18}よりその写像$d|A \times A$はその部分距離空間$\left( A \times A,d_{A \times A}' \right)$における位相空間$\left( A \times A,\mathfrak{O}_{d_{A \times A}'} \right)$から1次元Euclid空間$E$における位相空間$\left( \mathbb{R},\mathfrak{O}_{d_{E}} \right)$への連続写像である。したがって、最大値最小値の定理の拡張よりその値域$V\left( d|A \times A \right)$の最大値が存在するので、$\exists a,b \in A$に対し、次式が成り立ち、
+\begin{align*}
+\delta(A) &= \sup{V\left( d|A \times A \right)}\\
+&= \max{V\left( d|A \times A \right)}\\
+&= d(a,b) \in \mathbb{R}
+\end{align*}
+よって、その台集合$A$は有界で、$\exists a,b \in A$に対し、$\delta(A) = d(a,b)$が成り立つ。
+\end{proof}
+\begin{thm}\label{8.2.5.7}
+距離空間$(S,d)$が与えられたとき、これのcompact距離空間である部分距離空間$\left( A,d_{A} \right)$において、$\forall B \in \mathfrak{P}(S)\exists a \in A$に対し、$\mathrm{dist}(A,B) = \mathrm{dist}\left( \left\{ a \right\},B \right)$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、これのcompact距離空間である部分距離空間$\left( A,d_{A} \right)$において、$\forall B \in \mathfrak{P}(S)\exists a \in A$に対し、次式のように写像$f_{B}$が定義されれば、
+\begin{align*}
+f_{B}:A \rightarrow \mathbb{R};a \mapsto \mathrm{dist}\left( \left\{ a \right\},B \right)
+\end{align*}
+定理\ref{8.2.1.18}、定理\ref{8.2.3.11}よりその写像$f_{B}$はその集合$A$上で連続である。あとは、最大値最小値の定理より、$\exists a \in A$に対し、次式のようになる。
+\begin{align*}
+\mathrm{dist}(A,B) &= \inf{V\left( d|A \times B \right)}\\
+&= \inf{V\left( f_{B} \right)}\\
+&= \min{V\left( f_{B} \right)}\\
+&= f_{B}(a)\\
+&= \mathrm{dist}\left( \left\{ a \right\},B \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{8.2.5.8}
+距離空間$(S,d)$が与えられたとき、これのcompact距離空間である部分距離空間$\left( A,d_{A} \right)$において、その位相空間$\left( S,\mathfrak{O}_{d} \right)$における任意の閉集合$B$に対し、$A \cap B = \emptyset$が成り立つなら、$d(A,B) > 0$が成り立つ。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、これのcompact距離空間である部分距離空間$\left( A,d_{A} \right)$において、その位相空間$\left( S,\mathfrak{O}_{d} \right)$における任意の閉集合$B$に対し、$A \cap B = \emptyset$が成り立つなら、定理\ref{8.2.5.7}より$\exists a \in A$に対し、$\mathrm{dist}(A,B) = \mathrm{dist}\left( \left\{ a \right\},B \right)$が成り立つ。ここで、$a \notin B = {\mathrm{cl}}B$が成り立つので、定理\ref{8.2.3.5}より$d(A,B) > 0$が成り立つ。
+\end{proof}
+%\hypertarget{euclidux7a7aux9593ux306eux5b8cux5099}{%
+\subsubsection{Euclid空間の完備}%\label{euclidux7a7aux9593ux306eux5b8cux5099}}
+\begin{thm}\label{8.2.5.9} 1次元Euclid空間$E$は完備である。
+\end{thm}
+\begin{proof}
+1次元Euclid空間$E$の任意のCauchy列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、ある自然数$n_{0}$が存在して、任意の自然数たち$m$、$n$に対し、$n_{0} < m$かつ$n_{0} < n$が成り立つなら、$\left| a_{m} - a_{n} \right| < 1$が成り立つ。特に、$\left| a_{n} - a_{n_{0} + 1} \right| < 1$が成り立つ。したがって、次のようになるので、
+\begin{align*}
+\left| a_{n} \right| &= \left| a_{n} - a_{n_{0} + 1} + a_{n_{0} + 1} \right|\\
+&\leq \left| a_{n} - a_{n_{0} + 1} \right| + \left| a_{n_{0} + 1} \right|\\
+&\leq \left| a_{n_{0} + 1} \right| + 1\\
+&< \max\left( \left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n_{0}}} \cup \left\{ \left| a_{n_{0} + 1} + 1 \right| \right\} \right)
+\end{align*}
+その実数$\max\left( \left\{ \left| a_{i} \right| \right\}_{i \in \varLambda_{n_{0}}} \cup \left\{ \left| a_{n_{0} + 1} + 1 \right| \right\} \right)$が$\alpha$とおかれれば、$\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| < \alpha$が成り立つ。\par
+ここで、実数$a$に対し、次式のように集合$N(a)$が定義され、
+\begin{align*}
+N(a) = \left\{ n \in \mathbb{N} \middle| a_{n} \leq a \right\}
+\end{align*}
+さらに、次式のように集合$M$が定義される。
+\begin{align*}
+M = \left\{ a \in \mathbb{R} \middle| {\#}{N(a)} < \aleph_{0} \right\}
+\end{align*}
+ここで、上記の議論により$N( - \alpha) = \emptyset$が成り立つので、$- \alpha \in M$が成り立ち、したがって、$M \neq \emptyset$が成り立つ。また、$\forall a,b \in \mathbb{R}$に対し、$a < b$が成り立つなら、$N(a) \subseteq N(b)$が成り立つ。一方で、上記の議論により$N(\alpha) = \mathbb{N}$が成り立つので、$\alpha \notin M$が成り立つ。したがって、$\forall a \in M$に対し、$N(\alpha) \subseteq N(a)$が成り立たなく、したがって、$\alpha < a$も成り立たない、即ち、$a \leq \alpha$が成り立つので、その実数$\alpha$はその集合$M$の上界であるから、実数の公理での上限性質よりその集合$M$の上限$\sup M$がその実数全体$\mathbb{R}$に存在する。\par
+$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0}' \in \mathbb{N}\forall m,n \in \mathbb{N}$に対し、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$はCauchy列であるので、$n_{0}' < m$かつ$n_{0}' < n$が成り立つなら、$\left| a_{m} - a_{n} \right| < \frac{\varepsilon}{2}$が成り立ち、さらに、$\sup M - \frac{\varepsilon}{2} \in M$かつ$\sup M + \frac{\varepsilon}{2} \notin M$が成り立つので、それらの集合たち$N\left( \sup M - \frac{\varepsilon}{2} \right)$、$N\left( \sup M + \frac{\varepsilon}{2} \right)$はそれぞれ有限集合、無限集合である。したがって、その差集合$N\left( \sup M + \frac{\varepsilon}{2} \right) \setminus N\left( \sup M - \frac{\varepsilon}{2} \right)$も無限集合であるから、その差集合に属しその自然数$n_{0}'$より大きいものが存在する。このような自然数が$n'$とおかれれば、$\forall n \in \mathbb{N}$に対し、$n' < n$が成り立つなら、
+\begin{align*}
+\left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+n' \in N\left( \sup M + \frac{\varepsilon}{2} \right) \setminus N\left( \sup M - \frac{\varepsilon}{2} \right) \\
+n_{0}' < n' < n \\
+\end{matrix} \right. &\Rightarrow \left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+n' \in N\left( \sup M + \frac{\varepsilon}{2} \right) \land n' \notin N\left( \sup M - \frac{\varepsilon}{2} \right) \\
+\left| a_{n} - a_{n'} \right| < \frac{\varepsilon}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+a_{n'} \leq \sup M + \frac{\varepsilon}{2} \land \sup M - \frac{\varepsilon}{2} < a_{n'} \\
+\left| a_{n} - a_{n'} \right| < \frac{\varepsilon}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+\sup M - \frac{\varepsilon}{2} < a_{n'} \leq \sup M + \frac{\varepsilon}{2} \\
+\left| a_{n} - a_{n'} \right| < \frac{\varepsilon}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+ - \frac{\varepsilon}{2} < a_{n'} - \sup M \leq \frac{\varepsilon}{2} \\
+\left| a_{n} - a_{n'} \right| < \frac{\varepsilon}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left| a_{n} - \sup M \right| \leq \left| a_{n} - a_{n'} \right| + \left| a_{n'} - \sup M \right| \\
+\left| a_{n'} - \sup M \right| < \frac{\varepsilon}{2} \\
+\left| a_{n} - a_{n'} \right| < \frac{\varepsilon}{2} \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left| a_{n} - \sup M \right| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+\end{align*}
+これは$\varepsilon $-$\delta $論法そのものなので、$\lim_{n \rightarrow \infty}a_{n} = \sup M$が成り立つ。\par
+よって、任意のCauchy列$\left( a_{n} \right)_{n \in \mathbb{N}}$が収束するので、1次元Euclid空間$E$は完備である。
+\end{proof}
+\begin{thm}\label{8.2.5.10} $n$次元Euclid空間$E^{n}$は完備である。
+\end{thm}
+\begin{proof} 定理\ref{8.2.4.10}より明らかである。
+\end{proof}
+\begin{thm}\label{8.2.5.11}
+$n$次元Euclid空間$E^{n}$の部分距離空間が与えられたとき、これの台集合が有界なら、これを台集合とする$n$次元Euclid空間$E^{n}$の部分距離空間は全有界である。
+\end{thm}
+\begin{proof}
+$n$次元Euclid空間$E^{n}$の部分距離空間$\left( M,{d_{E^{n}}}_{M} \right)$が与えられたとき、これの台集合$M$が有界なら、定理\ref{8.2.3.3}より$\forall\mathbf{a} \in \mathbb{R}^{n}\exists\varepsilon \in \mathbb{R}^{+}$に対し、$M \subseteq B\left( \mathbf{a},\varepsilon \right)$が成り立つ。したがて、${\mathrm{cl}}M \subseteq {\mathrm{cl}}{B\left( \mathbf{a},\varepsilon \right)}$が成り立つ。ここで、$\forall\varepsilon' \in \mathbb{R}^{+}\forall\mathbf{b} \in {\mathrm{cl}}{B\left( \mathbf{a},\varepsilon \right)}$に対し、$d_{E^{n}}\left( \mathbf{a},\mathbf{b} \right) \leq \varepsilon < \varepsilon + \varepsilon'$が成り立つので、次式が成り立つ。
+\begin{align*}
+M &\subseteq {\mathrm{cl}}M\\
+&\subseteq {\mathrm{cl}}{B\left( \mathbf{a},\varepsilon \right)}\\
+&\subseteq B\left( \mathbf{a},\varepsilon + \varepsilon' \right)
+\end{align*}
+以上、定理\ref{8.2.3.3}よりその集合${\mathrm{cl}}M$は有界な閉集合である。定理\ref{8.2.5.2}よりその集合${\mathrm{cl}}M$を台集合とするその位相空間$\left( \mathbb{R}^{n},\mathfrak{O}_{d_{E^{n}}} \right)$の部分位相空間はcompact空間となるので、定理\ref{8.1.6.2}よりその集合${\mathrm{cl}}M$の任意の開被覆$\mathfrak{U}_{M}$が与えられたとき、これの有限な部分集合$\mathfrak{U}_{M}'$が存在してこれがその集合${\mathrm{cl}}M$の開被覆となる。あとは、開被覆の任意性に注意すれば、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、その集合$S$の有限な部分集合$M$が存在して$\bigcup_{a \in M} {B(a,\varepsilon)} = S$が成り立つので、定理\ref{8.2.4.12}よりその集合$M$を台集合とする$n$次元Euclid空間$E^{n}$の部分距離空間は全有界である。
+\end{proof}
+%\hypertarget{fruxe9chetux306eux610fux5473ux3067ux306ecompactux8dddux96e2ux7a7aux9593}{%
+\subsubsection{Fréchetの意味でのcompact距離空間}%\label{fruxe9chetux306eux610fux5473ux3067ux306ecompactux8dddux96e2ux7a7aux9593}}
+\begin{dfn}
+距離空間$(S,d)$が与えられたとき、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$の意味で収束するとき、その距離空間$(S,d)$をFréchetの意味でのcompact距離空間、点列compact距離空間という。
+\end{dfn}
+\begin{thm}\label{8.2.5.12}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$がFréchetの意味でのcompact距離空間であるならそのときに限り、その距離空間$(S,d)$が完備であるかつ、全有界である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$がFréchetの意味でのcompact距離空間であるなら、その台集合$S$の任意のCauchy列$\left( a_{n} \right)_{n \in \mathbb{N}}$は仮定より収束する部分列をもつので、定理\ref{8.2.4.19}よりそのCauchy列$\left( a_{n} \right)_{n \in \mathbb{N}}$もその部分列と同じ極限に収束する。したがって、その距離空間$(S,d)$は完備である。また、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$上で収束する。ここで、定理\ref{8.2.4.7}よりその元の列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$はCauchy列であるから、定理\ref{8.2.4.21}よりその距離空間$(S,d)$は全有界である。以上より、その距離空間$(S,d)$がFréchetの意味でのcompact距離空間であるなら、その距離空間$(S,d)$が完備であるかつ、全有界である。\par
+逆に、その距離空間$(S,d)$が完備であるかつ、全有界であるとすると、定理\ref{8.2.4.21}よりその台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、これがCauchy列となる。そこで、完備の定義より任意のCauchy列は収束するので、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$ももちろん収束する。よって、その距離空間$(S,d)$はFréchetの意味でのcompact距離空間である。
+\end{proof}
+\begin{thm}\label{8.2.5.13}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$がFréchetの意味でのcompact距離空間であるならそのときに限り、その台集合$S$は有限集合であるか、その台集合$S$の任意の無限集合である部分集合の集積点が存在する。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$がFréchetの意味でのcompact距離空間であるとする。その台集合$S$が有限集合でないとき、その台集合$S$の無限集合である部分集合$M$は存在する。例えば、その台集合$S$自身がそうである。ここで、$\aleph_{0} \leq {\#}M$が成り立つので、単射$\left( a_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow M;n \mapsto a_{n}$が存在してこれのある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$の意味で収束する。これは定理\ref{8.2.1.12}より$\lim_{k \rightarrow \infty}{d\left( a_{n_{k}},\ \ \lim_{k \rightarrow \infty}a_{n_{k}} \right)} = 0$が成り立つことを意味する、即ち、$\forall\varepsilon \in \mathbb{R}^{+}\exists n_{0} \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$n_{0} < n$が成り立つなら、$d\left( a_{n_{k}},\ \ \lim_{k \rightarrow \infty}a_{n_{k}} \right) < \varepsilon$が成り立つ。ここで、正の実数$\varepsilon$の任意性と定理\ref{8.2.3.5}より次のようになる。
+\begin{align*}
+d\left( a_{n_{k}},\lim_{k \rightarrow \infty}a_{n_{k}} \right) = 0 &\Leftrightarrow \inf{V\left( d|\left( M \setminus \left\{ \lim_{k \rightarrow \infty}a_{n_{k}} \right\} \right) \times \left\{ \lim_{k \rightarrow \infty}a_{n_{k}} \right\} \right)} = 0\\
+&\Leftrightarrow \mathrm{dist}\left( M \setminus \left\{ \lim_{k \rightarrow \infty}a_{n_{k}} \right\},\left\{ \lim_{k \rightarrow \infty}a_{n_{k}} \right\} \right) = 0\\
+&\Leftrightarrow \lim_{k \rightarrow \infty}a_{n_{k}} \in {\mathrm{cl}}\left( M \setminus \left\{ \lim_{k \rightarrow \infty}a_{n_{k}} \right\} \right)
+\end{align*}
+したがって、その極限$\lim_{k \rightarrow \infty}a_{n_{k}}$はその部分集合$M$の集積点である。\par
+逆に、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$の値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$はもちろんその台集合$S$の部分集合であるので、これが$M$とおかれると、その集合$M$が有限集合であるとき、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$は単射でないので、$\exists m,n \in \mathbb{N}$に対し、$a_{m} = a_{n}$が成り立つ。ここで、$S = \left\{ a_{i} \right\}_{i \in \varLambda_{{\#}S}}$とおかれることにして、$\forall i \in \varLambda_{{\#}S}$に対し、値域$V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)$が有限集合であると仮定すると、次のようになる。
+\begin{align*}
+\mathbb{N} &= D\left( \left( a_{n} \right)_{n \in \mathbb{N}} \right)\\
+&= V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1} \right)\\
+&= \bigcup_{a_{i} \in S} {V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)}\\
+&= \bigsqcup_{i \in \varLambda_{{\#}S}} {V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\aleph_{0} &= {\#}\mathbb{N}\\
+&= {\#}{\bigsqcup_{i \in \varLambda_{{\#}S}} {V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)}}\\
+&= \sum_{i \in \varLambda_{{\#}S}} {{\#}{V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)}}\\
+&< \sum_{i \in \varLambda_{{\#}S}} \aleph_{0} = \aleph_{0}
+\end{align*}
+これは矛盾している。したがって、$\exists i \in \varLambda_{{\#}S}$に対し、値域$V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right)$が無限集合であることになるので、全単射$\left( n_{k} \right)_{k \in \mathbb{N}}:\mathbb{N} \rightarrow V\left( \left( a_{n} \right)_{n \in \mathbb{N}}^{- 1}|\left\{ a_{i} \right\} \right);k \mapsto n_{k}$が存在して、$\forall k \in \mathbb{N}$に対し、$a_{n_{k}} = a_{i}$が成り立つことができる。このとき、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$の意味で収束する。その台集合$S$が有限集合であるときも上記の議論に従う。\par
+その集合$M$が無限集合であるとき、仮定よりその台集合$S$のその部分集合$M$の集積点$a$が存在する。このとき、定理\ref{8.2.1.13}より任意の自然数$k$に対し、$a_{n_{k}} \neq a$なるその集合$M$のある元の列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$の極限がその元$a$である、即ち、$\lim_{k \rightarrow \infty}a_{n_{k}} = a$が成り立つ。\par
+いづれにせよ、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$の意味で収束するので、その距離空間$(S,d)$はFréchetの意味でのcompact距離空間となる。
+\end{proof}
+\begin{thm}\label{8.2.5.14}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O}_{d} \right)$はcompact空間であるならそのときに限り、その位相空間$\left( S,\mathfrak{O}_{d} \right)$はFréchetの意味でのcompact空間である。
+\end{thm}
+\begin{proof}
+距離空間$(S,d)$が与えられたとき、その距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O}_{d} \right)$はcompact空間であるなら、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$とその台集合$S$の任意の元$a$に対し、ある正の実数$\varepsilon_{a}$が存在して、集合$\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}$が有限集合であると仮定する。このとき、族$\left\{ B\left( a,\varepsilon_{a} \right) \right\}_{a \in S}$はその台集合$S$の開被覆でその位相空間$\left( S,\mathfrak{O}_{d} \right)$はcompact空間であるから、その台集合$S$の有限な部分集合$S'$が存在して、族$\left\{ B\left( a,\varepsilon_{a} \right) \right\}_{a \in S'}$もその台集合$S$の開被覆となる。このとき、$\forall n \in \mathbb{N}\exists a \in S'$に対し、$a_{n} \in B\left( a,\varepsilon_{a} \right)$が成り立つので、次式が得られる。
+\begin{align*}
+\mathbb{N} = \bigcup_{a \in S'} \left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}
+\end{align*}
+このとき、次のようになるが、
+\begin{align*}
+\aleph_{0} &= {\#}\mathbb{N}\\
+&= {\#}{\bigcup_{a \in S'} \left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}}\\
+&\leq \sum_{a \in S'} {{\#}\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}}\\
+&< \sum_{a \in S'} \aleph_{0} = \aleph_{0}
+\end{align*}
+これは矛盾している。したがって、その台集合$S$のある元$a$が存在して、任意の正の実数$\varepsilon_{a}$に対し、集合$\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}$が無限集合である。\par
+そこで、任意の正の実数$\varepsilon_{a}$に対し、集合$\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a,\varepsilon_{a} \right) \right\}$が無限集合であるようなその台集合$S$の元が$a'$とおかれると、任意の自然数$k$と任意の正の実数$\varepsilon$に対し、次式のような集合について、
+\begin{align*}
+N(k,\varepsilon) = \left\{ n \in \mathbb{N} \middle| k < n \land a_{n} \in B\left( a',\varepsilon \right) \right\}
+\end{align*}
+次のようになることから、
+\begin{align*}
+{\#}{N(k,\varepsilon)} &= {\#}\left\{ n \in \mathbb{N} \middle| k < n \land a_{n} \in B\left( a',\varepsilon \right) \right\}\\
+&= {\#}\left\{ n \in \mathbb{N} \middle| \neg n \leq k \land a_{n} \in B\left( a',\varepsilon \right) \right\}\\
+&= {\#}{\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a',\varepsilon \right) \right\} \setminus \left\{ n \in \mathbb{N} \middle| n \leq k \right\}}\\
+&= {\#}{\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a',\varepsilon \right) \right\} \setminus \varLambda_{k}}\\
+&= {\#}\left\{ n \in \mathbb{N} \middle| a_{n} \in B\left( a',\varepsilon \right) \right\} - {\#}\varLambda_{k}\\
+&= \aleph_{0} - k = \aleph_{0}
+\end{align*}
+その集合$N(k,\varepsilon)$は無限集合である。\par
+そこで、その集合$N(k,\varepsilon)$の元が1つ選ばれておき、これが$\varPhi(k,\varepsilon)$とおかれるとする。ここで、元の列$\left( i_{n} \right)_{n \in \mathbb{N}}$が次式のように定義されれば、
+\begin{align*}
+i_{1} = \varPhi(1,1),\ \ i_{n + 1} = \varPhi\left( i_{n},\frac{1}{n + 1} \right)
+\end{align*}
+その集合$N(k,\varepsilon)$の定義より$\forall n \in \mathbb{N}$に対し、$i_{n} < i_{n + 1}$が成り立つ。ここで、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\frac{1}{\varepsilon} < n_{0}$なる自然数$n_{0}$が存在して、$\forall n \in \mathbb{N}$に対し、$n_{0} < n$が成り立つなら、$i_{0} = 1$として$i_{n} \in N\left( i_{n - 1},\frac{1}{n} \right)$が成り立つので、次のようになることから、
+\begin{align*}
+i_{n} \in N\left( i_{n - 1},\frac{1}{n} \right) &\Leftrightarrow a_{i_{n}} \in B\left( a',\frac{1}{n} \right)\\
+&\Leftrightarrow d\left( a',a_{i_{n}} \right) < \frac{1}{n} < \frac{1}{n_{0}} < \varepsilon
+\end{align*}
+$\lim_{n \rightarrow \infty}a_{i_{n}} = a'$が成り立つ。これにより、その台集合$S$の任意の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$に対し、ある部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、その部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$がその距離空間$(S,d)$の意味で収束するので、その位相空間$\left( S,\mathfrak{O}_{d} \right)$はFréchetの意味でのcompact空間である。\par
+逆に、その位相空間$\left( S,\mathfrak{O}_{d} \right)$はFréchetの意味でのcompact空間であるなら、その台集合$S$の任意の開被覆$\mathfrak{U}$に対し、定理\ref{8.2.5.12}よりその距離空間$(S,d)$は全有界で定理\ref{8.2.4.16}より第2可算公理を満たす。したがって、定理\ref{8.1.6.16}よりその距離空間$(S,d)$における位相空間$\left( S,\mathfrak{O}_{d} \right)$はLindelöfの性質をもっているので、その台集合$S$の開被覆$\mathfrak{U}'$が存在して、その開被覆$\mathfrak{U}$の部分集合でたかだか可算である。\par
+このとき、$\mathfrak{U}' = \left\{ U_{n} \right\}_{n \in \mathbb{N}}$とおかれれば、その集合$\mathfrak{U}'$がその台集合$S$の有限な開被覆を含まないと仮定すると、$\forall n \in \mathbb{N}$に対し、次式のように集合$A_{n}$が定義されると、
+\begin{align*}
+A_{n} = S \setminus \bigcup_{i \in \varLambda_{n}} U_{i}
+\end{align*}
+これは仮定より空集合ではなく閉集合である。さらに、明らかに$A_{n + 1} \subseteq A_{n}$が成り立つ。そこで、各集合$A_{n}$の元$a_{n}$がとられれば、元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が得られる。そこで、仮定よりこれの部分列$\left( a_{n_{k}} \right)_{k \in \mathbb{N}}$が存在して、これが収束するなら、$\forall j \in \mathbb{N}$に対し、ある自然数$k_{0}$が存在して、$j < n_{k_{0}}$が成り立つ。したがって、$a_{n_{k_{0}}} \in A_{n_{k_{0}}} \subseteq A_{j}$が成り立つので、$a_{n_{k_{0}}} \in A_{j}$が成り立ち、定理\ref{8.2.1.13}よりその極限$\lim_{k \rightarrow \infty}a_{n_{k}}$がその集合$A_{j}$の触点であるかつ、その集合$A_{j}$が閉集合であることから、$\lim_{k \rightarrow \infty}a_{n_{k}} \in {\mathrm{cl}}A_{j} = A_{j}$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\forall j \in \mathbb{N}\left[ \lim_{k \rightarrow \infty}a_{n_{k}} \in A_{j} \right] &\Leftrightarrow \lim_{k \rightarrow \infty}a_{n_{k}} \in \bigcap_{j \in \mathbb{N}} A_{j} = \bigcap_{j \in \mathbb{N}} \left( S \setminus \bigcup_{i \in \varLambda_{j}} U_{i} \right)\\
+&= S \setminus \bigcup_{j \in \mathbb{N}} {\bigcup_{i \in \varLambda_{j}} U_{i}}\\
+&= S \setminus \bigcup_{n \in \mathbb{N}} U_{n}
+\end{align*}
+これにより、$\bigcup_{n \in \mathbb{N}} U_{n} \subset S$が成り立つことになるが、これはその集合$\left\{ U_{n} \right\}_{n \in \mathbb{N}}$がその台集合$S$の開被覆であることに矛盾する。\par
+よって、その集合$\mathfrak{U}'$がその台集合$S$の有限な開被覆を含むので、その位相空間$\left( S,\mathfrak{O}_{d} \right)$はcompact空間である。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p252,257-268 ISBN978-4-00-029871-1
+\end{thebibliography}
+\end{document}

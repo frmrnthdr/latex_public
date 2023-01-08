@@ -1,0 +1,771 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\input{macro}
+\begin{document}
+%\hypertarget{ux74b0}{%
+\subsection{環}%\label{ux74b0}}
+%\hypertarget{ux74b0-1}{%
+\subsubsection{環}%\label{ux74b0-1}}
+\begin{axs}[環の公理]
+空集合でない集合$R$に対し2つの算法それぞれ加法$+ :R \times R \rightarrow R;(a,b) \mapsto a + b$、乗法$\cdot :R \times R \rightarrow R;(a,b) \mapsto ab$が与えられたとする。このとき、次の条件たちを満たす集合$R$を環という\footnote{ここから先は心象するのがほぼ不可能な分野になりますので、定義をよく読んでおくことをお勧めします。}。
+\begin{itemize}
+\item
+  集合$R$は加法について可換群$(R, + )$をなす。
+\item
+  $\forall a,b,c \in R$に対し、$(ab)c = a(bc)$が成り立つ、即ち、乗法について結合的である。
+\item
+  $\exists e \in R\forall a \in R$に対し、$ae = ea = a$が成り立つ、即ち、乗法について集合$R$の単位元$e$が存在する。
+\item
+  $\forall a,b,c \in R$に対し、$a(b + c) = ab + ac$かつ$(a + b)c = ac + bc$が成り立つ、即ち、乗法は加法に対して両側から分配的である。
+\end{itemize}
+さらに、次の条件も満たす環$R$を特に可換環という。
+\begin{itemize}
+\item
+  $\forall a,b \in R$に対し、$ab = ba$が成り立つ、即ち、乗法は可換的である。
+\end{itemize}
+\end{axs}
+\begin{dfn}
+可換群$(R, + )$において、その単位元$1_{(R, + )}$を零元といい$0$と、逆元$a^{- 1}$を$- a$と、$\forall n \in \mathbb{Z}$に対し、元$a^{n}$を$na$と、乗法についての単位元$e$を$1$と書く。
+\end{dfn}
+\begin{thm}\label{3.3.1.1}
+環$R$が与えられたとき、$\forall a \in R$に対し、$a0 = 0a = 0$が成り立つ。
+\end{thm}
+\begin{proof} 環$R$について、$\forall a \in R$に対し、次のようになるかつ、
+\begin{align*}
+0 &= a0 - a0\\
+&= a(0 + 0) - a0\\
+&= a0 + a0 - a0 = a0
+\end{align*}
+次のようになるので、
+\begin{align*}
+0 &= 0a - 0a\\
+&= (0 + 0)a - 0a\\
+&= 0a + 0a - 0a = 0a
+\end{align*}
+$a0 = 0a = 0$が成り立つ。
+\end{proof}
+\begin{dfn}
+環$R$について、$0 = 1$が成り立つとき、$\forall a \in R$に対し、$a = 1a = 0a = 0$が成り立ち$R = \left\{ 0 \right\}$が得られる。これを零環という。以下、環の元が2つ以上現れるのであれば、その環は零環でないので、断りがない場合、そうする。
+\end{dfn}
+\begin{dfn}
+環$R$について、$\exists a,b \in R$に対し、$a \neq 0$かつ$b \neq 0$が成り立つかつ、$ab = 0$が成り立つなら、それらの元々$a$、$b$をそれぞれ左零因子、右零因子といい、あわせて零因子という。これをもたない可換環を、即ち、その環$R$が可換環で、$\forall a,b \in R$に対し、$a \neq 0$かつ$b \neq 0$が成り立つなら、$ab \neq 0$が成り立つような環を整域という。
+\end{dfn}
+\begin{dfn}\label{体の定義}
+環$R$について、$\exists a,b \in R$に対し、$ab = 1$が成り立つなら、その元$a$を環$R$の可逆元、単元といい、その元$b$を逆元といい、後に示すように$a^{- 1}$、$\frac{1}{a}$などと書くことができる。以下、その元$a^{-1}$はその群$\left(R,+\right)$における逆元ではなくその可逆元$a$の積における逆元を意味するものとする。これにより、可逆元からなる集合は乗法について群をなし、$0$以外の元全てが可逆元であるような環を斜体といい、乗法について可換的な斜体を体といい、可換的でない斜体を非可換体という。
+\end{dfn}\par
+斜体を体、体を可換体というときもある。
+\begin{thm}\label{3.3.1.2}
+環$R$の可逆元について、次のことが成り立つ。
+\begin{itemize}
+\item
+  その環$R$が零環でなくその環$R$の元$a$が可逆元なら、これは$0$でない。
+\item 
+  その環$R$の元$a$が可逆元なら、一意的に逆元${a}^{-1}$が定まる。
+\item
+  その環$R$が斜体であるなら、零因子をもたない。
+\end{itemize}
+\end{thm}
+\begin{proof}
+環$R$について、$a \in R$が成り立ちその環$R$が零環でなくその元$a$が可逆元であり${a}^{-1} \in R$なる元${a}^{-1}$を$a$の逆元とする。$a = 0$が成り立つなら、$a{a}^{-1} = 0{a}^{-1} = 0 \neq 1$が成り立つので、可逆元の定義に矛盾する。よって$a \neq 0$が成り立つ。\par
+また、その環$R$の元$a$が可逆元でその元$a^{- 1}$でないその元$a$の逆元$b$が与えられたとするとき、次式が成り立つので、
+\begin{align*}
+{a}^{-1} &= {a}^{-1}1\\
+&= {a}^{-1}(ab)\\
+&= \left( {a}^{-1}a \right)b\\
+&= 1b = b
+\end{align*}
+仮定に矛盾する。よって、一意的に逆元${a}^{-1}$が定まる。\par
+環$R$が斜体であるなら、$0$以外の元全てが可逆元であるので、$\forall a,b \in R$に対し、$a \neq 0$かつ$b \neq 0$が成り立つなら、${a}^{-1},{b}^{-1} \in R$が成り立ち、したがって、次のようになる。
+\begin{align*}
+ab{b}^{-1}{a}^{-1} &= a1{a}^{-1}\\
+&= a{a}^{-1} = 1\\
+{b}^{-1}{a}^{-1}ab &= {b}^{-1}1b\\
+&= {b}^{-1}b = 1
+\end{align*}
+したがって、その元$ab$は可逆元であることになるので、$ab \neq 0$が成り立つ。ゆえに、その環$R$は零因子をもたない。
+\end{proof}
+\begin{thm}\label{3.3.1.3}
+環$R$の性質として、次のことが成り立つ。
+\begin{itemize}
+  \item $\forall a\in R$に対し、$-(-a) =a$が成り立つ。
+  \item $\forall a,b\in R$に対し、$a(-b)=(-a)b=-ab$が成り立つ。
+  \item $\forall a,b\in R$に対し、$(-a)(-b)=ab$が成り立つ。
+  \item $\forall a,b\in R$に対し、$a=0$または$b=0$が成り立つなら、$ab=0$が成り立つ。
+  \item $\forall a,b\in R$に対し、$a=0$かつ$b=0$が成り立つなら、$a^2 +b^2 =0$が成り立つ。
+  \item $\forall a\in R$に対し、その元$a$が可逆元なら、その元$-a$も可逆元で$(-a)^{-1} =-a^{-1}$が成り立つ。
+  \item $\forall a\in R$に対し、それらの元々$a$、$b$が可逆元なら、その元$ab$も可逆元で$(ab)^{-1} =b^{-1} a^{-1}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof} 環$R$が与えられたとき、$\forall a\in R$に対し、次のようになる。
+\begin{align*}
+- ( - a) &= 0 - ( - a)\\
+&= a - a - ( - a)\\
+&= a + ( - a) - ( - a)\\
+&= a + 0 = a
+\end{align*}\par
+$\forall a,b\in R$に対し、次のようになる。
+\begin{align*}
+a( - b) &= 0 + a( - b)\\
+&= - ab + ab + a( - b)\\
+&= - ab + a\left( b + ( - b) \right)\\
+&= - ab + a0\\
+&= - ab + 0\\
+&= - ab
+\end{align*}\par
+$\forall a,b\in R$に対し、次のようになる。
+\begin{align*}
+( - a)b &= ( - a)b + 0\\
+&= ( - a)b + ab - ab\\
+&= \left( ( - a) + a \right)b - ab\\
+&= 0b - ab\\
+&= a - ab\\
+&= - ab
+\end{align*}\par
+$\forall a,b\in R$に対し、次のようになる。
+\begin{align*}
+( - a)( - b) &= ( - a)( - b) + 0\\
+&= ( - a)( - b) + ( - a)b - ( - a)b\\
+&= ( - a)\left( ( - b) + b \right) - ( - ab)\\
+&= ( - a)0 + ab\\
+&= 0 + ab\\
+&= ab
+\end{align*}
+$\forall a,b\in R$に対し、$a=0$または$b=0$が成り立つなら、次のようになるので、
+\begin{align*}
+a = 0 \vee b = 0 &\Rightarrow ab = 0 \vee ab = 0\\
+&\Leftrightarrow ab = 0
+\end{align*}
+$ab=0$が成り立つ。\par
+$\forall a,b\in R$に対し、$a=0$かつ$b=0$が成り立つなら、次のようになるので、
+\begin{align*}
+a = 0 \land b = 0 &\Rightarrow a^{2} = 0 \land b^{2} = 0\\
+&\Rightarrow a^{2} + b^{2} = 0
+\end{align*}
+$a^2 +b^2 =0$が成り立つ。\par
+$\forall a\in R$に対し、その元$a$が可逆元なら、次のようになるので、
+\begin{align*}
+\left( -a^{-1} \right) \left(-a\right) &= a^{-1} a =1\\
+\left( -a\right) \left(-a^{-1} \right) &= aa^{-1} =1
+\end{align*}
+その元$-a$も可逆元で$(-a)^{-1} =-a^{-1}$が成り立つ。\par
+$\forall a\in R$に対し、それらの元々$a$、$b$が可逆元なら、次のようになるので、
+\begin{align*}
+\left( b^{-1} a^{-1} \right) \left(ab\right) &= b^{-1} \left( a^{-1} a\right) b \\
+&= b^{-1} 1 b =b^{-1} b =1\\
+\left(ab\right)\left( b^{-1} a^{-1} \right) &= a\left( bb^{-1} \right) a^{-1} \\
+&=a1a^{-1} =aa^{-1} =1
+\end{align*}
+その元$ab$も可逆元で$(ab)^{-1} =b^{-1} a^{-1}$が成り立つ。
+\end{proof}
+\subsubsection{環の例}
+\begin{dfn}
+環$R$が与えられたとき、空集合でない集合$S$を用いて$\forall f,g \in \mathfrak{F}(S,R)$に対し、次のように写像$f + g$、$fg$が定義される。
+\begin{itemize}
+\item
+  $\forall a \in S$に対し、$(f + g)(a) = f(a) + g(a)$が成り立つ。
+\item
+  $\forall a \in S$に対し、$(fg)(a) = f(a)g(a)$が成り立つ。
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{3.3.1.4}
+環$R$が与えられたとき、空集合でない集合$S$を用いた集合$\mathfrak{F}(S,R)$は環であり次式のように与えられる。
+\begin{align*}
+0&:S \rightarrow R;a \mapsto 0\\
+1&:S \rightarrow R;a \mapsto 1\\
+- f&:S \rightarrow R;a \mapsto - f(a)
+\end{align*}
+\end{thm}
+\begin{proof}
+環$R$が与えられたとき、空集合でない集合$S$を用いた集合$\mathfrak{F}(S,R)$について、次のようにおかれれば、
+\begin{align*}
+0&:S \rightarrow R;a \mapsto 0\\
+1&:S \rightarrow R;a \mapsto 1\\
+- f&:S \rightarrow R;a \mapsto - f(a)
+\end{align*}
+次のようになる。
+\begin{align*}
+\left( (f + g) + h \right)(a) &= (f + g)(a) + h(a)\\
+&= \left( f(a) + g(a) \right) + h(a)\\
+&= f(a) + \left( g(a) + h(a) \right)\\
+&= f(a) + (g + h)(a)\\
+&= \left( f + (g + h) \right)(a)\\
+(f + 0)(a) &= f(a) + 0(a)\\
+&= f(a) + 0 = f(a)\\
+(0 + f)(a) &= 0(a) + f(a)\\
+&= 0 + f(a) = f(a)\\
+(f - f)(a) &= f(a) + ( - f)(a)\\
+&= f(a) - f(a) = 0\\
+( - f + f)(a) &= ( - f)(a) + f(a)\\
+&= - f(a) + f(a) = 0\\
+(f + g)(a) &= f(a) + g(a)\\
+&= g(a) + f(a)\\
+&= (g + f)(a)
+\end{align*}
+したがって、その組$\left( \mathfrak{F}(S,R), + \right)$は可換群をなす。\par
+さらに、次のようになるので、
+\begin{align*}
+\left( (fg)h \right)(a) &= (fg)(a)h(a)\\
+&= \left( f(a)g(a) \right)h(a)\\
+&= f(a)\left( g(a)h(a) \right)\\
+&= f(a)(gh)(a)\\
+&= \left( f(gh) \right)(a)\\
+(f1)(a) &= f(a)1(a)\\
+&= f(a)1 = f(a)\\
+(1f)(a) &= 1(a)f(a)\\
+&= 1f(a) = f(a)\\
+\left( f(g + h) \right)(a) &= f(a)(g + h)(a)\\
+&= f(a)\left( g(a) + h(a) \right)\\
+&= f(a)g(a) + f(a)h(a)\\
+&= (fg)(a) + (fh)(a)\\
+&= (fg + fh)(a)\\
+\left( (f + g)h \right)(a) &= (f + g)(a)h(a)\\
+&= \left( f(a) + g(a) \right)h(a)\\
+&= f(a)h(a) + g(a)h(a)\\
+&= (fh)(a) + (gh)(a)\\
+&= (fh + gh)(a)
+\end{align*}
+よって、その集合$\mathfrak{F}(S,R)$は環である。
+\end{proof}
+\begin{thm}\label{3.3.1.5}
+可換群$(G,*)$での自己準同型写像$f:G \rightarrow G$、即ち、$\forall a,b \in G$に対し、$f(a*b) = f(a)*f(b)$なる写像$f$全体の集合$\mathrm{end}(G,*)$が与えられたとき\footnote{自己準同型写像を英語でいうとendomorphismというそうです。終わりのendとは全く関係ございません。}、算法$*$、合成$\circ$がそれぞれ加法、乗法とみなされれば、その集合$\mathrm{end}(G,*)$は環であり次式のように与えられる。なお、$1_{(G,*)}$はその群$(G,*)$の単位元である。
+\begin{align*}
+0&:S \rightarrow R;a \mapsto 1_{(G,*)}\\
+1&:S \rightarrow R;a \mapsto a\\
+- f&:S \rightarrow R;a \mapsto {f(a)}^{- 1}
+\end{align*}
+\end{thm}
+\begin{dfn}
+この集合$\mathrm{end}(G,*)$をその可換群$(G,*)$の自己準同型環という。
+\end{dfn}
+\begin{proof}
+可換群$(G,*)$での自己準同型写像$f:G \rightarrow G$、即ち、$\forall a,b \in G$に対し、$f(a*b) = f(a)*f(b)$なる写像$f$全体の集合$\mathrm{end}(G,*)$が与えられたとき、$\forall a,b \in G\forall f,g,h \in \mathfrak{F}(S,R)$に対し、次のようになるので、
+\begin{align*}
+(f*g)(a*b) &= f(a*b)*g(a*b)\\
+&= f(a)*f(b)*g(a)*g(b)\\
+&= f(a)*g(a)*f(b)*g(b)\\
+&= (f*g)(a)*(f*g)(b)\\
+f \circ g(a*b) &= f\left( g(a*b) \right)\\
+&= f\left( g(a)*g(b) \right)\\
+&= f\left( g(a) \right)*f\left( g(b) \right)\\
+&= f \circ g(a)*f \circ g(b)
+\end{align*}
+$f*g,f \circ g \in \mathrm{end}(G,*)$が成り立つ。\par
+さらに、次式のように与えられると、
+\begin{align*}
+0&:S \rightarrow R;a \mapsto 1_{(G,*)}\\
+1&:S \rightarrow R;a \mapsto a\\
+- f&:S \rightarrow R;a \mapsto {f(a)}^{- 1}
+\end{align*}
+次のようになるので、
+\begin{align*}
+\left( (f*g)*h \right)(a) &= (f*g)(a)*h(a)\\
+&= \left( f(a)*g(a) \right)*h(a)\\
+&= f(a)*\left( g(a)*h(a) \right)\\
+&= f(a)*(g*h)(a)\\
+&= \left( f*(g*h) \right)(a)\\
+(f*0)(a) &= f(a)*0(a)\\
+&= f(a)*1_{(G,*)} = f(a)\\
+(0*f)(a) &= 0(a)*f(a)\\
+&= 1_{(G,*)}*f(a) = f(a)\\
+\left( f*( - f) \right)(a) &= f(a)*( - f)(a)\\
+&= f(a)*{f(a)}^{- 1} = 1_{(G,*)}\\
+\left( ( - f)*f \right)(a) &= ( - f)(a)*f(a)\\
+&= {f(a)}^{- 1}*f(a) = 1_{(G,*)}\\
+(f*g)(a) &= f(a)*g(a)\\
+&= g(a)*f(a)\\
+&= (g*f)(a)
+\end{align*}
+その組$\left( \mathrm{end}(G,*),* \right)$は可換群をなす。\par
+さらに、合成$\circ$が結合的なのはいうまでもなく、次のようになるので、
+\begin{align*}
+f \circ 1(a) &= f\left( 1(a) \right) = f(a)\\
+1 \circ f(a) &= 1\left( f(a) \right) = f(a)\\
+f \circ (g*h)(a) &= f\left( (g*h)(a) \right)\\
+&= f\left( g(a)*h(a) \right)\\
+&= f\left( g(a) \right)*f\left( h(a) \right)\\
+&= f \circ g(a)*f \circ h(a)\\
+&= (f \circ g*f \circ h)(a)\\
+(f*g) \circ h(a) &= (f*g)\left( h(a) \right)\\
+&= f\left( h(a) \right)*g\left( h(a) \right)\\
+&= f \circ h(a)*g \circ h(a)\\
+&= (f \circ h*g \circ h)(a)
+\end{align*}
+算法$*$、合成$\circ$がそれぞれ加法、乗法とみなされれば、その集合$\mathrm{end}(G,*)$は環である。
+\end{proof}
+\begin{dfn}
+環$R$が与えられたとき、$\forall a \in R$に対し、$a^{2} = a$が成り立つようなものをBoole環という。
+\end{dfn}
+\begin{thm}\label{3.3.1.6}
+Boole環は可換環である。
+\end{thm}
+\begin{proof}
+Boole環が与えられたとき、$\forall a,b \in R$に対し、次のようになる。
+\begin{align*}
+a + b &= (a + b)^{2}\\
+&= (a + b)(a + b)\\
+&= (a + b)a + (a + b)b\\
+&= a^{2} + ba + ab + b^{2}\\
+&= a + b + ab + ba
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+ab &= a + b + ab + ba - a - b - ba\\
+&= a + b - a - b - ba\\
+&= - ba
+\end{align*}
+特に、$b = 1$とすれば、$a = - a$が得られる。これにより、次のようになる。
+\begin{align*}
+ab &= - ba\\
+&= b( - a)\\
+&= ba
+\end{align*}
+\end{proof}
+\begin{thm}\label{3.3.1.7}
+集合$S$が与えられたとき、次のように和と積が定義されるとする。
+\begin{align*}
++&:\mathfrak{P}(S)\mathfrak{\times P}(S)\mathfrak{\rightarrow P}(S);(A,B) \mapsto (A \cup B) \setminus (A \cap B)\\
+\cdot &:\mathfrak{P}(S)\mathfrak{\times P}(S)\mathfrak{\rightarrow P}(S);(A,B) \mapsto A \cap B
+\end{align*}
+このとき、その集合$\mathfrak{P}(S)$はBoole環であり次のようになる。
+\begin{align*}
+0 = \emptyset,\ \ 1 = S,\ \  - A = A
+\end{align*}
+\end{thm}
+\begin{proof}
+集合$S$が与えられたとき、次のように和と積が定義されるとする。
+\begin{align*}
++&:\mathfrak{P}(S)\mathfrak{\times P}(S)\mathfrak{\rightarrow P}(S);(A,B) \mapsto (A \cup B) \setminus (A \cap B)\\
+\cdot &:\mathfrak{P}(S)\mathfrak{\times P}(S)\mathfrak{\rightarrow P}(S);(A,B) \mapsto A \cap B
+\end{align*}\par
+このとき、$\forall A,B,C \in \mathfrak{P}(S)$に対し、次のようおかれると、
+\begin{align*}
+D &= A \cap B \cap C\\
+A' &= A \cap B \setminus D\\
+B' &= B \cap C \setminus D\\
+C' &= C \cap A \setminus D\\
+A'' &= A \setminus \left( A' \sqcup D \sqcup C' \right)\\
+B'' &= B \setminus \left( B' \sqcup D \sqcup A' \right)\\
+C' &= C \setminus \left( C' \sqcup D \sqcup B' \right)
+\end{align*}
+次のようになるかつ、
+\begin{align*}
+(A + B) + C &= \left( (A \cup B) \setminus (A \cap B) \cup C \right) \setminus \left( (A \cup B) \setminus (A \cap B) \cap C \right)\\
+&= \left( \left( A'' \sqcup C' \sqcup B'' \sqcup B' \sqcup A' \sqcup D \right) \setminus \left( A' \sqcup D \right) \cup \left( C' \sqcup C'' \sqcup B' \sqcup D \right) \right) \\
+&\quad \setminus \left( \left( A'' \sqcup C' \sqcup B'' \sqcup B' \sqcup A' \sqcup D \right) \setminus \left( A' \sqcup D \right) \cap \left( C' \sqcup C'' \sqcup B' \sqcup D \right) \right)\\
+&= \left( \left( A'' \sqcup C' \sqcup B'' \sqcup B' \right) \cup \left( C' \sqcup C'' \sqcup B' \sqcup D \right) \right) \\
+&\quad \setminus \left( \left( A'' \sqcup C' \sqcup B'' \sqcup B' \right) \cap \left( C' \sqcup C'' \sqcup B' \sqcup D \right) \right)\\
+&= \left( A'' \sqcup C' \sqcup B'' \sqcup B' \sqcup C'' \sqcup D \right) \setminus \left( C' \sqcup B' \right)\\
+&= A'' \sqcup B'' \sqcup C'' \sqcup D
+\end{align*}
+次のようになるので、
+\begin{align*}
+A + (B + C) &= \left( A \cup (B \cup C) \setminus (B \cap C) \right) \setminus \left( A \cap (B \cup C) \setminus (B \cap C) \right)\\
+&= \left( \left( A' \sqcup A'' \sqcup C' \sqcup D \right) \cup \left( B'' \sqcup A' \sqcup C'' \sqcup C' \sqcup B' \sqcup D \right) \setminus \left( B' \sqcup D \right) \right) \\
+&\quad \setminus \left( \left( A' \sqcup A'' \sqcup C' \sqcup D \right) \cap \left( B'' \sqcup A' \sqcup C'' \sqcup C' \sqcup B' \sqcup D \right) \setminus \left( B' \sqcup D \right) \right)\\
+&= \left( \left( A' \sqcup A'' \sqcup C' \sqcup D \right) \cup \left( B'' \sqcup A' \sqcup C'' \sqcup C' \right) \right) \\
+&\quad \setminus \left( \left( A' \sqcup A'' \sqcup C' \sqcup D \right) \cap \left( B'' \sqcup A' \sqcup C'' \sqcup C' \right) \right)\\
+&= \left( A' \sqcup A'' \sqcup C' \sqcup D \sqcup B'' \sqcup C'' \right) \setminus \left( A' \sqcup C' \right)\\
+&= A'' \sqcup B'' \sqcup C'' \sqcup D
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+(A + B) + C = A + (B + C)
+\end{align*}
+また、次のようになるので、
+\begin{align*}
+A + 0 &= (A \cup \emptyset) \setminus (A \cap \emptyset) = A \setminus \emptyset = A\\
+0 + A &= (\emptyset \cup A) \setminus (\emptyset \cap A) = A \setminus \emptyset = A\\
+A - A &= A\text{+}A = (A \cup A) \setminus (A \cap A) = A \setminus A = 0\\
+- A + A &= A\text{+}A = (A \cup A) \setminus (A \cap A) = A \setminus A = 0\\
+A + B &= (A \cup B) \setminus (A \cap B) = (B \cup A) \setminus (B \cap A) = B + A
+\end{align*}
+その組$\left( \mathfrak{P}(S), + \right)$は可換群をなす。\par
+さらに、次のようになるので、
+\begin{align*}
+(AB)C &= (A \cap B) \cap C\\
+&= A \cap (B \cap C)\\
+&= A(BC)\\
+A1 &= A \cap S = A\\
+1A &= S \cap A = A\\
+A(B + C) &= A \cap (B \cup C) \setminus (B \cap C)\\
+&= \left( A \cap (B \cup C) \right) \setminus (B \cap C)\\
+&= \left( (A \cap B) \cup (A \cap C) \right) \setminus (A \cap B \cap C)\\
+&= \left( (A \cap B) \cup (A \cap C) \right) \setminus \left( (A \cap B) \cap (A \cap C) \right)\\
+&= AB + AC\\
+(A + B)C &= (A \cup B) \setminus (A \cap B) \cap C\\
+&= \left( (A \cup B) \cap C \right) \setminus (A \cap B)\\
+&= \left( (A \cap C) \cup (B \cap C) \right) \setminus (A \cap B \cap C)\\
+&= \left( (A \cap C) \cup (B \cap C) \right) \setminus \left( (A \cap C) \cap (B \cap C) \right)\\
+&= AC + BC
+\end{align*}
+その集合$\mathfrak{P}(S)$は環をなす。\par
+さらに、$A^{2} = A \cap A = A$が成り立つので、その集合$\mathfrak{P}(S)$はBoole環をなし次のようになる。
+\begin{align*}
+0 = \emptyset,\ \ 1 = S,\ \  - A = A
+\end{align*}
+\end{proof}
+%\hypertarget{ux4e8cux9805ux5b9aux7406}{%
+\subsubsection{二項定理}%\label{ux4e8cux9805ux5b9aux7406}}
+\begin{thm}\label{3.3.1.8}
+環$R$の元の族たち$\left\{ a_{i} \right\}_{i \in \varLambda_{m}}$、$\left\{ b_{j} \right\}_{j \in \varLambda_{n}}$が与えられたとき、次式が成り立つ。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{n}} b_{j} \right) = \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {a_{i}b_{j}}
+\end{align*}
+\end{thm}
+\begin{proof}
+環$R$の元の族たち$\left\{ a_{i} \right\}_{i \in \varLambda_{m}}$、$\left\{ b_{j} \right\}_{j \in \varLambda_{n}}$が与えられたとき、$n = 1$のとき、数学的帰納法により明らかに次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)b_{1} &= \sum_{i \in \varLambda_{m}} {a_{i}b_{1}}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{1}} {a_{i}b_{j}}
+\end{align*}
+$n = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{k}} b_{j} \right) = \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{k}} {a_{i}b_{j}}
+\end{align*}
+$n = k + 1$のとき、次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{k + 1}} b_{j} \right) &= \left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{k}} b_{j} + b_{k + 1} \right)\\
+&= \left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{k}} b_{j} \right) + \left( \sum_{i \in \varLambda_{m}} a_{i} \right)b_{k + 1}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{k}} {a_{i}b_{j}} + \sum_{i \in \varLambda_{m}} {a_{i}b_{k + 1}}\\
+&= \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{k}} {a_{i}b_{j}}} + \sum_{i \in \varLambda_{m}} {a_{i}b_{k + 1}}\\
+&= \sum_{i \in \varLambda_{m}} \left( \sum_{j \in \varLambda_{k}} {a_{i}b_{j}} + a_{i}b_{k + 1} \right)\\
+&= \sum_{i \in \varLambda_{m}} {a_{i}\left( \sum_{j \in \varLambda_{k}} b_{j} + b_{k + 1} \right)}\\
+&= \sum_{i \in \varLambda_{m}} {a_{i}\sum_{j \in \varLambda_{k + 1}} b_{j}}\\
+&= \sum_{i \in \varLambda_{m}} {\sum_{j \in \varLambda_{k + 1}} {a_{i}b_{j}}}\\
+&= \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{k}} {a_{i}b_{j}}
+\end{align*}\par
+以上、数学的帰納法により次式が成り立つことが示された。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)\left( \sum_{j \in \varLambda_{n}} b_{j} \right) = \sum_{(i,j) \in \varLambda_{m} \times \varLambda_{n}} {a_{i}b_{j}}
+\end{align*}
+\end{proof}
+\begin{dfn}
+$k \leq n$なる非負整数に対し、次式のような有理数$\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix}$が定義される。この有理数$\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix}$を二項係数といい${}_{n}\mathrm{C}_{k}$とも書かれることがある。
+\begin{align*}
+\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix} = \frac{n!}{k!(n - k)!}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{3.3.1.9}
+このとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $k \leq n$なる非負整数に対し、$\begin{pmatrix}
+  n \\
+  k \\
+  \end{pmatrix} = \begin{pmatrix}
+  n \\
+  n - k \\
+  \end{pmatrix}$が成り立つ。
+\item
+  $1 \leq k \leq n - 1$なる非負整数に対し、$\begin{pmatrix}
+  n \\
+  k \\
+  \end{pmatrix} = \begin{pmatrix}
+  n - 1 \\
+  k - 1 \\
+  \end{pmatrix} + \begin{pmatrix}
+  n - 1 \\
+  k \\
+  \end{pmatrix}$が成り立つ。
+\item
+  $k \leq n$なる非負整数に対し、$\begin{pmatrix}
+  n \\
+  k \\
+  \end{pmatrix} \in \mathbb{N}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof} 
+$k \leq n$なる非負整数に対し、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix} &= \frac{n!}{k!(n - k)!}\\
+&= \frac{n!}{(n - k)!\left( n - (n - k) \right)!}\\
+&= \begin{pmatrix}
+n \\
+n - k \\
+\end{pmatrix}
+\end{align*}
+$1 \leq k \leq n - 1$なる非負整数に対し、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix} &= \frac{n!}{k!(n - k)!}\\
+&= \frac{(n - 1)!}{(k - 1)!}\frac{n}{k(n - k)!}\\
+&= \frac{(n - 1)!}{(k - 1)!}\left( \frac{k}{k(n - k)!} + \frac{n - k}{k(n - k)!} \right)\\
+&= \frac{(n - 1)!}{(k - 1)!}\left( \frac{1}{(n - k)!} + \frac{1}{k(n - k - 1)!} \right)\\
+&= \frac{(n - 1)!}{(k - 1)!(n - k)!} + \frac{(n - 1)!}{(k - 1)!k(n - k - 1)!}\\
+&= \frac{(n - 1)!}{(k - 1)!\left( (n - 1) - (k - 1) \right)!} + \frac{(n - 1)!}{k!\left( (n - 1) - k \right)!}\\
+&= \begin{pmatrix}
+n - 1 \\
+k - 1 \\
+\end{pmatrix} + \begin{pmatrix}
+n - 1 \\
+k \\
+\end{pmatrix}
+\end{align*}\par
+$k \leq n$なる非負整数に対し、$n = 0$のとき、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+0 \\
+0 \\
+\end{pmatrix} &= \frac{0!}{0!0!} = 1
+\end{align*}
+$n = 1$のとき、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+1 \\
+0 \\
+\end{pmatrix} = \frac{1!}{0!1!} = 1,\ \ \begin{pmatrix}
+1 \\
+1 \\
+\end{pmatrix} = \frac{1!}{1!0!} = 1
+\end{align*}
+ここで、$n = l$のとき、$\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix} \in \mathbb{N}$が成り立つと仮定しよう。$n = l + 1$のとき、$1 \leq k \leq l$が成り立つなら、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+l + 1 \\
+k \\
+\end{pmatrix} = \begin{pmatrix}
+l \\
+k - 1 \\
+\end{pmatrix} + \begin{pmatrix}
+l \\
+k \\
+\end{pmatrix} \in \mathbb{N}
+\end{align*}
+$k = 0$が成り立つなら、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+l + 1 \\
+0 \\
+\end{pmatrix} = \frac{(l + 1)!}{0!(l + 1)!} = 1 \in \mathbb{N}
+\end{align*}
+$k = l + 1$が成り立つなら、次のようになる。
+\begin{align*}
+\begin{pmatrix}
+l + 1 \\
+l + 1 \\
+\end{pmatrix} &= \frac{(l + 1)!}{(l + 1)!\left( (l + 1) - (l + 1) \right)!}\\
+&= \frac{(l + 1)!}{(l + 1)!0!} = 1 \in \mathbb{N}
+\end{align*}
+以上、数学的帰納法により$\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix} \in \mathbb{N}$が成り立つことが示された。
+\end{proof}
+\begin{thm}[二項定理]\label{3.3.1.10}
+環$R$について、$\forall a,b \in R\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+(a + b)^{n} &= \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix}a^{n - k}b^{k}}
+\end{align*}\par
+この定理を二項定理という。
+\end{thm}
+\begin{proof}
+環$R$について、$\forall a,b \in R\forall n \in \mathbb{N}$に対し、$n = 1$のとき、次のようになる。
+\begin{align*}
+a + b &= \frac{1!}{0!1!}a^{1}b^{0} + \frac{1!}{1!0!}a^{0}b^{1}\\
+&= \sum_{k \in \varLambda_{1} \cup \left\{ 0 \right\}} {\frac{n!}{k!(n - k)!}a^{n - k}b^{k}}
+\end{align*}
+$n = l$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+(a + b)^{l} = \sum_{k \in \varLambda_{l} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k}b^{k}}
+\end{align*}
+$n = l + 1$のとき、次のようになる。
+\begin{align*}
+(a + b)^{l + 1} &= (a + b)(a + b)^{l}\\
+&= (a + b)\sum_{k \in \varLambda_{l} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k}b^{k}}\\
+&= \sum_{k \in \varLambda_{l} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k + 1}b^{k}} + \sum_{k \in \varLambda_{l} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k}b^{k + 1}}\\
+&= \sum_{k \in \varLambda_{l}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{(l + 1) - k}b^{k}} + \begin{pmatrix}
+l \\
+0 \\
+\end{pmatrix}a^{l + 1} + \sum_{k \in \varLambda_{l} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k}b^{k + 1}}\\
+&= \begin{pmatrix}
+l \\
+0 \\
+\end{pmatrix}a^{l + 1} + \sum_{k \in \varLambda_{l}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{(l + 1) - k}b^{k}} + \sum_{k \in \varLambda_{l + 1}} {\begin{pmatrix}
+l \\
+k - 1 \\
+\end{pmatrix}a^{(l + 1) - k}b^{k}}\\
+&= a^{l + 1} + \sum_{k \in \varLambda_{l}} {\left( \begin{pmatrix}
+l \\
+k \\
+\end{pmatrix} + \begin{pmatrix}
+l \\
+k - 1 \\
+\end{pmatrix} \right)a^{(l + 1) - k}b^{k}} + b^{l + 1}\\
+&= \begin{pmatrix}
+l + 1 \\
+0 \\
+\end{pmatrix}a^{l + 1} + \sum_{k \in \varLambda_{l}} {\begin{pmatrix}
+l + 1 \\
+k \\
+\end{pmatrix}a^{(l + 1) - k}b^{k}} + \begin{pmatrix}
+l + 1 \\
+l + 1 \\
+\end{pmatrix}b^{l + 1}\\
+&= \sum_{k \in \varLambda_{l + 1} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+l \\
+k \\
+\end{pmatrix}a^{l - k}b^{k}}
+\end{align*}
+よって、数学的帰納法により$\forall a,b \in R\forall n \in \mathbb{N}$に対し、次式が成り立つことが示された。
+\begin{align*}
+(a + b)^{n} = \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+n \\
+k \\
+\end{pmatrix}a^{n - k}b^{k}}
+\end{align*}
+\end{proof}
+\begin{thm}[多項定理]\label{3.3.1.11}
+添数集合$\varLambda_{m}$によって添数づけられた環$R$の元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{m}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)^{n} = \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{m}} k_{i} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{\prod_{i \in \varLambda_{m}} {k_{i}!}}\prod_{i \in \varLambda_{m}} a_{i}^{k_{i}}}
+\end{align*}\par
+この定理を多項定理という。
+\end{thm}
+\begin{proof}
+添数集合$\varLambda_{m}$によって添数づけられた環$R$の元の族$\left\{ a_{i} \right\}_{i \in \varLambda_{m}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$m = 1$のときは明らかに次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{1}} a_{i} \right)^{n} &= a_{1}^{n} = \frac{n!}{n!}a_{1}^{n}\\
+&= \sum_{k_{1} = n } {\frac{n!}{k_{1}!}a_{1}^{k_{1}}}\\
+&= \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{1}} k_{i} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{\prod_{i \in \varLambda_{1}} {k_{i}!}}\prod_{i \in \varLambda_{1}} a_{i}^{k_{i}}}
+\end{align*}
+$m = k$のとき、次式が成り立つと仮定しよう。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{k}} a_{i} \right)^{n} = \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{k}} k_{i} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{\prod_{i \in \varLambda_{k}} {k_{i}!}}\prod_{i \in \varLambda_{k}} a_{i}^{k_{i}}}
+\end{align*}
+$m = k + 1$のとき、$a = \sum_{i \in \varLambda_{k}} a_{i}$とおかれると、二項定理より次のようになる。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{k + 1}} a_{i} \right)^{n} &= \left( \sum_{i \in \varLambda_{k}} a_{i} + a_{k + 1} \right)^{n}\\
+&= \left( a + a_{k + 1} \right)^{n}\\
+&= \sum_{k_{k + 1} \in \varLambda_{n} \cup \left\{ 0 \right\}} {\begin{pmatrix}
+n \\
+k_{k + 1} \\
+\end{pmatrix}a^{n - k_{k + 1}}a_{k + 1}^{k_{k + 1}}}\\
+&= \sum_{k_{k + 1} \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{n!}{k_{k + 1}!\left( n - k_{k + 1} \right)!}\sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{k}} k_{i} = n - k_{k + 1} \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{\left( n - k_{k + 1} \right)!}{\prod_{i \in \varLambda_{k}} {k_{i}!}}\prod_{i \in \varLambda_{k}} a_{i}^{k_{i}}}a_{k + 1}^{k_{k + 1}}}\\
+&= \sum_{k_{k + 1} \in \varLambda_{n} \cup \left\{ 0 \right\}} {\sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{k}} k_{i} = n - k_{k + 1} \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{k_{k + 1}!\left( n - k_{k + 1} \right)!}\frac{\left( n - k_{k + 1} \right)!}{\prod_{i \in \varLambda_{k}} {k_{i}!}}\prod_{i \in \varLambda_{k + 1}} a_{i}^{k_{i}}}}\\
+&= \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{k}} k_{i} + k_{k + 1} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \\k_{k + 1} \in \varLambda_{n} \cup \left\{ 0 \right\} \end{matrix}} {\frac{\left( n - k_{k + 1} \right)!}{\left( n - k_{k + 1} \right)!}\frac{n!}{\prod_{i \in \varLambda_{k + 1}} {k_{i}!}}\prod_{i \in \varLambda_{k + 1}} a_{i}^{k_{i}}}\\
+&= \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{k + 1}} k_{i} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{\prod_{i \in \varLambda_{k + 1}} {k_{i}!}}\prod_{i \in \varLambda_{k + 1}} a_{i}^{k_{i}}}
+\end{align*}
+よって、数学的帰納法により$\forall n \in \mathbb{N}$に対し、次式が成り立つことが示された。
+\begin{align*}
+\left( \sum_{i \in \varLambda_{m}} a_{i} \right)^{n} = \sum_{\scriptsize \begin{matrix} \sum_{i \in \varLambda_{m}} k_{i} = n \\k_{i} \in \mathbb{N} \cup \left\{ 0 \right\} \end{matrix}} {\frac{n!}{\prod_{i \in \varLambda_{m}} {k_{i}!}}\prod_{i \in \varLambda_{m}} a_{i}^{k_{i}}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux6574ux57df}{%
+\subsubsection{整域}%\label{ux6574ux57df}}
+\begin{dfn}
+環$R$について、$\exists a,b \in R \setminus \left\{ 0 \right\}$に対し、$ab = 0$が成り立つなら、それらの元々$a$、$b$をそれぞれ左零因子、右零因子といい、あわせて零因子という。これをもたない可換環を整域という。
+\end{dfn}\par
+例えば、集合$\mathbb{Z}$が挙げられる。
+\begin{dfn}[定義\ref{体の定義}の再掲]
+環$R$について、$\exists a,b \in R$に対し、$ab = 1$が成り立つなら、その元$a$を環$R$の可逆元、単元といい、その元$b$を逆元といい、$a^{- 1}$などと書く。これにより、可逆元からなる集合は乗法について群をなし、$0$以外の元全てが可逆元であるような環を斜体といい、乗法について可換的な斜体を体といい、可換的でない斜体を非可換体という。
+\end{dfn}\par
+例えば、集合$\mathbb{Q}$、$\mathbb{R}$、$\mathbb{C}$などが挙げられる。斜体を体、体を可換体というときもある。
+\begin{thm*}[定理\ref{3.3.1.2}の再掲]
+環$R$について、元$a$が可逆元なら、これは$0$でなく一意的に逆元${a}^{-1}$が定まる。
+\end{thm*}
+\begin{thm}\label{3.3.1.12}
+任意の体$K$は整域である。
+\end{thm}
+\begin{proof}
+任意の体$K$について、可逆元からなる集合$K'$は乗法について群をなし、体の定義よりその群$\left( K', \cdot \right)$は可換群で$K' = K \setminus \left\{ 0 \right\}$が成り立つので、$\forall a,b \in K' = K \setminus \left\{ 0 \right\}$に対し、$ab \in K' = K \setminus \left\{ 0 \right\}$が成り立つ。したがって、その体$K$は整域である。
+\end{proof}
+\begin{thm}\label{3.3.1.13}
+有限集合である整域は体である。
+\end{thm}
+\begin{proof}
+有限集合である整域$R$について、$\forall c \in R \setminus \left\{ 0 \right\}$に対し、次式のような写像$f$が与えられたとき、
+\begin{align*}
+f:R \rightarrow R;a \mapsto ca
+\end{align*}
+$f(a) = f(b)$が成り立つなら、次のようになるので、
+\begin{align*}
+0 &= f(a) - f(b)\\
+&= ca - cb\\
+&= c(a - b)
+\end{align*}
+ここで、その可換環$R$は零因子をもたないので、$a - b = 0$が成り立つ。したがって、その写像$f$は単射である。ここで、その可換環$R$は有限集合であるから、その写像$f$は全単射である。したがって、$f(a) = ca = 1$なる元$a$が存在する。よって、有限集合である整域は体であることが示された。
+\end{proof}
+%\hypertarget{ux90e8ux5206ux74b0}{%
+\subsubsection{部分環}%\label{ux90e8ux5206ux74b0}}
+\begin{dfn}
+環$R$が与えられたとき、これの部分集合もまた環となっており、しかも、その環$R$と同じ単位元をもつものをその環$R$の部分環という。特に、これが斜体、体となっているものをそれぞれその環$R$の部分斜体、部分体という。
+\end{dfn}
+\begin{thm}\label{3.3.1.14}
+環$R$の部分集合$R'$が与えられたとき、これがその環$R$の部分環であるならそのときに限り、次のことをいづれも満たす。
+\begin{itemize}
+\item
+  その部分集合$R'$がその環$R$の単位元$1$に属される。
+\item
+  $\forall a,b \in R'$に対し、$- a,a + b,ab \in R'$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+環$R$の部分集合$R'$が与えられたとき、これがその環$R$の部分環であるなら、定義より次のことを満たす。
+\begin{itemize}
+\item
+  その部分集合$R'$がその環$R$の単位元$1$に属される。
+\item
+  $\forall a,b \in R'$に対し、$- a,a + b,ab \in R'$が成り立つ。
+\end{itemize}\par
+逆に、その部分集合$R'$が上記のことを満たすなら、$\forall a,b,c \in R'$に対し、$- a \in R'$が成り立つので、$- a + a = 0 \in R'$が成り立つ。これにより、$a,b,c \in R$が成り立ち、次のことを満たすので、
+\begin{align*}
+(a + b) + c = a + (b + c),\ \ a + 0 = 0 + a,\ \ a + ( - a) = - a + a = 0,\ \ a + b = b + a
+\end{align*}
+その組$\left( R', + \right)$は可換群をなす。\par
+さらに、次のことを満たすので、
+\begin{align*}
+(ab)c = a(bc),\ \ a1 = 1a = a,\ \ a(b + c) = ab + ac,\ \ (a + b)c = ac + bc
+\end{align*}
+その集合$R'$は環をなす。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2刷 p107-115 ISBN978-4-00-029873-5
+  \bibitem{2}
+  チャート研究所, チャート式 基礎からの数学II+B, 数研出版, 平成11年. 新課程第6刷 p14 ISBN978-4-410-10585-2
+  \bibitem{3}
+  理系のための備忘録. "二項係数nＣmが整数になることの証明". 理系のための備忘録. \url{https://science-log.com/%E6%95%B0%E5%AD%A6/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0n%EF%BD%83m%E3%81%8C%E6%95%B4%E6%95%B0%E3%81%AB%E3%81%AA%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AE%E8%A8%BC%E6%98%8E/} (2021-8-20 12:00 閲覧)
+\end{thebibliography}
+\end{document}

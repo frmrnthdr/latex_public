@@ -1,0 +1,1138 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{2}
+\setcounter{subsection}{5}
+\input{macro}
+\begin{document}
+%\hypertarget{ux6570}{%
+\subsection{数}%\label{ux6570}}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_-}{%
+\subsubsection{同値関係$R_{-}$}%\label{ux540cux5024ux95a2ux4fc2r_-}}
+\begin{dfn}
+Peano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$が与えられたとする。このとき、次式のようにgraph$G\left( R_{-} \right)$と
+\begin{align*}
+G\left( R_{-} \right) = \left\{ \left( m_{+},m_{-},n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{4} \middle| m_{+} + n_{-} = n_{+} + m_{-} \right\}
+\end{align*}
+関係$R_{-}$が定義される。
+\begin{align*}
+R_{-} = \left( \mathbb{Z}_{\geq 0}^{2},\mathbb{Z}_{\geq 0}^{2},G\left( R_{-} \right) \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.1}
+その関係$R_{-}$は同値関係となる。
+\end{thm}
+\begin{proof}
+$\forall\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2}$に対し、$\left( n_{+},n_{-} \right)R_{-}\left( n_{+},n_{-} \right)$が成り立つことと、$\forall\left( m_{+},m_{-} \right),\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2}$に対し、$\left( m_{+},m_{-} \right)R_{-}\left( n_{+},n_{-} \right)$が成り立つなら$\left( n_{+},n_{-} \right)R_{-}\left( m_{+},m_{-} \right)$が成り立つことと、$\forall\left( l_{+},l_{-} \right),\left( m_{+},m_{-} \right),\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2}$に対し、$\left( l_{+},l_{-} \right)R_{-}\left( m_{+},m_{-} \right)$かつ$\left( m_{+},m_{-} \right)R_{-}\left( n_{+},n_{-} \right)$が成り立つなら$\left( l_{+},l_{-} \right)R_{-}\left( n_{+},n_{-} \right)$が成り立つことを調べればよいがこれは容易である。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_-ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}{%
+\subsubsection{同値関係$R_{-}$から誘導されるPeano系}%\label{ux540cux5024ux95a2ux4fc2r_-ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}}
+\begin{thm}\label{1.2.6.2}
+商集合$\mathbb{Z}_{\geq 0}^{2} /R_{-} $が与えられ、$\forall C_{R_{-}}\left( n_{1},n_{2} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次のこといづれか1つのみが成り立つ。なお、この議論はPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$上のものとする。
+\begin{itemize}
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が一意的に存在する。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(0,0)$が成り立つ。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(0,n)$が成り立つような自然数$n$が一意的に存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$が与えられたとする。商集合$\mathbb{Z}_{\geq 0}^{2} /R_{-} $が与えられたとき、$\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、その集合$\mathbb{Z}_{\geq 0}$の比較可能性よりそれらの元$n_{+}$、$n_{-}$によるその集合$\mathbb{Z}_{\geq 0}$の切片たち$\mathbb{N}_{< n_{+}}$、$\mathbb{N}_{< n_{-}}$を用いて次のことのうちいづれか1つのみ成り立つ。
+\begin{itemize}
+\item
+  $n_{-} \in \mathbb{N}_{< n_{+}}$が成り立つ。
+\item
+  $n_{+} = n_{-}$が成り立つ。
+\item
+  $n_{+} \in \mathbb{N}_{< n_{-}}$が成り立つ。
+\end{itemize}
+$n_{-} \in \mathbb{N}_{< n_{+}}$が成り立つとき、$n_{+} \neq n_{-}$かつ$n_{+} = n_{-} + n$なるその集合$\mathbb{Z}_{\geq 0}$の元$n$が一意的に存在するので、$\left( n_{+},n_{-} \right)R_{-}(n,0)$が成り立つ。ここで、$n \neq 0$が成り立つことに注意すれば、$C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が一意的に存在する。$n_{+} = n_{-}$が成り立つとき、$\left( n_{+},n_{-} \right)R_{-}(0,0)$が成り立ち、したがって、$C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(0,0)$が成り立つ。$n_{+} \in \mathbb{N}_{< n_{-}}$が成り立つときも$n_{-} \in \mathbb{N}_{< n_{+}}$が成り立つときと同様にして示される。
+\end{proof}
+\begin{dfn}
+次式のように集合$\mathfrak{N}_{\mathbb{Z}}$と
+\begin{align*}
+\mathfrak{N}_{\mathbb{Z}} = \left\{ C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-}  \middle| \exists n \in \mathbb{Z}_{\geq 0}\left[ C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(n,0) \right] \right\}
+\end{align*}
+写像$\mathfrak{s}_{\mathbb{Z}}$が定義される。
+\begin{align*}
+\mathfrak{s}_{\mathbb{Z}}:\mathfrak{N}_{\mathbb{Z}} \rightarrow \mathfrak{N}_{\mathbb{Z}};C_{R_{-}}(n,0) \mapsto C_{R_{-}}(n + 1,0)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.3}
+その組$\left( \mathfrak{N}_{\mathbb{Z}},C_{R_{-}}(0,0),\mathfrak{s}_{\mathbb{Z}} \right)$はPeano系となる。
+\end{thm}
+\begin{proof}
+Peano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$が与えられたとする。このとき、$C_{R_{-}}(0,0) = \mathfrak{s}_{\mathbb{Z}}\left( C_{R_{-}}(n,0) \right)$なる元$n$がその集合$\mathbb{Z}_{\geq 0}$に存在すると仮定しよう。このとき、$(n + 1,0) \in C_{R_{-}}(0,0)$が成り立ちその関係$R_{-}$の定義より$0 \in V(1 + )$が得られるが、これはPeanoの公理に矛盾する。したがって、$C_{R_{-}}(0,0) \in \mathfrak{N}_{\mathbb{Z}} \setminus V\left( \mathfrak{s}_{\mathbb{Z}} \right)$が成り立つ。\par
+$\exists C_{R_{-}}(m,0),C_{R_{-}}(n,0) \in \mathfrak{N}_{\mathbb{Z}}$に対し、$C_{R_{-}}(m,0) \neq C_{R_{-}}(n,0)$が成り立つかつ、$\mathfrak{s}_{\mathbb{Z}}\left( C_{R_{-}}(m,\ \ 0) \right) = \mathfrak{s}_{\mathbb{Z}}\left( C_{R_{-}}(n,0) \right)$が成り立つと仮定しよう。このとき、$C_{R_{-}}(m + 1,0) = C_{R_{-}}(n + 1,0)$が成り立つので、その関係$R_{-}$の定義より$m = n$が得られるが、これは矛盾している。ゆえに、その写像$\mathfrak{s}_{\mathbb{Z}}$は単射である。\par
+$\mathfrak{\forall M \in P}\left( \mathfrak{N}_{\mathbb{Z}} \right)$に対し、$C_{R_{-}}(0,0)\in \mathfrak{M}$が成り立つかつ、$\forall C_{R_{-}}(n,0) \in \mathfrak{N}_{\mathbb{Z}}$に対し、$C_{R_{-}}(n,0)\in \mathfrak{M}$なら$\mathfrak{s}_{\mathbb{Z}}\left( C_{R_{-}}(n,0) \right)\in \mathfrak{M}$が成り立つとき、明らかに$\mathfrak{M \subseteq}\mathfrak{N}_{\mathbb{Z}}$が成り立つ。一方で、$\mathfrak{N}_{\mathbb{Z}}\mathfrak{\setminus M}$が空集合ではないと仮定しよう。このとき、$C_{R_{-}}(n,0) \in \mathfrak{N}_{\mathbb{Z}}\mathfrak{\setminus M}$なる元$C_{R_{-}}(n,0)$が存在することになり、数学的帰納法により$\forall n \in \mathbb{Z}_{\geq 0}$に対し、$C_{R_{-}}(n,0)\in \mathfrak{M}$が成り立つことになるが、これは仮定の$C_{R_{-}}(n,0) \in \mathfrak{N}_{\mathbb{Z}}\mathfrak{\setminus M}$が成り立つことに矛盾する。したがって、その集合$\mathfrak{N}_{\mathbb{Z}}\mathfrak{\setminus M}$は空集合となり$\mathfrak{N}_{\mathbb{Z}} = \mathfrak{M}$が得られる。\par
+以上より、その組$\left( \mathfrak{N}_{\mathbb{Z}},C_{R_{-}}(0,0),\mathfrak{s}_{\mathbb{Z}} \right)$はPeano系となることが示された。
+\end{proof}
+\begin{thm}\label{1.2.6.4}
+上記の議論によりその組$\left( \mathfrak{N}_{\mathbb{Z}},C_{R_{-}}(0,0),\mathfrak{s}_{\mathbb{Z}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて次のことを満たす全単射な写像$F:\mathfrak{N}_{\mathbb{Z}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになり、
+\begin{itemize}
+\item
+  $F\left( C_{R_{-}}(0,0) \right) = 0$が成り立つ。
+\item
+  $F \circ \mathfrak{s}_{\mathbb{Z}} = 1 + \circ F$が成り立つ。
+\end{itemize}
+ここで、$\forall C_{R_{-}}(n,0) \in \mathfrak{N}_{\mathbb{Z}}$に対し、次のように書き換えられることができる。
+\begin{align*}
+F\left( C_{R_{-}}(n,0) \right) = n
+\end{align*}
+これにより、その写像$F$は全単射なので、これの逆対応$F^{- 1}$が写像になり次式が成り立つ。
+\begin{align*}
+F^{- 1}(n) = C_{R_{-}}(n,0)
+\end{align*}
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.3}に注意すれば、数学的帰納法により直ちに示される。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_-ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}{%
+\subsubsection{同値関係$R_{-}$で割った商集合の加法と乗法}%\label{ux540cux5024ux95a2ux4fc2r_-ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}}
+\begin{dfn}
+$\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次のように写像たち$+_{\mathbb{Z}}$、$\cdot_{\mathbb{Z}}$が定義される。
+\begin{align*}
++_{\mathbb{Z}}&:\left( \mathbb{Z}_{\geq 0}^{2} /R_{-}  \right)^{2} \rightarrow \mathbb{Z}_{\geq 0}^{2} /R_{-} ;\\
+&\left( C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \right) \mapsto C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}\left( m_{+} + n_{+},m_{-} + n_{-} \right)\\
+\cdot_{\mathbb{Z}}&:\left( \mathbb{Z}_{\geq 0}^{2} /R_{-}  \right)^{2} \rightarrow \mathbb{Z}_{\geq 0}^{2} /R_{-} ;\\
+&\left( C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \right) \mapsto C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \\
+&= C_{R_{-}}\left( m_{+} \cdot m_{-} + n_{+} \cdot n_{-},m_{+} \cdot n_{-} + m_{-} \cdot n_{+} \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.5}
+その組$\left( \mathfrak{N}_{\mathbb{Z}},C_{R_{-}}(0,0),\mathfrak{s}_{\mathbb{Z}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて$F\left( C_{R_{-}}(n,0) \right) = n$なる全単射な写像$F:\mathfrak{N}_{\mathbb{Z}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになるのであった。このとき、それらの写像たち$+_{\mathbb{Z}}$、$\cdot_{\mathbb{Z}}$はそのPeano系$\left( \mathfrak{N}_{\mathbb{Z}},C_{R_{-}}(0,0),\mathfrak{s}_{\mathbb{Z}} \right)$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+定理\refeq{1.2.6.4}を用いてPeano系での加法の乗法の定義に照らし合わせればよい。
+\end{proof}
+\begin{thm}\label{1.2.6.6}
+これらの写像たち$+_{\mathbb{Z}}$、$\cdot_{\mathbb{Z}}$について次のことが成り立つ\footnote{つまりその商集合$\mathbb{Z}_{\geq 0}^{2} /R_{-} $は整域になることを述べている。}。
+\begin{itemize}
+\item
+  $\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{-}}\left( l_{+},l_{-} \right) +_{\mathbb{Z}}\left( C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right) \\
+&= \left( C_{R_{-}}\left( l_{+},l_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right) \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}(0,0) = C_{R_{-}}\left( n_{+},n_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{-},n_{+} \right) = C_{R_{-}}(0,0)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{-}}\left( l_{+},l_{-} \right) \cdot_{\mathbb{Z}}\left( C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right) \\
+&= \left( C_{R_{-}}\left( l_{+},l_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right) \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( n_{+},n_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}(1,0) = C_{R_{-}}\left( n_{+},n_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}\left( n_{+},n_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{-}}\left( l_{+},l_{-} \right) \cdot_{\mathbb{Z}}\left( C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right) \\
+&= \left( C_{R_{-}}\left( l_{+},l_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right) \right) +_{\mathbb{Z}}\left( C_{R_{-}}\left( l_{+},l_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},m_{-} \right) \neq C_{R_{-}}(0,0)$かつ$C_{R_{-}}\left( n_{+},n_{-} \right) \neq C_{R_{-}}(0,0)$が成り立つなら、次式が成り立つ。
+\begin{align*}
+C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \neq C_{R_{-}}(0,0)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+実際に計算すればよい。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_-ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}{%
+\subsubsection{同値関係$R_{-}$で割った商集合の順序関係}%\label{ux540cux5024ux95a2ux4fc2r_-ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}}
+\begin{dfn}
+$\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次のことのどちらかが成り立つとき、その同値類$C_{R_{-}}\left( n_{+},n_{-} \right)$はその同値類$C_{R_{-}}\left( m_{+},m_{-} \right)$以上である、その同値類$C_{R_{-}}\left( m_{+},m_{-} \right)$はその同値類$C_{R_{-}}\left( n_{+},n_{-} \right)$以下であるといい$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$と書くことにする。
+\end{dfn}
+\begin{itemize}
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が存在する。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(0,0)$が成り立つ。
+\end{itemize}\par
+さらに、$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$かつ$C_{R_{-}}\left( m_{+},m_{-} \right) \neq C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つことを$C_{R_{-}}\left( m_{+},m_{-} \right) <_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$と書くことにする。なお、この議論はPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$上のものとする。
+\begin{thm}\label{1.2.6.7}
+その関係$\leq_{\mathbb{Z}}$は全順序関係となる、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つ。
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$かつ$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$が成り立つなら、$C_{R_{-}}\left( m_{+},m_{-} \right) = C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つ。
+\item
+  $\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( l_{+},l_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$かつ$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つなら、$C_{R_{-}}\left( l_{+},l_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つ。
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$または$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つことはすぐわかる。$\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$かつ$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$が成り立つなら、$C_{R_{-}}\left( m_{+},m_{-} \right) = C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つことについては、$C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{-},n_{+} \right) = C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(0,\ \ 0)$が成り立つことに注意すれば、$C_{R_{-}}\left( m_{+},m_{-} \right) = C_{R_{-}}\left( n_{+},n_{-} \right)$が得られることからわかる。$\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( l_{+},l_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},\ \ m_{-} \right)$かつ$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つなら、$C_{R_{-}}\left( l_{+},l_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つことについては、$C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( l_{-},l_{+} \right) = C_{R_{-}}(m,0)$が成り立つような自然数$m$が存在するかつ、$C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が存在するとすると、$C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( l_{-},l_{+} \right) = C_{R_{-}}(m + n,0)$が得られるし、他の場合でも同様にして示されることからわかる。$\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},\ \ m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$または$C_{R_{-}}\left( n_{+},n_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$が成り立つことについては、定理\ref{1.2.6.2}より次のこといづれか1つのみが成り立ち、
+\begin{itemize}
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が一意的に存在する。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(0,0)$が成り立つ。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( m_{-},m_{+} \right) = C_{R_{-}}(0,n)$が成り立つような自然数$n$が一意的に存在する。
+\end{itemize}
+1つ目の場合、または、2つ目の場合では、明らかで、3つ目の場合では、計算すれば$C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{-},n_{+} \right) = C_{R_{-}}(n,0)$が得られることから従う。
+\end{proof}
+\begin{thm}\label{1.2.6.8}
+その関係$\leq_{\mathbb{Z}}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{-}}\left( l_{+},l_{-} \right),C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}\left( m_{+},m_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},\ \ n_{-} \right)$が成り立つなら、$C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( l_{+},l_{-} \right) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( l_{+},l_{-} \right)$が成り立つ。
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、$C_{R_{-}}(0,0) \leq_{\mathbb{Z}}C_{R_{-}}\left( m_{+},m_{-} \right)$かつ$C_{R_{-}}(0,\ \ 0) \leq_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つなら、$C_{R_{-}}(0,0) = C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+定義にしたがって、計算すればよい。
+\end{proof}
+%\hypertarget{ux6574ux6570}{%
+\subsubsection{整数}%\label{ux6574ux6570}}
+\begin{dfn}
+定理\ref{1.2.6.2}より商集合$\mathbb{Z}_{\geq 0}^{2} /R_{-} $が与えられ、$\forall C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次のこといづれか1つのみが成り立つのであった。なお、この議論はPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$上のものとする。
+\begin{itemize}
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(n,0)$が成り立つような自然数$n$が一意的に存在する。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(0,0)$が成り立つ。
+\item
+  $C_{R_{-}}\left( n_{+},n_{-} \right) = C_{R_{-}}(0,n)$が成り立つような自然数$n$が一意的に存在する。
+\end{itemize}
+このとき、自然数$n$を用いた同値類$C_{R_{-}}(0,n)$を$- C_{R_{-}}(n,0)$と書くことにする。特に、$C_{R_{-}}(m,n)$は$C_{R_{-}}(m,0) +_{\mathbb{Z}}\left( - C_{R_{-}}(n,0) \right)$と書かれることができこれを$C_{R_{-}}(m,0) - C_{R_{-}}(n,0)$と書く。
+\end{dfn}
+\begin{dfn}
+集合$\mathcal{Z}$、写像たち$+_{\mathcal{Z}}\mathcal{:Z \times Z \rightarrow Z}$、$\cdot_{\mathcal{Z}}:\mathcal{Z} \times \mathcal{Z} \rightarrow \mathcal{Z}$、$\forall z \in \mathcal{Z}$に対し、$1_{\mathcal{Z}} \cdot_{\mathcal{Z}}z = z$なる元$1_{\mathcal{Z}}$が与えられたとき、ある全単射な写像$F:\mathbb{Z}_{\geq 0}^{2} /R_{-} \overset{\sim}{\rightarrow}\mathcal{Z}$が存在して、次のことが成り立つとき、
+\begin{itemize}
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{-}}\left( m_{+},m_{-} \right) +_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right) = F\left( C_{R_{-}}\left( m_{+},m_{-} \right) \right) +_{\mathcal{Z}}F\left( C_{R_{-}}\left( n_{+},n_{-} \right) \right)
+\end{align*}
+\item
+  $\forall C_{R_{-}}\left( m_{+},m_{-} \right),C_{R_{-}}\left( n_{+},n_{-} \right) \in \mathbb{Z}_{\geq 0}^{2} /R_{-} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{-}}\left( m_{+},m_{-} \right) \cdot_{\mathbb{Z}}C_{R_{-}}\left( n_{+},n_{-} \right) \right) = F\left( C_{R_{-}}\left( m_{+},m_{-} \right) \right) \cdot_{\mathcal{Z}}F\left( C_{R_{-}}\left( n_{+},n_{-} \right) \right)
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{-}}(1,0) \right) = 1_{\mathcal{Z}}
+\end{align*}
+\end{itemize}
+その写像$F$を整数の意味で同型な写像といい、このような集合$\mathcal{Z}$を$\mathbb{Z}$と書き、これの元を整数ということにする。さらに、以下、集合$\mathbb{Z} \setminus \left\{ F^{- 1}\left( C_{R_{-}}(0,0) \right) \right\}$を$\mathbb{Z}_{\neq 0}$と書くことにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.9}
+集合$\mathcal{Z}$、写像たち$+_{\mathcal{Z}}\mathcal{:Z \times Z \rightarrow Z}$、$\cdot_{\mathcal{Z}}:\mathcal{Z} \times \mathcal{Z} \rightarrow \mathcal{Z}$、$\forall z \in \mathcal{Z}$に対し、$1_{\mathcal{Z}} \cdot_{\mathcal{Z}}z = z$なる元$1_{\mathcal{Z}}$が与えられたとき、整数の意味で同型な写像$F$は一意的である。
+\end{thm}
+\begin{proof}
+このような写像が$F$、$G$と与えられたとき、$\forall z \in \mathcal{Z}$に対し、$F(z) = G(z)$が成り立つことから従う。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_}{%
+\subsubsection{同値関係$R_{/}$}%\label{ux540cux5024ux95a2ux4fc2r_}}
+\begin{dfn}
+商集合$\mathbb{Z}_{\geq 0}^{2} /R_{-} $が与えられたとき、以下、それらの元々$C_{R_{-}}(0,0)$、$C_{R_{-}}(1,0)$、これらの写像たち$+_{\mathbb{Z}}$、$\cdot_{\mathbb{Z}}$、関係$\leq_{\mathbb{Z}}$、$<_{\mathbb{Z}}$を、以下単に、それぞれ$0_{\mathbb{Z}}$、$1_{\mathbb{Z}}$、$+$、$\cdot$、$\leq$と書くことにする。
+\end{dfn}
+\begin{dfn}
+次式のようにgraph$G\left( R_{/} \right)$が定義され
+\begin{align*}
+G\left( R_{/} \right) = \left\{ \left( m_{N},m_{D},n_{N},n_{N} \right) \in \mathbb{Z} \times \mathbb{Z}_{\neq 0} \times \mathbb{Z} \times \mathbb{Z}_{\neq 0} \middle| m_{N} \cdot n_{D} = n_{N} \cdot m_{D} \right\}
+\end{align*}
+関係$R_{/}$が定義される。
+\begin{align*}
+R_{/} = \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0},\mathbb{Z} \times \mathbb{Z}_{\neq 0},G\left( R_{/} \right) \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.10}
+その関係$R_{/}$は同値関係となる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.1}と同様にして示される。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}{%
+\subsubsection{同値関係$R_{/}$から誘導されるPeano系}%\label{ux540cux5024ux95a2ux4fc2r_ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}}
+\begin{thm}\label{1.2.6.11}
+$\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次のこといづれか1つのみが成り立つ。なお、この議論はPeano系$\left( \mathfrak{N}_{\mathbb{Z}},0_{\mathbb{Z}},\mathfrak{s}_{\mathbb{Z}} \right)$上のものとする。
+\begin{itemize}
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような自然数たち$n_{N}'$、$n_{D}'$が存在する。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)$が成り立つ。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような$n_{N}' \in \mathbb{Z} \setminus \mathfrak{N}_{\mathbb{Z}}$なる整数$n_{N}'$と自然数$n_{D}'$が存在する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+商集合$\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $が与えられたとする。$\forall n \in \mathbb{Z}$に対し、定理\ref{1.2.6.2}より次のこといづれか1つのみが成り立つのであった。
+\begin{itemize}
+\item
+  $n = C_{R_{-}}\left( n',0 \right)$が成り立つような自然数$n'$が一意的に存在する。
+\item
+  $n = 0_{\mathbb{Z}}$が成り立つ。
+\item
+  $n = C_{R_{-}}\left( 0,n' \right)$が成り立つような自然数$n'$が一意的に存在する。
+\end{itemize}
+なお、この議論はPeano系$\left( \mathfrak{N}_{\mathbb{Z}},0_{\mathbb{Z}},\mathfrak{s}_{\mathbb{Z}} \right)$上のものとする。\par
+$\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$n_{N} = C_{R_{-}}\left( m',0 \right)$かつ$n_{D} = C_{R_{-}}\left( n',0 \right)$が成り立つような自然数たち$m'$、$n'$が一意的に存在するとき、$n_{N} = C_{R_{-}}\left( 0,m' \right)$かつ$n_{D} = C_{R_{-}}\left( 0,n' \right)$が成り立つような自然数たち$m'$、$n'$が一意的に存在するときでは、次の1つ目の場合に、$n_{N} = C_{R_{-}}(0,0)$が成り立つときでは、次の2つ目の場合に、$n_{N} = C_{R_{-}}\left( m',0 \right)$かつ$n_{D} = C_{R_{-}}\left( 0,n' \right)$が成り立つような自然数たち$m'$、$n'$が一意的に存在するとき、$n_{N} = C_{R_{-}}\left( 0,m' \right)$かつ$n_{D} = C_{R_{-}}\left( n',0 \right)$が成り立つような自然数たち$m'$、$n'$が一意的に存在するときでは、次の3つ目の場合に当てはまる。
+\begin{itemize}
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような自然数たち$n_{N}'$、$n_{D}'$が存在する。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)$が成り立つ。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような$n_{N}' \in \mathbb{Z} \setminus \mathfrak{N}_{\mathbb{Z}}$なる整数$n_{N}'$と自然数$n_{D}'$が存在する。
+\end{itemize}
+さらに、これらのうちどの2つとも成り立つこともないこともすぐわかる。
+\end{proof}
+\begin{dfn}
+次式のように集合$\mathfrak{N}_{\mathbb{Q}}$と
+\begin{align*}
+\mathfrak{N}_{\mathbb{Q}} = \left\{ C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/}  \middle| \exists n \in \mathfrak{N}_{\mathbb{Z}}\left[ C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n,1_{\mathbb{Z}} \right) \right] \right\}
+\end{align*}
+写像$\mathfrak{s}_{\mathbb{Q}}$が定められる。
+\begin{align*}
+\mathfrak{s}_{\mathbb{Q}}:\mathfrak{N}_{\mathbb{Q}} \rightarrow \mathfrak{N}_{\mathbb{Q}};C_{R_{/}}\left( n,1_{\mathbb{Z}} \right) \mapsto C_{R_{/}}\left( \mathfrak{s}_{\mathbb{Z}}(n),1_{\mathbb{Z}} \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.12}
+その組$\left( \mathfrak{N}_{\mathbb{Q}},C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right),\mathfrak{s}_{\mathbb{Q}} \right)$はPeano系となる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.3}と同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.13}
+上記の議論によりその組$\left( \mathfrak{N}_{\mathbb{Q}},C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right),\mathfrak{s}_{\mathbb{Q}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて次のことを満たす全単射な写像$F:\mathfrak{N}_{\mathbb{Q}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになり、
+\begin{itemize}
+\item
+  $F\left( C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right) \right) = 0$が成り立つ。
+\item
+  $F \circ \mathfrak{s}_{\mathbb{Q}} = 1 + \circ F$が成り立つ。
+\end{itemize}
+ここで、$\forall n \in \mathbb{N}$に対し、次のように書き換えられることができる。
+\begin{align*}
+F\left( C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right) \right) = n
+\end{align*}
+これにより、その写像$F$は全単射なので、これの逆対応$F^{- 1}$が写像になり次式が成り立つ。
+\begin{align*}
+F^{- 1}(n) = C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.12}に注意すれば、数学的帰納法により直ちに示される。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}{%
+\subsubsection{同値関係$R_{/}$で割った商集合の加法と乗法}%\label{ux540cux5024ux95a2ux4fc2r_ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}}
+\begin{dfn}
+$C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次のように写像たち$+_{\mathbb{Q}}$、$\cdot_{\mathbb{Q}}$が定義される。
+\begin{align*}
++_{\mathbb{Q}}&:\left( \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/}  \right)^{2} \rightarrow \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} ;\\
+&\left( C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \right) \mapsto C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \\
+&= C_{R_{/}}\left( m_{N} \cdot n_{D} + n_{N} \cdot m_{D},m_{D} \cdot n_{D} \right)\\
+\cdot_{\mathbb{Q}}&:\left( \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/}  \right)^{2} \rightarrow \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} ;\\
+&\left( C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \right) \mapsto C_{R_{/}}\left( m_{N},m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( m_{N} \cdot n_{N},m_{D} \cdot n_{D} \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.14}
+その組$\left( \mathfrak{N}_{\mathbb{Q}},C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right),\mathfrak{s}_{\mathbb{Q}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて$F\left( C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right) \right) = n$なる全単射な写像$F:\mathfrak{N}_{\mathbb{Q}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになるのであった。このとき、それらの写像たち$+_{\mathbb{Q}}$、$\cdot_{\mathbb{Q}}$はそのPeano系$\left( \mathfrak{N}_{\mathbb{Q}},C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right),\mathfrak{s}_{\mathbb{Q}} \right)$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.13}を用いてPeano系での加法の乗法の定義に照らし合わせればよい。
+\end{proof}
+\begin{thm}\label{1.2.6.15}
+商集合$\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $が与えられたとき、$C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n,1_{\mathbb{Z}} \right)$なる整数$n$が存在するような元$C_{R_{/}}\left( n_{N},n_{D} \right)$全体の集合を$\mathfrak{Z}_{\mathbb{Q}}$とおくと、$F\left( C_{R_{/}}\left( n,1_{\mathbb{Z}} \right) \right) = n$なる整数の意味で同型な写像$F:\mathfrak{Z}_{\mathbb{Q}}\overset{\sim}{\rightarrow}\mathbb{Z}$が一意的に存在し、それらの写像たち$+_{\mathbb{Q}}$、$\cdot_{\mathbb{Q}}$はその集合$\mathbb{Z}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+整数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.9}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.16}
+これらの写像たち$+_{\mathbb{Q}}$、$\cdot_{\mathbb{Q}}$について次のことが成り立つ\footnote{つまりその商集合$\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $は体になることを述べている。}。
+\begin{itemize}
+\item
+  $\forall C_{R_{/}}\left( l_{N},l_{D} \right),C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{/}}\left( l_{N},l_{D} \right) +_{\mathbb{Q}}\left( C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right) \\
+&= \left( C_{R_{/}}\left( l_{N},l_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right) \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( n_{N},n_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right) = C_{R_{/}}\left( n_{N},n_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( n_{N},n_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( - n_{N},n_{D} \right) = C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N},n_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( l_{N},l_{D} \right),C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{/}}\left( l_{N},l_{D} \right) \cdot_{\mathbb{Q}}\left( C_{R_{/}}\left( m_{N},m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right) \\
+&= \left( C_{R_{/}}\left( l_{N},l_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right) \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( n_{N},n_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}(1,0) = C_{R_{/}}\left( n_{N},n_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( m_{N},m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N},n_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( l_{N},l_{D} \right),C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+&\quad C_{R_{/}}\left( l_{N},l_{D} \right) \cdot_{\mathbb{Q}}\left( C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right) \\
+&= \left( C_{R_{/}}\left( l_{N},l_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right) \right) +_{\mathbb{Q}}\left( C_{R_{/}}\left( l_{N},l_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( m_{N},m_{D} \right) \neq C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)$が成り立つなら、次式が成り立つ。
+\begin{align*}
+C_{R_{/}}\left( m_{N},m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( m_{D},m_{N} \right) = C_{R_{/}}\left( 1_{\mathbb{Z}},1_{\mathbb{Z}} \right)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+実際に計算すればよい。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}{%
+\subsubsection{同値関係$R_{/}$で割った商集合の順序関係}%\label{ux540cux5024ux95a2ux4fc2r_ux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}}
+\begin{dfn}
+$\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次のことのどちらかが成り立つとき、その同値類$C_{R_{/}}\left( n_{N},n_{D} \right)$はその同値類$C_{R_{/}}\left( m_{N},m_{D} \right)$以上である、その同値類$C_{R_{/}}\left( m_{N},m_{D} \right)$はその同値類$C_{R_{/}}\left( n_{N},n_{D} \right)$以下であるといい$C_{R_{/}}\left( m_{N},m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$と書くことにする。
+\begin{itemize}
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( - m_{N},m_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような自然数$n_{N}'$と$n_{D}' \neq 0_{\mathbb{Z}}$なる整数$n_{D}'$が存在する。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( - m_{N},m_{D} \right) = C_{R_{/}}(0,0)$が成り立つ。
+\end{itemize}\par
+さらに、$C_{R_{/}}\left( m_{N},m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$かつ$C_{R_{/}}\left( m_{N},m_{D} \right) \neq C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つことを$C_{R_{/}}\left( m_{N},m_{D} \right) <_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$と書くことにする。なお、この議論はPeano系$\left( \mathfrak{N}_{\mathbb{Z}},0_{\mathbb{Z}},\mathfrak{s}_{\mathbb{Z}} \right)$上のものとする。
+\end{dfn}
+\begin{thm}\label{1.2.6.17}
+その関係$\leq_{\mathbb{Q}}$は全順序関係となる、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( n_{N},n_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つ。
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( m_{N},m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$かつ$C_{R_{/}}\left( n_{N},n_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right)$が成り立つなら、$C_{R_{/}}\left( m_{N},m_{D} \right) = C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つ。
+\item
+  $\forall C_{R_{/}}\left( l_{N},l_{D} \right),C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( l_{N},\ \ l_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},\ m_{D} \right)$かつ$C_{R_{/}}\left( m_{N},m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つなら、$C_{R_{/}}\left( l_{N},\ \ l_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つ。
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( m_{N},m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$または$C_{R_{/}}\left( n_{N},n_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.7}と同様に実際に計算すればよい。
+\end{proof}
+\begin{thm}\label{1.2.6.18}
+その関係$\leq_{\mathbb{Q}}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{/}}\left( l_{N},l_{D} \right),C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( m_{N},\ \ m_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つなら、$C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( l_{N},\ \ l_{D} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( l_{N},l_{D} \right)$が成り立つ。
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、$C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},m_{D} \right)$かつ$C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right)$が成り立つなら、$C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right) \leq_{\mathbb{Q}}C_{R_{/}}\left( m_{N},\ m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},\ \ n_{D} \right)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+定義にしたがって、計算すればよい。
+\end{proof}
+%\hypertarget{ux6709ux7406ux6570}{%
+\subsubsection{有理数}%\label{ux6709ux7406ux6570}}
+\begin{dfn} 定理\ref{1.2.6.11}より商集合$\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $が与えられ、$\forall C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次のこといづれか1つのみが成り立つのであった。なお、この議論はPeano系$\left( \mathfrak{N}_{\mathbb{Z}},0_{\mathbb{Z}},\mathfrak{s}_{\mathbb{Z}} \right)$上のものとする。
+\begin{itemize}
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような自然数たち$n_{N}'$、$n_{D}'$が存在する。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)$が成り立つ。
+\item
+  $C_{R_{/}}\left( n_{N},n_{D} \right) = C_{R_{/}}\left( n_{N}',n_{D}' \right)$が成り立つような$n_{N}' \in \mathbb{Z} \setminus \mathfrak{N}_{\mathbb{Z}}$なる整数$n_{N}'$と自然数$n_{D}'$が存在する。
+\end{itemize}
+このとき、$C_{R_{/}}( - m,n)$は$C_{R_{/}}\left( - 1_{\mathbb{Z}},1_{\mathbb{Z}} \right) \cdot_{\mathbb{Q}}C_{R_{/}}(m,n)$と書かれることができこれを$- C_{R_{/}}(m,n)$と書く。また、整数$n$を用いた同値類$C_{R_{/}}\left( 1_{\mathbb{Z}},n \right)$を$\frac{1}{C_{R_{/}}\left( n,1_{\mathbb{Z}} \right)}$と書くことにする。さらに、$C_{R_{/}}(m,n)$は$C_{R_{/}}\left( m,1_{\mathbb{Z}} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( 1_{\mathbb{Z}},n \right)$と書かれることができこれを$\frac{C_{R_{/}}\left( m,1_{\mathbb{Z}} \right)}{C_{R_{/}}\left( n,1_{\mathbb{Z}} \right)}$と書く。
+\end{dfn}
+\begin{dfn}
+集合$\mathcal{Q}$、写像たち$+_{\mathcal{Q}}\mathcal{:Q \times Q \rightarrow Q}$、$\cdot_{\mathcal{Q}}\mathcal{:Q \times Q \rightarrow Q}$、$\forall q \in \mathcal{Q}$に対し、$1_{\mathcal{Q}} \cdot_{\mathcal{Q}}q = q$なる元$1_{\mathcal{Q}}$が与えられたとき、ある全単射な写像$F:\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} \overset{\sim}{\rightarrow}\mathcal{Q}$が存在して、次のことが成り立つとき、
+\begin{itemize}
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{/}}\left( m_{N},m_{D} \right) +_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right) = F\left( C_{R_{/}}\left( m_{N},m_{D} \right) \right) +_{\mathcal{Q}}F\left( C_{R_{/}}\left( n_{N},n_{D} \right) \right)
+\end{align*}
+\item
+  $\forall C_{R_{/}}\left( m_{N},m_{D} \right),C_{R_{/}}\left( n_{N},n_{D} \right) \in \left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{/}}\left( m_{N},m_{D} \right) \cdot_{\mathbb{Q}}C_{R_{/}}\left( n_{N},n_{D} \right) \right) = F\left( C_{R_{/}}\left( m_{N},m_{D} \right) \right) \cdot_{\mathcal{Q}}F\left( C_{R_{/}}\left( n_{N},n_{D} \right) \right)
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{/}}\left( 1_{\mathbb{Z}},1_{\mathbb{Z}} \right) \right) = 1_{\mathcal{Q}}
+\end{align*}
+\end{itemize}
+その写像$F$を有理数の意味で同型な写像といい、このような集合$\mathcal{Q}$を$\mathbb{Q}$と書き、これの元を有理数ということにする。特に、$\left\{ q \in \mathbb{Q} \middle| q < 0 \right\}$、$\left\{ q \in \mathbb{Q} \middle| q < 1 \right\}$をそれぞれ$\mathbb{Q}_{< 0}$、$\mathbb{Q}_{< 1}$と書くことにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.19}
+集合$\mathcal{Q}$、写像たち$+_{\mathcal{Q}}\mathcal{:Q \times Q \rightarrow Q}$、$\cdot_{\mathcal{Q}}\mathcal{:Q \times Q \rightarrow Q}$、$\forall q \in \mathcal{Q}$に対し、$1_{\mathcal{Q}} \cdot_{\mathcal{Q}}q = q$なる元$1_{\mathcal{Q}}$が与えられたとき、有理数の意味で同型な写像$F$は一意的である。
+\end{thm}
+\begin{proof}
+このような写像が$F$、$G$と与えられたとき、$\forall q \in \mathcal{Q}$に対し、$F(q) = G(q)$が成り立つことから従う。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_c}{%
+\subsubsection{同値関係$R_{C}$}%\label{ux540cux5024ux95a2ux4fc2r_c}}
+\begin{dfn}
+商集合$\left( \mathbb{Z} \times \mathbb{Z}_{\neq 0} \right) /R_{/} $が与えられたとき、以下、それらの元々$C_{R_{/}}\left( 0_{\mathbb{Z}},1_{\mathbb{Z}} \right)$、$C_{R_{/}}\left( 1_{\mathbb{Z}},1_{\mathbb{Z}} \right)$、これらの写像たち$+_{\mathbb{Q}}$、$\cdot_{\mathbb{Q}}$、関係$\leq_{\mathbb{Q}}$、$<_{\mathbb{Q}}$を、以下単に、それぞれ$0_{\mathbb{Q}}$、$1_{\mathbb{Q}}$、$+$、$\cdot$、$\leq$、$<$と書くことにする。
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{Q}$の部分集合$A$について、$\forall a \in A$に対し、$a \leq m$が成り立つその集合$A$の元$m$をその集合の最大元という。同様にして、$\forall a \in A$に対し、$m \leq a$が成り立つその集合$A$の元$m$をその集合の最小元という\footnote{つまり、順序集合$(A, \leq )$とみたときのその集合$A$の最大元と最小元をそれぞれ$\max A$、$\min A$としている。}。
+\end{dfn}\par
+後に述べるように、その集合$A$の最大元、最小元が存在するなら、これは一意的になる。これにより、その集合$A$の最大元と最小元をそれぞれ$\max A$、$\min A$と書く。しかしながら、これらは必ずしも存在するとは限らない。
+\begin{thm}\label{1.2.6.20}
+集合$\mathbb{Q}$の部分集合$A$について、その最大元、最小元が存在すれば、これは一意的である。
+\end{thm}
+\begin{proof}
+もし、最大元が$m$、$n$と与えられたらば、$m \leq n$かつ$n \leq m$が成り立つので、$m = n$が得られる。最小元についても同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.21}
+集合$\mathbb{Q}$の最大元$\max\mathbb{Q}$、最小元$\min\mathbb{Q}$はどちらも存在しない。\par
+\end{thm}\par
+このことは背理法によって示される。
+\begin{proof}
+集合$\mathbb{Q}$の最大元$\max\mathbb{Q}$が存在すると仮定する。このとき、$\forall a \in \mathbb{Q}$に対し、$a \leq \max\mathbb{Q}$が成り立つが、不等式$0 < 1$の両辺に$\max\mathbb{Q}$を加えると、$\max\mathbb{Q} < \max\mathbb{Q} + 1$が成り立ち明らかに$\max\mathbb{Q} + 1$は存在しその集合$\mathbb{Q}$に属するので、仮定に矛盾する。集合$\mathbb{Q}$の最小元$\min\mathbb{Q}$についても同様に示される。
+\end{proof}
+\begin{dfn}[有理数の切断]
+集合$\mathbb{Q}$が与えられたとする。このとき、$A \in \mathfrak{P}\left( \mathbb{Q} \right)$のうち、$A \neq \emptyset$かつ$A \neq \mathbb{Q}$が成り立つかつ、$\forall a \in A\forall b \in \mathbb{Q} \setminus A$に対し、$a \leq b$が成り立つようなその部分集合$A$を有理数の切断といい\footnote{このようにして切断$\left\{ q \in \mathbb{Q} \middle| q^{2} \leq 2 \right\} \cup \mathbb{Q} \setminus \mathbb{Q}_{< 0}$を$\sqrt{2}$と同一視してやろうという魂胆です。}、これ全体の集合を$C_{\mathbb{Q}}$とここではおくことにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.22}
+$\forall A \in C_{\mathbb{Q}}$に対し、次のうちどれか1つが成り立つ。
+\begin{itemize}
+\item
+  $\exists m \in \mathbb{Q}$に対し、$m = \max A$が成り立つかつ、$\forall m \in \mathbb{Q}$に対し、$m \neq \min{\mathbb{Q} \setminus A}$が成り立つ。
+\item
+  $\forall m \in \mathbb{Q}$に対し、$m \neq \max A$が成り立つかつ、$\exists m \in \mathbb{Q}$に対し、$m = \min{\mathbb{Q} \setminus A}$が成り立つ。
+\item
+  $\forall m \in \mathbb{Q}$に対し、$m \neq \max A$かつ$m \neq \min{\mathbb{Q} \setminus A}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall A \in C_{\mathbb{Q}}$に対し、次のうちどちらかが成り立つ。
+\begin{itemize}
+\item
+  $\exists m \in \mathbb{Q}$に対し、$m = \max A$または$m = \min{\mathbb{Q} \setminus A}$が成り立つ。
+\item
+  $\forall m \in \mathbb{Q}$に対し、$m \neq \max A$かつ$m \neq \min{\mathbb{Q} \setminus A}$が成り立つ。
+\end{itemize}
+ここで、$\exists m \in \mathbb{Q}$に対し、$m = \max A$かつ$m = \min{\mathbb{Q} \setminus A}$が成り立つとすれば、$m \in A \cap \mathbb{Q} \setminus A$が成り立つことになり矛盾することから従う。どれか1つが成り立つことについてもこのことから従う。
+\end{proof}
+\begin{thm}\label{1.2.6.23}
+$\forall A,B \in C_{\mathbb{Q}}$に対し、$A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B$が成り立つならそのときに限り、$B \setminus \left\{ \max B \right\} = A$が成り立ち、さらに、$\min{\mathbb{Q} \setminus A} = \max B$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall A,B \in C_{\mathbb{Q}}$に対し、$A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B$が成り立つなら、$\forall b \in B$に対し、$b = \min{\mathbb{Q} \setminus A}$のときは明らかに$b \leq \min{\mathbb{Q} \setminus A}$が成り立つので、$b \in A$とすれば、その集合$A$は切断で$\min{\mathbb{Q} \setminus A} \in \mathbb{Q} \setminus A$が成り立つので、$b \leq \min{\mathbb{Q} \setminus A}$が成り立つ。ゆえに、$\min{\mathbb{Q} \setminus A} = \min B$で$B \setminus \left\{ \max B \right\} = A$が成り立つ。逆に、これが成り立つなら、$\mathbb{Q} \setminus A = \mathbb{Q} \setminus B \sqcup \left\{ \max B \right\}$が成り立つ。$\forall a \in \mathbb{Q} \setminus A$に対し、$a = \max B$のときは明らかに$\max B \leq a$が成り立つので、$a \in \mathbb{Q} \setminus B$とすれば、その集合$B$は切断で$\max B \in B$が成り立つので、$\max B \leq a$が成り立つ。ゆえに、$\max B = \min{\mathbb{Q} \setminus A}$で$A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B$が成り立つ。
+\end{proof}
+\begin{dfn}
+集合$\mathbb{Q}$が与えられたとする。次式のようにgraph$G\left( R_{C} \right)$が定義され
+\begin{align*}
+G\left( R_{C} \right) = \left\{ (A,B) \in C_{\mathbb{Q}} \times C_{\mathbb{Q}} \middle| A = B \vee A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B \vee B \sqcup \left\{ \min{\mathbb{Q} \setminus B} \right\} = A \right\}
+\end{align*}
+関係$R_{C}$が定義される\footnote{切断$\left\{ q \in \mathbb{Q} \middle| q < 0 \right\}$と切断$\left\{ q \in \mathbb{Q} \middle| q \leq 0 \right\}$を同一視したいという理由です。}。
+\begin{align*}
+R_{C} = \left( C_{\mathbb{Q}},C_{\mathbb{Q}},G\left( R_{C} \right) \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.24}
+その関係$R_{C}$は同値関係となる。
+\end{thm}
+\begin{proof}
+$\forall A \in C_{\mathbb{Q}}$に対し、$AR_{C}A$が成り立つことと、$\forall A,B \in C_{\mathbb{Q}}$に対し、$AR_{C}B$なら$BR_{C}A$が成り立つことは明らかである。$\forall A,B,C \in C_{\mathbb{Q}}$に対し、$AR_{C}B$かつ$BR_{C}C$が成り立つとすれば、$A = B$または$B = C$のときでは明らかである。$A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B$かつ$B \sqcup \left\{ \min{\mathbb{Q} \setminus B} \right\} = C$が成り立つとすれば、定理\ref{1.2.6.23}より$\max B$が存在することになるが、これは定理\ref{1.2.6.22}に矛盾する。$A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\} = B$かつ$C \sqcup \left\{ \min{\mathbb{Q} \setminus C} \right\} = B$が成り立つとすれば、定理\ref{1.2.6.23}より$\min{\mathbb{Q} \setminus A} = \min{\mathbb{Q} \setminus C} = \max B$が成り立つので、次のようになることに注意すれば、
+\begin{align*}
+A = \left\{ q \in \mathbb{Q} \middle| q < \max B \right\} = C
+\end{align*}
+$AR_{C}C$が成り立つ。他の場合も同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.25}
+$\forall A \in C_{\mathbb{Q}}$に対し、$\exists m \in \mathbb{Q}$に対し、$m = \max A$または$m = \min{\mathbb{Q} \setminus A}$が成り立つならそのときに限り、$\exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}$に対し、$m = \max B$が成り立つ。さらに、そのような最大元$\max B$は一意的である。
+\end{thm}
+\begin{proof}
+$\forall A \in C_{\mathbb{Q}}$に対し、$\exists m \in \mathbb{Q}$に対し、$m = \max A$または$m = \min{\mathbb{Q} \setminus A}$が成り立つなら、定理\ref{1.2.6.22}より次のうちどれか1つが成り立つ。
+\begin{itemize}
+\item
+  $\exists m \in \mathbb{Q}$に対し、$m = \max A$が成り立つかつ、$\forall m \in \mathbb{Q}$に対し、$m \neq \min{\mathbb{Q} \setminus A}$が成り立つ。
+\item
+  $\forall m \in \mathbb{Q}$に対し、$m \neq \max A$が成り立つかつ、$\exists m \in \mathbb{Q}$に対し、$m = \min{\mathbb{Q} \setminus A}$が成り立つ。
+\end{itemize}
+前者の場合では明らかであるので、後者の場合、$B = A \sqcup \left\{ \min{\mathbb{Q} \setminus A} \right\}$のようにしておかれればよい。逆に、$\exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}$に対し、$m = \max B$が成り立つかつ、$\forall m \in \mathbb{Q}$に対し、$m \neq \max A$かつ$m \neq \min{\mathbb{Q} \setminus A}$が成り立つとすれば、同値関係$R_{C}$の定義より$A = B$が得られるが、最小元$\max B$が存在できなくなり矛盾する。ゆえに、$\exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}$に対し、$m = \max B$が成り立つなら、$\exists m \in \mathbb{Q}$に対し、$m = \max A$または$m = \min{\mathbb{Q} \setminus A}$が成り立つ。\par
+さらに、$\exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}$に対し、$m = \max B$が成り立つかつ、$\exists C \in C_{R_{C}}(A)\exists m \in \mathbb{Q}$に対し、$m = \max C$が成り立つとすれば、同値関係$R_{C}$の定義と定理\ref{1.2.6.22}より$B = C$が成り立つことから従う。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_cux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}{%
+\subsubsection{同値関係$R_{C}$から誘導されるPeano系}%\label{ux540cux5024ux95a2ux4fc2r_cux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}}
+\begin{thm}\label{1.2.6.26}
+次式のように集合$\mathfrak{Q}_{\mathbb{R}}$が定められると、
+\begin{align*}
+\mathfrak{Q}_{\mathbb{R}} = \left\{ C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C}  \middle| \exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}\left[ m = \max B \right] \right\}
+\end{align*}
+次のようにgraph$G$が与えられる対応$\max_{C \in \bullet \in \mathfrak{Q}_{\mathbb{R}}}C = \left( \mathfrak{Q}_{\mathbb{R}},\mathbb{Q},G \right)$は写像となる。
+\begin{align*}
+G = \left\{ \left( C_{R_{C}}(A),m \right) \in \mathfrak{Q}_{\mathbb{R}} \times \mathbb{Q} \middle| \exists B \in C_{R_{C}}(A)\left[ m = \max B \right] \right\}
+\end{align*}
+\end{thm}\par
+以下、その写像$\max_{C \in \bullet \in \mathfrak{Q}_{\mathbb{R}}}C$を$\max_{C \in \bullet \in \mathfrak{Q}_{\mathbb{R}}}C:\mathfrak{Q}_{\mathbb{R}} \rightarrow \mathbb{Q};C_{R_{C}}(A) \mapsto \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C$と書くことにする。
+\begin{proof}
+定理\ref{1.2.6.25}から従う。
+\end{proof}
+\begin{dfn}
+次式のように集合$\mathfrak{N}_{\mathbb{R}}$と
+\begin{align*}
+\mathfrak{N}_{\mathbb{R}} = \left\{ C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C}  \middle| \exists B \in C_{R_{C}}(A)\exists m \in \mathfrak{N}_{\mathbb{Q}}\left[ m = \max B \right] \right\}
+\end{align*}
+写像$\mathfrak{s}_{\mathbb{R}}$が定められる。
+\begin{align*}
+\mathfrak{s}_{\mathbb{R}}:\mathfrak{N}_{\mathbb{R}} \rightarrow \mathfrak{N}_{\mathbb{R}};C_{R_{C}}(A) \mapsto C_{R_{C}}\left( \left\{ q \in \mathbb{Q} \middle| q \leq \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C + 1 \right\} \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.27}
+その組$\left( \mathfrak{N}_{\mathbb{R}},C_{R_{C}}\left( \mathbb{Q}_{< 0} \right),\mathfrak{s}_{\mathbb{R}} \right)$はPeano系となる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.3}と同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.28}
+上記の議論によりその組$\left( \mathfrak{N}_{\mathbb{R}},C_{R_{C}}\left( \mathbb{Q}_{< 0} \right),\mathfrak{s}_{\mathbb{R}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて次のことを満たす全単射な写像$F:\mathfrak{N}_{\mathbb{R}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになり、
+\begin{itemize}
+\item
+  $F\left( C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) \right) = 0$が成り立つ。
+\item
+  $F \circ \mathfrak{s}_{\mathbb{R}} = 1 + \circ F$が成り立つ。
+\end{itemize}
+ここで、$\forall n \in \mathbb{N}$に対し、次のように書き換えられることができる。
+\begin{align*}
+F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right)
+\end{align*}
+これにより、その写像$F$は全単射なので、これの逆対応$F^{- 1}$が写像になり次式が成り立つ。
+\begin{align*}
+F^{- 1}(n) = C_{R_{C}}\left( \left\{ q \in \mathbb{Q} \middle| q \leq C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right) \right\} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.27}に注意すれば、数学的帰納法により直ちに示される。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_cux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}{%
+\subsubsection{同値関係$R_{C}$で割った商集合の加法と乗法}%\label{ux540cux5024ux95a2ux4fc2r_cux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}}
+\begin{dfn}
+$A,B \in C_{\mathbb{Q}}$に対し、次のように集合たち$A + B$、$AB$、$- A$、$|A|$が定義される。
+\begin{align*}
+A + B &= \left\{ a + b \in \mathbb{Q} \middle| a \in A,\ \ b \in B \right\}\\
+AB &= \left\{ ab \in \mathbb{Q} \middle| a \in A,\ \ b \in B \right\}\\
+- A &= \left\{ - a \in \mathbb{Q} \middle| a \in \mathbb{Q} \setminus A \right\}\\
+\frac{1}{A} &= \left\{ \frac{1}{a} \in \mathbb{Q} \middle| a \in \mathbb{Q} \setminus \left( A \cup \left\{ 0_{\mathbb{Q}} \right\} \right) \right\}\\
+|A| &= \left\{ \begin{matrix}
+A & \mathrm{if} & \mathbb{Q}_{< 0} \subseteq A \\
+ - A & \mathrm{otherwise} & \  \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{dfn}
+$C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、次のように定義される。
+\begin{align*}
+C_{R_{C}}(A) < 0 &\Leftrightarrow \mathbb{Q}_{< 0} \subseteq A \land C_{R_{C}}(A) \neq C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)\\
+C_{R_{C}}(A) = 0 &\Leftrightarrow C_{R_{C}}(A) = C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)\\
+C_{R_{C}}(A) > 0 &\Leftrightarrow A \subseteq \mathbb{Q}_{< 0} \land C_{R_{C}}(A) \neq C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.29}
+$\forall A \in C_{\mathbb{Q}}$に対し、次のうちどれか1つが成り立つ。
+\begin{itemize}
+\item
+  $C_{R_{C}}(A) < 0$が成り立つ。
+\item
+  $C_{R_{C}}(A) = 0$が成り立つ。
+\item
+  $C_{R_{C}}(A) > 0$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall A \in C_{\mathbb{Q}}$に対し、次のうちどちらかが成り立つ。
+\begin{itemize}
+\item
+  $C_{R_{C}}(A) = C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)$が成り立つ。
+\item
+  $C_{R_{C}}(A) \neq C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)$が成り立つ。
+\end{itemize}
+ここで、$\exists A \in C_{\mathbb{Q}}$に対し、$\exists q \in \mathbb{Q}$に対し、$q \in \mathbb{Q}_{< 0}$かつ$q \notin A$が成り立つかつ、$\exists r \in \mathbb{Q}$に対し、$r \in A$かつ$q \notin \mathbb{Q}_{< 0}$が成り立つとすれば、$\exists q \in \mathbb{Q} \setminus A\exists r \in A$に対し、$q < 0 \leq r$が成り立つことになりその集合$A$が切断であることに矛盾する。また、$\exists A \in C_{\mathbb{Q}}$に対し、$C_{R_{C}}(A) < 0$かつ$C_{R_{C}}(A) > 0$が成り立つとすれば、$\mathbb{Q}_{< 0} = A$が得られるが、これは$C_{R_{C}}(A) \neq C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)$が成り立つことに矛盾する。これで示すべきことが示された。
+\end{proof}
+\begin{dfn}
+$C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、次のように写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$が定義される。
+\begin{align*}
++_{\mathbb{R}}&:\left( C_{\mathbb{Q}} /R_{C}  \right)^{2} \rightarrow C_{\mathbb{Q}} /R_{C} ;\\
+&\left( C_{R_{C}}(A),C_{R_{C}}(B) \right) \mapsto C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(B) = C_{R_{C}}(A + B),\ \ \\
+\cdot_{\mathbb{R}}&:\left( C_{\mathbb{Q}} /R_{C}  \right)^{2} \rightarrow C_{\mathbb{Q}} /R_{C} ;\\
+&\left( C_{R_{C}}(A),C_{R_{C}}(B) \right) \mapsto C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B),C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B) \\
+&= \left\{ \begin{matrix}
+C_{R_{C}}\left( |A||B| \right) & \mathrm{if} & C_{R_{C}}(A) < 0 \land C_{R_{C}}(B) < 0 \\
+C_{R_{C}}\left( - \left( |A|B \right) \right) & \mathrm{if} & C_{R_{C}}(A) < 0 \land C_{R_{C}}(B) > 0 \\
+C_{R_{C}}\left( - \left( A|B| \right) \right) & \mathrm{if} & C_{R_{C}}(A) > 0 \land C_{R_{C}}(B) < 0 \\
+C_{R_{C}}(AB) & \mathrm{if} & C_{R_{C}}(A) > 0 \land C_{R_{C}}(B) > 0 \\
+C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) & \mathrm{if} & C_{R_{C}}(A) = 0 \vee C_{R_{C}}(B) = 0 \\
+\end{matrix} \right.\ 
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.30}
+その組$\left( \mathfrak{N}_{\mathbb{R}},C_{R_{C}}\left( \mathbb{Q}_{< 0} \right),\mathfrak{s}_{\mathbb{R}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて$F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right)$なる全単射な写像$F:\mathfrak{N}_{\mathbb{R}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになるのであった。このとき、それらの写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$はそのPeano系$\left( \mathfrak{N}_{\mathbb{R}},C_{R_{C}}\left( \mathbb{Q}_{< 0} \right),\mathfrak{s}_{\mathbb{R}} \right)$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.28}を用いてPeano系での加法の乗法の定義に照らし合わせればよい。ここで、$\forall C_{R_{C}}(A) \in \mathfrak{N}_{\mathbb{R}}$に対し、$C_{R_{C}}(A) < 0$が成り立ちえないことに注意されたい。
+\end{proof}
+\begin{thm}\label{1.2.6.31}
+商集合$C_{\mathbb{Q}} /R_{C} $が与えられたとき、次式のように集合$\mathfrak{Z}_{\mathbb{R}}$が定められると、
+\begin{align*}
+\mathfrak{Z}_{\mathbb{R}} = \left\{ C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C}  \middle| \exists B \in C_{R_{C}}(A)\exists m \in \mathfrak{Z}_{\mathbb{Q}}\left[ m = \max B \right] \right\}
+\end{align*}
+$F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( n,1_{\mathbb{Z}} \right)$なる整数の意味で同型な写像$F:\mathfrak{Z}_{\mathbb{R}}\overset{\sim}{\rightarrow}\mathbb{Z}$が一意的に存在し、それらの写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$はその集合$\mathbb{Z}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+整数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.9}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.32}
+商集合$C_{\mathbb{Q}} /R_{C} $が与えられたとき、次式のように集合$\mathfrak{Q}_{\mathbb{R}}$が定められると、
+\begin{align*}
+\mathfrak{Q}_{\mathbb{R}} = \left\{ C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C}  \middle| \exists B \in C_{R_{C}}(A)\exists m \in \mathbb{Q}\left[ m = \max B \right] \right\}
+\end{align*}
+$F = \max_{C \in \bullet \in \mathfrak{Q}_{\mathbb{R}}}C$なる有理数の意味で同型な写像$F:\mathfrak{Q}_{\mathbb{R}}\overset{\sim}{\rightarrow}\mathbb{Q}$が一意的に存在し、それらの写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$はその集合$\mathbb{Q}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+有理数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.19}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.33}
+これらの写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$について次のことが成り立つ\footnote{つまりその商集合$C_{\mathbb{Q}} /R_{C} $は体になることを述べている。}。
+\begin{itemize}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B),C_{R_{C}}(C) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) +_{\mathbb{R}}\left( C_{R_{C}}(B) +_{\mathbb{R}}C_{R_{C}}(C) \right) = \left( C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(B) \right) +_{\mathbb{R}}C_{R_{C}}(C)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) = C_{R_{C}}(A)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}( - A) = C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(B) = C_{R_{C}}(B) +_{\mathbb{R}}C_{R_{C}}(A)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B),C_{R_{C}}(C) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) \cdot_{\mathbb{R}}\left( C_{R_{C}}(B) \cdot_{\mathbb{R}}C_{R_{C}}(C) \right) = \left( C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B) \right) \cdot_{\mathbb{R}}C_{R_{C}}(C)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}\left( \mathbb{Q}_{< 1} \right) = C_{R_{C}}(A)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B) = C_{R_{C}}(B) \cdot_{\mathbb{R}}C_{R_{C}}(A)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B),C_{R_{C}}(C) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) \cdot_{\mathbb{R}}\left( C_{R_{C}}(B) +_{\mathbb{R}}C_{R_{C}}(C) \right) = \left( C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B) \right) +_{\mathbb{R}}\left( C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(C) \right)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \neq C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)$が成り立つなら、次式が成り立つ。
+\begin{align*}
+C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}\left( \frac{1}{A} \right) = C_{R_{C}}\left( \mathbb{Q}_{< 1} \right)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+実際に計算すればよい。
+\end{proof}
+%\hypertarget{ux540cux5024ux95a2ux4fc2r_cux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}{%
+\subsubsection{同値関係$R_{C}$で割った商集合の順序関係}%\label{ux540cux5024ux95a2ux4fc2r_cux3067ux5272ux3063ux305fux5546ux96c6ux5408ux306eux9806ux5e8fux95a2ux4fc2}}
+\begin{dfn}
+$C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$A \subseteq B$が成り立つとき、その同値類$C_{R_{C}}(B)$はその同値類$C_{R_{C}}(A)$以上である、その同値類$C_{R_{C}}(A)$はその同値類$C_{R_{C}}(B)$以下であるといい$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$と書くことにする。さらに、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$かつ$C_{R_{C}}(A) \neq C_{R_{C}}(B)$が成り立つことを$C_{R_{C}}(A) <_{\mathbb{R}}C_{R_{C}}(B)$と書くことにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.34}
+$\forall A,B \in C_{\mathbb{Q}}$に対し、$A \subseteq B$または$B \subseteq A$が成り立つ。
+\end{thm}
+\begin{proof}
+$\exists A,B \in C_{\mathbb{Q}}$に対し、$\exists q \in \mathbb{Q}$に対し、$q \in A$かつ$q \notin B$が成り立つかつ、$\exists r \in \mathbb{Q}$に対し、$r \in B$かつ$r \notin A$が成り立つとすれば、$\exists q,r \in \mathbb{Q} \setminus A$に対し、$q \in A$かつ$r \in \mathbb{Q} \setminus A$が成り立つので、$q \leq r$が得られ、同様にして、$r \leq q$も得られるので、$q = r \in A \cap \mathbb{Q} \setminus A$が成り立つことになるが、これはその集合$A$が切断であることに矛盾する。
+\end{proof}
+\begin{thm}\label{1.2.6.35}
+その関係$\leq_{\mathbb{R}}$は全順序関係となる、即ち、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{C}}(A) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(A)$が成り立つ。
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$かつ$C_{R_{C}}(B) \leq_{\mathbb{R}}C_{R_{C}}(A)$が成り立つなら、$C_{R_{C}}(A) = C_{R_{C}}(B)$が成り立つ。
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B),C_{R_{C}}(C) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$かつ$C_{R_{C}}(B) \leq_{\mathbb{R}}C_{R_{C}}(C)$が成り立つなら、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(C)$が成り立つ。
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$または$C_{R_{C}}(B) \leq_{\mathbb{R}}C_{R_{C}}(A)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof} 最初の3つは定理\ref{1.2.6.7}と同様に実際に計算すればよい。4つ目の主張に関しては定理\ref{1.2.6.34}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.36}
+その関係$\leq_{\mathbb{R}}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B),C_{R_{C}}(C) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$が成り立つなら、$C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(C) \leq_{\mathbb{R}}C_{R_{C}}(B) +_{\mathbb{R}}C_{R_{C}}(C)$が成り立つ。
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) \leq_{\mathbb{R}}C_{R_{C}}(A)$かつ$C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) \leq_{\mathbb{R}}C_{R_{C}}(B)$が成り立つなら、$C_{R_{C}}\left( \mathbb{Q}_{< 0} \right) \leq_{\mathbb{R}}C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B)$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+定義にしたがって、計算すればよい。
+\end{proof}
+%\hypertarget{dedekindux306eux5b9aux7406}{%
+\subsubsection{Dedekindの定理}%\label{dedekindux306eux5b9aux7406}}
+\begin{thm}[有理数の稠密性]\label{1.2.6.37}
+$\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) <_{\mathbb{R}}C_{R_{C}}(B)$が成り立つなら、$\exists C_{R_{C}}(C) \in \mathfrak{Q}_{\mathbb{R}}$に対し、$C_{R_{C}}(A) <_{\mathbb{R}}C_{R_{C}}(C) <_{\mathbb{R}}C_{R_{C}}(B)$が成り立つ。さらに、このような同値類$C_{R_{C}}(C)$は無数に存在する。
+\end{thm}\par
+この定理を有理数の稠密性という。
+\begin{proof}
+$\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、$C_{R_{C}}(A) <_{\mathbb{R}}C_{R_{C}}(B)$が成り立つなら、$C_{R_{C}}(A),C_{R_{C}}(B) \in \mathfrak{Q}_{\mathbb{R}}$のとき、次のようにおかれればよい。
+\begin{align*}
+C_{R_{C}}(C) = C_{R_{C}}\left( \frac{1}{\mathbb{Q}_{< 2}} \right) \cdot_{\mathbb{R}}\left( C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(B) \right),\ \ \mathbb{Q}_{< 2} = \left\{ q \in \mathbb{Q} \middle| q < 2 \right\}
+\end{align*}
+このことを繰り返せば示すべきことが示される。$C_{R_{C}}(A),C_{R_{C}}(B) \notin \mathfrak{Q}_{\mathbb{R}}$のとき、定理\ref{1.2.6.34}と関係$R_{C}$の定義より$A \supset B$が成り立ちえないので、$A \subseteq B$が成り立つ。さらに、$A \subset B$が成り立つので、$\exists q \in \mathbb{Q}$に対し、$q \in B \setminus A$が成り立つ。あとは次のようにおかれればよい。
+\begin{align*}
+C_{R_{C}}(C) = C_{R_{C}}\left( \mathbb{Q}_{< q} \right),\ \ \mathbb{Q}_{< q} = \left\{ r \in \mathbb{Q} \middle| r < q \right\}
+\end{align*}
+そこで、このような有理数$q$が無数にないとすれば、最小元$\min{\mathbb{Q} \setminus A}$が存在するかつ、最大元$\max B$が存在することになるが、これは仮定に矛盾する。他の場合も同様にして示される。
+\end{proof}
+\begin{dfn}
+集合$C_{\mathbb{Q}} /R_{C} $の部分集合$\mathcal{A}$について、$\forall C_{R_{C}}(A) \in \mathcal{A}$に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}m$が成り立つその集合$\mathcal{A}$の元$m$をその集合の最大元という。同様にして、$\forall C_{R_{C}}(A) \in \mathcal{A}$に対し、$m \leq_{\mathbb{R}}C_{R_{C}}(A)$が成り立つその集合$\mathcal{A}$の元$m$をその集合の最小元という\footnote{つまり、順序集合$\left( \mathcal{A}, \leq_{\mathbb{R}} \right)$とみたときのその集合$\mathcal{A}$の最大元と最小元をそれぞれ$\max\mathcal{A}$、$\min\mathcal{A}$としている。}。
+\end{dfn}\par
+後に述べるように、その集合$A$の最大元、最小元が存在するなら、これは一意的になる。これにより、その集合$\mathcal{A}$の最大元と最小元をそれぞれ$\max\mathcal{A}$、$\min\mathcal{A}$と書く。しかしながら、これらは必ずしも存在するとは限らない。
+\begin{thm}\label{1.2.6.38}
+集合$C_{\mathbb{Q}} /R_{C} $の部分集合$\mathcal{A}$について、その最大元、最小元が存在すれば、これは一意的である。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.20}と同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.39}
+集合$C_{\mathbb{Q}} /R_{C} $の最大元$\max C_{\mathbb{Q}} /R_{C} $、最小元$\min C_{\mathbb{Q}} /R_{C} $はどちらも存在しない。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.21}と同様にして示される。
+\end{proof}
+\begin{dfn}[実数の切断]
+$\mathcal{A \in}\mathfrak{P}\left( C_{\mathbb{Q}} /R_{C}  \right)$のうち、$\mathcal{A \neq \emptyset}$かつ$\mathcal{A \neq}C_{\mathbb{Q}} /R_{C} $が成り立つかつ、$\forall C_{R_{C}}(A)\in \mathcal{A\forall}C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}$に対し、$C_{R_{C}}(A) \leq_{\mathbb{R}}C_{R_{C}}(B)$が成り立つようなその部分集合$\mathcal{A}$を実数の切断といい、これ全体の集合を$C_{\mathbb{R}}$とここではおくことにする。
+\end{dfn}
+\begin{thm}[Dedekindの定理]\label{1.2.6.40}
+$\mathcal{\forall A \in}C_{\mathbb{R}}$に対し、次のうちどれか1つが成り立つ。
+\begin{itemize}
+\item
+  $\exists m \in C_{\mathbb{Q}} /R_{C} $に対し、$m = \max\mathcal{A}$が成り立つかつ、$\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。
+\item
+  $\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \max\mathcal{A}$が成り立つかつ、$\exists m \in C_{\mathbb{Q}} /R_{C} $に対し、$m = \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。
+\end{itemize}
+\end{thm}\par
+この定理をDedekindの定理という。
+\begin{proof}
+$\mathcal{\forall A \in}C_{\mathbb{R}}$に対し、定理\ref{1.2.6.22}と同様にして次のうちどれか1つが成り立つことが示される。
+\begin{itemize}
+\item
+  $\exists m \in C_{\mathbb{Q}} /R_{C} $に対し、$m = \max\mathcal{A}$が成り立つかつ、$\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。
+\item
+  $\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \max\mathcal{A}$が成り立つかつ、$\exists m \in C_{\mathbb{Q}} /R_{C} $に対し、$m = \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。
+\item
+  $\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \max\mathcal{A}$かつ$m \neq \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。
+\end{itemize}
+このとき、次のようになり、
+\begin{align*}
+\left( \mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}} \right) \sqcup \left( C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A \cap}\mathfrak{Q}_{\mathbb{R}} \right) &= \left( \mathcal{A \sqcup}C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A} \right) \cap \mathfrak{Q}_{\mathbb{R}}\\
+&= C_{\mathbb{Q}} /R_{C}  \cap \mathfrak{Q}_{\mathbb{R}}\\
+&= \mathfrak{Q}_{\mathbb{R}}
+\end{align*}
+定理\ref{1.2.6.32}よりその集合$\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}$に対応する有理数の切断$Q$が存在する\footnote{ちなみに、最大元$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}}$が存在するとすれば、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} = \max\mathcal{A}$が成り立つ。実際、最大元$\max\mathcal{A}$が存在して、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} \neq \max\mathcal{A}$が成り立つとすれば、$\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}} \subseteq \mathcal{A}$より$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} <_{\mathbb{R}}\max\mathcal{A}$が成り立つ。このとき、有理数の稠密性より$\exists C_{R_{C}}(C) \in \mathfrak{Q}_{\mathbb{R}}$に対し、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} <_{\mathbb{R}}C_{R_{C}}(C) <_{\mathbb{R}}\max\mathcal{A}$が成り立つことになるが、$C_{R_{C}}(C)\in \mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}$よりこれは矛盾している。最大元$\max\mathcal{A}$が存在せず、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} \neq \max\mathcal{A}$が成り立つとすれば、$\exists C_{R_{C}}(C)\in \mathcal{A}$に対し、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} <_{\mathbb{R}}C_{R_{C}}(C)$が得られ、有理数の稠密性より$\exists C_{R_{C}}(D) \in \mathfrak{Q}_{\mathbb{R}}$に対し、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}} <_{\mathbb{R}}C_{R_{C}}(D) <_{\mathbb{R}}C_{R_{C}}(C)$が成り立つことになるが、$C_{R_{C}}(D)\in \mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}$よりこれは矛盾している。ゆえに、$\forall C_{R_{C}}(C)\in \mathcal{A}$に対し、$\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}}\in \mathcal{A}$かつ$C_{R_{C}}(C) \leq_{\mathbb{R}}\max{\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}}$が成り立つ。同様にして、最小元$\min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A \cap}\mathfrak{Q}_{\mathbb{R}}}$も存在するとすれば、$\min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A \cap}\mathfrak{Q}_{\mathbb{R}}} = \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つ。以上、余談でした。}。\par
+ここで、$\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \max\mathcal{A}$かつ$m \neq \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つとき、次のことどちらも成り立つ。
+\begin{itemize}
+\item
+  $\exists C_{R_{C}}(A)\in \mathcal{A}$に対し、$m <_{\mathbb{R}}C_{R_{C}}(A)$が成り立つ、または、$m \in C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}$が成り立つ。
+\item
+  $\exists C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}$に対し、$C_{R_{C}}(B) <_{\mathbb{R}}m$が成り立つ、または、$m \in \mathcal{A}$が成り立つ。
+\end{itemize}
+そこで、$C_{R_{C}}(Q)\in \mathcal{A}$または$C_{R_{C}}(Q) \in C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}$が成り立つので、$C_{R_{C}}(Q)\in \mathcal{A}$のとき、仮定より$\exists C_{R_{C}}(A)\in \mathcal{A}$に対し、$C_{R_{C}}(Q) <_{\mathbb{R}}C_{R_{C}}(A)$が得られ、有理数の稠密性より$\exists C_{R_{C}}(C) \in \mathfrak{Q}_{\mathbb{R}}$に対し、$C_{R_{C}}(Q) <_{\mathbb{R}}C_{R_{C}}(C) <_{\mathbb{R}}C_{R_{C}}(A)$が成り立つことになる。そこで、$Q \subset C$かつ$C_{R_{C}}(C)\in \mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}$が成り立つので、定理\ref{1.2.6.32}よりその集合$\mathcal{A \cap}\mathfrak{Q}_{\mathbb{R}}$に対応する有理数の切断$R$は$Q \subset R$を満たすかつ、定理\ref{1.2.6.32}の写像が全単射であることにより$Q = R$が成り立つが、これは矛盾している。$C_{R_{C}}(Q)\in \mathcal{A}$のときもありえないことが同様にして示される。ゆえに、$\forall m \in C_{\mathbb{Q}} /R_{C} $に対し、$m \neq \max\mathcal{A}$かつ$m \neq \min{C_{\mathbb{Q}} /R_{C} \mathcal{\setminus A}}$が成り立つことはない。
+\end{proof}
+%\hypertarget{ux5b9fux6570}{%
+\subsubsection{実数}%\label{ux5b9fux6570}}
+\begin{dfn}
+商集合$C_{\mathbb{Q}} /R_{C} $において、$C_{R_{C}}( - A)$は$C_{R_{C}}\left( - \mathbb{Q}_{< 1} \right) \cdot_{\mathbb{R}}C_{R_{C}}(A)$と書かれることができこれを$- C_{R_{C}}(A)$と書く。また、$C_{R_{C}}\left( \frac{1}{A} \right)$を$\frac{1}{C_{R_{C}}(A)}$と書くことにする。さらに、$C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}\left( \frac{1}{B} \right)$を$\frac{C_{R_{C}}(A)}{C_{R_{C}}(B)}$と書く。
+\end{dfn}
+\begin{dfn}
+集合$\mathcal{R}$、写像たち$+_{\mathcal{R}}\mathcal{:R \times R \rightarrow R}$、$\cdot_{\mathcal{R}}\mathcal{:R \times R \rightarrow R}$、$\forall a\in \mathcal{R}$に対し、$1_{\mathcal{R}} \cdot_{\mathcal{R}}a = a$なる元$1_{\mathcal{R}}$が与えられたとき、ある全単射な写像$F:C_{\mathbb{Q}} /R_{C} \overset{\sim}{\rightarrow}\mathcal{R}$が存在して、次のことが成り立つとき、
+\begin{itemize}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{C}}(A) +_{\mathbb{R}}C_{R_{C}}(B) \right) = F\left( C_{R_{C}}(A) \right) +_{\mathcal{R}}F\left( C_{R_{C}}(B) \right)
+\end{align*}
+\item
+  $\forall C_{R_{C}}(A),C_{R_{C}}(B) \in C_{\mathbb{Q}} /R_{C} $に対し、次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{C}}(A) \cdot_{\mathbb{R}}C_{R_{C}}(B) \right) = F\left( C_{R_{C}}(A) \right) \cdot_{\mathcal{R}}F\left( C_{R_{C}}(B) \right)
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+F\left( C_{R_{C}}\left( \mathbb{Q}_{< 1} \right) \right) = 1_{\mathcal{R}}
+\end{align*}
+\end{itemize}
+その写像$F$を実数の意味で同型な写像といいこのような集合$\mathcal{R}$を$\mathbb{R}$と書きこれの元を実数ということにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.41}
+集合$\mathcal{R}$、写像たち$+_{\mathcal{R}}\mathcal{:R \times R \rightarrow R}$、$\cdot_{\mathcal{R}}\mathcal{:R \times R \rightarrow R}$、$\forall a\in \mathcal{R}$に対し、$1_{\mathcal{R}} \cdot_{\mathcal{R}}a = a$なる元$1_{\mathcal{R}}$が与えられたとき、実数の意味で同型な写像$F$は一意的である。
+\end{thm}
+\begin{proof}
+このような写像が$F$、$G$と与えられたとき、$\forall a\in \mathcal{R}$に対し、$F(a) = G(a)$が成り立つことから従う。
+\end{proof}
+%\hypertarget{ux6b21ux5143ux6570ux7a7aux9593mathbfr2}{%
+\subsubsection{2次元数空間$\mathbb{R}^{2}$}%\label{ux6b21ux5143ux6570ux7a7aux9593mathbfr2}}
+\begin{dfn}
+商集合$C_{\mathbb{Q}} /R_{C} $が与えられたとき、以下、それらの元々$C_{R_{C}}\left( \mathbb{Q}_{< 0} \right)$、$C_{R_{C}}\left( \mathbb{Q}_{< 1} \right)$、これらの写像たち$+_{\mathbb{R}}$、$\cdot_{\mathbb{R}}$、関係$\leq_{\mathbb{R}}$、$<_{\mathbb{R}}$を、以下単に、それぞれ$0_{\mathbb{R}}$、$1_{\mathbb{R}}$、$+$、$\cdot$、$\leq$、$<$と書くことにする。
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{R}$が与えられたとき、その集合$\mathbb{R}^{2}$を2次元数空間という。
+\end{dfn}
+%\hypertarget{ux6b21ux5143ux6570ux7a7aux9593mathbfr2ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}{%
+\subsubsection{2次元数空間$\mathbb{R}^{2}$から誘導されるPeano系}%\label{ux6b21ux5143ux6570ux7a7aux9593mathbfr2ux304bux3089ux8a98ux5c0eux3055ux308cux308bpeanoux7cfb}}
+\begin{dfn}
+次式のように集合$\mathfrak{N}_{\mathbb{C}}$と
+\begin{align*}
+\mathfrak{N}_{\mathbb{C}} = \left\{ (a,b) \in \mathbb{R}^{2} \middle| \exists n \in \mathfrak{N}_{\mathbb{R}}\left[ (a,b) = \left( n,0_{\mathbb{R}} \right) \right] \right\}
+\end{align*}
+写像$\mathfrak{s}_{\mathbb{C}}$が定められる。
+\begin{align*}
+\mathfrak{s}_{\mathbb{C}}:\mathfrak{N}_{\mathbb{C}} \rightarrow \mathfrak{N}_{\mathbb{C}};(a,b) \mapsto \left( a + 1_{\mathbb{R}},b \right)
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.42}
+その組$\left( \mathfrak{N}_{\mathbb{C}},\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right),\mathfrak{s}_{\mathbb{C}} \right)$はPeano系となる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.3}と同様にして示される。
+\end{proof}
+\begin{thm}\label{1.2.6.43}
+上記の議論によりその組$\left( \mathfrak{N}_{\mathbb{C}},\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right),\mathfrak{s}_{\mathbb{C}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて次のことを満たす全単射な写像$F:\mathfrak{N}_{\mathbb{C}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになり、
+\begin{itemize}
+\item
+  $F\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right) = 0$が成り立つ。
+\item
+  $F \circ \mathfrak{s}_{\mathbb{C}} = 1 + \circ F$が成り立つ。
+\end{itemize}
+ここで、$\forall n \in \mathbb{N}$に対し、次のように書き換えられることができる。
+\begin{align*}
+F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C,0_{\mathbb{R}} \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right)
+\end{align*}
+これにより、その写像$F$は全単射なので、これの逆対応$F^{- 1}$が写像になり次式が成り立つ。
+\begin{align*}
+F^{- 1}(n) = \left( C_{R_{C}}\left( \left\{ q \in \mathbb{Q} \middle| q \leq C_{R_{\frac{}{}}}\left( C_{R_{-}}(n,0),1_{\mathbb{Z}} \right) \right\} \right),0_{\mathbb{R}} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.42}に注意すれば、数学的帰納法により直ちに示される。
+\end{proof}
+%\hypertarget{ux6b21ux5143ux6570ux7a7aux9593mathbfr2ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}{%
+\subsubsection{2次元数空間$\mathbb{R}^{2}$の加法と乗法}%\label{ux6b21ux5143ux6570ux7a7aux9593mathbfr2ux306eux52a0ux6cd5ux3068ux4e57ux6cd5}}
+\begin{dfn}
+2次元数空間$\mathbb{R}^{2}$の元々$(a,b)$、$(c,d)$を考え次式のように加法$+_{\mathbb{C}}$、乗法$\cdot_{\mathbb{C}}$を定義する。
+\begin{align*}
++_{\mathbb{C}}&:\mathbb{R}^{2} \times \mathbb{R}^{2} \rightarrow \mathbb{R}^{2};\\
+&\left( (a,b),(c,d) \right) \mapsto (a,b) +_{\mathbb{C}}(c,d) = (a + c,b + d)\\
+\cdot_{\mathbb{C}}&:\mathbb{R}^{2} \times \mathbb{R}^{2} \rightarrow \mathbb{R}^{2};\\
+&\left( (a,b),(c,d) \right) \mapsto (a,b) \cdot_{\mathbb{C}}(c,d) = (ac - bd,ad + bc)
+\end{align*}
+\end{dfn}
+\begin{dfn}
+次のような写像$\overline{\bullet}$を考え$\forall(a,b) \in \mathbb{R}^{2}$に対する$\overline{(a,b)}$をその元$(a,b)$の共役複素数という。
+\begin{align*}
+\overline{\bullet}:\mathbb{R}^{2} \rightarrow \mathbb{R}^{2};(a,b) \mapsto \overline{(a,b)} = (a, - b)
+\end{align*}
+\end{dfn}
+\begin{dfn}
+次のような写像$| \bullet |$を考え$\forall(a,b) \in \mathbb{R}^{2}$に対する$\left| (a,b) \right|$をその元$(a,b)$の絶対値という。
+\begin{align*}
+| \bullet |:\mathbb{R}^{2} \rightarrow \mathbb{R};(a,b) \mapsto \left| (a,b) \right| = \sqrt{a^{2} + b^{2}}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{1.2.6.44}
+その組$\left( \mathfrak{N}_{\mathbb{C}},\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right),\mathfrak{s}_{\mathbb{C}} \right)$はPeano系となるのであったので、もう1つのPeano系$\left( \mathbb{Z}_{\geq 0},0,1 + \right)$を用いて$F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C,0_{\mathbb{R}} \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),\ \ 1_{\mathbb{Z}} \right)$なる全単射な写像$F:\mathfrak{N}_{\mathbb{C}}\overset{\sim}{\rightarrow}\mathbb{Z}_{\geq 0}$が一意的に存在することになるのであった。このとき、それらの写像たち$+_{\mathbb{C}}$、$\cdot_{\mathbb{C}}$はそのPeano系$\left( \mathfrak{N}_{\mathbb{C}},\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right),\mathfrak{s}_{\mathbb{C}} \right)$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+定理\ref{1.2.6.42}を用いてPeano系での加法の乗法の定義に照らし合わせればよい。
+\end{proof}
+\begin{thm}\label{1.2.6.45}
+2次元数空間$\mathbb{R}^{2}$が与えられたとき、次式のように集合$\mathfrak{Z}_{\mathbb{C}}$が定められると、
+\begin{align*}
+\mathfrak{Z}_{\mathbb{C}} = \left\{ (a,b) \in \mathbb{R}^{2} \middle| \exists n \in \mathfrak{Z}_{\mathbb{R}}\left[ (a,b) = \left( n,0_{\mathbb{R}} \right) \right] \right\}
+\end{align*}
+$F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C,0_{\mathbb{R}} \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),\ 1_{\mathbb{Z}} \right)$なる整数の意味で同型な写像$F:\mathfrak{Z}_{\mathbb{C}}\overset{\sim}{\rightarrow}\mathbb{Z}$が一意的に存在し、それらの写像たち$+_{\mathbb{C}}$、$\cdot_{\mathbb{C}}$はその集合$\mathbb{Z}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+整数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.9}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.46}
+2次元数空間$\mathbb{R}^{2}$が与えられたとき、次式のように集合$\mathfrak{Q}_{\mathbb{C}}$が定められると、
+\begin{align*}
+\mathfrak{Q}_{\mathbb{C}} = \left\{ (a,b) \in \mathbb{R}^{2} \middle| \exists n \in \mathfrak{Q}_{\mathbb{R}}\left[ (a,b) = \left( n,0_{\mathbb{R}} \right) \right] \right\}
+\end{align*}
+$F\left( \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C,0_{\mathbb{R}} \right) = n,\ \ \max_{C \in C_{R_{C}}(A) \in \mathfrak{Q}_{\mathbb{R}}}C = C_{R_{/}}\left( C_{R_{-}}(n,0),\ 1_{\mathbb{Z}} \right)$なる有理数の意味で同型な写像$F:\mathfrak{Q}_{\mathbb{C}}\overset{\sim}{\rightarrow}\mathbb{Q}$が一意的に存在し、それらの写像たち$+_{\mathbb{C}}$、$\cdot_{\mathbb{C}}$はその集合$\mathbb{Q}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+有理数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.19}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.47}
+2次元数空間$\mathbb{R}^{2}$が与えられたとき、次式のように集合$\mathfrak{R}_{\mathbb{C}}$が定められると、
+\begin{align*}
+\mathfrak{R}_{\mathbb{C}} = \left\{ (a,b) \in \mathbb{R}^{2} \middle| b = 0 \right\}
+\end{align*}
+$F(a,b) = a$なる実数の意味で同型な写像$F:\mathfrak{R}_{\mathbb{C}}\overset{\sim}{\rightarrow}\mathbb{R}$が一意的に存在し、それらの写像たち$+_{\mathbb{C}}$、$\cdot_{\mathbb{C}}$はその集合$\mathbb{R}$での加法$+$と乗法$\cdot$にあたる。
+\end{thm}
+\begin{proof}
+実数の意味で同型な写像の定義にあてはめれて計算すればよい。あとは、定理\ref{1.2.6.41}から従う。
+\end{proof}
+\begin{thm}\label{1.2.6.48}
+これらの写像たち$+_{\mathbb{C}}$、$\cdot_{\mathbb{C}}$について次のことが成り立つ\footnote{つまりその集合$\mathbb{R}^{2}$は体になることを述べている。}。
+\begin{itemize}
+\item
+  $\forall(a,b),(c,d),(e,f) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) +_{\mathbb{C}}\left( (c,d) +_{\mathbb{C}}(e,f) \right) = \left( (a,b) +_{\mathbb{C}}(c,d) \right) +_{\mathbb{C}}(e,f)
+\end{align*}
+\item
+  $\forall(a,b) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) +_{\mathbb{C}}\left( 0_{\mathbb{R}},0_{\mathbb{R}} \right) = (a,b)
+\end{align*}
+\item
+  $\forall(a,b) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) +_{\mathbb{C}}( - a, - b) = \left( 0_{\mathbb{R}},0_{\mathbb{R}} \right)
+\end{align*}
+\item
+  $\forall(a,b),(c,d) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) +_{\mathbb{C}}(c,d) = (c,d) +_{\mathbb{C}}(a,b)
+\end{align*}
+\item
+  $\forall(a,b),(c,d),(e,f) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) \cdot_{\mathbb{C}}\left( (c,d) \cdot_{\mathbb{C}}(e,f) \right) = \left( (a,b) \cdot_{\mathbb{C}}(c,d) \right) \cdot_{\mathbb{C}}(e,f)
+\end{align*}
+\item
+  $\forall(a,b) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) \cdot_{\mathbb{C}}\left( 1_{\mathbb{R}},0_{\mathbb{R}} \right) = (a,b)
+\end{align*}
+\item
+  $\forall(a,b),(c,d) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) \cdot_{\mathbb{C}}(c,d) = (c,d) \cdot_{\mathbb{C}}(a,b)
+\end{align*}
+\item
+  $\forall(a,b),(c,d),(e,f) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+(a,b) \cdot_{\mathbb{C}}\left( (c,d) +_{\mathbb{C}}(e,f) \right) = \left( (a,b) \cdot_{\mathbb{C}}(c,d) \right) +_{\mathbb{C}}\left( (a,b) \cdot_{\mathbb{C}}(e,f) \right)
+\end{align*}
+\item
+  $\forall(a,b) \in \mathbb{R}^{2}$に対し、$(a,b) \neq \left( 0_{\mathbb{R}},0_{\mathbb{R}} \right)$が成り立つなら、次式が成り立つ。
+\begin{align*}
+(a,b) \cdot_{\mathbb{C}}\left( \frac{a}{a^{2} + b^{2}},\frac{- b}{a^{2} + b^{2}} \right) = \left( 1_{\mathbb{R}},0_{\mathbb{R}} \right)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+実際に計算すればよい。
+\end{proof}
+%\hypertarget{ux8907ux7d20ux6570}{%
+\subsubsection{複素数}%\label{ux8907ux7d20ux6570}}
+\begin{dfn}
+2次元数空間$\mathbb{R}^{2}$において、$( - a, - b)$は$\left( - 1_{\mathbb{R}}, - 1_{\mathbb{R}} \right) \cdot_{\mathbb{C}}(a,b)$と書かれることができこれを$- (a,b)$と書く。また、$\left( \frac{a}{a^{2} + b^{2}},\frac{- b}{a^{2} + b^{2}} \right)$を$\frac{1}{(a,b)}$と書くことにする。さらに、$(a,b) \cdot_{\mathbb{C}}\left( \frac{c}{c^{2} + d^{2}},\frac{- d}{c^{2} + d^{2}} \right)$を$\frac{(a,b)}{(c,d)}$と書く。$\left( 0_{\mathbb{R}},b \right)$を$\left( b,0_{\mathbb{R}} \right)i$と書く。特に、$(a,b)$は$\left( a,0_{\mathbb{R}} \right) +_{\mathbb{C}}\left( 0_{\mathbb{R}},b \right)$と書かれることができこれを$\left( a,0_{\mathbb{R}} \right) +_{\mathbb{C}}\left( b,0_{\mathbb{R}} \right)i$と書く。ここで、$(a,b)$に対し、$\left( a,0_{\mathbb{R}} \right)$、$\left( b,0_{\mathbb{R}} \right)$をそれぞれその$(a,b)$の実部、虚部といい${Re}(a,b)$、${Im}(a,b)$などと書く。
+\end{dfn}
+\begin{dfn}
+集合$\mathcal{C}$、写像たち$+_{\mathcal{C}}\mathcal{:C \times C \rightarrow C}$、$\cdot_{\mathcal{C}}\mathcal{:C \times C \rightarrow C}$、$\forall z \in \mathcal{C}$に対し、$1_{\mathcal{C}} \cdot_{\mathcal{C}}z = z$なる元$1_{\mathcal{C}}$が与えられたとき、ある全単射な写像$F:\mathbb{R}^{2}\overset{\sim}{\rightarrow}\mathcal{C}$が存在して、次のことが成り立つとき、
+\begin{itemize}
+\item
+  $\forall(a,b),(c,d) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+F\left( (a,b) +_{\mathbb{C}}(c,d) \right) = F(a,b) +_{\mathcal{C}}F(c,d)
+\end{align*}
+\item
+  $\forall(a,b),(c,d) \in \mathbb{R}^{2}$に対し、次式が成り立つ。
+\begin{align*}
+F\left( (a,b) \cdot_{\mathbb{C}}(c,d) \right) = F(a,b) \cdot_{\mathcal{C}}F(c,d)
+\end{align*}
+\item
+  次式が成り立つ。
+\begin{align*}
+F\left( 1_{\mathbb{R}},0_{\mathbb{R}} \right) = 1_{\mathcal{C}}
+\end{align*}
+\end{itemize}
+その写像$F$を複素数の意味で同型な写像といいこのような集合$\mathcal{C}$を$\mathbb{C}$と書きこれの元を複素数ということにする。
+\end{dfn}
+\begin{thm}\label{1.2.6.49}
+集合$\mathcal{C}$、写像たち$+_{\mathcal{C}}\mathcal{:C \times C \rightarrow C}$、$\cdot_{\mathcal{C}}\mathcal{:C \times C \rightarrow C}$、$\forall z \in \mathcal{C}$に対し、$1_{\mathcal{C}} \cdot_{\mathcal{C}}z = z$なる元$1_{\mathcal{C}}$が与えられたとき、複素数の意味で同型な写像$F$は一意的である。
+\end{thm}
+\begin{proof}
+このような写像が$F$、$G$と与えられたとき、$\forall z \in \mathcal{C}$に対し、$F(z) = G(z)$が成り立つことから従う。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p87-90 ISBM978-4-00-029871-1
+\bibitem{2}
+  松坂和夫, 代数系入門, 岩波書店, 1976. 新装版第2 刷 p130-135,326-336 ISBM978-4-00-029871-1
+\bibitem{3}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p1-11 ISBN978-4-13-062005-5
+\bibitem{4}
+  河村央也. "整数と有理数の構成". Aozora Gakuen. \url{http://aozoragakuen.sakura.ne.jp/suuron/node87.html}
+  (2021-7-26 17:20 閲覧)
+\bibitem{5}
+  市原一裕. "整数の構成　有理数の構成". 日本大学. \url{http://www.math.chs.nihon-u.ac.jp/~ichihara/Labo/Notes/2010/3rd/0705.pdf} (2021-7-26 17:25 取得)
+\bibitem{6}
+  原隆. "実数の構成に関するノート - 九州大学". 九州大学. \url{https://www2.math.kyushu-u.ac.jp/~hara/lectures/07/realnumbers.pdf} (2022-9-11 11:21 取得)
+\bibitem{7}
+  田崎晴明. "実数の構成について". 学習院大学. \url{https://www.gakushuin.ac.jp/~881791/modphys/11/RealNote1105.pdf} (2022-9-12 13:56 閲覧)
+\bibitem{8}
+  守屋悦朗. "数をつくる（4） - Waseda". 早稲田大学. \url{http://www.f.waseda.jp/moriya/PUBLIC_HTML/social/defining_real_numbers.pdf} (2022-9-12 13:58 閲覧)
+\bibitem{9}
+  尾畑伸明. "第16章 整数・有理数・実数". 東北大学. \url{https://www.math.is.tohoku.ac.jp/~obata/student/subject/TaikeiBook/Taikei-Book_16.pdf} (2022-9-12 13:59 閲覧)
+\bibitem{10}
+  河村央也. "実数の構成". Aozora Gakuen. \url{http://aozoragakuen.sakura.ne.jp/kyouin/RIMS18/node13.html} (2022-9-12 14:03 閲覧)\footnote{なぜ参考文献の閲覧履歴がそんなに急ピッチなのかといいますと、もともとスマホでみたり保存してたりしたものをURLを拾うためにPCで次々とみてしまったためです。}
+\end{thebibliography}
+\end{document}

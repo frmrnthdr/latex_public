@@ -1,0 +1,689 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{1}
+\setcounter{subsection}{3}
+\usepackage{xr}
+\externaldocument{4.1.1}
+\externaldocument{4.1.3}
+\input{macro}
+\begin{document}
+%\hypertarget{ux70b9ux5217}{%
+\subsection{点列}%\label{ux70b9ux5217}}
+%\hypertarget{ux70b9ux5217-1}{%
+\subsubsection{点列}%\label{ux70b9ux5217-1}}
+\begin{dfn}
+集合$\mathbb{N}$から1つの集合$A$への写像$a$のことをその集合$A$の元の無限列といい、自然数$n$のその写像$a$による像$a(n)$を$a_{n}$と、その写像$a$を$a_{1},a_{2},\cdots,a_{n},\cdots$、$\left( a_{n} \right)_{n \in \mathbb{N}}$、または単に$\left( a_{n} \right)$などと、その集合$A$の元の無限列$\left( a_{n} \right)_{n \in \mathbb{N}}$の値域$V\left( \left( a_{n} \right)_{n \in \mathbb{N}} \right)$を$\left\{ a_{1},a_{2},\cdots,a_{n},\cdots \right\}$、$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$、$\left\{ a_{n} \right\}$などと書く。このような無限列全体の集合を$A^{\mathbb{N}}$と書くことがある。
+\end{dfn}
+\begin{dfn}
+集合$\varLambda_{n}$から1つの集合$A$への写像$a$のことをその集合$A$の元の長さ$n$の有限列といい、$i \in \varLambda_{n}$なる自然数$i$のその写像$a$による像$a(i)$を$a_{i}$と、その写像$a$を$a_{1},a_{2},\cdots,a_{i},\cdots,a_{n}$、$\left( a_{i} \right)_{i \in \varLambda_{n}}$、$\left( a_{i} \right)_{1 \leq i \leq n}$などと、その集合$A$の元の長さ$n$の有限列$\left( a_{i} \right)_{i \in \varLambda_{n}}$の値域$V\left( \left( a_{i} \right)_{i \in \varLambda_{n}} \right)$を$\left\{ a_{1},a_{2},\cdots,a_{i},\cdots,a_{n} \right\}$、$\left\{ a_{i} \right\}_{i \in \varLambda_{n}}$、$\left\{ a_{i} \right\}_{1 \leq i \leq n}$などと書く。
+\end{dfn}
+\begin{dfn}
+集合$A$の元の無限列をその集合$A$の元の列という。文献によっては、その集合$A$の元の無限列と元の有限列を合わせてその集合$A$の元の列という場合があることに注意されたい。元$a_{n}$をこの元の列の第$n$項といい、特に集合$\mathbb{R}$の無限列を実数列、集合$\mathbb{C}$の無限列を複素数列、集合$\mathbb{R}^{n}$の無限列を点列という。
+\end{dfn}
+%\hypertarget{ux70b9ux5217ux306eux6975ux9650}{%
+\subsubsection{点列の極限}%\label{ux70b9ux5217ux306eux6975ux9650}}
+\begin{dfn}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとき、即ち、任意の正の実数$\varepsilon$どのように与えられても、何らかしらで自然数$N$が存在して、任意の自然数$m$がその自然数$N$より大きくなれば、第$m$項$\mathbf{a}_{m}$がその点$\mathbf{a}$の$\varepsilon$近傍に入ることができるとき、その点$\mathbf{a}$にその集合$R$の広い意味で収束するといい、逆に、どの点$\mathbf{a}$に収束しないとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はその集合$R$で振動するという。\par
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして定義される。
+\end{dfn}
+\begin{dfn}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R \setminus \left\{ a_{\infty} \right\}$としてその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとき、即ち、$\mathbf{a}_{m} \in R$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つとき、その点$\mathbf{a}$にその集合$R$で収束するといい、逆に、どの点$\mathbf{a}$に収束しないとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はその集合$R$で発散するという。
+\end{dfn}
+\begin{dfn}
+$R \in \mathfrak{P}\left({}^{*}\mathbb{R} \right)$としてその集合$R$の実数列$\left( a_{m} \right)_{m \in \mathbb{N}}$が、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$a_{m} \in U( \pm \infty,\varepsilon) \cap R$が成り立つとき、即ち、$a_{m} \in R$かつ$\varepsilon < \pm a_{m}$が成り立つとき、正負の順でそれぞれその集合$R$で正の無限大に、負の無限大に発散するという。また、$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R \setminus \left\{ a_{\infty} \right\}$としてその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( a_{\infty},\varepsilon \right) \cap R$が成り立つとき、即ち、$\mathbf{a}_{m} \in R$かつ$\varepsilon < \left\| \mathbf{a}_{m} \right\|$が成り立つとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$はその集合$R$で無限大に発散するという。
+\end{dfn}
+\begin{dfn}
+上の式、またはこの式を用いた議論を点列の極限の$\varepsilon$-$N$論法という。このことは次式のように表されその点$\mathbf{a}$はその点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の広い意味での極限値、極限などといい、特に、$\mathbf{a} \in \mathbb{R}^{n}$のとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の極限値、極限などという。
+\begin{align*}
+\mathbf{a}_{m} \rightarrow \mathbf{a}\ (m \rightarrow \infty),\ \ \mathbf{a}_{m} \rightarrow \mathbf{a}\ \mathrm{as}\ m \rightarrow \infty
+\end{align*}
+実はのちに述べるようにその点$\mathbf{a}$はただ1つのみ存在するので、その点$\mathbf{a}$は次のように書かれるときがある。
+\begin{align*}
+\mathbf{a} = \lim_{\scriptsize \begin{matrix} m \rightarrow \infty \\ R \\\end{matrix}}\mathbf{a}_{m}
+\end{align*}
+また、$R = \mathbb{R}^{n}$のときは単に次のように書かれる。
+\begin{align*}
+\mathbf{a} = \lim_{m \rightarrow \infty}\mathbf{a}_{m}
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.1.4.1}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a} \in R$に対し、その集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、その自然数$N$と正の実数$\varepsilon$によらない任意の正の実数$k$を用いて$\mathbf{a}_{m} \in U\left( \mathbf{a},k\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in \overline{U}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\end{itemize}\par
+また、$R \in \mathfrak{P}\left( \mathbb{R}^{n} \right)$のとき、次のことも同値である。
+\begin{itemize}
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、その自然数$N$と正の実数$\varepsilon$によらない任意の正の実数$k$を用いて$\varepsilon < k$かつ$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in R$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つ。
+\end{itemize}\par
+また、次のことも同値である。
+\begin{itemize}
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( a_{\infty},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、その自然数$N$と正の実数$\varepsilon$によらない任意の正の実数$k$を用いて$k < \varepsilon$かつ$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in R$かつ$\varepsilon < \left\| \mathbf{a}_{m} \right\|$が成り立つ。
+\end{itemize}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。\par
+さらに、$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a},\mathbf{b} \in R$に対し、その集合$R$の点列たち$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{b}_{m} \in U\left( \mathbf{b},\varepsilon \right) \cap R$が成り立つ。
+\item
+  $\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$かつ$\mathbf{b}_{m} \in U\left( \mathbf{b},\varepsilon \right) \cap R$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a} \in R$に対し、その集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとき、その正の実数$\varepsilon$の任意性より明らかに、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、その自然数$N$と正の実数$\varepsilon$によらない任意の正の実数$k$を用いて$\mathbf{a}_{m} \in U\left( \mathbf{a},k\varepsilon \right) \cap R$が成り立つ。逆も同様である。\par
+$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとき、明らかに$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in \overline{U}\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとしてもよい。逆は、$\mathbf{a} \in \mathbb{R}^{n}$のとき$\frac{\varepsilon}{2}$で、$\mathbf{a} = a_{\infty}$のとき$2\varepsilon$で考えればよい。\par
+$R \in \mathfrak{P}\left( \mathbb{R}^{n} \right)$のとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとき、明らかに、その自然数$N$と正の実数$\varepsilon$によらない任意の正の実数$k$を用いて$\varepsilon < k$かつ$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つとしてもよい。逆では、$k \leq \varepsilon$のとき正の実数$\varepsilon$の代わりに$\varepsilon' < k$なる正の実数$\varepsilon'$で考えれば、$\varepsilon' < \varepsilon$が成り立つことにより明らかである。\par
+また、無限大においても同様である。\par
+さらに、$\forall R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)\forall\mathbf{a},\mathbf{b} \in R$に対し、その集合$R$の点列たち$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists M \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{b}_{m} \in U\left( \mathbf{b},\varepsilon \right) \cap R$が成り立つとき、$N' = \max\left\{ M,N \right\}$とおかれれば、論理和の分配則により、$\forall\varepsilon \in \mathbb{R}^{+}\exists N' \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N' \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$かつ$\mathbf{b}_{m} \in U\left( \mathbf{b},\varepsilon \right) \cap R$が成り立つ。逆は自明である。
+\end{proof}
+\begin{thm}\label{4.1.4.2}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$のその集合$R$の広い意味での極限値$\mathbf{a}$が存在すれば、これはただ1つである。\par
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとする。その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$のその集合$R$の広い意味での極限値が存在するとき、これらが2つの互いに異なる$n$次元数空間$\mathbb{R}^{n}$の点々$\mathbf{a}$、$\mathbf{b}$であったとする。このとき、定理\ref{4.1.4.1}より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$かつ$\left\| \mathbf{a}_{m} - \mathbf{b} \right\| < \varepsilon$が成り立つ。$\left\| \mathbf{a - b} \right\| = 2\varepsilon$とおくと、$\left\| \mathbf{a} - \mathbf{a}_{m} \right\| + \left\| \mathbf{a}_{m} - \mathbf{b} \right\| < 2\varepsilon$が得られ、三角不等式より$0 < \left\| \mathbf{a - b} \right\| \leq \left\| \mathbf{a} - \mathbf{a}_{m} \right\| + \left\| \mathbf{a}_{m} - \mathbf{b} \right\| < 2\varepsilon$も得られる。ここで、仮定より$2\varepsilon = \left\| \mathbf{a - b} \right\| \leq \left\| \mathbf{a} - \mathbf{a}_{m} \right\| + \left\| \mathbf{a}_{m} - \mathbf{b} \right\| < 2\varepsilon$が得られるが、これは矛盾している。\par
+その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の広い意味での極限値が存在するとき、これらが$n$次元数空間$\mathbb{R}^{n}$の点$\mathbf{a}$と無限大$a_{\infty}$であったとする。このとき、定理\ref{4.1.4.1}より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$かつ$2\varepsilon < \left\| \mathbf{a}_{m} \right\|$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon \land 2\varepsilon < \left\| \mathbf{a}_{m} \right\| &\Leftrightarrow \left\| \mathbf{a}_{m} \right\| - \left\| \mathbf{a} \right\| \leq \left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon \land - \left\| \mathbf{a}_{m} \right\| < - 2\varepsilon\\
+&\Rightarrow \left\| \mathbf{a}_{m} \right\| - \left\| \mathbf{a} \right\| < \varepsilon \land - \left\| \mathbf{a}_{m} \right\| < - 2\varepsilon\\
+&\Rightarrow - \left\| \mathbf{a} \right\| < - \varepsilon\\
+&\Leftrightarrow 0 < \frac{1}{\left\| \mathbf{a} \right\|} < \varepsilon\\
+&\Rightarrow 0 < \frac{1}{\left\| \mathbf{a} \right\|} = 0
+\end{align*}
+これは矛盾している。\par
+以上背理法により、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の広い意味での極限値$\mathbf{a}$が存在すれば、これはただ1つである。
+\end{proof}
+\begin{thm}\label{4.1.4.3}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列たち$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$のその集合$R$の広い意味での極限値$\mathbf{a}$が存在するかつ、次式が成り立つなら、
+\begin{align*}
+\#\left\{ m \in \mathbb{N} \middle| \mathbf{a}_{m} \neq \mathbf{b}_{m} \right\} < \aleph_{0}
+\end{align*}
+その点列$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$もその集合$R$の広い意味での極限値$\mathbf{a}$をもつ。\par
+この定理は有限個の項が異なる点列であっても、広い意味での極限値は一致するということを主張している。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$R \in \mathfrak{P}\left( \mathbb{R}_{\infty}^{n} \right)$、$\mathbf{a} \in R$としてその集合$R$の点列たち$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$が与えられたとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$のその集合$R$の広い意味での極限値$\mathbf{a}$が存在するかつ、次式が成り立つとする。
+\begin{align*}
+\#A < \aleph_{0},\ \ A = \left\{ m \in \mathbb{N} \middle| \mathbf{a}_{m} \neq \mathbf{b}_{m} \right\}
+\end{align*}
+このとき、次のように自然数$M$が定義されることができて、
+\begin{align*}
+M = \max A + 1
+\end{align*}
+$\exists m \in \mathbb{N}$に対し、$M \leq m$が成り立つかつ、$\mathbf{a}_{m} \neq \mathbf{b}_{m}$が成り立つと仮定すると、$m \in A$が得られ、$\max A < \max A + 1 = M \leq m$も得られるが、これは矛盾している。したがって、$\forall m \in \mathbb{N}$に対し、$M \leq m$が成り立つなら、$\mathbf{a}_{m} = \mathbf{b}_{m}$が成り立つ。\par
+そこで、仮定より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つので、次のように自然数$N'$がおかれれば、
+\begin{align*}
+N' = \max\left\{ M,N \right\}
+\end{align*}
+$\exists N' \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N' \leq m$が成り立つなら、$M \leq m$も成り立つので、$\mathbf{a}_{m} = \mathbf{b}_{m}$が得られるかつ、$N \leq m$も成り立つので、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$も成り立つ。したがって、$\mathbf{b}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$も得られる。よって、その点列$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$もその集合$R$の広い意味での極限値$\mathbf{a}$をもつ。
+\end{proof}
+\begin{thm}\label{4.1.4.4}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$が与えられたとき、これのその集合$R$における閉包$\mathrm{cl}_{R}A$について、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つならそのときに限り、その点$\mathbf{a}$にその集合$R$の広い意味で収束するその集合$A$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}:\mathbb{N} \rightarrow A$が存在する。\par
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$が与えられたとき、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つならそのときに限り、$\mathbf{a} \in R$かつ、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U\left( \mathbf{a},\varepsilon \right) \cap A \neq \emptyset$が成り立つ。$\mathbf{a} \in \mathbb{R}^{n}$のとき、$\forall m \in \mathbb{N}$に対し、$U\left( \mathbf{a},\frac{1}{m} \right) \cap A \neq \emptyset$が成り立ち、$\exists\mathbf{a}_{m} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a}_{m} \in U\left( \mathbf{a},\frac{1}{m} \right) \cap A$が成り立つ、即ち、$\mathbf{a}_{m} \in A$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \frac{1}{m}$が成り立つので、このようにしてその集合$A$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}:\mathbb{N} \rightarrow A$が定義されれば、定理\ref{4.1.1.22}、即ち、Archimedesの性質より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}$に対し、$\frac{1}{N} < \varepsilon$が成り立つ。これにより、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、次式が成り立つ、
+\begin{align*}
+\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \frac{1}{m} \leq \frac{1}{N} < \varepsilon
+\end{align*}
+即ち、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right)$が成り立つ。$\mathbf{a} = a_{\infty}$のとき、$\forall m \in \mathbb{N}$に対し、$U\left( a_{\infty},m \right) \cap A \neq \emptyset$が成り立ち、$\exists\mathbf{a}_{m} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a}_{m} \in U\left( a_{\infty},m \right) \cap A$が成り立つ、即ち、$\mathbf{a}_{m} \in A$かつ$m < \left\| \mathbf{a}_{m} \right\|$が成り立つので、このようにしてその集合$A$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}:\mathbb{N} \rightarrow A$が定義されれば、定理\ref{4.1.1.22}、即ち、Archimedesの性質より$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}$に対し、$\varepsilon < N$が成り立つ。これにより、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、次式が成り立つ、
+\begin{align*}
+\varepsilon < N \leq m < \left\| \mathbf{a}_{m} \right\|
+\end{align*}
+即ち、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right)$が成り立つ。もちろん、$\mathbf{a}_{m} \in R$なので、以上の議論により、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。\par
+逆に、その点$\mathbf{a}$にその集合$R$の広い意味で収束するその集合$A$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}:\mathbb{N} \rightarrow A$が存在するなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つので、特に、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U(\alpha,\varepsilon) \cap A \neq \emptyset$が成り立つ。よって、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つ。\par
+以上の議論により、示すべきことが示された。
+\end{proof}
+\begin{thm}\label{4.1.4.5}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$が与えられたとき、この集合$A$がその集合$R$における閉集合であるならそのときに限り、その集合$A$の任意の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これが広い意味で収束するなら、その集合$R$での広い意味での極限値はその集合$A$に属する。\par
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\end{thm}
+\begin{proof}
+$A \subseteq R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$A$が与えられたとき、この集合$A$がその集合$R$における閉集合であるならそのときに限り、$A = \mathrm{cl}_{R}A$が成り立つ。そこで、その集合$A$の任意の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これが広い意味で収束するなら、定理\ref{4.1.4.4}よりその集合$R$での広い意味での極限値$\mathbf{a}$について、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つので、よって、その極限値$\mathbf{a}$はその集合$A$に属する\footnote{$p \Leftrightarrow \exists x \in X\left[ q(x) \right] \Leftrightarrow \forall x \in X\left[ p \Leftrightarrow q(x) \right]$という式変形をしていることに注意した。}。\par
+逆に、その集合$A$の任意の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$に対し、これが広い意味で収束するなら、その集合$R$での広い意味での極限値がその集合$A$に属するなら、$\forall\mathbf{a} \in \mathbb{R}_{\infty}^{n}$に対し、$\mathbf{a} \in \mathrm{cl}_{R}A$が成り立つなら、定理\ref{4.1.4.4}よりその点$\mathbf{a}$にその集合$R$の広い意味で収束するその集合$A$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}:\mathbb{N} \rightarrow A$が存在する。そこで、仮定より$\mathbf{a} \in A$が成り立つので、$\mathrm{cl}_{R}A \subseteq A$が得られる。あとは定理\ref{4.1.3.10}よりその集合$A$がその集合$R$における閉集合である。
+\end{proof}
+%\hypertarget{ux70b9ux5217ux306eux6975ux9650ux306eux53ceux675f}{%
+\subsubsection{点列の極限の収束}%\label{ux70b9ux5217ux306eux6975ux9650ux306eux53ceux675f}}
+\begin{thm}\label{4.1.4.6}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、その集合$R$で点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が点$\mathbf{a}$に収束するならそのときに限り、$\mathbf{a}_{m} = \left( a_{m,k} \right)_{k \in \varLambda_{n}}$、$\mathbf{a} = \left( a_{k} \right)_{k \in \varLambda_{n}}$として、$\forall k \in \varLambda_{n}$に対し、$\mathbf{a}_{m} \in R$かつその実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$がその実数$a_{k}$に収束する。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、その集合$R$で点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が点$\mathbf{a}$に収束するなら、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\mathbf{a}_{m} \in R$かつ$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つ。そこで、$\mathbf{a}_{m} = \left( a_{m,k} \right)_{k \in \varLambda_{n}}$、$\mathbf{a} = \left( a_{k} \right)_{k \in \varLambda_{n}}$として、$\forall k \in \varLambda_{n}$に対し、次式が成り立つので、
+\begin{align*}
+\left| a_{m,k} - a_{k} \right|^{2} \leq \sum_{k \in \varLambda_{n}} \left| a_{m,k} - a_{k} \right|^{2} = \left\| \mathbf{a}_{m} - \mathbf{a} \right\|^{2} < \varepsilon^{2}
+\end{align*}
+$\left| a_{m,k} - a_{k} \right| < \varepsilon$が得られる。よって、$\forall k \in \varLambda_{n}$に対し、$\mathbf{a}_{m} \in R$かつその実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$がその実数$a_{k}$に収束する。\par
+逆に、$\forall k \in \varLambda_{n}$に対し、$\mathbf{a}_{m} \in R$かつその実数列$\left( a_{m,k} \right)_{m \in \mathbb{N}}$がその実数$a_{k}$に収束するとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N_{k} \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N_{k} \leq m$が成り立つなら、$\left| a_{m,k} - a_{k} \right| < \varepsilon$が成り立つ。そこで、次のようにおかれれば、
+\begin{align*}
+N = \max\left\{ N_{k} \right\}_{k \in \varLambda_{n}},\ \ D_{m} = \max\left\{ \left| a_{m,k} - a_{k} \right| \right\}_{k \in \varLambda_{n}}
+\end{align*}
+$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$D_{m} < \varepsilon$が成り立つかつ、$\forall k \in \varLambda_{n}$に対し、$\left| a_{m,k} - a_{k} \right| \leq D_{m}$が成り立つので、次のようになる。
+\begin{align*}
+\left\| \mathbf{a}_{m} - \mathbf{a} \right\|^{2} = \sum_{k \in \varLambda_{n}} \left| a_{m,k} - a_{k} \right|^{2} \leq \sum_{k \in \varLambda_{n}} D_{m}^{2} = nD_{m}^{2} < n\varepsilon^{2}
+\end{align*}
+したがって、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \sqrt{n}\varepsilon$が得られる。よって、その集合$R$で点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$が点$\mathbf{a}$に収束する。
+\end{proof}
+\begin{dfn}
+拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の値域$\left\{ \mathbf{a}_{m} \right\}_{m \in \mathbb{N}}$が有界であるとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界であるという。
+\end{dfn}
+\begin{thm}\label{4.1.4.7}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとき、その集合$R$で収束する点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界である。
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられたとする。$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$がその集合$R$で点$\mathbf{a}$に収束するとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$が成り立つなら、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つので、次式のようにおけば、
+\begin{align*}
+M &= \max\left\{ a \in \mathbb{R}|\exists m \in \varLambda_{N - 1}\left[ a = \left\| \mathbf{a}_{m} \right\| \right] \vee a = \left\| \mathbf{a} \right\| + \varepsilon \right\}\\
+&= \max\left\{ \left\| \mathbf{a}_{1} \right\|,\left\| \mathbf{a}_{2} \right\|,\cdots\left\| \mathbf{a}_{N - 1} \right\|,\left\| \mathbf{a} \right\| + \varepsilon \right\}
+\end{align*}
+$m < N$のとき、即ち、$m \leq N - 1$のとき、$\left\| \mathbf{a}_{m} \right\| \leq M$が成り立つし、$N \leq m$のとき、$\left\| \mathbf{a}_{m} - \mathbf{a} \right\| < \varepsilon$が成り立つので、三角不等式より$\left\| \mathbf{a}_{m} \right\| < \left\| \mathbf{a} \right\| + \varepsilon \leq M$が成り立つ。以上の議論により、$\forall m \in \mathbb{N}$に対し、$\left\| \mathbf{a}_{m} \right\| \leq M$が成り立つ。定理\ref{4.1.3.7}よりよって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$は有界である。
+\end{proof}
+\begin{thm}\label{4.1.4.8}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられ、2つの任意の$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$がそれぞれその集合$R$の極限値$\mathbf{a}$、$\mathbf{b}$に収束するとき、$\forall k,l \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}\left( k\mathbf{a}_{m} + l\mathbf{b}_{m} \right) = k\mathbf{a} + l\mathbf{b}
+\end{align*}
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられ、2つの任意の$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$がそれぞれその集合$R$の極限値$\mathbf{a}$、$\mathbf{b}$に収束するとき、$\forall k,l \in \mathbb{R}$に対し、定理\ref{4.1.4.1}より、$\forall\delta \in \mathbb{R}^{+}\exists M \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$M \leq m$が成り立つなら、$|k|\left\| \mathbf{a}_{m} - \mathbf{a} \right\| \leq |k|\delta$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N \leq m$、が成り立つなら、$|l|\left\| \mathbf{b}_{n} - \mathbf{b} \right\| \leq |l|\varepsilon$が成り立つ。$N' = \max\left\{ M,N \right\}$とすれば、$\forall\varepsilon \in \mathbb{R}^{+}\exists N' \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N' \leq m$が成り立つなら、次のようになるので、
+\begin{align*}
+\left\| \left( k\mathbf{a}_{m} + l\mathbf{b}_{m} \right) - \left( k\mathbf{a} + l\mathbf{b} \right) \right\| &= \left\| k\left( \mathbf{a}_{m} - \mathbf{a} \right) + l\left( \mathbf{b}_{m} - \mathbf{b} \right) \right\|\\
+&\leq \left\| k\left( \mathbf{a}_{m} - \mathbf{a} \right) \right\| + \left\| l\left( \mathbf{b}_{m} - \mathbf{b} \right) \right\|\\
+&= |k|\left\| \mathbf{a}_{m} - \mathbf{a} \right\| + |l|\left\| \mathbf{b}_{n} - \mathbf{b} \right\|\\
+&\leq |k|\varepsilon + |l|\varepsilon = \left( |k| + |l| \right)\varepsilon
+\end{align*}
+$\forall\varepsilon \in \mathbb{R}^{+}\exists N' \in \mathbb{N}\forall m \in \mathbb{N}$に対し、$N' \leq m$が成り立つなら、$\left\| \left( k\mathbf{a}_{m} + l\mathbf{b}_{m} \right) - \left( k\mathbf{a} + l\mathbf{b} \right) \right\| \leq \varepsilon$が成り立つ。よって、次式が成り立つ。
+\begin{align*}
+\lim_{m \rightarrow \infty}\left( k\mathbf{a}_{m} + l\mathbf{b}_{m} \right) = k\mathbf{a} + l\mathbf{b}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.4.9}
+$R \subseteq \mathbb{R}$なる集合$R$が与えられ、2つの任意の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$がそれぞれその集合$R$の極限値$a$、$b$に収束するとき、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{a_{n}b_{n}} &= ab\\
+\lim_{n \rightarrow \infty}\frac{a_{n}}{b_{n}} &= \frac{a}{b}\ \mathrm{if}\ b \neq 0
+\end{align*}
+実数列のかわりに複素数列でおきかえても同様にして示される。
+\end{thm}\par
+これから直ちに分かることとして、次の系が与えられる。
+\begin{thm}\label{4.1.4.9s}
+$R \subseteq \mathbb{R}^{n}$なる集合$R$が与えられ、2つの任意の$n$次元数空間$\mathbb{R}^{n}$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$、$\left( \mathbf{b}_{m} \right)_{m \in \mathbb{N}}$がそれぞれその集合$R$の極限値$\mathbf{a}$、$\mathbf{b}$に収束するとき、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{{}^{t}\mathbf{a}_{n}\mathbf{b}_{n}} ={}^{t}\mathbf{ab}
+\end{align*}
+\end{thm}
+\begin{proof}
+$R \subseteq \mathbb{R}$なる集合$R$が与えられ、2つの任意の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$がそれぞれその集合$R$の極限値$a$、$b$に収束するとき、$\forall\delta \in \mathbb{R}^{+}\exists M \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$M \leq n$が成り立つなら、$\left| a_{n} - a \right| < \delta$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| b_{n} - b \right| < \varepsilon$が成り立つ。$N' = \max\left\{ M,N \right\}$とすれば、したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists N' \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N' \leq n$が成り立つなら、$|b|\left| a_{n} - a \right| \leq |b|\varepsilon$かつ$\left| a_{n} \right|\left| b_{n} - b \right| \leq \left| a_{n} \right|\varepsilon$が成り立つ。したがって、三角不等式より次のようになり
+\begin{align*}
+\left| a_{n}b_{n} - ab \right| &= \left| ba_{n} - ab + a_{n}b_{n} - ba_{n} \right|\\
+&= \left| b\left( a_{n} - a \right) + a_{n}\left( b_{n} - b \right) \right|\\
+&\leq \left| b\left( a_{n} - a \right) \right| + \left| a_{n}\left( b_{n} - b \right) \right|\\
+&\leq |b|\varepsilon + \left| a_{n} \right|\varepsilon
+\end{align*}
+定理\ref{4.1.4.7}より$\exists M \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| < M$が成り立つので、$\left| a_{n}b_{n} - ab \right| \leq \left( |b| + M \right)\varepsilon$が成り立つ。よって、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}{a_{n}b_{n}} = ab
+\end{align*}\par
+また、$b \neq 0$のとき、$\forall\delta \in \mathbb{R}^{+}\exists M \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$M \leq n$が成り立つなら、$\left| a_{n} - a \right| < \delta$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| b_{n} - b \right| < \varepsilon$が成り立つ。ここで、$\varepsilon = \frac{1}{2}|b|$とおけば、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+|b| - \left| b_{n} \right| \leq \left| b_{n} - b \right| < \frac{1}{2}|b| &\Leftrightarrow - \frac{1}{2}|b| < \left| b_{n} \right| - |b|\\
+&\Leftrightarrow \frac{1}{2}|b| < \left| b_{n} \right|
+\end{align*}
+$b \neq 0$よりしたがって、$0 < \left| b_{n} \right|$が成り立つ。これにより、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| a_{n} - a \right| < \varepsilon$かつ$\left| b_{n} - b \right| < \varepsilon$が成り立つ。ここで、次式が成り立つことから、
+\begin{align*}
+\frac{1}{2}|b|^{2} < \left| b_{n} \right||b|
+\end{align*}
+次のようになる。
+\begin{align*}
+\left| b_{n} - b \right| < \varepsilon &\Leftrightarrow \frac{2\left| b_{n} - b \right|}{|b|^{2}} < \frac{2\varepsilon}{|b|^{2}}\\
+&\Leftrightarrow \frac{\left| b_{n} - b \right|}{\left| b_{n} \right||b|} < \frac{\left| b_{n} - b \right|}{\frac{1}{2}|b|^{2}} < \frac{2\varepsilon}{|b|^{2}}\\
+&\Rightarrow \frac{\left| b_{n} - b \right|}{\left| b_{n} \right||b|} < \frac{2\varepsilon}{|b|^{2}}
+\end{align*}
+ここで、次式が成り立つことから、
+\begin{align*}
+\frac{\left| b_{n} - b \right|}{\left| b_{n} \right||b|} = \left| \frac{b_{n} - b}{b_{n}b} \right| = \left| \frac{1}{b} - \frac{1}{b_{n}} \right| = \left| \frac{1}{b_{n}} - \frac{1}{b} \right|
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\left| \frac{1}{b_{n}} - \frac{1}{b} \right| < \frac{2\varepsilon}{|b|^{2}}
+\end{align*}
+したがって、三角不等式より次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+\left| a_{n} - a \right| < \varepsilon \\
+\left| \frac{1}{b_{n}} - \frac{1}{b} \right| \leq \frac{2\varepsilon}{|b|^{2}} \\
+\end{matrix} \right.\  &\Leftrightarrow \left\{ \begin{matrix}
+\left| \frac{1}{b} \right|\left| a_{n} - a \right| < \left| \frac{1}{b} \right|\varepsilon \\
+\left| a_{n} \right|\left| \frac{1}{b_{n}} - \frac{1}{b} \right| \leq \left| a_{n} \right|\frac{2\varepsilon}{|b|^{2}} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\left| \frac{a_{n}}{b} - \frac{a}{b} \right| < \left| \frac{1}{b} \right|\varepsilon \\
+\left| \frac{a_{n}}{b_{n}} - \frac{a_{n}}{b} \right| \leq \left| a_{n} \right|\frac{2\varepsilon}{|b|^{2}} \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left| \frac{a_{n}}{b_{n}} - \frac{a}{b} \right| \leq \left| \frac{a_{n}}{b_{n}} - \frac{a_{n}}{b} \right| + \left| \frac{a_{n}}{b} - \frac{a}{b} \right| \leq \frac{\varepsilon}{|b|} + \frac{2\left| a_{n} \right|\varepsilon}{|b|^{2}}\\
+&\Leftrightarrow \left| \frac{a_{n}}{b_{n}} - \frac{a}{b} \right| \leq \frac{\varepsilon}{|b|} + \frac{2\left| a_{n} \right|\varepsilon}{|b|^{2}}
+\end{align*}
+定理\ref{4.1.4.7}より$\exists M \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| < M$が成り立つので、
+\begin{align*}
+\left| \frac{a_{n}}{b_{n}} - \frac{a}{b} \right| \leq \frac{\varepsilon}{|b|} + \frac{2\left| a_{n} \right|\varepsilon}{|b|^{2}} < \frac{\varepsilon}{|b|} + \frac{2M\varepsilon}{|b|^{2}} = \frac{|b| + 2M}{|b|^{2}}\varepsilon
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}\frac{a_{n}}{b_{n}} = \frac{a}{b}
+\end{align*}
+\end{proof}
+%\hypertarget{ux90e8ux5206ux5217}{%
+\subsubsection{部分列}%\label{ux90e8ux5206ux5217}}
+\begin{dfn}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq a_{n + 1}$、$a_{n} \geq a_{n + 1}$、$a_{n} < a_{n + 1}$、$a_{n} > a_{n + 1}$が成り立つとき、このことをそれぞれ単調増加、単調減少、狭義単調増加、狭義単調減少という。
+\end{dfn}
+\begin{dfn}
+集合$\mathbb{N}$の元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が与えられ、これが狭義単調増加するとき、拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$の点列$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}}$からつくられたその点列$\left( {\mathbf{a}_{n}}_{k} \right)_{k \in \mathbb{N}}$をその点列$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}}$の部分列という。その元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$は1つの写像$\left( n_{k} \right)_{k \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{N};k \mapsto n_{k}$でありその点列$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}}$は1つの写像$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R};n \mapsto \mathbf{a}_{n}$であるので、その部分列$\left( \mathbf{a}_{n_{k}} \right)_{k \in \mathbb{N}}$はその合成写像$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}} \circ \left( n_{k} \right)_{k \in \mathbb{N}}:\mathbb{N} \rightarrow \mathbb{R};k \mapsto a_{n_{k}}$である。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして定義される。
+\end{dfn}
+\begin{thm}\label{4.1.4.10}
+集合$\mathbb{N}$の元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が与えられ、これが狭義単調増加するとき、$\forall k \in \mathbb{N}$に対し、$k \leq n_{k}$が成り立つ。
+\end{thm}
+\begin{proof}
+集合$\mathbb{N}$の元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が与えられ、これが狭義単調増加するとき、$k = 1$のとき、集合$\mathbb{N}$の最小元が存在するので、明らかに$1 \leq n_{1}$が成り立つ。$k = k'$のとき$k' \leq n_{k'}$が成り立つと仮定すると、$k = k' + 1$のとき$k' + 1 \leq n_{k'} + 1$が成り立ち、その元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$が狭義単調増加し集合$\mathbb{N}$は継承的であるので、$n_{k'} \leq n_{k'} + 1 \leq n_{k' + 1}$が成り立ち、したがって、$k' + 1 \leq n_{k' + 1}$が成り立つので、数学的帰納法によって$\forall k \in \mathbb{N}$に対し、$k \leq n_{k}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.4.11}
+$R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$R$が与えられたとする。その集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$がその集合$R$で広い意味で点$\mathbf{a}$に収束するとき、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の任意の部分列もその集合$R$で広い意味でその点$\mathbf{a}$に収束する。
+\end{thm}\par
+これの逆は成り立たないことに注意されたい。拡張$n$次元数空間$\mathbb{R}_{\infty}^{n}$のかわりに補完数直線${}^{*}\mathbb{R}$でおきかえても同様にして示される。
+\begin{proof}
+$R \subseteq \mathbb{R}_{\infty}^{n}$なる集合$R$が与えられたとする。その集合$R$の点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$がその集合$R$で広い意味で点$\mathbf{a}$に収束するとき、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\mathbf{a}_{n} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。その点列$\left( \mathbf{a}_{n} \right)_{n \in \mathbb{N}}$の任意の部分列$\left( {\mathbf{a}_{n}}_{k} \right)_{k \in \mathbb{N}}$が与えられたらば、その元の列$\left( n_{k} \right)_{k \in \mathbb{N}}$について、定理\ref{4.1.4.10}より$\forall k \in \mathbb{N}$に対し、$k \leq n_{k}$が成り立つので、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall k \in \mathbb{N}$に対し、$N \leq k$が成り立つなら、$N \leq k \leq n_{k}$が成り立ち、したがって、$\mathbf{a}_{n} \in U\left( \mathbf{a},\varepsilon \right) \cap R$が成り立つ。よって、その点列$\left( \mathbf{a}_{m} \right)_{m \in \mathbb{N}}$の任意の部分列もその集合$R$で広い意味でその点$\mathbf{a}$に収束する。
+\end{proof}
+%\hypertarget{ux70b9ux5217ux306eux6975ux9650ux3068ux4e0dux7b49ux5f0f}{%
+\subsubsection{点列の極限と不等式}%\label{ux70b9ux5217ux306eux6975ux9650ux3068ux4e0dux7b49ux5f0f}}
+\begin{thm}\label{4.1.4.12}
+$R \subseteq{}^{*}\mathbb{R}$なる集合$R$が与えられ、2つの任意のその集合$R$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ、即ち、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つかつ、これらの実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$がその集合$R$で広い意味で収束するなら、$\lim_{n \rightarrow \infty}a_{n} \leq \lim_{n \rightarrow \infty}b_{n}$が成り立つ。
+\end{thm}\par
+この定理は実数列の極限も大小関係が保たれるということを主張する。なお、上記の不等式$a_{n} \leq b_{n}$は$a_{n} < b_{n}$または$a_{n} = b_{n}$であったので、$a_{n} < b_{n}$であったとしても、$a_{n} \leq b_{n}$が成り立つとみなされ、$\lim_{n \rightarrow \infty}a_{n} \leq \lim_{n \rightarrow \infty}b_{n}$は不等式$a_{n} \leq b_{n}$の等号、不等号の有無に依存しない。証明するとき、$\lim_{n \rightarrow \infty}a_{n} > \lim_{n \rightarrow \infty}b_{n}$と仮定し$3\varepsilon = \lim_{n \rightarrow \infty}a_{n} - \lim_{n \rightarrow \infty}b_{n}$とおくことで矛盾を導く背理法を用いている。
+\begin{proof}
+$R \subseteq{}^{*}\mathbb{R}$なる集合$R$が与えられ、2つの任意のその集合$R$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つ、即ち、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つかつ、これらの実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$がその集合$R$でそれぞれ$a$、$b$に広い意味で収束するとき、$a > b$が成り立つと仮定する。$a,b \in \mathbb{R}$のとき、$a - b \in \mathbb{R}^{+}$が成り立つことから、特に、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+\left| a_{n} - a \right| < \frac{a - b}{2} \\
+\left| b_{n} - b \right| < \frac{a - b}{2} \\
+\end{matrix} \right.\  &\Leftrightarrow \left\{ \begin{matrix}
+ - \frac{a - b}{2} < a_{n} - a < \frac{a - b}{2} \\
+ - \frac{a - b}{2} < b_{n} - b < \frac{a - b}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+\frac{a + b}{2} < a_{n} < \frac{3a - b}{2} \\
+\frac{3b - a}{2} < b_{n} < \frac{a + b}{2} \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \frac{3b - a}{2} < b_{n} < \frac{a + b}{2} < a_{n} < \frac{3a - b}{2}\\
+&\Rightarrow b_{n} < a_{n}
+\end{align*}
+これは仮定の、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つことに矛盾する。\par
+$b = \infty$のときは明らかに$a \leq b = \infty$が成り立つし、$a = - \infty$のときも明らかに$a = - \infty \leq b$が成り立つ。\par
+$a \in \mathbb{R}$かつ$b = - \infty$のとき、$|a| + 1 \in \mathbb{R}^{+}$が成り立つことから、特に、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+\left| a_{n} - a \right| < 1 \\
+b_{n} < - |a| - 1 \\
+\end{matrix} \right.\  &\Leftrightarrow \left\{ \begin{matrix}
+ - 1 < a_{n} - a < 1 \\
+b_{n} < - |a| - 1 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+ - |a| - 1 \leq a - 1 < a_{n} < a + 1 \\
+b_{n} < - |a| - 1 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow b_{n} < - |a| - 1 \leq a - 1 < a_{n} < a + 1\\
+&\Rightarrow b_{n} < a_{n}
+\end{align*}
+これは仮定の、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つことに矛盾する。\par
+$a = \infty$かつ$b \in \mathbb{R}$のとき、$|b| + 1 \in \mathbb{R}^{+}$が成り立つことから、特に、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+|b| + 1 < a_{n} \\
+\left| b_{n} - b \right| < 1 \\
+\end{matrix} \right.\  &\Leftrightarrow \left\{ \begin{matrix}
+|b| + 1 < a_{n} \\
+ - 1 < b_{n} - b < 1 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow \left\{ \begin{matrix}
+|b| + 1 < a_{n} \\
+b - 1 < b_{n} < b + 1 \leq |b| + 1 \\
+\end{matrix} \right.\ \\
+&\Leftrightarrow b - 1 < b_{n} < b + 1 \leq |b| + 1 < a_{n}\\
+&\Rightarrow b_{n} < a_{n}
+\end{align*}
+これは仮定の、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つことに矛盾する。$a = \infty$かつ$b = - \infty$のとき、$1 \in \mathbb{R}^{+}$が成り立つことから、特に、$\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\left\{ \begin{matrix}
+1 < a_{n} \\
+b_{n} < - 1 \\
+\end{matrix} \right.\  &\Leftrightarrow b_{n} < - 1 < 1 < a_{n}\\
+&\Rightarrow b_{n} < a_{n}
+\end{align*}
+これは仮定の、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つことに矛盾する。\par
+よって、背理法により2つの任意の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つかつ、これらの実数列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$がその集合$R$でそれぞれ$a$、$b$に広い意味で収束するなら、$a \leq b$が成り立つ。
+\end{proof}
+\begin{thm}[追い出しの原理]\label{4.1.4.13}
+$R \subseteq{}^{*}\mathbb{R}$なる集合$R$が与えられ、2つの任意のその集合$R$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つかつ、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$がその集合$R$で正の無限大に発散するなら、その元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$もその集合$R$で正の無限大に発散する。
+\item
+  $\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}}$が成り立つかつ、その元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$がその集合$R$で負の無限大に発散するなら、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$もその集合$R$で負の無限大に発散する。
+\end{itemize}
+この定理を追い出しの原理という。
+\end{thm}
+\begin{proof} 定理\ref{4.1.4.12}より明らかである。別の証明として、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$がその集合$R$で正の無限大に発散するなら、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n}$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\varepsilon < a_{n}$が成り立つ。このとき、$a_{n} \leq b_{n}$より$\varepsilon < b_{n}$が成り立つので、その実数列$\left( b_{n} \right)_{n \in \mathbb{N}}$も正の無限大に発散する。
+\end{proof}
+\begin{thm}[はさみうちの原理]\label{4.1.4.14}
+$R \subseteq{}^{*}\mathbb{R}$なる集合$R$が与えられ、3つの任意のその集合$R$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}} \leq \left( c_{n} \right)_{n \in \mathbb{N}}$が成り立つかつ、その集合$R$でそれらの元の列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$が実数$a$に収束するなら、その元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$もその実数$a$に収束する。この定理をはさみうちの原理という。
+\end{thm}
+\begin{proof}
+3つの任意の$R \subseteq{}^{*}\mathbb{R}$なる集合$R$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( b_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$に対し、$\left( a_{n} \right)_{n \in \mathbb{N}} \leq \left( b_{n} \right)_{n \in \mathbb{N}} \leq \left( c_{n} \right)_{n \in \mathbb{N}}$が成り立つかつ、それらの元の列たち$\left( a_{n} \right)_{n \in \mathbb{N}}$、$\left( c_{n} \right)_{n \in \mathbb{N}}$が実数$a$に収束するなら、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq b_{n} \leq c_{n}$が成り立つかつ、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| a_{n} - a \right| < \varepsilon$かつ$\left| c_{n} - a \right| < \varepsilon$が成り立つ。ここで、$a \leq b_{n}$のとき、$0 \leq b_{n} - a \leq c_{n} - a$より$\left| b_{n} - a \right| \leq \left| c_{n} - a \right| < \varepsilon$が成り立つし、$b_{n} < a$のとき、$a_{n} - a \leq b_{n} - a < 0$より$0 < \left| b_{n} - a \right| \leq \left| a_{n} - a \right| < \varepsilon$が成り立つので、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$\left| b_{n} - a \right| < \varepsilon$が成り立つ。よって、その元の列$\left( b_{n} \right)_{n \in \mathbb{N}}$もその実数$a$に収束する。
+\end{proof}
+\begin{dfn}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が上に有界であるとき、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が上に有界であるといい、同様にして、その値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が下に有界であるとき、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が下に有界であるという。
+\end{dfn}
+\begin{thm}\label{4.1.4.15}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことは同値である。
+\begin{itemize}
+\item
+  その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は上に有界であるかつ、下に有界である。
+\item
+  その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は有界である。
+\end{itemize}
+\end{thm}
+\begin{proof}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が上に有界であるかつ、下に有界であるなら、その値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が上に有界であるかつ、下に有界であるので、その値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$の上界全体の集合、下界全体の集合がそれぞれ$U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right)$、$L\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right)$とおかれれば、$U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right) \neq \emptyset$かつ$L\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right) \neq \emptyset$が成り立つので、$\exists u,l \in \mathbb{R}\forall n \in \mathbb{N}$に対し、$l \leq a_{n} \leq u$が成り立つ。そこで、$M = \max\left\{ |l|,|u| \right\} + 1$とおかれれば、したがって、次のようになる。
+\begin{align*}
+l \leq a_{n} \leq u &\Leftrightarrow \left\{ \begin{matrix}
+0 < l \leq a_{n} \leq u & \mathrm{if} & 0 < l \\
+l \leq 0 < a_{n} \leq u & \mathrm{if} & l \leq 0 < a_{n} \\
+l \leq a_{n} \leq 0 < u & \mathrm{if} & a_{n} \leq 0 < u \\
+l \leq a_{n} \leq u \leq 0 & \mathrm{if} & u \leq 0 \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left\{ \begin{matrix}
+0 < |l| \leq \left| a_{n} \right| \leq |u| & \mathrm{if} & 0 < l \\
+0 < \left| a_{n} \right| \leq |u| & \mathrm{if} & l \leq 0 < a_{n} \\
+0 \leq \left| a_{n} \right| \leq |l| & \mathrm{if} & a_{n} \leq 0 < u \\
+0 \leq |u| \leq \left| a_{n} \right| \leq |l| & \mathrm{if} & u \leq 0 \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left\{ \begin{matrix}
+\left| a_{n} \right| \leq |u| < M & \mathrm{if} & 0 < l \\
+\left| a_{n} \right| \leq |u| < M & \mathrm{if} & l \leq 0 < a_{n} \\
+\left| a_{n} \right| \leq |l| < M & \mathrm{if} & a_{n} \leq 0 < u \\
+\left| a_{n} \right| \leq |l| < M & \mathrm{if} & u \leq 0 \\
+\end{matrix} \right.\ \\
+&\Rightarrow \left| a_{n} \right| < M
+\end{align*}
+よって、$\forall n \in \mathbb{N}$に対し、$\left| a_{n} \right| < M$が成り立つので、定理\ref{4.1.3.7}よりその実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は有界である。逆は定理\ref{4.1.3.7}より明らかである。
+\end{proof}
+\begin{thm}\label{4.1.4.16}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  上に有界な単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\item
+  下に有界な単調減少の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \inf\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+上に有界な単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、その値域$\left\{ a_{n} \right\}_{n \in \mathbb{N}}$は集合$\mathbb{R}$の空集合でない部分集合で上界が存在して$U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right) \neq \emptyset$が成り立つので、上限性質よりその値域の上限$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が集合$\mathbb{R}$に存在する。$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \in U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right)$が成り立つので、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が成り立つ。一方、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} - \varepsilon < \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が成り立つかつ、$\forall u \in U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right)$に対し、$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \leq u$が成り立つので、$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} - \varepsilon \notin U\left( \left\{ a_{n} \right\}_{n \in \mathbb{N}} \right)$が成り立つ。これにより、$\exists N \in \mathbb{N}$に対し、$\sup\left\{ a_{N} \right\}_{N \in \mathbb{N}} - \varepsilon < a_{N}$が成り立つので、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq a_{n + 1}$かつ$a_{n} \leq \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$が成り立つことにより、したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n\mathbf{\in}\mathbb{N}$に対し、$N \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} - \varepsilon < a_{N} \leq a_{n} \leq \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} &\Rightarrow - \varepsilon < a_{n} - \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \leq 0\\
+&\Leftrightarrow 0 \leq - \left( a_{n} - \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \right) \leq \varepsilon\\
+&\Leftrightarrow \left| a_{n} - \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \right| \leq \varepsilon
+\end{align*}
+よって、上に有界な単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}\par
+同様にして、下に有界な単調減少の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は収束し、さらに、次式が成り立つことが示される。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \inf\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.4.17}
+実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が上に有界でないなら、その数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は正の無限大に発散する。
+\item
+  単調減少の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が下に有界でないなら、その数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は負の無限大に発散する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+単調増加の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が上に有界でないなら、$\exists M \in \mathbb{R}\forall n \in \mathbb{N}$に対し、$a_{n} \leq M$が成り立たない、即ち、$\forall M \in \mathbb{R}\exists N \in \mathbb{N}$に対し、$M < a_{n}$が成り立つかつ、$\forall n \in \mathbb{N}$に対し、$a_{n} \leq a_{n + 1}$が成り立つので、$\forall M \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$M < a_{N} \leq a_{n}$が成り立つので、$a_{n} \in U(\infty,M)$が得られ、よって、その数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は正の無限大に発散する。\par
+同様にして、単調減少の実数列$\left( a_{n} \right)_{n \in \mathbb{N}}$が下に有界でないなら、その数列$\left( a_{n} \right)_{n \in \mathbb{N}}$は負の無限大に発散することが示される。
+\end{proof}
+\begin{thm}\label{4.1.4.18}
+補完数直線${}^{*}\mathbb{R}$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調増加するなら、これの広い意味での極限値$\lim_{n \rightarrow \infty}a_{n}$が補完数直線${}^{*}\mathbb{R}$に存在し、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\item
+  その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調減少するなら、これの広い意味での極限値$\lim_{n \rightarrow \infty}a_{n}$が補完数直線${}^{*}\mathbb{R}$に存在し、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \inf\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+補完数直線${}^{*}\mathbb{R}$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が与えられたとし、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調増加するとする。このとき、$\forall n \in \mathbb{N}$に対し、$a_{n} = - \infty$のときは明らかであるので、$\exists n \in \mathbb{N}$に対し、$a_{n} \neq - \infty$が成り立つとする。上に有界であるなら、$\exists M \in \mathbb{R}^{+}\forall n \in \mathbb{N}$に対し、$a_{n} \leq M$が成り立つので、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$は実数列となり定理\ref{4.1.4.16}より極限値$\lim_{n \rightarrow \infty}a_{n}$が存在し、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+上に有界でないなら、定理\ref{4.1.4.16}より$\lim_{n \rightarrow \infty}a_{n} = \infty$が成り立つ。そこで、$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} \in \mathbb{R}$が成り立つと仮定すると、$M = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}$とすれば、$\exists M \in \mathbb{R}\forall n \in \mathbb{N}$に対し、$a_{n} \leq M$が成り立つので、その元の列は上に有界となるが、これは仮定に矛盾している。ゆえに、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調増加することから、$\sup\left\{ a_{n} \right\}_{n \in \mathbb{N}} = \infty$が成り立つので、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \sup\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}\par
+同様にして、その元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が単調減少するなら、これの広い意味での極限値$\lim_{n \rightarrow \infty}a_{n}$が補完数直線${}^{*}\mathbb{R}$に存在し、次式が成り立つことも示される。
+\begin{align*}
+\lim_{n \rightarrow \infty}a_{n} = \inf\left\{ a_{n} \right\}_{n \in \mathbb{N}}
+\end{align*}
+\end{proof}
+%\hypertarget{ux96c6ux5408mathbfqux306eux7a20ux5bc6ux6027}{%
+\subsubsection{集合$\mathbb{Q}$の稠密性}%\label{ux96c6ux5408mathbfqux306eux7a20ux5bc6ux6027}}
+\begin{thm}\label{4.1.4.19}
+$\forall a \in \mathbb{R}\exists!n \in \mathbb{Z}$に対し、$n \leq a < n + 1$が成り立つ。
+\end{thm}
+\begin{dfn}
+実数$a$に対し、$n \leq a < n + 1$なる整数$n$をその実数$a$の整数部分などといい、Gauss記号と呼ばれる記号を用いて$\left\lfloor a \right\rfloor$、$[ a]$などと表す。さらに、次のように実数$a$を$n \leq a < n + 1$なる整数$n$に移す関数$\left\lfloor \bullet \right\rfloor$を床関数という。
+\begin{align*}
+\left\lfloor \bullet \right\rfloor:\mathbb{R} \rightarrow \mathbb{Z};a \mapsto \left\lfloor a \right\rfloor
+\end{align*}
+これの代表的な言い換えとして、実数$n$は整数で$n \leq a < n + 1$が満される、整数$n$は実数$a$の整数部分である、実数$a$の切り捨てが整数$n$である、実数$n$は$a$を超えない最大の整数であるなどが挙げられる。
+\end{dfn}
+\begin{proof}
+$\forall a \in \mathbb{R}$に対し、$a < 1$のとき、$1 - a \in \mathbb{R}^{+}$が成り立つので、Archimedesの性質より$\exists m \in \mathbb{N}$に対し、$1 - a < m$が成り立つ。$1 \leq a$のとき、例えば$m = 1$とすれば、$1 - a \leq 0 < 1 = m$が成り立つので、直ちに、$\exists m \in \mathbb{N}$に対し、$1 - a < m$が成り立つ。以上より、$\exists m \in \mathbb{N}$に対し、$1 - a < m$が成り立つ。ここで、$1 - a < m$なる自然数$m$を1つ定め次のように集合$A$をおくと、
+\begin{align*}
+A = \left\{ n \in \mathbb{N} \middle| m + a < n \right\}
+\end{align*}
+$0 < 1 < m + a$が成り立つので、Archimedesの性質より$\exists n \in \mathbb{N}$に対し、$m + a < n$が成り立つ。したがって、$A \neq \emptyset$が成り立ち、$A \subseteq \mathbb{N}$が成り立つので、定理\ref{4.1.1.21}よりその集合$A$の最小元$\min A$が存在して、$\forall a \in A$に対し、$\min A \leq a$が成り立つ。したがって、$1 - a < m$より$1 < m + a < \min A$が成り立つことから$\min A - 1 \in \mathbb{N}$が成り立つので、$\min A - 1 \leq m + a < \min A$が成り立ち、次のように整数がおかれれば、
+\begin{align*}
+n = \min A - m - 1
+\end{align*}
+次のようになり、
+\begin{align*}
+\min A - 1 \leq m + a < \min A &\Leftrightarrow \min A - m - 1 \leq a < \min A - m - 1 + 1\\
+&\Leftrightarrow n \leq a < n + 1
+\end{align*}
+$\forall a \in \mathbb{R}\exists n \in \mathbb{Z}$に対し、$n \leq a < n + 1$が成り立つ。\par
+ここで、$\forall m \in \mathbb{Z}$に対し、$m \neq n$が成り立つなら、$m < n$または$n < m$が成り立つ。そこで、$m < n$が成り立つなら、次のようになるし、
+\begin{align*}
+m < n \leq a < n + 1 &\Leftrightarrow m + 1 \leq n \leq a < n + 1\\
+&\Rightarrow m + 1 \leq a\\
+&\Rightarrow m + 1 \leq a \vee a < m\\
+&\Leftrightarrow \neg(m \leq a < m + 1)
+\end{align*}
+$n < m$が成り立つなら、次のようになるので、
+\begin{align*}
+n < m \land n \leq a < n + 1 &\Leftrightarrow n \leq a < n + 1 < m + 1\\
+&\Rightarrow a < m\\
+&\Rightarrow m + 1 \leq a \vee a < m\\
+&\Leftrightarrow \neg(m \leq a < m + 1)
+\end{align*}
+$\forall a \in \mathbb{R}\exists!n \in \mathbb{Z}$に対し、$n \leq a < n + 1$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.1.4.20}
+$\forall a,b \in \mathbb{R}\exists q \in \mathbb{Q}$に対し、$a < b$が成り立つなら、$a < q < b$が成り立つ。
+\end{thm}\par
+この定理は$a < b$なる任意の実数たち$a$、$b$のどんなに近くにも有理数$q$が存在することを言及する。このことを集合$\mathbb{Q}$は集合$\mathbb{R}$で稠密であるという。これが前述した定義に矛盾しないことは後に示されよう。
+\begin{proof}
+$\forall a,b \in \mathbb{R}$に対し、$a < b$が成り立つなら、$b - a \in \mathbb{R}^{+}$が成り立つこととArchimedesの性質より、$\forall b - a \in \mathbb{R}^{+}\exists m \in \mathbb{N}$に対し、$1 < m(b - a)$が成り立ち、定理\ref{4.1.4.19}より$\exists!n \in \mathbb{Z}$に対し、$n \leq ma + 1 < n + 1$が成り立ち、したがって、次のようになる。
+\begin{align*}
+1 < m(b - a) \land n \leq ma + 1 < n + 1 &\Leftrightarrow 1 < mb - ma \land n \leq ma + 1 \land ma < n\\
+&\Leftrightarrow ma < n \land n \leq ma + 1 \land ma + 1 < mb\\
+&\Rightarrow ma < n < mb\\
+&\Leftrightarrow a < \frac{n}{m} < b
+\end{align*}
+$\frac{n}{m} \in \mathbb{Q}$が成り立つ。
+\end{proof}
+\begin{thm}[$l$進小数展開]\label{4.1.4.21}
+$\forall a \in \mathbb{R}\forall l \in \mathbb{N} \setminus \left\{ 1 \right\}$に対し、$a_{k} \in \varLambda_{l} \cup \left\{ 0 \right\}$なる整数たち$a_{k}$を用いて実数列$\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right)_{n \in \mathbb{N}}$が与えられたとき、これのうち次式が成り立つようなものが存在する。このことを実数$a$の$l$進小数展開という。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right) = a
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall a \in \mathbb{R}\forall l \in \mathbb{N} \setminus \left\{ 1 \right\}$に対し、$a_{k} \in \varLambda_{l} \cup \left\{ 0 \right\}$なる整数たち$a_{k}$を用いて実数列$\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right)_{n \in \mathbb{N}}$が与えられたとき、$\left\lfloor a \right\rfloor \leq a < \left\lfloor a \right\rfloor + 1$より$a - \left\lfloor a \right\rfloor \in [ 0,1)$が成り立ち、半開区間$[ 0,1)$が$l' \in \varLambda_{l - 1} \cup \left\{ 0 \right\}$なる半開区間$\left[ \frac{l'}{l},\frac{l' + 1}{l} \right)$たちに$l$等分されると、次式が成り立つことから、
+\begin{align*}
+[ 0,1) = \bigsqcup_{l' \in \varLambda_{l - 1} \cup \left\{ 0 \right\}} \left[ \frac{l'}{l},\frac{l' + 1}{l} \right)
+\end{align*}
+その実数$a - \left\lfloor a \right\rfloor$はこれらの半開区間たち$\left[ \frac{l'}{l},\frac{l' + 1}{l} \right)$のどれか1つに含まれるので、このような整数$l'$を$a_{1}$とおく。同様にして、次式のように帰納的に集合$\varLambda_{l - 1} \cup \left\{ 0 \right\}$の元の列$\left( a_{n} \right)_{n \in \mathbb{N}}$が定義される。
+\begin{align*}
+a - \left\lfloor a \right\rfloor \in \left[ \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{l'}{l^{n + 1}},\sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{l' + 1}{l^{n + 1}} \right) \Rightarrow a_{n + 1} = l'
+\end{align*}
+これを用いた実数列たち$\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right)_{n \in \mathbb{N}}$、$\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{1}{l^{n}} \right)_{n \in \mathbb{N}}$について、$\forall n \in \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+&\quad a - \left\lfloor a \right\rfloor \in \left[ \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{a_{n + 1}}{l^{n + 1}},\sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{a_{n + 1} + 1}{l^{n + 1}} \right)\\
+&\Leftrightarrow \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + \frac{a_{n + 1}}{l^{n + 1}} \leq a - \left\lfloor a \right\rfloor < \sum_{k \in \varLambda_{n + 1}} \frac{a_{k}}{l^{k}} + \frac{a_{n + 1}}{l^{n + 1}} + \frac{1}{l^{n + 1}}\\
+&\Leftrightarrow \sum_{k \in \varLambda_{n + 1}} \frac{a_{k}}{l^{k}} \leq a - \left\lfloor a \right\rfloor < \sum_{k \in \varLambda_{n + 1}} \frac{a_{k}}{l^{k}} + \frac{1}{l^{n + 1}}\\
+&\Leftrightarrow 0 \leq a - \left\lfloor a \right\rfloor - \sum_{k \in \varLambda_{n + 1}} \frac{a_{k}}{l^{k}} < \frac{1}{l^{n + 1}}
+\end{align*}
+ここで、$\lim_{n \rightarrow \infty}\frac{1}{l^{n + 1}} = 0$が成り立つこととはさみうちの原理より$\lim_{n \rightarrow \infty}\left( a - \left\lfloor a \right\rfloor - \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right) = 0$が成り立つ。したがって、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left( \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right) &= \lim_{n \rightarrow \infty}\left( - a + \left\lfloor a \right\rfloor + \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} + a \right)\\
+&= - \lim_{n \rightarrow \infty}\left( a - \left\lfloor a \right\rfloor - \sum_{k \in \varLambda_{n}} \frac{a_{k}}{l^{k}} \right) + a\\
+&= - 0 + a = a
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.1.4.22}
+$\forall a \in \mathbb{R}$に対し、ある有理数列$\left( q_{n} \right)_{n \in \mathbb{N}}$が存在して、$\lim_{n \rightarrow \infty}q_{n} = a$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.1.4.21}で述べられた$l$進小数展開がまさしくこれである。
+\end{proof}
+\begin{thm}\label{4.1.4.23} $\mathrm{cl}_{\mathbb{R}}\mathbb{Q} = \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof}
+$\mathbb{Q} \subseteq \mathbb{R}$が成り立つので、$\mathrm{cl}_{\mathbb{R}}\mathbb{Q} \subseteq \mathrm{cl}_{\mathbb{R}}\mathbb{R} = \mathbb{R}$が得られる。そこで、$\forall a \in \mathbb{R}$に対し、定理\ref{4.1.4.21}よりある有理数列$\left( q_{n} \right)_{n \in \mathbb{N}}$が存在して、$\lim_{n \rightarrow \infty}q_{n} = a$が成り立つ。したがって、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}\forall n \in \mathbb{N}$に対し、$N \leq n$が成り立つなら、$q_{n} \in U(a,\varepsilon)$が成り立つ、特に、$\forall\varepsilon \in \mathbb{R}^{+}\exists N \in \mathbb{N}$に対し、$q_{N} \in U(a,\varepsilon)$が成り立つ。ここで、$q_{N} \in \mathbb{Q}$に注意すれば、$\forall\varepsilon \in \mathbb{R}^{+}\exists q_{N} \in \mathbb{Q}$に対し、$q_{N} \in U(a,\varepsilon)$が成り立つので、$\forall\varepsilon \in \mathbb{R}^{+}$に対し、$U(a,\varepsilon) \cap \mathbb{Q} \neq \emptyset$が成り立つ。よって、$a \in \mathrm{cl}_{\mathbb{R}}\mathbb{Q}$が成り立つので、$\mathbb{R} \subseteq \mathrm{cl}_{\mathbb{R}}\mathbb{Q}$が得られる。
+\end{proof}
+\subsubsection{実数の濃度}
+\begin{thm}\label{1.2.7.5}
+実数全体の集合$\mathbb{R}$はこれの部分集合である任意の開区間$(a,b)$と対等である。
+\end{thm}\par
+これは次のようにして示される。
+\begin{enumerate}
+\item
+  まず、集合$\mathbb{R}$とこれの部分集合である開区間$( - 1,1)$とが対等であることを示す。
+\item
+  その開区間$( - 1,1)$と集合$\mathbb{R}$の部分集合である任意の開区間$(a,b)$とが対等であることを示す。
+\item
+  1. 、2. より示すべきことを示す。
+\end{enumerate}
+\begin{proof}
+集合$\mathbb{R}$の部分集合である開区間$( - 1,1)$から実数全体の集合$\mathbb{R}$への写像$f:( - 1,1) \rightarrow \mathbb{R};x \mapsto \frac{x}{1 - x^{2}}$を考える。\par
+$0 < x < 1$の場合、
+\begin{align*}
+f(x) = \frac{x}{1 - x^{2}} &\Leftrightarrow \frac{1}{f(x)} = \frac{1 - x^{2}}{x}\\
+&\Leftrightarrow - \frac{x}{f(x)} = x^{2} - 1\\
+&\Leftrightarrow x^{2} + \frac{x}{f(x)} - 1 = 0\\
+&\Leftrightarrow x = \frac{- \frac{1}{f(x)} + \sqrt{\frac{1}{\left( f(x) \right)^{2}} + 4}}{2} \\
+&\Leftrightarrow x = - \frac{1}{2f(x)} + \frac{1}{2f(x)}\sqrt{1 + 4\left( f(x) \right)^{2}}
+\end{align*}
+以上より、写像$g|(0,\infty):(0,\infty) \rightarrow (0,1)$が得られる。\par
+$0 < x < 1$の場合、
+\begin{align*}
+f(x) = \frac{x}{1 - x^{2}} &\Leftrightarrow \frac{1}{f(x)} = \frac{1 - x^{2}}{x}\\
+&\Leftrightarrow - \frac{x}{f(x)} = x^{2} - 1\\
+&\Leftrightarrow x^{2} + \frac{x}{f(x)} - 1 = 0\\
+&\Leftrightarrow x = \frac{- \frac{1}{f(x)} - \sqrt{\frac{1}{\left( f(x) \right)^{2}} + 4}}{2} \\
+&\Leftrightarrow x = - \frac{1}{2f(x)} + \frac{1}{2f(x)}\sqrt{1 + 4\left( f(x) \right)^{2}}
+\end{align*}
+以上より、写像$g|(0,\infty):( - \infty,0) \rightarrow ( - 1,0)$が得られる。\par
+$x = 0$の場合、$x = 0 = g(0)$とすれば、写像$g|\left\{ 0 \right\}\ :\left\{ 0 \right\} \rightarrow \left\{ 0 \right\}$が得られる。\par
+以上より次のような写像$g$が得られこれがその写像$f$の逆写像となる。
+\begin{align*}
+g:\mathbb{R} \rightarrow ( - 1,1);x \mapsto \left\{ \begin{matrix}
+ - \frac{1}{2x} + \frac{1}{2x}\sqrt{1 + 4x^{2}} & \mathrm{if} & x \neq 0 \\
+0 & \mathrm{if} & x = 0 \\
+\end{matrix} \right.\ 
+\end{align*}
+したがって、その写像$f$は全単射となるので、集合$\mathbb{R}$とこれの部分集合である開区間$( - 1,1)$とが対等である。\par
+また、その開区間$( - 1,1)$から集合$\mathbb{R}$の部分集合である任意の開区間$(a,b)$への写像$f:( - 1,1) \rightarrow (a,b);x \mapsto \frac{b - a}{2}(x + 1) + a$を考える。このとき、
+\begin{align*}
+f(x) = \frac{b - a}{2}(x + 1) + a &\Leftrightarrow f(x) - a = \frac{b - a}{2}(x + 1)\\
+&\Leftrightarrow \frac{2}{b - a}\left( f(x) - a \right) = x + 1\\
+&\Leftrightarrow x = \frac{2}{b - a}\left( f(x) - a \right) - 1
+\end{align*}
+したがって、その写像$f$は全単射となるので、その開区間$( - 1,1)$と集合$\mathbb{R}$の部分集合であるその開区間$(a,b)$とが対等である。\par
+以上より、$\mathbb{R} \sim ( - 1,1)$かつ$( - 1,1) \sim (a,b)$が成り立つので、$\mathbb{R} \sim (a,b)$が成り立つ。
+\end{proof}
+\begin{thm}\label{1.2.7.10}
+  集合$\mathbb{R}$は非可算である、即ち、次式が成り立つ。
+  \begin{align*}
+  \# \mathbb{N} < \# \mathbb{R}
+  \end{align*}
+\end{thm}\par
+上の定理の証明は有名なものでありこれをCantorの対角線論法などという。
+\begin{proof}
+  実数全体の集合$\mathbb{R}$はこれの部分集合である任意の開区間$(a,b)$と対等であったので、その集合$\mathbb{R}$は開区間$(0,1)$と対等であることになる。ここで、$\forall a \in (0,1)$に対し、例えば、その元$a$を10進小数展開されれば、$\forall k \in \varLambda_{m}\forall a_{k} \in \varLambda_{10} \cup \left\{ 0 \right\}$なる整数たち$k$、$a_{k}$を用いて次式が成り立つ。
+  \begin{align*}
+  a = \lim_{m \rightarrow \infty}\left( \sum_{k \in \varLambda_{m}} \frac{a_{k}}{10^{k}} \right)
+  \end{align*}
+  ここで、次式のような任意の写像$f$を考え
+  \begin{align*}
+  f:\mathbb{N} \rightarrow (0,1);n \mapsto f(n) = \lim_{m \rightarrow \infty}\left( \sum_{k \in \varLambda_{m}} \frac{f'\left( n,a_{k} \right)}{10^{k}} \right)\ {\mathrm {if}}\ f'\left( n,a_{k} \right) \in \varLambda_{10} \cup \left\{ 0 \right\}
+  \end{align*}
+  $\forall k \in \varLambda_{m}\forall a_{k} \in \varLambda_{10} \cup \left\{ 0 \right\}$に対し、$2\mathbb{Z} = \left\{ m \in \mathbb{Z} \middle| \exists n \in \mathbb{Z}[ m = 2n] \right\}$として次式のような整数$b(n,k)$を考えると、
+  \begin{align*}
+  b(n,k) = \left\{ \begin{matrix}
+  1 & {\mathrm {if}} & f'\left( n,a_{k} \right) \in 2\mathbb{Z} \\
+  2 & {\mathrm {if}} & f'\left( n,a_{k} \right) \in \mathbb{Z} \setminus 2\mathbb{Z} \\
+  \end{matrix} \right.\ 
+  \end{align*}
+  $\forall n \in \mathbb{N}\forall k \in \varLambda_{m}$に対し、次のようになるが、
+  \begin{align*}
+  b(n,k) \neq f'\left( n,a_{k} \right)
+  \end{align*}
+  $\lim_{m \rightarrow \infty}\left( \sum_{k \in \varLambda_{m}} \frac{b(n,k)}{10^{k}} \right)$は明らかにその開区間$(0,1)$に属するので、$V(f) \subseteq (0,1)$が成り立ちその写像$f$は全射になりえない。したがって、任意の写像$f:\mathbb{N} \rightarrow (0,1)$は全単射になりえなく2つの集合たち$\mathbb{N}$、$(0,1)$とが対等でない。その集合$\mathbb{R}$は開区間$(0,1)$と対等であることより、よって、示すべきことは示された。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1985. 第34刷 p11-43,362-363 ISBN978-4-13-062005-5
+  \bibitem{2}
+  原隆. "微分積分学 A". 九州大学. \url{https://www2.math.kyushu-u.ac.jp/~hara/lectures/05/biseki4-050615.pdf} (2020-8-10 取得)
+  \bibitem{3}
+  難波博之. "ガウス記号の定義と３つの性質". 高校数学の美しい物語. \url{https://mathtrain.jp/kirisute} (2020-8-11 閲覧)
+  \bibitem{4}
+  松坂和夫, 集合・位相入門, 岩波書店, 1968. 新装版第2刷 p137-175,186-190 ISBN978-4-00-029871-1
+  \bibitem{5}
+  長岡亮介ほか, 新しい微積分 上, 講談社, 2017. 第5刷 p1-5 ISBN978-4-06-156558-6
+\end{thebibliography}
+\end{document}

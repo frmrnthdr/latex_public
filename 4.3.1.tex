@@ -1,0 +1,1554 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\usepackage{xr}
+\externaldocument{4.1.4}
+\externaldocument{4.1.8}
+\externaldocument{4.2.8}
+\input{macro}
+\begin{document}
+%\hypertarget{ux521dux7b49ux95a2ux6570}{%
+\subsection{初等関数}%\label{ux521dux7b49ux95a2ux6570}}
+%\hypertarget{ux81eaux7136ux306aux6307ux6570ux95a2ux6570}{%
+\subsubsection{自然な指数関数}%\label{ux81eaux7136ux306aux6307ux6570ux95a2ux6570}}
+\begin{thm}\label{4.3.1.1}
+冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{k}}{k!} \right)_{n \in \mathbb{N}}$が与えられたとき、これの収束半径は$\infty$である。
+\end{thm}
+\begin{proof}
+冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{k}}{k!} \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになる。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{\frac{1}{n!}}{\frac{1}{(n + 1)!}} \right| = \lim_{n \rightarrow \infty}\left| \frac{(n + 1)!}{n!} \right| = \lim_{n \rightarrow \infty}\left| \frac{(n + 1)n!}{n!} \right| = \lim_{n \rightarrow \infty}|n + 1| = \infty
+\end{align*}
+よって、これの収束半径は$\infty$である。
+\end{proof}
+\begin{dfn}
+冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{k}}{k!} \right)_{n \in \mathbb{N}}$の収束半径は$\infty$であることにより、$D(0,\infty) = \mathbb{C}$が成り立ち次式のように関数$\exp$が定義されることができる。
+\begin{align*}
+\exp:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{n}}{n!}
+\end{align*}
+この関数$\exp$を自然な指数関数という。
+\end{dfn}
+\begin{thm}\label{4.3.1.2} このとき、次式が成り立つ。
+\begin{align*}
+\exp 0 = 1
+\end{align*}
+\end{thm}
+\begin{proof} 定義より、明らかに次のようになる。
+\begin{align*}
+\exp 0 = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{0^{n}}{n!} = \frac{0^{0}}{0!} + \sum_{n \in \mathbb{N}} \frac{0^{n}}{n!} = 1 + 0 = 1
+\end{align*}
+\end{proof}
+\begin{dfn}
+次式のように実数$e$を定義する。この実数$e$をNapier数という。
+\begin{align*}
+e = \exp 1
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.3} また、$\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\exp z &= \lim_{n \rightarrow \infty}\left( 1 + \frac{z}{n} \right)^{n}\\
+\lim_{n \rightarrow \infty}\left( 1 + \frac{1}{n} \right)^{n} &= \exp 1 = e
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.1}より冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{k}}{k!} \right)_{n \in \mathbb{N}}$の収束半径が$\infty$なので、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{N}$に対し、$\delta < n$が成り立つなら、次式が成り立つ。
+\begin{align*}
+\left| \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!} \right| < \frac{\varepsilon}{3}
+\end{align*}
+また、数学的帰納法によって二項定理が成り立つ、即ち、$\left( 1 + \frac{z}{n} \right)^{n} = \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{n!}{k!(n - k)!}\left( \frac{z}{n} \right)^{k}}$が成り立つので、次のようになる。
+\begin{align*}
+&\quad \left| \left( 1 + \frac{z}{n} \right)^{n} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right| \\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{n!}{k!(n - k)!}\left( \frac{z}{n} \right)^{k}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\frac{\prod_{i \in \varLambda_{k}} i}{\prod_{i \in \varLambda_{n - k}} in^{k}}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\frac{\prod_{i \in \varLambda_{k} \setminus \varLambda_{n - k}} i}{n^{k}}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\frac{\prod_{i \in \varLambda_{k}} (i + n - k)}{n^{k}}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k}} \frac{i + n - k}{n}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k}} \frac{k - i + 1 + n - k}{n}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k}} \frac{n - i + 1}{n}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1} \cup \left\{ 0 \right\}} \frac{n - i}{n}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&= \left| \sum_{k \in \varLambda_{n} \setminus \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right|\\
+&\leq \sum_{k \in \varLambda_{n} \setminus \varLambda_{\delta} \cup \left\{ 0 \right\}} \left| \frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right) \right|\\
+&= \sum_{k \in \varLambda_{n} \setminus \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{|z|^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left| 1 - \frac{i}{n} \right|}\\
+&\leq \sum_{k \in \varLambda_{n} \setminus \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}\\
+&= \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}\\
+&= \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}\\
+&\leq \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}\\
+&= \left| \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}} \right| - \left| \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!} \right|\\
+&\leq \left| \lim_{n \rightarrow \infty}{\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!}} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{|z|^{k}}{k!} \right| < \frac{\varepsilon}{2}
+\end{align*}\par
+また、$\lim_{n \rightarrow \infty}{\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} = \frac{z^{k}}{k!}$が成り立つことにより、$\exists\delta' \in \mathbb{N}$に対し、$\delta' \leq n$が成り立つなら、次のようになる。
+\begin{align*}
+\left| \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \frac{z^{k}}{k!} \right| &= \left| \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \left( \frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right) - \frac{z^{k}}{k!} \right) \right|\\
+&\leq \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} \left| \frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right) - \frac{z^{k}}{k!} \right| < \frac{\varepsilon}{2}
+\end{align*}\par
+以上、三角不等式より、次のようになる。
+\begin{align*}
+\left| \left( 1 + \frac{z}{n} \right)^{n} - \exp z \right| &= \left| \left( 1 + \frac{z}{n} \right)^{n} - \sum_{k \in \mathbb{N}} \frac{z^{k}}{k!} \right|\\
+&= \left| \left( 1 + \frac{z}{n} \right)^{n} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right. \\
+&\quad \left. + \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} - \sum_{k \in \mathbb{N}} \frac{z^{k}}{k!} \right|\\
+&\leq \left| \left( 1 + \frac{z}{n} \right)^{n} - \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} \right| \\
+&\quad + \left| \sum_{k \in \varLambda_{\delta} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\prod_{i \in \varLambda_{k - 1}} \left( 1 - \frac{i}{n} \right)} - \sum_{k \in \mathbb{N}} \frac{z^{k}}{k!} \right|\\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\exp x = \lim_{n \rightarrow \infty}\left( 1 + \frac{x}{n} \right)^{n}
+\end{align*}\par
+特に、次式が成り立つ。
+\begin{align*}
+\lim_{n \rightarrow \infty}\left( 1 + \frac{1}{n} \right)^{n} = \exp 1 = e
+\end{align*}
+\end{proof}
+\begin{thm}[自然な指数関数の加法定理]\label{4.3.1.4}
+$\forall z,w \in \mathbb{C}$に対し、次式が成り立つ。これを自然な指数関数の加法定理などという。
+\begin{align*}
+\exp(z + w) = \exp z\exp w
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z,w \in \mathbb{C}$に対し、数学的帰納法によって二項定理が成り立つ、即ち、$(z + w)^{n} = \frac{n!}{k!(n - k)!}z^{k}w^{n - k}$が成り立つことに注意すれば、定義より次のようになる。
+\begin{align*}
+\exp(z + w) &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(z + w)^{n}}{n!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{1}{n!}\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{n!}{k!(n - k)!}z^{k}w^{n - k}}}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\frac{w^{n - k}}{(n - k)!}}}
+\end{align*}
+ここで、$\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} {\frac{z^{k}}{k!}\frac{w^{n - k}}{(n - k)!}}} = \exp z\exp w$が成り立つことに注意すれば、次式が成り立つ。
+\begin{align*}
+\exp(z + w) = \exp z\exp w
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.5}
+自然な指数関数の逆元について$\forall z \in \mathbb{C}$に対し、次式たちが成り立つ。
+\begin{align*}
+\exp( - z) &= \frac{1}{\exp z}\\
+\exp z &\neq 0
+\end{align*}
+\end{thm}
+\begin{proof} $\forall z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\exp( - z)\exp z &= \exp( - z + z) = \exp 0 = 1\\
+\exp z\exp( - z) &= \exp(z - z) = \exp 0 = 1
+\end{align*}
+よって、$\exp( - z) = \frac{1}{\exp z}$が成り立つ。\par
+ここで、$\exists z \in \mathbb{C}$に対し、$\exp z = 0$が成り立つと仮定すると、上記の議論により次のようになる。
+\begin{align*}
+0 = \exp z\exp( - z) = \frac{\exp z}{\exp z} = 1
+\end{align*}
+これは$0 = 1$となっており矛盾している。よって、$\forall z \in \mathbb{C}$に対し、$\exp z \neq 0$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.1.6} 自然な指数関数は集合$\mathbb{C}$上で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\exp z = \exp z
+\end{align*}
+\end{thm}
+\begin{proof} 自然な指数関数は集合$\mathbb{C}$上で正則であることは定理\ref{4.2.8.7}より直ちに分かる。このとき、項別微分より次のようになる。
+\begin{align*}
+\frac{d}{dz}\exp z &= \frac{d}{dz}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{n}}{n!}\\
+&= \frac{d}{dz}\left( 1 + \sum_{n \in \mathbb{N}} \frac{z^{n}}{n!} \right)\\
+&= \frac{d}{dz}\sum_{n \in \mathbb{N}} \frac{z^{n}}{n!}\\
+&= \sum_{n \in \mathbb{N}} {n\frac{z^{n - 1}}{n!}}\\
+&= \sum_{n \in \mathbb{N}} \frac{z^{n - 1}}{(n - 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{n - 1}}{(n - 1)!} = \exp z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.7}
+集合$\mathbb{R}$に制限された自然な指数関数について$\forall x \in \mathbb{R}$に対し、$\exp x \in \mathbb{R}^{+}$が成り立つ。
+\end{thm}
+\begin{proof}
+$\forall x \in \mathbb{R}$に対し、定義より明らかにその集合$\mathbb{R}$は加法と乗法で閉じており次のようになる。
+\begin{align*}
+\exp x = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{x^{n}}{n!} \in \mathbb{R}
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\exp x = \exp\left( \frac{x}{2} + \frac{x}{2} \right) = \exp\frac{x}{2}\exp\frac{x}{2} = \left( \exp\frac{x}{2} \right)^{2} \geq 0
+\end{align*}
+さらに、$\exp x \neq 0$が成り立つので、次式が成り立つ。
+\begin{align*}
+0 < \exp x
+\end{align*}
+よって、$\exp x \in \mathbb{R}^{+}$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.1.8}
+自然な指数関数の大小関係について$\forall x,y \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+x < y \Rightarrow \exp x < \exp y
+\end{align*}
+これにより、自然な指数関数$\exp$は狭義単調増加している。
+\end{thm}
+\begin{proof}
+$\forall x,y \in \mathbb{R}$に対し、$x < y$が成り立つなら、次のようになる。
+\begin{align*}
+\exp y - \exp x &= \exp(x + y - x) - \exp x\\
+&= \exp x\exp(y - x) - \exp x\\
+&= \exp x\left( \exp(y - x) - 1 \right)
+\end{align*}
+ここで、$y - x > 0$が成り立つことに注意すれば、定義より次のようになる。
+\begin{align*}
+\exp(y - x) &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(y - x)^{n}}{n!}\\
+&= 1 + \sum_{n \in \mathbb{N}} \frac{(y - x)^{n}}{n!} > 1
+\end{align*}
+したがって、$\exp(y - x) - 1 > 0$が得られ$\exp x > 0$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\exp y - \exp x = \exp x\left( \exp(y - x) - 1 \right) > 0
+\end{align*}
+よって、次式が成り立つ。
+\begin{align*}
+\exp x < \exp y
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.9}
+自然な指数関数の極限について$\forall n \in \mathbb{N}$に対し、次式たちが成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}{\exp x} &= \infty\\
+\lim_{x \rightarrow - \infty}{\exp x} &= 0\\
+\lim_{x \rightarrow \infty}\frac{\exp x}{x^{n}} &= \infty\\
+\lim_{x \rightarrow - \infty}{|x|^{n}\exp x} &= 0
+\end{align*}
+\end{thm}
+\begin{proof} 定義より明らかに$x > 0$のとき、次のようになる。
+\begin{align*}
+\exp x = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{x^{n}}{n!} \geq x
+\end{align*}
+ここで、$\lim_{x \rightarrow \infty}x = \infty$が成り立つので、追い出しの原理より$\lim_{x \rightarrow \infty}{\exp x} = \infty$が成り立つ。\par
+また、次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow - \infty}{\exp x} = \lim_{- x \rightarrow \infty}{\exp\left( - ( - x) \right)} = \lim_{- x \rightarrow \infty}\frac{1}{\exp( - x)} = 0
+\end{align*}\par
+$\forall n \in \mathbb{N}$に対し、定義より明らかに$x > 0$のとき、次のようになる。
+\begin{align*}
+\exp x = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{x^{n}}{n!} \geq \frac{x^{n + 1}}{(n + 1)!}
+\end{align*}
+したがって、次のようになり
+\begin{align*}
+\frac{\exp x}{x^{n}} \geq \frac{1}{x^{n}}\frac{x^{n + 1}}{(n + 1)!} = \frac{x}{(n + 1)!}
+\end{align*}
+$\lim_{x \rightarrow \infty}\frac{x}{(n + 1)!} = \infty$が成り立つので、追い出しの原理より$\lim_{x \rightarrow \infty}\frac{\exp x}{x^{n}} = \infty$が成り立つ。\par
+また、$\lim_{- x \rightarrow \infty}\frac{\exp( - x)}{( - x)^{n}} = \infty$が成り立つことに注意すれば、次のようになる。
+\begin{align*}
+\lim_{x \rightarrow - \infty}{|x|^{n}\exp x} &= \lim_{- x \rightarrow \infty}{| - x|^{n}\exp\left( - ( - x) \right)}\\
+&= \lim_{- x \rightarrow \infty}{| - x|^{n}\left| \frac{1}{\exp( - x)} \right|}\\
+&= \lim_{- x \rightarrow \infty}\left| \frac{( - x)^{n}}{\exp( - x)} \right|\\
+&= \lim_{- x \rightarrow \infty}\frac{1}{\left| \frac{\exp( - x)}{( - x)^{n}} \right|} = 0
+\end{align*}
+\end{proof}
+%\hypertarget{ux4e09ux89d2ux95a2ux6570}{%
+\subsubsection{三角関数}%\label{ux4e09ux89d2ux95a2ux6570}}
+\begin{thm}\label{4.3.1.10}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$が与えられたとき、これの収束半径は$\infty$である。
+\end{thm}
+\begin{proof}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{\frac{( - 1)^{n}}{(2n)!}}{\frac{( - 1)^{n + 1}}{\left( 2(n + 1) \right)!}} \right| &= \lim_{n \rightarrow \infty}\left| \frac{( - 1)^{n}\left( 2(n + 1) \right)!}{( - 1)^{n + 1}(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| - \frac{(2n + 2)!}{(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 2)(2n + 1)(2n)!}{(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}{(2n + 2)(2n + 1)} = \infty\\
+\lim_{n \rightarrow \infty}\left| \frac{\frac{( - 1)^{n}}{(2n + 1)!}}{\frac{( - 1)^{n + 1}}{\left( 2(n + 1) + 1 \right)!}} \right| &= \lim_{n \rightarrow \infty}\left| \frac{( - 1)^{n}\left( 2(n + 1) + 1 \right)!}{( - 1)^{n + 1}(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| - \frac{(2n + 3)!}{(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 3)(2n + 2)(2n + 1)!}{(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}{(2n + 3)(2n + 2)} = \infty
+\end{align*}
+$\forall w \in \mathbb{C}$に対し、冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}w^{k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}w^{k}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径たちはどちらも$\infty$となる。\par
+ここで、$\forall z \in \mathbb{C}$に対し、$w = z^{2}$とおいてもやはりそれらの収束半径たちはどちらも$\infty$となる。その冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の各項にその複素数$z$をかけたとしても、これがその自然数$n$に対しての定数となっているので、やはり、その冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径は$\infty$となる。
+\end{proof}
+\begin{dfn}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{( - 1)^{k}z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径は$\infty$であることにより、$D(0,\infty) = \mathbb{C}$が成り立ち次式のように関数たち$\cos$、$\sin$が定義されることができる。
+\begin{align*}
+\cos &:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n}}{(2n)!}\\
+\sin &:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!}
+\end{align*}
+これらの関数たち$\cos$、$\sin$をそれぞれ余弦関数、正弦関数という。
+\end{dfn}
+\begin{dfn}
+余弦関数、正弦関数と整数たちの有理式で定義される関数を三角関数という。
+\end{dfn}\par
+例えば、$tan = \frac{\sin}{\cos}:\mathbb{C} \setminus \left\{ z \middle| \cos z = 0 \right\} \rightarrow \mathbb{C}$などが挙げられる。
+\begin{thm}\label{4.3.1.11} $\forall z \in \mathbb{C}$に対し、次式たちが成り立つ。
+\begin{align*}
+  \cos 0 &= 1\\
+  \sin 0 &= 0\\
+  \cos( - z) &= \cos z\\
+  \sin( - z) &= - \sin z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C}$に対し、定義より明らかに次のようになる。
+\begin{align*}
+\cos 0 &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}0^{2n}}{(2n)!} = \frac{0^{0}}{0!} + \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}0^{2n}}{(2n)!} = 1 + 0 = 1\\
+\sin 0 &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}0^{2n + 1}}{(2n + 1)!} = 0\\
+\cos( - z) &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}( - z)^{2n}}{(2n)!} = \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n}}{(2n)!} = \cos z\\
+\sin( - z) &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}( - z)^{2n + 1}}{(2n + 1)!} = - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!} = \sin z
+\end{align*}
+\end{proof}
+\begin{thm}[Eulerの公式]\label{4.3.1.12}
+$\forall z \in \mathbb{C}$に対し、次式が成り立つ。これをEulerの公式という。
+\begin{align*}
+\exp{iz} = \cos z + i\sin z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C}$に対し、自然な指数関数が収束していることから、複素数$\exp{iz}$は絶対収束する。ここで、定理\ref{4.1.8.24}と定義より次のようになる。
+\begin{align*}
+\exp{iz} &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{n}}{n!}\\
+&= \sum_{2n \in 2\mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{2n}}{(2n)!} + \frac{(iz)^{1}}{1!} + \sum_{2n + 1 \in 2\mathbb{N} + 1} \frac{(iz)^{2n - 1}}{(2n - 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{2n}}{(2n)!} + \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{i^{2n}z^{2n}}{(2n)!} + \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{ii^{2n}z^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n}}{(2n)!} + i\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!}\\
+&= \cos z + i\sin z
+\end{align*}
+\end{proof}
+\begin{thm}[de Moivreの公式]\label{4.3.1.13}
+$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し\footnote{一般に$n \in \mathbb{R}$とかの場合では成り立たないことに注意してください。}、次式が成り立つ。これをde Moivreの公式という。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{n} = \cos{nz} + i\sin{nz}
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C}\forall n \in \mathbb{N}$に対し、定理\ref{4.3.1.11}より次式が成り立つ。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{0} = 1 = \cos 0 + i\sin 0
+\end{align*}
+また、$n = 1$のときでは定理\ref{4.3.1.11}そのものである。$n = k$のとき、次式が成り立つと仮定すると、
+\begin{align*}
+\left( \cos z + i\sin z \right)^{k} = \cos{kz} + i\sin{kz}
+\end{align*}
+$n = k + 1$のとき、Eulerの公式より次のようになる。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{k + 1}\left( \cos z + i\sin z \right) &= \left( \cos{kz} + i\sin{kz} \right)\left( \cos z + i\sin z \right)\\
+&= \exp{ikz}\exp{iz}\\
+&= \exp(ikz + iz)\\
+&= \exp{i(k + 1)z}\\
+&= \cos{(k + 1)z} + i\sin{(k + 1)z}
+\end{align*}
+以上、数学的帰納法により$\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{n} = \cos{nz} + i\sin{nz}
+\end{align*}\par
+また、$\forall n \in \mathbb{N}$に対し、Eulerの公式より次のようになる。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{- n} &= \frac{1}{\left( \cos z + i\sin z \right)^{n}}\\
+&= \frac{1}{\cos{nz} + i\sin{nz}}\\
+&= \frac{1}{\exp{nz}}\\
+&= \exp( - nz)\\
+&= \cos( - nz) + i\sin( - nz)
+\end{align*}
+$\mathbb{Z} = - \mathbb{N} \sqcup \left\{ 0 \right\} \sqcup \mathbb{N}$が成り立つので、以上より、$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、次式が成り立つ。
+\begin{align*}
+\left( \cos z + i\sin z \right)^{n} = \cos{nz} + i\sin{nz}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.14} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cos z &= \frac{\exp{iz} + \exp( - iz)}{2}\\
+\sin z &= \frac{\exp{iz} - \exp( - iz)}{2i}
+\end{align*}
+\end{thm}
+\begin{proof}
+Eulerの公式より$\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\exp{iz} &= \cos z + i\sin z\\
+\exp( - iz) &= \cos( - z) + i\sin( - z)
+\end{align*}
+ここで、定理\ref{4.3.1.9}より次のようになる。
+\begin{align*}
+\exp{iz} &= \cos z + i\sin z\\
+\exp( - iz) &= \cos z - i\sin z
+\end{align*}
+あとはこれらから$\cos z$、$\sin z$について解けばよい。
+\end{proof}
+\begin{thm}\label{4.3.1.15}
+$\forall z \in \mathbb{C}$に対し、次式が成り立つ\footnote{次のように強引に示すものもあります。
+\begin{quote}
+$\forall z\in \mathbb{C}$に対し、次のようになり、
+\begin{align*}
+  \sin^{2}z &=\left(\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{n}z^{2n+1}}{(2n+1)!}}\right)^{2}\\
+  &=\sum_{m\in \mathbb{N} \cup \{ 0\} }\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{m}z^{2m+1}}{(2m+1)!}}{\frac{(-1)^{n}z^{2n+1}}{(2n+1)!}}\\
+  &=\sum_{m\in \mathbb{N} \cup \{ 0\} }\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{m+n}z^{2(m+n)+2}}{(2(m+n)-2n+1)!(2n+1)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(-1)^{n}z^{2n+2}}{(2n-2k+1)!(2k+1)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(-1)^{n}z^{2n+2}}{(2n+2)!}}{\frac{(2n+2)!}{(2k+1)!(2n-2k+1)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }\frac{(-1)^{n}z^{2n+2}}{(2n+2)!}\sum_{k\in \varLambda_n \cup \{ 0\} }\frac{(2n+2)!}{(2k+1)!(2n-2k+1)!}\\
+  &=\sum_{n\in \mathbb{N}}\frac{(-1)^{n-1}z^{2n}}{(2n)!}\sum_{k\in \varLambda_{n-1} \cup \{ 0\} }\frac{(2n)!}{(2k+1)!(2n-2k-1)!}\\
+  &=-\sum_{n\in \mathbb{N}}\frac{(-1)^{n}z^{2n}}{(2n)!}\sum_{k\in \varLambda_{n-1} \cup \{ 0\} }\frac{(2n)!}{(2k+1)!(2n-2k-1)!}\\
+  \cos^{2}z &=\left(\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\right)^{2}\\
+  &=\sum_{m\in \mathbb{N} \cup \{ 0\} }\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{m}z^{2m}}{(2m)!}}{\frac{(-1)^{n}z^{2n}}{(2n)!}}\\
+  &=\sum_{m\in \mathbb{N} \cup \{ 0\} }\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{m+n}z^{2(m+n)}}{(2(m+n)-2n)!(2n)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(-1)^{n}z^{2n}}{(2n-2k)!(2k)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}{\frac{(2n)!}{(2k)!(2n-2k)!}}\\
+  &=\sum_{n\in \mathbb{N} \cup \{ 0\} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(2n)!}{(2k)!(2n-2k)!}}\\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(2n)!}{(2k)!(2n-2k)!}}
+\end{align*}
+二項定理よりしたがって、次のようになる。
+\begin{align*}
+  \cos^{2}z + \sin^{2}z &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(2n)!}{(2k)!(2n-2k)!}}\\
+  &\quad -\sum_{n\in \mathbb{N}}\frac{(-1)^{n}z^{2n}}{(2n)!}\sum_{k\in \varLambda_{n-1} \cup \{ 0\} }\frac{(2n)!}{(2k+1)!(2n-2k-1)!} \\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\left( \sum_{k\in \varLambda_n \cup \{ 0\} }{\frac{(2n)!}{(2k)!(2n-2k)!}}\right. \\
+  &\quad \left. -\sum_{k\in \varLambda_{n-1} \cup \{ 0\} }\frac{(2n)!}{(2k+1)!(2n-2k-1)!} \right)\\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}}\left( \sum_{k\in \varLambda_n \cup \{ 0\} }{(-1)^{2k}\frac{(2n)!}{(2k)!(2n-2k)!}} \right. \\
+  &\quad \left. +\sum_{k\in \varLambda_{n-1} \cup \{ 0\} }(-1)^{2k+1}\frac{(2n)!}{(2k+1)!(2n-2k-1)!} \right)\\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}} \sum_{k\in \varLambda_{2n} \cup \{ 0\} }{(-1)^{k}\frac{(2n)!}{k!(2n-k)!}} \\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}} \sum_{k\in \varLambda_{2n} \cup \{ 0\} }{\frac{(2n)!}{k!(2n-k)!}1^{n-k}(-1)^{k}} \\
+  &=1+\sum_{n\in \mathbb{N} }{\frac{(-1)^{n}z^{2n}}{(2n)!}} \left(1-1\right)^{2n} \\
+  &=1+\sum_{n\in \mathbb{N} } 0=1
+\end{align*}
+\end{quote}}。
+\begin{align*}
+\cos^{2}z + \sin^{2}z = 1
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.13}より$\forall z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\cos^{2}z + \sin^{2}z &= \left( \frac{\exp{iz} + \exp( - iz)}{2} \right)^{2} + \left( \frac{\exp{iz} - \exp( - iz)}{2i} \right)^{2}\\
+&= \frac{\exp{2iz} + 2 + \exp( - 2iz)}{4} - \frac{\exp{2iz} - 2 + \exp( - 2iz)}{4}\\
+&= \frac{\exp{2iz} + 2 + \exp( - 2iz) - \exp{2iz} + 2 - \exp( - 2iz)}{4}\\
+&= 1
+\end{align*}
+\end{proof}
+\begin{thm}[三角関数の加法定理]\label{4.3.1.16} $\forall z,w \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cos(z \pm w) &= \cos z\cos w \mp \sin z\sin w\\
+\sin(z \pm w) &= \sin z\cos w \pm \cos z\sin w
+\end{align*}
+この定理を三角関数の加法定理という。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.12}より$\forall z,w \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+&\quad \cos z\cos w \mp \sin z\sin w\\
+&= \frac{\exp{iz} + \exp( - iz)}{2}\frac{\exp{iw} + \exp( - iw)}{2} \mp \frac{\exp{iz} - \exp( - iz)}{2i}\frac{\exp{iw} - \exp( - iw)}{2i}\\
+&= \frac{1}{4}\left( \exp{iz}\exp{iw} + \exp{iz}\exp( - iw) + \exp( - iz)\exp{iw} + \exp( - iz)\exp( - iw) \right) \\
+&\quad \pm \frac{1}{4}\left( \exp{iz}\exp{iw} - \exp{iz}\exp( - iw) - \exp( - iz)\exp{iw} + \exp( - iz)\exp( - iw) \right)\\
+&= \frac{1}{4}\left( \exp{iz}\exp{iw} + \exp{iz}\exp( - iw) + \exp( - iz)\exp{iw} + \exp( - iz)\exp( - iw) \right. \\
+&\quad \left. \pm \exp{iz}\exp{iw} \mp \exp{iz}\exp( - iw) \mp \exp( - iz)\exp{iw} \pm \exp( - iz)\exp( - iw) \right)\\
+&= \frac{2\exp{iz}\exp( \pm iw) + 2\exp( - iz)\exp( \mp iw)}{4}\\
+&= \frac{\exp{i(z \pm w)} + \exp\left( - i(z \pm w) \right)}{2} = \cos(z \pm w)\\
+&= \sin z\cos w \pm \cos z\sin w\\
+&= \frac{\exp{iz} - \exp( - iz)}{2i}\frac{\exp{iw} + \exp( - iw)}{2} \mp \frac{\exp{iz} + \exp( - iz)}{2}\frac{\exp{iw} - \exp( - iw)}{2i}\\
+&= \frac{1}{4i}\left( \exp{iz}\exp{iw} + \exp{iz}\exp( - iw) - \exp( - iz)\exp{iw} - \exp( - iz)\exp( - iw) \right) \\
+&\quad \pm \frac{1}{4i}\left( \exp{iz}\exp{iw} - \exp{iz}\exp( - iw) + \exp( - iz)\exp{iw} - \exp( - iz)\exp( - iw) \right)\\
+&= \frac{1}{4i}\left( \exp{iz}\exp{iw} + \exp{iz}\exp( - iw) - \exp( - iz)\exp{iw} - \exp( - iz)\exp( - iw) \right. \\
+&\quad \left. \pm \exp{iz}\exp{iw} \mp \exp{iz}\exp( - iw) \pm \exp( - iz)\exp{iw} \mp \exp( - iz)\exp( - iw) \right)\\
+&= \frac{2\exp{iz}\exp( \pm iw) - 2\exp( - iz)\exp( \mp iw)}{4i}\\
+&= \frac{\exp{i(z \pm w)} - \exp\left( - i(z \pm w) \right)}{2i} = \sin(z \pm w)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.17}
+余弦関数、正弦関数は集合$\mathbb{C}$上で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\cos z &= - \sin z\\
+\frac{d}{dz}\sin z &= \cos z
+\end{align*}
+\end{thm}
+\begin{proof}
+余弦関数、正弦関数は集合$\mathbb{C}$上で正則であることは定理\ref{4.2.8.7}より直ちに分かる。このとき、項別微分より次のようになる。
+\begin{align*}
+\frac{d}{dz}\cos z &= \frac{d}{dz}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n}}{(2n)!}\\
+&= \frac{d}{dz}\left( 1 + \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n}}{(2n)!} \right)\\
+&= \frac{d}{dz}\sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n}}{(2n)!}\\
+&= \sum_{n \in \mathbb{N}} {2n\frac{( - 1)^{n}z^{2n - 1}}{(2n)!}}\\
+&= \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n - 1}}{(2n - 1)!}\\
+&= - \sum_{n \in \mathbb{N}} \frac{( - 1)^{n - 1}z^{2(n - 1) + 1}}{\left( 2(n - 1) + 1 \right)!}\\
+&= - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!} = - \sin z\\
+\frac{d}{dz}\sin z &= \frac{d}{dz}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!}\\
+&= \frac{d}{dz}\left( 1 + \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!} \right)\\
+&= \frac{d}{dz}\sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N}} {(2n + 1)\frac{( - 1)^{n}z^{2n}}{(2n + 1)!}}\\
+&= \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}z^{2n}}{(2n)!} = \cos z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.18}
+集合$\mathbb{R}$に制限された余弦関数、正弦関数について$\forall x \in \mathbb{R}$に対し、$\cos x,\sin x \in \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof}
+これはその集合$\mathbb{R}$が加法と乗法で閉じていることと定義より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.19}
+$\cos\frac{\pi}{2} = 0$かつ$0 < \frac{\pi}{2} < 2$なる実数$\pi$がただ1つ存在する。また、このとき、$\sin\frac{\pi}{2} = 1$が成り立つ。
+\end{thm}
+\begin{dfn} このような実数$\pi$を円周率という。
+\end{dfn}
+\begin{proof}
+実数$x$が$0 < x < 2$を満たすなら、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次の通りになるので、
+\begin{align*}
+\frac{x^{2}}{(4n + 2)(4n + 3)} < \frac{2^{2}}{2 \cdot 3} < 1
+\end{align*}
+次のようになる。
+\begin{align*}
+\sin x &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}x^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{( - 1)^{4n}x^{4n + 1}}{(4n + 1)!} + \frac{( - 1)^{4n + 3}x^{4n + 3}}{(4n + 3)!} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 1}}{(4n + 1)!} - \frac{x^{4n + 3}}{(4n + 3)!} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 1}}{(4n + 1)!} - \frac{x^{4n + 1}}{(4n + 1)!}\frac{x^{2}}{(4n + 2)(4n + 3)} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{x^{4n + 1}}{(4n + 1)!}\left( 1 - \frac{x^{2}}{(4n + 2)(4n + 3)} \right)} > 0
+\end{align*}
+したがって、定理\ref{4.2.8.8}、定理\ref{4.3.1.17}より次のようになるので、
+\begin{align*}
+0 > - \sin x = \frac{d}{dx}\cos x
+\end{align*}
+余弦関数$\cos$は区間$(0,2)$で狭義単調減少し、ここで、実数$x$が$0 < x < 3$を満たすなら、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次の通りになるので、
+\begin{align*}
+\frac{x^{2}}{(4n + 3)(4n + 4)} < \frac{3^{2}}{3 \cdot 4} < 1
+\end{align*}
+次のようになる。
+\begin{align*}
+\cos x &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}x^{2n}}{(2n)!}\\
+&= \frac{( - 1)^{0}x^{0}}{0!} + \sum_{n \in \mathbb{N}} \frac{( - 1)^{n}x^{2n}}{(2n)!}\\
+&= 1 + \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n + 1}x^{2n + 2}}{(2n + 2)!}\\
+&= 1 - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{( - 1)^{4n}x^{4n + 2}}{(4n + 2)!} + \frac{( - 1)^{4n + 2}x^{4n + 4}}{(4n + 4)!} \right)\\
+&= 1 - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 2}}{(4n + 2)!} - \frac{x^{4n + 4}}{(4n + 4)!} \right)\\
+&= 1 - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 2}}{(4n + 2)!} - \frac{x^{4n + 2}}{(4n + 2)!}\frac{x^{2}}{(4n + 3)(4n + 4)} \right)\\
+&= 1 - \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{x^{4n + 2}}{(4n + 2)!}\left( 1 - \frac{x^{2}}{(4n + 3)(4n + 4)} \right)}\\
+&< 1 - \frac{x^{2}}{2!}\left( 1 - \frac{x^{2}}{3 \cdot 4} \right)
+\end{align*}
+したがって、次のようになる。
+\begin{align*}
+\cos 2 < 1 - \frac{2^{2}}{2!}\left( 1 - \frac{2^{2}}{3 \cdot 4} \right) = 1 - \frac{4}{3} = - \frac{1}{3} < 0
+\end{align*}
+ここで、$\cos 0 > 0$が成り立つので、余弦関数$\cos$はその区間$(0,2)$で狭義単調減少することに注意すれば、中間値の定理より$\cos\frac{\pi}{2} = 0$となる実数$\frac{\pi}{2}$がその区間$(0,2)$にただ1つ存在する。\par
+また、このとき、定理\ref{4.3.1.14}より明らかに$\sin\frac{\pi}{2} = \pm 1$が成り立つ。さらに、上記の議論により$\sin\frac{\pi}{2} > 0$が成り立っているので、$\sin\frac{\pi}{2} = 1$が成り立つ。
+\end{proof}
+\begin{thm}\label{4.3.1.20} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\sin\left( \frac{\pi}{2} - z \right) &= \cos z\\
+\cos\left( \frac{\pi}{2} - z \right) &= \sin z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C}$に対し、三角関数の加法定理より次のようになる。
+\begin{align*}
+\sin\left( \frac{\pi}{2} - z \right) &= \sin\frac{\pi}{2}\cos z - \cos\frac{\pi}{2}\sin z = \cos z\\
+\cos\left( \frac{\pi}{2} - z \right) &= \cos\frac{\pi}{2}\cos z + \sin\frac{\pi}{2}\sin z = \sin z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.21}
+$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、次式が成り立つ。
+\begin{align*}
+\cos(z + n\pi) &= ( - 1)^{n}\cos z\\
+\sin(z + n\pi) &= ( - 1)^{n}\sin z
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、$n = 0$のときは明らかに次式が成り立つ。
+\begin{align*}
+\cos(z + n\pi) &= \cos z\\
+\sin(z + n\pi) &= \sin z
+\end{align*}
+$n = 1$のとき次のようになる。
+\begin{align*}
+\cos(z + \pi) &= \cos z\cos\pi - \sin z\sin\pi\\
+&= \cos z\left( \cos\frac{\pi}{2}\cos\frac{\pi}{2} - \sin\frac{\pi}{2}\sin\frac{\pi}{2} \right) - \sin z\left( \sin\frac{\pi}{2}\cos\frac{\pi}{2} + \cos\frac{\pi}{2}\sin\frac{\pi}{2} \right)\\
+&= \cos z(0 - 1) - \sin z(0 + 0) = - \cos z\\
+\sin(z + \pi) &= \sin z\cos\pi + \cos z\sin\pi\\
+&= \sin z\left( \cos\frac{\pi}{2}\cos\frac{\pi}{2} - \sin\frac{\pi}{2}\sin\frac{\pi}{2} \right) - \cos z\left( \sin\frac{\pi}{2}\cos\frac{\pi}{2} + \cos\frac{\pi}{2}\sin\frac{\pi}{2} \right)\\
+&= \sin z(0 - 1) - \cos z(0 + 0) = - \sin z
+\end{align*}
+$n = k$のとき次式が成り立つと仮定すると、
+\begin{align*}
+\cos(z + k\pi) &= ( - 1)^{k}\cos z\\
+\sin(z + k\pi) &= ( - 1)^{k}\sin z
+\end{align*}
+$n = k + 1$のとき、次のようになる。
+\begin{align*}
+\cos\left( z + (k + 1)\pi \right) &= \cos(z + k\pi + \pi)\\
+&= \cos(z + k\pi)\cos\pi - \sin(z + k\pi)\sin\pi\\
+&= \cos(z + k\pi)\left( \cos\frac{\pi}{2}\cos\frac{\pi}{2} - \sin\frac{\pi}{2}\sin\frac{\pi}{2} \right) \\
+&\quad - \sin(z + k\pi)\left( \sin\frac{\pi}{2}\cos\frac{\pi}{2} + \cos\frac{\pi}{2}\sin\frac{\pi}{2} \right)\\
+&= \cos(z + k\pi)(0 - 1) - \sin(z + k\pi)(0 + 0)\\
+&= - \cos(z + k\pi)\\
+&= - ( - 1)^{k}\cos z\\
+&= ( - 1)^{k + 1}\cos z\\
+\sin\left( z + (k + 1)\pi \right) &= \sin(z + k\pi + \pi)\\
+&= \sin(z + k\pi)\cos\pi + \cos(z + k\pi)\sin\pi\\
+&= \sin(z + k\pi)\left( \cos\frac{\pi}{2}\cos\frac{\pi}{2} - \sin\frac{\pi}{2}\sin\frac{\pi}{2} \right) \\
+&\quad - \cos(z + k\pi)\left( \sin\frac{\pi}{2}\cos\frac{\pi}{2} + \cos\frac{\pi}{2}\sin\frac{\pi}{2} \right)\\
+&= \sin(z + k\pi)(0 - 1) - \cos(z + k\pi)(0 + 0)\\
+&= - \sin(z + k\pi)\\
+&= - ( - 1)^{k}\sin z\\
+&= ( - 1)^{k + 1}\sin z
+\end{align*}
+したがって、$\forall z \in \mathbb{C}\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\cos(z + n\pi) &= ( - 1)^{n}\cos z\\
+\sin(z + n\pi) &= ( - 1)^{n}\sin z
+\end{align*}
+ここで、$\forall z \in \mathbb{C}\forall - n \in - \mathbb{N}$に対し、次のようになる。
+\begin{align*}
+\cos(z - n\pi) &= \cos z\cos( - n\pi) - \sin z\sin( - n\pi)\\
+&= \cos( - z)\cos{n\pi}\text{-}\sin( - z)\sin{n\pi}\\
+&= \cos( - z + n\pi)\\
+&= ( - 1)^{n}\cos( - z)\\
+&= ( - 1)^{- n}\cos z\\
+\sin(z - n\pi) &= \sin z\cos( - n\pi) + \cos z\sin( - n\pi)\\
+&= - \sin( - z)\cos{n\pi} - \cos( - z)\sin{n\pi}\\
+&= - \left( \sin( - z)\cos{n\pi} + \cos( - z)\sin{n\pi} \right)\\
+&= - \sin( - z + n\pi)\\
+&= - ( - 1)^{n}\sin( - z)\\
+&= ( - 1)^{- n}\sin z
+\end{align*}
+よって、$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、次式が成り立つ。
+\begin{align*}
+\cos(z + n\pi) &= ( - 1)^{n}\cos z\\
+\sin(z + n\pi) &= ( - 1)^{n}\sin z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.22} 次のことが成り立つ\footnote{論理式でいうと、$\forall n \in \mathbb{Z}\left[ 2n\pi < x < (2n + 1)\pi \Rightarrow 余弦関数\cos は狭義単調減少する \right]$となっていることに注意してください。特に、$\exists n \in \mathbb{Z}\left[ 2n\pi < x < (2n + 1)\pi \right] \Rightarrow 余弦関数\cos は狭義単調減少する$が成り立ちます。}。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{Z}$に対し、$2n\pi < x < (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調減少する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$\pi + 2n\pi < x < \pi + (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調増加する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$- \frac{\pi}{2} + 2n\pi < x < \frac{\pi}{2} + (2n + 1)\pi$が成り立つなら、正弦関数$\sin$は狭義単調増加する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$\frac{\pi}{2} + 2n\pi < x < \frac{3\pi}{2} + (2n + 1)\pi$が成り立つなら、正弦関数$\sin$は狭義単調減少する。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$0 < x < \frac{\pi}{2}$が成り立つなら、$0 < x < 2$を満たし、$\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$に対し、次の通りになるので、
+\begin{align*}
+\frac{x^{2}}{(4n + 2)(4n + 3)} < \frac{2^{2}}{2 \cdot 3} < 1
+\end{align*}
+次のようになる。
+\begin{align*}
+\sin x &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}x^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{( - 1)^{4n}x^{4n + 1}}{(4n + 1)!} + \frac{( - 1)^{4n + 3}x^{4n + 3}}{(4n + 3)!} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 1}}{(4n + 1)!} - \frac{x^{4n + 3}}{(4n + 3)!} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \left( \frac{x^{4n + 1}}{(4n + 1)!} - \frac{x^{4n + 1}}{(4n + 1)!}\frac{x^{2}}{(4n + 2)(4n + 3)} \right)\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} {\frac{x^{4n + 1}}{(4n + 1)!}\left( 1 - \frac{x^{2}}{(4n + 2)(4n + 3)} \right)} > 0
+\end{align*}
+したがって、定理\ref{4.2.8.8}、定理\ref{4.3.1.17}より次のようになるので、
+\begin{align*}
+0 > - \sin x = \frac{d}{dx}\cos x
+\end{align*}
+余弦関数$\cos$は狭義単調減少する。また、$\frac{\pi}{2} < x < \pi$が成り立つなら、三角関数の加法定理より次のようになる。
+\begin{align*}
+\cos x &= \cos\left( x - \frac{\pi}{2} + \frac{\pi}{2} \right)\\
+&= \cos\left( x - \frac{\pi}{2} \right)\cos\frac{\pi}{2}\text{-}\sin\left( x - \frac{\pi}{2} \right)\sin\frac{\pi}{2}\\
+&= \cos\left( x - \frac{\pi}{2} \right)\cos\frac{\pi}{2}\text{-}\sin\left( x - \frac{\pi}{2} \right)\sin\frac{\pi}{2}\\
+&= -\sin\left( x - \frac{\pi}{2} \right)
+\end{align*}
+このとき、次のようになり、
+\begin{align*}
+\frac{d}{d\left( x - \frac{\pi}{2} \right)}\left( - \sin\left( x - \frac{\pi}{2} \right) \right) = - \cos\left( x - \frac{\pi}{2} \right)
+\end{align*}
+余弦関数$\cos$は区間$\left[ 0,\frac{\pi}{2} \right]$で狭義単調減少するので、次式が成り立つ。
+\begin{align*}
+- 1 < \frac{d}{d\left( x - \frac{\pi}{2} \right)}\left( - \sin\left( x - \frac{\pi}{2} \right) \right) = - \cos\left( x - \frac{\pi}{2} \right) < 0
+\end{align*}
+したがって、余弦関数$\cos$は狭義単調減少する。以上より、$0 < x < \frac{\pi}{2}$が成り立つなら、余弦関数$\cos$は狭義単調減少する。あとは定理\ref{4.3.1.21}より次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{Z}$に対し、$2n\pi < x < (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調減少する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$\pi + 2n\pi < x < \pi + (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調増加する。
+\end{itemize}
+また、定理\ref{4.3.1.20}より次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{Z}$に対し、$- \frac{\pi}{2} + 2n\pi < x < \frac{\pi}{2} + (2n + 1)\pi$が成り立つなら、正弦関数$\sin$は狭義単調増加する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$\frac{\pi}{2} + 2n\pi < x < \frac{3\pi}{2} + (2n + 1)\pi$が成り立つなら、正弦関数$\sin$は狭義単調減少する。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{4.3.1.23}
+$\forall x,y \in \mathbb{R}$に対し、次のことが成り立つ\footnote{なお、$\sin z = \cos w$ときましたら、定理\ref{4.3.1.19}を使うとよいかと思います。}。
+\begin{align*}
+\cos x &= \cos y \Leftrightarrow \exists n \in \mathbb{Z}[ x = \pm y + 2n\pi]\\
+\sin x &= \sin y \Leftrightarrow \exists n \in \mathbb{Z}\left[ x = \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi \right]
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall x,y \in \mathbb{R}$に対し、ある整数$n$が存在して$x = \pm y + 2n\pi$が成り立つなら、定理\ref{4.3.1.11}、定理\ref{4.3.1.21}より次のようになる。
+\begin{align*}
+\cos x = \cos( \pm y + 2n\pi) = \cos( \pm y) = \cos y
+\end{align*}
+逆に、任意の整数$n$に対し、$x \neq \pm y + 2n\pi$が成り立つとする。このとき、$\exists m,n \in \mathbb{Z}$に対し、$x,y + 2n\pi \in \left[ m\pi,(m + 1)\pi \right)$または$x, - y + 2n\pi \in \left[ m\pi,(m + 1)\pi \right)$が成り立つことになる\footnote{あくまでも個人の予想なので、誰か分かりやすい説明お願いします!}。$x,y + 2n\pi \in \left[ m\pi,(m + 1)\pi \right)$のとき、定理\ref{4.3.1.22}より余弦関数$\cos$が区間$\left[ m\pi,(m + 1)\pi \right)$に制限された関数は狭義単調増加する、または、狭義単調減少するので、$x \lessgtr y + 2n\pi$が成り立つなら、$\cos x \lessgtr \cos(y + 2n\pi) = \cos y$または$\cos x \gtrless \cos(y + 2n\pi) = \cos y$が成り立つ。いづれにしても、$\cos x \neq \cos y$が成り立つ。$x,y + 2n\pi \in \left[ m\pi,(m + 1)\pi \right)$のとき、定理\ref{4.3.1.11}より同様にして、$\cos x \neq \cos( - y) = \cos y$が成り立つ。いづれにしても、任意の整数$n$に対し、$x \neq \pm y + 2n\pi$が成り立つなら、$\cos x \neq \cos y$が成り立つ。以上、対偶律よりある整数$n$が存在して$z = \pm w + 2n\pi$が成り立つならそのときに限り、$\cos x = \cos y$が成り立つ。\par
+ある整数$n$が存在して$x = \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi$が成り立つなら、定理\ref{4.3.1.11}、定理\ref{4.3.1.20}、定理\ref{4.3.1.21}より次のようになる。
+\begin{align*}
+\sin x &= \sin\left( \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi \right)\\
+&= \sin\left( \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} \right)\\
+&= \sin\left( \frac{\pi}{2} \pm \left( y - \frac{\pi}{2} \right) \right)\\
+&= \cos\left( \mp \left( y - \frac{\pi}{2} \right) \right)\\
+&= \cos\left( \frac{\pi}{2} - y \right) = \sin y
+\end{align*}
+逆に、$\sin x = \sin y$が成り立つならそのときに限り、定理\ref{4.3.1.20}より$\cos\left( \frac{\pi}{2} - x \right) = \cos\left( \frac{\pi}{2} - y \right)$が成り立つ。ここで、上記の議論により$\exists n \in \mathbb{Z}$に対し、$\frac{\pi}{2} - x = \pm \left( \frac{\pi}{2} - y \right) + 2n\pi$が成り立つ。ここで、両辺に$- 1$をかけ左辺の$\frac{\pi}{2}$を移項することで、$x = \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi$が得られる。\par
+以上より、次のことが成り立つことが示された。
+\begin{align*}
+\cos x = \cos y &\Leftrightarrow \exists n \in \mathbb{Z}[ x = \pm y + 2n\pi]\\
+\sin x = \sin y &\Leftrightarrow \exists n \in \mathbb{Z}\left[ x = \pm \left( y - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi \right]
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.24}
+$\forall x \in \mathbb{R}$に対し、次式が成り立つ\footnote{定理\ref{4.3.1.13}とEulerの公式による三角不等式と絶対値を使った証明もいけそうですね。}。
+\begin{align*}
+- 1 \leq \cos x \leq 1,\ \  - 1 \leq \sin x \leq 1
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.22}より$\forall x \in \mathbb{R}$に対し、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall n \in \mathbb{Z}$に対し、$2n\pi < x < (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調減少する。
+\item
+  $\forall n \in \mathbb{Z}$に対し、$\pi + 2n\pi < x < \pi + (2n + 1)\pi$が成り立つなら、余弦関数$\cos$は狭義単調増加する。
+\end{itemize}
+このとき、$\forall n \in \mathbb{Z}$に対し、$\cos{2n\pi} = 1$が成り立つかつ、$\cos(\pi + 2n\pi) = - 1$が成り立つので、$- 1 \leq \cos x \leq 1$が成り立つ。定理\ref{4.3.1.20}より同様に$- 1 \leq \sin x \leq 1$も成り立つ。
+\end{proof}
+\begin{dfn}
+関数たち$\cot$、$\tan$、$\mathrm{cosec}$、$\sec$が次のように定義される。
+\begin{itemize}
+\item
+  次式のように関数$\cot$が定義される。その関数を余接関数という。
+\begin{align*}
+\cot:\mathbb{C} \setminus \mathbb{Z}\pi \rightarrow \mathbb{C};z \mapsto \frac{\cos z}{\sin z}
+\end{align*}
+\item
+  次式のように関数$\tan$が定義される。その関数を正接関数という。
+\begin{align*}
+\tan:\mathbb{C} \setminus \left( \frac{\pi}{2} + \mathbb{Z}\pi \right) \rightarrow \mathbb{C};z \mapsto \frac{\sin z}{\cos z}
+\end{align*}
+\item
+  次式のように関数$\mathrm{cosec}$が定義される。その関数を余割関数という。
+\begin{align*}
+\mathrm{cosec}:\mathbb{C} \setminus \mathbb{Z}\pi \rightarrow \mathbb{C};z \mapsto \frac{1}{\sin z}
+\end{align*}
+\item
+  次式のように関数$\sec$が定義される。その関数を正割関数という。
+\begin{align*}
+\sec:\mathbb{C} \setminus \left( \frac{\pi}{2} + \mathbb{Z}\pi \right) \rightarrow \mathbb{C};z \mapsto \frac{1}{\cos z}
+\end{align*}
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{4.3.1.25}
+このとき、$\forall z \in \mathbb{C}$に対し、次式たちが成り立つ\footnote{きちんと証明するのに時間と気力がないので、勘弁してください…⊂⌒　⊃。Д。)⊃}。
+\begin{align*}
+\cot( - z) &= - \cot z\\
+\tan( - z) &= - \tan z
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.11}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.26} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cot z &= \frac{i\exp{iz} + i\exp( - iz)}{\exp{iz} - \exp( - iz)}\\
+\tan z &= \frac{\exp{iz} - \exp( - iz)}{i\exp{iz} + i\exp( - iz)}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.14}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.27}
+$\forall z \in \mathbb{C}$に対し、定義されることができるかぎり次式が成り立つ。
+\begin{align*}
+1 + \cot^{2}z &= \frac{1}{\sin^{2}z} = {\mathrm{cosec}}^{2}z\\
+1 + \tan^{2}z &= \frac{1}{\cos^{2}z} = \sec^{2}z\\
+\cot z\tan z &= 1
+\end{align*}
+\end{thm}
+\begin{proof} 定義と定理\ref{4.3.1.15}より明らかである。
+\end{proof}
+\begin{thm}[三角関数の加法定理]\label{4.3.1.28}
+$\forall z,w \in \mathbb{C}$に対し、定義されることができるかぎり次式が成り立つ。
+\begin{align*}
+\cot(z \pm w) &= \frac{\cot z\cot w \mp 1}{\cot w \pm \cot z}\\
+\tan(z \pm w) &= \frac{\tan z \pm \tan w}{1 \mp \tan z\tan w}
+\end{align*}
+この定理も三角関数の加法定理という。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.16}より$\forall z,w \in \mathbb{C}$に対し、定義されることができるかぎり次のようになる。
+\begin{align*}
+\cot(z \pm w) &= \frac{\cos(z \pm w)}{\sin(z \pm w)}\\
+&= \frac{\cos z\cos w \mp \sin z\sin w}{\sin z\cos w \pm \cos z\sin w}\\
+&= \frac{\cot z\cot w \mp 1}{\cot w \pm \cot z}\\
+\tan(z \pm w) &= \frac{\sin(z \pm w)}{\cos(z \pm w)}\\
+&= \frac{\sin z\cos w \pm \cos z\sin w}{\cos z\cos w \mp \sin z\sin w}\\
+&= \frac{\tan z \pm \tan w}{1 \mp \tan z\tan w}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.29} 余接関数、正接関数はその定義域上で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\cot z &= - \frac{1}{\sin^{2}z} = - \left( 1 + \cot^{2}z \right)\\
+\frac{d}{dz}\tan z &= \frac{1}{\cos^{2}z} = 1 + \tan^{2}z
+\end{align*}
+\end{thm}
+\begin{proof} 余接関数、正接関数はその定義域上で正則であることは定理\ref{4.3.1.17}より直ちに分かる。このとき、定理\ref{4.3.1.15}、定理\ref{4.3.1.27}より次のようになる。
+\begin{align*}
+\frac{d}{dz}\cot z &= \frac{d}{dz}\frac{\cos z}{\sin z}\\
+&= \frac{\frac{d}{dz}\cos z\sin z - \cos z\frac{d}{dz}\sin z}{\sin^{2}z}\\
+&= \frac{- \sin^{2}z - \cos^{2}z}{\sin^{2}z}\\
+&= - \frac{1}{\sin^{2}z} = - \left( 1 + \cot^{2}z \right)\\
+\frac{d}{dz}\tan z &= \frac{d}{dz}\frac{\sin z}{\cos z}\\
+&= \frac{\frac{d}{dz}\sin z\cos z - \sin z\frac{d}{dz}\cos z}{\cos^{2}z}\\
+&= \frac{\cos^{2}z + \sin^{2}z}{\cos^{2}z}\\
+&= \frac{1}{\cos^{2}z} = 1 + \tan^{2}z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.30}
+集合$\mathbb{R}$に制限された余接関数、正接関数について$\forall x \in \mathbb{R}$に対し、$\cot x,\tan x \in \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.18}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.31}
+$\forall z \in \mathbb{C} \setminus \mathbb{Z}\frac{\pi}{2}$に対し、次式が成り立つ。
+\begin{align*}
+\cot\left( \frac{\pi}{2} - z \right) &= \tan z\\
+\tan\left( \frac{\pi}{2} - z \right) &= \cot z
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.20}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.32}
+$\forall z \in \mathbb{C}\forall n \in \mathbb{Z}$に対し、次式が成り立つ。
+\begin{align*}
+\cot(z + n\pi) &= \cot z\\
+\tan(z + n\pi) &= \tan z
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.21}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.33} 次のことが成り立つ。
+\begin{itemize}
+\item
+  集合$\mathbb{R}$に制限された余接関数$\cot$は狭義単調増加する。
+\item
+  集合$\mathbb{R}$に制限された正接関数$\tan$は狭義単調減少する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.29}より次式が成り立つことによる。
+\begin{align*}
+\frac{d}{dx}\cot x &= - \frac{1}{\sin^{2}x} < 0\\
+\frac{d}{dx}\tan x &= \frac{1}{\cos^{2}x} > 0
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.34}
+集合$\mathbb{R}$に制限されたとき、$\forall n \in \mathbb{Z}$に対し、次式が成り立つ。
+\begin{align*}
+  \lim_{x \rightarrow n\pi - 0}{\cot x} &= - \infty\\
+  \lim_{x \rightarrow n\pi + 0}{\cot x} &= \infty\\
+  \lim_{x \rightarrow \frac{\pi}{2} + n\pi - 0}{\tan x} &= \infty\\
+  \lim_{x \rightarrow \frac{\pi}{2} + n\pi + 0}{\tan x} &= - \infty
+\end{align*}
+\end{thm}
+\begin{proof} 
+$\forall n \in \mathbb{Z}$に対し、次式たちが成り立つことから、
+\begin{align*}
+  \lim_{x \rightarrow \frac{\pi}{2} - 0}\frac{1}{\cos x} &= \infty\\
+  \lim_{x \rightarrow - 0}\frac{1}{\sin x} &= - \infty\\
+  \lim_{x \rightarrow \frac{\pi}{2} + 0}\frac{1}{\cos x} &= - \infty\\
+  \lim_{x \rightarrow + 0}\frac{1}{\sin x} &= \infty
+\end{align*}
+定理\ref{4.3.1.32} より次のようになる。
+\begin{align*}
+\lim_{x \rightarrow n\pi - 0}{\cot x} &= \lim_{x \rightarrow - 0}{\cot x} = \lim_{x \rightarrow - 0}\frac{\cos x}{\sin x} = - \infty\\
+\lim_{x \rightarrow n\pi + 0}{\cot x} &= \lim_{x \rightarrow + 0}{\cot x} = \lim_{x \rightarrow + 0}\frac{\cos x}{\sin x} = \infty\\
+\lim_{x \rightarrow \frac{\pi}{2} + n\pi - 0}{\tan x} &= \lim_{x \rightarrow \frac{\pi}{2} - 0}{\tan x} = \lim_{x \rightarrow \frac{\pi}{2} - 0}\frac{\sin x}{\cos x} = \infty\\
+\lim_{x \rightarrow \frac{\pi}{2} + n\pi + 0}{\tan x} &= \lim_{x \rightarrow \frac{\pi}{2} + 0}{\tan x} = \lim_{x \rightarrow \frac{\pi}{2} + 0}\frac{\sin x}{\cos x} = - \infty
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.35}
+$\forall x,y \in \mathbb{R}$に対し、次のことが成り立つ\footnote{なお、$\sin z = \cos w$ときましたら、定理\ref{4.3.1.19}を使うとよいかと思います。}。
+\begin{align*}
+\cot x &= \cot y \Leftrightarrow \exists n \in \mathbb{Z}[ x = y + n\pi]\\
+\tan x &= \tan y \Leftrightarrow \exists n \in \mathbb{Z}[ x = y + n\pi]
+\end{align*}
+\end{thm}
+\begin{proof} $\forall x,y \in \mathbb{R}$に対し、定理\ref{4.3.1.16}、定理\ref{4.3.1.23}より次のようになる。
+\begin{align*}
+\cot x = \cot y &\Leftrightarrow \frac{\cos x}{\sin x} = \frac{\cos y}{\sin y}\\
+&\Leftrightarrow \cos x\sin y - \sin x\cos y = 0\\
+&\Leftrightarrow \sin(x - y) = \sin 0\\
+&\Leftrightarrow \exists n \in \mathbb{Z}\left[ x - y = \pm \left( - \frac{\pi}{2} \right) + \frac{\pi}{2} + 2n\pi \right]\\
+&\Leftrightarrow \exists n \in \mathbb{Z}[ x - y = 2n\pi,2n\pi + \pi]\\
+&\Leftrightarrow \exists n \in \mathbb{Z}[ x = y + n\pi]
+\end{align*}
+また、正接関数についても同様にして示される。
+\end{proof}
+%\hypertarget{ux53ccux66f2ux7ddaux95a2ux6570}{%
+\subsubsection{双曲線関数}%\label{ux53ccux66f2ux7ddaux95a2ux6570}}
+\begin{thm}\label{4.3.1.36}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$が与えられたとき、これの収束半径は$\infty$である。
+\end{thm}
+\begin{proof}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$が与えられたとき、次のようになるので、
+\begin{align*}
+\lim_{n \rightarrow \infty}\left| \frac{\frac{1}{(2n)!}}{\frac{1}{\left( 2(n + 1) \right)!}} \right| &= \lim_{n \rightarrow \infty}\left| \frac{\left( 2(n + 1) \right)!}{(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 2)!}{(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 2)(2n + 1)(2n)!}{(2n)!} \right|\\
+&= \lim_{n \rightarrow \infty}{(2n + 2)(2n + 1)} = \infty\\
+\lim_{n \rightarrow \infty}\left| \frac{\frac{1}{(2n + 1)!}}{\frac{1}{\left( 2(n + 1) + 1 \right)!}} \right| &= \lim_{n \rightarrow \infty}\left| \frac{\left( 2(n + 1) + 1 \right)!}{(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 3)!}{(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}\left| \frac{(2n + 3)(2n + 2)(2n + 1)!}{(2n + 1)!} \right|\\
+&= \lim_{n \rightarrow \infty}{(2n + 3)(2n + 2)} = \infty
+\end{align*}
+$\forall w \in \mathbb{C}$に対し、冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{w^{k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{w^{k}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径たちはどちらも$\infty$となる。\par
+ここで、$\forall z \in \mathbb{C}$に対し、$w = z^{2}$とおいてもやはりそれらの収束半径たちはどちらも$\infty$となる。その冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の各項にその複素数$z$をかけたとしても、これがその自然数$n$に対しての定数となっているので、やはり、その冪級数$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径は$\infty$となる。
+\end{proof}
+\begin{dfn}
+冪級数たち$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k}}{(2k)!} \right)_{n \in \mathbb{N}}$、$\left( \sum_{k \in \varLambda_{n} \cup \left\{ 0 \right\}} \frac{z^{2k + 1}}{(2k + 1)!} \right)_{n \in \mathbb{N}}$の収束半径は$\infty$であることにより、$D(0,\infty) = \mathbb{C}$が成り立ち次式のように関数たち$\cosh$、$\sinh$が定義されることができる。
+\begin{align*}
+\cosh&:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{2n}}{(2n)!}\\
+\sinh&:\mathbb{C} \rightarrow \mathbb{C};z \mapsto \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{2n + 1}}{(2n + 1)!}
+\end{align*}
+これらの関数たち$\cosh$、$\sinh$をそれぞれ双曲余弦関数、双曲正弦関数という。
+\end{dfn}
+\begin{dfn}
+双曲余弦関数、双曲正弦関数と整数たちの有理式で定義される関数を双曲線関数という。例えば、$\mathrm{tanh} = \frac{\sinh}{\cosh}:\mathbb{C} \setminus \left\{ z \middle| \cosh z = 0 \right\} \rightarrow \mathbb{C}$などが挙げられる。
+\end{dfn}
+\begin{thm}\label{4.3.1.37} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+  \cosh{iz} &= \cos z\\
+  - i\sinh{iz} &= \sin z\\
+  \cos{iz} &= \cosh z\\
+  - i\sin{iz} &= \sinh z
+\end{align*}  
+\end{thm}
+\begin{proof} $\forall z \in \mathbb{C}$に対し、次のようになる。
+\begin{align*}
+\cosh{iz} &= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{2n}}{(2n)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{i^{2n}z^{2n}}{(2n)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n}}{(2n)!} = \cos z\\
+- i\sinh{iz} &= - i\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{(iz)^{2n + 1}}{(2n + 1)!}\\
+&= - i\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{ii^{2n}z^{2n + 1}}{(2n + 1)!}\\
+&= - i^{2}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{( - 1)^{n}z^{2n + 1}}{(2n + 1)!} = \sin z
+\end{align*}
+また、このとき、次のようになる。
+\begin{align*}
+\cos{iz} &= \cos( - iz) = \cosh\left( - i^{2}z \right) = \cosh z\\
+- i\sin{iz} &= i\sin( - iz) = i\left( - i\sinh\left( - i^{2}z \right) \right) = - i^{2}\sinh z = \sinh z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.38} $\forall z \in \mathbb{C}$に対し、次式たちが成り立つ。
+\begin{align*}
+  \cosh 0 &= 1\\
+  \sinh 0 &= 0\\
+  \cosh( - z) &= \cosh z\\
+  \sinh( - z) &= - \sinh z
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.11}と定理\ref{4.3.1.37}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.39} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cosh z &= \frac{\exp z + \exp( - z)}{2}\\
+\sinh z &= \frac{\exp z - \exp( - z)}{2}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.14}と定理\ref{4.3.1.37}より次のようになる。
+\begin{align*}
+\cosh z &= \cos{iz}\\
+&= \frac{\exp{i^{2}z} + \exp\left( - i^{2}z \right)}{2}\\
+&= \frac{\exp( - z) + \exp z}{2}\\
+&= \frac{\exp z + \exp( - z)}{2}\\
+\sinh z &= - i\sin{iz}\\
+&= - i\frac{\exp{i^{2}z} - \exp\left( - i^{2}z \right)}{2i}\\
+&= \frac{- \exp( - z) + \exp z}{2}\\
+&= \frac{\exp z - \exp( - z)}{2}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.40} $\forall z \in \mathbb{C}$に対し、次式が成り立つ。
+\begin{align*}
+\cosh^{2}z - \sinh^{2}z = 1
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.15}と定理\ref{4.3.1.37}より次のようになる。
+\begin{align*}
+\cosh^{2}z - \sinh^{2}z &= \cosh^{2}z + i^{2}\left( - \sinh z \right)^{2}\\
+&= \cosh^{2}z + \left( - i\sinh z \right)^{2}\\
+&= \cos^{2}{iz} + \left( - i\left( - i\sin{iz} \right) \right)^{2}\\
+&= \cos^{2}{iz} + i^{4}\sin^{2}{iz}\\
+&= \cos^{2}{iz} + \sin^{2}{iz} = 1
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.41}
+双曲余弦関数、双曲正弦関数は集合$\mathbb{C}$上で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\cosh z &= \sinh z\\
+\frac{d}{dz}\sinh z &= \cosh z
+\end{align*}
+\end{thm}
+\begin{proof}
+双曲余弦関数、双曲正弦関数は集合$\mathbb{C}$上で正則であることは定理\ref{4.2.8.7}より直ちに分かる。このとき、項別微分より次のようになる。
+\begin{align*}
+\frac{d}{dz}\cosh z &= \frac{d}{dz}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{2n}}{(2n)!}\\
+&= \frac{d}{dz}\left( 1 + \sum_{n \in \mathbb{N}} \frac{z^{2n}}{(2n)!} \right)\\
+&= \frac{d}{dz}\sum_{n \in \mathbb{N}} \frac{z^{2n}}{(2n)!}\\
+&= \sum_{n \in \mathbb{N}} {2n\frac{z^{2n - 1}}{(2n)!}}\\
+&= \sum_{n \in \mathbb{N}} \frac{z^{2n - 1}}{(2n - 1)!}\\
+&= \sum_{n \in \mathbb{N}} \frac{z^{2(n - 1) + 1}}{\left( 2(n - 1) + 1 \right)!}\\
+&= \sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{2n + 1}}{(2n + 1)!} = \sinh z\\
+\frac{d}{dz}\sinh z &= \frac{d}{dz}\sum_{n \in \mathbb{N} \cup \left\{ 0 \right\}} \frac{z^{2n + 1}}{(2n + 1)!}\\
+&= \frac{d}{dz}\left( 1 + \sum_{n \in \mathbb{N}} \frac{z^{2n + 1}}{(2n + 1)!} \right)\\
+&= \frac{d}{dz}\sum_{n \in \mathbb{N}} \frac{z^{2n + 1}}{(2n + 1)!}\\
+&= \sum_{n \in \mathbb{N}} {(2n + 1)\frac{z^{2n}}{(2n + 1)!}}\\
+&= \sum_{n \in \mathbb{N}} \frac{z^{2n}}{(2n)!} = \cosh z
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.42}
+集合$\mathbb{R}$に制限された双曲余弦関数、双曲正弦関数について$\forall x \in \mathbb{R}$に対し、$\cosh x,\sinh x \in \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.7}、定理\ref{4.3.1.39}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.43} 次のことが成り立つ。
+\begin{itemize}
+\item
+  $0 < x$が成り立つなら、双曲余弦関数$\cosh$は狭義単調増加する。
+\item
+  $x < 0$が成り立つなら、双曲余弦関数$\cosh$は狭義単調減少する。
+\item
+  $\forall x \in \mathbb{R}$に対し、$1 \leq \cosh x$が成り立つ。
+\item
+  $x \in \mathbb{R}$が成り立つなら、双曲正弦関数$\sinh$は狭義単調増加する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.39}、定理\ref{4.3.1.41}より$0 < x$が成り立つなら、$1 < \exp x$が成り立つことにより次のようになるので、
+\begin{align*}
+\frac{d}{dx}\cosh x = \sinh x = \frac{\exp x - \exp( - x)}{2} = \frac{\exp x - \frac{1}{\exp x}}{2} > 0
+\end{align*}
+双曲余弦関数$\cosh$は狭義単調増加する。同様にして、$x < 0$が成り立つなら、双曲余弦関数$\cosh$は狭義単調減少する。上記の議論により$\cosh 0 = 1$が成り立つので、$\forall x \in \mathbb{R}$に対し、$1 \leq \cosh x$が成り立つ。\par
+定理\ref{4.3.1.39}、定理\ref{4.3.1.41}より$x \in \mathbb{R}$が成り立つなら、次のようになるので、
+\begin{align*}
+\frac{d}{dx}\sinh x = \cosh x = \frac{\exp x + \exp( - x)}{2} > 0
+\end{align*}
+双曲正弦関数$\cos$は狭義単調増加する。
+\end{proof}
+\begin{dfn} 関数たち$\coth$、$\mathrm{tanh}$が次のように定義される。
+\begin{itemize}
+\item
+  次式のように関数$\coth$が定義される。その関数を双曲余接関数という。
+\begin{align*}
+\coth:\mathbb{C} \setminus \mathbb{Z}\pi i \rightarrow \mathbb{C};z \mapsto \frac{\cosh z}{\sinh z}
+\end{align*}
+\item
+  次式のように関数$\mathrm{tanh}$が定義される。その関数を双曲正接関数という。
+\begin{align*}
+\mathrm{tanh}:\mathbb{C} \setminus \left( \frac{\pi i}{2} + \mathbb{Z}\pi i \right) \rightarrow \mathbb{C};z \mapsto \frac{\sinh z}{\cosh z}
+\end{align*}
+\end{itemize}
+\end{dfn}
+\begin{thm}\label{4.3.1.44}
+双曲余接関数、双曲正接関数はその定義域上で正則で次式が成り立つ。
+\begin{align*}
+\frac{d}{dz}\coth z &= - \frac{1}{\sinh^{2}z}\\
+\frac{d}{dz}\mathrm{tanh} z &= \frac{1}{\cosh^{2}z}
+\end{align*}
+\end{thm}
+\begin{proof}
+双曲余接関数、双曲正接関数はその定義域上で正則であることは定理\ref{4.3.1.17}より直ちに分かる。このとき、定理\ref{4.3.1.40}、定理\ref{4.3.1.41}より次のようになる。
+\begin{align*}
+\frac{d}{dz}\coth z &= \frac{d}{dz}\frac{\cosh z}{\sinh z}\\
+&= \frac{\frac{d}{dz}\cosh z\sinh z - \cos z\frac{d}{dz}\sinh z}{\sinh^{2}z}\\
+&= \frac{\sinh^{2}z - \cosh^{2}z}{\sinh^{2}z}\\
+&= - \frac{1}{\sinh^{2}z}\\
+\frac{d}{dz}\mathrm{tanh} z &= \frac{d}{dz}\frac{\sinh z}{\cosh z}\\
+&= \frac{\frac{d}{dz}\sinh z\cosh z - \sinh z\frac{d}{dz}\cosh z}{\cosh^{2}z}\\
+&= \frac{\cosh^{2}z - \sinh^{2}z}{\cosh^{2}z}\\
+&= \frac{1}{\cosh^{2}z}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.45}
+集合$\mathbb{R}$に制限された双曲余接関数、双曲正接関数について$\forall x \in \mathbb{R}$に対し、$\coth x,\mathrm{tanh} x \in \mathbb{R}$が成り立つ。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.7}、定理\ref{4.3.1.42}より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.46} 次のことが成り立つ。
+\begin{itemize}
+\item
+  $x \in \mathbb{R} \setminus \left\{ 0 \right\}$が成り立つなら、双曲余接関数$\coth$は狭義単調減少する。
+\item
+  $x \in \mathbb{R}$が成り立つなら、双曲正接関数$\mathrm{tanh}$は狭義単調増加する。
+\item
+  $\forall x \in \mathbb{R}$に対し、$- 1 < \mathrm{tanh} x < 1$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$x \in \mathbb{R} \setminus \left\{ 0 \right\}$が成り立つなら、定理\ref{4.3.1.43}より$\frac{d}{dx}\coth x = - \frac{1}{\sinh^{2}x} < 0$が成り立つので、双曲余接関数$coth$は狭義単調減少する。\par
+$x \in \mathbb{R}$が成り立つなら、定理\ref{4.3.1.43}より$\frac{d}{dx}\mathrm{tanh} x = \frac{1}{\cosh^{2}x} > 0$が成り立つので、双曲正接関数$\mathrm{tanh}$は狭義単調増加する。さらに、次式たちが成り立つので、
+\begin{align*}
+\lim_{x \rightarrow \infty}{\mathrm{tanh} x} &= \lim_{x \rightarrow \infty}\frac{\sinh x}{\cosh x}\\
+&= \lim_{x \rightarrow \infty}\frac{\exp x - \exp( - x)}{\exp x + \exp( - x)}\\
+&= \lim_{x \rightarrow \infty}\frac{1 - \frac{\exp( - x)}{\exp x}}{1 + \frac{\exp( - x)}{\exp x}}\\
+&= \frac{1 - \lim_{x \rightarrow \infty}\frac{\exp( - x)}{\exp x}}{1 + \lim_{x \rightarrow \infty}\frac{\exp( - x)}{\exp x}} = \frac{1 - 0}{1 + 0} = 1\\
+\lim_{x \rightarrow - \infty}{\mathrm{tanh} x} &= \lim_{x \rightarrow - \infty}\frac{\sinh x}{\cosh x}\\
+&= \lim_{x \rightarrow - \infty}\frac{\exp x - \exp( - x)}{\exp x + \exp( - x)}\\
+&= \lim_{x \rightarrow - \infty}\frac{\frac{\exp x}{\exp( - x)} - 1}{\frac{\exp x}{\exp( - x)} + 1}\\
+&= \frac{\lim_{x \rightarrow - \infty}\frac{\exp x}{\exp( - x)} - 1}{\lim_{x \rightarrow - \infty}\frac{\exp x}{\exp( - x)} + 1} = \frac{0 - 1}{0 + 1} = - 1
+\end{align*}
+$\forall x \in \mathbb{R}$に対し、$- 1 < \mathrm{tanh} x < 1$が成り立つ。
+\end{proof}
+%\hypertarget{ux81eaux7136ux306aux5bfeux6570ux95a2ux6570}{%
+\subsubsection{自然な対数関数}%\label{ux81eaux7136ux306aux5bfeux6570ux95a2ux6570}}
+\begin{thm}\label{4.3.1.47} 次式のような関数$\exp$は全単射である。
+\begin{align*}
+\exp:\mathbb{R} \rightarrow \mathbb{R}^{+};x \mapsto \exp x
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.8}より上の関数は単射であることが分かる。さらに、定理\ref{4.3.1.9}よりその関数の値域は$\mathbb{R}^{+}$である。よって、その関数は全単射である。
+\end{proof}
+\begin{dfn} 次式のような関数$\exp$の逆関数が定理\ref{4.3.1.47}より存在することになる。
+\begin{align*}
+\exp:\mathbb{R} \rightarrow \mathbb{R}^{+};x \mapsto \exp x
+\end{align*}
+その逆関数を自然な対数関数といい、$\log$、$\ln$などと書く、即ち、次式のように定義される。
+\begin{align*}
+\ln:\mathbb{R}^{+} \rightarrow \mathbb{R};x \mapsto \exp^{- 1}x
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.48} このとき、次式が成り立つ。
+\begin{align*}
+\ln 1 &= 0\\
+\ln e &= 1
+\end{align*}
+\end{thm}
+\begin{proof} 次のようになることによる。
+\begin{align*}
+\ln 1 &= \ln{\exp 0} = 0\\
+\ln e &= \ln{\exp 1} = 1
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.49} $\forall x,y \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\ln{xy} &= \ln x + \ln y\\
+\ln\frac{1}{x} &= - \ln x
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall x,y \in \mathbb{R}^{+}$に対し、次のようになることによる。
+\begin{align*}
+\ln{xy} &= \ln{\exp{\ln x}\exp{\ln y}} = \ln{\exp\left( \ln x + \ln y \right)} = \ln x + \ln y\\
+\ln\frac{1}{x} &= \ln\frac{1}{\exp{\ln x}} = \ln{\exp\left( - \ln x \right)} = - \ln x
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.50}
+自然な対数関数$\ln$はその定義域$\mathbb{R}^{+}$で微分可能で次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}\ln x = \frac{1}{x}
+\end{align*}
+\end{thm}
+\begin{proof} 逆関数の微分により次のようになる。
+\begin{align*}
+\frac{d}{dx}\ln x = \frac{1}{\frac{dx}{d\ln x}} = \frac{1}{\frac{d}{d\ln x}\exp{\ln x}} = \frac{1}{\exp{\ln x}} = \frac{1}{x}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.51}
+自然な対数関数$\ln$はその定義域$\mathbb{R}^{+}$で狭義単調増加する。
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.50}より自然な対数関数$\ln$はその定義域$\mathbb{R}^{+}$で微分可能で、$\forall x \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}\ln x = \frac{1}{x} > 0
+\end{align*}
+よって、自然な対数関数$\ln$はその定義域$\mathbb{R}^{+}$で狭義単調増加する。
+\end{proof}
+\begin{thm}\label{4.3.1.52} $\forall n \in \mathbb{N}$に対し、次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}{\ln x} &= \infty\\
+\lim_{x \rightarrow + 0}{\ln x} &= - \infty\\
+\lim_{x \rightarrow \infty}\frac{\ln x}{x^{n}} &= 0\\
+\lim_{x \rightarrow + 0}\frac{\ln x}{x^{n}} &= - \infty\\
+\lim_{x \rightarrow + 0}{x^{n}\ln x} &= 0
+\end{align*}
+\end{thm}
+\begin{proof}
+$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\exp\varepsilon = \delta$とすれば、$\delta < x$が成り立つなら、定理\ref{4.3.1.50}より$\varepsilon = \ln\delta < \ln x$が成り立つので、$\lim_{x \rightarrow \infty}{\ln x} = \infty$が成り立つ。また、$\forall\varepsilon \in \mathbb{R}^{+}\exists\delta \in \mathbb{R}^{+}$に対し、$\exp( - \varepsilon) = \delta$とすれば、$x < \delta$が成り立つなら、定理\ref{4.3.1.50}より$\ln x < \ln\delta = - \varepsilon$が成り立つことにより、$\lim_{x \rightarrow + 0}{\ln x} = - \infty$が成り立つ。\par
+また、$\forall n \in \mathbb{N}$に対し、次のようになることから、
+\begin{align*}
+\lim_{x \rightarrow \infty}\frac{\ln x}{x^{n}} &= \lim_{\ln x \rightarrow \infty}\frac{\ln x}{\exp^{n}{\ln x}}\\
+&= \lim_{\ln x \rightarrow \infty}{\frac{1}{\frac{\exp{\ln x}}{\ln x}}\frac{1}{\exp^{n - 1}{\ln x}}}\\
+&= \lim_{\ln x \rightarrow \infty}\frac{1}{\frac{\exp{\ln x}}{\ln x}}\lim_{\ln x \rightarrow \infty}\frac{1}{\exp^{n - 1}{\ln x}}\\
+&= \lim_{\frac{\exp{\ln x}}{\ln x} \rightarrow \infty}\frac{1}{\frac{\exp{\ln x}}{\ln x}}\lim_{x \rightarrow \infty}\frac{1}{\exp^{n - 1}{\ln x}} = 0\\
+\lim_{x \rightarrow + 0}\frac{\ln x}{x^{n}} &= \lim_{\ln x \rightarrow - \infty}\frac{\ln x}{\exp^{n}{\ln x}}\\
+&= \lim_{\ln x \rightarrow - \infty}{\ln x}\lim_{\ln x \rightarrow - \infty}\frac{1}{\exp^{n}{\ln x}}\\
+&= - \infty \cdot \infty = - \infty\\
+\lim_{x \rightarrow + 0}{x^{n}\ln x} &= \lim_{\ln x \rightarrow - \infty}{\exp^{n}{\ln x} \cdot \ln x}\\
+&= \lim_{\ln x \rightarrow - \infty}{\exp^{n - 1}{\ln x}}\lim_{\ln x \rightarrow - \infty}{\exp{\ln x} \cdot \ln x} = 0 \cdot 0 = 0
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\lim_{x \rightarrow \infty}\frac{\ln x}{x^{n}} &= 0\\
+\lim_{x \rightarrow + 0}\frac{\ln x}{x^{n}} &= - \infty\\
+\lim_{x \rightarrow + 0}{x^{n}\ln x} &= 0
+\end{align*}
+\end{proof}
+%\hypertarget{ux9006ux4e09ux89d2ux95a2ux6570}{%
+\subsubsection{逆三角関数}%\label{ux9006ux4e09ux89d2ux95a2ux6570}}
+\begin{thm}\label{4.3.1.53} 次式のような関数たち$\cos$、$\sin$は全単射である。
+\begin{align*}
+\cos&:[ 0,\pi] \rightarrow [ - 1,1];x \mapsto \cos x\\
+\sin&:\left[ - \frac{\pi}{2},\frac{\pi}{2} \right] \rightarrow [ - 1,1];x \mapsto \sin x
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.22}より上の関数たちは単射であることが分かる。さらに、定理\ref{4.3.1.24}よりそれらの関数たちの値域はいづれも$[ - 1,1]$である。よって、それらの関数たちは全単射である。
+\end{proof}
+\begin{dfn}
+次式のような関数たち$\cos$、$\sin$は逆関数が定理\ref{4.3.1.53}より存在することになる。
+\begin{align*}
+\cos&:[ 0,\pi] \rightarrow [ - 1,1];x \mapsto \cos x\\
+\sin&:\left[ - \frac{\pi}{2},\frac{\pi}{2} \right] \rightarrow [ - 1,1];x \mapsto \sin x
+\end{align*}
+その逆関数をそれぞれ逆余弦関数、逆正弦関数といい、それぞれ$\mathrm{Arccos}$、$\mathrm{Arcsin}$、${\mathrm{Cos}}^{- 1}$、${\mathrm{Sin}}^{- 1}$などと書く、即ち、次式のように定義される。
+\begin{align*}
+\mathrm{Arccos}&:[ - 1,1] \rightarrow [ 0,\pi];x \mapsto \cos^{- 1}x\\
+\mathrm{Arcsin}&:[ - 1,1] \rightarrow \left[ - \frac{\pi}{2},\frac{\pi}{2} \right];x \mapsto \sin^{- 1}x
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.54}
+逆余弦関数$\mathrm{Arccos}$、逆正弦関数$\mathrm{Arcsin}$はそれぞれ開区間$( - 1,1)$、$( - 1,1)$で微分可能で次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccos}}x &= - \frac{1}{\sqrt{1 - x^{2}}}\\
+\frac{d}{dx}{\mathrm{Arcsin}}x &= \frac{1}{\sqrt{1 - x^{2}}}
+\end{align*}
+\end{thm}
+\begin{proof}
+逆関数の微分により逆余弦関数、逆正弦関数の定義域上でそれぞれ$\sin x \geq 0$、$\cos x \geq 0$が成り立つので、次のようになる。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccos}}x &= \frac{1}{\frac{dx}{d{\mathrm{Arccos}}x}}\\
+&= \frac{1}{\frac{d}{d{\mathrm{Arccos}}x}\cos{{\mathrm{Arccos}}x}}\\
+&= - \frac{1}{\sin{{\mathrm{Arccos}}x}}\\
+&= - \frac{1}{\sqrt{1 - \cos^{2}{{\mathrm{Arccos}}x}}}\\
+&= - \frac{1}{\sqrt{1 - x^{2}}}\\
+\frac{d}{dx}{\mathrm{Arcsin}}x &= \frac{1}{\frac{dx}{d{\mathrm{Arcsin}}x}}\\
+&= \frac{1}{\frac{d}{d{\mathrm{Arcsin}}x}\sin{{\mathrm{Arcsin}}x}}\\
+&= \frac{1}{\cos{{\mathrm{Arcsin}}x}}\\
+&= \frac{1}{\sqrt{1 - \sin^{2}{{\mathrm{Arcsin}}x}}}\\
+&= \frac{1}{\sqrt{1 - x^{2}}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.55} 次のことが成り立つ。
+\begin{itemize}
+\item
+  $x \in [ - 1,1]$が成り立つなら、逆余弦関数$\mathrm{Arccos}$は狭義単調減少する。
+\item
+  $x \in [ - 1,1]$が成り立つなら、逆正弦関数$\mathrm{Arcsin}$は狭義単調増加する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.54}より逆余弦関数$\mathrm{Arccos}$はその開区間$( - 1,1)$で微分可能で、$\forall x \in ( - 1,1)$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccos}}x = - \frac{1}{\sqrt{1 - x^{2}}} < 0
+\end{align*}
+一方で、$x = \pm 1$のとき、逆余弦関数の増減から考えれば、よって、逆余弦関数$\mathrm{Arccos}$はその区間$[ - 1,1]$で狭義単調減少する。\par
+定理\ref{4.3.1.54}より逆正弦関数$\mathrm{Arcsin}$はその開区間$( - 1,1)$で微分可能で、$\forall x \in ( - 1,1)$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arcsin}}x = \frac{1}{\sqrt{1 - x^{2}}} > 0
+\end{align*}
+一方で、$x = \pm 1$のとき、逆正弦関数の増減から考えれば、よって、逆正弦関数$\mathrm{Arcsin}$はその区間$[ - 1,1]$で狭義単調増加する。
+\end{proof}
+\begin{thm}\label{4.3.1.56} 次式のような関数たち$\cot$、$\tan$は全単射である。
+\begin{align*}
+\cot&:(0,\pi) \rightarrow \mathbb{R};x \mapsto \cot x\\
+\tan&:\left( - \frac{\pi}{2},\frac{\pi}{2} \right) \rightarrow \mathbb{R};x \mapsto \tan x
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.33}より上の関数たちは単射であることが分かる。さらに、定理\ref{4.3.1.34}よりそれらの関数たちの値域はいづれも$\mathbb{R}$である。よって、それらの関数たちは全単射である。
+\end{proof}
+\begin{dfn}
+次式のような関数たち$\cos$、$\sin$は逆関数が定理\ref{4.3.1.56}より存在することになる。
+\begin{align*}
+\cot&:(0,\pi) \rightarrow \mathbb{R};x \mapsto \cot x\\
+\tan&:\left( - \frac{\pi}{2},\frac{\pi}{2} \right) \rightarrow \mathbb{R};x \mapsto \tan x
+\end{align*}
+その逆関数をそれぞれ逆余接関数、逆正接関数といい、それぞれ$\mathrm{Arccot}$、$\mathrm{Arctan}$、${\mathrm{Cot}}^{- 1}$、${\mathrm{Tan}}^{- 1}$などと書く、即ち、次式のように定義される。
+\begin{align*}
+\mathrm{Arccot}&:\mathbb{R} \rightarrow (0,\pi);x \mapsto \cot^{- 1}x\\
+\mathrm{Arctan}&:\mathbb{R} \rightarrow \left( - \frac{\pi}{2},\frac{\pi}{2} \right);x \mapsto \tan^{- 1}x
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.57}
+逆余接関数$\mathrm{Arccot}$、逆正接関数$\mathrm{Arctan}$はその定義域$\mathbb{R}$で微分可能で次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccot}}x &= - \frac{1}{1 + x^{2}}\\
+\frac{d}{dx}{\mathrm{Arctan}}x &= \frac{1}{1 + x^{2}}
+\end{align*}
+\end{thm}
+\begin{proof}
+それぞれ$\sin x \neq 0$、$\cos x \neq 0$のとき、逆関数の微分により次のようになる。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccot}}x &= \frac{1}{\frac{dx}{d{\mathrm{Arccot}}x}}\\
+&= \frac{1}{\frac{d}{d{\mathrm{Arccot}}x}\cot{{\mathrm{Arccot}}x}}\\
+&= - \frac{1}{1 + \cot^{2}{{\mathrm{Arccot}}x}}\\
+&= - \frac{1}{1 + x^{2}}\\
+\frac{d}{dx}{\mathrm{Arctan}}x &= \frac{1}{\frac{dx}{d{\mathrm{Arctan}}x}}\\
+&= \frac{1}{\frac{d}{d{\mathrm{Arctan}}x}\tan{{\mathrm{Arctan}}x}}\\
+&= \frac{1}{1 + \tan^{2}{{\mathrm{Arctan}}x}}\\
+&= \frac{1}{1 + x^{2}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.58} 次のことが成り立つ。
+\begin{itemize}
+\item
+  $x \in \mathbb{R}$が成り立つなら、逆余接関数$\mathrm{Arccot}$は狭義単調減少する。
+\item
+  $x \in \mathbb{R}$が成り立つなら、逆正接関数$\mathrm{Arctan}$は狭義単調増加する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.57}より逆余接関数$\mathrm{Arccot}$はその定義域$\mathbb{R}$で微分可能で、$\forall x \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccot}}x = - \frac{1}{1 + x^{2}} < 0
+\end{align*}
+よって、逆余接関数$\mathrm{Arccot}$はその定義域$\mathbb{R}$で狭義単調減少する。\par
+定理\ref{4.3.1.57}より逆正接関数$\mathrm{Arctan}$はその定義域$\mathbb{R}$で微分可能で、$\forall x \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arctan}}x = \frac{1}{1 + x^{2}} > 0
+\end{align*}
+よって、逆正接関数$\mathrm{Arctan}$はその定義域$\mathbb{R}$で狭義単調増加する。
+\end{proof}
+\begin{thm}\label{4.3.1.59} 次式が成り立つ。
+\begin{align*}
+  \lim_{x \rightarrow - \infty}{{\mathrm{Arccot}}x} &= \pi\\
+  \lim_{x \rightarrow - \infty}{{\mathrm{Arctan}}x} &= - \frac{\pi}{2}\\
+  \lim_{x \rightarrow \infty}{{\mathrm{Arccot}}x} &= 0\\
+  \lim_{x \rightarrow \infty}{{\mathrm{Arctan}}x} &= \frac{\pi}{2}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.1.4.16}より逆余接関数$\mathrm{Arccot}$は単調減少し定義より有界であるので、$\lim_{x \rightarrow - \infty}{{\mathrm{Arccot}}x} = \sup{V(\mathrm{Arccot})}$が成り立つ。このとき、$V(\mathrm{Arccot}) = (0,\pi)$が成り立つので、$\lim_{x \rightarrow - \infty}{{\mathrm{Arccot}}x} = \pi$が成り立つ。以下、同様にして示される。
+\end{proof}
+%\hypertarget{ux9006ux53ccux66f2ux7ddaux95a2ux6570}{%
+\subsubsection{逆双曲線関数}%\label{ux9006ux53ccux66f2ux7ddaux95a2ux6570}}
+\begin{thm}\label{4.3.1.60} 次式のような関数たち$\cosh$、$\sinh$は全単射である。
+\begin{align*}
+\cosh&:[ 0,\infty) \rightarrow [ 1,\infty);x \mapsto \cosh x\\
+\sinh&:\mathbb{R} \rightarrow \mathbb{R};x \mapsto \sinh x
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.43}より上の関数たちは単射であることが分かる。さらに、定理\ref{4.3.1.39}より次式が成り立つので、
+\begin{align*}
+\lim_{x \rightarrow \infty}{\cosh x} &= \lim_{x \rightarrow \infty}\frac{\exp x + \exp( - x)}{2} = \frac{1}{2}\lim_{x \rightarrow \infty}{\exp x} + \frac{1}{2}\lim_{x \rightarrow \infty}\frac{1}{\exp x} = \infty\\
+\lim_{x \rightarrow - \infty}{\sinh x} &= \lim_{x \rightarrow - \infty}\frac{\exp x - \exp( - x)}{2} = \frac{1}{2}\lim_{x \rightarrow - \infty}{\exp x} - \frac{1}{2}\lim_{x \rightarrow - \infty}\frac{1}{\exp x} = - \infty\\
+\lim_{x \rightarrow \infty}{\sinh x} &= \lim_{x \rightarrow \infty}\frac{\exp x - \exp( - x)}{2} = \frac{1}{2}\lim_{x \rightarrow \infty}{\exp x} - \frac{1}{2}\lim_{x \rightarrow \infty}\frac{1}{\exp x} = \infty
+\end{align*}
+中間値の定理よりこれらの関数たち$\cosh$、$\sinh$の値域がそれぞれ$[ 0,\infty)$、$\mathbb{R}$と与えられる。よって、それらの関数たちは全単射である。
+\end{proof}
+\begin{dfn}
+次式のような関数たち$\cosh$、$\sinh$は逆関数が定理\ref{4.3.1.60}より存在することになる。
+\begin{align*}
+\cosh&:[ 0,\infty) \rightarrow [ 1,\infty);x \mapsto \cosh x\\
+\sinh&:\mathbb{R} \rightarrow \mathbb{R};x \mapsto \sinh x
+\end{align*}
+その逆関数をそれぞれ逆双曲余弦関数、逆双曲正弦関数といい、それぞれ$\mathrm{Arccosh}$、$\mathrm{Arcsinh}$、${Cosh}^{- 1}$、${Sinh}^{- 1}$などと書く、即ち、次式のように定義される。
+\begin{align*}
+\mathrm{Arccosh}&:[ 1,\infty) \rightarrow [ 0,\infty);x \mapsto \cosh^{- 1}x\\
+\mathrm{Arcsinh}&:\mathbb{R} \rightarrow \mathbb{R};x \mapsto \sinh^{- 1}x
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.61}
+逆双曲余弦関数$\mathrm{Arccosh}$、逆双曲正弦関数$\mathrm{Arcsinh}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall x \in [ 1,\infty)$に対し、次式が成り立つ。
+\end{itemize}
+\begin{align*}
+{\mathrm{Arccosh}}x = \ln\left( x + \sqrt{x^{2} - 1} \right)
+\end{align*}
+\begin{itemize}
+\item
+  $\forall x \in \mathbb{R}$に対し、次式が成り立つ。
+\end{itemize}
+\begin{align*}
+{\mathrm{Arcsinh}}x = \ln\left( x + \sqrt{x^{2} + 1} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+逆双曲余弦関数$\mathrm{Arccosh}$、逆双曲正弦関数$\mathrm{Arcsinh}$について、$\forall x \in [ 1,\infty)$に対し、定理\ref{4.3.1.60}より$x = \cosh y$とおくことができて、そうすると、次のようになる。
+\begin{align*}
+x = \cosh y &\Leftrightarrow x = \frac{\exp y + \exp( - y)}{2}\\
+&\Leftrightarrow \exp{2y} - 2x\exp y + 1 = 0\\
+&\Leftrightarrow \left( \exp y - x \right)^{2} = x^{2} - 1\\
+&\Leftrightarrow \exp y = x \pm \sqrt{x^{2} - 1}
+\end{align*}
+ここで、定理\ref{4.3.1.60}より$y \in [ 0,\infty)$が成り立つので、$1 \leq \exp y$が成り立つことに注意すれば、$\exp y = x - \sqrt{x^{2} - 1}$が成り立つと仮定すると、$1 \leq x - \sqrt{x^{2} - 1}$が成り立つことになる。ここで、$1 < x$が成り立つとしても一般性は失われないことに注意すれば、したがって、次のようになる。
+\begin{align*}
+1 \leq x - \sqrt{x^{2} - 1} &\Leftrightarrow 0 \leq \sqrt{x^{2} - 1} \leq x - 1\\
+&\Leftrightarrow x^{2} - 1 \leq x^{2} - 2x + 1\\
+&\Leftrightarrow 2x \leq 2 \Leftrightarrow x \leq 1
+\end{align*}
+これにより、$\exp y = x + \sqrt{x^{2} - 1}$が成り立つことになる。あとは、対数関数の定義より明らかである。\par
+$\forall x \in \mathbb{R}$に対し、定理\ref{4.3.1.60}より$x = \sinh y$とおくことができて、そうすると、次のようになる。
+\begin{align*}
+x = \sinh y &\Leftrightarrow x = \frac{\exp y - \exp( - y)}{2}\\
+&\Leftrightarrow \exp{2y} - 2x\exp y - 1 = 0\\
+&\Leftrightarrow \left( \exp y - x \right)^{2} = x^{2} + 1\\
+&\Leftrightarrow \exp y = x \pm \sqrt{x^{2} + 1}
+\end{align*}
+ここで、定理\ref{4.3.1.60}より$y \in \mathbb{R}$が成り立つので、$0 < \exp y$が成り立つことに注意すれば、$\exp y = x - \sqrt{x^{2} + 1}$が成り立つと仮定すると、$0 < x - \sqrt{x^{2} + 1}$が成り立つことになる。したがって、次のようになる。
+\begin{align*}
+0 < x - \sqrt{x^{2} - 1} &\Rightarrow \sqrt{x^{2} - 1} < x\\
+&\Leftrightarrow x^{2} - 1 < x^{2}\\
+&\Leftrightarrow - 1 < 0
+\end{align*}
+これにより、$\exp y = x + \sqrt{x^{2} + 1}$が成り立つことになる。あとは、対数関数の定義より明らかである。
+\end{proof}
+\begin{thm}\label{4.3.1.62}
+逆双曲余弦関数$\mathrm{Arccosh}$、逆双曲正弦関数$\mathrm{Arcsinh}$はそれぞれ開区間$\mathbb{R}^{+}$、$\mathbb{R}$で微分可能で次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccosh}}x &= \frac{1}{\sqrt{x^{2} - 1}}\\
+\frac{d}{dx}{\mathrm{Arcsinh}}x &= \frac{1}{\sqrt{x^{2} + 1}}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.61}より次のように計算される。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccosh}}x &= \frac{d}{dx}\ln\left( x + \sqrt{x^{2} - 1} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} - 1}}\frac{d}{dx}\left( x + \sqrt{x^{2} - 1} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} - 1}}\left( 1 + \frac{1}{2\sqrt{x^{2} - 1}}\frac{d}{dx}\left( x^{2} - 1 \right) \right)\\
+&= \frac{1}{x + \sqrt{x^{2} - 1}}\left( 1 + \frac{1}{\sqrt{x^{2} - 1}} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} - 1}}\frac{x + \sqrt{x^{2} - 1}}{\sqrt{x^{2} - 1}} = \frac{1}{\sqrt{x^{2} - 1}}\\
+\frac{d}{dx}{\mathrm{Arcsinh}}x &= \frac{d}{dx}\ln\left( x + \sqrt{x^{2} + 1} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} + 1}}\frac{d}{dx}\left( x + \sqrt{x^{2} + 1} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} + 1}}\left( 1 + \frac{1}{2\sqrt{x^{2} + 1}}\frac{d}{dx}\left( x^{2} + 1 \right) \right)\\
+&= \frac{1}{x + \sqrt{x^{2} + 1}}\left( 1 + \frac{1}{\sqrt{x^{2} + 1}} \right)\\
+&= \frac{1}{x + \sqrt{x^{2} + 1}}\frac{x + \sqrt{x^{2} + 1}}{\sqrt{x^{2} + 1}} = \frac{1}{\sqrt{x^{2} + 1}}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.63}次のことが成り立つ。
+\begin{itemize}
+\item
+  $x \in [ 0,\infty)$が成り立つなら、逆双曲余弦関数$\mathrm{Arccosh}$は狭義単調増加する。
+\item
+  $x \in \mathbb{R}$が成り立つなら、逆双曲正弦関数$\mathrm{Arcsinh}$は狭義単調増加する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.62}より逆双曲余弦関数$\mathrm{Arccosh}$はその開区間$\mathbb{R}^{+}$で微分可能で、$\forall x \in \mathbb{R}^{+}$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccosh}}x = \frac{1}{\sqrt{x^{2} - 1}} > 0
+\end{align*}
+一方で、$x = 1$のとき、逆双曲余弦関数の増減から考えれば、よって、逆双曲余弦関数$\mathrm{Arccosh}$はその区間$[ - 1,1]$で狭義単調減少する。\par
+定理\ref{4.3.1.62}より逆双曲正弦関数$\mathrm{Arcsinh}$はその開区間$\mathbb{R}$で微分可能で、$\forall x \in \mathbb{R}$に対し、次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arcsinh}}x = \frac{1}{\sqrt{x^{2} + 1}} > 0
+\end{align*}
+よって、逆双曲正弦関数$\mathrm{Arcsinh}$はその区間$\mathbb{R}$で狭義単調増加する。
+\end{proof}
+\begin{thm}\label{4.3.1.64} 次式のような関数たち$\coth$、$\mathrm{tanh}$は全単射である。
+\begin{align*}
+\coth&:\mathbb{R} \setminus \left\{ 0 \right\} \rightarrow ( - \infty, - 1) \cup (1,\infty);x \mapsto \coth x\\
+\mathrm{tanh}&:\mathbb{R} \rightarrow ( - 1,1);x \mapsto \mathrm{tanh} x
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.46}より上の関数たちは単射であることが分かる。さらに、定義と定理\ref{4.3.1.39}より次式が成り立つので、
+\begin{align*}
+\lim_{x \rightarrow - \infty}{\coth x} &= \lim_{x \rightarrow - \infty}\frac{\cosh x}{\sinh x}\\
+&= \lim_{x \rightarrow - \infty}\frac{\exp x + \exp( - x)}{\exp x - \exp( - x)}\\
+&= - \lim_{x \rightarrow - \infty}\frac{\exp( - 2x) + 1}{\exp( - 2x) - 1}\\
+&= - \lim_{x \rightarrow - \infty}\left( 1 + \frac{2}{\exp( - 2x) - 1} \right)\\
+&= - 1 - \lim_{x \rightarrow - \infty}\frac{2}{\exp( - 2x) - 1} = - 1\\
+\lim_{x \rightarrow - 0}{\coth x} &= \lim_{x \rightarrow - 0}\frac{\cosh x}{\sinh x}\\
+&= \lim_{x \rightarrow - 0}\frac{\exp x + \exp( - x)}{\exp x - \exp( - x)}\\
+&= - \lim_{x \rightarrow - 0}\frac{\exp( - 2x) + 1}{\exp( - 2x) - 1}\\
+&= - \lim_{x \rightarrow - 0}\left( \exp( - 2x) + 1 \right)\lim_{x \rightarrow - 0}\frac{1}{\exp( - 2x) - 1}\\
+&= - 2 \cdot \infty = - \infty\\
+\lim_{x \rightarrow + 0}{\coth x} &= \lim_{x \rightarrow + 0}\frac{\cosh x}{\sinh x}\\
+&= \lim_{x \rightarrow + 0}\frac{\exp x + \exp( - x)}{\exp x - \exp( - x)}\\
+&= \lim_{x \rightarrow + 0}\frac{\exp{2x} + 1}{\exp{2x} - 1}\\
+&= \lim_{x \rightarrow + 0}\left( \exp{2x} + 1 \right)\lim_{x \rightarrow + 0}\frac{1}{\exp{2x} - 1}\\
+&= 2 \cdot \infty = \infty\\
+\lim_{x \rightarrow \infty}{\coth x} &= \lim_{x \rightarrow \infty}\frac{\cosh x}{\sinh x} = \lim_{x \rightarrow \infty}\frac{\exp x + \exp( - x)}{\exp x - \exp( - x)}\\
+&= \lim_{x \rightarrow \infty}\frac{\exp{2x} + 1}{\exp{2x} - 1}\\
+&= \lim_{x \rightarrow \infty}\left( 1 + \frac{2}{\exp{2x} - 1} \right)\\
+&= 1 + \lim_{x \rightarrow \infty}\frac{2}{\exp{2x} - 1} = 1\\
+\lim_{x \rightarrow - \infty}{\mathrm{tanh} x} &= \lim_{x \rightarrow - \infty}\frac{\sinh x}{\cosh x}\\
+&= \lim_{x \rightarrow - \infty}\frac{\exp x - \exp( - x)}{\exp x + \exp( - x)}\\
+&= \lim_{x \rightarrow - \infty}\frac{\exp{2x} - 1}{\exp{2x} + 1}\\
+&= \lim_{x \rightarrow - \infty}\left( 1 - \frac{2}{\exp{2x} + 1} \right)\\
+&= 1 - \lim_{x \rightarrow - \infty}\frac{2}{\exp{2x} + 1} = 1 - \frac{2}{1} = - 1\\
+\lim_{x \rightarrow \infty}{\mathrm{tanh} x} &= \lim_{x \rightarrow \infty}\frac{\sinh x}{\cosh x}\\
+&= \lim_{x \rightarrow \infty}\frac{\exp x - \exp( - x)}{\exp x + \exp( - x)}\\
+&= - \lim_{x \rightarrow \infty}\frac{\exp( - 2x) - 1}{\exp( - 2x) + 1}\\
+&= - \lim_{x \rightarrow \infty}\left( 1 - \frac{2}{\exp( - 2x) + 1} \right)\\
+&= - 1 + \lim_{x \rightarrow \infty}\frac{2}{\exp( - 2x) + 1} = - 1 + \frac{2}{1} = 1
+\end{align*}
+中間値の定理よりこれらの関数たち$\coth$、$\mathrm{tanh}$の値域がそれぞれ$( - \infty, - 1) \cup (1,\infty)$、$( - 1,1)$と与えられる。よって、それらの関数たちは全単射である。
+\end{proof}
+\begin{dfn}
+次式のような関数たち$\coth$、$\mathrm{tanh}$は逆関数が定理\ref{4.3.1.64}より存在することになる。
+\begin{align*}
+\coth&:\mathbb{R} \setminus \left\{ 0 \right\} \rightarrow ( - \infty, - 1) \cup (1,\infty);x \mapsto \coth x\\
+\mathrm{tanh}&:\mathbb{R} \rightarrow ( - 1,1);x \mapsto \mathrm{tanh} x
+\end{align*}
+その逆関数をそれぞれ逆双曲余接関数、逆双曲正接関数といい、それぞれ$\mathrm{Arccoth}$、$\mathrm{Arctanh}$、${\mathrm{Coth}}^{- 1}$、${\mathrm{Tanh}}^{- 1}$などと書く、即ち、次式のように定義される。
+\begin{align*}
+\mathrm{Arccoth}&:( - \infty, - 1) \cup (1,\infty) \rightarrow \mathbb{R} \setminus \left\{ 0 \right\};x \mapsto \coth^{- 1}x\\
+\mathrm{Arctanh}&:( - 1,1) \rightarrow \mathbb{R};x \mapsto \mathrm{tanh}^{- 1}x
+\end{align*}
+\end{dfn}
+\begin{thm}\label{4.3.1.65}
+逆双曲余接関数$\mathrm{Arccoth}$、逆双曲正接関数$\mathrm{Arctanh}$について、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall x \in ( - \infty, - 1) \cup (1,\infty)$に対し、次式が成り立つ。
+\begin{align*}
+{\mathrm{Arccoth}}x = \frac{1}{2}\ln\frac{x + 1}{x - 1}
+\end{align*}
+\item
+  $\forall x \in ( - 1,1)$に対し、次式が成り立つ。
+\begin{align*}
+{\mathrm{Arctanh}}x = \frac{1}{2}\ln\left( - \frac{x + 1}{x - 1} \right)
+\end{align*}
+\end{itemize}
+\end{thm}
+\begin{proof}
+逆双曲余接関数$\mathrm{Arccoth}$、逆双曲正接関数$\mathrm{Arctanh}$について、$\forall x \in ( - \infty, - 1) \cup (1,\infty)$に対し、定理\ref{4.3.1.64}より$x = \coth y$とおくことができて、そうすると、$x - 1 \neq 0$より次のようになる。
+\begin{align*}
+x = \coth y &\Leftrightarrow x = \frac{\exp y + \exp( - y)}{\exp y - \exp( - y)} = \frac{\exp{2y} + 1}{\exp{2y} - 1}\\
+&\Leftrightarrow x\exp{2y} - x = \exp{2y} + 1\\
+&\Leftrightarrow (x - 1)\exp{2y} - x - 1 = 0\\
+&\Leftrightarrow \exp{2y} = \frac{x + 1}{x - 1}\\
+&\Leftrightarrow 2y = \ln\frac{x + 1}{x - 1}\\
+&\Leftrightarrow y = \frac{1}{2}\ln\frac{x + 1}{x - 1}
+\end{align*}\par
+同様にして、次のようになる。
+\begin{align*}
+x = \mathrm{tanh} y &\Leftrightarrow x = \frac{\exp y - \exp( - y)}{\exp y + \exp( - y)} = \frac{\exp{2y} - 1}{\exp{2y} + 1}\\
+&\Leftrightarrow x\exp{2y} + x = \exp{2y} - 1\\
+&\Leftrightarrow (x - 1)\exp{2y} + x + 1 = 0\\
+&\Leftrightarrow \exp{2y} = - \frac{x + 1}{x - 1}\\
+&\Leftrightarrow 2y = \ln\left( - \frac{x + 1}{x - 1} \right)\\
+&\Leftrightarrow y = \frac{1}{2}\ln\left( - \frac{x + 1}{x - 1} \right)
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.66}
+逆双曲余接関数$\mathrm{Arccoth}$、逆双曲正接関数$\mathrm{Arctanh}$はそれらの定義域で微分可能で次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccoth}}x &= - \frac{1}{x^{2} - 1}\\
+\frac{d}{dx}{\mathrm{Arctanh}}x &= \frac{1}{x^{2} - 1}
+\end{align*}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.65}より次のように計算される。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccoth}}x &= \frac{1}{2}\frac{d}{dx}\ln\frac{x + 1}{x - 1}\\
+&= \frac{1}{2}\frac{x - 1}{x + 1}\frac{(x - 1) - (x + 1)}{(x - 1)^{2}}\\
+&= \frac{1}{2}\frac{x - 1}{x + 1}\frac{- 2}{(x - 1)^{2}}\\
+&= - \frac{1}{(x + 1)(x - 1)} = - \frac{1}{x^{2} - 1}\\
+\frac{d}{dx}{\mathrm{Arctanh}}x &= \frac{1}{2}\frac{d}{dx}\ln\left( - \frac{x + 1}{x - 1} \right)\\
+&= \frac{1}{2}\left( - \frac{x - 1}{x + 1} \right)\left( - \frac{(x - 1) - (x + 1)}{(x - 1)^{2}} \right)\\
+&= \frac{1}{2}\left( - \frac{x - 1}{x + 1} \right)\frac{2}{(x - 1)^{2}}\\
+&= - \frac{1}{(x + 1)(x - 1)} = - \frac{1}{x^{2} - 1}
+\end{align*}
+\end{proof}
+\begin{thm}\label{4.3.1.67} 次のことが成り立つ。
+\begin{itemize}
+\item
+  $x \in ( - \infty, - 1) \cup (1,\infty)$が成り立つなら、逆双曲余接関数$\mathrm{Arccoth}$は狭義単調減少する。
+\item
+  $x \in ( - 1,1)$が成り立つなら、逆双曲正接関数$\mathrm{Arctanh}$は狭義単調増加する。
+\end{itemize}
+\end{thm}
+\begin{proof} 定理\ref{4.3.1.66}より逆双曲余弦関数$\mathrm{Arccosh}$はその開区間$( - \infty, - 1) \cup (1,\infty)$で微分可能で、$\forall x \in ( - \infty, - 1) \cup (1,\infty)$に対し、次のようになるので、
+\begin{align*}
+x \in ( - \infty, - 1) \cup (1,\infty) &\Leftrightarrow x < - 1 \vee 1 < x\\
+&\Leftrightarrow 1 < |x| \Leftrightarrow 1 < x^{2} \Leftrightarrow 0 < x^{2} - 1
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arccoth}}x = - \frac{1}{x^{2} - 1} < 0
+\end{align*}
+よって、逆双曲余接関数$\mathrm{Arccoth}$はその開区間$( - \infty, - 1) \cup (1,\infty)$で狭義単調減少する。\par
+定理\ref{4.3.1.66}より逆双曲正接関数$\mathrm{Arctanh}$はその開区間$( - 1,1)$で微分可能で、$\forall x \in ( - 1,1)$に対し、次のようになるので、
+\begin{align*}
+x \in ( - 1,1) &\Leftrightarrow - 1 < x < 1\\
+&\Leftrightarrow |x| < 1 \Leftrightarrow x^{2} < 1 \Leftrightarrow x^{2} - 1 < 0
+\end{align*}
+次式が成り立つ。
+\begin{align*}
+\frac{d}{dx}{\mathrm{Arctanh}}x = - \frac{1}{x^{2} - 1} > 0
+\end{align*}
+よって、逆双曲正接関数$\mathrm{Arctanh}$はその区間$( - 1,1)$で狭義単調増加する。
+\end{proof}
+\begin{thebibliography}{50}
+  \bibitem{1}
+  杉浦光夫, 解析入門I, 東京大学出版社, 1980. 第34刷 p175-240 ISBN978-4-13-062005-5
+\end{thebibliography}
+\end{document}

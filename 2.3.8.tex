@@ -1,0 +1,600 @@
+\documentclass[dvipdfmx]{jsarticle}
+\setcounter{section}{3}
+\setcounter{subsection}{7}
+\usepackage{xr}
+\externaldocument{2.1.1}
+\externaldocument{2.3.4}
+\externaldocument{2.3.6}
+\externaldocument{2.3.7}
+\input{macro}
+\begin{document}
+%\hypertarget{ux7b49ux9577ux5909ux63db}{%
+\subsection{等長変換}%\label{ux7b49ux9577ux5909ux63db}}
+%\hypertarget{ux7b49ux9577ux5909ux63db-1}{%
+\subsubsection{等長変換}%\label{ux7b49ux9577ux5909ux63db-1}}
+\begin{dfn}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$が与えられたとする。その内積空間$(V,\varPhi)$からその内積空間$(V,\varPhi)$自身への等長写像を等長変換、unitary変換などという。
+\end{dfn}
+\begin{thm}\label{2.3.8.1}
+$K \subseteq \mathbb{C}$なる体$K$上の標準内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$、線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n}$、これの行列$A_{nn}$が与えられ、さらに、$A_{nn} = \begin{pmatrix}
+\mathbf{a}_{1} & \mathbf{a}_{2} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}$とおくとき、次のことは同値。
+\begin{itemize}
+\item
+  その写像$L_{A_{nn}}$が等長変換である。
+\item
+  その組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなす。
+\item
+  その行列$A_{nn}$がunitary行列である、即ち、$A_{nn}^{- 1} = A_{nn}^{*}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の標準内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$、線形写像$L_{A_{nn}}:K^{n} \rightarrow K^{n}$、これの行列$A_{nn}$が与えられ、さらに、$A_{nn} = \begin{pmatrix}
+\mathbf{a}_{1} & \mathbf{a}_{2} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}$とおくとき、その内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$における正規直交基底として標準直交基底$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$があげられる。このとき、定理\ref{2.3.7.5}より次のことは同値である。
+\begin{itemize}
+\item
+  その写像$L_{A_{nn}}$が等長変換である。
+\item
+  その組$\left\langle L_{A_{nn}}\left( \mathbf{e}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなす。
+\end{itemize}
+ここで、$\forall i \in \varLambda_{n}$に対し、$L_{A_{nn}}\left( \mathbf{e}_{i} \right) = \mathbf{a}_{i}$が成り立つので、次のことは同値
+\begin{itemize}
+\item
+  その写像$L_{A_{nn}}$が等長変換である。
+\item
+  その組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなす。
+\end{itemize}\par
+ここで、その組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなすなら、次のようになるので、
+\begin{align*}
+A_{nn}^{*}A_{nn} &= \begin{pmatrix}
+^{t}\overline{\mathbf{a}_{1}} \\
+^{t}\overline{\mathbf{a}_{2}} \\
+ \vdots \\
+^{t}\overline{\mathbf{a}_{n}} \\
+\end{pmatrix}\begin{pmatrix}
+\mathbf{a}_{1} & \mathbf{a}_{2} & \cdots & \mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+^{t}\overline{\mathbf{a}_{1}}\mathbf{a}_{1} &^{t}\overline{\mathbf{a}_{1}}\mathbf{a}_{2} & \cdots &^{t}\overline{\mathbf{a}_{1}}\mathbf{a}_{n} \\
+^{t}\overline{\mathbf{a}_{2}}\mathbf{a}_{1} &^{t}\overline{\mathbf{a}_{2}}\mathbf{a}_{2} & \cdots &^{t}\overline{\mathbf{a}_{2}}\mathbf{a}_{n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+^{t}\overline{\mathbf{a}_{n}}\mathbf{a}_{1} &^{t}\overline{\mathbf{a}_{n}}\mathbf{a}_{2} & \cdots &^{t}\overline{\mathbf{a}_{n}}\mathbf{a}_{n} \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{n} \right\rangle \\
+\left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{n} \right\rangle \\
+ \vdots & \vdots & \ddots & \vdots \\
+\left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{n} \right\rangle \\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 1 \\
+\end{pmatrix} = I_{n}
+\end{align*}
+$A_{nn}^{*}A_{nn} = I_{n}$が得られる。同様にして、$A_{nn}A_{nn}^{*} = I_{n}$も得られるので、その行列$A_{nn}$がunitary行列である、即ち、$A_{nn}^{- 1} = A_{nn}^{*}$が成り立つ。\par
+逆に、$A_{nn}^{- 1} = A_{nn}^{*}$が成り立つなら、$A_{nn}^{*}A_{nn} = I_{n}$が成り立つので、上記の議論により次のようになる。
+\begin{align*}
+A_{nn}^{*}A_{nn} = \begin{pmatrix}
+\left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{1} \middle| \mathbf{a}_{n} \right\rangle \\
+\left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{2} \middle| \mathbf{a}_{n} \right\rangle \\
+ \vdots & \vdots & \ddots & \vdots \\
+\left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{1} \right\rangle & \left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{2} \right\rangle & \cdots & \left\langle \mathbf{a}_{n} \middle| \mathbf{a}_{n} \right\rangle \\
+\end{pmatrix}
+\end{align*}
+これにより、その族$\left\{ \mathbf{a}_{i} \right\}_{i \in \varLambda_{n}}$は正規直交系をなす。このとき、定理\ref{2.3.6.10}よりその正規直交系$\left\{ \mathbf{a}_{i} \right\}_{i \in \varLambda_{n}}$をなすvectors$\mathbf{a}_{i}$は線形独立であるので、これらから生成される部分空間${\mathrm{span}}\left\{ \mathbf{a}_{i} \right\}_{i \in \varLambda_{n}}$の正規直交基底としてその組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$があげられる。このとき、次式が成り立つことから、
+\begin{align*}
+\dim K^{n} = n = \dim {\mathrm{span}}\left\{ \mathbf{a}_{i} \right\}_{i \in \varLambda_{n}}
+\end{align*}
+$K^{n} = {\mathrm{span}}\left\{ \mathbf{a}_{i} \right\}_{i \in \varLambda_{n}}$が得られ、したがって、その組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなす。\par
+以上の議論により、よって、次のことが同値であることが示された。
+\begin{itemize}
+\item
+  その写像$L_{A_{nn}}$が等長変換である。
+\item
+  その組$\left\langle \mathbf{a}_{i} \right\rangle_{i \in \varLambda_{n}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$の正規直交基底をなす。
+\item
+  その行列$A_{nn}$がunitary行列である、即ち、$A_{nn}^{- 1} = A_{nn}^{*}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.3.8.2}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、線形写像$f:V \rightarrow V$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられ、さらに、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおくとき、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$が等長変換である。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、線形写像$f:V \rightarrow V$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられ、さらに、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおくとき、その基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$について考えると、もちろん、その写像$\varphi_{\mathcal{B}}$はそのvector空間$K^{n}$からそのvector空間$V$への線形同型写像である。さらに、$\forall\mathbf{v},\mathbf{w} \in K^{n}$に対し、そのvector空間$K^{n}$の標準直交基底$\left\langle \mathbf{e}_{i} \right\rangle_{i \in \varLambda_{n}}$を用いて次のようにおくと、
+\begin{align*}
+\mathbf{v} = \left( a_{i} \right)_{i \in \varLambda_{n}} = \begin{pmatrix}
+a_{1} \\
+a_{2} \\
+ \vdots \\
+a_{n} \\
+\end{pmatrix},\ \ \mathbf{w} = \left( b_{i} \right)_{i \in \varLambda_{n}} = \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{n} \\
+\end{pmatrix}
+\end{align*}
+定理\ref{2.3.6.17}より次のようになるので、
+\begin{align*}
+\varPhi\left( \varphi_{\mathcal{B}}\left( \mathbf{v} \right),\varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right) &= \varPhi\left( \varphi_{\mathcal{B}}\left( \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{e}_{i}} \right),\varphi_{\mathcal{B}}\left( \sum_{i \in \varLambda_{n}} {b_{i}\mathbf{e}_{i}} \right) \right)\\
+&= \varPhi\left( \sum_{i \in \varLambda_{n}} {a_{i}\varphi_{\mathcal{B}}\left( \mathbf{e}_{i} \right)},\sum_{i \in \varLambda_{n}} {b_{i}\varphi_{\mathcal{B}}\left( \mathbf{e}_{i} \right)} \right)\\
+&= \varPhi\left( \sum_{i \in \varLambda_{n}} {a_{i}\mathbf{o}_{i}},\sum_{i \in \varLambda_{n}} {b_{i}\mathbf{o}_{i}} \right)\\
+&= \begin{pmatrix}
+\overline{a_{1}} & \overline{a_{2}} & \cdots & \overline{a_{n}} \\
+\end{pmatrix}\begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{n} \\
+\end{pmatrix}\\
+&= \left\langle \begin{pmatrix}
+a_{1} \\
+a_{2} \\
+ \vdots \\
+a_{n} \\
+\end{pmatrix} \middle| \begin{pmatrix}
+b_{1} \\
+b_{2} \\
+ \vdots \\
+b_{n} \\
+\end{pmatrix} \right\rangle = \left\langle \mathbf{v} \middle| \mathbf{w} \right\rangle
+\end{align*}
+次のことが成り立つ。
+\begin{itemize}
+\item
+  その写像$\varphi_{\mathcal{B}}$はそのvector空間$K^{n}$からそのvector空間$V$への線形同型写像である。
+\item
+  $\forall\mathbf{v},\mathbf{w} \in K^{n}$に対し、$\varPhi\left( \varphi_{\mathcal{B}}\left( \mathbf{v} \right),\varphi_{\mathcal{B}}\left( \mathbf{w} \right) \right) = \left\langle \mathbf{v} \middle| \mathbf{w} \right\rangle$が成り立つ。
+\end{itemize}
+これにより、その写像$\varphi_{\mathcal{B}}$はその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$からその内積空間$(V,\varPhi)$への等長写像となっている。\par
+したがって、その写像$\varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}$もその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$からその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$への等長写像となっているので、定理\ref{2.3.8.1}よりその線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。\par
+逆に、その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列であるなら、上記の議論と同様にして、その写像$\varphi_{\mathcal{B}}$がその内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$からその内積空間$(V,\varPhi)$への等長写像となっていることが示されることができることに注意すれば、次のようになるので、
+\begin{align*}
+f &= \left( \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \right) \circ f \circ \left( \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \right)\\
+&= \varphi_{\mathcal{B}} \circ \left( \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \right) \circ \varphi_{\mathcal{B}}^{- 1}
+\end{align*}
+その写像$f$は等長変換である。
+\end{proof}
+\begin{thm}\label{2.3.8.3}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、等長変換$f:V \rightarrow V$が与えられたとき、その等長変換$f$の任意の固有値$\lambda$は、もしこれが存在するなら、$|\lambda| = 1$を満たす。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、等長変換$f:V \rightarrow V$が与えられたとき、その等長変換$f$の任意の固有値$\lambda$は、もしこれが存在するなら、ある$\mathbf{0}$でないそのvector空間$V$のvector$\mathbf{v}$が存在して、$f\left( \mathbf{v} \right) = \lambda\mathbf{v}$が成り立つ。このとき、その内積空間$(V,\varPhi)$から誘導されるnorm$\varphi_{\varPhi}$を用いて$\varphi_{\varPhi}\left( \mathbf{v} \right) \neq 0$が成り立つことに注意すれば、定理\ref{2.3.7.4}より$\varphi_{\varPhi} = \varphi_{\varPhi} \circ f$が成り立つので、次のようになり、
+\begin{align*}
+\varphi_{\varPhi}\left( f\left( \mathbf{v} \right) \right) &= \varphi_{\varPhi} \circ f\left( \mathbf{v} \right) = \varphi_{\varPhi}\left( \mathbf{v} \right)\\
+\varphi_{\varPhi}\left( f\left( \mathbf{v} \right) \right) &= \varphi_{\varPhi}\left( \lambda\mathbf{v} \right) = |\lambda|\varphi_{\varPhi}\left( \mathbf{v} \right)
+\end{align*}
+したがって、$|\lambda| = 1$が得られる。
+\end{proof}
+%\hypertarget{ux968fux4f34ux5909ux63db}{%
+\subsubsection{随伴変換}%\label{ux968fux4f34ux5909ux63db}}
+\begin{thm}\label{2.3.8.4}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$、この内積空間$(V,\varPhi)$における正規直交基底$\mathcal{B}$が与えられたとき、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、そのvector空間$V$のある基底$\alpha$がその内積空間$(V,\varPhi)$の正規直交基底をなすならそのときに限り、その基底$\mathcal{B}$からその基底$\alpha$への基底変換行列$\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$がunitary行列である。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$から誘導されるnorm空間$\left( V,\varphi_{\varPhi} \right)$、この内積空間$(V,\varPhi)$における正規直交基底$\mathcal{B}$が与えられたとき、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$、$\alpha = \left\langle \mathbf{v}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、そのvector空間$V$のある基底$\alpha$がその内積空間$(V,\varPhi)$の正規直交基底をなすなら、それらの基底たち$\mathcal{B}$、$\alpha$に関する基底変換における線形同型写像たち$\varphi_{\mathcal{B}}$、$\varphi_{\alpha}$を用いて考えれば、その線形写像$\varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}$について、$\forall i \in \varLambda_{n}$に対し、$\varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{i} \right) = \mathbf{v}_{i}$が成り立つので、その組$\left\langle \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$がその内積空間$(V,\varPhi)$の正規直交基底をなすことになる。そこで、定理\ref{2.3.8.2}よりその線形写像$\varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}$のその基底$\alpha$に関する表現行列$\left[ \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1} \right]_{\alpha}^{\alpha}$がunitary行となるので、$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像が$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$とおかれると、次のようになる。
+\begin{align*}
+L_{\left[ \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1} \right]_{\alpha}^{\alpha}} &= \varphi_{\alpha}^{- 1} \circ \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\alpha}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ \varphi_{\alpha}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ I_{V} \circ \varphi_{\alpha}\\
+&= L_{\left[ I_{V} \right]^{\mathcal{B}}_{\alpha}}
+\end{align*}
+これにより、$\left[ \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1} \right]_{\alpha}^{\alpha} = \left[ I_{V} \right]^{\mathcal{B}}_{\alpha}$が成り立つので、$\left[ I_{V} \right]^{\mathcal{B}}_{\alpha} = {\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}}^{- 1}$が成り立つことに注意すれば、その基底$\mathcal{B}$からその基底$\alpha$への基底変換行列$\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$がunitary行列である。\par
+逆に、その基底$\mathcal{B}$からその基底$\alpha$への基底変換行列$\left[ I_{V} \right]^{\alpha}_{\mathcal{B}}$がunitary行列であるなら、上記の議論によりその行列$\left[ \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1} \right]_{\alpha}^{\alpha}$もunitary行列である。定理\ref{2.3.8.2}よりその組$\left\langle \varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$がその内積空間$(V,\varPhi)$の正規直交基底をなすことになる。そこで、$\forall i \in \varLambda_{n}$に対し、$\varphi_{\alpha} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{o}_{i} \right) = \mathbf{v}_{i}$が成り立つので、その$\alpha$がその内積空間$(V,\varPhi)$の正規直交基底をなす。
+\end{proof}
+\begin{thm}\label{2.3.8.5}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、$g \in L(V,V)$なるある線形写像$g$が一意的に存在して、$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つ。さらにいえば、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、その線形写像$g$のその基底$\mathcal{B}$に関する表現行列$[ g]_{\mathcal{B}}^{\mathcal{B}}$は$[ g]_{\mathcal{B}}^{\mathcal{B}} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$を満たす。
+\end{thm}
+\begin{dfn}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つようなその線形写像$g:V \rightarrow V$をその内積空間$(V,\varPhi)$におけるその線形写像$f$の随伴変換といい、以下これ$g$を$f^{*}$と書くことにする。
+\end{dfn}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおかれると、その線形写像$f$のその正規直交基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$の随伴行列がある線形写像のその正規直交基底$\mathcal{B}$に関する表現行列となるようなその線形写像が$g:V \rightarrow V \in L(V,V)$とおかれよう。もちろん、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} = [ g]_{\mathcal{B}}^{\mathcal{B}}$が成り立つ。このとき、$\forall\mathbf{v},\mathbf{w} \in V$に対し、定理\ref{2.3.6.18}より標準内積空間$\left( K^{n},\left\langle \bullet \middle| \bullet \right\rangle \right)$とその基底$\mathcal{B}$に関する基底変換における線形同型写像$\varphi_{\mathcal{B}}$を用いて次のようになることから、
+\begin{align*}
+\varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right) &= \left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| \varphi_{\mathcal{B}}^{- 1}\left( f\left( \mathbf{w} \right) \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| [ f]_{\mathcal{B}}^{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&=^{t}\overline{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)}[ f]_{\mathcal{B}}^{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)\\
+&=^{t}\overline{\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)}{}^{t}\overline{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)\\
+&=^{t}\overline{[ g]_{\mathcal{B}}^{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right)}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right)\\
+&= \left\langle [ g]_{\mathcal{B}}^{\mathcal{B}}\varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1} \circ g \circ \varphi_{\mathcal{B}}\left( \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \right) \middle| \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1} \circ g \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{v} \right) \middle| \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&= \left\langle \varphi_{\mathcal{B}}^{- 1}\left( g\left( \mathbf{v} \right) \right) \middle| \varphi_{\mathcal{B}}^{- 1}\left( \mathbf{w} \right) \right\rangle\\
+&= \varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right)
+\end{align*}
+$g \in L(V,V)$なるある線形写像$g$が存在して、$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つことが示された。\par
+このような線形写像$g$がほかに$g'$と与えられたとき、$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( g'\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つので、$\varPhi\left( g\left( \mathbf{v} \right) - g'\left( \mathbf{v} \right),\mathbf{w} \right) = 0$が得られる。定理\ref{2.3.6.5}より$g\left( \mathbf{v} \right) - g'\left( \mathbf{v} \right) = \mathbf{0}$が成り立つので、$g = g'$が得られる。よって、$g \in L(V,V)$なるある線形写像$g$が一意的に存在して、$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( g\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つ。\par
+さらにいえば、上記の議論により直ちにわかるようにその内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、その線形写像$g$のその基底$\mathcal{B}$に関する表現行列$[ g]_{\mathcal{B}}^{\mathcal{B}}$は$[ g]_{\mathcal{B}}^{\mathcal{B}} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$を満たす。
+\end{proof}
+\begin{thm}\label{2.3.8.6}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、次のことが成り立つ。
+\begin{itemize}
+\item
+  $\forall f,g \in L(V,V)\forall a,b \in K$に対し、$(af + bg)^{*} = \overline{a}f^{*} + \overline{b}g^{*}$が成り立つ。
+\item
+  $\forall f,g \in L(V,V)$に対し、$(g \circ f)^{*} = f^{*} \circ g^{*}$が成り立つ。
+\item
+  $\forall f \in L(V,V)$に対し、$f^{**} = f$が成り立つ。
+\item
+  $\forall f \in L(V,V)$に対し、その線形写像$f$が線形同型写像であるなら、${f^{- 1}}^{*} = {f^{*}}^{- 1}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$、これにおける正規直交基底$\mathcal{B}$が与えられたとき、$\forall f,g \in L(V,V)\forall a,b \in K$に対し、$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像が$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$とおかれると、$\forall f,g \in L(V,V)\forall a,b \in K$に対し、次のようになる。
+\begin{align*}
+(af + bg)^{*} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ (af + bg)^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ af + bg]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{\left( a[ f]_{\mathcal{B}}^{\mathcal{B}} + b[ g]_{\mathcal{B}}^{\mathcal{B}} \right)^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{\overline{a}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} + \overline{b}{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \left( \overline{a}L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} + \overline{b}L_{{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \right) \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \overline{a}\left( \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1} \right) + \overline{b}\left( \varphi_{\mathcal{B}} \circ L_{{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1} \right)\\
+&= \overline{a}\left( \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \right) + \overline{b}\left( \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ g^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \right)\\
+&= \overline{a}f^{*} + \overline{b}g^{*}
+\end{align*}\par
+また、$\forall f,g \in L(V,V)$に対し、次のようになる。
+\begin{align*}
+(g \circ f)^{*} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ (g \circ f)^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ g \circ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{\left( [ g]_{\mathcal{B}}^{\mathcal{B}}[ f]_{\mathcal{B}}^{\mathcal{B}} \right)^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ L_{{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ L_{{[ g]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ g^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= f^{*} \circ g^{*}
+\end{align*}\par
+また、$\forall f \in L(V,V)$に対し、次のようになる。
+\begin{align*}
+f^{**} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{**} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{\left[ f^{*} \right]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{**}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= f
+\end{align*}\par
+また、$\forall f \in L(V,V)$に対し、その線形写像$f$が線形同型写像であるなら、逆写像$f^{- 1}$が存在して、次のようになるので、
+\begin{align*}
+{f^{- 1}}^{*} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ {f^{- 1}}^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{\left[ f^{- 1} \right]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}}^{- 1}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{\left[ f^{*} \right]_{\mathcal{B}}^{\mathcal{B}}}^{- 1}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{\left[ {f^{*}}^{- 1} \right]_{\mathcal{B}}^{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ {f^{*}}^{- 1} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= {f^{*}}^{- 1}
+\end{align*}
+\end{proof}
+\begin{thm}\label{2.3.8.7}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、線形写像$f:V \rightarrow V$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられ、さらに、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおくとき、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$が等長変換である。
+\item
+  その組$\left\langle f\left( \mathbf{o}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$がその内積空間$(V,\varPhi)$の正規直交基底をなす。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。
+\item
+  $f^{*} = f^{- 1}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$なる体$K$上の内積空間$(V,\varPhi)$、線形写像$f:V \rightarrow V$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられ、さらに、$\mathcal{B}=\left\langle \mathbf{o}_{i} \right\rangle_{i \in \varLambda_{n}}$とおくとき、定理\ref{2.3.7.5}、定理\ref{2.3.8.2}より次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$が等長変換である。
+\item
+  その組$\left\langle f\left( \mathbf{o}_{i} \right) \right\rangle_{i \in \varLambda_{n}}$がその内積空間$(V,\varPhi)$の正規直交基底をなす。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。
+\end{itemize}\par
+このとき、$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像が$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$とおかれると、次のようになるので、
+\begin{align*}
+f^{*} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \left( \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \right)^{- 1} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \left( \varphi_{\mathcal{B}}^{- 1} \circ f^{- 1} \circ \left( \varphi_{\mathcal{B}}^{- 1} \right)^{- 1} \right) \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{- 1} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= f^{- 1}
+\end{align*}
+$f^{*} = f^{- 1}$が成り立つ。\par
+逆に、$f^{*} = f^{- 1}$が成り立つなら、次のようになるので、
+\begin{align*}
+L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1}} &= L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1}\\
+&= \left( \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \right)^{- 1}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f^{- 1} \circ \left( \varphi_{\mathcal{B}}^{- 1} \right)^{- 1}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f^{- 1} \circ \varphi_{\mathcal{B}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}}\\
+&= L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}}
+\end{align*}
+その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。\par
+以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がunitary行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{- 1} = {[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。
+\item
+  $f^{*} = f^{- 1}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.3.8.8}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、次式が成り立つ。
+\begin{align*}
+{V(f)}^{\bot} = \ker f^{*},\ \ \left( \ker f \right)^{\bot} = V\left( f^{*} \right)
+\end{align*}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、その線形写像$f$の随伴変換$f^{*}$が定義され、$\forall\mathbf{v} \in V$に対し、定理\ref{2.3.4.1}、定理\ref{2.3.6.5}、随伴変換の定義より次のようになるので、
+\begin{align*}
+\mathbf{v} \in {V(f)}^{\bot} &\Leftrightarrow \mathbf{v} \in \left\{ \mathbf{v} \in V \middle| \forall f\left( \mathbf{w} \right) \in V(f)\left[ \varPhi\left( f\left( \mathbf{w} \right),\mathbf{v} \right) = 0 \right] \right\}\\
+&\Leftrightarrow \mathbf{v} \in V \land \forall f\left( \mathbf{w} \right) \in V(f)\left[ \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right) = 0 \right]\\
+&\Leftrightarrow \mathbf{v} \in V \land \forall\mathbf{w} \in V\left[ \varPhi\left( f^{*}\left( \mathbf{v} \right),\mathbf{w} \right) = 0 \right]\\
+&\Leftrightarrow \mathbf{v} \in V \land f^{*}\left( \mathbf{v} \right) = \mathbf{0}\\
+&\Leftrightarrow \mathbf{v} \in \left\{ \mathbf{v} \in V \middle| f^{*}\left( \mathbf{v} \right) = \mathbf{0} \right\}\\
+&\Leftrightarrow \mathbf{v} \in \ker f^{*}
+\end{align*}
+${V(f)}^{\bot} = \ker f^{*}$が成り立つ。\par
+あとは、上記の議論、定理\ref{2.3.7.11}、定理\ref{2.3.8.5}より次のようになる。
+\begin{align*}
+\left( \ker f \right)^{\bot} = \left( \ker f^{**} \right)^{\bot} = {V\left( f^{*} \right)}^{\bot\bot} = V\left( f^{*} \right)
+\end{align*}
+\end{proof}
+%\hypertarget{hermiteux5909ux63db}{%
+\subsubsection{Hermite変換}%\label{hermiteux5909ux63db}}
+\begin{dfn}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、$f^{*} = f$が成り立つような線形写像$f$をその内積空間$(V,\varPhi)$におけるHermite変換という。
+\end{dfn}
+\begin{thm}\label{2.3.8.9}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、$\forall f \in L(V,V)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$がHermite変換である。
+\item
+  $\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( f\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つ。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がHermite行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} = [ f]_{\mathcal{B}}^{\mathcal{B}}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、$\forall f \in L(V,V)$に対し、その写像$f$がHermite変換であるなら、$f^{*} = f$が成り立つので、これが成り立つならそのときに限り、随伴変換の定義から明らかに、$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( f\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つ。\par
+その写像$f$がHermite変換であるなら、$f^{*} = f$が成り立つ。$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像が$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$とおかれると、次のようになるので、
+\begin{align*}
+L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} &= \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\\
+&= L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}
+\end{align*}
+その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がHermite行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} = [ f]_{\mathcal{B}}^{\mathcal{B}}$が成り立つ。\par
+逆に、その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がHermite行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} = [ f]_{\mathcal{B}}^{\mathcal{B}}$が成り立つなら、次のようになるので、
+\begin{align*}
+f^{*} &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= f
+\end{align*}
+$f^{*} = f$が成り立つ。\par
+以上の議論により、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$がHermite変換である。
+\item
+  $\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( f\left( \mathbf{v} \right),\mathbf{w} \right) = \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)$が成り立つ。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$がHermite行列である、即ち、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*} = [ f]_{\mathcal{B}}^{\mathcal{B}}$が成り立つ。
+\end{itemize}
+\end{proof}
+\begin{thm}\label{2.3.8.10}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$f \in L(V,V)$なる任意のHermite変換$f$の固有値はすべて実数である。特に、Hermite行列の固有値はすべて実数である。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$から誘導されるnorm空間$\left( V,\varphi_{\varPhi} \right)$が与えられたとき、$f \in L(V,V)$なる任意のHermite変換$f$の固有値、固有vectorの1つをそれぞれ$\lambda$、$\mathbf{v}$とおかれると、$f\left( \mathbf{v} \right) = \lambda\mathbf{v}$が成り立つ。したがって、次のようになるので、
+\begin{align*}
+\varPhi\left( f\left( \mathbf{v} \right),\mathbf{v} \right) &= \varPhi\left( \lambda\mathbf{v},\mathbf{v} \right) = \overline{\lambda}\varPhi\left( \mathbf{v},\mathbf{v} \right) = \overline{\lambda}{\varphi_{\varPhi}\left( \mathbf{v} \right)}^{2}\\
+\varPhi\left( \mathbf{v},f\left( \mathbf{v} \right) \right) &= \varPhi\left( \mathbf{v},\lambda\mathbf{v} \right) = \lambda\varPhi\left( \mathbf{v},\mathbf{v} \right) = \lambda{\varphi_{\varPhi}\left( \mathbf{v} \right)}^{2}
+\end{align*}
+定理\ref{2.3.8.9}より$\lambda{\varphi_{\varPhi}\left( \mathbf{v} \right)}^{2} = \overline{\lambda}{\varphi_{\varPhi}\left( \mathbf{v} \right)}^{2}$が得られ、$\mathbf{v} \neq \mathbf{0}$が成り立つことに注意すれば、${\varphi_{\varPhi}\left( \mathbf{v} \right)}^{2} \neq 0$が成り立つので、$\lambda = \overline{\lambda}$が得られる。これにより、$\lambda \in \mathbb{R}$が得られ、よって、$f \in L(V,V)$なる任意のHermite変換$f$の固有値はすべて実数である。
+\end{proof}
+\begin{thm}\label{2.3.8.11}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、そのvector空間$V$の部分空間$W$について、定理\ref{2.3.7.10}より$V = W \oplus W^{\bot}$が成り立つ。このとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{u} \in W$、$\mathbf{u}' \in W^{\bot}$なるvectors$\mathbf{u}$、$\mathbf{u}'$を用いて$\mathbf{v} = \mathbf{u} + \mathbf{u}'$とおかれ、次のように写像$f$がおかれれば、
+\begin{align*}
+f:V \rightarrow V;\mathbf{v} \mapsto \mathbf{u} - \mathbf{u}'
+\end{align*}
+その写像$f$は線形写像であるどころが、等長変換でもあるかつ、Hermite変換でもある。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、そのvector空間$V$の部分空間$W$について、定理\ref{2.3.7.10}より$V = W \oplus W^{\bot}$が成り立つ。このとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{u} \in W$、$\mathbf{u}' \in W^{\bot}$なるvectors$\mathbf{u}$、$\mathbf{u}'$を用いて$\mathbf{v} = \mathbf{u} + \mathbf{u}'$とおかれ、次のように写像$f$がおかれれば、
+\begin{align*}
+f:V \rightarrow V;\mathbf{v} \mapsto \mathbf{u} - \mathbf{u}'
+\end{align*}
+$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\mathbf{t},\mathbf{u} \in W$、$\mathbf{t}',\mathbf{u}' \in W^{\bot}$なるvectors$\mathbf{t}$、$\mathbf{t}'$、$\mathbf{u}$、$\mathbf{u}'$を用いて$\mathbf{v} = \mathbf{t} + \mathbf{t}'$、$\mathbf{w} = \mathbf{u} + \mathbf{u}'$とおかれれば、直交空間の定義に注意して次のようになるので、
+\begin{align*}
+\varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{w} \right) \right) &= \varPhi\left( \mathbf{t} - \mathbf{t}',\mathbf{u} - \mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( \mathbf{t},\mathbf{u}' \right) - \varPhi\left( \mathbf{t}',\mathbf{u} \right) + \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) - \overline{\varPhi\left( \mathbf{u}',\mathbf{t} \right)} - \varPhi\left( \mathbf{t}',\mathbf{u} \right) + \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) + \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) + \overline{\varPhi\left( \mathbf{u}',\mathbf{t} \right)} + \varPhi\left( \mathbf{t}',\mathbf{u} \right) + \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) + \varPhi\left( \mathbf{t},\mathbf{u}' \right) + \varPhi\left( \mathbf{t}',\mathbf{u} \right) + \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t} + \mathbf{t}',\mathbf{u} + \mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{v},\mathbf{w} \right)
+\end{align*}
+定理\ref{2.3.7.8}よりその写像$f$は線形写像であるどころが、等長変換でもある。\par
+さらに、直交空間の定義に注意して次のようになるので、
+\begin{align*}
+\varPhi\left( f\left( \mathbf{v} \right),\mathbf{w} \right) &= \varPhi\left( \mathbf{t} - \mathbf{t}',\mathbf{u} + \mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) + \varPhi\left( \mathbf{t},\mathbf{u}' \right) - \varPhi\left( \mathbf{t}',\mathbf{u} \right) - \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) + \overline{\varPhi\left( \mathbf{u}',\mathbf{t} \right)} - \varPhi\left( \mathbf{t}',\mathbf{u} \right) - \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) - \overline{\varPhi\left( \mathbf{u}',\mathbf{t} \right)} + \varPhi\left( \mathbf{t}',\mathbf{u} \right) - \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( \mathbf{t},\mathbf{u}' \right) + \varPhi\left( \mathbf{t}',\mathbf{u} \right) - \varPhi\left( \mathbf{t}',\mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{t} + \mathbf{t}',\mathbf{u} - \mathbf{u}' \right)\\
+&= \varPhi\left( \mathbf{v},f\left( \mathbf{w} \right) \right)
+\end{align*}
+定理\ref{2.3.8.9}よりその等長変換$f$はHermite変換でもある。
+\end{proof}
+\begin{thm}\label{2.3.8.12}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、等長変換でもあるかつ、Hermite変換でもあるような線形写像$f:V \rightarrow V$について、次のように集合$W$がおかれれば、
+\begin{align*}
+W = \left\{ \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} \in V \middle| \mathbf{v} \in V \right\},\ \ W' = \left\{ \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} \in V \middle| \mathbf{v} \in V \right\}
+\end{align*}
+それらの集合たち$W$、$W'$はそのvector空間$V$の部分空間であり$V = W \oplus W'$が成り立つ。さらに、$W' = W^{\bot}$かつ$W = {W'}^{\bot}$が成り立つ。このとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{u} \in W$、$\mathbf{u}' \in W'$なるvectors$\mathbf{u}$、$\mathbf{u}'$を用いて$\mathbf{v} = \mathbf{u} + \mathbf{u}'$とおかれれば、$f\left( \mathbf{v} \right) = \mathbf{u} - \mathbf{u}'$が成り立つ。
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、等長変換でもあるかつ、Hermite変換でもあるような線形写像$f:V \rightarrow V$について、次のように集合$W$がおかれれば、
+\begin{align*}
+W = \left\{ \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} \in V \middle| \mathbf{v} \in V \right\}
+\end{align*}
+もちろん、$\mathbf{0} \in W$が成り立つ。$\forall a,b \in K\forall\mathbf{t},\mathbf{u} \in W$に対し、$\mathbf{v},\mathbf{w} \in V$なるvectors$\mathbf{v}$、$\mathbf{w}$を用いて次のようにおかれれば、
+\begin{align*}
+\mathbf{t} = \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2},\ \ \mathbf{u} = \frac{\mathbf{w} + f\left( \mathbf{w} \right)}{2}
+\end{align*}
+次のようになるので、
+\begin{align*}
+a\mathbf{t} + b\mathbf{u} &= a\frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} + b\frac{\mathbf{w} + f\left( \mathbf{w} \right)}{2}\\
+&= \frac{a\left( \mathbf{v} + f\left( \mathbf{v} \right) \right)\mathbf{+}b\left( \mathbf{w} + f\left( \mathbf{w} \right) \right)}{2}\\
+&= \frac{a\mathbf{v}\mathbf{+}b\mathbf{w} + af\left( \mathbf{v} \right) + bf\left( \mathbf{w} \right)}{2}\\
+&= \frac{\left( a\mathbf{v}\mathbf{+}b\mathbf{w} \right) + f\left( a\mathbf{v}\mathbf{+}b\mathbf{w} \right)}{2}
+\end{align*}
+$a\mathbf{t} + b\mathbf{u} \in W$が成り立つ。以上、定理\ref{2.1.1.9}よりその集合$W$はそのvector空間$V$の部分空間である。\par
+次のように集合$W'$がおかれれば、
+\begin{align*}
+W' = \left\{ \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2} \in V \middle| \mathbf{v} \in V \right\}
+\end{align*}
+同様にして、その集合$W'$もそのvector空間$V$の部分空間であることが示される。\par
+ここで、$\forall\mathbf{v} \in W\forall\mathbf{w} \in W'$に対し、次のようにおかれると、
+\begin{align*}
+\mathbf{v} = \frac{\mathbf{t} + f\left( \mathbf{t} \right)}{2},\ \ \mathbf{w} = \frac{\mathbf{u} - f\left( \mathbf{u} \right)}{2}
+\end{align*}
+その線形写像$f$は等長変換でもHermite変換でもあることに注意すれば、次式が成り立つので、
+\begin{align*}
+\varPhi\left( \mathbf{v},\mathbf{w} \right) &= \varPhi\left( \frac{\mathbf{t} + f\left( \mathbf{t} \right)}{2},\frac{\mathbf{u} - f\left( \mathbf{u} \right)}{2} \right)\\
+&= \frac{1}{4}\varPhi\left( \mathbf{t} + f\left( \mathbf{t} \right),\mathbf{u} - f\left( \mathbf{u} \right) \right)\\
+&= \frac{1}{4}\left( \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( \mathbf{t},f\left( \mathbf{u} \right) \right) + \varPhi\left( f\left( \mathbf{t} \right),\mathbf{u} \right) - \varPhi\left( f\left( \mathbf{t} \right),f\left( \mathbf{u} \right) \right) \right)\\
+&= \frac{1}{4}\left( \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( f\left( \mathbf{t} \right),f\left( \mathbf{u} \right) \right) + \varPhi\left( f\left( \mathbf{t} \right),\mathbf{u} \right) - \varPhi\left( \mathbf{t},f\left( \mathbf{u} \right) \right) \right)\\
+&= \frac{1}{4}\left( \varPhi\left( \mathbf{t},\mathbf{u} \right) - \varPhi\left( \mathbf{t},\mathbf{u} \right) + \varPhi\left( f\left( \mathbf{t} \right),\mathbf{u} \right) - \varPhi\left( f\left( \mathbf{t} \right),\mathbf{u} \right) \right)\\
+&= \frac{1}{4} \cdot 0 = 0
+\end{align*}
+$\forall\mathbf{v} \in V$に対し、次のようになる。
+\begin{align*}
+\mathbf{v} \in W' &\Leftrightarrow \mathbf{v} \in \left\{ \frac{\mathbf{t} - f\left( \mathbf{t} \right)}{2} \in V \middle| \mathbf{t} \in V \right\}\\
+&\Leftrightarrow \mathbf{v} =\frac{\mathbf{t} - f\left( \mathbf{t} \right)}{2} \in V \land \mathbf{t} \in V \land \forall\mathbf{w} \in W\left[ \varPhi\left( \mathbf{v},\mathbf{w} \right) = 0 \right]\\
+&\Rightarrow \mathbf{v} \in V \land \forall\mathbf{w} \in W\left[ \varPhi\left( \mathbf{v},\mathbf{w} \right) = 0 \right]\\
+&\Leftrightarrow \mathbf{v} \in \left\{ \mathbf{v} \in V \middle| \forall\mathbf{w} \in W\left[ \varPhi\left( \mathbf{v},\mathbf{w} \right) = 0 \right] \right\}\\
+&\Leftrightarrow \mathbf{v} \in W^{\bot}
+\end{align*}
+これにより、$W' \subseteq W^{\bot}$が成り立つ。\par
+もちろん、$W + W' \subseteq V$が成り立つ一方で、$\forall\mathbf{v} \in V$に対し、次のようになるので、
+\begin{align*}
+\mathbf{v} = \frac{2\mathbf{v}}{2} = \frac{\mathbf{v} + f\left( \mathbf{v} \right) + \mathbf{v} - f\left( \mathbf{v} \right)}{2} = \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} + \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2}
+\end{align*}
+$V \subseteq W + W'$が得られる。これにより、$V = W + W'$が成り立つ。そこで、定理\ref{2.3.7.10}より$\left\{ \mathbf{0} \right\} \subseteq W \cap W' \subseteq W \cap W^{\bot} = \left\{ \mathbf{0} \right\}$が成り立つので、$W \cap W' = \left\{ \mathbf{0} \right\}$が得られ、したがって、$V = W \oplus W'$が成り立つ。\par
+定理\ref{2.3.7.10}より$V = W \oplus W' = W \oplus W^{\bot}$が成り立つことにより、次のようになるので、
+\begin{align*}
+\dim W' &= \dim W + \dim W' - \dim W\\
+&= \dim{W \oplus W'} - \dim W\\
+&= \dim V - \dim W\\
+&= \dim{W \oplus W^{\bot}} - \dim W\\
+&= \dim W + \dim W^{\bot} - \dim W\\
+&= \dim W^{\bot}
+\end{align*}
+$W' = W^{\bot}$が得られる。同様にして、$W = {W'}^{\bot}$が得られる。\par
+このとき、$\forall\mathbf{v} \in V$に対し、$\mathbf{u} \in W$、$\mathbf{u}' \in W'$なるvectors$\mathbf{u}$、$\mathbf{u}'$を用いて$\mathbf{v} = \mathbf{u} + \mathbf{u}'$とおかれれば、次のようにおかれることができて、
+\begin{align*}
+\mathbf{u} = \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2},\ \ \mathbf{u}' = \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2}
+\end{align*}
+次のようになる。
+\begin{align*}
+f\left( \mathbf{v} \right) &= \frac{2f\left( \mathbf{v} \right)}{2} = \frac{f\left( \mathbf{v} \right) + f\left( \mathbf{v} \right)}{2}\\
+&= \frac{\mathbf{v} + f\left( \mathbf{v} \right) - \mathbf{v} + f\left( \mathbf{v} \right)}{2}\\
+&= \frac{\mathbf{v} + f\left( \mathbf{v} \right)}{2} - \frac{\mathbf{v} - f\left( \mathbf{v} \right)}{2}\\
+&= \mathbf{u} - \mathbf{u}'
+\end{align*}
+\end{proof}
+%\hypertarget{ux6b63ux898fux5909ux63db}{%
+\subsubsection{正規変換}%\label{ux6b63ux898fux5909ux63db}}
+\begin{dfn}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、$\forall f \in L(V,V)$に対し、$f^{*} \circ f = f \circ f^{*}$が成り立つような線形写像$f$をその内積空間$(V,\varPhi)$における正規変換という。
+\end{dfn}
+\begin{thm}\label{2.3.8.13}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$が与えられたとき、その内積空間$(V,\varPhi)$における等長変換やHermite変換は正規変換である。
+\end{thm}
+\begin{proof}
+等長変換の場合、$f^{*} \circ f = f^{- 1} \circ f = I_{V}$、$f \circ f^{*} = f \circ f^{- 1} = I_{V}$、Hermite変換の場合、$f^{*} \circ f = f \circ f$、$f \circ f^{*} = f \circ f$と考えれば、明らかである。
+\end{proof}
+\begin{thm}\label{2.3.8.14}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$から誘導されるnorm空間$\left( V,\varphi_{\varPhi} \right)$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、$\forall f \in L(V,V)$に対し、次のことは同値である。
+\begin{itemize}
+\item
+  その写像$f$が正規変換である。
+\item
+  その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$が${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}[ f]_{\mathcal{B}}^{\mathcal{B}} = [ f]_{\mathcal{B}}^{\mathcal{B}}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$を満たす。
+\item
+  $\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{w} \right) \right) = \varPhi\left( f^{*}\left( \mathbf{v} \right),f^{*}\left( \mathbf{w} \right) \right)$が成り立つ。
+\item
+  $\varphi_{\varPhi} \circ f = \varphi_{\varPhi} \circ f^{*}$が成り立つ。
+\end{itemize}
+\end{thm}
+\begin{proof}
+$K \subseteq \mathbb{C}$かつ$\dim V = n$なる内積空間$(V,\varPhi)$、その内積空間$(V,\varPhi)$の正規直交基底$\mathcal{B}$が与えられたとき、$\forall f \in L(V,V)$に対し、その写像$f$が正規変換であるなら、$f^{*} \circ f = f \circ f^{*}$が成り立つ。そこで、その線形写像$f$のその基底$\mathcal{B}$に関する表現行列$[ f]_{\mathcal{B}}^{\mathcal{B}}$について、$A_{nn} \in M_{nn}(K)$なる行列$A_{nn}$が対応する行列となっている線形写像が$L_{A_{nn}}:K^{n} \rightarrow K^{n};\mathbf{v} \mapsto A_{nn}\mathbf{v}$とおかれると、次のようになるので、
+\begin{align*}
+L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}[ f]_{\mathcal{B}}^{\mathcal{B}}} &= L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ f \circ \varphi_{\mathcal{B}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f \circ f^{*} \circ \varphi_{\mathcal{B}}\\
+&= \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}}\\
+&= L_{[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}}\\
+&= L_{[ f]_{\mathcal{B}}^{\mathcal{B}}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}}
+\end{align*}
+${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}[ f]_{\mathcal{B}}^{\mathcal{B}} = [ f]_{\mathcal{B}}^{\mathcal{B}}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つ。\par
+逆に、${[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}[ f]_{\mathcal{B}}^{\mathcal{B}} = [ f]_{\mathcal{B}}^{\mathcal{B}}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}$が成り立つなら、次のようになるので、
+\begin{align*}
+f^{*} \circ f &= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ L_{[ f]_{\mathcal{B}}^{\mathcal{B}}} \circ L_{{[ f]_{\mathcal{B}}^{\mathcal{B}}}^{*}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1} \circ f^{*} \circ \varphi_{\mathcal{B}} \circ \varphi_{\mathcal{B}}^{- 1}\\
+&= f \circ f^{*}
+\end{align*}
+$f^{*} \circ f = f \circ f^{*}$が成り立つ。よって、その写像$f$が正規変換である。\par
+また、その写像$f$が正規変換であるなら、$f^{*} \circ f = f \circ f^{*}$が成り立つので、$\forall\mathbf{v},\mathbf{w} \in V$に対し、定理\ref{2.3.8.6}より次のようになる。
+\begin{align*}
+\varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{w} \right) \right) &= \varPhi\left( \mathbf{v},f^{*} \circ f\left( \mathbf{w} \right) \right)\\
+&= \varPhi\left( \mathbf{v},f \circ f^{*}\left( \mathbf{w} \right) \right)\\
+&= \varPhi\left( \mathbf{v},f^{**} \circ f^{*}\left( \mathbf{w} \right) \right)\\
+&= \varPhi\left( f^{*}\left( \mathbf{v} \right),f^{*}\left( \mathbf{w} \right) \right)
+\end{align*}\par
+$\forall\mathbf{v},\mathbf{w} \in V$に対し、$\varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{w} \right) \right) = \varPhi\left( f^{*}\left( \mathbf{v} \right),f^{*}\left( \mathbf{w} \right) \right)$が成り立つなら、$\forall\mathbf{v} \in V$に対し、次のようになるので、
+\begin{align*}
+\varphi_{\varPhi} \circ f\left( \mathbf{v} \right) &= \varphi_{\varPhi}\left( f\left( \mathbf{v} \right) \right)\\
+&= \sqrt{\varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{v} \right) \right)}\\
+&= \sqrt{\varPhi\left( f^{*}\left( \mathbf{v} \right),f^{*}\left( \mathbf{v} \right) \right)}\\
+&= \varphi_{\varPhi}\left( f^{*}\left( \mathbf{v} \right) \right)\\
+&= \varphi_{\varPhi} \circ f^{*}\left( \mathbf{v} \right)
+\end{align*}
+$\varphi_{\varPhi} \circ f = \varphi_{\varPhi} \circ f^{*}$が成り立つ。\par
+$\varphi_{\varPhi} \circ f = \varphi_{\varPhi} \circ f^{*}$が成り立つなら、$\forall\mathbf{v} \in V$に対し、定理\ref{2.3.8.6}より次のようになるので、
+\begin{align*}
+\varPhi\left( \mathbf{v},\left( f^{*} \circ f - f \circ f^{*} \right)\left( \mathbf{v} \right) \right) &= \varPhi\left( \mathbf{v},f^{*} \circ f\left( \mathbf{v} \right) - f^{**} \circ f^{*}\left( \mathbf{v} \right) \right)\\
+&= \varPhi\left( \mathbf{v},f^{*} \circ f\left( \mathbf{v} \right) \right) - \varPhi\left( \mathbf{v},f^{**} \circ f^{*}\left( \mathbf{v} \right) \right)\\
+&= \varPhi\left( f\left( \mathbf{v} \right),f\left( \mathbf{v} \right) \right) - \varPhi\left( f^{*}\left( \mathbf{v} \right),f^{*}\left( \mathbf{v} \right) \right)\\
+&= {\varphi_{\varPhi}\left( f\left( \mathbf{v} \right) \right)}^{2} - {\varphi_{\varPhi}\left( f^{*}\left( \mathbf{v} \right) \right)}^{2}\\
+&= {\varphi_{\varPhi} \circ f\left( \mathbf{v} \right)}^{2} - {\varphi_{\varPhi} \circ f^{*}\left( \mathbf{v} \right)}^{2}\\
+&= {\varphi_{\varPhi} \circ f\left( \mathbf{v} \right)}^{2} - {\varphi_{\varPhi} \circ f\left( \mathbf{v} \right)}^{2} = 0
+\end{align*}
+定理\ref{2.3.6.5}より$\left( f^{*} \circ f - f \circ f^{*} \right)\left( \mathbf{v} \right) = \mathbf{0}$が成り立つ。これにより、$f^{*} \circ f - f \circ f^{*} = 0$が成り立ち、したがって、$f^{*} \circ f = f \circ f^{*}$が得られる。よって、その線形写像$f$は正規変換である。
+\end{proof}
+\begin{thebibliography}{50}
+\bibitem{1}
+  松坂和夫, 線型代数入門, 岩波書店, 1980. 新装版第2刷 p354-363 ISBN978-4-00-029872-8
+\end{thebibliography}
+\end{document}
