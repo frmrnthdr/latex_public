@@ -19,3 +19,7 @@ PDFファイルはこちらになります。
 [解析学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E8%A7%A3%E6%9E%90%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
 
 [幾何学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E5%B9%BE%E4%BD%95%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+
+# レビュー
+
+線形代数学の書籍のレビュー
