@@ -8,12 +8,14 @@
 \renewlist{itemize}{itemize}{20}
 \setlist[itemize]{label=•}
 \renewlist{enumerate}{enumerate}{20}
-\setlist[enumerate]{label=\arabic*}
+\setlist[enumerate]{label=\arabic*.}
 \setcounter{MaxMatrixCols}{20}
 \setcounter{tocdepth}{3}
+\newcommand{\rotin}{\text{\rotatebox[origin=c]{90}{$\in $}}}
 \renewcommand{\thesection}{第\arabic{section}部}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\everymath{\displaystyle}
 \allowdisplaybreaks[4]
 \usepackage{vtable}
 \theoremstyle{definition}
