@@ -12,6 +12,31 @@
 \setcounter{MaxMatrixCols}{20}
 \setcounter{tocdepth}{3}
 \newcommand{\rotin}{\text{\rotatebox[origin=c]{90}{$\in $}}}
+\newcommand{\amap}[6]{\text{\raisebox{-0.7cm}{\begin{tikzpicture} 
+  \node (a) at (0, 1) {$\textstyle{#2}$};
+  \node (b) at (#6, 1) {$\textstyle{#3}$};
+  \node (c) at (0, 0) {$\textstyle{#4}$};
+  \node (d) at (#6, 0) {$\textstyle{#5}$};
+  \node (x) at (0, 0.5) {$\rotin $};
+  \node (x) at (#6, 0.5) {$\rotin $};
+  \draw[->] (a) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (b);
+  \draw[|->] (c) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (d);
+\end{tikzpicture}}}}
+\newcommand{\twomaps}[9]{\text{\raisebox{-0.7cm}{\begin{tikzpicture} 
+  \node (a) at (0, 1) {$\textstyle{#3}$};
+  \node (b) at (#9, 1) {$\textstyle{#4}$};
+  \node (c) at (#9+#9, 1) {$\textstyle{#5}$};
+  \node (d) at (0, 0) {$\textstyle{#6}$};
+  \node (e) at (#9, 0) {$\textstyle{#7}$};
+  \node (f) at (#9+#9, 0) {$\textstyle{#8}$};
+  \node (x) at (0, 0.5) {$\rotin $};
+  \node (x) at (#9, 0.5) {$\rotin $};
+  \node (x) at (#9+#9, 0.5) {$\rotin $};
+  \draw[->] (a) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (b);
+  \draw[|->] (d) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#2}}$} (e);
+  \draw[->] (b) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (c);
+  \draw[|->] (e) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#2}}$} (f);
+\end{tikzpicture}}}}
 \renewcommand{\thesection}{第\arabic{section}部}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
