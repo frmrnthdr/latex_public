@@ -10,15 +10,15 @@
 # .pdfファイル
 .pdfファイルはこちらになります。
 
-[集合論 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E9%9B%86%E5%90%88%E8%AB%96%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+[集合論 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/set_theory__preliminary_ver.pdf)
 
-[線形代数学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E7%B7%9A%E5%BD%A2%E4%BB%A3%E6%95%B0%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+[線形代数学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/linear_algebra_preliminary_ver.pdf)
 
-[代数学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E4%BB%A3%E6%95%B0%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+[代数学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/algebra_preliminary_ver.pdf)
 
-[解析学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E8%A7%A3%E6%9E%90%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+[解析学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/analysis_preliminary_ver.pdf)
 
-[幾何学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/%E5%B9%BE%E4%BD%95%E5%AD%A6%20%E6%9A%AB%E5%AE%9A%E7%89%88.pdf)
+[幾何学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/geometry_preliminary_ver.pdf)
 
 # レビュー
 
