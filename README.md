@@ -10,7 +10,7 @@
 # .pdfファイル
 .pdfファイルはこちらになります。
 
-[集合論 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/set_theory__preliminary_ver.pdf)
+[集合論 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/set_theory_preliminary_ver.pdf)
 
 [線形代数学 暫定版](https://github.com/frmrnthdr/mathematics_public/blob/main/linear_algebra_preliminary_ver.pdf)
 
