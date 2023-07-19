@@ -1,0 +1,188 @@
+%%%%%%%%%%余白の設定%%%%%%%%%%
+%\usepackage[a4paper,truedimen,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headsep=10pt]{geometry}
+%\usepackage{fancyhdr}  % フッターやヘッダーをいじるため by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{lastpage}  % 最後のページを認識するため by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%目次の設定%%%%%%%%%%
+\setcounter{tocdepth}{3}
+\usepackage{booktabs} %しおり
+
+%%%%%%%%%%sectionの見出しの設定%%%%%%%%%%
+\renewcommand{\thesection}{第\arabic{section}部} %sectionの見出しの設定
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}} %subsectionの見出しの設定
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}} %subsubsectionの見出しの設定
+\renewcommand{\headfont}{\bfseries}
+\makeatletter
+\renewcommand{\section}{ %sectionの設定
+  \@startsection{section}{1}{\z@}%
+  {\Cvs}{\Cvs} %上下の余白
+  {\normalfont\huge\headfont\raggedright}} %字体など
+\renewcommand{\subsection}{ %subsectionの設定
+  \@startsection{subsection}{2}{\z@}%
+  {0.5\Cvs}{0.5\Cvs} %上下の余白
+  {\normalfont\LARGE\headfont\raggedright}} %字体など
+\renewcommand{\subsubsection}{ %subsubsectionの設定
+  \@startsection{subsubsection}{3}{\z@}%
+  {0.4\Cvs}{0.4\Cvs} %上下の余白
+  {\normalfont\Large\headfont\raggedright}} %字体など
+%\usepackage[compact]{titlesec} %sectionの設定の別の方法 by 2023年度@k74226197Y126が配属された研究室の先生
+%  \titlespacing*{\section}{0pt}{3ex}{2ex}     % * を付けると続く文章が indent されない。 by 2023年度@k74226197Y126が配属された研究室の先生
+%  \titlespacing*{\subsection}{0pt}{2ex}{1ex}  % {command}{left spaces}{top spaces}{bottom spaces} by 2023年度@k74226197Y126が配属された研究室の先生
+%  \titlespacing*{\subsubsection}{0pt}{1ex}{1ex} by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%数式の設定%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,bm,mathtools} %数式
+%\usepackage{physics} %物理数学
+\usepackage{array} %場合分け
+\usepackage{exscale} % 大型数式のsizeがfont sizeに応じてできるようにするため. by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{mathbbol} % 数字の白抜き ただし、アルファベットがダサくなる。 by 2023年度@k74226197Y126が配属された研究室の先生
+\setcounter{MaxMatrixCols}{20} %行列のsizeの上限を20まで拡張する. 
+\everymath{\displaystyle} %文中の数式を大きくする. by 2023年度@k74226197Y126が配属された研究室の先生
+\allowdisplaybreaks[4] %数式環境内で改頁させる. 
+%\numberwithin{equation}{section}   % 数式番号を section 毎に変更。 amsmath package の後じゃないとエラーが出る。 by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{slashed} %Dirac’s slash
+%%% rap %%% - make two letters overlap
+%\newcommand{\rap}[2] % by 2023年度@k74226197Y126が配属された研究室の先生
+%{\setbox1=\hbox{#1} % by 2023年度@k74226197Y126が配属された研究室の先生
+%\setbox2=\hbox to\wd1{\hss #2\hss} % by 2023年度@k74226197Y126が配属された研究室の先生
+%\mbox{\rlap{\box1}\box2}} % by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{simplewick}  % Wick contraction by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage[vcentermath]{youngtab} %Young tableau by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%定理環境の設定%%%%%%%%%%
+\usepackage{amsthm} %定理環境
+\makeatletter
+\theoremstyle{definition} 
+\newtheorem{thm}{定理}[subsection] %番号あり
+\newtheorem*{thm*}{定理} %番号なし
+\newtheorem{dfn}{定義}[subsection] %番号あり
+\newtheorem*{dfn*}{定義} %番号なし
+\newtheorem{axs}[dfn]{公理} %番号あり
+\newtheorem*{axs*}{公理} %番号なし
+\renewcommand{\proofname}{\textbf{証明}} %証明の見出し
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed} %証明記号
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item\relax
+  {\bfseries %[...]で入力した証明の見出しの字体など
+  #1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse %証明環境の閉じの設定
+}
+\makeatother
+
+%%%%%%%%%%箇条書きの設定%%%%%%%%%%
+\usepackage{enumitem} %番号あり箇条書き
+\setlistdepth{20}
+\renewlist{itemize}{itemize}{20} %箇条書きの深さ
+\setlist[itemize]{label=•} %箇条書きの記号
+\renewlist{enumerate}{enumerate}{20} %番号あり箇条書きの深さ
+\setlist[enumerate]{label=\arabic*.,ref=\arabic*.} %番号あり箇条書きの番号の書式
+
+%%%%%%%%%%表の設定%%%%%%%%%%
+\usepackage{longtable,dcolumn,tabularx,multirow,colortbl,xcolor} %表
+
+%%%%%%%%%%画像の設定%%%%%%%%%%
+\usepackage[dvipdfmx]{graphics} %画像挿入 必要に応じて[dvipdfmx]を消したりする. 
+\usepackage{bmpsize} %画像sizeの読み込み 不具合あり
+
+%%%%%%%%%%TikZの設定%%%%%%%%%%
+\usepackage{tikz} %TikZ
+\usepackage{vtable} %表 ただしあまり先頭に書くと不具合が生じる. 
+%\usetikzlibrary{arrows,shapes,patterns,calc,babel}  % babel が無いと onlyamsmath と conflict する by 2023年度@k74226197Y126が配属された研究室の先生
+%\input{arrowsnew} % by 2023年度@k74226197Y126が配属された研究室の先生
+%\usetikzlibrary{decorations.markings}  % snakes オプションは古いらしい。by 2023年度@k74226197Y126が配属された研究室の先生
+%\usetikzlibrary{positioning} % by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%字体の設定%%%%%%%%%%
+%\usepackage{newtxtext}  % 本文フォントの変更がこれでできる（Times系へ変更？） by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{newtxmath}  % 数式フォントの変更がこれでできる by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage[british]{babel}  % 部分的に言語環境を変えるためのもの by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%commandの設定%%%%%%%%%%
+\newcommand{\mathbm}[1]{\bm{#1}} %\mathbmでも\bmを出力させる. 
+%\newcommand{\sla}[1]{\rap{$#1$}{/}} % by 2023年度@k74226197Y126が配属された研究室の先生
+\newcommand{\sla}[1]{\rap{$#1$}{$\backslash$}} % by 2023年度@k74226197Y126が配属された研究室の先生
+\newcommand{\nord}[1]{\vcentcolon\mathrel{#1}\vcentcolon} %normal ordering by 2023年度@k74226197Y126が配属された研究室の先生
+\providecommand{\vcentcolon}{\mathrel{\mathop{:}}} % by 2023年度@k74226197Y126が配属された研究室の先生
+\newcommand{\arccoth}{\mathrm{arccoth}\,}
+\newcommand{\Arccoth}{\mathrm{Arccoth}\,}
+\newcommand{\arcsinh}{\mathrm{arcsinh}\,}
+\newcommand{\arccosh}{\mathrm{arccosh}\,}
+\newcommand{\arctanh}{\mathrm{arctanh}\,}
+\renewcommand{\arccoth}{\mathrm{arccoth}\,}
+\newcommand{\Arcsinh}{\mathrm{Arcsinh}\,}
+\newcommand{\Arccosh}{\mathrm{Arccosh}\,}
+\newcommand{\Arctanh}{\mathrm{Arctanh}\,}
+\renewcommand{\Arccoth}{\mathrm{Arccoth}\,}
+\newcommand{\Log}{\mathrm{Log}\,}
+\newcommand{\pr}{\mathrm{pr}\,}
+\newcommand{\proj}{\mathrm{proj}\,}
+\newcommand{\tr}{\mathrm{tr}\,}
+\newcommand{\Tr}{\mathrm{Tr}\,}
+%\renewcommand{\Im}{\mathrm{Im}\,}
+%\renewcommand{\Re}{\mathrm{Re}\,}
+\newcommand{\diag}{\mathrm{diag}\,}
+\newcommand{\ind}{\mathrm{ind}\,}
+\newcommand{\Ker}{\mathrm{Ker}\,}
+\newcommand{\sign}{\mathrm{sign}\,}
+\newcommand{\sgn}{\mathrm{sgn}\,}
+%\renewcommand{\<}{\langle}
+%\renewcommand{\>}{\rangle}
+\newcommand{\rotin}{\text{\rotatebox[origin=c]{90}{$\in $}}} %90度回転させた\in
+\newcommand{\amap}[6]{\text{\raisebox{-0.7cm}{\begin{tikzpicture} %写像
+  \node (a) at (0, 1) {$\textstyle{#2}$};
+  \node (b) at (#6, 1) {$\textstyle{#3}$};
+  \node (c) at (0, 0) {$\textstyle{#4}$};
+  \node (d) at (#6, 0) {$\textstyle{#5}$};
+  \node (x) at (0, 0.5) {$\rotin $};
+  \node (x) at (#6, 0.5) {$\rotin $};
+  \draw[->] (a) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (b);
+  \draw[|->] (c) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (d);
+\end{tikzpicture}}}}
+\newcommand{\twomaps}[9]{\text{\raisebox{-0.7cm}{\begin{tikzpicture} %2つ並んだ写像
+  \node (a) at (0, 1) {$\textstyle{#3}$};
+  \node (b) at (#9, 1) {$\textstyle{#4}$};
+  \node (c) at (#9+#9, 1) {$\textstyle{#5}$};
+  \node (d) at (0, 0) {$\textstyle{#6}$};
+  \node (e) at (#9, 0) {$\textstyle{#7}$};
+  \node (f) at (#9+#9, 0) {$\textstyle{#8}$};
+  \node (x) at (0, 0.5) {$\rotin $};
+  \node (x) at (#9, 0.5) {$\rotin $};
+  \node (x) at (#9+#9, 0.5) {$\rotin $};
+  \draw[->] (a) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (b);
+  \draw[|->] (d) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#2}}$} (e);
+  \draw[->] (b) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#1}}$} (c);
+  \draw[|->] (e) to node[xshift=0pt, yshift=7pt] {$\textstyle{\scriptstyle{#2}}$} (f);
+\end{tikzpicture}}}}
+
+%%%%%%%%%%校閲の設定%%%%%%%%%%
+%\RequirePackage[l2tabu, orthodox]{nag}  % 古いコマンドやパッケージの利用を警告してくれる by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage[all, warning]{onlyamsmath}  % amsmath が提供しない数式環境を使用した場合に警告してくれる by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%その他の設定%%%%%%%%%%
+\usepackage{comment} %comment環境
+\usepackage{docmute} %\inputを用いるとき\begin{document}...\end{document}の...のみ抽出するためのpackage
+\usepackage{url} %URL
+\usepackage{fancybox} %枠囲み文字
+
+%%%%%%%%%%一時的な設定%%%%%%%%%%
+\newif\iffigure  %図などの重いものを出力しないようにする. by 2023年度@k74226197Y126が配属された研究室の先生
+\figurefalse %by 2023年度@k74226197Y126が配属された研究室の先生
+\figuretrue  %これの前に%を付けると図が出力されない. by 2023年度@k74226197Y126が配属された研究室の先生
+%\usepackage{showkeys}  %\refなどの名前を表示する. by 2023年度@k74226197Y126が配属された研究室の先生
+
+%%%%%%%%%%hyperreferの設定%%%%%%%%%%
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+ setpagesize=false,
+ bookmarks=true,
+ bookmarksdepth=tocdepth,
+ bookmarksnumbered=true,
+ colorlinks=false,
+ pdftitle={},
+ pdfsubject={},
+ pdfauthor={},
+ pdfkeywords={}}
