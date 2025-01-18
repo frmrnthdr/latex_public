@@ -1,0 +1,83 @@
+%%%%%%%%%% Beamerの初期設定 %%%%%%%%%%%
+% beamerを使用する初期設定
+\documentclass[aspectratio=169, dvipdfmx, 12pt]{beamer}
+% 使用するパッケージ 
+\usepackage{here, amsmath, latexsym, amssymb, bm, ascmac, mathtools, multicol, tcolorbox, subfig}
+%デザインの選択 (省略可)
+\usetheme{Boadilla}
+%\pagestyle{empty}
+\usepackage{tikz,graphics} %TikZ
+\usetikzlibrary{arrows.meta}
+
+\title{"タイトル"}
+\author{"氏名"}
+\institute{"所属"} % 所属している組織を書くことが多い. 
+\date{"日付"} % 空欄にするには\date{}まで書く. 行ごと消してしまうと, コンパイルした日付がでてしまう. また, 自動的にコンパイルした日付を出すには\date{\today}と書く. 
+
+\begin{document}
+
+%\thispagestyle{empty} % 頁番号を非表示にしたりするときに試してみるといいかも. 
+\begin{frame}{まとめ} % 待機用
+    \begin{enumerate}
+        \item ホゲホゲ...
+        \item ホゲホゲ...
+    \end{enumerate}
+\end{frame}
+
+\frame{\maketitle} % 表紙
+
+\begin{frame}{目次} % 目次
+    \tableofcontents
+\end{frame}
+
+\section{"セクション1"} % スライドに表示されないものの目次に表示させるために入れている感じ. 
+
+\begin{frame}{"見出し1"} % "見出し"に上の"セクション"と"("現在の頁"/"総頁")"を書くといいらしい. 
+    ホゲホゲ...
+    \begin{center}
+        {\Huge{ホゲホゲ! }}
+    \end{center}
+\end{frame}
+
+\begin{frame}{"見出し2"}
+    \begin{itemize}
+        \item 箇条書き...\\
+        ホゲホゲ...
+        \item 箇条書き...
+    \end{itemize}
+    \begin{enumerate}
+        \item 番号付き箇条書き...
+        \item 番号付き箇条書き...
+    \end{enumerate}
+    \begin{align*}
+        q^1 (t) = \ln \tau^1 (t) - \ln \tau^2 (t)&,\quad q^2 (t) = \ln \tau^2 (t) - \ln \tau^3 (t), \\
+        &\ldots, \quad q^N (t) = \ln \tau^N (t) - \ln \tau^{N+1} (t) 
+    \end{align*}
+\end{frame}
+
+\begin{frame}{"見出し3"}
+    \begin{block}{"枠の見出し"}
+        なんかすごいホゲホゲ...
+        \begin{align*}
+            q^1 (t) = \ln \tau^1 (t) - \ln \tau^2 (t)&,\quad q^2 (t) = \ln \tau^2 (t) - \ln \tau^3 (t), \\
+            &\ldots, \quad q^N (t) = \ln \tau^N (t) - \ln \tau^{N+1} (t) 
+        \end{align*}
+    \end{block}
+\end{frame}
+
+\section{"セクション2"}
+
+\begin{frame}{参考文献}
+    \begin{itemize}
+        \item[松島] 松島与三. "多様体入門". 裳華房. 1965. ISBN4-7853-1305-6
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{まとめ} % 待機用
+    \begin{enumerate}
+        \item ホゲホゲ...
+        \item ホゲホゲ...
+    \end{enumerate}
+\end{frame}
+
+\end{document}

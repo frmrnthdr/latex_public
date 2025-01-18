@@ -1,0 +1,278 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\input{for_preamble}
+\title{砂川重信\_理論電磁気学のゼミ}
+\author{@k74226197Y126}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+    このpdfは気分転換にふらっと覗いてみた後輩主催の自主ゼミの様子を断片的に記録したものです. 
+\end{abstract}
+\begin{align*}
+    \mathbm{E} \left( \mathbm{x} \right) = \frac{1}{4\pi \varepsilon_0} \frac{e}{R^2} \frac{\mathbm{x} - \mathbm{x}_0 }{R}.
+\end{align*}
+この式は試験子のあるなしにかかわらず真空中の$\mathbm{x}$点における電場の存在が表現されている. \par
+ゆえに, $\mathbm{F} = e' \mathbm{E} $となって, 
+\begin{align*}
+    \oint_S \mathbm{E} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS &= \frac{e}{\varepsilon_0} \\
+    \oint_S \mathbm{E} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS &= \frac{1}{\varepsilon_0} \times \left( \text{$S$の中にある全電荷} \right).
+\end{align*}
+この式では距離の表現は消えている一方で, 電荷の原因が有限距離の中にある電荷となっている. \par
+したがって, 
+\begin{align*}
+    \mathrm{div} \mathbm{E} \left( \mathbm{x} \right) = \frac{1}{\varepsilon_0} \rho \left( \mathbm{x} \right). 
+\end{align*}
+この式は$\mathbm{x}$点の空間微分だけで表されており近接作用という考え方を忠実に再現されている. \par
+一般に, 上の式から無条件にCoulombの法則を導けるとは限らなく何らかの条件が入る. \par
+また, 電荷密度$\rho \left( \mathbm{x} \right)$が時間に依存しており電場$\mathbm{E} \left( \mathbm{x} \right) $もそう変化すると考え, では, どう変化するのかと考えたとき, 
+\begin{align*}
+    \mathrm{div} \mathbm{E} \left( \mathbm{x}, t \right) = \frac{1}{\varepsilon_0} \rho \left( \mathbm{x}, t \right). 
+\end{align*}
+によって変化するものとして考える. このように拡大解釈して基本法則の1つとして扱う. \par
+磁場の場合, 電場と同様な方程式が磁束密度に対しても成り立つ. しかし, 単磁極が孤立しているわけでなく, 異符号等重の磁極が対をなして存在しているため, 任意の閉曲面に対し, 
+\begin{align*}
+    \oint_S \mathbm{B} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS = \int_V \mathrm{div} \mathbm{B} dV = 0
+\end{align*}
+が成り立つ. \par
+よって, 微分形式は
+\begin{align*}
+    \mathrm{div} \mathbm{B} \left( \mathbm{x} \right) = 0.
+\end{align*}
+時間に依存することで, 
+\begin{align*}
+    \mathrm{div} \mathbm{B} \left( \mathbm{x}, t \right) = 0.
+\end{align*}
+これが磁束密度に関する一般的な条件となる. 
+\subsubsection{Thomsonの原子模型}
+正電荷$+e$をもつ球の内部に負電荷$-e$の点電荷が1つある. \par
+原子から放出される光のスペクトルが線スペクトルとしてある. \par
+中心から外向き方向の電場を$\mathbm{E} \left( \mathbm{x} \right)$とおくと, 
+\begin{align*}
+    4\pi r^2 \left| \mathbm{E} \left( \mathbm{x} \right) \right| &= \frac{1}{\varepsilon_0} e'\\
+    \therefore \left| \mathbm{E} \left( \mathbm{x} \right) \right| &= \frac{1}{4\pi \varepsilon_0} \frac{e'}{r^2}
+\end{align*}
+半径$r$の球の内部にある電荷量が$e'$で電荷密度を$\rho $として
+\begin{align*}
+    \frac{e'}{e} = \frac{\frac{4}{3} \pi r^3 \rho}{\frac{4}{3} \pi a^3 \rho} = \frac{r^3}{a^3} ,
+\end{align*}
+これを代入して, 
+\begin{align*}
+    \left| \mathbm{E} \left( \mathbm{x} \right) \right| &= \frac{1}{4\pi \varepsilon_0 } \frac{1}{r^2} \frac{r^3}{a^3} e \\
+    &= \frac{e}{4\pi \varepsilon_0 } \frac{r}{a^3}
+\end{align*}
+と表される. 中心から離れた位置に電子があると, そこに働く力は
+\begin{align*}
+    \mathbm{F} = - e \mathbm{E} = - \frac{e^2}{4\pi \varepsilon_0} \frac{\mathbm{r}}{a^3}. 
+\end{align*}
+電子の運動は
+\begin{align*}
+    m\ddot{\mathbm{r}} = - \frac{e^2}{4\pi \varepsilon_0 } \frac{1}{a^3} \mathbm{r}.
+\end{align*}
+これは調和振動子と同じ形になっている. 電子の振幅関係なく振動数$J$は
+\begin{align*}
+    J = \frac{1}{2\pi } \sqrt{\frac{e^2}{4\pi \varepsilon_0 ma^3}}
+\end{align*}
+となり, これと同一の振動数をもつ光が原子から輻射される. 
+\subsection{Faradayの電磁誘導の法則}
+電場と磁場との関係をみてみよう. \par
+1831年Faradayによって, 閉じた導線回路の近くで磁石を動かすと, 回路内の電流が生じる. これにより, 磁場の時間変化と電場の関係があることがわかった. \par
+回路の抵抗を$R$, 電流の強さを$I$, 起電力を$\phi$とおくと, 
+\begin{align*}
+    \phi = IR = - \frac{dN}{dt}.
+\end{align*}
+ここで, $N$は閉回路によって囲まれる任意の曲面を貫く磁束である. これは磁石を作る磁場と電流で生じる磁場の和になっている. \par
+$\mathbm{F} = e \mathbm{E} $の力が生じ, 
+\begin{align*}
+    \oint_C \mathbm{F} \cdot d \mathbm{r} = e \oint_C \mathbm{E} \left( \mathbm{x}, t \right) = e \phi,
+\end{align*}
+したがって, 
+\begin{align*}
+    \phi = \oint_C  \mathbm{E} \left( \mathbm{x}, t \right) \cdot d \mathbm{r}.
+\end{align*}
+磁束$N$は閉曲線によって囲まれる任意の曲面上の表面積分から
+\begin{align*}
+    N = \int_S \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS. 
+\end{align*}
+任意の閉曲面$S'$において, 
+\begin{align*}
+    \oint_{S'} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS = 0
+\end{align*}
+したがって, 
+\begin{align*}
+    \oint_{S'} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS &= \oint_{S_1} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n}_1 \left( \mathbm{x} \right) dS - \oint_{S_2} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n}_2 \left( \mathbm{x} \right) dS \\
+    &\qquad \quad \left( \text{ただし, $\left\{ \begin{array}{c}
+        \mathbm{n}_2 = - \mathbm{n} \\
+        \mathbm{n}_1 = \mathbm{n} \\
+    \end{array} \right. $} \right) \\
+    &= 0
+\end{align*}
+ゆえに, 
+\begin{align*}
+    \oint_{S_1} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n}_1 \left( \mathbm{x} \right) dS = \oint_{S_2} \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n}_2 \left( \mathbm{x} \right) dS. 
+\end{align*}
+また, 
+\begin{align*}
+    \oint \mathbm{E} \left( \mathbm{r}, t \right) \cdot d \mathbm{r} = - \frac{d}{dt} \int_S \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS.
+\end{align*}
+Stokesの定理より
+\begin{align*}
+    \oint \mathbm{E} \left( \mathbm{r}, t \right) \cdot d \mathbm{r} = \int_S \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS.
+\end{align*}
+したがって, 
+\begin{align*}
+    \int_S \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS =  - \frac{d}{dt} \int_S \mathbm{B} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS. 
+\end{align*}
+移項して, 
+\begin{align*}
+    \int_S \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS + \int_S \frac{\partial \mathbm{B} \left( \mathbm{x}, t \right) }{\partial t} \cdot \mathbm{n} \left( \mathbm{x} \right) dS = 0. 
+\end{align*}
+整理すると, 
+\begin{align*}
+    \int_S \left( \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) + \frac{\partial \mathbm{B} \left( \mathbm{x}, t \right) }{\partial t} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS = 0. 
+\end{align*}
+曲面の任意性より
+\begin{align*}
+    \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) + \frac{\partial \mathbm{B} \left( \mathbm{x}, t \right) }{\partial t} = 0. 
+\end{align*}
+これは近接作用の立場をとった微分形式におけるFaradayの誘導法則となっている. 磁場と電場との関係における電磁場の基本法則の1つとなっている. 
+\subsubsection{Betatron}
+Faradayの電磁誘導の法則により磁場の時間変化にともない空間に電磁が誘起され電子を加速させる装置がつくれる. これをBetatronという. \par
+鉄の中に空洞部をつくり励起用の1次コイルとドーナツ状の真空ガラス管をおく. 1次コイルに電流を流すと, 空洞部に磁場が発生し, 時間変化により電場が誘起され, 1次コイルの電流の強さが$0$から増加しドーナツ状の中の電子は電場$\mathbm{E}$によって加速する. \par
+電子エネルギーが増えても, 電子が一定の軌道半径の円周上を回転する必要がある. 空洞部の磁束密度の空間的分布はどのようにすればいいのかと考えたい. そこで, 一定半径の円運動する電荷$-e$の電子の接線方向の運動方程式は
+\begin{align*}
+    \frac{d \left( mv \right)}{dt} = - e E \left( r, t \right). 
+\end{align*}
+法線方向の運動方程式は
+\begin{align*}
+    \frac{mv^2}{r} = ev B \left( r, t \right).
+\end{align*}
+\begin{align*}
+    \oint \mathbm{E} \cdot d \mathbm{r} = 2\pi r E \left( r, t \right) = \frac{dN \left( r, t \right)}{dt}
+\end{align*}
+が成り立ち, 
+\begin{align*}
+    \frac{d}{dt} \left( \frac{mv^2}{r} \right) = \frac{1}{r} \frac{d \left( mv^2 \right)}{dt} = -\frac{e}{r} E \left( r, t \right) = e \frac{dB \left( r, t \right)}{dt},
+\end{align*}
+ゆえに, 
+\begin{align*}
+    E \left( r, t \right) &= - r \frac{dB \left( r, t \right)}{dt}, \\
+    \frac{dB \left( r, t \right)}{dt} &= - \frac{E \left( r, t \right)}{r} \\
+    &= \frac{1}{r} \cdot \frac{1}{2\pi r} \cdot \frac{d N \left( r, t \right)}{dt} \\
+    &= \frac{1}{2\pi r^2} \frac{d N \left( r, t \right)}{dt}.
+\end{align*}
+$t=0$で$B=0$, $N=0$とすると, 
+\begin{align*}
+    B \left( r, t \right) = \frac{1}{2} \left( \frac{N \left(r, t \right)}{\pi r^2} \right).
+\end{align*}
+円軌道上の磁束密度は平均磁束密度の$1/2$倍と外側は弱く内側は強くなっている. 
+\subsection{Ampereの法則}
+1819年Oerstedは定常電流にともなってそのまわりの真空中で静磁場が生じることを発見した. Ampereが電流$I$とそのまわりにできる磁束密度$\mathbm{B}$との間に
+\begin{align*}
+    \oint_C \mathbm{B} \left( \mathbm{r}, t \right) \cdot d \mathbm{r} \propto I
+\end{align*}
+という関係を発見した. そこで, 
+\begin{align*}
+    \oint_C \mathbm{B} \left( \mathbm{r}, t \right) \cdot d \mathbm{r} = \mu_0 I    
+\end{align*}
+とおく. 近接作用の立場における形式を書き直すことを考えたい. 定常電流$I$を電流密度$\mathbm{i}$で書き換え, 閉曲線によって囲まれる任意の曲面$S$で考えて, 
+\begin{align*}
+    I = \int_S \mathbm{i} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS.
+\end{align*}
+したがって, 
+\begin{align*}
+    \oint_C \mathbm{B} \left( \mathbm{r}, t \right) \cdot d \mathbm{r} = \mu_0 \int_S \mathbm{i} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS,
+\end{align*}
+Stokesの定理より
+\begin{align*}
+    \int_S \mathrm{rot} \mathbm{B} \left( \mathbm{r}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS = \mu_0 \int_S \mathbm{i} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS
+\end{align*}
+となり閉曲線の任意性より
+\begin{align*}
+    \mathrm{rot} \mathbm{B} \left( \mathbm{r}, t \right)  = \mu_0 \mathbm{i} \left( \mathbm{x} \right).
+\end{align*}
+時間の依存性を考えて, 
+\begin{align*}
+    \mathrm{rot} \mathbm{B} \left( \mathbm{r}, t \right)  = \mu_0 \mathbm{i} \left( \mathbm{x}, t \right)
+\end{align*}
+としたいところだが, 電気量保存則に矛盾する. 
+\subsection{電荷保存則と変位電流}
+電荷の総量がいかなる物理量の変化の過程に対して, 一定であってほしい. これを数式で表したい. 空間に閉曲面$S$で囲まれた領域$V$を考える. $S$を通って外から中に入り込む電気量は電流密度を$\mathbm{i} \left( \mathbm{x} \right)$として単位時間あたり
+\begin{align*}
+    - \oint_S \mathbm{i} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS 
+\end{align*}
+となる. ここで, $\mathbm{n} $の方向とは逆向きに流れ込むので負になる. \par
+電気の総量が不変であるなら$V$に流れ込む電気量が$V$内の電気量の単位時間あたりの増加量に等しく, 閉曲面$S$を固定すると, 
+\begin{align*}
+    \frac{d}{dt} \int_V \rho \left( \mathbm{x}, t \right) d^3 x = - \oint_S \mathbm{i} \left( \mathbm{x} \right) \cdot \mathbm{n} \left( \mathbm{x}, t \right) dS.
+\end{align*}
+ここで, 
+\begin{align*}
+    \quad \frac{d}{dt} \int_V \rho \left( \mathbm{x}, t \right) d^3 x &= \int_V \frac{\partial \rho \left( \mathbm{x}, t \right)}{\partial t} d^3 x, \\
+    \oint_S \mathbm{i} \left( \mathbm{x}, t \right) \cdot \mathbm{n} \left( \mathbm{x} \right) dS &= \int_V \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) d^3 x
+\end{align*}
+から
+\begin{align*}
+    \int_V \frac{\partial \rho \left( \mathbm{x}, t \right)}{\partial t} d^3 x &= - \int_V \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) d^3 x
+\end{align*}
+となり, したがって, 
+\begin{align*}
+    \frac{\partial \rho \left( \mathbm{x}, t \right)}{\partial t} + \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) =0.
+\end{align*}
+これが電荷保存則の一般関係式である. \par
+Ampereの法則より定常電流によって静磁場ができるとき, 
+\begin{align*}
+    \frac{1}{\mu_0 } \mathrm{rot} \mathbm{B} \left( \mathbm{x}, t \right) = \mathbm{i} \left( \mathbm{x}, t \right).
+\end{align*}
+両辺に発散をとると, ベクトル解析の恒等式より
+\begin{align*}
+    \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) = 0.
+\end{align*}\par
+MaxwellはAmpereの法則を次のように拡張した: 
+\begin{align*}
+    \frac{1}{\mu_0 } \mathrm{rot} \mathbm{B} \left( \mathbm{x}, t \right) = \mathbm{i} \left( \mathbm{x}, t \right) + \varepsilon_0 \frac{\partial \mathbm{E} \left( \mathbm{x}, t \right)}{\partial t}.
+\end{align*}
+$\varepsilon_0 {\partial \mathbm{E} \left( \mathbm{x}, t \right)}/{\partial t}$を変位電流密度という. \par
+両辺の発散は
+\begin{align*}
+    \frac{1}{\mu_0} \mathrm{div} \mathrm{rot} \mathbm{B} \left( \mathbm{x}, t \right) &= 0,\\
+    \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) + \varepsilon_0 \frac{\partial}{\partial t} \mathrm{div} \mathbm{E} \left( \mathbm{x}, t \right) &= \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) + \frac{\partial \rho \left( \mathbm{x}, t \right) }{\partial t}
+\end{align*}
+となり結局, 
+\begin{align*}
+    \mathrm{div} \mathbm{i} \left( \mathbm{x}, t \right) + \frac{\partial \rho \left( \mathbm{x}, t \right) }{\partial t} = 0.
+\end{align*}
+\subsection{Maxwell方程式}
+\begin{align*}
+    \left\{ \begin{array}{l}
+        \displaystyle \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) + \frac{\partial \mathbm{B} \left( \mathbm{x}, t \right)}{\partial t} = \mathbf{0} \\[5pt]
+        \displaystyle \frac{1}{\mu_0} \mathrm{rot} \mathbm{B} \left( \mathbm{x}, t \right) - \varepsilon_0 \frac{\partial \mathbm{E} \left( \mathbm{x}, t \right)}{\partial t} = \mathbm{i} \left( \mathbm{x}, t \right) \\[5pt]
+        \displaystyle \varepsilon_0 \mathrm{div} \mathbm{E} \left( \mathbm{x}, t \right) = \rho \left( \mathbm{x}, t \right) \\[5pt]
+        \displaystyle \mathrm{div} \mathbm{B} \left( \mathbm{x}, t \right) = 0 \\
+    \end{array} \right. .
+\end{align*}
+$\mu_0$, $\varepsilon_0$のない形にすべく
+\begin{align*}
+    \left\{ \begin{array}{c}
+        \mathbm{H} = \frac{1}{\mu_0 } \mathbm{B} \\
+        \mathbm{D} = \varepsilon_0 \mathbm{E}
+    \end{array} \right. 
+\end{align*}
+とおくと, 
+\begin{align*}
+    \left\{ \begin{array}{l}
+        \displaystyle \mathrm{rot} \mathbm{E} \left( \mathbm{x}, t \right) + \frac{\partial \mathbm{B} \left( \mathbm{x}, t \right)}{\partial t} = \mathbf{0} \\[5pt]
+        \displaystyle \mathrm{rot} \mathbm{H} \left( \mathbm{x}, t \right) - \varepsilon_0 \frac{\partial \mathbm{E} \left( \mathbm{x}, t \right)}{\partial t} = \mathbm{i} \left( \mathbm{x}, t \right) \\[5pt]
+        \displaystyle \mathrm{div} \mathbm{D} \left( \mathbm{x}, t \right) = \rho \left( \mathbm{x}, t \right) \\[5pt]
+        \displaystyle \mathrm{div} \mathbm{B} \left( \mathbm{x}, t \right) = 0 \\
+    \end{array} \right.  .   
+\end{align*}\par
+荷電粒子に作用する力の法則を考えよう. 静電場$\mathbm{E} \left( \mathbm{x} \right)$の中におかれた点電荷$e$に作用する力$\mathbm{F}$は
+\begin{align*}
+    \mathbm{F} = e \mathbm{E} 
+\end{align*}
+と考えられる. $\mathbm{E}$は点電荷と外の電荷によってつくられる静電場となる. このとき, 電荷が電荷密度$\rho_e \left( \mathbm{x} \right) $で分布しているときに, 作用する力$\mathbm{F}^{(e)}$は
+\begin{align*}
+    \mathbm{F}^{(e)} = \int_V \rho_e \left( \mathbm{x} \right) \mathbm{E} \left( \mathbm{x} \right) d^3 x
+\end{align*}
+で与えられる. ここで, $V$は今考えている帯電体を囲む領域である. 静電場
+\end{document}

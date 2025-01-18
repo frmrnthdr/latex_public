@@ -1,0 +1,651 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\input{for_preamble.tex}
+\usepackage{ulem}
+\title{書籍まとめ}
+\author{@k74226197Y126}
+\date{2024年4月}
+\begin{document}
+\maketitle
+\begin{abstract}
+    もともとは研究室の予算が余ったので, 新しく数学書を買うときに調べてきたものです. このPDFに書いてあることはすべて読んできたわけではありませんし, 研究室外の方向けにおすすめすべく書いたものではありません. 
+\end{abstract}
+\tableofcontents
+\clearpage
+\section{はじめに}
+    中原トポは多くの場合別々の本になりやすい微分幾何学と位相幾何学をまとめており, いろいろ載っているのが強みなものの, 行間がうまらなくて他の書籍にあたりたい, もっと易しめの数学書がほしい, 関数解析寄りの本がほしいという感想をもつのではないかと思いましたので, いろいろ数学書を調べてきました. 数学科のシラバスや次のサイト, X(旧:Twitter)の\sout{数学科生か関数解析か多様体をやっている物理学科生くらいしか いないような}FFの方の感想を参考にしました. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{\arabic{enumi}}
+        \renewcommand{\labelenumi}{[\theenumi]}
+        \setcounter{enumi}{0}
+        \item 青山学院大学理工学部数理サイエンス学科の数理系教員. "推薦教科書 一覧" 青山学院大学. \\
+        \url{https://www.math.aoyama.ac.jp/textbooks.html} 
+        \item 佐藤隆夫. "My Favorite Textbooks". 東京理科大学. \\
+        \url{https://www.rs.tus.ac.jp/math2/math2/tsatoh/tsatoh-homepage/my_favorite_texts.html} 
+        \item 佐藤隆夫. "My Favorite Textbooks". 東京理科大学. \\
+        \url{https://www.rs.tus.ac.jp/math2/math2/tsatoh/tsatoh-homepage/my_favorite_texts.html} 
+    \end{enumerate}\par
+    また, おすすめ度はあくまでもこの研究室内の学生向けに合わせてあるので, 他の研究室となると話が変わってきます... おすすめ度/ほしさ度についてですが, 星4つ以上が予算が許す限り購入して学生室においてほしいという意味を含ませてあります. また, じっくりと読んでいるものはおすすめ度, 読んでいないものはほしさ度と解釈してくだされば助かります. \par
+    \sout{このままじゃあ物理学科数学専攻になっちゃうので, }時間があればもっと物理学書や物理学寄りな数学書も調べたいところです...
+\section{代数学系統}
+\subsection{線形代数学}
+    全般的な注意としては, 無限次元ベクトル空間のことは線形代数学の書籍で述べられていないことが多いので, 量子力学(というか関数解析)へ応用するにはもうちょっと準備が必要. あと, シンプレクティック形式は交代双線形形式の話に入るので, その話に興味があれば, 交代双線形形式の載っている本にあたるといいかも. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[LA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{TRLA} 対馬龍司. "線形代数学講義". 共立出版. 2007. ISBN978-4-320-11097-7. \\
+        \url{https://www.kyoritsu-pub.co.jp/book/b10004120.html} \\
+        内容 : ベクトル空間, 行列, 連立一次方程式, 双線形形式, Jordan標準形\\
+        おすすめ度/ほしさ度 : $\bigstar $ 
+    \end{enumerate}\par
+    線形代数学の初歩的な内容を扱っている弊学の物理学科生ならみんなしっている本. 行列の基本変形や行列式の展開, 連立一次方程式の解き方, 行列式の対角化, Jordan標準形の求め方などが書かれており, いわゆる行列算数を重点においている.ジョルダン標準形では単因子論の流儀をとっており, 直和の説明もあるがジョルダン標準形の内容は全体的にやや駆け足かもしれない? テンソルについては一切言及がないのでテンソルもやりたいなら別の書籍にあたることになる. 内容としては, 初学者にとって優しいと思うけど, 授業でやったと思うので, いまさら手元に置かなくても大丈夫な気がする... 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[LA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{SMLA} 斎藤正彦. "線型代数入門". 東京大学出版会. 1966. ISBN978-4-1306-2001-7. \\
+        \url{https://www.utp.or.jp/book/b302039.html} \\
+        内容 : ベクトル空間, 行列, 連立一次方程式, 双線形形式, Jordan標準形\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $ 
+    \end{enumerate}\par
+    線形代数学の教科書としてド定番なものである. ちなみに有名な\ref{SMAN1}, \ref{SMAN2}と同じシリーズである. 上の\ref{TRLA}と構成が似ているものの(どうやら\ref{TRLA}を書くときに参考にしたらしい), もっと格調高く行列の指数関数など解析学よりの内容も触れられている. Jordan標準形は\ref{TRLA}と同様に単因子論の流儀をとっている. \ref{TRLA}と同様にテンソルについては一切言及がないのでテンソルもやりたいなら別の書籍にあたることになる. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[LA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{MKLA} 松坂和夫. "線型代数入門". 岩波書店. 1980. ISBN978-4-0002-9872-8. \\
+        \url{https://www.iwanami.co.jp/book/b378348.html} \\
+        内容 : ベクトル空間, 行列, 連立一次方程式, 双線形形式, Jordan標準形\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    線形代数学を行列算数のみにとどめず線形写像を活用してて抽象的に述べており, 行列算数でない線形代数学の側面が見られて線形代数学がいかに広く適用できて便利で偉大なのかが分かるかもしれない(?). また, 一貫してブルバキスタイルで貫いているので, どれか定義でどう仮定してどれが主張なのか見やすい. Jordan標準形では冪零変換の流儀をとっており, 特に, Youngの図形に関する内容は後述する\ref{ITRE}と比較するといいかも. 途中の議論を全部演習問題にまわすというところもあるけど, Jordan標準形や内積空間の説明が丁寧なほうかと. 実は, \ref{MKAL}に単因子論の流儀でのJordan標準形の説明もある. テンソルについては一切言及がないのでテンソルもやりたいなら別の書籍にあたることになる. 他に, 高校数学との接続が\ref{TRLA}や\ref{SMLA}ほどよくはない気がするので, 初学者向きかというとうーんなところもあるけど, 物理学科3年以上ならそんなに心配しなくてもいいかも... 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[LA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{SILA} 佐武一郎. "線型代数学". 裳華房. 1958. ISBN978-4-7853-1301-2. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1304-3.htm} \\
+        内容 : ベクトル空間, 行列, 連立一次方程式, 双線形形式, Jordan標準形, テンソル積, 係数体の拡大\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    線形写像を活用している抽象的なほうで, 線形代数学に関してならなんでも載ってる. なんなら複素数の構成とか係数体の拡大とか表現論のいろはとかまでもある. 線形代数学の辞書(?)みたいな感じで使うのがいいらしい. B1のとき基礎線形代数1の先生から勧められたことがある. ブルバキスタイルでない箇所がちらほらあって人によっては結構難しいかもしれないけど, まぁ物理学科生ならそれがデフォルトなので, 多分そんなに心配しなくていっか... Jordan標準形では冪零変換の流儀をとっている. テンソル積も外積代数も扱ってる. ただ, 群論や自然な線形同型写像の記述は\ref{ITRE}のほうが分かりやすいかも(\ref{SILA}を丁寧にするつもりで\ref{ITRE}を書いたらしい? ). \ref{ITRE}にもいえることだけど, 群論は別の書籍で慣れておくといいかもしれない. 
+\subsection{群論・環論}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AL\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{MKAL} 松坂和夫. "代数系入門". 岩波書店. 1976. ISBN978-4-00-029873-5. \\
+        \url{https://www.iwanami.co.jp/book/b378349.html} \\
+        内容 : 群, 環, 加群など\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    第1章が整数の初歩的な内容で高校数学に少し内容を加えたようなものになっている. 物理学では, あまり使わなさそうなので, ほとんど読んでいません... 第2章が群論で数学科の代数学1に相当する内容となっている. 写像の扱い方から解説されており予備知識がほとんどないので, おそらく高校生でも読める...かも. 第3章は環論と多項式環で数学科の代数学2に相当する内容となっている. ホモロジー代数をガチりたいのであれば, 目を通しておいたほうがいいかも. 第4章はベクトル空間と加群である. 加群はホモロジー代数を展開するとき下地になっており, 係数が環となっているようなベクトル空間のようなものであるか, 基底がとれなかったりと, ベクトル空間と大きく異なる性質をもっている. そちらは数学科の幾何学2に相当している. また, ベクトル空間の話題も扱っているものの, かなり短くまとめられているので, ベクトル空間について詳しく知りたいのであれば, 線形代数学の本をみたほうがいいかもしれない. 第5章は体論, 第6章は実数, 複素数の構成となっているが, 物理学では多分使わなさそうなので, 全然読んでいない... \par
+    一貫してブルバキスタイルで貫いているので, どれか定義でどう仮定してどれが主張なのか見やすい. ほとんど予備知識を要していないので, 群や環, 加群の初歩的な内容を学ぶにはいいかもしれない. ただ, この本では, 整数や体論を扱っている一方で, Lie群や表現論, ホモロジー代数までは触れていないのが注意. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AL\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{NHAL} 永尾汎. "代数学". 朝倉書店. 1983. ISBN978-4-254-11434-8. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=11843} \\
+        内容 : 群, 環, 加群など\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $ 
+    \end{enumerate}\par
+    一貫してブルバキスタイルで貫いているので, どれか定義でどう仮定してどれが主張なのか見やすものの, \ref{MKAL}より行間がやや広めで難しめなのかもしれない. 構成は\ref{MKAL}に似ているものの, 整数の性質, ベクトル空間がなくなった代わりに群論では, 組成列, Krull-Remak-Schmidtの定理のほか, ホモトピー論と関係する自由群も触れられており, 環論では, Noether環やArtinian環といった環論の発展的な内容も触れられている. あるに越したことはないけど, この研究室では, \ref{MKAL}だけでも大丈夫な気がするので, 無理して手元におかなくてもよさそう... \sout{自由群に関してもホモトピー論の本のほうが詳しく書いてあることが多いし...} 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AL\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{YAAL1} 雪江明彦. "代数学1　群論入門". 日本評論社. 2010. ISBN978-4535786592. \\
+        \url{https://www.nippyo.co.jp/shop/book/9165.html} \\
+        内容 : 群論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $ 
+        \item \label{YAAL2} 雪江明彦. "代数学2　環と体とガロア理論". 日本評論社. 2010. ISBN978-4535786608. \\
+        \url{https://nippyo.co.jp/shop/book/9166.html} \\
+        内容 : 環論など\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $ 
+    \end{enumerate}\par
+    なんか最近では有名な本らしい. 読んだことがないので, あんまりよく分からない... 誰か詳しい方がいればぜひ...! 
+\subsection{表現論}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[RE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{ITRE} 池田岳. "テンソルと表現論". 東京大学出版会. 2022. ISBN978-4-13-062929-4. \\
+        \url{https://www.utp.or.jp/book/b598957.html} \\
+        内容 : Jordan標準形, テンソル, 対称群の表現論, 線型群の表現論, Lie環\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    第1章から第4章では, 線形代数学のうち, Jordan標準形やテンソルについて述べられており, 第5章から第8章では, 表現論, 特に, 対称群や線型群の表現論について, 第9章では, Lie環のことも述べられている. 実際では対角化可能な場合が多いものの, Jordan標準形が求められないと行列の指数関数が具体的に計算しづらい. 第5章から第8章では, 表現論の初歩的な内容が扱われているものの, 多分この研究室より物性理論研究室のほうが需要を満たしていそう. なお, この本では巻末に補足説明が載っているけど, 群論を既知としていたほうが見通しがよさそう. 第9章では, Lie環の話題があり, (Lie群も知っていることのほうが一般的だけど)Lie環は\sout{ベクトル空間の延長上にあるようなものなので(?), }Lie群を知らなくてもある程度は読める気がする. 第1章から第5章, 第9章の内容は電磁気力, 弱い力, 強い力の系統でこの研究室でバリバリ使われているので, 目を通しておくといいかも. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[RE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{YIRE} 横田一郎. "群と表現". 裳華房. 1973. ISBN978-4-7853-1110-0. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1110-0.htm} \\
+        内容 : Clifford代数, 線型群の表現論, Lie環, 例外群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    この本は表現論における有名な本らしい. 雰囲気としては, 佐藤「群と物理」の数学科verみたいな感じがする. 主に, ユニタリ群やシンプレクティック群, 回転群, スピノル群など線型群や例外群を重点において解説されている. これは量子力学2でやった話題を丁寧にみているような感じではあるし, 電磁気力, 弱い力, 強い力の系統に手を出すのに手元にあると安心かも. ただ, 線形代数学だけでなく, 群論, 環論, 加群, 位相空間論など前提とする範囲がやや広く1. 準備で一通り述べられているものの, 他の書籍もあると心強い(?). 
+\subsection{ホモロジー代数}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[HA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{SJHA} 志甫淳. "層とホモロジー代数". 共立出版. 2016. ISBN978-4-320-11160-8. \\
+        \url{https://www.kyoritsu-pub.co.jp/book/b10003680.html} \\
+        内容 : 加群, 圏論, ホモロジー代数, 層\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $ 
+    \end{enumerate}\par
+    第1章では, 加群からホモロジー代数を述べていて, 第2章で圏論のうち代数学に関する事項を論じてから, 第3章で圏論からホモロジー代数を述べている. 第4章では, 層をのべている. ブルバキスタイルを貫いているものの, 全体的に例が少なく抽象的な話が続いており証明を飛ばしている箇所もあるので, 好みはわかれるかも. また, 巻末に単体ホモロジーやde Rhamコホモロジーについて, ちょろっと書いてある. 学部程度であれば, 多分第1章だけで十分な気がする. \par
+    ホモロジー代数について知りたい人には, 次のPDFがいいかもしれない. 大抵は代数トポロジーと一緒になっている場合が多い. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{\arabic{enumi}}
+        \renewcommand{\labelenumi}{[\theenumi]}
+        \setcounter{enumi}{3}
+        \item \label{FTHA} 福井敏純. "幾何学C ホモロジー論入門". 埼玉大学. \\
+        \url{http://www.rimath.saitama-u.ac.jp/lab.jp/Fukui/lectures/GeometryC.pdf} 
+        \item \label{HMHA} 橋本光靖. "ホモロジー代数入門". 大阪大学. \\
+        \url{https://www.sci.osaka-cu.ac.jp/~mh/paper/class/homology14.pdf} 
+        \item \label{TTHA} 高間俊至. "代数トポロジー ノート". Physics Lab. \\
+        \url{https://event.phys.s.u-tokyo.ac.jp/physlab2023/pdf/mat-article05.pdf} 
+    \end{enumerate}
+    ところで, Physics Lab. は東京大学の自主ゼミの集まりらしい. ということは[\ref{TTHA}]を書いた方はもしかして物理学科の学部生...!?
+\section{解析学系統} 
+\subsection{微分積分学・解析学}
+    後に述べる複素解析やLebesgue積分・関数解析, 微分方程式も含む全般的な注意としては, この研究室ではそこまで需要があるわけでもなく(?)深入りするとかなり時間がとられちゃうので, 必要そうなところに絞ってほどほどにするのがいい気がする. 解析学が強く現れるのは, どちらかといえば, 摂動論を用いた場の量子論や量子力学の基礎的な話題(関数解析がらみ)でトポロジーを用いた場の量子論や超弦理論では, そこまで出番はないような気がする. むしろ, 金本研究室のほうが需要がありそうな... 例外として, 複素解析は摂動論を用いた場の量子論だけでなく超弦理論や共形場理論でかなり用いられるので, 留数定理を用いた計算くらいはできていたほうが安全かもしれない. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AN\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{SMAN1} 杉浦光夫. "解析入門I". 東京大学出版会. 1980. ISBN978-4-13-062005-5. \\
+        \url{https://www.utp.or.jp/book/b302042.html} \\
+        内容 : 実数論, 微分法, 関数論, Riemann積分, 積分の応用, 級数\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{SMAN2} 杉浦光夫. "解析入門II". 東京大学出版会. 1985. ISBN978-4-13-062006-2. \\
+        \url{https://www.utp.or.jp/book/b302043.html} \\
+        内容 : 逆関数/陰関数定理, Riemann積分, 積分の応用, Fourier解析, ベクトル解析, 複素積分\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    結構賛否両論があるらしいけど, いい本だと思います...! かなりのブルバキスタイルで数学書の中でもかなり厳密だといわれているらしい. 量が多く精読するのに, 2年くらいかかりそうなので, 辞書みたいに使うのがいいらしい. なんか数学科生だけじゃなく理論系物理学科生もあったほうがいいらしい(?) 第I章, 第II章, 第V章では, 極限, 微分法, 級数のちゃんとした話, いわゆる$\varepsilon$-$\delta$論法や一様収束を詳しくみていて, 場の量子論を難しくさせている極限と微分, 積分, 級数の順序交換について, 詳しく知りたい人にはおすすめだし, これ抜きでは, Lebesgue積分や関数解析を理解するのは難しいし, 解析学では半ば常識みたいになっていると思う... さらに, コメントすると, (知らなくても読めるけど, )後述する位相空間論を知っているとかなり見通しがいい. 第IV章, 第IX章では, $B$関数や$\varGamma$関数, 楕円関数といった特殊関数, 第II章, 第VI章では, 多様体論でおなじみの逆関数/陰関数定理, 第III章, 第IX章では, 複素解析が扱われている. \par
+    ただ, Lebesgue積分が述べられていないことに注意したほうがいいかも... あと, 一応, Fourier解析も述べられているけど, \ref{ISML}のようにLebesgue積分を使った上で展開しなおしたほうが見通しはいいらしい. 関数解析を勉強するには, 第I章, 第II章, 第V章にあたる内容を知っておいたほうがいい気はするけど, これだけでは不十分らしい... ベクトル解析は物理学でやるんだったら, この本より多様体論の本のほうが合っているかも... この本では, 2次元と3次元の場合しか書かれていないので...うーん...(数学科のうち偏微分方程式を専門とする方は知っておいたほうがいいらしい(?))\par
+    これ以外にも, 解析学の書籍としてこういうものもあるらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AN\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{FAAN} 藤岡敦. "手を動かしてまなぶ $\varepsilon$-$\delta$論法". 裳華房. 2021. ISBN978-4-7853-1592-4. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1592-4.htm} \\
+        内容 : 実数論, 級数, 微分法, Riemann積分, \\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{TSAN} 高木貞治. "定本　解析概論". 岩波書店. 2010. ISBN	9784000052092. \\
+        \url{https://www.iwanami.co.jp/book/b265489.html} \\
+        内容 : 実数論, 級数, 微分法, 逆関数/陰関数定理, Riemann積分, Lebesgue積分\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{KKAN1} 小平邦彦. "解析入門I". 岩波書店. 2003. ISBN	9784000051927. \\
+        \url{https://www.iwanami.co.jp/book/b265381.html} \\
+        内容 : 実数論, 微分法, Riemann積分, 級数\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{KKAN2} 小平邦彦. "解析入門II". 岩波書店. 2003. ISBN	9784000051934. \\
+        \url{https://www.iwanami.co.jp/book/b265381.html} \\
+        内容 : Riemann積分, 逆関数/陰関数定理, 積分の応用\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{FAAN}は手を動かしてまなぶシリーズの$\varepsilon$-$\delta$論法にあたる. これができないとLebesgue積分や関数解析でどうしてそう思えたのかと疑問をもちやすくなって苦しくなりやすいらしい. \ref{TSAN}は金本研究室がもっているらしい. \ref{SMAN1}, \ref{SMAN2}よりコンパクトだけど, Lebesgue積分まで載っている. \ref{KKAN1}や\ref{KKAN2}は高校数学との接続を意識しており物理数学っぽい雰囲気らしい. 
+\subsection{複素解析}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[CA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{SMCA1} 杉浦光夫. "解析入門I". 東京大学出版会. 1980. ISBN978-4-13-062005-5. \\
+        \url{https://www.utp.or.jp/book/b302042.html} \\
+        内容 : 実数論, 微分法, 関数論, Riemann積分, 積分の応用, 級数\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{SMCA2} 杉浦光夫. "解析入門II". 東京大学出版会. 1985. ISBN978-4-13-062006-2. \\
+        \url{https://www.utp.or.jp/book/b302043.html} \\
+        内容 : 逆関数/陰関数定理, Riemann積分, 積分の応用, Fourier解析, ベクトル解析, 複素積分, Riemann面\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    大抵は通常の解析学と複素解析とは別々にしていることが多い\sout{けど, なぜか例外的に(?)松坂「解析入門 （下）」と並んで複素解析についても書かれている}. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[CA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{YKCA} 矢野健太郎/石原繁. "複素解析". 裳華房. 1995. ISBN978-4-7853-1089-9. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1089-9.htm} \\
+        内容 : 複素積分\\
+        おすすめ度/ほしさ度 : $\bigstar $
+    \end{enumerate}\par 
+    複素解析の初歩的な内容をつかむならこれがいいかも. ただ, 応用数理概論1の教科書になっているし, 内容とかぶっているので, いまさら手元に置かなくても大丈夫かも... あと, 極限取り扱い注意な場の量子論への応用や複素多様体の話をするのにこれだけだとちょっと心細いかもしれない... 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[CA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{3}
+        \item \label{TRCA} 高橋礼司. "複素解析". 東京大学出版会. 1990. ISBN978-4-13-062106-9. \\
+        \url{https://www.utp.or.jp/book/b302123.html} \\
+        内容 : 関数論, 複素積分, Riemann面\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    複素解析をしっかりとやりたい方にはおすすめかもしれない. 第1章は$\varepsilon$-$\delta$論法や一様収束など極限に関する基本事項, 第2章は冪級数や複素微分, 第3章から第4章は複素積分を扱っている. \ref{SMCA1}や\ref{SMCA2}ほどではないにせよ厳密さを保ちつつCauchyの積分公式や積分定理, 留数定理の証明がコンパクトにまとまっており速く学んで使いこなすのにいいかも. また, 巻末に問題がいろいろ載っている. さらに, 第5章はRiemann面や等角写像, 第6章は楕円関数を扱っている. \ref{SMCA1}や\ref{SMCA2}と比較して歴史的な背景やお気持ちの説明が丁寧という特徴がある. ただ, 第1章は結構難しいかつ, 級数の収束判定や留数定理の計算例が\ref{SMCA1}や\ref{SMCA2}ほど網羅されているわけでもない... \par
+    その他, 複素多様体を扱っていくとき, 線形代数学の複素構造と多変数複素解析も知っておいたほうがいい気がする. 複素構造については, \ref{SILA}に触れてある. 多変数複素解析については, あまりいいのがなかったもののこういうPDFがあるらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{\arabic{enumi}}
+        \renewcommand{\labelenumi}{[\theenumi]}
+        \setcounter{enumi}{6}
+        \item \label{SMCA} 斎藤恭司/松本佳彦. "複素解析学特論". 東京大学. \\
+        \url{https://www.ms.u-tokyo.ac.jp/publication/docs/lecturenotes05-saito.pdf} 
+    \end{enumerate}
+    また, 発展的な内容も触れられているものとして, 次のものがあるらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[CA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{5}
+        \item \label{NJCA} 野口潤次郎. "多変数解析関数論". 朝倉書店. 2019. ISBN978-4-254-11157-6. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=11157} \\
+        内容 : 多変数正則関数, 複素多様体, 層, 解析的集合と複素空間, 岡の連接定理, 岡-Cartanの基本定理, 岡の定理, 連接層, 小平の埋め込み定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}
+    複素多様体や層はなんか物理学でもでてくるらしいけど, 複素多様体をやりたくて多変数複素解析を勉強するとなるとちょっとオーバーキルな気がする. むしろ, 多変数複素解析や複素多様体を知っているうえで連接層や小平の埋め込み定理をみるには向いているように感じられる. 
+\subsection{測度論・Lebesgue積分}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[ML\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{ISML} 伊藤清三. "ルベーグ積分入門". 裳華房. 1963. ISBN978-4-7853-1304-3. \\
+        \url{https://www.utp.or.jp/book/b302121.html} \\
+        内容 : 測度論, Lebesgue積分, 関数空間, Hilbert空間, Fourier解析\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    Lebesgue積分の定番の教科書で測度論からLebesgue積分に入るスタイルである. さらに, 後半では, 関数解析の入門的な内容とFourier解析も触れられている. 測度論では, 一般論から入り例としてLebesgue測度を導入している. $\varepsilon$-$\delta$論法など極限に関する基本事項を前提としている. また, 位相空間論を知らなくても測度論であればある程度は読めるけど, Lebesgue積分を実際に使うときは大体位相空間論と一緒に使うことが多い気はする. Lebesgue積分では, 積分と極限, 級数, 微分, 積分との順序交換で\ref{SMAN1}のようにRiemann積分のものより使いやすいものがいろいろ述べられている. 数学科の解析学4, 5に相当する内容となっており物理学科生にとっては, \sout{ガバガバな 計算を簡単に正当化できるので, }ある意味吉報(?). また, 確率論やエルゴード理論について詳しく知るには, 測度論が欠かせない. 関数空間では, 物理数学2でみた$L^2$空間の他に$L^p$空間などもあつかっており, Fourier解析では, Hilbert空間から導入しFourier級数展開を述べ, そのあと, Fourier変換についても述べられている. 前述のとおり極限と積分の扱いがやや楽になっているので, \ref{SMAN2}より見通しがいい印象がある. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[ML\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{IKML} 岩田耕一郎. "ルベーグ積分". 森北出版. 2015. ISBN978-4-627-05431-8. \\
+        \url{https://www.morikita.co.jp/books/mid/005431} \\
+        内容 : 測度論, Lebesgue積分, Fourier解析\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    そちらは第2章, 第4章に1次元Lebesgue測度によるLebesgue積分を実用できる範囲で述べて, その後, 第3章, 第5章, 第6章に測度論を一般化して, 第7章にもう一度Lebesgue積分をみていき, 第8章にFourier解析を述べて, 第9章に符号付測度や部分積分を述べていくというスタイルである. Lebesgue積分で考えると何がうれしいのか, どう用いられるのかに興味がある方には合うかもしれない. ただ, \ref{ISML}ほど関数解析に近くはないのが注意かも. また, 測度論の主張が分散しているので, 確率論やエルゴード理論を知りたくて測度論の主張だけ調べたい方には, ちょっと効率が悪いかも...? 一方で, \ref{ISML}と比較して, 例が多く載っていたり, 符号付測度にも言及されていたりするという違いがある. \par
+    これ以外にも, 次のようなものもあるらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[ML\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{SKML} 志賀浩二. "ルベーグ積分30講". 朝倉書店. 1990. ISBN978-4-254-11484-3. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=11484} \\
+        内容 : 測度論, Lebesgue積分\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{YNML} 吉田伸生. "ルベーグ積分入門". 日本評論社. 2021. ISBN978-4-535-78941-8. \\
+        \url{https://www.nippyo.co.jp/shop/book/8501.html} \\
+        内容 : 測度論, Lebesgue積分, 関数空間, Fourier解析, 複素測度\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    \ref{SKML}は30講シリーズの1つで章が細かく分かれている. 目を見張るものとして, Vitaliの被覆定理が述べられている. \ref{YNML}では測度論の必要最低限な内容を述べたあと, Lebesgue積分を述べて, その後測度論の難しめの内容を述べている. 目を見張るものとして, 変数変換公式の言及や複素測度が述べられている. 
+\subsection{関数解析・量子力学}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[FA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{KNFA} 黒田成俊. "関数解析". 共立出版. 1980. ISBN9784320011069. \\
+        \url{https://www.kyoritsu-pub.co.jp/book/b10011371.html} \\
+        内容 : 関数空間, Hilbert空間, Fourier解析, Sobolev空間, スペクトル解析, 線形作用素の半群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    関数解析で定番の書籍で, 量子力学から切り離して数学にしたようなもので, 議論の全体像としては, 量子力学にまあまあ似てる. ただ, 関数解析は線形代数学, 解析学, Lebesgue積分, 位相空間論を混ぜたようなものになっており, 前提としている内容がかなり多いので, 物理学科生が気軽に読めるかというと... \ref{ISML}に述べられていない内容としては, Banach空間やSobolev空間, スペクトル解析, 作用素などが挙げられる. 摂動論を用いた場の量子論や量子力学の基礎的な話題をガチりたい方には, 目を通しておくといいかも. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[FA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{AAFA1} 新井朝雄/江沢洋. "量子力学の数学的構造I". 朝倉書店. 1999. ISBN978-4-254-13677-7. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=13677} \\
+        内容 : Hilbert空間, スペクトル解析\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{AAFA2} 新井朝雄/江沢洋. "量子力学の数学的構造II". 朝倉書店. 1999. ISBN978-4-254-13677-7. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=13677} \\
+        内容 : 量子力学の一般原理, 多粒子系\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    量子力学と関数解析を混ぜたような感じの本になっており, さらに, 関数解析から出発してDirac場や正準量子化, S/H描像, Fock空間まで議論をまわしている. ここまで, たどり着くのにかなり道のりは長いけど, 興味があり摂動論を用いた場の量子論や量子力学の基礎的な話題をガチりたければぜひ...! 内容については, Sobolev空間が扱われておらず, 数学科の関数解析としては, 若干物足りない気がする(?)けど, 物理学科なら十分な気がする. \par
+    これ以外に, 次のような関数解析の有名な本があるらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[FA\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{3}
+        \item \label{BHFA} Brian C. Hall. "Quantum Theory for Mathematicians". Springer. 2013. ISBN978-1-4614-7115-8. \\
+        \url{https://link.springer.com/book/10.1007/978-1-4614-7116-5} \\
+        内容 : Hilbert空間, スペクトル解析, 量子力学の一般原理, Lie環, 幾何学的量子化\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{FKIFA} 藤田宏/黒田成俊/伊藤清三. "関数解析". 朝倉書店. 1991. ISBN9784000078108. \\
+        \url{https://www.iwanami.co.jp/book/b258362.html} \\
+        内容 : Hilbert空間, スペクトル解析, 線形作用素の半群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{JNFA} J. v. Neumann. "量子力学の数学的基礎". みすず書房. 	2021. ISBN978-4-622-09025-0. \\
+        \url{https://www.msz.co.jp/book/detail/09025/} \\
+        内容 : Hilbert空間, スペクトル解析, 量子力学の一般原理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{MHFA} 増田久弥. "関数解析". 裳華房. 1994. ISBN978-4-7853-1407-1. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1407-1.htm} \\
+        内容 : Hilbert空間, スペクトル解析\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{MSFA} 宮島静雄. "関数解析". 横浜図書. 2005. ISBN978-4-946552-18-2. \\
+        \url{http://yokohamapublishers.jp/func.htm} \\
+        内容 : 位相空間論, Zornの補題, 測度論, Lebesgue積分, Banach空間, Hilbert空間, スペクトル解析, 関数空間\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    \ref{JNFA}は関数解析と量子力学の間をとったような感じがする. たしか, 原子光科学研究室がもっているらしい. \ref{MSFA}はいろいろ載ってて位相空間論やLebesgue積分を知らなくても読めるらしい. 
+\subsection{微分方程式}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[DE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{TYDE} 高橋陽一郎. "微分方程式入門". 東京大学出版会. 1988. ISBN978-4-13-062104-5. \\
+        \url{https://www.utp.or.jp/book/b302121.html} \\
+        内容 : 常微分方程式の解の存在と一意性, 線形常微分方程式, 常微分方程式の流れ\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    多様体論でおなじみの1パラメーター変換群を保証する常微分方程式の解の存在と一意性について, 詳しく書かれている. これ以外にも, 行列の指数関数の応用として線形常微分方程式が述べられていたり, 1年秋学期でいろいろみてきた微分方程式の例が解説されていたりしている. 第I章, 第IV章は常微分方程式の解の存在と一意性について, 扱っており極限の絶対値と不等式による扱いについて慣れていないと難しく感じるかもしれない. 第II章は線形常微分方程式を扱っており2年秋学期の線形代数学2とやや重複しておりすでに知っている内容かもしれないけど... 第III章は力学系の話題で物理数学3と重複している箇所があるもののモース理論に近い発展的な話題も扱っている. ちなみに, 常微分方程式は解析系だけの分野というよりどちらかといえば, 幾何系と共通する分野って感じがする. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[DE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{KADE} 金子晃. "偏微分方程式入門". 東京大学出版会. 1998. ISBN978-4-13-062903-4. \\
+        \url{https://www.utp.or.jp/book/b302220.html} \\
+        内容 : 物理学における偏微分方程式の立て方(熱方程式, 波動方程式, Laplace方程式, Navier-Stokes方程式, Schrödinger方程式), 偏微分方程式の解き方(求積法, 変数分離法, Fourier変換, Green関数, 摂動論), 数値解析(差分法, 有限要素法), Hamilton-Jacobi理論, Cauchy-Kowalevskyの定理, 超関数論, Fourier解析, 超局所解析\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    この本はブルバキスタイルではなくかなり物理数学っぽいし, 物理系の院試対策にも使えそう(むしろ数学系の院試対策にはあまりおすすめできない). 物理数学2のいい復習になるかもしれない. したがって, 偏微分方程式の基礎的な話題より物理学への応用が気になる人は合っているかもしれない. 偏微分方程式の基礎的な話題はご存知のとおりかなり難しくこの本ではあまり詳しく説明されていないので, Lebesgue積分や関数解析など別の書籍にあたるといいかもしれない. あと数値解析についても述べられているので, 興味があればぜひ...! 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[DE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{TKDE} 谷島賢二. "数理物理入門　改訂改題". 東京大学出版会. 2018. ISBN978-4-13-062922-5. \\
+        \url{https://www.utp.or.jp/book/b378590.html} \\
+        内容 : 常微分方程式の解の存在と一意性, 変分法, Fourier解析, 超関数論, Cauchy-Kowalevskyの定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    (今は改題されているけど)出版された当時はなんと『物理数学入門』というタイトルだったらしい. もっておらずちゃんと読めてないけど, 内容としては結構数学よりらしい. \sout{\ref{KADE}とタイトルを取り換えっこ したほうがしっくりくる. }
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[DE\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{3}
+        \item \label{CHDE1} Courant/Hilbert著 藤田宏/高見頴郎/石村直之訳. "数理物理学の方法 上". 丸善. 2013. ISBN978-4-621-06525-9. \\
+        \url{https://www.maruzen-publishing.co.jp/item/b294180.html} \\
+        内容 : 双線形形式, Hilbert空間, Fourier解析, 変分法\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{CHDE2} Courant/Hilbert著 藤田宏/石村直之訳. "数理物理学の方法 下". 丸善. 2019. ISBN978-4-621-30402-0. \\
+        \url{https://www.maruzen-publishing.co.jp/item/b295254.html} \\
+        内容 : 物理学における偏微分方程式の解き方(熱方程式, 波動方程式), Green関数, 摂動論, 特殊関数\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    解析学から数理物理学へ入るような感じの本で線形代数学からいろいろ載っている. たしか金本研究室にあった気がする. 
+\section{幾何学系統}
+\subsection{位相空間論}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[GT\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{MKGT} 松坂和夫. "集合・位相入門". 岩波書店. 1968. ISBN9784000298711. \\
+        \url{https://www.iwanami.co.jp/book/b378347.html} \\
+        内容 : 素朴集合論, 濃度, Zornの補題, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    位相空間論の定番の書籍になる. 第1章では素朴集合論, 特に, 集合算や同値関係について述べられている. 高校数学でみてきたものを発展させたような感じである. 大前提となる記号論理学の初歩的な扱い方については, この本では述べられていないので, 例えば, \ref{SMAN1}の巻末や\ref{OHGT}に参照するといいかもしれない. 第2章, 第3章では, 濃度や順序集合, Zornの補題が述べられているが, 物理学ではそこまで用いられないので, 必ず読まなければならないというわけではない. 第4章では, 位相空間論について述べられている. 第5章では, 距離空間論について述べられており, 関数解析に近い内容となっている. \ref{SMAN1}の第I章がこの章の具体例にあたる. \par
+    位相空間論の性質上, どの書籍でも共通して読んでも定理の証明が論理的に正しいことはわかったけど, 具体的なイメージが持てず分かった気にならない...という感じになりやすい. 特に, \ref{MKGT}は例や反例が少ないらしい. なので, イメージすると...とか分かりやすくいえば...とかは全然考えてなく論理演算をうまく使って議論をまわすようなもんだと割り切ったほうがいいかもしれない. しかし, 位相の教科書の中でも\ref{MKGT}が最も丁寧でわかりやすい説明らしい. 一方で, そのおかげで多様体を定式化できたり, 一様収束を考えているとき, 何が起こっているのかが分かりやすくなったり, いろんなものに位相を入れてフィルターや有向点列を考えることで極限がとれたりするという恩恵がある. また, \ref{MKGT}の場合, 章末問題はできればすべて解くことをおすすめします... \par
+    ただ, コンパクト開位相が述べられていないことや有向点列の内容がやや不十分なこと, 例がほとんどないことに注意. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[GT\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{UFGT} 内田伏一. "集合と位相". 裳華房. 1986. ISBN978-4-7853-1412-5. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1412-5.htm} \\
+        内容 : 素朴集合論, 濃度, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    こちらも位相空間論の定番の書籍でコンパクト開位相について述べられている. その他の特徴としては, 先に距離空間論を述べてから位相空間論に一般化して議論しなおしているところが挙げられる. \ref{MKGT}と比較して薄くなっている一方で行間が広め. \par
+    これ以外にも次のようなものが挙げられる. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[GT\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{FAGT} 藤岡敦. "手を動かしてまなぶ 集合と位相". 裳華房. 2020. ISBN978-4-7853-1587-0. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1587-0.htm} \\
+        内容 : 素朴集合論, 濃度, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{KYGT} 小森洋平. "集合と位相". 日本評論社. 2016. ISBN978-4-535-80633-7. \\
+        \url{https://www.nippyo.co.jp/shop/book/7083.html} \\
+        内容 : 素朴集合論, 濃度, 実数論, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{OHGT} 大田春外. "はじめての集合と位相". 日本評論社. 	2012. ISBN978-4-535-78668-4. \\
+        \url{https://www.nippyo.co.jp/shop/book/5984.html} \\
+        内容 : 論理演算, 素朴集合論, 濃度, 実数論, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{STGT} 斎藤毅. "集合と位相". 東京大学出版会. 2009. ISBN978-4-13-062958-4. \\
+        \url{https://www.utp.or.jp/book/b305977.html} \\
+        内容 : 素朴集合論, 濃度, 実数論, 位相空間論, 距離空間論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{FAGT}は手を動かしてまなぶシリーズの位相空間論にあたる. 位相空間論はやっぱり手を動かさないと結局わからないじまいになりやすいので... \ref{KYGT}は論理や実数についても述べられており, 先に距離空間論を述べてから位相空間論に一般化して議論しなおしている. 手を動かしながら取り組むことで, 抽象的な考え方が身につくよう配慮しているらしい. \ref{OHGT}も先に距離空間論を述べてから位相空間論に一般化して議論しなおしている. 論理演算について述べられており高校数学とのつながりを意識している. \ref{STGT}は実数についても述べられている. 
+\subsection{多様体論}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[MF\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{SYMF} 松島与三. "多様体入門". 裳華房. 1965. ISBN978-4-7853-1305-0. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1305-0.htm} \\
+        内容 : テンソル積, 逆関数/陰関数定理, 多様体の基本事項, Sardの定理, ベクトル場, Riemann多様体, 複素構造, 複素多様体, 積分多様体, 微分形式, Lie微分, 位相群, Lie群, 等質空間, 微分形式の積分, Lie群上の積分, 写像度\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    多様体論の定番の書籍で結構いろいろと載っている\sout{けど, 後述するように誤植が非常に多かったり間違え てる箇所がちらほらあったりするので, 信用して引用するのは結構危険かも}. I 序章では, 線形代数学や逆関数/陰関数定理, 位相空間論の簡単な復習が述べられている. ただ, 他の多様体の本についてもいえることだけど, これに書かれている線形代数学や位相空間論だけで多様体論の証明を追うのは厳しそうなので, 線形代数学や位相空間論に関する何らかの書籍があると安全かも. \par
+    II 可微分多様体では, 位相空間論から多様体を導入して接ベクトル空間やRiemann計量, 関数の臨界点, Sardの定理, はめ込みと埋め込み, 部分多様体, ベクトル場や積分曲線, 1パラメーター変換群, Killingベクトル場, パラコンパクト位相空間, 複素多様体という順で扱っている. この本では, 多様体の定義で第2可算公理を課さない流儀, 部分多様体の定義で埋め込みを用いる流儀がとられている. この時点で, Riemann多様体と複素多様体が導入されている. ベクトル場の定義がふわっとしているので, しっかりしたものがいいのであれば, \ref{LTMF}をみるといいかもしれない. Sardの定理の証明が証明になっていなったり, 1パラメーター局所群の局所変換が1パラメーター変換群になるための条件が間違えていたりしている箇所があるので, あんまりうのみにしないほうがいいかもしれない. \par
+    III 微分形式とテンソル場では, テンソル積の導入からテンソル場, Lie微分, 内部積が解説されており, さらに, 微分式系や積分多様体, 葉層構造まで述べられている. 一応, ここで, de Rhamコホモロジーも触れてはいるものの, これだけだと, 計算が身につけられないので, \ref{LTMF}に参照したほうがいいらしい. \par
+    IV リー群と等質空間では, Lie群を位相群から解説されており, Lie群の位相的な性質について非常に詳しく書かれている. また, \ref{YIRE}ほどでないにせよ線型群や等質空間に関する同型のさまざまな公式が載っている. Lie環や表現に興味がある方に注意すると, 表現論についての記載はあまりないので, 別の表現論に関する書籍を参照したほうがいいかもしれない. なお, 群論は既知としている. \par
+    V 微分形式の積分とその応用では, Stokesの定理をはじめとするいわゆるベクトル解析の一般化にあたる内容が述べられている. 目を見張る箇所として, Lie群上の積分も載っていることが挙げられる. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[MF\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{MYMF} 松本幸夫. "多様体の基礎". 東京大学出版会. 1988. ISBN978-4-13-062103-8. \\
+        \url{https://www.utp.or.jp/book/b302120.html} \\
+        内容 : 多様体の基本事項, 逆関数/陰関数定理, はめ込み, Sardの定理, ベクトル場, 微分形式, 微分形式の積分\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    こちらは多様体の入門書(?)のようなもので, 図や例が多く載っていることからよくラノベとよばれているらしい. ただ, それなりに難しいところはあり(当然ながら)寝転んで読んで理解できるものではないので, ちゃんと紙とシャーペンを手元においたほうが無難. \ref{SYMF}と比較して, 図や例が多めに盛り込んでおり, \sout{そして, 幸運なことに誤植は少なく, }複素多様体や積分多様体, Lie群が省かれている. Sardの定理の証明は残念ながら微妙らしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[MF\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{LTMF} Loring W. Tu著 桝田幹也/阿部拓/堀口達也訳. "トゥー多様体". 裳華房. 2019. ISBN978-4-7853-1586-3. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1586-3.htm} \\
+        内容 : 位相空間論, テンソル積, 逆関数/陰関数定理, 多様体の基本事項, しずめ込み, Sardの定理, 接束, ベクトル場, 微分形式, Lie微分, Lie群, Lie環, 微分形式の積分, de Rhamコホモロジー\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    こちらは\ref{SYMF}と比較して, 位相空間論の説明が丁寧だったり, 例が多く載っていたり, 接束が導入されているおかげでベクトル場の定義がしっかりしていたり, しずめ込みやde Rhamコホモロジーについて詳しく書かれていたりする. その代わり, Lie群がコンパクトになっていたり, 複素多様体や積分多様体が省かれていたりするので, \ref{SYMF}と両方ともあるとかなり心強い. なお, この本では, 多様体の定義で第2可算公理を課す流儀をとっている. \par
+    これ以外にも次のようなものが挙げられる. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[MF\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{3}
+        \item \label{MSMF} 村上信吾. "多様体". 共立出版. 1989. ISBN9784320014190. \\
+        \url{https://www.kyoritsu-pub.co.jp/book/b10008165.html} \\
+        内容 : 多様体の基本事項, ベクトル場, 微分形式, Lie微分, 微分形式の積分, de Rhamコホモロジー, 測地線, 線形接続, 複素多様体\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{OTMF1} 落合卓四郎. "微分幾何入門　上". 東京大学出版会. 1991. ISBN978-4-13-062130-4. \\
+        \url{https://www.utp.or.jp/book/b302145.html} \\
+        内容 : 曲線・曲面論, 多様体の基本事項, Gauss-Bonnetの定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{OTMF2} 落合卓四郎. "微分幾何入門　下". 東京大学出版会. 1993. ISBN978-4-13-062131-1. \\
+        \url{https://www.utp.or.jp/book/b302146.html} \\
+        内容 : Lie群, 線形接続, Riemann多様体\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{TTMF1} 坪井俊. "幾何学I　多様体入門". 東京大学出版会. 2005. ISBN978-4-13-062954-6. \\
+        \url{https://www.utp.or.jp/book/b302232.html} \\
+        内容 : 多様体の基本事項, ベクトル場\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{TTMF3} 坪井俊. "幾何学III　微分形式". 東京大学出版会. 2008. ISBN978-4-13-062956-0. \\
+        \url{https://www.utp.or.jp/book/b305790.html} \\
+        内容 : 微分形式, Lie微分, 微分形式の積分, de Rhamコホモロジー\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+    \end{enumerate}\par
+    \sout{\ref{MSMF}を書いた人はマツコ・デラックスのとなりに座っている人ではない. }\ref{MSMF}はあまり読めてはないけど, 測地線や線形接続が載っているのが相対性理論やゲージ理論を勉強する方にとっては吉報かも!? \ref{OTMF1}, \ref{OTMF2}は結構情報が少なくてよく分からないところが多いけど, 曲線・曲面論や線形接続, Riemann多様体も載っているらしい... \ref{TTMF1}, \ref{TTMF3}はどちらかといえば, 具体例集と問題集を混ぜたような感じで, 多様体や微分形式を演習するのに向いているかも...? 
+\subsection{微分幾何学}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[DG\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{KHDG} 今野宏. "微分幾何学". 東京大学出版会. 2013. ISBN978-4-13-062971-3. \\
+        \url{https://www.utp.or.jp/book/b306603.html} \\
+        内容 : ベクトル束, 線形接続, Riemann多様体, 曲線・曲面論, Gauss-Bonnetの定理, 極小部分多様体, Lie群, 主束, ホロノミー群, 特性類, 複素多様体, Kähler多様体, シンプレクティック多様体, トーリック多様体, Dirac作用素, Sobolev空間, Hodge-de Rham-小平の定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{NKDG} 野水克己. "現代微分幾何入門". 裳華房. 1981. ISBN978-4-7853-1127-8. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1127-8.htm} \\
+        内容 : 多様体の基本事項, ベクトル場, 微分形式, テンソル場, 主束, ファイバー束, ホロノミー群, 線形接続, 曲率, 測地線, Riemann多様体, Riemann幾何学での曲率, Lorentz多様体, de Sitter空間/反de Sitter空間\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{SOKDG} 杉田勝実/岡本良夫/関根松夫. "理論物理のための 微分幾何学 - 可換幾何学から非可換幾何学へ". 森北出版. 2007. ISBN978-4-627-08151-2. \\
+        \url{https://www.morikita.co.jp/books/mid/008151} \\
+        内容 : 曲線・曲面論, 多様体の基本事項, 微分形式, 非可換代数上の微分, 非可換微分幾何学, 量子空間, 量子群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{TIDG} 田村一郎. "微分位相幾何学". 岩波書店. 1992. ISBN9784000058681. \\
+        \url{https://www.iwanami.co.jp/book/b265450.html} \\
+        内容 : 多様体の基本事項, ベクトル束, アイソトピー, 近似定理, 多様体のハンドル分解, 多様体のホモロジー, $h$同境定理, 特性類, 同境理論, エキゾチック球面\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{KHDG}は微分幾何学の発展的な内容を扱っており, 一応, 曲線・曲面論や多様体, Lie群の記述はあるものの, これだけでは理解するのは厳しいものの, 目を見張る箇所としては, 主束, 特性類, シンプレクティック多様体, Dirac作用素が(軽く)述べられている, 各々の分野が巨大化している微分幾何学を横断している, 数多くの参考文献を紹介しているというのが挙げられる. \ref{NKDG}では, Riemann幾何学に重点をおいており, Lorentz多様体やAdS/CFT対応で有名なde Sitter空間/反de Sitter空間にも述べているのが特徴的. \ref{SOKDG}は非可換幾何学や量子群を扱っている. \ref{TIDG}は一応微分幾何学の枠に入れてみたけど, どちらかといえば位相幾何学の雰囲気が強いっぽい. 特性類を挙げている. 
+\subsection{幾何学っぽい物理学書}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[AM\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{YNAM1} 山本義隆・中村孔一. "解析力学I". 朝倉書店. 1998. ISBN978-4-254-13671-5. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=13671} \\
+        内容 : 多様体の基本事項, 接束, ベクトル場, 微分形式, Lagrange形式の力学, 変分原理, Hamilton形式の力学, 正準変換\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{YNAM2} 山本義隆・中村孔一. "解析力学II". 朝倉書店. 1998. ISBN978-4-254-13672-2. \\
+        \url{https://www.utp.or.jp/book/b302146.html} \\
+        内容 : Poisson括弧, Hamilton-Jacobi理論, 可積分系, 摂動論, Diracの処方, 相対論的力学\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par  
+    そちらは解析力学と多様体をくっつけたような感じの本で例が数多く載っている. 院試対策で読むのはちょっとおすすめできないけど, 辞書みたいに使うといいかも. \ref{AART}と比較してふわっとしているものの, 標準的な解析力学の教科書と比較したら, しっかりとしている印象がある. あと, 解析力学の書籍にしては, 珍しくRiemanna多様体やシンプレクティック多様体, Liouville-Arnol'dの定理の言及がある.  
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[QM\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{HYQM} 本間泰史. "スピン幾何学 スピノール場の数学". 森北出版. 2016. ISBN978-4-627-07761-4. \\
+        \url{https://www.morikita.co.jp/books/mid/007761} \\
+        内容 : Clifford代数, スピノール表現, ベクトル束, 線形接続, Dirac作用素\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{KHQM} 倉辻比呂志. "幾何学的量子力学". 丸善. 2012. ISBN978-4-621-06563-1. \\
+        \url{https://www.maruzen-publishing.co.jp/item/b294623.html} \\
+        内容 : 経路積分, 準古典量子化理論, コヒーレント状態, 量子変分原理, 幾何学的位相, 位相不変量と輸送係数の量子化, ゲージ場のアノマリー, 量子凝縮体における位相欠陥, 量子ホール流体における素励起, 準古典量子化の非線型場への応用\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{KTQM} 河野俊丈. "場の理論とトポロジー". 岩波書店. 2008. ISBN9784000058353. \\
+        \url{https://www.iwanami.co.jp/book/b265782.html} \\
+        内容 : 共形場理論, Jones-Witten理論, Chern-Simons理論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{OMKQM} 大槻知忠/満渕俊樹/亀谷幸生. "幾何学百科IV 幾何学と物理". 朝倉書店. 2023. ISBN978-4-254-11619-9. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=11619} \\
+        内容 : 量子群, 量子不変量, 複素多様体, 運動量写像, 層, ベクトル束, 曲率, 主束, 特性類, Dirac作用素, Bottの周期性定理と指数定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{HYQM}はスピンに関する幾何学を述べている. Dirac方程式をガチりたい方はおもしろいかも... この本の下書きみたいなのが次のサイトに落ちているらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{\arabic{enumi}}
+        \renewcommand{\labelenumi}{[\theenumi]}
+        \setcounter{enumi}{7}
+        \item 本間泰史. "講義ノート，研究室 卒論・修論" 早稲田大学. \\
+        \url{https://www.math.aoyama.ac.jp/textbooks.html} 
+    \end{enumerate}
+    \ref{KHQM}は一応微分幾何学の枠に入れてみたものの目次をみた感じ場の量子論に近い雰囲気がする. 物性理論研究室や原子光科学研究室と一緒に読みたいなぁ... \ref{KTQM}はAdS/CFT対応で有名な共形場理論から場の量子論でおなじみの(?)Chern-Simons理論まで扱っている. \ref{OMKQM}は主に3つの分野に分かれているのが特徴で大きく分けて量子不変量, 複素微分幾何, 指数定理とゲージ理論からなる. 発展中や未開拓の分野まで触れられているのはアツい...! 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[IT\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{FAIT} 藤原彰夫. "情報幾何学の基礎". 共立出版. 2021. ISBN9784320114517. \\
+        \url{https://www.kyoritsu-pub.co.jp/book/b10003331.html} \\
+        内容 : 多様体の基本事項, ベクトル場, テンソル場, 線形接続, 曲率, 双対アファイン接続, 確率分布空間の幾何構造, 統計物理学への応用, 統計的推論への応用, 量子状態空間の幾何構造\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar \bigstar $
+        \item \label{TMIT} 田中勝. "エントロピーの幾何学". コロナ社. 2019. ISBN978-4-339-02835-5. \\
+        \url{https://www.coronasha.co.jp/np/isbn/9784339028355/} \\
+        内容 : 測度論, 確率測度, $\tau$-アファイン空間, 経路順序確率, Riemann多様体, くり込みとエントロピー, $q$-正規分布, 非加法的エントロピー, ホログラフィー原理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{FAIT}はRiemann幾何学の雰囲気が強いけど, 一般相対性理論はでてこなく, むしろ統計力学に近いらしい(!?) 双対葉層構造とか最大エントロピー原理や平均場近似の幾何学的構造とかはアツすぎるだろ...! \ref{TMIT}は確率論の要素が強い気がする. 多分, 測度論の本が手元にあるとよさそう... 2冊ともだれか原子光科学研究室の方と一緒に読んでくれる人がいないかなぁ...(他力本願)
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[RT\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{AART} 新井朝雄. "相対性理論の数理". 日本評論社. 2021. ISBN978-4-535-78928-9. \\
+        \url{https://www.nippyo.co.jp/shop/book/8579.html} \\
+        内容 : ベクトル空間, テンソル積, 双線形形式, 特殊相対性理論, 多様体の基本事項, ベクトル場, 微分形式, 測地線, 線形接続, Riemann多様体, 曲率, 一般相対性理論\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    そちらは相対性理論の書籍となっているが, どちらかといえば, 線形代数学と特殊相対性理論, 多様体論をくっつけたような感じの書籍で, 線形代数学, テンソル積, 特殊相対性理論, 多様体を学ぶにあたっても有用な本でもある. \sout{というか, 物理学書か, これ? }特殊相対性理論を学ぶとき, 既にやってきた線形代数学を駆使して新しく学ぶコストをさげたいという方にはおすすめかも. しかも, \ref{SYMF}や\ref{MYMF}でふわっとさせていた箇所をしっかりと述べてあるので, 多様体を学んでわからない箇所があったときに結構助けになるかも. それに, 曲率の計算を結構丁寧に書いてある... ただ, \ref{SYMF}ほどではないにせよ誤植がちらほらあるのに注意. \sout{さすがに, \ref{SYMF}みたいに間違えてるような主張はないっぽい...} 一応, 変分原理や一般相対性理論もチラッと言及されているものの, そちらは別の書籍を参照したほうがいいかも. 
+\subsection{位相幾何学}
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[TG\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{0}
+        \item \label{MSTG} 村上信吾. "幾何概論". 裳華房. 1984. ISBN978-4-7853-1308-1. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1308-1.htm} \\
+        内容 : 位相群, 単体ホモロジー, ホモロジーの応用(不動点定理), 基本群, 被覆空間, 曲線・曲面論, 多様体の基本事項, ベクトル場\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par  
+    位相幾何学の基本事項を広く浅くみていくような感じで個人的には基本群と被覆空間のところがおすすめかも. 群論と位相空間論は既知としてほしいかも... ホモロジーは単体ホモロジーでしか扱われていないので, CW複体ホモロジーや特異ホモロジーは別の書籍にあたったほうがいいかもしれない... 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[TG\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{1}
+        \item \label{KJTG} 加藤十吉. "位相幾何学". 裳華房. 1988. ISBN978-4-7853-1404-0. \\
+        \url{https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1404-0.htm} \\
+        内容 : 位相群, 単体ホモロジー, 特異ホモロジー, Mayer-Vietries完全系列, ホモロジーの応用(写像度, Jordan閉曲線), 基本群, 被覆空間, van Kampenの定理, ホモトピーの応用(結び目)\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+    \end{enumerate}\par 
+    こちらも(一応学生室においてある)位相幾何学の本で特異ホモロジーやvan Kampenの定理も載っているらしい. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[TG\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{2}
+        \item \label{KTTG} 河田敬義. "位相幾何学". 岩波書店. 1965. ISBN9784000051491. \\
+        \url{https://www.iwanami.co.jp/book/b259051.html} \\
+        内容 : 位相空間論, 位相群, 単体ホモロジー, CW複体ホモロジー, 特異ホモロジー, ホモロジーの公理系, Mayer-Vietries完全系列, 基本ホモロジー, Poincareの双対性, 交わりやカップ積とキャップ積, ホモロジーの応用(写像度, 不動点定理), 多様体の基本事項, 微分形式, 微分形式の積分, de Rhamコホモロジー\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+    \end{enumerate}\par
+    位相空間論からはじめてホモロジーを数多く取り上げており, 最後に多様体のde Rhamコホモロジーを述べている. 第1章では位相空間論だけでなく多様体や位相群も述べている. 距離空間論を省いている代わりに射影空間や局所有限, ホモトピーも扱っている. 第2章では, 単体的複体とCW複体も扱っている. 割合としては単体的複体が多いものの, CW複体も扱っているのが目を見張るところである. 第3章では, ホモロジー代数までとはいかなくともホモロジーの性質を述べ, そのあと, 単体ホモロジーやCW複体ホモロジー, 特異ホモロジー, ホモロジーの公理系が述べられている. 第4章では, まつわり複体, 単体的多様体, 閉曲面, 向き付け可能性, Poincareの双対性, 交わり, カップ積とキャップ積, Alexanderの双対性が述べられている. 第5章では, de Rhamコホモロジーの準備として(?), 可微分多様体を扱っており, \ref{SYMF}や\ref{MYMF}, \ref{LTMF}の内容を20ページほど簡潔にまとめている. 第6章では, 写像度と不動点定理が述べられている. 第7章では, 微分形式を導入してde Rhamコホモロジーからde Rhamの定理まで述べられている. \ref{LTMF}の後半に近い感じがする. 
+    \begin{enumerate}
+        \renewcommand{\theenumi}{[TG\arabic{enumi}]}
+        \renewcommand{\labelenumi}{\theenumi}
+        \setcounter{enumi}{3}
+        \item \label{BTTG} R.Bott/L.W.Tu著 三村護訳. "微分形式と代数トポロジー". 丸善. 2020. ISBN978-4-621-30554-6. \\
+        \url{https://www.maruzen-publishing.co.jp/item/b303976.html} \\
+        内容 : de Rhamコホモロジー, Cech-de Rham複体, スペクトル系列とその応用, 特性類\\
+        おすすめ度/ほしさ度 : $\bigstar $
+        \item \label{HATG} 服部晶夫. "位相幾何学". 岩波書店. 1991. ISBN9784000078085. \\
+        \url{https://www.iwanami.co.jp/book/b258360.html} \\
+        内容 : 単体ホモロジー, CW複体ホモロジー, Poincareの双対性, 交わりやカップ積とキャップ積, ホモロジーの応用(不動点定理), 基本群, 被覆空間, ファイバー束, ホモトピー群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar \bigstar $
+        \item \label{KKTG1} 河澄響矢. "トポロジーの基礎　上". 東京大学出版会. 2022. ISBN978-4-13-062925-6. \\
+        \url{https://www.utp.or.jp/book/b603128.html} \\
+        内容 : 特異ホモロジー, Mayer-Vietoris完全系列, 基本群, van Kampenの定理\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{KKTG2} 河澄響矢. "トポロジーの基礎　下". 東京大学出版会. 2022. ISBN978-4-13-062926-3. \\
+        \url{https://www.utp.or.jp/book/b603129.html} \\
+        内容 : 特異ホモロジー, 被覆空間, ファイバー束, ベクトル束, ホモトピー群, Poincareの双対性, 交わりやカップ積とキャップ積\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{MMTG} 枡田幹也. "代数的トポロジー". 朝倉書店. 2002. ISBN978-4-254-11595-6. \\
+        \url{https://www.asakura.co.jp/detail.php?book_code=11595} \\
+        内容 : 単体ホモロジー, CW複体ホモロジー, 特異ホモロジー, Poincareの双対性, ホモロジーの応用(写像度)\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{TDTG} 玉木大. "ファイバー束とホモトピー". 森北出版. 2020. ISBN978-4-627-05461-5. \\
+        \url{https://www.morikita.co.jp/books/mid/005461} \\
+        内容 : 基本群, 被覆空間, ファイバー束, ホモトピー群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar \bigstar $
+        \item \label{TITG} 田村一郎. "トポロジー". 岩波書店. 1972. ISBN9784000214131. \\
+        \url{https://www.iwanami.co.jp/book/b258727.html} \\
+        内容 : 単体ホモロジー, Mayer-Vietries完全系列, 基本群\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+        \item \label{TTTG2} 坪井俊. "幾何学II　ホモロジー入門". 東京大学出版会. 2016. ISBN978-4-13-062955-3. \\
+        \url{https://www.utp.or.jp/book/b307136.html} \\
+        内容 : 単体ホモロジー, CW複体ホモロジー, 特異ホモロジー, ホモロジーの公理系, Mayer-Vietries完全系列, ホモロジーの応用(写像度, Jordan-Browerの定理), 基本群, 被覆空間, van Kampenの定理, ファイバー束, ベクトル束\\
+        おすすめ度/ほしさ度 : $\bigstar \bigstar $
+    \end{enumerate}\par
+    \ref{BTTG}は雰囲気が中原「幾何学とトポロジーI/II」に似ている. \sout{数学科のFFいわく読めたもんじゃない らしい(?)}\ref{HATG}は厚めだけど本気で位相幾何学をやるのにいい本らしい... 古めの本だけど結構いろいろ載っているので, 辞書みたいに使うといいかも. \ref{TDTG}はファイバー束とホモトピー群に絞った本で例がいろいろ載っている. ファイバー束を考える意義や意味などをしっかり把握しながら学べるらしい. \ref{TITG}はホモロジーの初歩的な内容を扱っており一貫として単体ホモロジーが述べられている. 図が多くMayer-Vietries完全系列の説明がわかりやすいという定評があるらしい. \ref{TTTG2}は具体例集と問題集を混ぜたような感じの本でホモロジーだけじゃなく基本群やファイバー束まで載っている. 
+\end{document}

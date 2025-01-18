@@ -1,0 +1,180 @@
+\documentclass[10pt,a4paper]{jsarticle}
+\input{for_preamble.tex}
+\title{\LaTeX について}
+\author{@k74226197Y126}
+\date{2024年9月}
+\begin{document}
+\maketitle
+\begin{abstract}
+    もとは先生から依頼されて(?)後輩にLaTeXを布教するために作成したものです. 
+\end{abstract}
+\section{\LaTeX とは}
+\LaTeX (ラテフ, 単に, TeXやテフとも)は論文や書籍, 講義ノートの作成に広く使用される組版システムです. メモ帳やVisual Studio Code, Atom, Emacsなどエディタで地の文ではワープロのように, 数式部分ではコマンドで入力しコマンドプロンプトでいま作成した\verb|.tex|ファイルを\verb|.dvi|ファイルに変換してからその\verb|.dvi|ファイルを\verb|.pdf|ファイルへ出力しそのPDFでもって最終的な文章が作成されます. したがって, デフォルトではWordと異なって文章を作成しているときどういう文章に仕上がるのかリアルタイムでは確かめられませんが, エディタによっては, リアルタイムで確かめられたりコマンドプロンプトを開かずにコンパイルできたりするものもあります. また, \LaTeX の場合, デフォルトではコンパイルしてPDFを出力させることができないものの, 数式を含む文章の編集自体はスマホやiPadでもメモ帳の機能を用いることでできます. PandocなどといったWordで作成してきた文章を\LaTeX へ変換してくれるソフトもあります. \par
+主な特徴として, 次のようなものが挙げられます. 
+\begin{itemize}
+    \item 強力な数式処理
+    \item 自動レイアウト
+    \item 文章構造の明確化
+    \item 短所としてExcelとの互換性
+\end{itemize}
+\LaTeX の概要を述べているサイトとして次のようなものがあります. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{0}
+    \item 日本語TeX開発コミュニティ. "LaTeX入門 - TeX Wiki". TeX Wiki. \url{https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80}. (2024年9月7日14:24閲覧). 
+    \item 酒井高司. "TeX入門". 東京都立大学. \url{https://tsakai.fpark.tmu.ac.jp/lectures/intro_tex.html}. (2024年9月7日22:01閲覧). 
+    \item alg-d. "TeXについて | 壱大整域". 壱大整域. \url{https://alg-d.com/math/tex.html}. (2024年9月9日21:35閲覧). 
+\end{enumerate}
+また, \LaTeX の例文がよく記載されているサイトとして次のようなものがあります. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{3}
+    \item 葛西真澄. "卒論・修論用 LaTeX サンプルファイル - ますみ日誌". 弘前大学. \url{https://home.hirosaki-u.ac.jp/masumi/100/}. (2024年9月7日22:24閲覧). 
+    \item 星健夫. "LaTeX 動作確認テスト・サンプルファイル". 鳥取大学. \url{https://www.damp.tottori-u.ac.jp/~hoshi/info/doc-info-2009/sample.tex}. (2024年9月7日22:30閲覧). 
+\end{enumerate}
+\subsection{強力な数式処理}
+\LaTeX は複雑な数式を組版できます. Wordでは数式を入力するとき, 「数式」という枠にある入れ子をマウスなどで出力するか, コマンドを使って出力するというようにされてきたかと思います. \LaTeX では数式をコマンドで書いていくことになります. 実験レポート1本程度であれば, Wordでも問題ないのですが, 卒論や修論といった50ページを超えるような長い文章を作るとなると, Wordが落ちやすくなってしまったり, ファイルのサイズが非常に大きくなってしまい容量の配分を意識せざるをえなくなったりするようです. これに比較して, \LaTeX では比較的ファイルのサイズが抑えられる傾向があります. また, 可換図式, ファインマン図といった数式はWordで出力させるのが難しい一方で, \LaTeX ならTikZというものを使うことで出力させることもできます. さらに, 自分で作った記号を画像として保存しプリアンブルで設定すれば, その記号を数式として出力させるということもできます. \par
+このような数式処理の強力さのため, 多くの数学や理論物理学といった分野で使用されています. むしろ, 数学や理論物理学では, \LaTeX で文章を作成するのが当たり前でWordをつかって文章を作成することが滅多にないかもしれません. 人によってはWordで作成された文章では, あまり信用されない傾向があるかもしれません. 
+\subsection{自動レイアウト}
+ページレイアウトやフォーマットを自動的に調整してくれるため, 手動での微調整が最小限で済みます. これだけでは何がうれしいのか少し分かりにくいかもしれません. 例えば, Wordでは, 文字を強調するとき, フォントやサイズ, 太字にするかどうかといった選択肢があり, 強調する箇所が複数わたっている場合, すべての箇所で手動で同じように強調することになり, 1箇所だけ太字し忘れ, サイズ変え忘れといったミスが起こりうるかもしれません. 一方で\LaTeX では, \verb|\emph{強調したい文字}| というコマンドだけで強調することができ, しかも, 強調する箇所が複数わたっていても同じように出力できます. また, 予めどのように強調するのかというカスタマイズも可能です. また, 複数人で文章を編集する際に, 紙のサイズや余白, ページ番号の位置といった体裁をそろえたいときがあるかもしれません. Wordでは, 上部のバーでどういう体裁になっているか確かめることができますが, カーソルで選択している箇所でしか分からなく, 文章全体では, どういう体裁になっているか, 体裁がきちんと揃っているのか調べるのに手間がかかるかもしれません. 一方で\LaTeX では, プリアンブルとよばれる箇所をみれば, 文章全体にわたってどういう体裁をとっているかすぐにわかります. 体裁をそろえる際にも, 文章全体を選択してバッティングしていないか注意してそろえる必要もなく, プリアンブルを編集すればバッティングせずにそろえることもできます. \par
+\LaTeX では, レイアウトを自動的に調整してくれるのですが, Wordと比較してレイアウトのカスタマイズの幅が狭いところがあるかもしれません. したがって, 論文やレポートといった決まった体裁をもつ文章を作成するには\LaTeX が向いており, ポスターなどといったかなり自由度の高いレイアウトの調整が要求される文章を作成するにはWordが向いているかもしれません. 
+\subsection{文章構造の明確化}
+見出し, セクション, 表, 図, 参考文献などの文章構造を簡単に定義でき論理的で整った文書を作成できます. 例えば, 図を挿入する場面を考えましょう. Wordでは, 図を挿入することができますが, 図の下に図の番号やキャプションなどを入力する必要があり, そのためにテキストボックスといったものを用意して文字のサイズを小さくし中央揃えにし文章全体を見渡して図の番号を数えて図の番号を入力することになると思います. 一方で, \LaTeX では次のように入力すれば, 図が表示されるだけでなく自動的に図の下に中央揃えでキャプションが表示され番号も振られます.  
+\begin{verbatim}
+    \begin{figure}[位置]
+        \includepraphic[オプション]{ファイル名}
+        \caption{図のキャプション}
+    \end{figure}
+\end{verbatim}
+その他にも, 引用する際, 文章全体を見渡して番号を数えなくとも, 箇条書きの番号や式番号, 参考文献の番号が振られるということもできます. レポートや論文以外にスライド用, ポスター用, 書籍用のフォーマットも用意されております. 
+\subsection{短所としてExcelとの互換性}
+残念ながら, \LaTeX にはExcelとの互換性があまりありません. Wordでは, 文章中にExcelのテーブルを埋め込むことができて, Excelで入力し計算すれば, 同時に埋め込まれたWordの文章でもその出力を反映させるといったこともできたかと思います. しかしながら, \LaTeX ではそのような機能があまりなくExcelのテーブルをコピペしても表として出力できません. したがって, Excelの結果をセルごと1つずつ入力する必要があり実験のように大量の測定値や数値を解析するといった場面では, \LaTeX が向いているとは言い難いです. 
+\section{\LaTeX の導入の仕方}
+\LaTeX を導入する方法として主に次の3つがあります. 
+\begin{itemize}
+    \item Overleaf
+    \item TeX Live
+    \item DVD-ROM
+\end{itemize}
+\subsection{Overleaf}
+Overleafを用いれば, googleのアカウントで\LaTeX の文章を作成することができます. 後述するようにPCで\LaTeX をインストールするとなると, 約2日ほどかかる一方で, こちらの方法では, アカウントを作成するだけなので比較的すぐ文章を作成しPDFとして出力させることができます. さらに, インターネット上で編集するので, インターネットが接続できる環境下にあれば, PCでなくスマホやiPadでも電車内やショッピングモール内でも\LaTeX の文章を作成するといったこともできます. また, プランによっては, GitHubを用いずに複数人が同時で文章を編集することも可能です. \par
+下にリンクを貼っておきます. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{5}
+    \item Overleaf. "Track changes and commenting in LaTeX - Overleaf, オンラインLaTeXエディター". Overleaf. \url{https://ja.overleaf.com/track-changes-and-comments-in-latex}. 
+\end{enumerate}\par
+一方で, 前述の通りインターネットを介してされるため, 飛行機内や山岳などインターネットが接続されていない環境では, 文章を編集することができません. また, 文章が長くコンパイルに時間がかかるものでは, 有料版にしないとPDFが出力されないこともあるようです. さらに, ショートカットを作成したりパッケージを設定したりすることは不向きなようです. \par
+詳しい内容は次のサイトに記載されているようです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{6}
+    \item 今井倫太. "overleafでtexを記述する - BootCamp for B4". 慶応義塾大学. \url{https://www.ailab.ics.keio.ac.jp/b4_induction_training/docs/tex/overleaf_tex.html}. (2024年9月7日23:25閲覧). 
+    \item Fluffy Hernia. "初心者LaTeXユーザーにこそOverleafを使ってほしい！(Overleaf機能紹介) \# LaTeX - Qiita". Qiita. \url{https://qiita.com/FluffyHernia/items/0cc751e56858c9c55b58}. (2024年9月7日23:17閲覧). 
+\end{enumerate}
+上のサイトをみればわかるように, 日本語で\LaTeX の文章を作成するときに多少の設定が必要です. その仕方は次のサイトに記載されているようです. 
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \item 今井倫太. "overleafでtexを記述する - BootCamp for B4". 慶応義塾大学. \url{https://www.ailab.ics.keio.ac.jp/b4_induction_training/docs/tex/overleaf_tex.html}. (2024年9月7日23:25閲覧). 
+    \setcounter{enumi}{8}
+    \item 藤野秀則. "Overleafを使った日本語論文の作成". Qiita. \url{https://qiita.com/fujino-fpu/items/d92d185da730e25743cb}. (2024年9月8日0:08閲覧). 
+    \item katayan. "Overleaf で日本語を使えるようにする". Zenn. \url{https://zenn.dev/daisuke23/articles/overleaf-japanese}. (2024年9月8日0:10閲覧). 
+    \item doraTeX. "Overleaf v2 で日本語を使用する方法 - TeX Alchemist Online". はてなブログ. \url{https://doratex.hatenablog.jp/entry/20180503/1525338512}. (2024年9月8日0:11閲覧). 
+\end{enumerate}
+\subsection{TeX Live}
+TeX LiveをPCにインストールすれば, そのPCで\LaTeX の文章を作成することができます. overleafではインターネットが接続できる状況でないと, 文章を編集することができなかったのに対し, こちらの方法では, インターネットが接続できない環境下であっても文章を作成することができます. また, 柔軟にショートカットを作成したりパッケージを設定したりすることができて, \LaTeX を日常的に用いる場合, そちらのほうが文章作成の効率がいいかもしれません. さらに, その方法は無料で行うことができるかつ, どれだけコンパイルに時間がかかっても, PDFを出力させることもできます. \par
+一方で, インストールするのに手間がかかり\LaTeX 本体だけで約2日かかり, その他, メモ帳だけで\LaTeX の文章を作成するのは非現実的なため, Visual Studio Codeなどのエディタ, 共同で文章を作る場合, GitHubなども要するので, 設定で約3日くらいかかることもあるようです. また, インストールされたPCでしか文章を作成することができなく, スマホやiPadで文章を作成することができません. \par
+下にTeX Liveの公式サイト, インストール用のサイト, \LaTeX のマニュアルの順でそれらのリンクを貼っておきます. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{11}
+    \item TeX Users Group. "TeX Live - TeX Users Group". TeX Users Group. \url{https://tug.org/texlive/}. (2024年9月8日13:35閲覧). 
+    \item TeX Users Group. "Installing TeX Live over the Internet - TeX Users Group". TeX Users Group. \url{https://www.tug.org/texlive/acquire-netinstall.html}. (2024年9月8日13:54閲覧). 
+    \item 編:Karl Berry, 訳:朝倉卓人. "TeX Liveガイド 2024". TeX Users Group. \url{https://www.tug.org/texlive/doc/texlive-ja/texlive-ja.pdf}. (2024年9月8日13:33閲覧). 
+\end{enumerate}
+インストールの方法は次のサイトに記載されているようです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{14}
+    \item 日本語TeX開発コミュニティ. "TeX Live/Windows - TeX Wiki". TeX Wiki. \url{https://texwiki.texjp.org/?TeX%20Live%2FWindows}. (2024年9月8日12:51閲覧). 
+    \item 生田情報メディアサービス. "TeX\_install.pdf". 明治大学. \url{https://www.meiji.ac.jp/isys/doc/seminar/TeX_install.pdf}. (2024年9月8日12:58閲覧). 
+    \item katayan. "Overleaf で日本語を使えるようにする". Zenn. \url{https://zenn.dev/daisuke23/articles/overleaf-japanese}. (2024年9月8日0:10閲覧). 
+    \item passiveradio. "【大学生向け】LaTeX完全導入ガイド Windows編 (2022年) \#VSCode - Qiita". Qiita. \url{https://qiita.com/passive-radio/items/623c9a35e86b6666b89e}. (2024年9月8日13:19閲覧). 
+\end{enumerate}
+また, 高度な方法ですが次のサイトのようにインストールの時間を短縮させる方法もあるようです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{18}
+    \item hash. "VSCodeでのLaTeXの環境構築". Zenn. \url{https://zenn.dev/hash_yuki/articles/31855fbdb5fdf7}. (2024年9月9日0:16閲覧). 
+    \item Loliver. "TeX Live のクソデカ容量を削減したい！ | Loliver's Landscape". Daichi Furukawa. \url{https://blog.loliver.net/archive/texlive_minimal_install/}. (2024年9月8日13:17閲覧). 
+\end{enumerate}
+\subsection{エディタとしてVisual Studio Code}
+エディタについては, overleafの場合はそのoverleaf自身がエディタも兼ねています. TeX Liveをインストールした場合, Visual Studio Code, Atom, Emacsなどのエディタをもインストールしておくといいかもしれません. \par
+ここでは, WindowsでのVisual Studio Codeの場合でみていきます. Visual Studio Codeをインストールし, そのあと, LaTeX Workshopをインストールして\verb|settings.json|を開いてVisual Studio Codeの設定をソースコードで行うというのが標準的な流れな模様です. まず, Visual Studio Codeのインストール用の公式サイトのリンクを下に貼っておきます. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{20}
+    \item Visual Studio Code. "Download Visual Studio Code - Mac, Linux, Windows". Visual Studio Code. \url{https://code.visualstudio.com/download}. (2024年9月9日0:04閲覧). 
+\end{enumerate}
+Visual Studio Codeの設定のことが書かれているサイトとして次のようなものがあるようです. 設定といっても結構さまざまなバリエーションがあるようです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{18}
+    \item hash. "VSCodeでのLaTeXの環境構築". Zenn. \url{https://zenn.dev/hash_yuki/articles/31855fbdb5fdf7}. (2024年9月9日0:16閲覧). 
+    \setcounter{enumi}{21}
+    \item @rainbartown. "VSCode で最高の LaTeX 環境を作る \#VisualStudioCode - Qiita". Qiita. \url{https://qiita.com/rainbartown/items/d7718f12d71e688f3573}. (2024年9月9日0:17閲覧). 
+    \item Masaya Suzuki. "Visual Studio CodeでTeXのコンパイルをできるようにする方法 \#VisualStudioCode - Qiita". Daichi Furukawa. \url{https://blog.loliver.net/archive/texlive_minimal_install/}. (2024年9月8日13:17閲覧). 
+    \item Shun Takase. "【VScode】TeX LiveのインストールからAuto Buildの設定まで \#VSCode - Qiita". Qiita. \url{https://qiita.com/2019Shun/items/09fffdbd6c9820ff6074}. (2024年9月9日9:49閲覧). 
+    \item @Yoshitaka\_Engineer. "VScodeでLatexを使う時に自動コンパイルする方法 \#VSCode - Qiita". Qiita. \url{https://qiita.com/Yoshitaka_Engineer/items/47f9b448543b3c86f486}. (2024年9月9日9:47閲覧). 
+    \item たかめろん. "VSCodeでLaTeXの環境を整える - ぶっち・ブログ". ぶっち・ブログ. \url{https://www.takameron.info/post/vscode_latex/}. (2024年9月9日9:51閲覧). 
+\end{enumerate}
+\subsection{DVD-ROM}
+次の書籍の付録にインストーラーとしてDVD-ROMがついているようです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{26}
+    \item 奥村晴彦/黒木裕介, "[改訂第8版] LaTeX2ε美文書作成入門", 技術評論社, 2020, ISBN 978-4-297-11712-2, \url{https://gihyo.jp/book/2020/978-4-297-11712-2}. 
+\end{enumerate}
+\section{\LaTeX の文章作成の流れ}
+\LaTeX で文章を作成するとき, 上であげた例文をみればわかるように, \verb|\documentclass[レイアウトなど]{文章の種類}|を1行目に書き, その下に, \verb|\begin{document}|と\verb|\end{document}|で挟まれた部分に文章や数式を入力していくことになります. そこで, \verb|\documentclass[レイアウトなど]{文章の種類}|と\verb|\begin{document}|で挟まれた部分をプリアンブルといい, ここで, さまざまな設定をしていくことになります. \LaTeX でデフォルトではできない機能でもパッケージという\verb|.sty|ファイルをプリアンブルで宣言することで機能を追加することもできます. プリアンブルでの打ち方ではカスタマイズがかなり効き, 研究室ごとに代々受け継がれている秘伝のタレがあったりするようです. あるいは, プリアンブルで打つソースコードだけ書かれた\verb|.tex|ファイルを別に作成し作ろうとしている\verb|.tex|ファイルと同じフォルダで保存しておいて, プリアンブルで\verb|\input{プリアンブルで打つソースコードだけ書かれた.texファイル}|と打ってしまってもいいでしょう. \par
+Visual Studio Codeといったエディタはコンパイル, PDF出力までやってくれるようです. 参考として, エディタとしてメモ帳を用いた場合, コンパイル, PDF出力への流れを述べておきます. 
+\begin{enumerate}
+    \setcounter{enumi}{0}
+    \renewcommand{\labelenumi}{\arabic{enumi}. }
+    \item メモ帳を開き, 上の例文といった文章を作成する. 
+    \item メモ帳を適当なフォルダに名前をつけて保存する. ここで, 拡張子を\verb|.txt|から\verb|.tex|へと変える. 
+    \item コマンドプロンプトを開く. 
+    \item コマンドプロンプトでその\verb|.tex|ファイルが保存されているフォルダへ移動する. 
+    \item \label{コンパイル} コマンドプロンプトで\verb|platex ファイル名.tex|と打ちEnterを押す. 
+    \item エラーが出た場合, コマンドプロンプトで\verb|x|などを押すなりして中断させる. エラーが出なかった場合, \ref{コンパイル2}. へ進む. 
+    \item その\verb|.tex|ファイルを開いて修正する. 
+    \item その\verb|.tex|ファイルを上書き保存して, \ref{コンパイル}. へ戻る. 
+    \item \label{コンパイル2} もう一度, \verb|platex ファイル名.tex|と打ちEnterを押す. 
+    \item \verb|dvipdfmx ファイル名.dvi|と打ちEnterを押す. 
+    \item その\verb|.tex|ファイルが保存されているフォルダにPDFが作成される. 
+\end{enumerate}
+次のサイトも同様なことが書かれております. 
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \item 酒井高司. "TeX入門". 東京都立大学. \url{https://tsakai.fpark.tmu.ac.jp/lectures/intro_tex.html}. (2024年9月7日22:01閲覧). 
+\end{enumerate}
+\section{\LaTeX のコマンド}
+\LaTeX には数多くのコマンドがあり調べればヒットしますが, 毎回調べるよりよく使うものは覚えてしまったほうが効率がいいでしょう. コマンドが多く記載されているサイトへのリンクを下に貼っておきます. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{27}
+    \item 数学の景色. "LaTeX | 数学の景色". 数学の景色. \url{https://mathlandscape.com/category/latex/}. (2024年9月9日13:10閲覧). 
+    \item medemanabu.net. "LaTeXコマンド一覧（リスト） - LaTeX入門". medemanabu.net. \url{https://medemanabu.net/latex/latex-commands-list/}. (2024年9月9日13:13閲覧). 
+\end{enumerate}
+可換図式やファインマン図といった数式や関数のグラフ, 多様体の絵といったものもTikZというものを用いれば, \LaTeX で作成することもできます. TikZのコマンドについて書かれているサイトへのリンクも下に貼っておきます. なお, 上から1つ目のリンクは公式マニュアルです. 
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]\ }
+    \setcounter{enumi}{29}
+    \item Till Tantau. "pgfmanual.pdf". KDDI Research, Inc. \url{https://ftp.kddilabs.jp/CTAN/graphics/pgf/base/doc/pgfmanual.pdf}. (2024年9月9日13:20閲覧). 
+    \item 日本語TeX開発コミュニティ. "TikZ - TeX Wiki". TeX Wiki. \url{https://texwiki.texjp.org/TikZ}. (2024年9月9日13:23閲覧). 
+    \item alg-d. "図式の書き方について : 圏論 | 壱大整域". 壱大整域. \url{https://alg-d.com/math/kan_extension/tikz.html}. (2024年9月9日21:48閲覧). 
+    \item 山本拓人. "LaTeXで図を直接描けるTikZの使い方１｜基本的な描線 – あーるえぬ". あーるえぬ. \url{https://math-note.xyz/latex/tikz/tikz-line/}. (2024年9月9日21:51閲覧). 
+\end{enumerate}
+\end{document}

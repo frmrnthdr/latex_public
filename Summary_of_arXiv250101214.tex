@@ -1,0 +1,65 @@
+\documentclass[12pt]{jsarticle}
+\input{for_preamble.tex}
+%\usepackage[left=15truemm,right=15truemm,truedimen]{geometry}
+\title{arXiv:2501.01214 [quant-ph]の要約}
+\author{@k74226197Y126}
+\date{2025年1月}
+\begin{document}
+\maketitle
+\begin{abstract}
+    もとは統計物理学特論で論文紹介するときに板書用ノートとして作成したものです. 専門外のため, 正確性は保証できません. (ちなみに, 先生から「ちゃんと先行研究を調べましょう. 」っていわれました. )
+\end{abstract}
+\begin{flushleft}
+    \begin{thebibliography}{100}
+        \bibitem{1} D. Castro-Sliva et al. %Davi Castro-Silva, Tom Gur, Sergii Strelchuk. 
+        "Symmetric quantum computation". 2025. \href{https://arxiv.org/abs/2501.01214}{arXiv:2501.01214v1 [quant-ph]}.
+        \bibitem{2} 中原幹夫. "量子計算入門". 京都大学. (講義ノート) %\url{https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/110153/1/KJ00004706470.pdf}. (2025年1月10日11:55 閲覧). 
+        \bibitem{3} L. Schatzki et al. %Louis Schatzki, Martin Larocca, Quynh T Nguyen, Frederic Sauvage, and Marco Cerezo. 
+        "Theoretical guarantees for permutation-equivariant quantum neural networks". %In: npj Quantum Information 10. 1 (2024), p. 12. 
+        2024. 
+    \end{thebibliography}
+\end{flushleft}
+\section*{概要}
+この論文\cite{1}では, 対称性のある系での量子計算モデルである量子的対称回路の体系的な研究が紹介されており, いくつかの非自明な例で古典的な対称計算の能力を超えることをみている. \par
+対称性, 即ち, 特定の変換で不変なものについて, 画像の例でみると, 画像の平行移動や回転で移りあえるのであれば, これらは同じものだとみなしているし, 組合せ最適化におけるグラフ問題など抽象的な問題でも対称性が現れるし, 対称性は物理学でもよくみられる. \par
+問題を解くためのアルゴリズムを作る際, 対称性があるなら, その対称性を利用したうがより効率的にできるし, 物理学でも複雑な問題の解を求めるとき, 対称性をもつ解から考えていくことが多い. \par
+量子計算の中心的な課題として, 量子的アルゴリズムが古典的アルゴリズムを大幅に上回ることができるような問題の例を挙げていき, 何によってこのように量子的アルゴリズムを上回っている, あるいは, そうでもなくなっているかを調べ, 一般的な特性を特定する. \par
+対称性をもつ問題に関して, 量子的アルゴリズムが古典的アルゴリズムを上回るかどうかについては微妙な問題である. \par
+この論文\cite{1}では, 対称性をもつ問題に対する枠組みを導入し, 量子的な対称計算の強さを示すいくつかの例をみている. \par
+量子計算に関する語句や主な性質など基本的な事項は論文\cite{1}の第1, 2, 3章や講義ノート\cite{2}に参照されたい. 
+\section*{構成}
+構成としては章が9つからなっている. 
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{第{\theenumi}章 :}
+\begin{quote}
+    \begin{enumerate}
+        \item 導入や背景, 関連する研究の紹介
+        \item[第1.2節 :] 定理5つ (定理1, 2, 3, 4, 5)
+        \item 古典的対称計算の重要な結果
+        \item 量子的対称計算, 古典的対称計算との比較
+        \item 後にみる主要な結果の準備として, 量子的対称計算のアルゴリズム
+        \item 第1.2節での定理1の証明, 量子的対称計算の重要なsubroutines
+        \item 定理2, 4の証明, quantum state preparationのための量子的対称回路
+        \item 定理3, 5で用いられる特定のユニタリ作用素を実装するための対称回路の例
+        \item[第8, 9章 :] 結論とopen questions, 謝辞
+    \end{enumerate}
+\end{quote}
+\section*{第1.2節にある5つの定理について}
+第1.2節にある5つの定理を述べよう. 
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{定理{\theenumi}}
+\begin{quote}
+    \begin{enumerate}
+        \item (量子的対称計算のsubroutines)\\
+        振幅増幅, 位相推定, ユニタリ作用素の線形結合という3つの手順で量子的対称回路が効率的にされる. 
+        \item (symmetric state preparation)\\
+        $n$-qubitの古典的な対称状態$\left| \varphi \right\rangle $が与えられたらば, これを与える$\mathcal{S}_{n} $-対称量子回路が$O \left( n^{2.75} \right) $ゲートで構成できる. 
+        \item (対称部分空間のユニタリ作用素)\\
+        順列対称$n$-qubitユニタリ作用素$U$が与えられたとき, $O \left( n^{3.75} \right) $ゲートで$U$の$\mathcal{S}_{n} $-対称量子回路による対称部分空間への制限が実装できる. 
+        \item (phase state preparation)\\
+        任意の最高次$d$の多項式$P : \left\{ 0, 1 \right\}^{n} \to \left\{ 0, 1 \right\} $に対し, 大きさ$O \left( n^{d} \right) $の$\mathcal{S}^{n}_{\leq d} $-対称回路$\mathcal{C} $が構成できる. 
+        \item (QNNsの等価性)\\
+        \cite{3}にある順列等価量子neural networksはゲート数が線形的に増加するときにのみ$\mathcal{S}_{n} $-対称回路が実装できる.
+    \end{enumerate}
+\end{quote}
+\end{document}
